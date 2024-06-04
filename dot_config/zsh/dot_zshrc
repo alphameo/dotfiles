@@ -1,0 +1,141 @@
+#!/bin/env zsh
+
+# INSTANT PROMPT POWERLEVEL10K
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
+
+# ZINIT
+# src: https://github.com/zdharma-continuum/zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+
+source "${ZINIT_HOME}/zinit.zsh"
+
+
+
+# ALIASES
+# alias ls='ls --color=auto'
+alias ls="eza --icons=always --color=always"
+alias lst="eza --tree --icons=always --color=always"
+alias lst2="eza --tree --level=2 --icons=always --color=always"
+alias lst3="eza --tree --level=3 --icons=always --color=always"
+alias grep='grep --color=always'
+alias pacman='pacman --color=always'
+alias ff='fastfetch'
+alias cat='bat'
+
+
+
+# HISTORY
+# src: https://zsh.sourceforge.io/Doc/Release/Options.html#History
+HISTFILE="$XDG_STATE_HOME/zsh/history"
+
+HISTSIZE=500000
+
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+
+# append to history
+setopt APPEND_HISTORY
+
+# share history between instances and update history on the fly
+setopt SHARE_HISTORY
+
+# don't show duplicate lines
+setopt HIST_FIND_NO_DUPS
+
+# don't save duplicate commands, old commands are deleted, new are written
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_IGNORE_DUPS
+
+# ignore commands starting with a space
+setopt HIST_IGNORE_SPACE
+
+
+
+# ZINIT PLUGINS
+# https://github.com/Aloxaf/fzf-tab
+# https://github.com/zsh-users/zsh-autosuggestions
+# https://github.com/zsh-users/zsh-completions
+# https://github.com/marlonrichert/zsh-autocomplete
+# https://github.com/zsh-users/zsh-syntax-highlighting  (see EOF)
+# https://github.com/zdharma-continuum/fast-syntax-highlighting
+zinit depth"1" lucid light-mode for \
+		wait atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+		wait zsh-users/zsh-syntax-highlighting \
+		wait zsh-users/zsh-autosuggestions \
+		zsh-users/zsh-completions \
+		Aloxaf/fzf-tab \
+
+# ZSH-COMPLETIONS
+autoload -U compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+
+# ZSH-AUTOCOMPLETE
+# zstyle -e ':autocomplete:*:*' list-lines 'reply=( $(( LINES / 3 )) )'
+# zstyle ':autocomplete:recent-paths:*' list-lines 10
+# zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 8
+# zstyle ':autocomplete:history-search-backward:*' list-lines 2000
+
+# FZF-TAB
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons=always --color=always $realpath'
+
+
+
+# POWERLEVEL10K
+# src: https://github.com/romkatv/powerlevel10k
+zinit ice depth"1"; zinit light romkatv/powerlevel10k
+
+# load powerlevek10k config
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+
+
+# OTHER
+# file matching
+setopt EXTENDED_GLOB
+
+setopt NOMATCH
+
+# report status of background
+setopt NOTIFY
+
+# if not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+
+
+# EVALS
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(fzf --zsh)"
+
+
+
+# BINDKEYS
+bindkey '^[[3;5~' kill-word            # ctrl+del
+bindkey '^H' backward-kill-word        # ctrl+backspace
+bindkey '^[[3~' delete-char            # del
+bindkey '^[[107;6u' kill-whole-line    # ctrl+shift+k
+bindkey '^[[H' beginning-of-line       # home
+bindkey '^[[F' end-of-line             # end
+bindkey '^[[1;5D' backward-word        # ctrl+left
+bindkey '^[[1;5C' forward-word         # ctrl+right
+
+
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi

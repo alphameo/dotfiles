@@ -1,0 +1,160 @@
+{
+	"workbench.iconTheme": "material-icon-theme",
+	"workbench.colorTheme": "One Dark Pro Darker",
+	"workbench.startupEditor": "none",
+	// EXPLORER.Appearance
+	"explorer.compactFolders": true,
+	"workbench.tree.indent": 10,
+	"workbench.list.smoothScrolling": true,
+	// EXPLORER.Preferences
+	"workbench.list.openMode": "doubleClick",
+	"workbench.tree.expandMode": "doubleClick",
+	"explorer.autoReveal": true,
+	"explorer.confirmDelete": true,
+	// EDITOR.Appearance
+	"editor.fontFamily": "JetBrainsMono NFM",
+	"editor.fontLigatures": true,
+	"editor.fontSize": 14,
+	"editor.lineHeight": 0,
+	"editor.smoothScrolling": true,
+	"editor.cursorBlinking": "smooth",
+	"editor.cursorSmoothCaretAnimation": "on",
+	// EDITOR.Appearance.Navigation
+	"breadcrumbs.enabled": true,
+	"editor.minimap.enabled": false,
+	"editor.glyphMargin": true,
+	"editor.guides.bracketPairs": "active",
+	//EDITOR.Appearance.Tabulation
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 2,
+	"editor.renderWhitespace": "boundary",
+	//EDITOR.Preferences
+	"editor.folding": true,
+	"editor.wordWrap": "on",
+	"editor.mouseWheelZoom": true,
+	"editor.formatOnSave": true,
+	"editor.maxTokenizationLineLength": 2500,
+	"editor.unicodeHighlight.allowedLocales": {
+		"cs": true
+	},
+	// EDITOR.Hints
+	"editor.parameterHints.enabled": true,
+	"editor.snippetSuggestions": "top",
+	"editor.suggest.insertMode": "replace",
+	"editor.acceptSuggestionOnEnter": "off",
+	// TERMINAL.Appearance
+	"terminal.integrated.fontFamily": "JetBrainsMono NFM",
+	"terminal.integrated.fontSize": 14,
+	"terminal.integrated.smoothScrolling": true,
+	"terminal.integrated.cursorStyle": "line",
+	"terminal.integrated.cursorBlinking": true,
+	"terminal.integrated.cursorStyleInactive": "none",
+	"terminal.integrated.cursorWidth": 2,
+	"terminal.integrated.defaultProfile.windows": "Arch (WSL)",
+	"terminal.integrated.defaultProfile.linux": "zsh",
+	"terminal.external.linuxExec": "kitty",
+	// OTHER
+	"files.autoSave": "afterDelay",
+	"telemetry.telemetryLevel": "off",
+	"workbench.enableExperiments": false,
+	"security.workspace.trust.enabled": false,
+	"debug.onTaskErrors": "abort",
+	"settingsSync.keybindingsPerPlatform": false,
+	// Live Server
+	"liveServer.settings.donotShowInfoMsg": true,
+	"liveServer.settings.donotVerifyTags": true,
+	"workbench.editorAssociations": {
+		"*.fxml": "default"
+	},
+	// Git
+	"git.confirmSync": false,
+	"gitblame.statusBarMessageFormat": "${author.name} (${time.ago})",
+	// Spell checker
+	"cSpell.language": "en, ru",
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features",
+	},
+	// Color Highlighter
+	"color-highlight.matchWords": true,
+	"color-highlight.markerType": "background",
+	"color-highlight.matchRgbWithNoFunction": false,
+	"color-highlight.matchHslWithNoFunction": false,
+	"color-highlight.markRuler": false,
+	// Prettier
+	"editor.linkedEditing": true,
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 2,
+	// LANGUAGES
+	"[java]": {
+		"editor.suggest.snippetsPreventQuickSuggestions": false,
+	},
+	"java.signatureHelp.description.enabled": true,
+	"java.maven.downloadSources": true,
+	"maven.view": "hierarchical",
+	"[python]": {
+		"diffEditor.ignoreTrimWhitespace": false,
+		"gitlens.codeLens.symbolScopes": [
+			"!Module"
+		],
+	},
+	"python.analysis.inlayHints.callArgumentNames": "all",
+	"python.analysis.inlayHints.variableTypes": true,
+	"python.analysis.inlayHints.pytestParameters": true,
+	"python.analysis.inlayHints.functionReturnTypes": true,
+	"python.analysis.autoFormatStrings": true,
+	"python.analysis.completeFunctionParens": true,
+	"[c]": {},
+	"[cpp]": {},
+	"C_Cpp.default.compilerPath": "/usr/bin/g++",
+	"C_Cpp.default.cppStandard": "c++23",
+	"C_Cpp.default.cStandard": "c23",
+	"C_Cpp.autocompleteAddParentheses": true,
+	"C_Cpp.inlayHints.referenceOperator.enabled": true,
+	"C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
+	"C_Cpp.inlayHints.parameterNames.enabled": true,
+	"C_Cpp.intelliSenseUpdateDelay": 500,
+	"C_Cpp.doxygen.generatedStyle": "/**",
+	"C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: WebKit, UseTab: Always, indentWidth: 4, TabWidth: 4, InsertNewlineAtEOF: true, IndentCaseLabels: true, BreakBeforeBraces: Attach}",
+	"cmake.options.statusBarVisibility": "compact",
+	"cmake.showOptionsMovedNotification": false,
+	"cmake.configureOnOpen": true,
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+	},
+	"html.autoClosingTags": true,
+	"html.suggest.html5": true,
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+	},
+	"javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+	"javascript.inlayHints.enumMemberValues.enabled": true,
+	"javascript.inlayHints.parameterNames.enabled": "literals",
+	"javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+	"javascript.inlayHints.variableTypes.enabled": true,
+	"javascript.inlayHints.parameterTypes.enabled": true,
+	"javascript.suggest.completeFunctionCalls": true,
+	"javascript.referencesCodeLens.showOnAllFunctions": true,
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+	"typescript.inlayHints.enumMemberValues.enabled": true,
+	"typescript.inlayHints.parameterNames.enabled": "literals",
+	"typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+	"typescript.inlayHints.parameterTypes.enabled": true,
+	"typescript.inlayHints.variableTypes.enabled": true,
+	"typescript.suggest.completeFunctionCalls": true,
+	"typescript.referencesCodeLens.showOnAllFunctions": true,
+	"[latex]": {
+		"editor.defaultFormatter": "James-Yu.latex-workshop",
+	},
+	"latex-workshop.latex.recipe.default": "latexmk (xelatex)",
+	"latex-workshop.latex.build.forceRecipeUsage": false,
+	"latex-workshop.latex.autoBuild.run": "onSave",
+	"latex-workshop.message.warning.show": false,
+	"latex-workshop.message.error.show": false,
+}

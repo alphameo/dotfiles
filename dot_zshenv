@@ -1,0 +1,64 @@
+#!/bin/env sh
+
+# source: https://wiki.archlinux.org/title/XDG_Base_Directory#User_directories 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+
+
+# source: https://wiki.archlinux.org/title/Zsh#Startup/Shutdown_files
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+
+
+export LF_CONFIG_HOME="$XDG_CONFIG_HOME"
+
+
+
+# export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+# gpg2 --homedir "$XDG_DATA_HOME"/gnupg
+
+
+
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+
+
+
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+
+
+
+# LaTeX
+export TEXMFHOME="$XDG_DATA_HOME/texmf"
+export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
+export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
+
+
+
+export GTK_RC_FILES="$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc":"$XDG_CONFIG_HOME/gtk-2.0/gtkrc.mine"
+
+# Native file dialog for electron apps
+export GTK_USE_PORTAL=1
+
+# export XCURSOR_PATH="${XCURSOR_PATH}:~/.local/share/icons"
+
+
+
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
+
+
+
+mkdir -p "$XDG_DATA_HOME"/wineprefixes
+export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
+
+
+
+# src: https://wiki.archlinux.org/title/Environment_variables#Default_programs
+export SHELL="/usr/bin/zsh"
+export EDITOR="nano"
+export VISUAL="code"
+export BROWSER="firefox"

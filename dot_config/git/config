@@ -1,0 +1,19 @@
+[user]
+	name = IA1phaI
+	email = pavel.2014.play@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	editor = nano
+[commit]
+	verbose = true
+	[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = true
+[merge]
+	conflictstyle = zdiff3
+[diff]
+	colorMoved = default
