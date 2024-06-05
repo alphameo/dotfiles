@@ -1,5 +1,5 @@
 Host github.com
     HostName github.com
     User git
-    IdentityFile ~/.ssh/personal_key
+    IdentityFile ~/.ssh/personal_key_notebook
     IdentitiesOnly yes
