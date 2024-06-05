@@ -27,14 +27,6 @@
 			"key": "Host"
 		},
 		{
-			"type": "uptime",
-			"key": "Uptime"
-		},
-		{
-			"type": "memory",
-			"key": "RAM"
-		},
-		{
 			"type": "packages",
 			"key": "Packages"
 		},
@@ -43,16 +35,32 @@
 			"key": "Shell"
 		},
 		{
-			"type": "wm",
-			"key": "WM"
-		},
-		{
 			"type": "terminal",
 			"key": "Terminal"
 		},
 		{
 			"type": "terminalfont",
 			"key": "Font"
+		},
+		{
+			"type": "wm",
+			"key": "WM"
+		},
+		{
+			"type": "cpu",
+			"key": "CPU"
+		},
+		{
+			"type": "gpu",
+			"key": "GPU"
+		},
+		{
+			"type": "memory",
+			"key": "RAM"
+		},
+		{
+			"type": "uptime",
+			"key": "Uptime"
 		}
 	]
 }
