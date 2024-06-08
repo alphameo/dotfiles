@@ -21,13 +21,14 @@ source "${ZINIT_HOME}/zinit.zsh"
 # ALIASES
 # alias ls='ls --color=auto'
 alias ls="eza --icons=always --color=always"
-alias lst="eza --tree --icons=always --color=always"
-alias lst2="eza --tree --level=2 --icons=always --color=always"
-alias lst3="eza --tree --level=3 --icons=always --color=always"
+alias tree="eza --tree --icons=always --color=always"
+alias tree2="eza --tree --level=2 --icons=always --color=always"
+alias tree3="eza --tree --level=3 --icons=always --color=always"
 alias grep='grep --color=always'
 alias pacman='pacman --color=always'
-alias ff='fastfetch'
-alias cat='bat'
+alias fetch='fastfetch'
+alias cat='bat -p'
+alias cz="chezmoi"
 
 
 
