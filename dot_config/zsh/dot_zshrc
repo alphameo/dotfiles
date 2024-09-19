@@ -21,15 +21,21 @@ source "${ZINIT_HOME}/zinit.zsh"
 # ALIASES
 # alias ls='ls --color=auto'
 alias ls="eza --icons=always --color=always"
-alias tree="eza --tree --icons=always --color=always"
-alias tree2="eza --tree --level=2 --icons=always --color=always"
-alias tree3="eza --tree --level=3 --icons=always --color=always"
 alias grep='grep --color=always'
 alias pacman='pacman --color=always'
 alias fetch='fastfetch'
 alias cat='bat -p'
 alias cz="chezmoi"
 
+
+# FUNCTIONS
+function tree() {
+  if ([[ $1 =~ ^[0-9]+$ ]] && (( $1 > 0 ))) {
+    $(printf "eza --tree --level=%s --icons=always --color=always" "$1")
+  } else {
+    $(printf "eza --tree --level=%s --icons=always --color=always" 1)
+  } 
+}
 
 
 # HISTORY
