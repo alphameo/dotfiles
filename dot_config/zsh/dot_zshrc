@@ -24,9 +24,15 @@ alias sudo='sudo '
 alias grep='grep --color=always'
 alias pacman='pacman --color=always'
 alias fetch='fastfetch'
-alias cat='bat -p'
+alias cat='bat --paging=never'
 alias cz='chezmoi'
 alias lt='eza_tree'
+alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
+
+
+# EVALS
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(fzf --zsh)"
 
 
 # FUNCTIONS
@@ -40,7 +46,7 @@ eza_tree() {
       eval "$(printf '%s --level=%s\n' "$EZA_TREE" "$PARAMS")";;
   esac
 }
-
+# yazi filemngr
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
@@ -125,10 +131,6 @@ setopt NOTIFY
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
-# EVALS
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(fzf --zsh)"
 
 
 # BINDKEYS
