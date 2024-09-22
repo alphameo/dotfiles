@@ -36,6 +36,9 @@ export XCURSOR_PATH="${XCURSOR_PATH}:${XDG_DATA_HOME}/icons"
 mkdir -p "$XDG_DATA_HOME"/wineprefixes
 export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
 
+# oh-my-posh requirement
+export PATH=$PATH:/home/a1pha/.local/bin
+
 # Native file dialog for electron apps
 export GTK_USE_PORTAL=1
 

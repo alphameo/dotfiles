@@ -1,9 +1,9 @@
 #!/bin/env zsh
 
 # INSTANT PROMPT POWERLEVEL10K
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 
 # ZINIT
@@ -27,13 +27,14 @@ alias fetch='fastfetch'
 alias cat='bat --paging=never'
 alias cz='chezmoi'
 alias lt='eza_tree'
-alias y='yazi'
+alias y='yazi_filemanager'
 alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
 
 # EVALS
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
+eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/config.toml)"
 
 
 # FUNCTIONS
@@ -47,14 +48,14 @@ eza_tree() {
       eval "$(printf '%s --level=%s\n' "$EZA_TREE" "$PARAMS")";;
   esac
 }
-# yazi filemngr
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+
+function yazi_filemanager() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
 }
 
 # HISTORY
@@ -113,12 +114,12 @@ zstyle ':completion:*' menu select
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons=always --color=always $realpath'
 
 
-# POWERLEVEL10K
-# src: https://github.com/romkatv/powerlevel10k
-zinit ice depth"1"; zinit light romkatv/powerlevel10k
+# # POWERLEVEL10K
+# # src: https://github.com/romkatv/powerlevel10k
+# zinit ice depth"1"; zinit light romkatv/powerlevel10k
 
-# load powerlevek10k config
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+# # load powerlevek10k config
+# [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 
 # OTHER
