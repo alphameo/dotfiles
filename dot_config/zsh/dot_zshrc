@@ -27,6 +27,7 @@ alias fetch='fastfetch'
 alias cat='bat --paging=never'
 alias cz='chezmoi'
 alias lt='eza_tree'
+alias y='yazi'
 alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
 
