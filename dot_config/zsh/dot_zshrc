@@ -1,11 +1,5 @@
 #!/bin/env zsh
 
-# INSTANT PROMPT POWERLEVEL10K
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
-
 # ZINIT
 # src: https://github.com/zdharma-continuum/zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -14,7 +8,6 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 
 source "${ZINIT_HOME}/zinit.zsh"
-
 
 
 # ALIASES
@@ -34,7 +27,7 @@ alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {
 # EVALS
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
-eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/config.toml)"
+eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/theme.json)"
 
 
 # FUNCTIONS
@@ -104,22 +97,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 
-# ZSH-AUTOCOMPLETE
-# zstyle -e ':autocomplete:*:*' list-lines 'reply=( $(( LINES / 3 )) )'
-# zstyle ':autocomplete:recent-paths:*' list-lines 10
-# zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 8
-# zstyle ':autocomplete:history-search-backward:*' list-lines 2000
-
 # FZF-TAB
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons=always --color=always $realpath'
-
-
-# # POWERLEVEL10K
-# # src: https://github.com/romkatv/powerlevel10k
-# zinit ice depth"1"; zinit light romkatv/powerlevel10k
-
-# # load powerlevek10k config
-# [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 
 # OTHER
@@ -132,7 +111,6 @@ setopt NOTIFY
 
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
 
 
 # BINDKEYS
