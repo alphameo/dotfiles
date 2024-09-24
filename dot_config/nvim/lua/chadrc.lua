@@ -35,6 +35,23 @@ M.ui = {
 
   mason = {
     cmd = true, pkgs = {
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "prettier",
+        "eslint",
+        "js-debug-adapter",
+        "ts_ls",
+        "java_language_server",
+        "clangd",
+        "pyright",
+        "sqlls",
+        "postgres_lsp",
+        "jsonls",
+        "marksman",
+        "texlab",
+        "bashls",
       "vim",
       "vimdoc",
       "lua",

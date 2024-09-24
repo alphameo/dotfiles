@@ -5,88 +5,32 @@ return {
     opts = require "configs.conform",
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "vimdoc",
+        "lua",
+        "html",
+        "css",
+        "javascript",
+        "java",
+        "c",
+        "cpp",
+        "markdown",
+        "json",
+      },
+    },
+  },
+
   {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
     end,
   },
-
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "lua-language-server",
-        "stylua",
-        "html-lsp",
-        "css-lsp",
-        "prettier",
-        "eslint",
-        "js-debug-adapter",
-        "ts_ls",
-        "java_language_server",
-        "clangd",
-        "pyright",
-        "sqlls",
-        "postgres_lsp",
-        "jsonls",
-        "marksman",
-        "texlab",
-        "bashls",
-      },
-    },
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-  },
-
-  {
-    "mfussenegger/nvim-lint",
-    event = "VeryLazy",
-    config = function()
-      require "configs.lint"
-    end,
-  },
-
-  {
-    "windwp/nvim-ts-autotag",
-    event = "VeryLazy",
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end,
-  },
-
-  {
-    "nvim-neotest/nvim-nio"
-  },
-
-  {
-    "nvim-neotest/neotest",
-    event = "VeryLazy",
-    config = function()
-      require("neotest").setup {
-        adapters = {
-          require "neotest-jest" {
-            jestCommand = "npm test --",
-            jestConfigFile = "jest.config.ts",
-            env = { CI = true },
-            cwd = function(path)
-              return vim.fn.getcwd()
-            end,
-          },
-        },
-      }
-    end,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
-      "haydenmeade/neotest-jest",
-    },
-  },
-
+  
   {
     "mfussenegger/nvim-dap",
     config = function()
@@ -135,6 +79,51 @@ return {
     end,
     dependencies = {
       "mfussenegger/nvim-dap",
+    },
+  },
+
+  {
+    "mfussenegger/nvim-lint",
+    event = "VeryLazy",
+    config = function()
+      require "configs.lint"
+    end,
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+
+  {
+    "nvim-neotest/nvim-nio"
+  },
+
+  {
+    "nvim-neotest/neotest",
+    event = "VeryLazy",
+    config = function()
+      require("neotest").setup {
+        adapters = {
+          require "neotest-jest" {
+            jestCommand = "npm test --",
+            jestConfigFile = "jest.config.ts",
+            env = { CI = true },
+            cwd = function(path)
+              return vim.fn.getcwd()
+            end,
+          },
+        },
+      }
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "haydenmeade/neotest-jest",
     },
   },
 
