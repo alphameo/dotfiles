@@ -21,7 +21,7 @@ alias cz='chezmoi'
 alias fetch='fastfetch'
 alias ls='eza --color=always'
 alias lt='eza_tree'
-alias cat='bat --pager=never'
+alias cat='bat --style=plain --pager=never'
 alias fm='yazi_filemanager'
 
 
