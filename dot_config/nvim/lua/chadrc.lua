@@ -32,6 +32,22 @@ M.ui = {
   cheatsheet = {
     theme = "grid", -- simple/grid
   },
+
+  mason = {
+    cmd = true, pkgs = {
+      "vim",
+      "vimdoc",
+      "lua",
+      "html",
+      "css",
+      "javascript",
+      "java",
+      "c",
+      "cpp",
+      "markdown",
+      "json",
+    }
+  },
 }
 
 return M
