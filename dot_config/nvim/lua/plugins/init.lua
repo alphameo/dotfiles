@@ -30,7 +30,7 @@ return {
       require "configs.lspconfig"
     end,
   },
-  
+
   {
     "mfussenegger/nvim-dap",
     config = function()
