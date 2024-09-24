@@ -11,21 +11,22 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 
 # ALIASES
-alias ls='eza --color=always'
-alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
 alias sudo='sudo '
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
 alias grep='grep --color=always'
-alias pacman='pacman --color=always'
-alias fetch='fastfetch'
-alias cat='bat --paging=never'
-alias cz='chezmoi'
-alias lt='eza_tree'
-alias y='yazi_filemanager'
 alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
+alias pacman='pacman --color=always'
+
+alias cz='chezmoi'
+alias fetch='fastfetch'
+alias ls='eza --color=always'
+alias lt='eza_tree'
+alias cat='bat --paging=never'
+alias fm='yazi_filemanager'
 
 
 # EVALS
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init --cmd z zsh)"
 eval "$(fzf --zsh)"
 eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/theme.json)"
 
