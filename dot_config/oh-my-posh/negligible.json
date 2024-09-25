@@ -106,7 +106,6 @@
       "type": "prompt"
     }
   ],
-  "auto_upgrade": true,
   "final_space": true,
   "version": 2
 }
