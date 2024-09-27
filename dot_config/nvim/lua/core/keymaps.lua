@@ -57,3 +57,7 @@ vim.keymap.set("v", ">", ">gv", opts)
 vim.keymap.set("v", "p", '"_dP', opts)
 
 vim.keymap.set("i", "jk", "<ESC>", opts) -- exit insert mode
+
+vim.keymap.set("i", "<C-/>", "<ESC>:Commentary<CR>", opts)
+vim.keymap.set("n", "<C-/>", "gcc", { remap = true })
+vim.keymap.set("v", "<C-/>", "gc", { remap = true })

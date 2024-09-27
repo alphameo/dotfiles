@@ -35,6 +35,5 @@ require("lazy").setup({
 	require("plugins.autoformatting"),
 	require("plugins.greetingscreen"),
 	require("plugins.indent-blankline"),
-	require("plugins.comment"),
 	require("plugins.misc"),
 })
