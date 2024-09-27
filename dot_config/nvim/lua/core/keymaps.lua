@@ -25,11 +25,17 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 vim.keymap.set("n", "n", "nzzzv", opts)
 vim.keymap.set("n", "N", "Nzzzv", opts)
 
+-- Tabs
+-- vim.keymap.set('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
+-- vim.keymap.set('n', '<leader>tq', ':tabclose<CR>', opts) -- close current tab
+-- vim.keymap.set('n', '<leader>tn', ':tabn<CR>', opts) --  go to next tab
+-- vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) --  go to previous tab
+
 -- Buffers
-vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
-vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
-vim.keymap.set("n", "<leader>w", ":Bdelete!<CR>", opts) -- close buffer
-vim.keymap.set("n", "<leader>t", "<cmd> enew <CR>", opts) -- new buffer
+vim.keymap.set("n", "<C-Tab>", ":bnext<CR>", opts)
+vim.keymap.set("n", "<C-S-Tab>", ":bprevious<CR>", opts)
+vim.keymap.set("n", "<Tab>t", "<cmd> enew <CR>", opts) -- new buffer
+vim.keymap.set("n", "<Tab>w", ":Bdelete!<CR>", opts) -- close buffer
 
 -- Window management
 vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window vertically
@@ -43,15 +49,11 @@ vim.keymap.set("n", "<C-j>", ":wincmd j<CR>", opts)
 vim.keymap.set("n", "<C-h>", ":wincmd h<CR>", opts)
 vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", opts)
 
--- Tabs
--- vim.keymap.set('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
--- vim.keymap.set('n', '<leader>tq', ':tabclose<CR>', opts) -- close current tab
--- vim.keymap.set('n', '<leader>tn', ':tabn<CR>', opts) --  go to next tab
--- vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) --  go to previous tab
-
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
 -- Keep last yanked when pasting
 vim.keymap.set("v", "p", '"_dP', opts)
+
+vim.keymap.set("i", "jk", "<ESC>", opts) -- exit insert mode
