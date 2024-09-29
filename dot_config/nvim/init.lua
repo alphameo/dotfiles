@@ -25,15 +25,16 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
 	require("plugins.themes.onedark"),
+	require("plugins.themes.greetingscreen"),
 	require("plugins.neo-tree"),
 	require("plugins.bufferline"),
 	require("plugins.lualine"),
-	require("plugins.treesitter"),
 	require("plugins.telescope"),
+	require("plugins.treesitter"),
 	require("plugins.lsp"),
 	require("plugins.autocompletion"),
 	require("plugins.autoformatting"),
-	require("plugins.greetingscreen"),
 	require("plugins.indent-blankline"),
+	require("plugins.gitsigns"),
 	require("plugins.misc"),
 })

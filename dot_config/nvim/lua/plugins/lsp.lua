@@ -158,11 +158,11 @@ return {
 			--    https://github.com/pmizio/typescript-tools.nvim
 			--
 			-- But for many setups, the LSP (`ts_ls`) will work just fine
+			jdtls = {},
 			clangd = {},
 			cmake = {},
 			texlab = {},
 			marksman = {},
-			java_language_server = {},
 			ruff = {},
 			pylsp = {
 				settings = {

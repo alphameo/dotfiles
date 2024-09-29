@@ -13,6 +13,10 @@ return {
 		"tpope/vim-rhubarb",
 	},
 	{
+		-- autoclose tags
+		"windwp/nvim-ts-autotag",
+	},
+	{
 		-- Hints keybinds
 		"folke/which-key.nvim",
 	},

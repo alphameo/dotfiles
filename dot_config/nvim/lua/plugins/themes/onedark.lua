@@ -67,6 +67,13 @@ return {
 			set_diagnostics_bg_transparency()
 		end
 
-		vim.keymap.set("n", "<leader>bg", toggle_transparency, { noremap = true, silent = true })
+		toggle_transparency()
+
+		vim.keymap.set(
+			"n",
+			"<leader>bg",
+			toggle_transparency,
+			{ noremap = true, silent = true, desc = "Toggle [B]ack[g]round transparency" }
+		)
 	end,
 }
