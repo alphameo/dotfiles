@@ -1,18 +1,81 @@
 return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
-		-- ui plugins to make debugging simplier
+		-- Creates a beautiful debugger UI
 		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/nvim-nio",
+
+		-- Installs the debug adapters for you
+		"williamboman/mason.nvim",
+		"jay-babu/mason-nvim-dap.nvim",
+
+		-- Add your own debuggers here
+		"mfussenegger/nvim-dap-python",
+		-- "microsoft/java-debug",
 	},
+
 	config = function()
-		-- gain access to the dap plugin and its functions
 		local dap = require("dap")
-		-- gain access to the dap ui plugin and its functions
 		local dapui = require("dapui")
 
-		-- Setup the dap ui with default configuration
-		dapui.setup()
+		require("mason-nvim-dap").setup({
+			-- Makes a best effort to setup the various debuggers with
+			-- reasonable debug configurations
+			automatic_setup = true,
+			automatic_installation = true,
+
+			-- You can provide additional configuration to the handlers,
+			-- see mason-nvim-dap README for more information
+			handlers = {},
+
+			-- You'll need to check that you have the required things installed
+			-- online, please don't ask me how to install them :)
+			ensure_installed = {
+				-- Update this to ensure that you have the debuggers for the langs you want
+				-- 'delve',
+				"debugpy",
+				"java-debug-adapter",
+			},
+		})
+
+		-- Basic debugging keymaps, feel free to change to your liking!
+		vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
+		vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
+		vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })
+		vim.keymap.set("n", "<F23>", dap.step_out, { desc = "Debug: Step Out" })
+		vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
+		vim.keymap.set("n", "<leader>B", function()
+			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+		end, { desc = "Debug: Set Breakpoint" })
+
+		-- Dap UI setup
+		-- For more information, see |:help nvim-dap-ui|
+		dapui.setup({
+			-- Set icons to characters that are more likely to work in every terminal.
+			--    Feel free to remove or use ones that you like more! :)
+			--    Don't feel like these are good choices.
+			icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
+			controls = {
+				icons = {
+					disconnect = "",
+					pause = "",
+					play = "",
+					run_last = "",
+					step_back = "",
+					step_into = "",
+					step_out = "",
+					step_over = "",
+					terminate = "",
+				},
+			},
+		})
+
+		-- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+		vim.keymap.set("n", "<F29>", dapui.toggle, { desc = "[D]ebug [U]i: See last session result." })
+
+		dap.listeners.after.event_initialized["dapui_config"] = dapui.open
+		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
+		dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
 		-- setup an event listener for when the debugger is launched
 		dap.listeners.before.launch.dapui_config = function()
@@ -20,13 +83,52 @@ return {
 			dapui.open()
 		end
 
-		-- set a vim motion for <Space> + d + b to toggle a breakpoint at the line where the cursor is currently on
-		vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle [D]ebug [B]reakpoint" })
+		dap.configurations.java = {
+			{
+				name = "Debug Launch (2GB)",
+				type = "java",
+				request = "launch",
+				vmArgs = "" .. "-Xmx2g ",
+			},
+			{
+				name = "Debug Attach (8000)",
+				type = "java",
+				request = "attach",
+				hostName = "127.0.0.1",
+				port = 8000,
+			},
+			{
+				name = "Debug Attach (5005)",
+				type = "java",
+				request = "attach",
+				hostName = "127.0.0.1",
+				port = 5005,
+			},
+			{
+				name = "My Custom Java Run Configuration",
+				type = "java",
+				request = "launch",
+				-- You need to extend the classPath to list your dependencies.
+				-- `nvim-jdtls` would automatically add the `classPaths` property if it is missing
+				-- classPaths = {},
 
-		-- set a vim motion for <Space> + d + s to start the debugger and launch the debugging ui
-		vim.keymap.set("n", "<leader>dus", dap.continue, { desc = "[D]ebug [U]i [S]tart" })
+				-- If using multi-module projects, remove otherwise.
+				-- projectName = "yourProjectName",
 
-		-- set a vim motion to close the debugging ui
-		vim.keymap.set("n", "<leader>duq", dapui.close, { desc = "[D]ebug [U]i [Q]uit" })
+				-- javaExec = "java",
+				mainClass = "replace.with.your.fully.qualified.MainClass",
+
+				-- If using the JDK9+ module system, this needs to be extended
+				-- `nvim-jdtls` would automatically populate this property
+				-- modulePaths = {},
+				vmArgs = "" .. "-Xmx2g ",
+			},
+		}
+
+		-- vim.keymap.set("n", "<leader>dus", dap.continue, { desc = "[D]ebug [U]i [S]tart" })
+		-- vim.keymap.set("n", "<leader>duq", dapui.close, { desc = "[D]ebug [U]i [Q]uit" })
+
+		require("dap-python").setup()
+		-- require("java-debug").setup()
 	end,
 }

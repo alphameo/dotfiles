@@ -12,10 +12,10 @@ vim.o.autoindent = true -- Copy indent from current line when starting new one (
 vim.o.breakindent = true -- Enable break indent (default: false)
 vim.o.smartindent = true -- Make indenting smarter again (default: false)
 
-vim.o.shiftwidth = 2 -- The number of spaces inserted for each indentation (default: 8)
 vim.o.tabstop = 2 -- Insert n spaces for a tab (default: 8)
-vim.o.softtabstop = 2 -- Number of spaces that a tab counts for while performing editing operations (default: 0)
+vim.o.shiftwidth = 2 -- The number of spaces inserted for each indentation (default: 8)
 vim.o.expandtab = true -- Convert tabs to spaces (default: false)
+vim.o.softtabstop = 2 -- Number of spaces that a tab counts for while performing editing operations (default: 0)
 
 vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search (default: false)
 vim.o.smartcase = true -- Smart case (default: false)
