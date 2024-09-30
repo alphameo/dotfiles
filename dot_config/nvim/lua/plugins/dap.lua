@@ -11,7 +11,7 @@ return {
 
 		-- Add your own debuggers here
 		"mfussenegger/nvim-dap-python",
-		-- "microsoft/java-debug",
+		"microsoft/java-debug",
 	},
 
 	config = function()
@@ -129,6 +129,6 @@ return {
 		-- vim.keymap.set("n", "<leader>duq", dapui.close, { desc = "[D]ebug [U]i [Q]uit" })
 
 		require("dap-python").setup()
-		-- require("java-debug").setup()
+		-- require("java-debug-adapter").setup()
 	end,
 }

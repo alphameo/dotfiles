@@ -4,6 +4,7 @@ return {
 	"mfussenegger/nvim-jdtls",
 	dependencies = {
 		"mfussenegger/nvim-dap",
+		"rcarriga/nvim-dap-ui",
 	},
 	ft = "java", -- Enable only on .java file extensions
 
