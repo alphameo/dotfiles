@@ -76,3 +76,5 @@ vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", opts("Move line down"))
 vim.keymap.set("i", "<C-/>", "<ESC>:Commentary<CR>", opts("Toggle comment"))
 vim.keymap.set("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
 vim.keymap.set("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
+
+-- Git Blame
