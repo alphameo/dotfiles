@@ -12,6 +12,7 @@ export SHELL="/usr/bin/zsh"
 export EDITOR="nvim"
 export VISUAL="code"
 export BROWSER="firefox"
+export PAGER="less"
 
 
 # source: https://wiki.archlinux.org/title/Zsh#Startup/Shutdown_files
