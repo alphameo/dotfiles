@@ -117,7 +117,7 @@ return {
 				--
 				-- This may be unwanted, since they displace some of your code
 				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-				vim.keymap.set("n", "<leader>th", function()
+					vim.keymap.set("n", "<leader>th", function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 					end, opts("[T]oggle Inlay [H]ints"))
 				end
@@ -158,7 +158,7 @@ return {
 							callSnippet = "Replace",
 						},
 						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-						diagnostics = { disable = { 'missing-fields' } },
+						diagnostics = { disable = { "missing-fields" } },
 						runtime = { version = "LuaJIT" },
 						workspace = {
 							checkThirdParty = false,

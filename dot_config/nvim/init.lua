@@ -36,6 +36,7 @@ require("lazy").setup({
 	require("plugins.core.format"),
 	require("plugins.core.dap"),
 	require("plugins.core.completion"),
+	require("plugins.core.code-runner"),
 	require("plugins.features.autopairs"),
 	require("plugins.features.tab-detection"),
 	require("plugins.features.surround"),
