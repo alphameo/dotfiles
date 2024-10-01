@@ -328,7 +328,7 @@ return {
 		) -- focus file explorer
 		vim.keymap.set(
 			"n",
-			"<leader>g",
+			"<leader>gs",
 			":Neotree float git_status<CR>",
 			{ noremap = true, silent = true, desc = "Open [G]it status window" }
 		) -- open git status window

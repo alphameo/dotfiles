@@ -10,6 +10,8 @@ return {
 		"jay-babu/mason-nvim-dap.nvim",
 
 		-- Add your own debuggers here
+		"theHamsta/nvim-dap-virtual-text", -- inline variable text while debugging
+		"nvim-telescope/telescope-dap.nvim", -- telescope integration with dap
 		"mfussenegger/nvim-dap-python",
 		"microsoft/java-debug",
 	},

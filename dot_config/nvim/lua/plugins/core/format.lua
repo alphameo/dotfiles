@@ -19,6 +19,8 @@ return {
 				"checkmake", -- linter for Makefiles
 				"ruff", -- Python linter and formatter
 				"cmakelang",
+				"google-java-format",
+				"checkstyle",
 			},
 			automatic_installation = true,
 		})
@@ -29,6 +31,10 @@ return {
 			formatting.prettier.with({ filetypes = { "html", "json", "yaml", "markdown" } }),
 			diagnostics.checkmake,
 			formatting.shfmt.with({ args = { "-i", "4" } }),
+			formatting.google_java_format,
+			diagnostics.checkstyle.with({
+			       extra_args = { "-c", "/google_checks.xml" },
+			     }),
 		}
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
