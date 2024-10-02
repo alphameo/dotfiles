@@ -324,13 +324,13 @@ return {
 			"n",
 			"<leader>e",
 			":Neotree toggle position=left<CR>",
-			{ noremap = true, silent = true, desc = "Toggle File[e]xplorer" }
+			{ noremap = true, silent = true, desc = "Toggle File [E]xplorer" }
 		) -- focus file explorer
 		vim.keymap.set(
 			"n",
 			"<leader>gs",
 			":Neotree float git_status<CR>",
-			{ noremap = true, silent = true, desc = "Open [G]it status window" }
+			{ noremap = true, silent = true, desc = "Open [G]it [S]tatus window" }
 		) -- open git status window
 	end,
 }

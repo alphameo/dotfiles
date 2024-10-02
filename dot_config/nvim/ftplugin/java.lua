@@ -191,53 +191,53 @@ vim.cmd("command! -buffer JdtJshell lua require('jdtls').jshell()")
 
 vim.keymap.set(
 	"n",
-	"<leader>jo",
+	"<leader>li",
 	"<Cmd> lua require('jdtls').organize_imports()<CR>",
-	{ desc = "[J]ava [O]rganize Imports" }
+	{ desc = "[L]ang Java: Organize [I]mports" }
 )
 vim.keymap.set(
 	"n",
-	"<leader>jv",
+	"<leader>lv",
 	"<Cmd> lua require('jdtls').extract_variable()<CR>",
-	{ desc = "[J]ava Extract [V]ariable" }
+	{ desc = "[L]ang Java: Extract [V]ariable" }
 )
 vim.keymap.set(
 	"v",
-	"<leader>jv",
+	"<leader>lv",
 	"<Esc><Cmd> lua require('jdtls').extract_variable(true)<CR>",
-	{ desc = "[J]ava Extract [V]ariable" }
+	{ desc = "[L]ang Java: Extract [V]ariable" }
 )
 vim.keymap.set(
 	"n",
-	"<leader>jc",
+	"<leader>lc",
 	"<Cmd> lua require('jdtls').extract_constant()<CR>",
-	{ desc = "[J]ava Extract [C]onstant" }
+	{ desc = "[L]ang Java: Extract [C]onstant" }
 )
 -- Set a Vim motion to <Space> + <Shift>J + <Shift>C to extract the code selected in visual mode to a static variable
 vim.keymap.set(
 	"v",
-	"<leader>jc",
+	"<leader>lc",
 	"<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
-	{ desc = "[J]ava Extract [C]onstant" }
+	{ desc = "[L]ang Java: Extract [C]onstant" }
 )
 -- Set a Vim motion to <Space> + <Shift>J + t to run the test method currently under the cursor
 vim.keymap.set(
 	"n",
-	"<leader>jt",
+	"<leader>ltm",
 	"<Cmd> lua require('jdtls').test_nearest_method()<CR>",
-	{ desc = "[J]ava [T]est Method" }
+	{ desc = "[L]ang Java: [T]est [M]ethod" }
 )
 -- Set a Vim motion to <Space> + <Shift>J + t to run the test method that is currently selected in visual mode
 vim.keymap.set(
 	"v",
-	"<leader>jt",
+	"<leader>ltm",
 	"<Esc><Cmd> lua require('jdtls').test_nearest_method(true)<CR>",
-	{ desc = "[J]ava [T]est Method" }
+	{ desc = "[L]ang Java: [T]est [M]ethod" }
 )
--- Set a Vim motion to <Space> + <Shift>J + <Shift>T to run an entire test suite (class)
-vim.keymap.set("n", "<leader>jT", "<Cmd> lua require('jdtls').test_class()<CR>", { desc = "[J]ava [T]est Class" })
--- Set a Vim motion to <Space> + <Shift>J + u to update the project configuration
-vim.keymap.set("n", "<leader>ju", "<Cmd> JdtUpdateConfig<CR>", { desc = "[J]ava [U]pdate Config" })
+
+vim.keymap.set("n", "<leader>ltc", "<Cmd> lua require('jdtls').test_class()<CR>", { desc = "[L]ang Java: [T]est [C]lass" })
+
+vim.keymap.set("n", "<leader>lu", "<Cmd> JdtUpdateConfig<CR>", { desc = "[L]ang Java: [U]pdate Config" })
 
 -- Needed for debugging
 config["on_attach"] = function(client, bufnr)
