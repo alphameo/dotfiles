@@ -71,9 +71,9 @@ return {
 
 		vim.keymap.set(
 			"n",
-			"<leader>bg",
+			"<leader>at",
 			toggle_transparency,
-			{ noremap = true, silent = true, desc = "Toggle [B]ack[g]round transparency" }
+			{ noremap = true, silent = true, desc = "[A]ppearance: Toggle Background [T]ransparency" }
 		)
 	end,
 }

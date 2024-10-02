@@ -63,22 +63,22 @@ local config = {
 				-- TODO: Update this by adding any runtimes that you need to support your Java projects and removing any that you don't have installed
 				-- The runtime name parameters need to match specific Java execution environments.
 				runtimes = {
-					{
-						name = "JavaSE-11",
-						path = "/usr/lib/jvm/java-11-openjdk",
-					},
-					{
-						name = "JavaSE-17",
-						path = "/usr/lib/jvm/java-17-openjdk",
-					},
-					{
-						name = "JavaSE-19",
-						path = "/usr/lib/jvm/java-19-openjdk",
-					},
-					{
-						name = "JavaSE-21",
-						path = "/usr/lib/jvm/java-21-openjdk",
-					},
+					-- {
+					-- 	name = "JavaSE-11",
+					-- 	path = "/usr/lib/jvm/java-11-openjdk",
+					-- },
+					-- {
+					-- 	name = "JavaSE-17",
+					-- 	path = "/usr/lib/jvm/java-17-openjdk",
+					-- },
+					-- {
+					-- 	name = "JavaSE-19",
+					-- 	path = "/usr/lib/jvm/java-19-openjdk",
+					-- },
+					-- {
+					-- 	name = "JavaSE-21",
+					-- 	path = "/usr/lib/jvm/java-21-openjdk",
+					-- },
 					{
 						name = "JavaSE-22",
 						path = "/usr/lib/jvm/java-22-openjdk",
@@ -176,6 +176,11 @@ local config = {
 		-- References the bundles defined above to support Debugging and Unit Testing
 		bundles = bundles,
 	},
+
+	on_attach = function(client, bufnr)
+		jdtls.setup_dap({ hotcodereplace = "auto" })
+		require("jdtls.dap").setup_dap_main_class_configs()
+	end,
 }
 
 -- Mappings
@@ -195,6 +200,7 @@ vim.keymap.set(
 	"<Cmd> lua require('jdtls').organize_imports()<CR>",
 	{ desc = "[L]ang Java: Organize [I]mports" }
 )
+
 vim.keymap.set(
 	"n",
 	"<leader>lv",
@@ -207,43 +213,42 @@ vim.keymap.set(
 	"<Esc><Cmd> lua require('jdtls').extract_variable(true)<CR>",
 	{ desc = "[L]ang Java: Extract [V]ariable" }
 )
+
 vim.keymap.set(
 	"n",
 	"<leader>lc",
 	"<Cmd> lua require('jdtls').extract_constant()<CR>",
 	{ desc = "[L]ang Java: Extract [C]onstant" }
 )
--- Set a Vim motion to <Space> + <Shift>J + <Shift>C to extract the code selected in visual mode to a static variable
 vim.keymap.set(
 	"v",
 	"<leader>lc",
 	"<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
 	{ desc = "[L]ang Java: Extract [C]onstant" }
 )
--- Set a Vim motion to <Space> + <Shift>J + t to run the test method currently under the cursor
+
 vim.keymap.set(
 	"n",
 	"<leader>ltm",
 	"<Cmd> lua require('jdtls').test_nearest_method()<CR>",
 	{ desc = "[L]ang Java: [T]est [M]ethod" }
 )
--- Set a Vim motion to <Space> + <Shift>J + t to run the test method that is currently selected in visual mode
 vim.keymap.set(
+
 	"v",
 	"<leader>ltm",
 	"<Esc><Cmd> lua require('jdtls').test_nearest_method(true)<CR>",
 	{ desc = "[L]ang Java: [T]est [M]ethod" }
 )
 
-vim.keymap.set("n", "<leader>ltc", "<Cmd> lua require('jdtls').test_class()<CR>", { desc = "[L]ang Java: [T]est [C]lass" })
+vim.keymap.set(
+	"n",
+	"<leader>ltc",
+	"<Cmd> lua require('jdtls').test_class()<CR>",
+	{ desc = "[L]ang Java: [T]est [C]lass" }
+)
 
 vim.keymap.set("n", "<leader>lu", "<Cmd> JdtUpdateConfig<CR>", { desc = "[L]ang Java: [U]pdate Config" })
-
--- Needed for debugging
-config["on_attach"] = function(client, bufnr)
-	jdtls.setup_dap({ hotcodereplace = "auto" })
-	require("jdtls.dap").setup_dap_main_class_configs()
-end
 
 -- This starts a new client & server, or attaches to an existing client & server based on the `root_dir`.
 jdtls.start_or_attach(config)

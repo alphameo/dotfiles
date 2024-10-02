@@ -13,6 +13,18 @@ return {
 
 		-- Allows extra capabilities provided by nvim-cmp
 		"hrsh7th/cmp-nvim-lsp",
+
+		"mfussenegger/nvim-jdtls",
+	},
+	opts = {
+		servers = {
+			jdtls = {},
+		},
+		setup = {
+			jdtls = function()
+				return true
+			end,
+		},
 	},
 	config = function()
 		--  This function gets run when an LSP attaches to a particular buffer.
@@ -57,9 +69,9 @@ return {
 				--  Symbols are things like variables, functions, types, etc.
 				vim.keymap.set(
 					"n",
-					"<leader>ds",
+					"<leader>cs",
 					require("telescope.builtin").lsp_document_symbols,
-					opts("[D]ocument [S]ymbols")
+					opts("[C]ode Document [S]ymbols")
 				)
 
 				-- Fuzzy find all the symbols in your current workspace.
@@ -74,6 +86,7 @@ return {
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
 				vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts("Rename occurences"))
+				vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts("[L]ang: [R]ename occurences"))
 
 				-- Execute a code action, usually your cursor needs to be on top of an error
 				-- or a suggestion from your LSP for this to activate.
@@ -138,8 +151,8 @@ return {
 		--  - filetypes (table): Override the default list of associated filetypes for the server
 		--  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
 		--  - settings (table): Override the default settings passed when initializing the server.
+		-- jdtls = {},
 		local servers = {
-			jdtls = {},
 			clangd = {},
 			cmake = {},
 			texlab = {},
@@ -192,6 +205,10 @@ return {
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+		-- require("lspconfig").jdtls.setup(require("jdtls"))
+		-- require("mason-lspconfig").setup_handlers({
+		-- 	["jdtls"] = function() end,
+		-- })
 		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name)
