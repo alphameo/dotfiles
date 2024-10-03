@@ -30,6 +30,9 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		opts = {
+			inlay_hints = { enabled = true },
+		},
 		config = function()
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -54,6 +57,7 @@ return {
 						format = {
 							enable = false,
 						},
+						hint = { enable = true },
 					},
 				},
 			})
@@ -93,7 +97,16 @@ return {
 			)
 
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ctions" })
+
 			vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "[C]ode [R]ename" })
+			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "Code [R]ename" })
+
+			if vim.lsp.inlay_hint then
+				vim.lsp.inlay_hint.enable(true, { 0 })
+				vim.keymap.set("n", "<leader>ch", function()
+					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { 0 })
+				end, { desc = "[C]ode Toggle Inlay [H]ints" })
+			end
 		end,
 	},
 }
