@@ -323,7 +323,7 @@ return {
 		vim.keymap.set(
 			"n",
 			"<leader>e",
-			":Neotree toggle position=left<CR>",
+			":Neotree toggle source=filesystem reveal=true position=left<CR>",
 			{ noremap = true, silent = true, desc = "Toggle File [E]xplorer" }
 		) -- focus file explorer
 		vim.keymap.set(

@@ -51,7 +51,7 @@ vim.keymap.set("n", "<C-S-Tab>", ":bprevious<CR>", opts("Previous tab (buffer)")
 vim.keymap.set("n", "<leader>wv", "<C-w>v", opts("Split [W]indow [V]ertical")) -- split window vertically
 vim.keymap.set("n", "<leader>wh", "<C-w>s", opts("Split [W]indow [H]orizontal")) -- split window horizontally
 vim.keymap.set("n", "<leader>we", "<C-w>=", opts("Make [W]indows [E]qual")) -- make split windows equal width & height
-vim.keymap.set("n", "<leader>wq", ":close<CR>", opts("[Q]uit current window")) -- close current split window
+vim.keymap.set("n", "<leader>wq", ":close<CR>", opts("[W]indow [Q]uit")) -- close current split window
 
 -- Navigate between splits
 vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", opts("Go to upper window"))
