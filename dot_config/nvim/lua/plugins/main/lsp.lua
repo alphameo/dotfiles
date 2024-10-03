@@ -67,6 +67,8 @@ return {
 			})
 
 			vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Show doc hover" })
+			vim.keymap.set({ "n", "i", "v" }, "<C-k>", vim.lsp.buf.hover, { desc = "Show doc hover" })
+			vim.keymap.set("n", "<leader>K", vim.lsp.buf.signature_help, { desc = "Show Signature Help" })
 
 			vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = "[C]ode [D]efinition" })
 			vim.keymap.set("n", "<leader>cD", vim.lsp.buf.declaration, { desc = "[C]ode [D]eclaration" })
@@ -100,7 +102,7 @@ return {
 
 			vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "[C]ode [R]ename" })
 			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "Code [R]ename" })
-
+			vim.lsp.buf.signature_help()
 			if vim.lsp.inlay_hint then
 				vim.lsp.inlay_hint.enable(true, { 0 })
 				vim.keymap.set("n", "<leader>ch", function()
