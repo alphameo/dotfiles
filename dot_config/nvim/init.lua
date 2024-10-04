@@ -41,11 +41,8 @@ require("lazy").setup({
 	require("plugins.features.tab-detection"),
 	require("plugins.features.surround"),
 	require("plugins.features.which-key"),
+	require("plugins.features.git"),
 	require("plugins.navigation.telescope"),
 	require("plugins.navigation.harpoon"),
 	require("plugins.navigation.neo-tree"),
-	require("plugins.git.fugitive"),
-	require("plugins.git.rhubarb"),
-	require("plugins.git.gitsigns"),
-	require("plugins.git.git-blame"),
 })
