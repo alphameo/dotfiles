@@ -9,7 +9,16 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "ts_ls", "jdtls" },
+				ensure_installed = {
+					"lua_ls",
+					"jdtls",
+					"html",
+					"cssls",
+					"cssmodules_ls",
+					"css_variables",
+					"ts_ls",
+					"eslint",
+				},
 			})
 		end,
 	},
@@ -63,8 +72,43 @@ return {
 			})
 
 			lspconfig.ts_ls.setup({
-				capabilities = capabilities,
+				init_options = {
+					plugins = {
+						{
+							name = "@vue/typescript-plugin",
+							location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+							languages = { "javascript", "typescript", "vue" },
+						},
+					},
+				},
+				filetypes = {
+					"javascript",
+					"typescript",
+					"vue",
+				},
 			})
+			lspconfig.eslint.setup({
+				on_attach = function(client, bufnr)
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = bufnr,
+						command = "EslintFixAll",
+					})
+				end,
+			})
+
+			--Enable (broadcasting) snippet capability for completion
+			local textDocCapabilities = vim.lsp.protocol.make_client_capabilities()
+			textDocCapabilities.textDocument.completion.completionItem.snippetSupport = true
+
+			lspconfig.html.setup({
+				capabilities = textDocCapabilities,
+			})
+
+			lspconfig.cssls.setup({
+				capabilities = textDocCapabilities,
+			})
+			lspconfig.css_variables.setup({})
+			lspconfig.cssmodules_ls.setup({})
 
 			vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Show doc hover" })
 			vim.keymap.set({ "n", "i", "v" }, "<C-k>", vim.lsp.buf.hover, { desc = "Show doc hover" })

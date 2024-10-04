@@ -13,33 +13,47 @@ return {
 		require("mason-null-ls").setup({
 			ensure_installed = {
 				"prettier", -- ts/js formatter
-				"stylua", -- lua formatter
 				"eslint_d", -- ts/js linter
+				"stylua", -- lua formatter
 				"shfmt", -- Shell formatter
 				"checkmake", -- linter for Makefiles
-				"ruff", -- Python linter and formatter
 				"cmakelang",
-				"google-java-format",
-				"checkstyle",
+				"google-java-format", -- java formatter
+				"checkstyle", -- java linter
 			},
 			automatic_installation = true,
 		})
 
 		local sources = {
 			formatting.stylua,
-			require("none-ls.diagnostics.eslint_d"),
-			formatting.prettier.with({ filetypes = { "html", "json", "yaml", "markdown" } }),
-			diagnostics.checkmake,
-			formatting.shfmt.with({ args = { "-i", "4" } }),
 			formatting.google_java_format,
 			diagnostics.checkstyle.with({
 				extra_args = { "-c", "/google_checks.xml" },
 			}),
+			require("none-ls.diagnostics.eslint_d"),
+			formatting.prettier.with({
+				filetypes = {
+					"css",
+					"graphql",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"json",
+					"less",
+					"markdown",
+					"scss",
+					"typescript",
+					"typescriptreact",
+					"yaml",
+				},
+			}),
+			diagnostics.checkmake,
+			formatting.shfmt.with({ args = { "-i", "4" } }),
 		}
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 		null_ls.setup({
-			-- debug = true, -- Enable debug mode. Inspect logs with :NullLsLog.
+			debug = true, -- Enable debug mode. Inspect logs with :NullLsLog.
 			sources = sources,
 
 			-- you can reuse a shared lspconfig on_attach callback here
