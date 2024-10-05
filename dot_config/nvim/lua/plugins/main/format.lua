@@ -12,7 +12,7 @@ return {
 		-- Formatters & linters for mason to install
 		require("mason-null-ls").setup({
 			ensure_installed = {
-				"prettier", -- ts/js formatter
+				"prettierd", -- ts/js formatter
 				"eslint_d", -- ts/js linter
 				"stylua", -- lua formatter
 				"shfmt", -- Shell formatter
@@ -31,7 +31,7 @@ return {
 				extra_args = { "-c", "/google_checks.xml" },
 			}),
 			require("none-ls.diagnostics.eslint_d"),
-			formatting.prettier.with({
+			formatting.prettierd.with({
 				filetypes = {
 					"css",
 					"graphql",

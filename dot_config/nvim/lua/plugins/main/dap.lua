@@ -13,7 +13,7 @@ return {
 		"theHamsta/nvim-dap-virtual-text", -- inline variable text while debugging
 		"nvim-telescope/telescope-dap.nvim", -- telescope integration with dap
 		"mfussenegger/nvim-dap-python",
-		"microsoft/java-debug",
+		-- "microsoft/java-debug",
 	},
 
 	config = function()
@@ -21,27 +21,41 @@ return {
 		local dapui = require("dapui")
 
 		require("mason-nvim-dap").setup({
-			-- Makes a best effort to setup the various debuggers with
-			-- reasonable debug configurations
 			automatic_setup = true,
 			automatic_installation = true,
 
-			-- You can provide additional configuration to the handlers,
-			-- see mason-nvim-dap README for more information
 			handlers = {},
 
 			-- You'll need to check that you have the required things installed
 			-- online, please don't ask me how to install them :)
 			ensure_installed = {
 				-- Update this to ensure that you have the debuggers for the langs you want
-				-- 'delve',
-				"debugpy",
-				"java-debug-adapter",
+				"python",
+				"cppdbg",
+				-- "delve",
+				-- "node2",
+				-- "chrome",
+				-- "firefox",
+				-- "php",
+				-- "corecrl",
+				"js",
+				-- "codelldb",
+				"bash",
+				"javadbg",
+				"javatest",
+				-- "mock",
+				-- "puppet",
+				-- "elixir",
+				-- "kotlin",
+				-- "dart",
+				-- "haskell",
+				-- "erlang",
 			},
 		})
 
 		-- Basic debugging keymaps, feel free to change to your liking!
 		vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
+		vim.keymap.set("n", "<leader>dq", dapui.close, { desc = "[D]ebug UI [Q]uit" })
 		vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "[D]ebug: [C]ontinue" })
 		vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
 		vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "[D]ebug: Step [I]nto" })
@@ -130,9 +144,6 @@ return {
 				vmArgs = "" .. "-Xmx2g ",
 			},
 		}
-
-		-- vim.keymap.set("n", "<leader>dus", dap.continue, { desc = "[D]ebug [U]i [S]tart" })
-		-- vim.keymap.set("n", "<leader>duq", dapui.close, { desc = "[D]ebug [U]i [Q]uit" })
 
 		require("dap-python").setup()
 		-- require("java-debug-adapter").setup()
