@@ -22,6 +22,9 @@ return {
 				"cmakelang",
 				"clang-format",
 				"cpplint",
+				"ruff",
+				"mypy",
+				"black",
 			},
 			automatic_installation = true,
 		})
@@ -53,7 +56,10 @@ return {
 			formatting.shfmt.with({ args = { "-i", "4" } }),
 			formatting.clang_format,
 			require("none-ls.diagnostics.cpplint"),
-			-- diagnostics.cpplint,
+			diagnostics.mypy,
+			require("none-ls.formatting.ruff").with({ extra_args = { "--extend-select", "I" } }),
+			require("none-ls.formatting.ruff_format"),
+			formatting.black,
 		}
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

@@ -19,6 +19,7 @@ return {
 					"tailwindcss",
 					"ts_ls",
 					"clangd",
+					"pyright",
 				},
 			})
 		end,
@@ -97,6 +98,10 @@ return {
 			lspconfig.tailwindcss.setup({})
 
 			lspconfig.clangd.setup({})
+
+			lspconfig.pyright.setup({
+				filetypes = { "python" },
+			})
 
 			vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Show doc hover" })
 			vim.keymap.set({ "n", "i", "v" }, "<C-k>", vim.lsp.buf.hover, { desc = "Show doc hover" })
