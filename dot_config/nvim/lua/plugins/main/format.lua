@@ -17,9 +17,11 @@ return {
 				"stylua", -- lua formatter
 				"shfmt", -- Shell formatter
 				"checkmake", -- linter for Makefiles
-				"cmakelang",
 				"google-java-format", -- java formatter
 				"checkstyle", -- java linter
+				"cmakelang",
+				"clang-format",
+				"cpplint",
 			},
 			automatic_installation = true,
 		})
@@ -49,6 +51,9 @@ return {
 			}),
 			diagnostics.checkmake,
 			formatting.shfmt.with({ args = { "-i", "4" } }),
+			formatting.clang_format,
+			require("none-ls.diagnostics.cpplint"),
+			-- diagnostics.cpplint,
 		}
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

@@ -18,6 +18,7 @@ return {
 					"css_variables",
 					"tailwindcss",
 					"ts_ls",
+					"clangd",
 				},
 			})
 		end,
@@ -94,6 +95,8 @@ return {
 			lspconfig.css_variables.setup({})
 			lspconfig.cssmodules_ls.setup({})
 			lspconfig.tailwindcss.setup({})
+
+			lspconfig.clangd.setup({})
 
 			vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Show doc hover" })
 			vim.keymap.set({ "n", "i", "v" }, "<C-k>", vim.lsp.buf.hover, { desc = "Show doc hover" })

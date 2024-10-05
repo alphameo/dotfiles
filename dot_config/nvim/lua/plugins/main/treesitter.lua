@@ -22,6 +22,7 @@ return {
 			"vim",
 			"vimdoc",
 			"regex",
+			"printf",
 			"markdown",
 			"markdown_inline",
 			"bash",

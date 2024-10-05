@@ -13,7 +13,6 @@ return {
 		"theHamsta/nvim-dap-virtual-text", -- inline variable text while debugging
 		"nvim-telescope/telescope-dap.nvim", -- telescope integration with dap
 		"mfussenegger/nvim-dap-python",
-		-- "microsoft/java-debug",
 	},
 
 	config = function()
@@ -39,7 +38,7 @@ return {
 				-- "php",
 				-- "corecrl",
 				"js",
-				-- "codelldb",
+				"codelldb",
 				"bash",
 				"javadbg",
 				"javatest",
