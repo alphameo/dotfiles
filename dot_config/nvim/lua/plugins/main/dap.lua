@@ -55,7 +55,6 @@ return {
 
 		-- Basic debugging keymaps, feel free to change to your liking!
 		vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
-		vim.keymap.set("n", "<leader>dq", dapui.close, { desc = "[D]ebug UI [Q]uit" })
 		vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "[D]ebug: [C]ontinue" })
 		vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
 		vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "[D]ebug: Step [I]nto" })
@@ -67,6 +66,9 @@ return {
 		vim.keymap.set("n", "<leader>dB", function()
 			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end, { desc = "[D]ebug: Set [B]reakpoint" })
+		vim.keymap.set("n", "<leader>dq", dapui.close, { desc = "[D]ebug UI [Q]uit" })
+		vim.keymap.set("n", "<F29>", dapui.toggle, { desc = "[D]ebug UI: See last session result." })
+		vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "[D]ebug [U]I: See last session result." })
 
 		-- Dap UI setup
 		-- For more information, see |:help nvim-dap-ui|
@@ -89,9 +91,6 @@ return {
 				},
 			},
 		})
-
-		-- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-		vim.keymap.set("n", "<F29>", dapui.toggle, { desc = "[D]ebug [U]i: See last session result." })
 
 		dap.listeners.after.event_initialized["dapui_config"] = dapui.open
 		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
@@ -146,6 +145,5 @@ return {
 		}
 
 		require("dap-python").setup()
-		-- require("java-debug-adapter").setup()
 	end,
 }
