@@ -16,8 +16,8 @@ return {
 					"cssls",
 					"cssmodules_ls",
 					"css_variables",
+					"tailwindcss",
 					"ts_ls",
-					"eslint",
 				},
 			})
 		end,
@@ -79,14 +79,6 @@ return {
 					"vue",
 				},
 			})
-			lspconfig.eslint.setup({
-				on_attach = function(client, bufnr)
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = bufnr,
-						command = "EslintFixAll",
-					})
-				end,
-			})
 
 			--Enable (broadcasting) snippet capability for completion
 			local textDocCapabilities = vim.lsp.protocol.make_client_capabilities()
@@ -101,6 +93,7 @@ return {
 			})
 			lspconfig.css_variables.setup({})
 			lspconfig.cssmodules_ls.setup({})
+			lspconfig.tailwindcss.setup({})
 
 			vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Show doc hover" })
 			vim.keymap.set({ "n", "i", "v" }, "<C-k>", vim.lsp.buf.hover, { desc = "Show doc hover" })
