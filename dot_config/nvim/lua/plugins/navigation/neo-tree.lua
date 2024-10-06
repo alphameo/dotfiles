@@ -324,25 +324,25 @@ return {
 			"n",
 			"<leader>e",
 			":Neotree toggle source=filesystem reveal=true position=left<CR>",
-			{ noremap = true, silent = true, desc = "Toggle File [E]xplorer" }
+			{ noremap = true, silent = true, desc = "File Explorer" }
 		) -- focus file explorer
 		vim.keymap.set(
 			"n",
 			"<C-S-e>",
 			":Neotree toggle source=filesystem reveal=true position=left<CR>",
-			{ noremap = true, silent = true, desc = "Toggle File [E]xplorer" }
+			{ noremap = true, silent = true, desc = "Toggle File Explorer" }
 		) -- focus file explorer
 		vim.keymap.set(
 			"n",
 			"<leader>Gs",
 			":Neotree float git_status<CR>",
-			{ noremap = true, silent = true, desc = "Open [G]it [S]tatus window" }
+			{ noremap = true, silent = true, desc = "Git Status window" }
 		) -- open git status window
 		vim.keymap.set(
 			"n",
 			"<C-S-g>",
 			":Neotree float git_status<CR>",
-			{ noremap = true, silent = true, desc = "Open [G]it [S]tatus window" }
+			{ noremap = true, silent = true, desc = "Open Git Status window" }
 		) -- open git status window
 	end,
 }

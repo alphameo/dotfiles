@@ -8,16 +8,16 @@ return {
 		-- Set a vim motion to <Shift>m to mark a file with harpoon
 		vim.keymap.set(
 			"n",
-			"<leader>hf",
+			"<leader>mf",
 			"<cmd>lua require('harpoon.mark').add_file()<cr>",
-			{ desc = "[H]arpoon Mark [F]ile" }
+			{ desc = "Harpoon: Mark File" }
 		)
 		-- Set a vim motion to the tab key to open the harpoon menu to easily navigate frequented files
 		vim.keymap.set(
 			"n",
-			"<leader>hm",
+			"<leader>mm",
 			"<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
-			{ desc = "[H]arpoon Toggle [M]enu" }
+			{ desc = "Harpoon: Toggle Menu" }
 		)
 	end,
 }

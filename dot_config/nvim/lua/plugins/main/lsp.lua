@@ -102,7 +102,6 @@ return {
 				capabilities = capabilities,
 				filetypes = { "python" },
 			})
-
 		end,
 	},
 }

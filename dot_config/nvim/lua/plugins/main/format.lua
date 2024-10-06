@@ -82,7 +82,7 @@ return {
 			-- end,
 
 			vim.keymap.set({ "n", "v", "i" }, "<C-S-i>", vim.lsp.buf.format, { desc = "Code Format" }),
-			vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "[C]ode [F]ormat" }),
+			vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "Code Format" }),
 		})
 	end,
 }

@@ -9,12 +9,13 @@ map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- save file
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <CR>", { desc = "Save file" })
-map("n", "<leader>fs", "<cmd> w <CR>", { desc = "[F]ile [S]ave" })
+map("n", "<leader>s", "<cmd> w <CR>", { desc = "Save File" })
+map("n", "<leader>S", "<cmd> w <CR>", { desc = "Save All Files" })
 
 -- quit file
 map({ "n", "i", "v" }, "<C-q>", "<cmd> q <CR>", { desc = "Quit file" })
-map("n", "<leader>fq", "<cmd> q <CR>", { desc = "[F]ile [Q]uit" })
-map("n", "<leader>ffq", "<cmd> q! <CR>", { desc = "[F]ile [F]orce [Q]uit" })
+map("n", "<leader>q", "<cmd> q <CR>", { desc = "Quit" })
+map("n", "<leader>Q", "<cmd> q! <CR>", { desc = "Force Quit" })
 
 -- delete single character without copying into register
 map("n", "x", '"_x', { desc = "Delete char" })
@@ -27,7 +28,7 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" })
 map("n", "n", "nzzzv", { desc = "Next occurance" })
 map("n", "N", "Nzzzv", { desc = "Previous occurance" })
 
-map("n", "<leader>aw", "<cmd>set wrap!<CR>", { desc = "[A]ppearance: Toggle [W]rap" })
+map("n", "<leader>aw", "<cmd>set wrap!<CR>", { desc = "Toggle Line Wrap" })
 
 -- Tabs
 -- map('n', '<leader>to', ':tabnew<CR>', { desc = "[T]ab [O]pen" }) -- open new tab
@@ -36,17 +37,19 @@ map("n", "<leader>aw", "<cmd>set wrap!<CR>", { desc = "[A]ppearance: Toggle [W]r
 -- map('n', '<leader>tp', ':tabp<CR>', { desc = "[T]ab [P]revious}" }) --  go to previous tab
 
 -- Buffers
-map("n", "<leader>tn", "<cmd> enew <CR>", { desc = "[T]ab [N]ew (buffer)" }) -- new buffer
-map("n", "<leader>tq", ":Bdelete!<CR>", { desc = "[T]ab [Q]uit (buffer)" }) -- close buffer
+map("n", "<leader>tn", "<cmd> enew <CR>", { desc = "Tab New" }) -- new buffer
+map("n", "<leader>tq", ":Bdelete!<CR>", { desc = "Tab Quit" }) -- close buffer
 -- Navigate between buffers
 map("n", "<C-Tab>", ":bnext<CR>", { desc = "Next tab (buffer)" })
 map("n", "<C-S-Tab>", ":bprevious<CR>", { desc = "Previous tab (buffer)" })
 
 -- Window management
-map("n", "<leader>wv", "<C-w>v", { desc = "Split [W]indow [V]ertical" }) -- split window vertically
-map("n", "<leader>wh", "<C-w>s", { desc = "Split [W]indow [H]orizontal" }) -- split window horizontally
-map("n", "<leader>we", "<C-w>=", { desc = "Make [W]indows [E]qual" }) -- make split windows equal width & height
-map("n", "<leader>wq", ":close<CR>", { desc = "[W]indow [Q]uit" }) -- close current split window
+map("n", "<leader>wv", "<C-w>v", { desc = "Splitindow Vertical" }) -- split window vertically
+map("n", "<leader>v", "<C-w>v", { desc = "Split Window Vertical" }) -- split window vertically
+map("n", "<leader>wh", "<C-w>s", { desc = "Split Window Horizontal" }) -- split window horizontally
+map("n", "<leader>h", "<C-w>s", { desc = "Split Window Horizontal" }) -- split window horizontally
+map("n", "<leader>we", "<C-w>=", { desc = "Make Windows Equal" }) -- make split windows equal width & height
+map("n", "<leader>wq", ":close<CR>", { desc = "Window Quit" }) -- close current split window
 
 -- Navigate between splits
 map("n", "<C-k>", ":wincmd k<CR>", { desc = "Go to upper window" })

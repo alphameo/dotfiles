@@ -183,57 +183,57 @@ vim.keymap.set(
 	"n",
 	"<leader>li",
 	"<Cmd> lua require('jdtls').organize_imports()<CR>",
-	{ desc = "[L]ang Java: Organize [I]mports" }
+	{ desc = "Java: Organize Imports" }
 )
 
 vim.keymap.set(
 	"n",
 	"<leader>lv",
 	"<Cmd> lua require('jdtls').extract_variable()<CR>",
-	{ desc = "[L]ang Java: Extract [V]ariable" }
+	{ desc = "Java: Extract Variable" }
 )
 vim.keymap.set(
 	"v",
 	"<leader>lv",
 	"<Esc><Cmd> lua require('jdtls').extract_variable(true)<CR>",
-	{ desc = "[L]ang Java: Extract [V]ariable" }
+	{ desc = "Java: Extract Variable" }
 )
 
 vim.keymap.set(
 	"n",
 	"<leader>lc",
 	"<Cmd> lua require('jdtls').extract_constant()<CR>",
-	{ desc = "[L]ang Java: Extract [C]onstant" }
+	{ desc = "Java: Extract Constant" }
 )
 vim.keymap.set(
 	"v",
 	"<leader>lc",
 	"<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
-	{ desc = "[L]ang Java: Extract [C]onstant" }
+	{ desc = "Java: Extract Constant" }
 )
 
 vim.keymap.set(
 	"n",
 	"<leader>ltm",
 	"<Cmd> lua require('jdtls').test_nearest_method()<CR>",
-	{ desc = "[L]ang Java: [T]est [M]ethod" }
+	{ desc = "Java: Test Method" }
 )
 vim.keymap.set(
 
 	"v",
 	"<leader>ltm",
 	"<Esc><Cmd> lua require('jdtls').test_nearest_method(true)<CR>",
-	{ desc = "[L]ang Java: [T]est [M]ethod" }
+	{ desc = "Java: Test Method" }
 )
 
 vim.keymap.set(
 	"n",
 	"<leader>ltc",
 	"<Cmd> lua require('jdtls').test_class()<CR>",
-	{ desc = "[L]ang Java: [T]est [C]lass" }
+	{ desc = "Java: Test Class" }
 )
 
-vim.keymap.set("n", "<leader>lu", "<Cmd> JdtUpdateConfig<CR>", { desc = "[L]ang Java: [U]pdate Config" })
+vim.keymap.set("n", "<leader>lu", "<Cmd> JdtUpdateConfig<CR>", { desc = "Java: Update Config" })
 
 -- This starts a new client & server, or attaches to an existing client & server based on the `root_dir`.
 jdtls.start_or_attach(config)

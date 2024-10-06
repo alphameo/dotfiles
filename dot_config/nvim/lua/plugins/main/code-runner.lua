@@ -10,11 +10,11 @@ return {
 				},
 			},
 		})
-		vim.keymap.set("n", "<leader>rc", ":RunCode<CR>", { noremap = true, silent = false, desc = "[R]un [C]ode" })
-		vim.keymap.set("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false, desc = "[R]un [F]ile" })
-		vim.keymap.set("n", "<leader>rt", ":RunFile tab<CR>", { noremap = true, silent = false, desc = "[R]un File [T]ab" })
-		vim.keymap.set("n", "<leader>rp", ":RunProject<CR>", { noremap = true, silent = false, desc = "[R]un [P]roject" })
-		vim.keymap.set("n", "<leader>rq", ":RunClose<CR>", { noremap = true, silent = false, desc = "[R]un [Q]uit" })
+		vim.keymap.set("n", "<leader>rc", ":RunCode<CR>", { noremap = true, silent = false, desc = "Run Code" })
+		vim.keymap.set("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false, desc = "Run File" })
+		vim.keymap.set("n", "<leader>rt", ":RunFile tab<CR>", { noremap = true, silent = false, desc = "Run File Tab" })
+		vim.keymap.set("n", "<leader>rp", ":RunProject<CR>", { noremap = true, silent = false, desc = "Run Project" })
+		vim.keymap.set("n", "<leader>rq", ":RunClose<CR>", { noremap = true, silent = false, desc = "Run Quit" })
 		-- vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", { noremap = true, silent = false })
 		-- vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent = false })
 	end,

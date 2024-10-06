@@ -10,9 +10,9 @@ return {
 
 		vim.keymap.set(
 			"n",
-			"<leader>Gb",
+			"<leader>GB",
 			":GitBlameToggle<CR>",
-			{ noremap = true, silent = true, desc = "Toggle [G]it [B]lame" }
+			{ noremap = true, silent = true, desc = "Toggle Git Blame" }
 		),
 	},
 	{
@@ -44,11 +44,11 @@ return {
 		-- Powerful Git integration for Vim
 		"tpope/vim-fugitive",
 		config = function()
-			-- vim.keymap.set("n", "<leader>gb", ":Git blame<cr>", { desc = "[G]it [B]lame" })
-			vim.keymap.set("n", "<leader>GA", ":Git add .<cr>", { desc = "[G]it Add [A]ll" })
-			vim.keymap.set("n", "<leader>Ga", "Git add", { desc = "[G]it [A]dd" })
-			vim.keymap.set("n", "<leader>Gc", ":Git commit", { desc = "[G]it [C]ommit" })
-			vim.keymap.set("n", "<leader>Gp", "Git push", { desc = "[G]it [P]ush" })
+			vim.keymap.set("n", "<leader>Ga", "Git add", { desc = "Git Add" })
+			vim.keymap.set("n", "<leader>GA", ":Git add .<cr>", { desc = "Git Add All" })
+			vim.keymap.set("n", "<leader>Gb", ":Git blame<cr>", { desc = "Git Blame" })
+			vim.keymap.set("n", "<leader>Gc", ":Git commit", { desc = "Git Commit" })
+			vim.keymap.set("n", "<leader>Gp", "Git push", { desc = "Git Push" })
 		end,
 	},
 }
