@@ -31,11 +31,10 @@ return {
 
 		local sources = {
 			formatting.stylua,
-			formatting.google_java_format,
+			-- formatting.google_java_format,
 			diagnostics.checkstyle.with({
 				extra_args = { "-c", "/google_checks.xml" },
 			}),
-			require("none-ls.diagnostics.eslint_d"),
 			formatting.prettierd.with({
 				filetypes = {
 					"css",
@@ -52,9 +51,12 @@ return {
 					"yaml",
 				},
 			}),
+			require("none-ls.diagnostics.eslint_d"),
 			diagnostics.checkmake,
 			formatting.shfmt.with({ args = { "-i", "4" } }),
-			formatting.clang_format,
+			formatting.clang_format.with({
+				filetypes = { "c", "cpp" }
+			}),
 			require("none-ls.diagnostics.cpplint"),
 			diagnostics.mypy,
 			require("none-ls.formatting.ruff").with({ extra_args = { "--extend-select", "I" } }),
