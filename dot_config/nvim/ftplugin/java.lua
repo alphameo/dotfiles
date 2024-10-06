@@ -214,7 +214,7 @@ vim.keymap.set(
 
 vim.keymap.set(
 	"n",
-	"<leader>ltm",
+	"<leader>lt",
 	"<Cmd> lua require('jdtls').test_nearest_method()<CR>",
 	{ desc = "Java: Test Method" }
 )
@@ -228,7 +228,7 @@ vim.keymap.set(
 
 vim.keymap.set(
 	"n",
-	"<leader>ltc",
+	"<leader>lT",
 	"<Cmd> lua require('jdtls').test_class()<CR>",
 	{ desc = "Java: Test Class" }
 )
