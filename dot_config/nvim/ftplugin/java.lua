@@ -63,22 +63,6 @@ local config = {
 				-- TODO: Update this by adding any runtimes that you need to support your Java projects and removing any that you don't have installed
 				-- The runtime name parameters need to match specific Java execution environments.
 				runtimes = {
-					-- {
-					-- 	name = "JavaSE-11",
-					-- 	path = "/usr/lib/jvm/java-11-openjdk",
-					-- },
-					-- {
-					-- 	name = "JavaSE-17",
-					-- 	path = "/usr/lib/jvm/java-17-openjdk",
-					-- },
-					-- {
-					-- 	name = "JavaSE-19",
-					-- 	path = "/usr/lib/jvm/java-19-openjdk",
-					-- },
-					-- {
-					-- 	name = "JavaSE-21",
-					-- 	path = "/usr/lib/jvm/java-21-openjdk",
-					-- },
 					{
 						name = "JavaSE-22",
 						path = "/usr/lib/jvm/java-22-openjdk",
@@ -180,6 +164,7 @@ local config = {
 	on_attach = function(client, bufnr)
 		jdtls.setup_dap({ hotcodereplace = "auto" })
 		require("jdtls.dap").setup_dap_main_class_configs()
+		require("plugins.main.lspconfig").on_attach()
 	end,
 }
 
