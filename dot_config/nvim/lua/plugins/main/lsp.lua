@@ -20,6 +20,8 @@ return {
 					"ts_ls",
 					"clangd",
 					"pyright",
+					"lemminx",
+					"taplo",
 				},
 			})
 		end,
@@ -43,7 +45,7 @@ return {
 			local on_attach = require("plugins.main.lspconfig").on_attach
 
 
-			local simple_servers = { "html", "cssls", "css_variables", "cssmodules_ls", "tailwindcss", "clangd" }
+			local simple_servers = { "html", "cssls", "css_variables", "cssmodules_ls", "tailwindcss", "clangd", "lemminx", "taplo", }
 
 			-- lsps with default config
 			for _, lsp in ipairs(simple_servers) do
