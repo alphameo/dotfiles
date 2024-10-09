@@ -26,6 +26,51 @@ return {
     end,
     ft = { "markdown" },
   },
+  -- {
+  --   "wallpants/github-preview.nvim",
+  --   cmd = { "GithubPreviewToggle" },
+  --   keys = { "<leader>lt" },
+  --   opts = {
+  --     host = "localhost",
+  --     port = 6041,
+  --     -- set to "true" to force single-file mode & disable repository mode
+  --     single_file = false,
+  --     theme = {
+  --       -- "system" | "light" | "dark"
+  --       name = "system",
+  --       high_contrast = false,
+  --     },
+  --     -- define how to render <details> tags on init/content-change
+  --     -- true: <details> tags are rendered open
+  --     -- false: <details> tags are rendered closed
+  --     details_tags_open = true,
+  --     cursor_line = {
+  --       disable = false,
+  --       -- CSS color
+  --       -- if you provide an invalid value, cursorline will be invisible
+  --       color = "#c86414",
+  --       opacity = 0.2,
+  --     },
+  --     scroll = {
+  --       disable = false,
+  --       -- Between 0 and 100
+  --       -- VERY LOW and VERY HIGH numbers might result in cursorline out of screen
+  --       top_offset_pct = 35,
+  --     },
+  --     -- for debugging
+  --     -- nil | "debug" | "verbose"
+  --     log_level = nil,
+  --   },
+  --   config = function(_, opts)
+  --     local gpreview = require "github-preview"
+  --     gpreview.setup(opts)
+  --
+  --     local fns = gpreview.fns
+  --     vim.keymap.set("n", "<leader>lt", fns.toggle, { desc = "Lang: Markdown Preview" })
+  --     vim.keymap.set("n", "<leader>ls", fns.single_file_toggle)
+  --     vim.keymap.set("n", "<leader>lP", fns.details_tags_toggle)
+  --   end,
+  -- },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
@@ -39,4 +84,14 @@ return {
       vim.keymap.set("n", "<leader>lr", rndr.toggle, { desc = "Lang: Markdown Render" })
     end,
   },
+  -- {
+  --   "OXY2DEV/markview.nvim",
+  --   -- lazy = false, -- Recommended
+  --   ft = "markdown", -- If you decide to lazy-load anyway
+  --
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "nvim-tree/nvim-web-devicons",
+  --   },
+  -- },
 }
