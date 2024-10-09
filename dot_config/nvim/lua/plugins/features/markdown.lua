@@ -1,6 +1,7 @@
 return {
   {
     "iamcco/markdown-preview.nvim",
+    ft = { "markdown" },
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && yarn install",
     init = function()
@@ -21,10 +22,10 @@ return {
         disable_sync_scroll = 0,
         disable_filename = 1,
       }
-
+    end,
+    config = function()
       vim.keymap.set("n", "<leader>lp", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Lang: Markdown Preview" })
     end,
-    ft = { "markdown" },
   },
   -- {
   --   "wallpants/github-preview.nvim",
@@ -76,6 +77,7 @@ return {
     -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+    ft = "markdown",
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
