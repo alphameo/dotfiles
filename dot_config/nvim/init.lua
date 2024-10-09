@@ -34,6 +34,7 @@ require("lazy").setup({
 	require("plugins.features.which-key"),
 	require("plugins.features.git"),
 	require("plugins.features.refactoring"),
+	require("plugins.features.markdown"),
 	require("plugins.navigation.telescope"),
 	require("plugins.navigation.harpoon"),
 	require("plugins.navigation.neo-tree"),
