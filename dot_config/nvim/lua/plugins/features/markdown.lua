@@ -24,7 +24,7 @@ return {
       }
     end,
     config = function()
-      vim.keymap.set("n", "<leader>lp", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Lang: Markdown Preview" })
+      vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Markdown Preview" })
     end,
   },
   -- {
@@ -67,9 +67,9 @@ return {
   --     gpreview.setup(opts)
   --
   --     local fns = gpreview.fns
-  --     vim.keymap.set("n", "<leader>lt", fns.toggle, { desc = "Lang: Markdown Preview" })
-  --     vim.keymap.set("n", "<leader>ls", fns.single_file_toggle)
-  --     vim.keymap.set("n", "<leader>lP", fns.details_tags_toggle)
+  --     vim.keymap.set("n", "<leader>mt", fns.toggle, { desc = "Lang: Markdown Preview" })
+  --     vim.keymap.set("n", "<leader>ms", fns.single_file_toggle)
+  --     vim.keymap.set("n", "<leader>mp", fns.details_tags_toggle)
   --   end,
   -- },
   {
@@ -83,7 +83,7 @@ return {
     opts = {},
     config = function()
       local rndr = require "render-markdown"
-      vim.keymap.set("n", "<leader>lr", rndr.toggle, { desc = "Lang: Markdown Render" })
+      vim.keymap.set("n", "<leader>mr", rndr.toggle, { desc = "Markdown Render" })
     end,
   },
   -- {

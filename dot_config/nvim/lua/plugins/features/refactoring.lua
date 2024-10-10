@@ -30,15 +30,15 @@ return {
 			require("telescope").extensions.refactoring.refactors()
 		end, { desc = "Refactor: Refactoring Menu" })
 
-		vim.keymap.set("n", "<leader>dp", function()
+		vim.keymap.set("n", "<leader>dP", function()
 			require("refactoring").debug.printf({ below = false }, { desc = "Debug: Printf Marker" })
 		end)
 
-		vim.keymap.set({ "x", "n" }, "<leader>dP", function()
+		vim.keymap.set({ "x", "n" }, "<leader>dV", function()
 			require("refactoring").debug.print_var()
 		end, { desc = "Debug: Printf Variable" })
 
-		vim.keymap.set("n", "<leader>dpc", function()
+		vim.keymap.set("n", "<leader>dC", function()
 			require("refactoring").debug.cleanup({})
 		end, { desc = "Debug: Printf Claer" })
 

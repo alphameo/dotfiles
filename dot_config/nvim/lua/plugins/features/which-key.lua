@@ -6,26 +6,26 @@ return {
 		{ "echasnovski/mini.icons", version = false },
 	},
 	config = function()
-		-- gain access to the which key plugin
 		local which_key = require("which-key")
 
-		-- call the setup function with default properties
+		require('mini.icons').setup()
+
 		which_key.setup()
 
 		-- Register prefixes for the different key mappings we have setup previously
 		which_key.add({
-			{ "<leader>a", group = "Appearance", mode = { "n", "v" } },
-			{ "<leader>c", group = "Code", mode = { "n", "v" } },
+			{ "<leader>a", group = "Appearance", mode = { "n", "v" }, icon = { icon = " ", color = "blue" } },
+			{ "<leader>c", group = "Code", mode = { "n", "v" }, icon = { icon = " ", color = "gray"} },
 			{ "<leader>cs", group = "Code Simbols", mode = { "n", "v" } },
 			{ "<leader>d", group = "Debug", mode = { "n", "v" } },
-			{ "<leader>f", group = "File", mode = { "n", "v" } },
-			{ "<leader>g", group = "Goto", mode = { "n", "v" } },
-			{ "<leader>G", group = "Git", mode = { "n", "v" } },
-			{ "<leader>m", group = "Harpoon Marks", mode = { "n", "v" } },
-			{ "<leader>l", group = "Language", mode = { "n", "v" } },
-			{ "<leader>R", group = "Run", mode = { "n", "v" } },
-			{ "<leader>r", group = "Refactor", mode = { "n", "v" } },
-			{ "<leader>f", group = "Telescope Find", mode = { "n", "v" } },
+			{ "<leader>g", group = "Goto", mode = { "n", "v" }, icon = { icon = "󰈙 ", color = "white" } },
+			{ "<leader>G", group = "Git", mode = { "n", "v" }, icon = { icon = "󰊢 ", color = "orange" } },
+			{ "<leader>b", group = "Harpoon Bookmarks", mode = { "n", "v" }, icon = { icon = "󰸕 ", color = "yellow" } },
+			{ "<leader>m", group = "Markdown", mode = { "n", "v" }, icon = { icon= " ", color = "white" }  },
+			{ "<leader>l", group = "LSP", mode = { "n", "v" }, icon = { icon = "󰰍 ", color = "white" } },
+			{ "<leader>R", group = "Run", mode = { "n", "v" }, icon = { icon = " ", color = "green" } },
+			{ "<leader>r", group = "Refactor", mode = { "n", "v" }, icon = { icon = " ", color = "gray" } },
+			{ "<leader>f", group = "Telescope Find", mode = { "n", "v" }, icon = { icon = "󰈞 ", color = "cyan" } },
 			{ "<leader>t", group = "Tab", mode = { "n", "v" } },
 			{ "<leader>w", group = "Window", mode = { "n", "v" } },
 		})
