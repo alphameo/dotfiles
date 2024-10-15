@@ -42,8 +42,8 @@ return {
     },
     config = function()
       local lspconfig = require "lspconfig"
-      -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local capabilities = require("plugins.main.lspconfig").capabilities
+      -- local capabilities = require("cmp_nvim_lsp").default_capabilities() -- default if smth went wrong
+      -- local capabilities = require("plugins.main.lspconfig").capabilities
       local on_attach = require("plugins.main.lspconfig").on_attach
 
       local simple_servers =

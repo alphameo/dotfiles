@@ -52,10 +52,10 @@ map("n", "<leader>we", "<C-w>=", { desc = "Make Windows Equal" }) -- make split 
 map("n", "<leader>wq", ":close<CR>", { desc = "Window Quit" }) -- close current split window
 
 -- Navigate between splits
-map("n", "<C-k>", ":wincmd k<CR>", { desc = "Go to upper window" })
-map("n", "<C-j>", ":wincmd j<CR>", { desc = "Go to lower window" })
-map("n", "<C-h>", ":wincmd h<CR>", { desc = "Go to left window" })
-map("n", "<C-l>", ":wincmd l<CR>", { desc = "Go to right window" })
+map("n", "<A-k>", ":wincmd k<CR>", { desc = "Go to upper window" })
+map("n", "<A-j>", ":wincmd j<CR>", { desc = "Go to lower window" })
+map("n", "<A-h>", ":wincmd h<CR>", { desc = "Go to left window" })
+map("n", "<A-l>", ":wincmd l<CR>", { desc = "Go to right window" })
 
 -- Stay in indent mode
 map("v", "<", "<gv", { desc = "Indent left" })
@@ -77,3 +77,5 @@ map("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
 map("i", "<C-/>", "<ESC>:Commentary<CR>", { desc = "Toggle comment" })
 map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
 map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
+
+map("i", "C-h", "<del>", { desc = "Delete char" })
