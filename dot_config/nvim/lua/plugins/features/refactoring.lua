@@ -40,7 +40,7 @@ return {
 
     vim.keymap.set("n", "<leader>dC", function()
       require("refactoring").debug.cleanup {}
-    end, { desc = "Debug: Printf Claer" })
+    end, { desc = "Debug: Printf Clear" })
 
     require("refactoring").setup {
       prompt_func_return_type = {
