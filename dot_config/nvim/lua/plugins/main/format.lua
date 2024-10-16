@@ -32,9 +32,13 @@ return {
 
 		local sources = {
 			formatting.stylua,
-			-- formatting.google_java_format,
+			formatting.google_java_format,
 			diagnostics.checkstyle.with({
-				extra_args = { "-c", "/google_checks.xml" },
+				extra_args = {
+					"-c",
+					"/google_checks.xml",
+					-- "/sun_checks.xml"
+				},
 			}),
 			formatting.prettierd.with({
 				filetypes = {

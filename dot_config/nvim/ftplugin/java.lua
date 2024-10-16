@@ -67,18 +67,18 @@ local config = {
           },
         },
       },
-      format = {
-        enabled = true,
-        -- Formatting works by default, but you can refer to a specific file/URL if you choose
-        settings = {
-          -- url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
-          -- path = "$HOME/.config/nvim//utility/styles/intellij-java-google-style.xml",
-          -- url = "https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml",
-          path = "$HOME/.config/nvim/utility/styles/eclipse-java-google-style.xml",
-
-          profile = "GoogleStyle",
-        },
-      },
+      -- format = {
+      --   enabled = true,
+      --   -- Formatting works by default, but you can refer to a specific file/URL if you choose
+      --   settings = {
+      --     -- url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
+      --     -- path = "$HOME/.config/nvim//utility/styles/intellij-java-google-style.xml",
+      --     -- url = "https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml",
+      --     path = "$HOME/.config/nvim/utility/styles/eclipse-java-google-style.xml",
+      --
+      --     profile = "GoogleStyle",
+      --   },
+      -- },
       eclipse = {
         downloadSources = true,
       },
