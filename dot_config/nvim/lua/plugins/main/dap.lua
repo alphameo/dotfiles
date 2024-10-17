@@ -52,7 +52,6 @@ return {
 			},
 		})
 
-		-- Basic debugging keymaps, feel free to change to your liking!
 		vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug Continue" })
 		vim.keymap.set("n", "<leader>ds", dap.continue, { desc = "Debug Start" })
 		vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debug Step Over" })
@@ -65,7 +64,6 @@ return {
 		vim.keymap.set("n", "<leader>dB", function()
 			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end, { desc = "Debug Set Conditional Breakpoint" })
-		-- vim.keymap.set("n", "<leader>dq", dapui.close, { desc = "Debug UI Quit" })
 		vim.keymap.set("n", "<F29>", dapui.toggle, { desc = "Debug Toggle UI" })
 		vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Debug UI" })
 		vim.keymap.set("n", "<Leader>dl", function()
