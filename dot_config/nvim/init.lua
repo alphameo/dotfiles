@@ -29,7 +29,7 @@ require("lazy").setup {
   require "plugins.main.completion",
   require "plugins.main.code-runner",
   require "plugins.features.autopairs",
-  require "plugins.features.tab-detection",
+  -- require "plugins.features.tab-detection",
   require "plugins.features.surround",
   require "plugins.features.which-key",
   require "plugins.features.git",
