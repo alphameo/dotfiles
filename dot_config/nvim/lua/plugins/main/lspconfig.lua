@@ -25,7 +25,7 @@ M.on_attach = function(_, bufnr)
 
 	map("n", "<leader>k", vim.lsp.buf.hover, { desc = "Show Doc Hover" })
 	map({ "n", "i", "v" }, "<C-k>", vim.lsp.buf.hover, { desc = "Show Doc Hover" })
-	-- map("n", "<leader>K", vim.lsp.buf.signature_help, { desc = "Show Signature Help" })
+	map("n", "<leader>K", vim.lsp.buf.signature_help, { desc = "Show Signature Help" })
 
 	map("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
 	map("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
