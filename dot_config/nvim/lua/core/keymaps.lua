@@ -15,7 +15,7 @@ map("n", "<leader>S", "<cmd> w <CR>", { desc = "Save All Files" })
 -- quit file
 map({ "n", "i", "v" }, "<C-q>", "<cmd> q <CR>", { desc = "Quit" })
 map("n", "<leader>q", "<cmd> q <CR>", { desc = "Quit" })
-map({ "n", "i", "v" }, "<C-Q>", "<cmd> q! <CR>", { desc = "Force Quit" })
+map({ "n", "i", "v" }, "<C-S-q>", "<cmd> q! <CR>", { desc = "Force Quit" })
 map("n", "<leader>Q", "<cmd> q! <CR>", { desc = "Force quit" })
 
 -- delete single character without copying into register
