@@ -17,8 +17,8 @@ return {
 				"stylua", -- lua formatter
 				"shfmt", -- Shell formatter
 				"checkmake", -- linter for Makefiles
-				"google-java-format", -- java formatter
-				"checkstyle", -- java linter
+				-- "google-java-format", -- java formatter
+				-- "checkstyle", -- java linter
 				"cmakelang",
 				"clang-format",
 				"cpplint",
@@ -32,14 +32,14 @@ return {
 
 		local sources = {
 			formatting.stylua,
-			formatting.google_java_format,
-			diagnostics.checkstyle.with({
-				extra_args = {
-					"-c",
-					"/google_checks.xml",
-					-- "/sun_checks.xml"
-				},
-			}),
+			-- formatting.google_java_format,
+			-- diagnostics.checkstyle.with({
+			-- 	extra_args = {
+			-- 		"-c",
+			-- 		"/google_checks.xml",
+			-- 		-- "/sun_checks.xml"
+			-- 	},
+			-- }),
 			formatting.prettierd.with({
 				filetypes = {
 					"css",

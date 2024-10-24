@@ -67,18 +67,17 @@ local config = {
           },
         },
       },
-      -- format = {
-      --   enabled = true,
-      --   -- Formatting works by default, but you can refer to a specific file/URL if you choose
-      --   settings = {
-      --     -- url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
-      --     -- path = "$HOME/.config/nvim//utility/styles/intellij-java-google-style.xml",
-      --     -- url = "https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml",
-      --     path = "$HOME/.config/nvim/utility/styles/eclipse-java-google-style.xml",
-      --
-      --     profile = "GoogleStyle",
-      --   },
-      -- },
+      format = {
+        enabled = true,
+        -- Formatting works by default, but you can refer to a specific file/URL if you choose
+        settings = {
+          -- url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
+          -- path = "$HOME/.config/nvim//utility/styles/intellij-java-google-style.xml",
+          -- url = "https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml",
+          path = "$HOME/.config/nvim/utility/styles/eclipse-java-google-style.xml",
+          profile = "GoogleStyle",
+        },
+      },
       eclipse = {
         downloadSources = true,
       },
@@ -212,13 +211,13 @@ vim.keymap.set(
   { desc = "Java Extract Constant" }
 )
 
+vim.keymap.set("n", "<leader>lt", "<Cmd> lua require('jdtls').test_nearest_method()<CR>", { desc = "Java Test Method" })
 vim.keymap.set(
-  "n",
-  "<leader>lt",
-  "<Cmd> lua require('jdtls').test_nearest_method()<CR>",
+  "v",
+  "<leader>ltm",
+  "<Esc><Cmd> lua require('jdtls').test_nearest_method(true)<CR>",
   { desc = "Java Test Method" }
 )
-vim.keymap.set("v", "<leader>ltm", "<Esc><Cmd> lua require('jdtls').test_nearest_method(true)<CR>", { desc = "Java Test Method" })
 
 vim.keymap.set("n", "<leader>lT", "<Cmd> lua require('jdtls').test_class()<CR>", { desc = "Java Test Class" })
 

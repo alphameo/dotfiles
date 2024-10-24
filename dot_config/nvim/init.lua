@@ -37,6 +37,7 @@ require("lazy").setup {
   require "plugins.features.trouble",
   require "plugins.features.treeSJ",
   require "plugins.features.markdown",
+  require "plugins.features.vimtex",
   require "plugins.navigation.telescope",
   require "plugins.navigation.harpoon",
   require "plugins.navigation.neo-tree",

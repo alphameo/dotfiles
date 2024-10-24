@@ -73,13 +73,13 @@ return {
       dap.terminate()
     end, { desc = "Debug Terminate" })
 
-    vim.keymap.set("n", "<leader>dC", function()
-      dap.run_to_cursor()
-    end, { desc = "Debug Run to Cursor" })
+    -- vim.keymap.set("n", "<leader>dC", function()
+    --   dap.run_to_cursor()
+    -- end, { desc = "Debug Run to Cursor" })
 
-    vim.keymap.set("n", "<leader>dg", function()
-      dap.goto_()
-    end, { desc = "Debug Go to Line (No Execute)" })
+    -- vim.keymap.set("n", "<leader>dg", function()
+    --   dap.goto_()
+    -- end, { desc = "Debug Go to Line (No Execute)" })
 
     vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debug Step Over" })
     vim.keymap.set("n", "<leader>dO", dap.step_over, { desc = "Debug Step Over" })
@@ -103,34 +103,18 @@ return {
       require("dap").run_last()
     end, { desc = "Debug Run Last" })
 
-    vim.keymap.set("n", "<leader>dr", function()
-      dap.repl.toggle()
-    end, { desc = "Debug Toggle REPL" })
+    -- vim.keymap.set("n", "<leader>dr", function()
+    --   dap.repl.toggle()
+    -- end, { desc = "Debug Toggle REPL" })
 
-    vim.keymap.set("n", "<leader>ds", function()
-      dap.session()
-    end, { desc = "Debug Session" })
-
-    vim.keymap.set("n", "<leader>dw", function()
-      require("dap.ui.widgets").hover()
-    end, { desc = "Widgets" })
-
-    vim.keymap.set("n", "<F29>", dapui.toggle, { desc = "Debug Toggle UI" })
-    vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Debug UI" })
-
-    vim.keymap.set("n", "<leader>de", function()
-      dapui.eval()
-    end, { desc = "Debug Eval" })
-
-    -- vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
+    -- vim.keymap.set("n", "<leader>ds", function()
+    --   dap.session()
+    -- end, { desc = "Debug Session" })
+    --
+    -- vim.keymap.set("n", "<leader>dw", function()
     --   require("dap.ui.widgets").hover()
-    -- end, { desc = "Debug Open Hover" })
-    -- vim.keymap.set({ "n", "v" }, "<Leader>dv", function()
-    --   require("dap.ui.widgets").preview()
-    -- end, { desc = "Debug Open Preview" })
-    -- vim.keymap.set("n", "<Leader>df", function()
-    --   local widgets = require "dap.ui.widgets"
-    --   widgets.centered_float(widgets.frames)
+    -- end, { desc = "Widgets" })
+
     -- end, { desc = "Debug Frames" })
     -- vim.keymap.set("n", "<Leader>dr", function()
     -- 	require("dap").repl.open()
