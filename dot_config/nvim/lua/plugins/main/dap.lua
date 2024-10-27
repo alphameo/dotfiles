@@ -63,6 +63,9 @@ return {
       dap.set_breakpoint(vim.fn.input "Breakpoint condition: ")
     end, { desc = "Debug Set Conditional Breakpoint" })
 
+    vim.keymap.set("n", "<F29>", dapui.toggle, { desc = "Debug Toggle UI" })
+    vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Debug UI" })
+
     vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug Continue" })
     vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Debug Continue" })
     vim.keymap.set("n", "<leader>da", function()
