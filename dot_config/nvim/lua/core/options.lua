@@ -12,10 +12,10 @@ vim.o.autoindent = true -- Copy indent from current line when starting new one (
 vim.o.breakindent = true -- Enable break indent (default: false)
 vim.o.smartindent = true -- Make indenting smarter again (default: false)
 
-vim.o.tabstop = 2 -- Insert n spaces for a tab (default: 8)
-vim.o.shiftwidth = 2 -- The number of spaces inserted for each indentation (default: 8)
+vim.o.tabstop = 4 -- Insert n spaces for a tab (default: 8)
+vim.o.shiftwidth = 4 -- The number of spaces inserted for each indentation (default: 8)
 vim.o.expandtab = true -- Convert tabs to spaces (default: false)
-vim.o.softtabstop = 2 -- Number of spaces that a tab counts for while performing editing operations (default: 0)
+vim.o.softtabstop = 4 -- Number of spaces that a tab counts for while performing editing operations (default: 0)
 
 vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search (default: false)
 vim.o.smartcase = true -- Smart case (default: false)
@@ -59,7 +59,7 @@ vim.o.writebackup = false -- If a file is being edited by another program (or wa
 vim.o.undofile = true -- Save undo history (default: false)
 
 vim.o.completeopt = "menuone,noselect" -- Set completeopt to have a better completion experience (default: 'menu,preview')
-vim.opt.shortmess:append "c" -- Don't give |ins-completion-menu| messages (default: does not include 'c')
-vim.opt.iskeyword:append "-" -- Hyphenated words recognized by searches (default: does not include '-')
-vim.opt.formatoptions:remove { "c", "r", "o" } -- Don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode. (default: 'croql')
-vim.opt.runtimepath:remove "/usr/share/vim/vimfiles" -- Separate Vim plugins from Neovim in case Vim still in use (default: includes this path if Vim is installed)
+vim.opt.shortmess:append("c") -- Don't give |ins-completion-menu| messages (default: does not include 'c')
+vim.opt.iskeyword:append("-") -- Hyphenated words recognized by searches (default: does not include '-')
+vim.opt.formatoptions:remove({ "c", "r", "o" }) -- Don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode. (default: 'croql')
+vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- Separate Vim plugins from Neovim in case Vim still in use (default: includes this path if Vim is installed)
