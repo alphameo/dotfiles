@@ -1,4 +1,4 @@
-# Java
+# JAVA
 
 # Compiled class file
 *.class
@@ -26,7 +26,7 @@ hs_err_pid*
 replay_pid*
 
 
-# Gradle
+# GRADLE
 
 .gradle
 **/build/
@@ -51,7 +51,7 @@ gradle-app.setting
 .classpath
 
 
-# Visual Studio Code
+# VISUAL STUDIO CODE
 
 .vscode/*
 !.vscode/settings.json
@@ -67,7 +67,7 @@ gradle-app.setting
 *.vsix
 
 
-# JetBrains
+# JETBRAINS
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
@@ -148,7 +148,7 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 
-# Eclipse
+# ECLIPSE
 
 .metadata
 bin/
