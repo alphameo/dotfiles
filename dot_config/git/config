@@ -5,6 +5,7 @@
 	defaultBranch = main
 [core]
 	editor = nvim
+    pager = delta
 	autocrlf = input
 [commit]
 	verbose = true
