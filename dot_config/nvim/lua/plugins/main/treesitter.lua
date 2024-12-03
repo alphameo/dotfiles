@@ -7,6 +7,7 @@ return {
   opts = {
     ensure_installed = {
       "java",
+      "kotlin",
       "python",
       "c",
       "cpp",

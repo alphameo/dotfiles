@@ -12,6 +12,7 @@ return {
         ensure_installed = {
           "lua_ls",
           "jdtls",
+          "kotlin_language_server",
           "html",
           "cssls",
           "cssmodules_ls",
@@ -47,8 +48,19 @@ return {
       -- local capabilities = require("plugins.main.lspconfig").capabilities
       local on_attach = require("plugins.main.lspconfig").on_attach
 
-      local simple_servers =
-        { "html", "cssls", "css_variables", "cssmodules_ls", "tailwindcss", "clangd", "lemminx", "taplo", "marksman", "texlab", }
+      local simple_servers = {
+        "kotlin_language_server",
+        "html",
+        "cssls",
+        "css_variables",
+        "cssmodules_ls",
+        "tailwindcss",
+        "clangd",
+        "lemminx",
+        "taplo",
+        "marksman",
+        "texlab",
+      }
 
       -- lsps with default config
       for _, lsp in ipairs(simple_servers) do
@@ -113,7 +125,7 @@ return {
         flags = { debounce_text_changes = 300 },
         settings = {
           ltex = {
-            language = "ru-RU"
+            language = "ru-RU",
             -- language = "de-DE",
           },
         },
