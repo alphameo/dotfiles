@@ -49,7 +49,7 @@ return {
       local on_attach = require("plugins.main.lspconfig").on_attach
 
       local simple_servers = {
-        "kotlin_language_server",
+        -- "kotlin_language_server",
         "html",
         "cssls",
         "css_variables",
