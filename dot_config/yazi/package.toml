@@ -1,5 +1,10 @@
 [plugin]
-deps = [{ use = "yazi-rs/plugins:git", rev = "49137fe" }, { use = "yazi-rs/plugins:full-border", rev = "49137fe" }, { use = "yazi-rs/plugins:chmod", rev = "49137fe" }]
+deps = [
+    { use = "yazi-rs/plugins:git", rev = "49137fe" },
+    { use = "yazi-rs/plugins:full-border", rev = "49137fe" },
+    { use = "yazi-rs/plugins:chmod", rev = "49137fe" },
+    { use = "yazi-rs/plugins:diff", rev = "932b931" },
+]
 
 [flavor]
-deps = []
+deps = [{ use = "yazi-rs/flavors:onedark", rev = "d479f67" }]
