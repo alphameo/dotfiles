@@ -1,5 +1,5 @@
-require "core.options"
-require "core.keymaps"
+require "options"
+require "mappings"
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
@@ -15,29 +15,29 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup {
-  require "plugins.appearance.onedark-theme",
-  require "plugins.appearance.greetingscreen",
-  require "plugins.appearance.colorizer",
   require "plugins.appearance.bufferline",
-  require "plugins.appearance.lualine",
+  require "plugins.appearance.colorizer",
+  require "plugins.appearance.greetingscreen",
   require "plugins.appearance.indent-blankline",
+  require "plugins.appearance.lualine",
+  require "plugins.appearance.noice",
+  require "plugins.appearance.onedark-theme",
   require "plugins.appearance.todo-comments",
   require "plugins.main.treesitter",
   require "plugins.main.lsp",
-  require "plugins.main.format",
+  require "plugins.main.fmt",
   require "plugins.main.dap",
-  require "plugins.main.completion",
-  require "plugins.main.code-runner",
+  require "plugins.main.cmp",
   require "plugins.features.autopairs",
-  -- require "plugins.features.tab-detection",
   require "plugins.features.surround",
   require "plugins.features.which-key",
   require "plugins.features.git",
   require "plugins.features.refactoring",
   require "plugins.features.trouble",
   require "plugins.features.treeSJ",
-  require "plugins.features.markdown",
-  require "plugins.features.vimtex",
+  require "plugins.features.ts-comments",
+  require "plugins.lang.markdown",
+  require "plugins.lang.tex",
   require "plugins.navigation.telescope",
   require "plugins.navigation.harpoon",
   require "plugins.navigation.neo-tree",

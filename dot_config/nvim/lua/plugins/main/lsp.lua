@@ -24,7 +24,6 @@ return {
           "lemminx",
           "taplo",
           "marksman",
-          "ltex",
           "texlab",
         },
       }
@@ -59,7 +58,7 @@ return {
         "lemminx",
         "taplo",
         "marksman",
-        "texlab",
+        -- "texlab",
       }
 
       -- lsps with default config

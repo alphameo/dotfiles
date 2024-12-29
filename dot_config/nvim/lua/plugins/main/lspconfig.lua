@@ -27,11 +27,31 @@ M.on_attach = function(_, bufnr)
   map({ "n", "i", "v" }, "<C-k>", vim.lsp.buf.hover, { desc = "Show Doc Hover" })
   map("n", "<leader>K", vim.lsp.buf.signature_help, { desc = "Show Signature Help" })
 
-  map("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+  map("n", "<leader>gd", require("telescope.builtin").lsp_definitions, { desc = "Goto Definition" })
+  map("n", "gd", function()
+    require("telescope.builtin").lsp_definitions { reuse_win = true }
+  end, { desc = "Goto Definition" })
+
   map("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
-  map("n", "<leader>gi", require("telescope.builtin").lsp_implementations, { desc = "Goto Implementations" })
+  map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
+
+  map("n", "<leader>gI", require("telescope.builtin").lsp_implementations, { desc = "Goto Implementations" })
+  map("n", "gI", function()
+    require("telescope.builtin").lsp_implementations { reuse_win = true }
+  end, { desc = "Goto Implementations" })
+
   map("n", "<leader>gr", require("telescope.builtin").lsp_references, { desc = "Goto References" })
+  map("n", "gr", function()
+    require("telescope.builtin").lsp_references { reuse_win = true }
+  end, { desc = "Goto References" })
+
+  map("n", "<leader>gt", require("telescope.builtin").lsp_type_definitions, { desc = "Goto Type defenition" })
+  map("n", "gr", function()
+    require("telescope.builtin").lsp_type_definitions { reuse_win = true }
+  end, { desc = "Goto Type defenition" })
+
   map("n", "<leader>gb", "<C-o>", { desc = "Go Back" })
+  map("n", "gb", "<C-o>", { desc = "Go Back" })
 
   map("n", "<leader>csd", require("telescope.builtin").lsp_document_symbols, { desc = "Code Symbols Document" })
   map(

@@ -31,6 +31,12 @@ return {
       { "<leader>x", group = "Trouble", mode = { "n", "v" }, icon = { icon = " ", color = "yellow" } },
       { "<leader>k", desc = "Show Doc Hover", mode = { "n", "v" }, icon = { icon = "󱔗 ", color = "orange" } },
       { "<leader>K", desc = "Show Signature Help", mode = { "n", "v" }, icon = { icon = "󱔗 ", color = "orange" } },
+      { "<leader>n", desc = "Noice", mode = { "n", "v" }, icon = { icon = "󱅫 ", color = "yellow" } },
+      { "[", group = "prev" },
+      { "]", group = "next" },
+      { "g", group = "goto" },
+      { "gs", group = "surround" },
+      { "z", group = "fold" },
     }
   end,
 
