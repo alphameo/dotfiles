@@ -311,7 +311,7 @@ return {
       },
     }
 
-    vim.cmd [[nnoremap \ :Neotree reveal<cr>]]
+    -- vim.cmd [[nnoremap \ :Neotree reveal<cr>]]
 
     vim.keymap.set(
       "n",
