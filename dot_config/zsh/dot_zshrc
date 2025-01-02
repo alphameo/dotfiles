@@ -103,6 +103,9 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons=always --color=always $
 
 
 # OTHER
+# GPG
+export GPG_TTY=$(tty)
+
 # file matching
 setopt EXTENDED_GLOB
 setopt NOMATCH

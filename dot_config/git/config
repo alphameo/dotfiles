@@ -1,6 +1,7 @@
 [user]
-	name = IA1phaI
+	name = alphameo
 	email = pavel.2014.play@gmail.com
+    signingkey = 1775E37D0C34330F374F58DC262C9AB465D268D0 
 [init]
 	defaultBranch = main
 [core]
@@ -9,6 +10,7 @@
 	autocrlf = input
 [commit]
 	verbose = true
+    gpgsign = true
 [interactive]
 	diffFilter = delta --color-only
 [delta]
@@ -19,3 +21,5 @@
 	conflictstyle = zdiff3
 [diff]
 	colorMoved = default
+[alias]
+  hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an> %G?'%Creset --abbrev-commit --date=relative
