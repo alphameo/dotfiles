@@ -80,23 +80,8 @@ return {
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
 
         ["<Tab>"] = cmp.mapping.confirm { select = true },
-        -- ["<Tab>"] = cmp.mapping.select_next_item(),
-        -- ["<S-Tab>"] = cmp.mapping.select_prev_item(),
 
         ["<C-Space>"] = cmp.mapping.complete {},
-
-        -- move you to the right of each of the expansion locations.
-        ["<C-l>"] = cmp.mapping(function()
-          if luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
-          end
-        end, { "i", "s" }),
-        -- <c-h> is similar, except moving you backwards.
-        -- ["<C-h>"] = cmp.mapping(function()
-        --   if luasnip.locally_jumpable(-1) then
-        --     luasnip.jump(-1)
-        --   end
-        -- end, { "i", "s" }),
 
         ["<C-j>"] = cmp.mapping(function(fallback)
           if cmp.visible() then

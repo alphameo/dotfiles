@@ -5,13 +5,13 @@ return {
     "nvim-lua/plenary.nvim",
   },
   config = function()
-    vim.keymap.set("n", "<leader>bf", "<cmd>lua require('harpoon.mark').add_file()<cr>", { desc = "Harpoon Mark File" })
-
     vim.keymap.set(
       "n",
-      "<leader>bm",
-      "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
-      { desc = "Harpoon Toggle Menu" }
+      "<leader>bf",
+      "<cmd>lua require('harpoon.mark').add_file()<cr>",
+      { silent = true, desc = "Harpoon Mark File" }
     )
+
+    vim.keymap.set("n", "<leader>bm", require("harpoon.ui").toggle_quick_menu, { desc = "Harpoon Toggle Menu" })
   end,
 }

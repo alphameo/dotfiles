@@ -13,7 +13,7 @@ return {
     { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Trouble Buffer Diagnostics" },
     { "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Trouble Location List" },
     { "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Trouble Quickfix" },
-    { "<leader>cst", "<cmd>Trouble symbols toggle<cr>", desc = "Code Symbols" },
+    { "<leader>cst", "<cmd>Trouble symbols toggle<cr>", desc = "Code Symbols Tree" },
     { "<leader>cl", "<cmd>Trouble lsp toggle<cr>", desc = "Code List Definitions / References / ... " },
   },
 }

@@ -23,9 +23,8 @@ M.capabilities.textDocument.completion.completionItem = {
 M.on_attach = function(_, bufnr)
   local map = vim.keymap.set
 
-  map("n", "<leader>k", vim.lsp.buf.hover, { desc = "Show Doc Hover" })
   map({ "n", "i", "v" }, "<C-k>", vim.lsp.buf.hover, { desc = "Show Doc Hover" })
-  map("n", "<leader>K", vim.lsp.buf.signature_help, { desc = "Show Signature Help" })
+  map({ "n", "i", "v" }, "<C-S-k>", vim.lsp.buf.signature_help, { desc = "Show Signature Help" })
 
   map("n", "<leader>gd", require("telescope.builtin").lsp_definitions, { desc = "Goto Definition" })
   map("n", "gd", function()
@@ -46,7 +45,7 @@ M.on_attach = function(_, bufnr)
   end, { desc = "Goto References" })
 
   map("n", "<leader>gt", require("telescope.builtin").lsp_type_definitions, { desc = "Goto Type defenition" })
-  map("n", "gr", function()
+  map("n", "gt", function()
     require("telescope.builtin").lsp_type_definitions { reuse_win = true }
   end, { desc = "Goto Type defenition" })
 

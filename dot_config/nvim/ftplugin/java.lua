@@ -178,50 +178,18 @@ vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
 -- Allow yourself/register to run JdtShell as a Vim command
 vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
 
-vim.keymap.set(
-  "n",
-  "<leader>li",
-  "<Cmd> lua require('jdtls').organize_imports()<CR>",
-  { desc = "Java Organize Imports" }
-)
+vim.keymap.set("n", "<leader>li", require("jdtls").organize_imports, { desc = "Java Organize Imports" })
 
-vim.keymap.set(
-  "n",
-  "<leader>lv",
-  "<Cmd> lua require('jdtls').extract_variable()<CR>",
-  { desc = "Java Extract Variable" }
-)
-vim.keymap.set(
-  "v",
-  "<leader>lv",
-  "<Esc><Cmd> lua require('jdtls').extract_variable(true)<CR>",
-  { desc = "Java Extract Variable" }
-)
+vim.keymap.set("n", "<leader>lv", require("jdtls").extract_variable, { desc = "Java Extract Variable" })
 
-vim.keymap.set(
-  "n",
-  "<leader>lc",
-  "<Cmd> lua require('jdtls').extract_constant()<CR>",
-  { desc = "Java Extract Constant" }
-)
-vim.keymap.set(
-  "v",
-  "<leader>lc",
-  "<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
-  { desc = "Java Extract Constant" }
-)
+vim.keymap.set("n", "<leader>lc", require("jdtls").extract_constant, { desc = "Java Extract Constant" })
 
-vim.keymap.set("n", "<leader>lt", "<Cmd> lua require('jdtls').test_nearest_method()<CR>", { desc = "Java Test Method" })
-vim.keymap.set(
-  "v",
-  "<leader>ltm",
-  "<Esc><Cmd> lua require('jdtls').test_nearest_method(true)<CR>",
-  { desc = "Java Test Method" }
-)
+vim.keymap.set("n", "<leader>lt", require("jdtls").test_nearest_method, { desc = "Java Test Method" })
 
-vim.keymap.set("n", "<leader>lT", "<Cmd> lua require('jdtls').test_class()<CR>", { desc = "Java Test Class" })
+vim.keymap.set("n", "<leader>lT", require("jdtls").test_class, { desc = "Java Test Class" })
 
-vim.keymap.set("n", "<leader>lu", "<Cmd> JdtUpdateConfig<CR>", { desc = "Java Update Config" })
+vim.keymap.set("n", "<leader>lu", "<Cmd> JdtUpdateConfig<CR>", { silent = true, desc = "Java Update Config" })
+vim.keymap.set("n", "<leader>lr", "<Cmd> JdtRestart<CR>", { silent = true, desc = "Java Restart JDTLS" })
 
 -- This starts a new client & server, or attaches to an existing client & server based on the `root_dir`.
 jdtls.start_or_attach(config)

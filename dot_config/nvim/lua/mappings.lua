@@ -7,19 +7,17 @@ local map = vim.keymap.set
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
 
 -- save file
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <CR>", { desc = "Save File" })
-map("n", "<leader>s", "<cmd> w <CR>", { desc = "Save File" })
-map({ "n", "i", "v" }, "<C-S-s>", "<cmd> wall <CR>", { desc = "Save All Files" })
-map("n", "<leader>S", "<cmd> wall <CR>", { desc = "Save All Files" })
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <CR>", { silent = true, desc = "Save File" })
+map({ "n", "i", "v" }, "<C-S-s>", "<cmd> wall <CR>", { silent = true, desc = "Save All Files" })
 
 -- quit file
-map("n", "<C-q>", "<cmd> q <CR>", { desc = "Quit" })
-map("n", "<C-S-q>", "<cmd> qall <CR>", { desc = "Quit All" })
-map("n", "<leader>q", "<cmd> q! <CR>", { desc = "Force Quit" })
-map("n", "<leader>Q", "<cmd> qall! <CR>", { desc = "Force quit All" })
+map("n", "<C-q>", "<cmd> q <CR>", { silent = true, desc = "Quit" })
+map("n", "<C-S-q>", "<cmd> q! <CR>", { silent = true, desc = "Force Quit" })
+map("n", "<C-A-q", "<cmd> qall <CR>", { silent = true, desc = "Quit All" })
+map("n", "<C-A-S-q>", "<cmd> qall! <CR>", { silent = true, desc = "Force quit All" })
 
 -- Appearance
-map("n", "<leader>aw", "<cmd> set wrap! <CR>", { desc = "Toggle Line Wrap" })
+map("n", "<leader>aw", "<cmd> set wrap! <CR>", { silent = true, desc = "Toggle Line Wrap" })
 
 -- Tabs
 -- map('n', '<leader>to', ':tabnew<CR>', { desc = "[T]ab [O]pen" }) -- open new tab
@@ -28,12 +26,14 @@ map("n", "<leader>aw", "<cmd> set wrap! <CR>", { desc = "Toggle Line Wrap" })
 -- map('n', '<leader>tp', ':tabp<CR>', { desc = "[T]ab [P]revious}" }) --  go to previous tab
 
 -- Buffers
-map("n", "<leader>tn", "<cmd> enew <CR>", { silent = true, desc = "Tab New" }) -- new buffer
-map("n", "<leader>tq", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
+map("n", "<A-t>", "<cmd> enew <CR>", { silent = true, desc = "Tab New" }) -- new buffer
+map("n", "<A-q>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
 
 -- Buffers navigation
 map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next tab (buffer)" })
+map("n", "<A-]>", ":bnext<CR>", { silent = true, desc = "Next tab (buffer)" })
 map("n", "<C-S-Tab>", ":bprevious<CR>", { silent = true, desc = "Previous tab (buffer)" })
+map("n", "<A-[>", ":bprevious<CR>", { silent = true, desc = "Previous tab (buffer)" })
 
 -- Windows navigation
 map("n", "<A-k>", ":wincmd k<CR>", { silent = true, desc = "Go to upper window" })
@@ -53,7 +53,7 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" }) -- center after scroll up
 map("n", "n", "nzzzv", { desc = "Next occurance" }) -- center after find
 map("n", "N", "Nzzzv", { desc = "Previous occurance" }) -- center after find
 
-map("v", "p", '"_dP', { desc = "Paste" }) -- keep last yanked when pasting
+-- map("v", "p", '"_dP', { desc = "Paste" }) -- keep last yanked when pasting (doesn't work with cmp snippets)
 
 map("i", "jk", "<ESC>", { desc = "Exit INSERT MODE" }) -- exit insert mode
 map("i", "kj", "<ESC>", { desc = "Exit INSERT MODE" }) -- exit insert mode
