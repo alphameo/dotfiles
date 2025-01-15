@@ -30,16 +30,17 @@ return {
     end,
   },
   {
-    "mfussenegger/nvim-jdtls",
-    ft = "java", -- Enable only on .java file extensions
-    dependencies = {
-      "mfussenegger/nvim-dap",
-    },
-  },
-  {
     "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = { enabled = true },
+      servers = {
+        jdtls = {},
+      },
+      setup = {
+        jdtls = function()
+          return true
+        end,
+      },
     },
     config = function()
       local lspconfig = require "lspconfig"
