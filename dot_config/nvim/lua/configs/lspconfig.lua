@@ -67,9 +67,9 @@ M.on_attach = function(_, bufnr)
 
   if vim.lsp.inlay_hint then
     vim.lsp.inlay_hint.enable(true, { 0 })
-    map("n", "<leader>ch", function()
+    map("n", "<leader>ah", function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { 0 })
-    end, { desc = "Code Toggle Inlay Hints" })
+    end, { desc = "Toggle Inlay Hints" })
   end
 end
 
