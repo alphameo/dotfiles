@@ -102,15 +102,15 @@ return {
       icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
       controls = {
         icons = {
-          disconnect = " ",
+          disconnect = "",
           pause = "",
           play = "",
-          run_last = " ",
-          step_back = " ",
-          step_into = " ",
-          step_out = " ",
-          step_over = " ",
-          terminate = " ",
+          run_last = "",
+          step_back = "",
+          step_into = "",
+          step_out = "",
+          step_over = "",
+          terminate = "",
         },
       },
     }
