@@ -40,6 +40,7 @@ require("lazy").setup {
   require "plugins.lang.java",
   require "plugins.lang.markdown",
   require "plugins.lang.tex",
+  require "plugins.lang.ccpp",
   require "plugins.navigation.telescope",
   require "plugins.navigation.harpoon",
   require "plugins.navigation.spectre",
