@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup {
-  require "plugins.features.langmapper",
   require "plugins.appearance.bufferline",
   require "plugins.appearance.colorizer",
   require "plugins.appearance.greetingscreen",
@@ -30,13 +29,15 @@ require("lazy").setup {
   require "configs.dap",
   require "configs.cmp",
   require "plugins.features.autopairs",
-  require "plugins.features.surround",
-  require "plugins.features.which-key",
   require "plugins.features.git",
+  require "plugins.features.langmapper",
   require "plugins.features.refactoring",
-  require "plugins.features.trouble",
+  require "plugins.features.surround",
   require "plugins.features.treeSJ",
+  require "plugins.features.trouble",
   require "plugins.features.ts-comments",
+  require "plugins.features.which-key",
+  require "plugins.lang.java",
   require "plugins.lang.markdown",
   require "plugins.lang.tex",
   require "plugins.navigation.telescope",
