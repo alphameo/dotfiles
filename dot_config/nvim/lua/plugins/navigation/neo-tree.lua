@@ -28,9 +28,9 @@ return {
   },
   config = function()
     -- If you want icons for diagnostic errors, you'll need to define them somewhere:
-    vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-    vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-    vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+    vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+    vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+    vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
     vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
     require("neo-tree").setup {
@@ -76,11 +76,11 @@ return {
           end,
           -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
           -- then these will never be used.
-          default = "*",
+          default = "",
           highlight = "NeoTreeFileIcon",
         },
         modified = {
-          symbol = "[+]",
+          symbol = "",
           highlight = "NeoTreeModified",
         },
         name = {
@@ -91,10 +91,10 @@ return {
         git_status = {
           symbols = {
             -- Change type
-            added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-            modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-            deleted = "✖", -- this can only be used in the git_status source
-            renamed = "󰁕", -- this can only be used in the git_status source
+            added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+            modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+            deleted = "", -- this can only be used in the git_status source
+            renamed = "", -- this can only be used in the git_status source
             -- Status type
             untracked = "",
             ignored = "",
@@ -313,29 +313,30 @@ return {
 
     -- vim.cmd [[nnoremap \ :Neotree reveal<cr>]]
 
-    vim.keymap.set(
-      "n",
-      "<leader>e",
-      ":Neotree toggle source=filesystem reveal=true position=left<CR>",
-      { noremap = true, silent = true, desc = "File Explorer" }
-    ) -- focus file explorer
-    vim.keymap.set(
-      "n",
-      "<C-S-e>",
-      ":Neotree toggle source=filesystem reveal=true position=left<CR>",
-      { noremap = true, silent = true, desc = "Toggle File Explorer" }
-    ) -- focus file explorer
-    vim.keymap.set(
-      "n",
-      "<leader>Gs",
-      ":Neotree float git_status<CR>",
-      { noremap = true, silent = true, desc = "Git Status window" }
-    ) -- open git status window
-    vim.keymap.set(
-      "n",
-      "<C-S-g>",
-      ":Neotree float git_status<CR>",
-      { noremap = true, silent = true, desc = "Open Git Status window" }
-    ) -- open git status window
+    vim.keymap.set("n", "<leader>e", function()
+      require("neo-tree.command").execute {
+        action = "focus",
+        source = "filesystem",
+        position = "left",
+        toggle = false,
+      }
+    end, { noremap = true, desc = "File Explorer" }) -- focus file explorer
+
+    vim.keymap.set("n", "<C-S-e>", function()
+      require("neo-tree.command").execute {
+        action = "focus",
+        source = "filesystem",
+        position = "left",
+        toggle = true,
+      }
+    end, { noremap = true, desc = "Toggle File Explorer" }) -- focus file explorer
+
+    vim.keymap.set("n", "<leader>Gs", function()
+      require("neo-tree.command").execute {
+        action = "focus",
+        source = "git_status",
+        position = "float",
+      }
+    end, { noremap = true, desc = "Git Status window" }) -- open git status window
   end,
 }
