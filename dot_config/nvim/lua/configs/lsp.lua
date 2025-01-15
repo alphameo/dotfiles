@@ -1,6 +1,5 @@
 return {
   {
-
     "williamboman/mason.nvim",
     cmd = "Mason",
     keys = { { "<leader>M", "<cmd>Mason<cr>", desc = "Mason" } },
@@ -42,8 +41,6 @@ return {
       require("mason-lspconfig").setup {
         ensure_installed = {
           "lua_ls",
-          "jdtls",
-          "clangd",
           "kotlin_language_server",
           "html",
           "cssls",
@@ -65,14 +62,6 @@ return {
     opts = {
       inlay_hints = { enabled = true },
       codelens = { enabled = true },
-      servers = {
-        jdtls = {},
-      },
-      setup = {
-        jdtls = function()
-          return true
-        end,
-      },
     },
     config = function()
       local lspconfig = require "lspconfig"

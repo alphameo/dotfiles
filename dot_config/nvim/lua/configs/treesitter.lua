@@ -14,11 +14,8 @@ return {
   ---@diagnostic disable-next-line: missing-fields
   opts = {
     ensure_installed = {
-      "java",
       "kotlin",
       "python",
-      "c",
-      "cpp",
       "make",
       "cmake",
       "html",

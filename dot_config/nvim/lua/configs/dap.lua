@@ -44,7 +44,6 @@ return {
     },
     "nvim-neotest/nvim-nio",
 
-    "williamboman/mason.nvim",
     {
       "jay-babu/mason-nvim-dap.nvim",
       dependencies = "mason.nvim",
@@ -62,14 +61,6 @@ return {
         -- online, please don't ask me how to install them :)
         ensure_installed = {
           -- Update this to ensure that you have the debuggers for the langs you want
-          "python",
-          "cppdbg",
-          "js",
-          "codelldb",
-          "bash",
-          "javadbg",
-          "javatest",
-          "kotlin",
         },
       },
       -- mason-nvim-dap is loaded when nvim-dap loads
@@ -121,15 +112,5 @@ return {
     -- vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "Debug Toggle REPL" })
     -- vim.keymap.set("n", "<leader>ds", dap.session, { desc = "Debug Session" })
     -- vim.keymap.set("n", "<leader>dw", require("dap.ui.widgets").hover, { desc = "Widgets" })
-
-    dap.configurations.java = {
-      {
-        type = "java",
-        request = "attach",
-        name = "Debug (Attach) - Remote",
-        hostName = "127.0.0.1",
-        port = 5005,
-      },
-    }
   end,
 }
