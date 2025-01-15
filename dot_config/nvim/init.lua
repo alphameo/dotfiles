@@ -41,5 +41,6 @@ require("lazy").setup {
   require "plugins.lang.tex",
   require "plugins.navigation.telescope",
   require "plugins.navigation.harpoon",
+  require "plugins.navigation.spectre",
   require "plugins.navigation.neo-tree",
 }
