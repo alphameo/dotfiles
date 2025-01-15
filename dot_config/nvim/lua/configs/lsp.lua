@@ -76,7 +76,6 @@ return {
         "css_variables",
         "cssmodules_ls",
         "tailwindcss",
-        "clangd",
         "lemminx",
         "taplo",
         "marksman",
