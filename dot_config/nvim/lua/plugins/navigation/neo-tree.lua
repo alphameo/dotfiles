@@ -318,6 +318,7 @@ return {
         action = "focus",
         source = "filesystem",
         position = "left",
+        reveal = true,
         toggle = false,
       }
     end, { noremap = true, desc = "File Explorer" }) -- focus file explorer
@@ -327,6 +328,7 @@ return {
         action = "focus",
         source = "filesystem",
         position = "left",
+        reveal = true,
         toggle = true,
       }
     end, { noremap = true, desc = "Toggle File Explorer" }) -- focus file explorer
