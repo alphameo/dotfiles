@@ -19,6 +19,7 @@ return {
     require("nvim-treesitter.configs").setup {
 
       ensure_installed = {
+        "lua",
         "java",
         "c",
         "cpp",
@@ -29,9 +30,10 @@ return {
         "html",
         "css",
         "javascript",
+        "typescript",
+        "tsx",
         "php",
         "sql",
-        "lua",
         "luadoc",
         "vim",
         "vimdoc",
@@ -47,6 +49,7 @@ return {
         "diff",
         "gitignore",
         "bibtex",
+        "dockerfile",
       },
 
       sync_install = false,
@@ -80,7 +83,15 @@ return {
 
         additional_vim_regex_highlighting = { "markdown", "ruby" },
       },
-
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<C-space>",
+          node_incremental = "<C-space>",
+          scope_incremental = false,
+          node_decremental = "<bs>",
+        },
+      },
       textobjects = {
         move = {
           enable = true,
