@@ -29,8 +29,6 @@ vim.opt.isfname:append "@-@"
 
 vim.o.updatetime = 50 -- Decrease update time (default: 4000)
 
-vim.opt.colorcolumn = "80"
-
 vim.o.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim. (default: '')
 vim.o.mouse = "a" -- Enable mouse mode (default: '')
 
