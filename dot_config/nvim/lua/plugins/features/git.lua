@@ -3,8 +3,8 @@ return {
     "f-person/git-blame.nvim",
     event = "VeryLazy",
     opts = {
-      enabled = true, -- disable by default, enabled only on keymap
-      date_format = "%m/%d/%y %H:%M:%S", -- more concise date format
+      enabled = true,
+      date_format = "%m/%d/%y %H:%M:%S",
     },
 
     vim.keymap.set(
@@ -15,10 +15,8 @@ return {
     ),
   },
   {
-    -- Git side status
     "lewis6991/gitsigns.nvim",
     opts = {
-      -- See `:help gitsigns.txt`
       signs = {
         add = { text = "▎" },
         change = { text = "▎" },
@@ -36,7 +34,6 @@ return {
     },
   },
   {
-    -- GitHub integration for vim-fugitive
     "tpope/vim-rhubarb",
   },
   {
@@ -59,12 +56,9 @@ return {
       "LazyGitFilter",
       "LazyGitFilterCurrentFile",
     },
-    -- optional for floating window border decoration
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    -- setting the keybinding for LazyGit with 'keys' is recommended in
-    -- order to load the plugin when the command is run for the first time
     keys = {
       { "<leader>GG", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     },
