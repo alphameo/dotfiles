@@ -2,11 +2,9 @@ return {
   {
     "mfussenegger/nvim-jdtls",
     ft = "java", -- Enable only on .java file extensions
-    dependencies = {
-      "mfussenegger/nvim-dap",
-    },
     config = function()
       require("lspconfig").jdtls.setup {}
+
       local dap = require "dap"
       dap.configurations.java = {
         {
