@@ -15,6 +15,8 @@ return {
           "lua_ls",
           "jdtls",
           "clangd",
+          "marksman",
+          "texlab",
           "kotlin_language_server",
           "html",
           "cssls",

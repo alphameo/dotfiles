@@ -3,6 +3,18 @@ return {
   -- version = false, -- last release is way too old and doesn't work on Windows
   build = ":TSUpdate",
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+  opts = function(_, opts)
+    opts.highlight = opts.highlight or {}
+    if type(opts.ensure_installed) == "table" then
+      vim.list_extend(opts.ensure_installed, { "bibtex" })
+    end
+    if type(opts.highlight.disable) == "table" then
+      vim.list_extend(opts.highlight.disable, { "latex" })
+    else
+      opts.highlight.disable = { "latex" }
+    end
+  end,
+
   config = function()
     require("nvim-treesitter.configs").setup {
 
