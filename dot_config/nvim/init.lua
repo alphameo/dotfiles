@@ -29,6 +29,7 @@ require("lazy").setup {
   require "configs.dap",
   require "configs.cmp",
   require "plugins.features.autopairs",
+  require "plugins.features.codesnap",
   require "plugins.features.git",
   require "plugins.features.langmapper",
   require "plugins.features.refactoring",
