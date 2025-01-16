@@ -51,8 +51,6 @@ return {
           "pyright",
           "lemminx",
           "taplo",
-          "marksman",
-          "texlab",
         },
       }
     end,
@@ -78,7 +76,6 @@ return {
         "tailwindcss",
         "lemminx",
         "taplo",
-        "marksman",
       }
 
       -- lsps with default config

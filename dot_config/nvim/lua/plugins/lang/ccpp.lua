@@ -41,14 +41,6 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      setup = {
-        clangd = function(_, opts)
-          require("clangd_extensions").setup(vim.tbl_deep_extend("force", {}, { server = opts }))
-          return false
-        end,
-      },
-    },
     config = function()
       require("lspconfig").clangd.setup {
         on_attach = require("configs.lspconfig").on_attach,
@@ -87,10 +79,10 @@ return {
       }
 
       vim.keymap.set(
-        { "n", "i", "v" },
+        { "n" },
         "<leader>lh",
         "<cmd>ClangdSwitchSourceHeader<cr>",
-        { desc = "Switch Source/Header (C/C++)" }
+        { silent = true, desc = "Switch Source/Header (C/C++)" }
       )
     end,
   },

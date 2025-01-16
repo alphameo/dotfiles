@@ -24,7 +24,6 @@ return {
         "ruff",
         "mypy",
         "black",
-        "markdownlint-cli2",
       },
       automatic_installation = true,
     }
@@ -42,7 +41,6 @@ return {
           "javascriptreact",
           "json",
           "less",
-          "markdown",
           "scss",
           "typescript",
           "typescriptreact",
@@ -60,7 +58,6 @@ return {
       require("none-ls.formatting.ruff").with { extra_args = { "--extend-select", "I" } },
       require "none-ls.formatting.ruff_format",
       formatting.black,
-      diagnostics.markdownlint_cli2,
     }
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

@@ -14,6 +14,10 @@ return {
     end,
   },
   {
+    "williamboman/mason.nvim",
+    opts = { ensure_installed = { "texlab" } },
+  },
+  {
     "lervag/vimtex",
     lazy = false, -- lazy-loading will disable inverse search
     config = function()
@@ -31,15 +35,18 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    optional = true,
-    opts = {
-      servers = {
-        texlab = {
-          keys = {
-            { "<Leader>K", "<plug>(vimtex-doc-package)", desc = "Vimtex Docs", silent = true },
-          },
-        },
-      },
-    },
+    -- optional = true,
+    config = function()
+      require("lspconfig").texlab.setup {
+        on_attach = require("configs.lspconfig").on_attach,
+        capabilities = require("configs.lspconfig").capabilities,
+      }
+      vim.keymap.set(
+        { "n" },
+        "<leader>K",
+        "<plug>(vimtex-doc-package)",
+        { silent = true, desc = "Switch Source/Header (C/C++)" }
+      )
+    end,
   },
 }

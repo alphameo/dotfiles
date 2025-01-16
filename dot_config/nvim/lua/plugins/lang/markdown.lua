@@ -1,30 +1,35 @@
 return {
   {
-    "iamcco/markdown-preview.nvim",
-    ft = { "markdown" },
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-      vim.g.mkdp_auto_start = 0
-      vim.g.mkdp_auto_close = 1
-      vim.g.mkdp_refresh_slow = 0
-      vim.g.mkdp_command_for_global = 0
-      vim.g.mkdp_open_to_the_world = 0
-      vim.g.mkdp_open_ip = ""
-      vim.g.mkdp_browser = ""
-      vim.g.mkdp_echo_preview_url = 0
-      vim.g.mkdp_browserfunc = ""
-      vim.g.mkdp_theme = "dark"
-      vim.g.mkdp_filetypes = { "markdown" }
-      vim.g.mkdp_page_title = "${name}.md"
-      vim.g.mkdp_preview_options = {
-        disable_sync_scroll = 0,
-        disable_filename = 1,
+    "williamboman/mason.nvim",
+    opts = { ensure_installed = { "marksman", "prettierd", "markdownlint-cli2", "markdown-toc" } },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("lspconfig").marksman.setup {
+        on_attach = require("configs.lspconfig").on_attach,
+        capabilities = require("configs.lspconfig").capabilities,
       }
     end,
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = function()
+      require("lazy").load { plugins = { "markdown-preview.nvim" } }
+      vim.fn["mkdp#util#install"]()
+    end,
+    keys = {
+      {
+        "<leader>cp",
+        ft = "markdown",
+        "<cmd>MarkdownPreviewToggle<cr>",
+        desc = "Markdown Preview",
+      },
+    },
     config = function()
-      vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Markdown Preview" })
+      vim.cmd [[do FileType]]
     end,
   },
   {
@@ -32,13 +37,37 @@ return {
     -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
-    ft = "markdown",
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {},
-    config = function()
-      local rndr = require "render-markdown"
-      vim.keymap.set("n", "<leader>mr", rndr.toggle, { desc = "Markdown Render" })
+    opts = {
+      code = {
+        sign = false,
+        width = "block",
+        right_pad = 1,
+      },
+      heading = {
+        sign = false,
+        icons = {},
+      },
+    },
+    ft = { "markdown", "norg", "rmd", "org" },
+    config = function(_, opts)
+      require("render-markdown").setup(opts)
+      vim.keymap.set("n", "<leader>cr", require("render-markdown").toggle, { desc = "Markdown Render" })
     end,
   },
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   config = function(_, opts)
+  --     local nls = require "null-ls"
+  --     nls.setup {
+  --       sources = vim.list_extend(opts.sources or {}, {
+  --         nls.builtins.formatting.prettierd.with {
+  --           filetypes = {
+  --             "markdown",
+  --           },
+  --         },
+  --         nls.builtins.diagnostics.markdownlint_cli2,
+  --       }),
+  --     }
+  --   end,
+  -- },
 }
