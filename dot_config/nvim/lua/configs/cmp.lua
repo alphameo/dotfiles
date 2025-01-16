@@ -15,9 +15,6 @@ return {
         return "make install_jsregexp"
       end)(),
       dependencies = {
-        -- `friendly-snippets` contains a variety of premade snippets.
-        --    See the README about individual language/framework/plugin snippets:
-        --    https://github.com/rafamadriz/friendly-snippets
         {
           "rafamadriz/friendly-snippets",
           config = function()
@@ -33,6 +30,7 @@ return {
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-cmdline",
   },
+
   config = function()
     local cmp = require "cmp"
     local luasnip = require "luasnip"
