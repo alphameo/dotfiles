@@ -7,6 +7,9 @@ return {
     require("nvim-treesitter.configs").setup {
 
       ensure_installed = {
+        "java",
+        "c",
+        "cpp",
         "kotlin",
         "python",
         "make",
