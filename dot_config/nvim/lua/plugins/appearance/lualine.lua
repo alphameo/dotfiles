@@ -33,16 +33,14 @@ return {
     local diff = {
       "diff",
       colored = false,
-      symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+      symbols = { added = " ", modified = " ", removed = " " },
       cond = hide_in_width,
     }
 
     require("lualine").setup {
       options = {
         icons_enabled = true,
-        theme = "onedark", -- Set theme based on environment variable
-        -- Some useful glyphs:
-        -- https://www.nerdfonts.com/cheat-sheet
+        theme = "onedark",
         --          
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },

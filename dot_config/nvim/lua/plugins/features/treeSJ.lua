@@ -1,10 +1,9 @@
 return {
   "Wansmer/treesj",
-  -- keys = { "<space>cm", "<space>cj", "<space>cS" },
-  dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you install parsers with `nvim-treesitter`
+  dependencies = { "nvim-treesitter/nvim-treesitter" },
   config = function()
     local tsj = require "treesj"
-    local langs = {--[[ configuration for languages ]]
+    local langs = {
     }
 
     tsj.setup {

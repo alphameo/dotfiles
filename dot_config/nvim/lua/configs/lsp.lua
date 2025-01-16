@@ -1,36 +1,4 @@
 return {
-  -- {
-  --   "williamboman/mason.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     require("mason").setup()
-  --     vim.keymap.set({ "n" }, "<leader>M", ":Mason<cr>", { silent = true, desc = "Mason" })
-  --   end,
-  -- },
-  -- {
-  --   "williamboman/mason-lspconfig.nvim",
-  --   config = function()
-  --     require("mason-lspconfig").setup {
-  --       ensure_installed = {
-  --         "lua_ls",
-  --         "jdtls",
-  --         "clangd",
-  --         "marksman",
-  --         "texlab",
-  --         "kotlin_language_server",
-  --         "html",
-  --         "cssls",
-  --         "cssmodules_ls",
-  --         "css_variables",
-  --         "tailwindcss",
-  --         "ts_ls",
-  --         "pyright",
-  --         "lemminx",
-  --         "taplo",
-  --       },
-  --     }
-  --   end,
-  -- },
   {
     "neovim/nvim-lspconfig",
     opts = {
