@@ -12,6 +12,6 @@ return {
       { silent = true, desc = "Harpoon Mark File" }
     )
 
-    vim.keymap.set("n", "<leader>bm", require("harpoon.ui").toggle_quick_menu, { desc = "Harpoon Toggle Menu" })
+    vim.keymap.set("n", "<leader>bm", require("harpoon.ui").toggle_quick_menu, { desc = "Harpoon Menu" })
   end,
 }
