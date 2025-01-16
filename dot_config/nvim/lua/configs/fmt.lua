@@ -19,8 +19,8 @@ return {
         "checkmake", -- linter for Makefiles
         "ktlint",
         "cmakelang",
-        -- "clang-format",
-        -- "cpplint",
+        "clang-format",
+        "cpplint",
         "ruff",
         "mypy",
         "black",
@@ -50,10 +50,10 @@ return {
       require "none-ls.diagnostics.eslint_d",
       diagnostics.checkmake,
       formatting.shfmt.with { args = { "-i", "4" } },
-      -- formatting.clang_format.with {
-      --   filetypes = { "c", "cpp" },
-      -- },
-      -- require "none-ls.diagnostics.cpplint",
+      formatting.clang_format.with {
+        filetypes = { "c", "cpp" },
+      },
+      require "none-ls.diagnostics.cpplint",
       diagnostics.mypy,
       require("none-ls.formatting.ruff").with { extra_args = { "--extend-select", "I" } },
       require "none-ls.formatting.ruff_format",

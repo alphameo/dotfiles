@@ -1,15 +1,5 @@
 return {
   {
-    -- Ensure C/C++ debugger is installed
-    "williamboman/mason.nvim",
-    optional = true,
-    opts = { ensure_installed = { "clangd" } },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "cpp" } },
-  },
-  {
     "p00f/clangd_extensions.nvim",
     lazy = true,
     config = function() end,
@@ -43,7 +33,7 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       require("lspconfig").clangd.setup {
-        on_attach = require("configs.lspconfig").on_attach,
+        -- on_attach = require("configs.lspconfig").on_attach,
         -- capabilities = require("configs.lspconfig").capabilities,
 
         root_dir = function(fname)
@@ -78,33 +68,6 @@ return {
         },
       }
 
-      vim.keymap.set(
-        { "n" },
-        "<leader>lh",
-        "<cmd>ClangdSwitchSourceHeader<cr>",
-        { silent = true, desc = "Switch Source/Header (C/C++)" }
-      )
-    end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    optional = true,
-    opts = function(_, opts)
-      opts.sorting = opts.sorting or {}
-      opts.sorting.comparators = opts.sorting.comparators or {}
-      table.insert(opts.sorting.comparators, 1, require "clangd_extensions.cmp_scores")
-    end,
-  },
-  {
-    "mfussenegger/nvim-dap",
-    optional = true,
-    dependencies = {
-      -- Ensure C/C++ debugger is installed
-      "williamboman/mason.nvim",
-      optional = true,
-      opts = { ensure_installed = { "codelldb" } },
-    },
-    opts = function()
       local dap = require "dap"
       if not dap.adapters["codelldb"] then
         require("dap").adapters["codelldb"] = {
@@ -140,6 +103,13 @@ return {
           },
         }
       end
+
+      vim.keymap.set(
+        { "n" },
+        "<leader>lh",
+        "<cmd>ClangdSwitchSourceHeader<cr>",
+        { silent = true, desc = "Switch Source/Header (C/C++)" }
+      )
     end,
   },
 }
