@@ -39,26 +39,6 @@ return {
       opts = {},
     },
     "nvim-neotest/nvim-nio",
-
-    {
-      "jay-babu/mason-nvim-dap.nvim",
-      dependencies = "mason.nvim",
-      cmd = { "DapInstall", "DapUninstall" },
-      config = function()
-        require("mason-nvim-dap").setup {
-          ensure_installed = {
-            "javadbg",
-            "javatest",
-            "cppdbg",
-            "codelldb",
-            "python",
-            "js",
-            "bash",
-            "kotlin",
-          },
-        }
-      end,
-    },
   },
 
   config = function()
