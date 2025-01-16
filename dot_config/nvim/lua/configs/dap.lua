@@ -47,13 +47,13 @@ return {
       config = function()
         require("mason-nvim-dap").setup {
           ensure_installed = {
-            "python",
-            "cppdbg",
-            "js",
-            "codelldb",
-            "bash",
             "javadbg",
             "javatest",
+            "cppdbg",
+            "codelldb",
+            "python",
+            "js",
+            "bash",
             "kotlin",
           },
         }
@@ -64,6 +64,42 @@ return {
   config = function()
     local dap = require "dap"
     local dapui = require "dapui"
+
+    dap.configurations.java = {
+      {
+        type = "java",
+        request = "attach",
+        name = "Debug (Attach) - Remote",
+        hostName = "127.0.0.1",
+        port = 5005,
+      },
+    }
+
+    dap.adapters.codelldb = {
+      type = "executable",
+      command = "codelldb",
+      -- detached = false, -- on windows you may have to uncomment this:
+    }
+    for _, lang in ipairs { "c", "cpp" } do
+      dap.configurations[lang] = {
+        {
+          type = "codelldb",
+          request = "launch",
+          name = "Launch file",
+          program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          end,
+          cwd = "${workspaceFolder}",
+        },
+        {
+          type = "codelldb",
+          request = "attach",
+          name = "Attach to process",
+          pid = require("dap.utils").pick_process,
+          cwd = "${workspaceFolder}",
+        },
+      }
+    end
 
     vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Debug () Toggle Breakpoint" })
     vim.keymap.set("n", "<leader>dB", function()
