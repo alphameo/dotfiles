@@ -11,10 +11,10 @@ map({ "n", "i", "v" }, "<C-s>", "<cmd> w <CR>", { silent = true, desc = "Save Fi
 map({ "n", "i", "v" }, "<C-S-s>", "<cmd> wall <CR>", { silent = true, desc = "Save All Files" })
 
 -- quit file
-map("n", "<C-q>", "<cmd> q <CR>", { silent = true, desc = "Quit" })
-map("n", "<C-S-q>", "<cmd> q! <CR>", { silent = true, desc = "Force Quit" })
-map("n", "<C-A-q>", "<cmd> qall <CR>", { silent = true, desc = "Quit All" })
-map("n", "<C-A-S-q>", "<cmd> qall! <CR>", { silent = true, desc = "Force quit All" })
+map("n", "<C-q>", ":q <CR>", { silent = true, desc = "Quit" })
+map("n", "<C-S-q>", ":q! <CR>", { silent = true, desc = "Force Quit" })
+map("n", "<C-A-q>", ":qall <CR>", { silent = true, desc = "Quit All" })
+map("n", "<C-A-S-q>", ":qall! <CR>", { silent = true, desc = "Force quit All" })
 
 -- Appearance
 map("n", "<leader>aw", "<cmd> set wrap! <CR>", { silent = true, desc = "Toggle Line Wrap" })
@@ -29,13 +29,16 @@ map("n", "<leader>aw", "<cmd> set wrap! <CR>", { silent = true, desc = "Toggle L
 map("n", "<A-t>", "<cmd> enew <CR>", { silent = true, desc = "Tab New" }) -- new buffer
 map("n", "<A-w>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
 
--- Buffers navigation
 map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next tab (buffer)" })
 map("n", "<A-]>", ":bnext<CR>", { silent = true, desc = "Next tab (buffer)" })
 map("n", "<C-S-Tab>", ":bprevious<CR>", { silent = true, desc = "Previous tab (buffer)" })
 map("n", "<A-[>", ":bprevious<CR>", { silent = true, desc = "Previous tab (buffer)" })
 
--- Windows navigation
+-- Windows
+map("n", "<A-s>", "<C-w>s", { desc = "Window Horizontal Split" })
+map("n", "<A-v>", "<C-w>v", { desc = "Window Vertical Split" })
+map("n", "<A-q>", "<C-w>q", { desc = "Window Quit" })
+
 map("n", "<A-k>", "<C-w>k", { desc = "Go to upper window" })
 map("n", "<A-j>", "<C-w>j", { desc = "Go to lower window" })
 map("n", "<A-h>", "<C-w>h", { desc = "Go to left window" })
@@ -45,9 +48,7 @@ map("n", "<A-=>", "<C-w>+", { desc = "Window Taller" })
 map("n", "<A-->", "<C-w>-", { desc = "Window Shorter" })
 map("n", "<A-,>", "<C-w>>", { desc = "Window Wider" })
 map("n", "<A-.>", "<C-w><", { desc = "Window Narower" })
-map("n", "<A-s>", "<C-w>s", { desc = "Window Horizontal Split" })
-map("n", "<A-v>", "<C-w>v", { desc = "Window Vertical Split" })
-map("n", "<A-q>", "<C-w>q", { desc = "Window Quit" })
+
 -- Features
 map("v", "<", "<gv", { desc = "Indent left" }) -- stay in visual mode after indent
 map("v", ">", ">gv", { desc = "Indent right" }) -- stay in visual mode after indent
