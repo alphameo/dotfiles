@@ -165,7 +165,6 @@ local config = {
   on_attach = function(client, bufnr)
     jdtls.setup_dap { hotcodereplace = "auto" }
     require("jdtls.dap").setup_dap_main_class_configs()
-    require("configs.lspconfig").on_attach()
   end,
 }
 

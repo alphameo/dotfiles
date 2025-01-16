@@ -1,31 +1,12 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "java" } },
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = { ensure_installed = { "jdtls" } },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("lspconfig").jdtls.setup {}
-    end,
-  },
-  {
     "mfussenegger/nvim-jdtls",
     ft = "java", -- Enable only on .java file extensions
     dependencies = {
       "mfussenegger/nvim-dap",
     },
-  },
-  {
-    "mfussenegger/nvim-dap",
-    optional = true,
-    opts = function()
-      -- Simple configuration to attach to remote java debug process
-      -- Taken directly from https://github.com/mfussenegger/nvim-dap/wiki/Java
+    config = function()
+      require("lspconfig").jdtls.setup {}
       local dap = require "dap"
       dap.configurations.java = {
         {
@@ -37,11 +18,5 @@ return {
         },
       }
     end,
-    dependencies = {
-      {
-        "williamboman/mason.nvim",
-        opts = { ensure_installed = { "java-debug-adapter", "java-test" } },
-      },
-    },
   },
 }
