@@ -10,9 +10,10 @@ return {
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
       svelte = { "eslint_d" },
-      python = { "pylint" },
+      python = { "mypy" },
       markdown = { "markdownlint-cli2" },
       cpp = { "cpplint" },
+      cmake = { "cmakelint" },
       kotlin = { "ktlint" },
     }
 
