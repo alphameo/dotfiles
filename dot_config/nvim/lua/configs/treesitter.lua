@@ -1,74 +1,80 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  version = false, -- last release is way too old and doesn't work on Windows
+  -- version = false, -- last release is way too old and doesn't work on Windows
   build = ":TSUpdate",
-  event = { "VeryLazy" },
-  main = "nvim-treesitter.configs", -- Sets main module to use for opts
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-  keys = {
-    { "<c-space>", desc = "Increment Selection" },
-    { "<bs>", desc = "Decrement Selection", mode = "x" },
-  },
-  opts_extend = { "ensure_installed" },
-  ---@type TSConfig
-  ---@diagnostic disable-next-line: missing-fields
-  opts = {
-    ensure_installed = {
-      "kotlin",
-      "python",
-      "make",
-      "cmake",
-      "html",
-      "css",
-      "javascript",
-      "php",
-      "sql",
-      "lua",
-      "luadoc",
-      "vim",
-      "vimdoc",
-      "regex",
-      "printf",
-      "markdown",
-      "markdown_inline",
-      "bash",
-      "toml",
-      "yaml",
-      "xml",
-      "json",
-      "diff",
-      "gitignore",
-      "bibtex",
-    },
+  config = function()
+    require("nvim-treesitter.configs").setup {
 
-    auto_install = true,
-
-    highlight = {
-      enable = true,
-      use_language_tree = true,
-      additional_vim_regex_highlighting = { "ruby" },
-    },
-    indent = { enable = true, disable = { "ruby" } },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<C-space>",
-        node_incremental = "<C-space>",
-        scope_incremental = false,
-        node_decremental = "<bs>",
+      ensure_installed = {
+        "kotlin",
+        "python",
+        "make",
+        "cmake",
+        "html",
+        "css",
+        "javascript",
+        "php",
+        "sql",
+        "lua",
+        "luadoc",
+        "vim",
+        "vimdoc",
+        "regex",
+        "printf",
+        "markdown",
+        "markdown_inline",
+        "bash",
+        "toml",
+        "yaml",
+        "xml",
+        "json",
+        "diff",
+        "gitignore",
+        "bibtex",
       },
-    },
-    textobjects = {
-      move = {
+
+      sync_install = false,
+
+      auto_install = true,
+
+      indent = {
         enable = true,
-        goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
-        goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
-        goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
-        goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
       },
-    },
-  },
-  --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-  --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-  --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+
+      highlight = {
+        enable = true,
+        use_language_tree = true,
+        disable = function(lang, buf)
+          if lang == "html" then
+            print "disabled"
+            return true
+          end
+
+          local max_filesize = 100 * 1024 -- 100 KB
+          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+          if ok and stats and stats.size > max_filesize then
+            vim.notify(
+              "File larger than 100KB treesitter disabled for performance",
+              vim.log.levels.WARN,
+              { title = "Treesitter" }
+            )
+            return true
+          end
+        end,
+
+        additional_vim_regex_highlighting = { "markdown", "ruby" },
+      },
+
+      textobjects = {
+        move = {
+          enable = true,
+          goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
+          goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
+          goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
+          goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
+        },
+      },
+    }
+  end,
 }
