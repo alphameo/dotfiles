@@ -49,9 +49,11 @@ return {
             fname
           ) or require("lspconfig.util").find_git_ancestor(fname)
         end,
+
         capabilities = {
           offsetEncoding = { "utf-16" },
         },
+
         cmd = {
           "clangd",
           "--background-index",
@@ -61,6 +63,7 @@ return {
           "--function-arg-placeholders",
           "--fallback-style=llvm",
         },
+
         init_options = {
           usePlaceholders = true,
           completeUnimported = true,
@@ -103,13 +106,6 @@ return {
           },
         }
       end
-
-      vim.keymap.set(
-        { "n" },
-        "<leader>lh",
-        "<cmd>ClangdSwitchSourceHeader<cr>",
-        { silent = true, desc = "Switch Source/Header (C/C++)" }
-      )
     end,
   },
 }
