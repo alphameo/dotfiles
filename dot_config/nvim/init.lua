@@ -45,11 +45,16 @@ require("lazy").setup {
   require "plugins.features.ts-comments",
   require "plugins.features.which-key",
   require "plugins.lang.java",
+  require "plugins.lang.json",
   require "plugins.lang.markdown",
   require "plugins.lang.tex",
   require "plugins.lang.ccpp",
+  require "plugins.lang.sql",
+  require "plugins.lang.yaml",
   require "plugins.navigation.telescope",
   require "plugins.navigation.harpoon",
   require "plugins.navigation.spectre",
   require "plugins.navigation.neo-tree",
 }
+
+require("langmapper").automapping { buffer = false }
