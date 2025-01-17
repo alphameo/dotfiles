@@ -63,5 +63,3 @@ for _, lang in ipairs { "c", "cpp", "rust" } do
     },
   }
 end
-
-require("lspconfig").neocmake.setup {}
