@@ -60,7 +60,7 @@ return {
       command = "codelldb",
       -- detached = false, -- on windows you may have to uncomment this:
     }
-    for _, lang in ipairs { "c", "cpp" } do
+    for _, lang in ipairs { "c", "cpp", "rust" } do
       dap.configurations[lang] = {
         {
           type = "codelldb",
