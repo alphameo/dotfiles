@@ -19,6 +19,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
+  require "configs.cmp",
+  require "configs.dap",
+  require "configs.fmt",
+  require "configs.lint",
+  require "configs.lsp",
+  require "configs.mason",
+  require "configs.treesitter",
   require "plugins.appearance.bufferline",
   require "plugins.appearance.colorizer",
   require "plugins.appearance.greetingscreen",
@@ -27,13 +34,6 @@ require("lazy").setup {
   require "plugins.appearance.noice",
   require "plugins.appearance.onedark-theme",
   require "plugins.appearance.todo-comments",
-  require "configs.treesitter",
-  require "configs.lsp",
-  require "configs.fmt",
-  require "configs.lint",
-  require "configs.dap",
-  require "configs.cmp",
-  require "configs.mason",
   require "plugins.features.autopairs",
   require "plugins.features.codesnap",
   require "plugins.features.git",
@@ -44,17 +44,28 @@ require("lazy").setup {
   require "plugins.features.trouble",
   require "plugins.features.ts-comments",
   require "plugins.features.which-key",
-  require "plugins.lang.java",
-  require "plugins.lang.json",
-  require "plugins.lang.markdown",
-  require "plugins.lang.tex",
-  require "plugins.lang.ccpp",
-  require "plugins.lang.sql",
-  require "plugins.lang.yaml",
-  require "plugins.navigation.telescope",
   require "plugins.navigation.harpoon",
-  require "plugins.navigation.spectre",
   require "plugins.navigation.neo-tree",
+  require "plugins.navigation.spectre",
+  require "plugins.navigation.telescope",
+  require "plugins.lang.ccpp",
+  require "plugins.lang.cmake",
+  require "plugins.lang.java",
+  require "plugins.lang.json-yaml",
+  require "plugins.lang.markdown",
+  require "plugins.lang.python",
+  require "plugins.lang.sql",
+  require "plugins.lang.tex",
 }
+
+-- Language Configs
+require "configs.lang.ccpp"
+require "configs.lang.java"
+require "configs.lang.json"
+require "configs.lang.lua"
+require "configs.lang.markdown"
+require "configs.lang.python"
+require "configs.lang.tex"
+require "configs.lang.yaml"
 
 require("langmapper").automapping { buffer = false }

@@ -45,6 +45,7 @@ return {
         "taplo", -- toml
         "jsonls",
         "yamlls",
+        "sqlls",
       },
     }
 
@@ -54,6 +55,7 @@ return {
         "javatest", -- java-test
         "cppdbg", -- c, cpp
         "codelldb", -- c, cpp, rust
+        "debugpy",
         "python",
         "js",
         "bash",

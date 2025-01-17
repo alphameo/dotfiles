@@ -1,5 +1,3 @@
-require("lspconfig").marksman.setup {}
-
 return {
   {
     "iamcco/markdown-preview.nvim",
