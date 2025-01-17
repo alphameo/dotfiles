@@ -39,7 +39,6 @@ return {
       opts = {},
     },
     "nvim-neotest/nvim-nio",
-    "mfussenegger/nvim-dap-python",
   },
 
   config = function()
