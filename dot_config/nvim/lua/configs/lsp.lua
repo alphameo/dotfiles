@@ -12,14 +12,14 @@ return {
       local on_attach = require("configs.lspconfig").on_attach
 
       local simple_servers = {
-        -- "kotlin_language_server",
+        "kotlin_language_server",
         "html",
         "cssls",
         "css_variables",
         "cssmodules_ls",
         "tailwindcss",
-        "lemminx",
-        "taplo",
+        "lemminx", -- xml
+        "taplo", -- toml
       }
 
       -- lsps with default config

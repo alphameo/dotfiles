@@ -16,12 +16,15 @@ return {
         html = { "prettierd" },
         json = { "prettierd" },
         yaml = { "prettierd" },
-        markdown = { "prettierd" },
+        markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
+        xml = { "xmlformatter" },
         lua = { "stylua" },
         python = { "ruff", "black" },
         c = { "clang_format" },
         cpp = { "clang_format" },
+        -- cmake = { "cmakelang" },
         kotlin = { "ktlint" },
+        sql = { "sqlfluff" },
       },
     }
 

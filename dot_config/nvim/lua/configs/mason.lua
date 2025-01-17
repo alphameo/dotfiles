@@ -27,51 +27,57 @@ return {
 
     mason_lspconfig.setup {
       ensure_installed = {
-        "lua_ls",
-        "jdtls",
-        "clangd",
-        "marksman",
-        "texlab",
-        "kotlin_language_server",
-        "html",
-        "cssls",
-        "cssmodules_ls",
-        "css_variables",
-        "tailwindcss",
-        "ts_ls",
-        "pyright",
-        "lemminx",
-        "taplo",
+        "lua_ls", -- lua
+        "jdtls", -- java
+        "clangd", -- c, cpp
+        "neocmake", -- cmake
+        "marksman", -- markdown
+        "texlab", -- LaTeX
+        "kotlin_language_server", -- kotlin
+        "html", -- html
+        "cssls", -- css
+        "cssmodules_ls", -- css
+        "css_variables", -- css
+        "tailwindcss", -- tailwind
+        "ts_ls", -- javascript, typescript
+        "pyright", -- python
+        "lemminx", -- xml
+        "taplo", -- toml
+        "jsonls",
+        "yamlls",
       },
     }
 
     mason_dap.setup {
       ensure_installed = {
-        "javadbg",
-        "javatest",
-        "cppdbg",
-        "codelldb",
+        "javadbg", -- java-debug-adapter
+        "javatest", -- java-test
+        "cppdbg", -- c, cpp
+        "codelldb", -- c, cpp, rust
         "python",
         "js",
         "bash",
-        "kotlin",
+        "kotlin", -- kotlin
       },
     }
     mason_tool_installer.setup {
       ensure_installed = {
-        "prettierd", -- ts/js formatter
-        "eslint_d", -- ts/js linter
-        "stylua", -- lua formatter
-        "shfmt", -- Shell formatter
-        "checkmake", -- linter for Makefiles
-        "ktlint",
-        "cmakelang",
-        "clang-format",
-        "cpplint",
-        "ruff",
-        "mypy",
-        "black",
-        "markdownlint-cli2",
+        "prettierd", -- ts, js, ... fmt
+        "eslint_d", -- ts, js, ... lint
+        "stylua", -- lua fmt
+        "shfmt", -- Shell fmtr
+        "ktlint", -- kotlin fmt/lint
+        "clang-format", -- c, cpp fmt
+        -- "cmakelang", -- cmake fmt
+        "cmakelint", -- cmake lint
+        "cpplint", -- c, cpp lint
+        "ruff", -- python fmt
+        "black", -- python fmt
+        "mypy", -- python lint
+        "markdownlint-cli2", -- markdown fmt/lint
+        "markdown-toc", -- markdown fmt
+        "xmlformatter", -- xml fmt
+        "sqlfluff", -- sql fmt/lint
       },
     }
     vim.keymap.set({ "n" }, "<leader>M", ":Mason<cr>", { silent = true, desc = "Mason" })
