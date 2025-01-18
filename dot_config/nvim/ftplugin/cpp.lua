@@ -1,6 +1,7 @@
-vim.keymap.set(
-  { "n" },
-  "<leader>lh",
-  ":ClangdSwitchSourceHeader<CR>",
-  { silent = true, desc = "Switch Source/Header (C/C++)" }
-)
+require("clangd_extensions.inlay_hints").setup_autocmd()
+require("clangd_extensions.inlay_hints").disable_inlay_hints()
+vim.keymap.set({ "n" }, "<leader>lh", ":ClangdSwitchSourceHeader<CR>", { silent = true, desc = "Switch Source/Header" })
+vim.keymap.set({ "n" }, "<leader>lt", ":ClangdTypeHierarchy<CR>", { silent = true, desc = "Type Hierarchy" })
+vim.keymap.set({ "n" }, "<leader>lT", ":ClangdAST<CR>", { silent = true, desc = "Abstract Syntax Tree" })
+vim.keymap.set({ "n" }, "<leader>ls", ":ClangdSymbolInfo<CR>", { silent = true, desc = "Symbol Info" })
+vim.keymap.set({ "n" }, "<leader>lm", ":ClangdMemoryUsage<CR>", { silent = true, desc = "Memory Usage" })
