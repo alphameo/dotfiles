@@ -1,8 +1,19 @@
 local M = {}
+local fn = vim.fn
 
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities)
-M.capabilities.textDocument.completion.completionItem = {
+function M.executable(name)
+  if fn.executable(name) > 0 then
+    return true
+  end
+
+  return false
+end
+
+M.def_cap = require("cmp_nvim_lsp").default_capabilities()
+
+M.large_capabilities = vim.lsp.protocol.make_client_capabilities()
+M.large_capabilities = require("cmp_nvim_lsp").default_capabilities(M.large_capabilities)
+M.large_capabilities.textDocument.completion.completionItem = {
   documentationFormat = { "markdown", "plaintext" },
   snippetSupport = true,
   preselectSupport = true,
