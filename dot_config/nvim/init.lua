@@ -60,6 +60,8 @@ require("lazy").setup {
 require "configs.lang.bash"
 require "configs.lang.ccpp"
 require "configs.lang.cmake"
+require "configs.lang.css"
+require "configs.lang.html"
 require "configs.lang.java"
 require "configs.lang.json"
 require "configs.lang.lua"

@@ -84,12 +84,9 @@ return {
 
       local simple_servers = {
         "kotlin_language_server",
-        "html",
         "cssls",
         "css_variables",
         "cssmodules_ls",
-        "tailwindcss",
-        "taplo", -- toml
       }
 
       -- lsps with default config
