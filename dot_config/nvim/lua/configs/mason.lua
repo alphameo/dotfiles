@@ -43,10 +43,10 @@ return {
         "pyright", -- python
         "lemminx", -- xml
         "taplo", -- toml
-        "jsonls",
-        "yamlls",
-        "sqlls",
-        "bashls",
+        "jsonls", -- json
+        "yamlls", -- yaml
+        "sqlls", -- sql
+        "bashls", -- bash
       },
     }
 
@@ -57,7 +57,7 @@ return {
         "cppdbg", -- c, cpp
         "codelldb", -- c, cpp, rust
         "python", -- python
-        "js",
+        "js", -- javascript
         "kotlin", -- kotlin
       },
     }
