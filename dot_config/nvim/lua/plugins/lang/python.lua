@@ -4,7 +4,4 @@ return {
   dependencies = {
     "mfussenegger/nvim-dap",
   },
-  config = function()
-    require("dap-python").setup "/usr/bin/python3"
-  end,
 }
