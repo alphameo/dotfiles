@@ -48,6 +48,7 @@ require("lazy").setup {
   require "plugins.navigation.telescope",
   require "plugins.lang.ccpp",
   require "plugins.lang.cmake",
+  require "plugins.lang.go",
   require "plugins.lang.java",
   require "plugins.lang.json-yaml",
   require "plugins.lang.markdown",
@@ -61,12 +62,14 @@ require "configs.lang.bash"
 require "configs.lang.ccpp"
 require "configs.lang.cmake"
 require "configs.lang.css"
+require "configs.lang.go"
 require "configs.lang.html"
 require "configs.lang.java"
 require "configs.lang.json"
 require "configs.lang.kotlin"
 require "configs.lang.lua"
 require "configs.lang.markdown"
+require "configs.lang.php"
 require "configs.lang.python"
 require "configs.lang.tex"
 require "configs.lang.ts-js"

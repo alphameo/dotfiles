@@ -30,6 +30,7 @@ return {
         "lua_ls", -- lua
         "jdtls", -- java
         "clangd", -- c, cpp
+        "gopls", -- go
         "neocmake", -- cmake
         "marksman", -- markdown
         "texlab", -- LaTeX
@@ -47,6 +48,8 @@ return {
         "yamlls", -- yaml
         "sqlls", -- sql
         "bashls", -- bash
+        "intelephense", -- php
+        "phpactor", -- php
       },
     }
 
@@ -59,6 +62,8 @@ return {
         "python", -- python
         "js", -- javascript
         "kotlin", -- kotlin
+        "delve", -- go
+        "php", -- php
       },
     }
     mason_tool_installer.setup {
@@ -76,6 +81,10 @@ return {
         "mypy", -- python lint
         "markdownlint-cli2", -- markdown fmt/lint
         "markdown-toc", -- markdown fmt
+        "gofumpt", -- go fmt
+        "goimports", -- go fmt
+        "php-cs-fixer", -- php fmt
+        "phpcs", -- php lint
       },
     }
     vim.keymap.set({ "n" }, "<leader>M", ":Mason<cr>", { silent = true, desc = "Mason" })
