@@ -46,8 +46,8 @@ map("n", "<A-l>", "<C-w>l", { desc = "Go to right window" })
 
 map("n", "<A-=>", "<C-w>+", { desc = "Window Taller" })
 map("n", "<A-->", "<C-w>-", { desc = "Window Shorter" })
-map("n", "<A-,>", "<C-w>>", { desc = "Window Wider" })
-map("n", "<A-.>", "<C-w><", { desc = "Window Narower" })
+map("n", "<A-.>", "<C-w>>", { desc = "Window Wider" })
+map("n", "<A-,>", "<C-w><", { desc = "Window Narower" })
 
 -- Features
 map("v", "<", "<gv", { desc = "Indent left" }) -- stay in visual mode after indent
