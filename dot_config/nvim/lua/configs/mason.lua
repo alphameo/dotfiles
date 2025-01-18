@@ -46,6 +46,7 @@ return {
         "jsonls",
         "yamlls",
         "sqlls",
+        "bashls",
       },
     }
 
@@ -55,10 +56,8 @@ return {
         "javatest", -- java-test
         "cppdbg", -- c, cpp
         "codelldb", -- c, cpp, rust
-        "debugpy",
-        "python",
+        "python", -- python
         "js",
-        "bash",
         "kotlin", -- kotlin
       },
     }
@@ -67,7 +66,6 @@ return {
         "prettierd", -- ts, js, ... fmt
         "eslint_d", -- ts, js, ... lint
         "stylua", -- lua fmt
-        "shfmt", -- Shell fmtr
         "ktlint", -- kotlin fmt/lint
         "clang-format", -- c, cpp fmt
         -- "cmakelang", -- cmake fmt
@@ -78,8 +76,6 @@ return {
         "mypy", -- python lint
         "markdownlint-cli2", -- markdown fmt/lint
         "markdown-toc", -- markdown fmt
-        "xmlformatter", -- xml fmt
-        "sqlfluff", -- sql fmt/lint
       },
     }
     vim.keymap.set({ "n" }, "<leader>M", ":Mason<cr>", { silent = true, desc = "Mason" })

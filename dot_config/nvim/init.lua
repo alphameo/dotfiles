@@ -1,6 +1,5 @@
 require "options"
 require "mappings"
-require "autocmds"
 
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -22,7 +21,6 @@ require("lazy").setup {
   require "configs.cmp",
   require "configs.dap",
   require "configs.fmt",
-  require "configs.lint",
   require "configs.lsp",
   require "configs.mason",
   require "configs.treesitter",
@@ -59,6 +57,7 @@ require("lazy").setup {
 }
 
 -- Language Configs
+require "configs.lang.bash"
 require "configs.lang.ccpp"
 require "configs.lang.cmake"
 require "configs.lang.java"
@@ -67,6 +66,9 @@ require "configs.lang.lua"
 require "configs.lang.markdown"
 require "configs.lang.python"
 require "configs.lang.tex"
+require "configs.lang.ts-js"
+require "configs.lang.toml"
+require "configs.lang.xml"
 require "configs.lang.yaml"
 
 require("langmapper").automapping { buffer = false }
