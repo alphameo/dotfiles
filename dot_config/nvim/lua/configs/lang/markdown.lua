@@ -5,5 +5,5 @@ if lsp_utils.executable "marksman" then
     capabilities = lsp_utils.def_cap,
   }
 else
-  vim.notify("marksman not found!", vim.log.levels.WARN, { title = "Nvim-config" })
+  vim.notify("marksman (markdown) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end
