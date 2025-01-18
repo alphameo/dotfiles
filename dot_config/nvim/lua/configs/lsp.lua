@@ -78,41 +78,6 @@ return {
           vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, { buffer = b })
         end,
       })
-      local lspconfig = require "lspconfig"
-
-      local capabilities = require("configs.lspconfig").large_capabilities
-
-      local simple_servers = {
-        "kotlin_language_server",
-        "cssls",
-        "css_variables",
-        "cssmodules_ls",
-      }
-
-      -- lsps with default config
-      for _, lsp in ipairs(simple_servers) do
-        lspconfig[lsp].setup {
-          capabilities = capabilities,
-        }
-      end
-
-      lspconfig.ts_ls.setup {
-        capabilities = capabilities,
-        init_options = {
-          plugins = {
-            {
-              name = "@vue/typescript-plugin",
-              location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-              languages = { "javascript", "typescript", "vue" },
-            },
-          },
-        },
-        filetypes = {
-          "javascript",
-          "typescript",
-          "vue",
-        },
-      }
     end,
   },
 }
