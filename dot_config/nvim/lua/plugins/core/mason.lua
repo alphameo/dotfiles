@@ -50,6 +50,7 @@ return {
         "bashls", -- bash
         "intelephense", -- php
         "phpactor", -- php
+        "rust_analyzer", -- rust
       },
     }
 
@@ -85,6 +86,8 @@ return {
         "goimports", -- go fmt
         "php-cs-fixer", -- php fmt
         "phpcs", -- php lint
+        "bacon", -- rust lint
+        "bacon-ls", -- rust
       },
     }
     vim.keymap.set({ "n" }, "<leader>M", ":Mason<cr>", { silent = true, desc = "Mason" })

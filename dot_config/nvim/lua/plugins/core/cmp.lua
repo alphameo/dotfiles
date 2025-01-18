@@ -31,6 +31,11 @@ return {
     "hrsh7th/cmp-cmdline",
   },
 
+  opts = function(_, opts)
+    opts.auto_brackets = opts.auto_brackets or {}
+    table.insert(opts.auto_brackets, "python")
+  end,
+
   config = function()
     local cmp = require "cmp"
     local luasnip = require "luasnip"

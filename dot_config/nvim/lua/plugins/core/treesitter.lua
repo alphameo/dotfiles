@@ -31,6 +31,8 @@ return {
         "gomod",
         "gosum",
         "gowork",
+        "rust",
+        "ron",
         "make",
         "cmake",
         "html",
