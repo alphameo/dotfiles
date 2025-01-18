@@ -18,12 +18,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
-  require "configs.cmp",
-  require "configs.dap",
-  require "configs.fmt",
-  require "configs.lsp",
-  require "configs.mason",
-  require "configs.treesitter",
+  require "plugins.core.cmp",
+  require "plugins.core.dap",
+  require "plugins.core.fmt",
+  require "plugins.core.lsp",
+  require "plugins.core.mason",
+  require "plugins.core.treesitter",
   require "plugins.appearance.bufferline",
   require "plugins.appearance.colorizer",
   require "plugins.appearance.greetingscreen",
@@ -53,6 +53,7 @@ require("lazy").setup {
   require "plugins.lang.json-yaml",
   require "plugins.lang.markdown",
   require "plugins.lang.python",
+  require "plugins.lang.rust",
   require "plugins.lang.sql",
   require "plugins.lang.tex",
 }
@@ -71,6 +72,7 @@ require "configs.lang.lua"
 require "configs.lang.markdown"
 require "configs.lang.php"
 require "configs.lang.python"
+require "configs.lang.rust"
 require "configs.lang.tex"
 require "configs.lang.ts-js"
 require "configs.lang.toml"
