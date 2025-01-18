@@ -65,6 +65,8 @@ if lsp_utils.executable "ruff" then
       },
     },
   }
+else
+  vim.notify("ruff (python) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -84,5 +86,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- DAP
-require("dap-python").setup()
+require("dap-python").setup(vim.env.HOME .. "/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
 require("dap-python").default_port = 38000
