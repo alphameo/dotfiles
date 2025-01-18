@@ -1,7 +1,7 @@
 local lsp_utils = require "configs.lspconfig"
 
-if not lsp_utils.executable "marksman" then
-  vim.notify("marksman not found!", vim.log.levels.WARN, { title = "Nvim-config" })
+if not lsp_utils.executable "jdtls" then
+  vim.notify("jdtls (Java) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end
 
 -- DAP
