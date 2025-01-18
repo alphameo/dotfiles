@@ -12,6 +12,8 @@ vim.o.smartindent = true -- Make indenting smarter again (default: false)
 vim.o.wrap = false -- Display lines as one long line (default: true)
 vim.o.linebreak = true -- Companion to wrap, don't split words (default: false)
 
+vim.opt.columns = 80
+
 vim.o.swapfile = false -- Creates a swapfile (default: true)
 vim.o.backup = false -- Creates a backup file (default: false)
 vim.o.undofile = true -- Save undo history (default: false)
