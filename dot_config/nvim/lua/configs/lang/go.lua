@@ -1,3 +1,4 @@
+-- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
 if lsp_utils.executable "marksman" then
@@ -47,3 +48,9 @@ if lsp_utils.executable "marksman" then
 else
   vim.notify("gopls (go) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end
+
+-- INFO: FORMATTING
+require("conform").formatters_by_ft.go = { "goimports", "gofumpt" }
+
+-- INFO: LINTING
+require("lint").linters_by_ft.go = { "golangcilint" }

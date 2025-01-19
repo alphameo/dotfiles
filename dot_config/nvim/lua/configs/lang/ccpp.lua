@@ -1,3 +1,4 @@
+-- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
 local new_capabilities = {
@@ -50,7 +51,7 @@ else
   vim.notify("clangd (c, cpp) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end
 
--- DAP
+-- INFO: DAP
 local dap = require "dap"
 dap.adapters.codelldb = {
   type = "executable",
@@ -78,5 +79,10 @@ for _, lang in ipairs { "c", "cpp" } do
   }
 end
 
--- LINT
--- require("lint").linters_by_ft = { cpp = { "cpplint" } }
+-- INFO: FORMATTING
+require("conform").formatters_by_ft.c = { "clang_format" }
+require("conform").formatters_by_ft.cpp = { "clang_format" }
+
+-- INFO: LINTING
+require("lint").linters_by_ft.c = { "cpplin" }
+require("lint").linters_by_ft.cpp = { "cpplin" }

@@ -1,3 +1,4 @@
+-- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
 if lsp_utils.executable "typescript-language-server" then
@@ -67,3 +68,11 @@ for _, language in ipairs { "typescript", "javascript", "typescriptreact", "java
     },
   }
 end
+
+-- INFO: FORMATTING
+require("conform").formatters_by_ft.javascript = { "prettierd" }
+require("conform").formatters_by_ft.typescript = { "prettierd" }
+
+-- INFO: LINTING
+require("lint").linters_by_ft.javascript = { "eslint_d" }
+require("lint").linters_by_ft.typescript = { "eslint_d" }

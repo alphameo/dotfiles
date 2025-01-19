@@ -1,3 +1,4 @@
+-- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
 if not lsp_utils.executable "rust-analyzer" then
@@ -11,3 +12,9 @@ if lsp_utils.executable "bacon-ls" then
 else
   vim.notify("bacon_ls (rust) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end
+
+-- INFO: FORMATTING
+require("conform").formatters_by_ft.rust = { "rustfmt" }
+
+-- INFO: LINTING
+require("lint").linters_by_ft.rust = { "bacon" }

@@ -1,3 +1,4 @@
+-- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
 if lsp_utils.executable "vscode-json-language-server" then
@@ -19,5 +20,11 @@ if lsp_utils.executable "vscode-json-language-server" then
     },
   }
 else
-  vim.notify("jsonls not found!", vim.log.levels.WARN, { title = "Nvim-config" })
+  vim.notify("jsonls (json) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end
+
+-- INFO: FORMATTING
+require("conform").formatters_by_ft.json = { "prettierd" }
+
+-- INFO: LINTING
+require("lint").linters_by_ft.json = { "jsonlint" }

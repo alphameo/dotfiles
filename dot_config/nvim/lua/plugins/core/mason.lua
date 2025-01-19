@@ -74,7 +74,7 @@ return {
         "stylua", -- lua fmt
         "ktlint", -- kotlin fmt/lint
         "clang-format", -- c, cpp fmt
-        -- "cmakelang", -- cmake fmt
+        "gersemi", -- cmake fmt
         "cmakelint", -- cmake lint
         "cpplint", -- c, cpp lint
         "ruff", -- python fmt
@@ -84,10 +84,23 @@ return {
         "markdown-toc", -- markdown fmt
         "gofumpt", -- go fmt
         "goimports", -- go fmt
+        "golangci-lint", -- go lint
         "php-cs-fixer", -- php fmt
         "phpcs", -- php lint
         "bacon", -- rust lint
+        "rustfmt", -- rust fmt
         "bacon-ls", -- rust
+        "shfmt", -- bash fmt
+        "stylelint", -- css lint
+        "htmlhint", -- html lint
+        "jsonlint", -- json lint
+        "luacheck", -- lua lint
+        "sqlfluff", -- sql lint
+        "sqlfmt", -- sql fmt
+        "vale", -- tex lint
+        "bibtex-tidy", -- tex fmt
+        "xmlformatter", -- xml fmt
+        "yamllint", -- yaml lint
       },
     }
     vim.keymap.set({ "n" }, "<leader>M", ":Mason<cr>", { silent = true, desc = "Mason" })

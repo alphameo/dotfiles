@@ -1,3 +1,4 @@
+-- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
 if lsp_utils.executable "kotlin-language-server" then
@@ -8,7 +9,7 @@ else
   vim.notify("kotlin-language-server (kotlin) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end
 
--- DAP
+-- INFO: DAP
 local dap = require "dap"
 if not dap.adapters.kotlin then
   dap.adapters.kotlin = {
@@ -51,3 +52,9 @@ dap.configurations.kotlin = {
     timeout = 2000,
   },
 }
+
+-- INFO: FORMATTING
+require("conform").formatters_by_ft.kotlin = { "ktlint" }
+
+-- INFO: LINTING
+require("lint").linters_by_ft.kotlin = { "ktlint" }

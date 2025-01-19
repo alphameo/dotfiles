@@ -1,10 +1,11 @@
+-- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
 if not lsp_utils.executable "jdtls" then
   vim.notify("jdtls (Java) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end
 
--- DAP
+-- INFO: DAP
 local dap = require "dap"
 
 dap.configurations.java = {
@@ -16,3 +17,9 @@ dap.configurations.java = {
     port = 5005,
   },
 }
+
+-- INFO: FORMATTING
+-- check jdtls
+
+-- INFO: LINTING
+-- check jdtls

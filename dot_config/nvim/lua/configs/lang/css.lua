@@ -1,3 +1,4 @@
+-- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
 if lsp_utils.executable "vscode-css-language-server" then
@@ -23,3 +24,10 @@ if lsp_utils.executable "cssmodules-language-server" then
 else
   vim.notify("cssmodules_ls (css) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end
+
+-- INFO: FORMATTING
+require("conform").formatters_by_ft.css = { "prettierd" }
+
+-- INFO: LINTING
+-- ISSUE:
+-- require("lint").linters_by_ft.css = { "stylelint" }

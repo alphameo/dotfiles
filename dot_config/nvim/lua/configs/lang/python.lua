@@ -1,3 +1,4 @@
+-- INFO: LSP
 local lspconfig = require "lspconfig"
 
 local lsp_utils = require "configs.lspconfig"
@@ -85,6 +86,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
   desc = "LSP: Disable hover capability from Ruff",
 })
 
--- DAP
+-- INFO: DAP
 require("dap-python").setup(vim.env.HOME .. "/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
 require("dap-python").default_port = 38000
+
+-- INFO: FORMATTING
+require("conform").formatters_by_ft.python = { "black" }
+
+-- INFO: LINTING
+require("lint").linters_by_ft.python = { "mypy" }

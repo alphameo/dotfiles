@@ -5,30 +5,6 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       local conform = require "conform"
-
-      conform.setup {
-        formatters_by_ft = {
-          lua = { "stylua" },
-          c = { "clang_format" },
-          cpp = { "clang_format" },
-          -- cmake = { "cmakelang" },
-          kotlin = { "ktlint" },
-          markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
-          javascript = { "prettierd" },
-          typescript = { "prettierd" },
-          javascriptreact = { "prettierd" },
-          typescriptreact = { "prettierd" },
-          graphql = { "prettierd" },
-          css = { "prettierd" },
-          scss = { "prettierd" },
-          html = { "prettierd" },
-          json = { "prettierd" },
-          yaml = { "prettierd" },
-          go = { "goimports", "gofumpt" },
-          php = { "php_cs_fixer" },
-        },
-      }
-
       vim.keymap.set({ "n", "v", "i" }, "<C-S-i>", function()
         conform.format {
           lsp_fallback = true,
@@ -53,20 +29,6 @@ return {
     config = function()
       local lint = require "lint"
 
-      lint.linters_by_ft = {
-        kotlin = { "ktlint" },
-        cpp = { "cpplint" },
-        cmake = { "cmakelint" },
-        python = { "mypy" },
-        markdown = { "markdownlint-cli2" },
-        sql = { "sqlfluff" },
-        javascript = { "eslint_d" },
-        typescript = { "eslint_d" },
-        javascriptreact = { "eslint_d" },
-        typescriptreact = { "eslint_d" },
-        php = { "phpcs" },
-      }
-
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
@@ -79,6 +41,35 @@ return {
       vim.keymap.set("n", "<leader>cF", function()
         lint.try_lint()
       end, { desc = "Trigger linting" })
+
+      vim.api.nvim_create_user_command("LintInfo", function()
+        local out = "\n"
+
+        local cur_ft = vim.bo.filetype
+        local cur_linters = require("lint").linters_by_ft[cur_ft]
+        if cur_linters then
+          out = out .. "Linters for " .. cur_ft .. ": " .. table.concat(cur_linters, ", ") .. "\n"
+        else
+          out = out .. "No linters configured for filetype: " .. cur_ft .. "\n"
+        end
+
+        local linters_by_ft = require("lint").linters_by_ft
+        local linter_map = {}
+        for ft, linters in pairs(linters_by_ft) do
+          for _, l in ipairs(linters) do
+            if not linter_map[l] then
+              linter_map[l] = { ft }
+            elseif not vim.tbl_contains(linter_map[l], ft) then
+              table.insert(linter_map[l], ft)
+            end
+          end
+        end
+
+        for linter, ft in pairs(linter_map) do
+          out = out .. string.format("%s (%s)\n", linter, table.concat(ft, ", "))
+        end
+        vim.notify(out, vim.log.levels.INFO, { title = "Nvim-lint" })
+      end, {})
     end,
   },
 }
