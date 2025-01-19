@@ -34,6 +34,9 @@ return {
   opts = function(_, opts)
     opts.auto_brackets = opts.auto_brackets or {}
     table.insert(opts.auto_brackets, "python")
+    opts.sorting = opts.sorting or {}
+    opts.sorting.comparators = opts.sorting.comparators or {}
+    table.insert(opts.sorting.comparators, 1, require "clangd_extensions.cmp_scores")
   end,
 
   config = function()
