@@ -33,6 +33,7 @@ require("lazy").setup {
   require "plugins.appearance.onedark-theme",
   require "plugins.appearance.todo-comments",
   require "plugins.features.autopairs",
+  require "plugins.features.autoindent",
   require "plugins.features.codesnap",
   require "plugins.features.git",
   require "plugins.features.langmapper",
