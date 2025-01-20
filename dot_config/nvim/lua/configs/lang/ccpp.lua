@@ -84,5 +84,5 @@ require("conform").formatters_by_ft.c = { "clang_format" }
 require("conform").formatters_by_ft.cpp = { "clang_format" }
 
 -- INFO: LINTING
-require("lint").linters_by_ft.c = { "cpplin" }
-require("lint").linters_by_ft.cpp = { "cpplin" }
+require("lint").linters_by_ft.c = { "cpplint" }
+require("lint").linters_by_ft.cpp = { "cpplint" }
