@@ -44,34 +44,33 @@ return {
     local luasnip = require "luasnip"
     luasnip.config.setup {}
 
-    local kind_icons = {
-      Text = "󰉿",
-      Method = "m",
-      Function = "󰊕",
-      Constructor = "",
-      Field = "",
-      Variable = "󰆧",
-      Class = "󰌗",
-      Interface = "",
-      Module = "",
-      Property = "",
-      Unit = "",
-      Value = "󰎠",
-      Enum = "",
-      Keyword = "󰌋",
-      Snippet = "",
-      Color = "󰏘",
-      File = "󰈙",
-      Reference = "",
-      Folder = "󰉋",
-      EnumMember = "",
-      Constant = "󰇽",
-      Struct = "",
-      Event = "",
-      Operator = "󰆕",
-      TypeParameter = "󰊄",
+    local cmp_kinds = {
+      Text = "",
+      Method = "",
+      Function = "",
+      Constructor = "",
+      Field = "",
+      Variable = "",
+      Class = "",
+      Interface = "",
+      Module = "",
+      Property = "",
+      Unit = "",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "",
+      Event = "",
+      Operator = "",
+      TypeParameter = "",
     }
-
     cmp.setup {
       snippet = {
         expand = function(args)
@@ -79,14 +78,17 @@ return {
         end,
       },
 
-      completion = { completeopt = "menu,menuone,noinsert" },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+
+      completion = { completeopt = "menu,menuone,preview,noinsert" },
 
       mapping = cmp.mapping.preset.insert {
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-
         ["<Tab>"] = cmp.mapping.confirm { select = true },
-
         ["<C-Space>"] = cmp.mapping.complete {},
 
         ["<C-j>"] = cmp.mapping(function(fallback)
@@ -98,6 +100,7 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+
         ["<C-k>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
@@ -109,23 +112,18 @@ return {
         end, { "i", "s" }),
       },
 
-      sources = {
-        {
-          name = "lazydev",
-          group_index = 0,
-        },
+      sources = cmp.config.sources {
         { name = "nvim_lsp" },
-        { name = "buffer" },
         { name = "luasnip" },
-        { name = "buffer" },
         { name = "path" },
+        { name = "buffer" },
         { name = "nvim_lsp_signature_help" },
       },
 
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
-          vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+          vim_item.kind = cmp_kinds[vim_item.kind] or ""
           vim_item.menu = ({
             nvim_lsp = "[lsp]",
             luasnip = "[snip]",
