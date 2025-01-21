@@ -9,7 +9,12 @@ function M.executable(name)
   return false
 end
 
-M.def_cap = require("cmp_nvim_lsp").default_capabilities()
+M.def_cap = vim.tbl_deep_extend(
+  "force",
+  {},
+  vim.lsp.protocol.make_client_capabilities(),
+  require("cmp_nvim_lsp").default_capabilities()
+)
 
 M.large_capabilities = vim.lsp.protocol.make_client_capabilities()
 M.large_capabilities = require("cmp_nvim_lsp").default_capabilities(M.large_capabilities)
