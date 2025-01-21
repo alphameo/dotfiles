@@ -45,8 +45,6 @@ if lsp_utils.executable "clangd" then
       clangdFileStatus = true,
     },
   }
-
-  -- require("clangd_extensions.inlay_hints").disable_inlay_hints()
 else
   vim.notify("clangd (c, cpp) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end

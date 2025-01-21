@@ -1,7 +1,6 @@
 return {
   "p00f/clangd_extensions.nvim",
   lazy = true,
-  config = function() end,
   opts = {
     inlay_hints = {
       inline = false,
@@ -26,4 +25,8 @@ return {
       },
     },
   },
+  config = function()
+    require("clangd_extensions.inlay_hints").setup_autocmd()
+    require("clangd_extensions.inlay_hints").disable_inlay_hints()
+  end,
 }
