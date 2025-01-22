@@ -11,18 +11,18 @@ return {
     },
   },
   keys = function()
+    local harpoon = require "harpoon"
     local keys = {
       {
         "<leader>hf",
         function()
-          require("harpoon"):list():add()
+          harpoon:list():add()
         end,
         desc = "Harpoon File",
       },
       {
         "<leader>hh",
         function()
-          local harpoon = require "harpoon"
           harpoon.ui:toggle_quick_menu(harpoon:list())
         end,
         desc = "Harpoon Menu",

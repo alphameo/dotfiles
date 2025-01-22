@@ -7,7 +7,8 @@ return {
       "nvim-telescope/telescope-ui-select.nvim",
     },
     config = function()
-      require("telescope").setup {
+      local telescope = require "telescope"
+      telescope.setup {
         defaults = {
           mappings = {
             i = {
@@ -35,17 +36,18 @@ return {
           },
         },
       }
-      require("telescope").load_extension "ui-select"
+      telescope.load_extension "ui-select"
 
       local builtin = require "telescope.builtin"
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
-      vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Find by Grep" })
-      vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Find Words" })
-      vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = "Find Recent Files" })
-      vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Help Tags" })
-      vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "Keymaps" })
+      local map = vim.keymap.set
 
-      vim.keymap.set("n", "<leader>sn", function()
+      map("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
+      map("n", "<leader>fg", builtin.live_grep, { desc = "Find by Grep" })
+      map("n", "<leader>fw", builtin.grep_string, { desc = "Find Words" })
+      map("n", "<leader>f.", builtin.oldfiles, { desc = "Find Recent Files" })
+      map("n", "<leader>sh", builtin.help_tags, { desc = "Help Tags" })
+      map("n", "<leader>sk", builtin.keymaps, { desc = "Keymaps" })
+      map("n", "<leader>sn", function()
         builtin.find_files { cwd = vim.fn.stdpath "config" }
       end, { desc = "Neovim Config" })
     end,

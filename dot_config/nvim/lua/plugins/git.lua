@@ -39,11 +39,13 @@ return {
   {
     "tpope/vim-fugitive",
     config = function()
-      vim.keymap.set("n", "<leader>ga", "Git add", { silent = true, desc = "Git Add" })
-      vim.keymap.set("n", "<leader>gA", ":Git add .<cr>", { silent = true, desc = "Git Add All" })
-      vim.keymap.set("n", "<leader>gb", ":Git blame<cr>", { silent = true, desc = "Git Blame" })
-      vim.keymap.set("n", "<leader>gc", ":Git commit<cr>", { silent = true, desc = "Git Commit" })
-      vim.keymap.set("n", "<leader>gp", ":Git push<cr>", { silent = true, desc = "Git Push" })
+      local map = vim.keymap.set
+
+      map("n", "<leader>ga", "Git add", { silent = true, desc = "Git Add" })
+      map("n", "<leader>gA", ":Git add .<cr>", { silent = true, desc = "Git Add All" })
+      map("n", "<leader>gb", ":Git blame<cr>", { silent = true, desc = "Git Blame" })
+      map("n", "<leader>gc", ":Git commit<cr>", { silent = true, desc = "Git Commit" })
+      map("n", "<leader>gp", ":Git push<cr>", { silent = true, desc = "Git Push" })
     end,
   },
   {

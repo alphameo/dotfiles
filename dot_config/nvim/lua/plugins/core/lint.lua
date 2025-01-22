@@ -21,14 +21,14 @@ return {
       local out = "\n"
 
       local cur_ft = vim.bo.filetype
-      local cur_linters = require("lint").linters_by_ft[cur_ft]
+      local cur_linters = lint.linters_by_ft[cur_ft]
       if cur_linters then
         out = out .. "Linters for " .. cur_ft .. ": " .. table.concat(cur_linters, ", ") .. "\n"
       else
         out = out .. "No linters configured for filetype: " .. cur_ft .. "\n"
       end
 
-      local linters_by_ft = require("lint").linters_by_ft
+      local linters_by_ft = lint.linters_by_ft
       local linter_map = {}
       for ft, linters in pairs(linters_by_ft) do
         for _, l in ipairs(linters) do
