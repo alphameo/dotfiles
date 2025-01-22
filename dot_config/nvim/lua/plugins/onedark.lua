@@ -2,6 +2,17 @@ return {
   "navarasu/onedark.nvim",
   priority = 1000,
   config = function()
+    vim.diagnostic.config {
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.HINT] = "󰌵",
+        },
+      },
+    }
+
     vim.cmd.colorscheme "onedark"
 
     local config = {
@@ -12,11 +23,6 @@ return {
     local onedark = require "onedark"
     onedark.setup(config)
     onedark.load()
-
-    vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
-    vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
-    vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
-    vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
     local set_diagnostics_bg_transparency = function()
       vim.cmd [[highlight DiagnosticVirtualTextError guibg=none]]
