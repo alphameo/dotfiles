@@ -40,8 +40,8 @@ return {
             end, { buffer = b, desc = "Toggle Inlay Hints" })
           end
 
-          vim.keymap.set("n", "[d", vim.diagnostic.goto_next, { buffer = b })
-          vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, { buffer = b })
+          map("n", "[d", vim.diagnostic.goto_next, { buffer = b })
+          map("n", "]d", vim.diagnostic.goto_prev, { buffer = b })
         end,
       })
     end,
