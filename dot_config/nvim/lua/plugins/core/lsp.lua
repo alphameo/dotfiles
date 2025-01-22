@@ -12,12 +12,13 @@ return {
           local map = vim.keymap.set
           local b = e.buf
           local telescope = require("telescope.builtin")
+          local lsp_do = vim.lsp.buf
 
-          map({ "n", "i", "v" }, "<C-k>", vim.lsp.buf.hover, { buffer = b, desc = "Show Doc Hover" })
-          map({ "n", "i", "v" }, "<C-S-k>", vim.lsp.buf.signature_help, { buffer = b, desc = "Show Signature Help" })
+          map({ "n", "i", "v" }, "<C-k>", lsp_do.hover, { buffer = b, desc = "Show Doc Hover" })
+          map({ "n", "i", "v" }, "<C-S-k>", lsp_do.signature_help, { buffer = b, desc = "Show Signature Help" })
 
           map("n", "gd", telescope.lsp_definitions, { buffer = b, desc = "Go to Definitions" })
-          map("n", "gD", vim.lsp.buf.declaration, { buffer = b, desc = "Go to Declaration" })
+          map("n", "gD", lsp_do.declaration, { buffer = b, desc = "Go to Declaration" })
           map("n", "gI", telescope.lsp_implementations, { buffer = b, desc = "Go to Implementations" })
           map("n", "gr", telescope.lsp_references, { buffer = b, desc = "Go to References" })
           map("n", "gt", telescope.lsp_type_definitions, { buffer = b, desc = "Go to Type defenition" })
@@ -26,10 +27,10 @@ return {
           map("n", "<leader>csd", telescope.lsp_document_symbols, { buffer = b, desc = "Code Symbols Document" })
           map("n", "<leader>csw", telescope.lsp_dynamic_workspace_symbols, { buffer = b, desc = "Code Symbols Workspace" })
 
-          map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = b, desc = "Code Actions" })
+          map({ "n", "v" }, "<leader>ca", lsp_do.code_action, { buffer = b, desc = "Code Actions" })
 
-          map("n", "<leader>cr", vim.lsp.buf.rename, { buffer = b, desc = "Code Rename" })
-          map("n", "<F2>", vim.lsp.buf.rename, { buffer = b, desc = "Code Rename" })
+          map("n", "<leader>cr", lsp_do.rename, { buffer = b, desc = "Code Rename" })
+          map("n", "<F2>", lsp_do.rename, { buffer = b, desc = "Code Rename" })
 
           if vim.lsp.inlay_hint then
             vim.lsp.inlay_hint.enable(true, { 0 })
