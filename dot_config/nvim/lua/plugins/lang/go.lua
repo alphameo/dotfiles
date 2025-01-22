@@ -11,7 +11,6 @@ return {
   },
   {
     "leoluz/nvim-dap-go",
-    opts = {},
   },
   {
     "nvim-neotest/neotest",

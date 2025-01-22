@@ -1,49 +1,21 @@
 return {
   "mfussenegger/nvim-dap",
-  recommended = true,
   dependencies = {
-    {
-      "rcarriga/nvim-dap-ui",
-      opts = {},
-      config = function(_, opts)
-        local dap = require "dap"
-        local dapui = require "dapui"
-        dapui.setup {
-          icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
-          controls = {
-            icons = {
-              disconnect = "",
-              pause = "",
-              play = "",
-              run_last = "",
-              step_back = "",
-              step_into = "",
-              step_out = "",
-              step_over = "",
-              terminate = "",
-            },
-          },
-        }
-
-        dap.listeners.after.event_initialized["dapui_config"] = dapui.open
-        dap.listeners.before.event_terminated["dapui_config"] = dapui.close
-        dap.listeners.before.event_exited["dapui_config"] = dapui.close
-
-        -- setup an event listener for when the debugger is launched
-        -- when the debugger is launched open up the debug ui
-        dap.listeners.before.launch.dapui_config = dapui.open
-      end,
-    },
+    "rcarriga/nvim-dap-ui",
+    "nvim-neotest/nvim-nio",
     {
       "theHamsta/nvim-dap-virtual-text",
       opts = {},
     },
-    "nvim-neotest/nvim-nio",
   },
-
   config = function()
     local dap = require "dap"
     local dapui = require "dapui"
+    dapui.setup()
+
+    dap.listeners.before.attach.dapui_config = dapui.open
+    dap.listeners.before.event_terminated.dapui_config = dapui.close
+    dap.listeners.before.event_exited.dapui_config = dapui.close
 
     vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Debug () Toggle Breakpoint" })
     vim.keymap.set("n", "<leader>dB", function()

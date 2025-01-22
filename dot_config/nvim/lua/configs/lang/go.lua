@@ -1,7 +1,7 @@
 -- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
-if lsp_utils.executable "marksman" then
+if lsp_utils.executable "gopls" then
   local util = require "lspconfig.util"
   require("lspconfig").gopls.setup {
     capabilities = lsp_utils.def_cap,
@@ -31,7 +31,7 @@ if lsp_utils.executable "marksman" then
           rangeVariableTypes = true,
         },
         analyses = {
-          fieldalignment = true,
+          -- fieldalignment = true,
           nilness = true,
           unusedparams = true,
           unusedwrite = true,
@@ -48,6 +48,9 @@ if lsp_utils.executable "marksman" then
 else
   vim.notify("gopls (go) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
 end
+
+-- INFO: DAP
+require("dap-go").setup()
 
 -- INFO: FORMATTING
 require("conform").formatters_by_ft.go = { "goimports", "gofumpt" }

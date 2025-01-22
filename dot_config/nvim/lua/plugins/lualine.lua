@@ -1,17 +1,17 @@
 return {
   "nvim-lualine/lualine.nvim",
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     local mode = {
       "mode",
       fmt = function(str)
         return " " .. str
-        -- return ' ' .. str:sub(1, 1) -- displays only the first character of the mode
       end,
     }
 
     local filename = {
       "filename",
-      file_status = true, -- displays file status (readonly status, modified status)
+      file_status = true,
       path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
     }
 

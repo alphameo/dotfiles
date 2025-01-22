@@ -40,6 +40,10 @@ return {
       require("telescope").extensions.refactoring.refactors()
     end, { desc = "Refactor Menu" })
 
+    vim.keymap.set({ "n", "x" }, "<leader>cc", function()
+      require("telescope").extensions.refactoring.refactors()
+    end, { desc = "Refactor Menu" })
+
     vim.keymap.set("n", "<leader>dP", function()
       require("refactoring").debug.printf { below = false }
     end, { desc = "Debug Printf Marker" })
