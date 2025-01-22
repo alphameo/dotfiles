@@ -21,7 +21,7 @@ return {
           map("n", "gD", lsp_do.declaration, { buffer = b, desc = "Go to Declaration" })
           map("n", "gI", telescope.lsp_implementations, { buffer = b, desc = "Go to Implementations" })
           map("n", "gr", telescope.lsp_references, { buffer = b, desc = "Go to References" })
-          map("n", "gt", telescope.lsp_type_definitions, { buffer = b, desc = "Go to Type defenition" })
+          map("n", "gt", telescope.lsp_type_definitions, { buffer = b, desc = "Go to Type Definition" })
           map("n", "gb", "<C-o>", { buffer = b, desc = "Go Back" })
 
           map("n", "<leader>csd", telescope.lsp_document_symbols, { buffer = b, desc = "Code Symbols Document" })
