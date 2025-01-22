@@ -12,7 +12,8 @@ return {
           local map = vim.keymap.set
           local b = e.buf
           local telescope = require("telescope.builtin")
-          local lsp_do = vim.lsp.buf
+          local lsp = vim.lsp
+          local lsp_do = lsp.buf
 
           map({ "n", "i", "v" }, "<C-k>", lsp_do.hover, { buffer = b, desc = "Show Doc Hover" })
           map({ "n", "i", "v" }, "<C-S-k>", lsp_do.signature_help, { buffer = b, desc = "Show Signature Help" })
@@ -32,10 +33,10 @@ return {
           map("n", "<leader>cr", lsp_do.rename, { buffer = b, desc = "Code Rename" })
           map("n", "<F2>", lsp_do.rename, { buffer = b, desc = "Code Rename" })
 
-          if vim.lsp.inlay_hint then
-            vim.lsp.inlay_hint.enable(true, { 0 })
+          if lsp.inlay_hint then
+            lsp.inlay_hint.enable(true, { 0 })
             map("n", "<leader>ah", function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { 0 })
+              lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled(), { 0 })
             end, { buffer = b, desc = "Toggle Inlay Hints" })
           end
 
