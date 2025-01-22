@@ -83,14 +83,6 @@ return {
       opts.dap = {
         adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb, library_path),
       }
-      -- end
-      --   vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
-      --   if vim.fn.executable "rust-analyzer" == 0 then
-      --     LazyVim.error(
-      --       "**rust-analyzer** not found in PATH, please install it.\nhttps://rust-analyzer.github.io/",
-      --       { title = "rustaceanvim" }
-      --     )
-      --   end
     end,
   },
   {
