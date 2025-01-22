@@ -8,12 +8,15 @@ return {
       },
     },
   },
-  keys = {
-    { "<leader>xx", ":Trouble diagnostics toggle<cr>", desc = "Trouble Diagnostics" },
-    { "<leader>xX", ":Trouble diagnostics toggle filter.buf=0<cr>", desc = "Trouble Buffer Diagnostics" },
-    { "<leader>xL", ":Trouble loclist toggle<cr>", desc = "Trouble Location List" },
-    { "<leader>xq", ":Trouble qflist toggle<cr>", desc = "Trouble Quickfix List" },
-    { "<leader>cst", ":Trouble symbols toggle<cr>", desc = "Code Symbols Tree" },
-    { "<leader>cl", ":Trouble lsp toggle<cr>", desc = "Code List Definitions / References / ... " },
-  },
+  -- stylua: ignore
+  config = function()
+    local map = vim.keymap.set
+
+    map("n", "<leader>xx", ":Trouble diagnostics toggle<cr>", { silent = true, desc = "Trouble Diagnostics" })
+    map("n", "<leader>xX", ":Trouble diagnostics toggle filter.buf=0<cr>", { silent = true, desc = "Trouble Buffer Diagnostics" })
+    map("n", "<leader>xL", ":Trouble loclist toggle<cr>", { silent = true, desc = "Trouble Location List" })
+    map("n", "<leader>xq", ":Trouble qflist toggle<cr>", { silent = true, desc = "Trouble Quickfix List" })
+    map("n", "<leader>cst", ":Trouble symbols toggle<cr>", { silent = true, desc = "Code Symbols Tree" })
+    map("n", "<leader>cl", ":Trouble lsp toggle<cr>", { silent = true, desc = "Code List Definitions / References / ... " })
+  end,
 }

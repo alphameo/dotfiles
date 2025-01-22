@@ -29,16 +29,6 @@ return {
     },
   },
   -- stylua: ignore
-  keys = {
-    { "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline()) end, mode = "c", desc = "Redirect Cmdline" },
-    { "<leader>nl", function() require("noice").cmd("last") end, desc = "Noice Last Message" },
-    { "<leader>nh", function() require("noice").cmd("history") end, desc = "Noice History" },
-    { "<leader>na", function() require("noice").cmd("all") end, desc = "Noice All" },
-    { "<leader>nd", function() require("noice").cmd("dismiss") end, desc = "Noice Dismiss All" },
-    { "<leader>nt", function() require("noice").cmd("pick") end, desc = "Noice Picker" },
-    { "<c-f>", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, silent = true, expr = true, desc = "Scroll Forward", mode = {"i", "n", "s"} },
-    { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll Backward", mode = {"i", "n", "s"}},
-  },
   config = function(_, opts)
     -- HACK: noice shows messages from before it was enabled,
     -- but this is not ideal when Lazy is installing plugins,
@@ -46,6 +36,19 @@ return {
     if vim.o.filetype == "lazy" then
       vim.cmd [[messages clear]]
     end
-    require("noice").setup(opts)
+
+    local noice = require "noice"
+    local map = vim.keymap.set
+
+    noice.setup(opts)
+    
+    map("c", "<S-Enter>", function() noice.redirect(vim.fn.getcmdline()) end, { desc = "Redirect Cmdline" })
+    map("n",  "<leader>nl", function() noice.cmd("last") end, { desc = "Noice Last Message" })
+    map("n",  "<leader>nh", function() noice.cmd("history") end, { desc = "Noice History" })
+    map("n",  "<leader>na", function() noice.cmd("all") end, { desc = "Noice All" })
+    map("n",  "<leader>nd", function() noice.cmd("dismiss") end, { desc = "Noice Dismiss All" })
+    map("n",  "<leader>nt", function() noice.cmd("pick") end, { desc = "Noice Picker" })
+    map({ "i", "n", "s" }, "<c-f>", function() if not noice.lsp.scroll(4) then return "<c-f>" end end, { silent = true, expr = true, desc = "Scroll Forward" })
+    map({ "i", "n", "s" }, "<c-b>", function() if not noice.lsp.scroll(-4) then return "<c-b>" end end,{ silent = true, expr = true, desc = "Scroll Backward" })
   end,
 }

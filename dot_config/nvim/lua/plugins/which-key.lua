@@ -32,16 +32,10 @@ return {
       { "g", group = "goto" },
       { "gs", group = "surround" },
       { "z", group = "fold" },
+
+      vim.keymap.set("n", "<leader>s?", function()
+        which_key.show { global = false }
+      end, { desc = "Buffer Local Keymaps (which-key)" }),
     }
   end,
-
-  keys = {
-    {
-      "<leader>s?",
-      function()
-        require("which-key").show { global = false }
-      end,
-      desc = "Buffer Local Keymaps (which-key)",
-    },
-  },
 }
