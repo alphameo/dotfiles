@@ -22,7 +22,7 @@ if lsp_utils.executable "pyright" then
   }
 
   lspconfig.pyright.setup {
-    -- cmd = { "delance-langserver", "--stdio" },
+    cmd = { "pyright-langserver", "--stdio" },
     capabilities = vim.tbl_deep_extend("force", def_cap, new_capability),
     filetypes = { "python" },
     settings = {
@@ -74,7 +74,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    -- vim.print(client.name, client.server_capabilities)
 
     if client == nil then
       return
