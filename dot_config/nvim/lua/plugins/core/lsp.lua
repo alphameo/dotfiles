@@ -17,13 +17,13 @@ return {
 
           map("n", "gd", require("telescope.builtin").lsp_definitions, { buffer = b, desc = "Go to Definitions" })
           map("n", "gD", vim.lsp.buf.declaration, { buffer = b, desc = "Go to Declaration" })
-          map( "n", "gI", require("telescope.builtin").lsp_implementations, { buffer = b, desc = "Go to Implementations" })
+          map("n", "gI", require("telescope.builtin").lsp_implementations, { buffer = b, desc = "Go to Implementations" })
           map("n", "gr", require("telescope.builtin").lsp_references, { buffer = b, desc = "Go to References" })
-          map( "n", "gt", require("telescope.builtin").lsp_type_definitions, { buffer = b, desc = "Go to Type defenition" })
+          map("n", "gt", require("telescope.builtin").lsp_type_definitions, { buffer = b, desc = "Go to Type defenition" })
           map("n", "gb", "<C-o>", { buffer = b, desc = "Go Back" })
 
-          map( "n", "<leader>csd", require("telescope.builtin").lsp_document_symbols, { buffer = b, desc = "Code Symbols Document" })
-          map( "n", "<leader>csw", require("telescope.builtin").lsp_dynamic_workspace_symbols, { buffer = b, desc = "Code Symbols Workspace" })
+          map("n", "<leader>csd", require("telescope.builtin").lsp_document_symbols, { buffer = b, desc = "Code Symbols Document" })
+          map("n", "<leader>csw", require("telescope.builtin").lsp_dynamic_workspace_symbols, { buffer = b, desc = "Code Symbols Workspace" })
 
           map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = b, desc = "Code Actions" })
 
