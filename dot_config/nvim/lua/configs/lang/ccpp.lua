@@ -35,7 +35,8 @@ if lsp_utils.executable "clangd" then
       "--clang-tidy",
       "--header-insertion=iwyu",
       "--completion-style=detailed",
-      "--function-arg-placeholders",
+      "--function-arg-placeholders=0",
+      "--all-scopes-completion",
       "--fallback-style=llvm",
     },
 
