@@ -83,14 +83,13 @@ return {
             end
           end, { "i", "s" }),
         },
-        sources = cmp.config.sources({
+        sources = cmp.config.sources {
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "path" },
           { name = "nvim_lsp_signature_help" },
-        }, {
           { name = "buffer" },
-        }),
+        },
         formatting = {
           fields = { "kind", "abbr", "menu" },
           format = function(entry, vim_item)
@@ -108,11 +107,10 @@ return {
 
         cmp.setup.cmdline(":", {
           mapping = cmp.mapping.preset.cmdline(),
-          sources = cmp.config.sources({
+          sources = cmp.config.sources {
             { name = "path" },
-          }, {
             { name = "cmdline" },
-          }),
+          },
           matching = { disallow_symbol_nonprefix_matching = false },
         }),
       }
