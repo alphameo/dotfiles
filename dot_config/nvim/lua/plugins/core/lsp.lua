@@ -5,43 +5,60 @@ return {
       inlay_hints = { enabled = true },
       codelens = { enabled = true },
     },
-    -- stylua: ignore
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(e)
-          local map = vim.keymap.set
-          local b = e.buf
-          local telescope = require("telescope.builtin")
           local lsp = vim.lsp
           local lsp_b = lsp.buf
+          local map = vim.keymap.set
+          local opts = function(desc)
+            return { buffer = e.buf, desc = desc }
+          end
 
-          map({ "n", "i", "v" }, "<C-k>", lsp_b.hover, { buffer = b, desc = "Show Doc Hover" })
-          map({ "n", "i", "v" }, "<C-S-k>", lsp_b.signature_help, { buffer = b, desc = "Show Signature Help" })
+          local telescope = require "telescope.builtin"
 
-          map("n", "gd", telescope.lsp_definitions, { buffer = b, desc = "Go to Definitions" })
-          map("n", "gD", lsp_b.declaration, { buffer = b, desc = "Go to Declaration" })
-          map("n", "gI", telescope.lsp_implementations, { buffer = b, desc = "Go to Implementations" })
-          map("n", "gr", telescope.lsp_references, { buffer = b, desc = "Go to References" })
-          map("n", "gt", telescope.lsp_type_definitions, { buffer = b, desc = "Go to Type Definition" })
-          map("n", "gb", "<C-o>", { buffer = b, desc = "Go Back" })
+          map({ "n", "i", "v" }, "<C-k>", lsp_b.hover, opts "Show Doc Hover")
+          map({ "n", "i", "v" }, "<C-S-k>", lsp_b.signature_help, opts "Show Signature Help")
 
-          map("n", "<leader>csd", telescope.lsp_document_symbols, { buffer = b, desc = "Code Symbols Document" })
-          map("n", "<leader>csw", telescope.lsp_dynamic_workspace_symbols, { buffer = b, desc = "Code Symbols Workspace" })
+          map("n", "gd", telescope.lsp_definitions, opts "Go to Definitions")
+          map("n", "gD", lsp_b.declaration, opts "Go to Declaration")
+          map("n", "gI", telescope.lsp_implementations, opts "Go to Implementations")
+          map("n", "gr", telescope.lsp_references, opts "Go to References")
+          map("n", "gt", telescope.lsp_type_definitions, opts "Go to Type Definition")
+          map("n", "gb", "<C-o>", opts "Go Back")
 
-          map({ "n", "v" }, "<leader>ca", lsp_b.code_action, { buffer = b, desc = "Code Actions" })
+          map("n", "<leader>csd", telescope.lsp_document_symbols, opts "Code Symbols Document")
+          map("n", "<leader>csw", telescope.lsp_dynamic_workspace_symbols, opts "Code Symbols Workspace")
 
-          map("n", "<leader>cr", lsp_b.rename, { buffer = b, desc = "Code Rename" })
-          map("n", "<F2>", lsp_b.rename, { buffer = b, desc = "Code Rename" })
+          map({ "n", "v" }, "<leader>ca", lsp_b.code_action, opts "Code Actions")
+
+          map("n", "<leader>cr", lsp_b.rename, opts "Code Rename")
+          map("n", "<F2>", lsp_b.rename, opts "Code Rename")
+
+          map("n", "<leader>ah", function()
+            lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled(), { 0 })
+          end, opts "Toggle Inlay Hints")
 
           if lsp.inlay_hint then
             lsp.inlay_hint.enable(true, { 0 })
-            map("n", "<leader>ah", function()
-              lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled(), { 0 })
-            end, { buffer = b, desc = "Toggle Inlay Hints" })
           end
 
-          map("n", "[d", vim.diagnostic.goto_next, { buffer = b })
-          map("n", "]d", vim.diagnostic.goto_prev, { buffer = b })
+          map("n", "[d", vim.diagnostic.goto_next, opts "Next Diagnostic")
+          map("n", "]d", vim.diagnostic.goto_prev, opts "Previous Diagnostic")
+
+          local lsp_client = vim.lsp.get_client_by_id(vim.fn.bufnr())
+          if lsp_client and lsp_client.resolved_capabilities.completion then
+            -- Disable snippet functionality (which includes function placeholders)
+            lsp_client.config.settings = lsp_client.config.settings or {}
+            lsp_client.config.settings = vim.tbl_deep_extend("force", lsp_client.config.settings, {
+              completion = {
+                snippet = {
+                  enabled = false, -- Disable function placeholders (snippets)
+                },
+              },
+            })
+          end
         end,
       })
     end,
