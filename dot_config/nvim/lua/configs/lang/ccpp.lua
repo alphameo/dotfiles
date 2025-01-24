@@ -8,43 +8,6 @@ local new_capabilities = {
 if lsp_utils.executable "clangd" then
   require("lspconfig").clangd.setup {
     capabilities = vim.tbl_deep_extend("force", lsp_utils.capabilities, new_capabilities),
-
-    -- filetypes = { "c", "cpp", "cc" },
-    --
-    -- flags = {
-    --   debounce_text_changes = 500,
-    -- },
-    --
-    -- root_dir = function(fname)
-    --   return require("lspconfig.util").root_pattern(
-    --     "Makefile",
-    --     "configure.ac",
-    --     "configure.in",
-    --     "config.h.in",
-    --     "meson.build",
-    --     "meson_options.txt",
-    --     "build.ninja"
-    --   )(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(fname) or require(
-    --     "lspconfig.util"
-    --   ).find_git_ancestor(fname)
-    -- end,
-    --
-    -- cmd = {
-    --   "clangd",
-    --   "--background-index",
-    --   "--clang-tidy",
-    --   "--header-insertion=iwyu",
-    --   "--completion-style=detailed",
-    --   -- "--function-arg-placeholders",
-    --   "--all-scopes-completion",
-    --   "--fallback-style=llvm",
-    -- },
-    --
-    -- -- init_options = {
-    -- --   usePlaceholders = true,
-    -- --   completeUnimported = true,
-    -- --   clangdFileStatus = true,
-    -- -- },
   }
 else
   vim.notify("clangd (c, cpp) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
