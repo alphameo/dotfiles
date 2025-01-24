@@ -11,7 +11,17 @@ return {
     local mason_dap = require "mason-nvim-dap"
     local mason_tool_installer = require "mason-tool-installer"
 
-    mason.setup()
+    mason.setup {
+      ui = {
+        icons = {
+          package_pending = " ",
+          package_installed = " ",
+          package_uninstalled = " ",
+        },
+      },
+
+      max_concurrent_installers = 10,
+    }
 
     mason_lspconfig.setup {
       ensure_installed = {
