@@ -9,42 +9,42 @@ if lsp_utils.executable "clangd" then
   require("lspconfig").clangd.setup {
     capabilities = vim.tbl_deep_extend("force", lsp_utils.capabilities, new_capabilities),
 
-    filetypes = { "c", "cpp", "cc" },
-
-    flags = {
-      debounce_text_changes = 500,
-    },
-
-    root_dir = function(fname)
-      return require("lspconfig.util").root_pattern(
-        "Makefile",
-        "configure.ac",
-        "configure.in",
-        "config.h.in",
-        "meson.build",
-        "meson_options.txt",
-        "build.ninja"
-      )(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(fname) or require(
-        "lspconfig.util"
-      ).find_git_ancestor(fname)
-    end,
-
-    cmd = {
-      "clangd",
-      "--background-index",
-      "--clang-tidy",
-      "--header-insertion=iwyu",
-      "--completion-style=detailed",
-      -- "--function-arg-placeholders",
-      "--all-scopes-completion",
-      "--fallback-style=llvm",
-    },
-
-    -- init_options = {
-    --   usePlaceholders = true,
-    --   completeUnimported = true,
-    --   clangdFileStatus = true,
+    -- filetypes = { "c", "cpp", "cc" },
+    --
+    -- flags = {
+    --   debounce_text_changes = 500,
     -- },
+    --
+    -- root_dir = function(fname)
+    --   return require("lspconfig.util").root_pattern(
+    --     "Makefile",
+    --     "configure.ac",
+    --     "configure.in",
+    --     "config.h.in",
+    --     "meson.build",
+    --     "meson_options.txt",
+    --     "build.ninja"
+    --   )(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(fname) or require(
+    --     "lspconfig.util"
+    --   ).find_git_ancestor(fname)
+    -- end,
+    --
+    -- cmd = {
+    --   "clangd",
+    --   "--background-index",
+    --   "--clang-tidy",
+    --   "--header-insertion=iwyu",
+    --   "--completion-style=detailed",
+    --   -- "--function-arg-placeholders",
+    --   "--all-scopes-completion",
+    --   "--fallback-style=llvm",
+    -- },
+    --
+    -- -- init_options = {
+    -- --   usePlaceholders = true,
+    -- --   completeUnimported = true,
+    -- --   clangdFileStatus = true,
+    -- -- },
   }
 else
   vim.notify("clangd (c, cpp) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
@@ -79,8 +79,25 @@ for _, lang in ipairs { "c", "cpp" } do
 end
 
 -- INFO: FORMATTING
-require("conform").formatters_by_ft.c = { "clang_format" }
-require("conform").formatters_by_ft.cpp = { "clang_format" }
+local conform = require "conform"
+conform.formatters_by_ft.c = { "clang_format" }
+conform.formatters_by_ft.cpp = { "clang_format" }
+conform.formatters = {
+  ["clang-format"] = {
+    prepend_args = {
+      "-style={ \
+                BasedOnStyle: Google, \
+                UseTab: Never, \
+                TabWidth: 4, \
+                indentWidth: 4, \
+                InsertNewlineAtEOF: true, \
+                IndentCaseLabels: true, \
+                BreakBeforeBraces: Attach, \
+                AllowShortIfStatementsOnASingleLine: false, \
+                AllowShortBlocksOnASingleLine: Empty}",
+    },
+  },
+}
 
 -- INFO: LINTING
 require("lint").linters_by_ft.c = { "cpplint" }
