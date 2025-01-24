@@ -46,19 +46,6 @@ return {
 
           map("n", "[d", vim.diagnostic.goto_next, opts "Next Diagnostic")
           map("n", "]d", vim.diagnostic.goto_prev, opts "Previous Diagnostic")
-
-          local lsp_client = vim.lsp.get_client_by_id(vim.fn.bufnr())
-          if lsp_client and lsp_client.resolved_capabilities.completion then
-            -- Disable snippet functionality (which includes function placeholders)
-            lsp_client.config.settings = lsp_client.config.settings or {}
-            lsp_client.config.settings = vim.tbl_deep_extend("force", lsp_client.config.settings, {
-              completion = {
-                snippet = {
-                  enabled = false, -- Disable function placeholders (snippets)
-                },
-              },
-            })
-          end
         end,
       })
     end,
