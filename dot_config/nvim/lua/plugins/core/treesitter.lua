@@ -1,9 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  build= ":TSUpdate",
+  build = ":TSUpdate",
   config = function()
-    local config = require("nvim-treesitter.configs")
-    config.setup({
+    local config = require "nvim-treesitter.configs"
+    config.setup {
       ensure_installed = {
         "lua",
         "java",
@@ -42,8 +42,11 @@ return {
         "bibtex",
         "dockerfile",
       },
-      highlight = { enable = true },
-      indent = { enable = true }
-    })
+      highlight = {
+        enable = true,
+        use_languagetree = true,
+      },
+      indent = { enable = true },
+    }
   end,
 }
