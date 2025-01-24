@@ -46,6 +46,11 @@ return {
 
           map("n", "[d", vim.diagnostic.goto_next, opts "Next Diagnostic")
           map("n", "]d", vim.diagnostic.goto_prev, opts "Previous Diagnostic")
+
+          -- local client = vim.lsp.get_client_by_id(e.data.client_id)
+          -- client.server_capabilities.documentFormattingProvider = false
+          -- client.server_capabilities.documentRangeFormattingProvider = false
+          -- client.server_capabilities.semanticTokensProvider = nil -- disable semantic tokens
         end,
       })
     end,
