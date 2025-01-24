@@ -12,7 +12,7 @@ if lsp_utils.executable "yaml-language-server" then
   }
 
   require("lspconfig").yamlls.setup {
-    capabilities = vim.tbl_deep_extend("force", lsp_utils.def_cap, new_capabilities),
+    capabilities = vim.tbl_deep_extend("force", lsp_utils.capabilities, new_capabilities),
 
     on_new_config = function(new_config)
       new_config.settings.yaml.schemas =

@@ -11,7 +11,7 @@ if lsp_utils.executable "typescript-language-server" then
   end
 
   require("lspconfig").ts_ls.setup {
-    capabilities = lsp_utils.def_cap,
+    capabilities = lsp_utils.capabilities,
 
     init_options = {
       plugins = {

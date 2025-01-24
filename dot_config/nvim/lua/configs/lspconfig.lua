@@ -9,32 +9,36 @@ function M.executable(name)
   return false
 end
 
-M.def_cap = vim.tbl_deep_extend(
-  "force",
-  {},
-  vim.lsp.protocol.make_client_capabilities(),
-  require("cmp_nvim_lsp").default_capabilities()
-)
+M.pref_cap = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+M.pref_cap.textDocument.completion.completionItem.snippetSupport = false -- autofill func placeholders
+M.pref_cap.textDocument.completion.completionItem.labelDetailsSupport = false -- disable params in cmp window
 
-M.large_capabilities = vim.lsp.protocol.make_client_capabilities()
-M.large_capabilities = require("cmp_nvim_lsp").default_capabilities(M.large_capabilities)
-M.large_capabilities.textDocument.completion.completionItem = {
-  documentationFormat = { "markdown", "plaintext" },
-  snippetSupport = true,
-  preselectSupport = true,
-  insertReplaceSupport = true,
-  labelDetailsSupport = true,
-  deprecatedSupport = true,
-  commitCharactersSupport = true,
-  tagSupport = { valueSet = { 1 } },
-  resolveSupport = {
-    properties = {
-      "documentation",
-      "detail",
-      "additionalTextEdits",
-    },
-  },
-}
+-- NOTE: The same code-block via table extension with all defaults
+-- M.cmp_cap = require("cmp_nvim_lsp").default_capabilities()
+-- M.lsp_cap = vim.lsp.protocol.make_client_capabilities()
+-- M.ext_cap = vim.tbl_deep_extend("force", {}, M.lsp_cap, M.cmp_cap)
+
+-- NOTE: The same code-block via manual setup with all defaults
+-- M.large_cap = vim.lsp.protocol.make_client_capabilities()
+-- M.large_cap.textDocument.completion.completionItem = {
+--   documentationFormat = { "markdown", "plaintext" },
+--   snippetSupport = true,
+--   preselectSupport = true,
+--   insertReplaceSupport = true,
+--   labelDetailsSupport = true,
+--   deprecatedSupport = true,
+--   commitCharactersSupport = true,
+--   tagSupport = { valueSet = { 1 } },
+--   resolveSupport = {
+--     properties = {
+--       "documentation",
+--       "detail",
+--       "additionalTextEdits",
+--     },
+--   },
+-- }
+
+M.capabilities = M.pref_cap
 
 M.on_init = function(client, _)
   if client.supports_method "textDocument/semanticTokens" then

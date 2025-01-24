@@ -103,7 +103,7 @@ return {
             return vim_item
           end,
         },
-        completion = { completeopt = "menu,menuone,preview,noinsert" },
+        completion = { completeopt = "menu,menuone,preview,noinsert,ignorecase" },
 
         cmp.setup.cmdline(":", {
           mapping = cmp.mapping.preset.cmdline(),

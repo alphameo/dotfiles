@@ -7,7 +7,7 @@ local new_capabilities = {
 
 if lsp_utils.executable "clangd" then
   require("lspconfig").clangd.setup {
-    capabilities = vim.tbl_deep_extend("force", lsp_utils.def_cap, new_capabilities),
+    capabilities = vim.tbl_deep_extend("force", lsp_utils.capabilities, new_capabilities),
 
     filetypes = { "c", "cpp", "cc" },
 
@@ -35,16 +35,16 @@ if lsp_utils.executable "clangd" then
       "--clang-tidy",
       "--header-insertion=iwyu",
       "--completion-style=detailed",
-      "--function-arg-placeholders=0",
+      -- "--function-arg-placeholders",
       "--all-scopes-completion",
       "--fallback-style=llvm",
     },
 
-    init_options = {
-      usePlaceholders = true,
-      completeUnimported = true,
-      clangdFileStatus = true,
-    },
+    -- init_options = {
+    --   usePlaceholders = true,
+    --   completeUnimported = true,
+    --   clangdFileStatus = true,
+    -- },
   }
 else
   vim.notify("clangd (c, cpp) not found!", vim.log.levels.WARN, { title = "Nvim-config" })

@@ -2,7 +2,7 @@
 local lspconfig = require "lspconfig"
 
 local lsp_utils = require "configs.lspconfig"
-local def_cap = lsp_utils.def_cap
+local def_cap = lsp_utils.capabilities
 
 if lsp_utils.executable "pyright" then
   local new_capability = {
