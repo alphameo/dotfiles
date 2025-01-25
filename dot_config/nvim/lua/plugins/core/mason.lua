@@ -71,11 +71,12 @@ return {
         "prettierd", -- ts, js, ... fmt
         "eslint_d", -- ts, js, ... lint
         "stylua", -- lua fmt
+        "luacheck", -- lua lint
         "ktlint", -- kotlin fmt/lint
         "clang-format", -- c, cpp fmt
+        "cpplint", -- c, cpp lint
         "gersemi", -- cmake fmt
         "cmakelint", -- cmake lint
-        "cpplint", -- c, cpp lint
         "ruff", -- python fmt
         "black", -- python fmt
         "mypy", -- python lint
@@ -93,7 +94,6 @@ return {
         "stylelint", -- css lint
         "htmlhint", -- html lint
         "jsonlint", -- json lint
-        "luacheck", -- lua lint
         "sqlfluff", -- sql lint
         "sqlfmt", -- sql fmt
         "vale", -- tex lint
