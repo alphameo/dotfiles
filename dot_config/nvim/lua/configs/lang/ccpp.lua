@@ -1,13 +1,9 @@
 -- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
-local new_capabilities = {
-  offsetEncoding = { "utf-16" },
-}
-
 if lsp_utils.executable "clangd" then
   require("lspconfig").clangd.setup {
-    capabilities = vim.tbl_deep_extend("force", lsp_utils.capabilities, new_capabilities),
+    capabilities = vim.tbl_deep_extend("force", lsp_utils.capabilities, { offsetEncoding = { "utf-16" } }),
   }
 else
   vim.notify("clangd (c, cpp) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
