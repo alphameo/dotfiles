@@ -15,7 +15,7 @@ if lsp_utils.executable "pyright" then
         },
       },
       hover = {
-        contentFormat = { "plaintext" },
+        contentFormat = { "markdown", "plaintex" },
         dynamicRegistration = true,
       },
     },
