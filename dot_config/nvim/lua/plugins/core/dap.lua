@@ -14,8 +14,8 @@ return {
     dapui.setup()
 
     dap.listeners.before.attach.dapui_config = dapui.open
-    dap.listeners.before.event_terminated.dapui_config = dapui.close
-    dap.listeners.before.event_exited.dapui_config = dapui.close
+    -- dap.listeners.before.event_terminated.dapui_config = dapui.close
+    -- dap.listeners.before.event_exited.dapui_config = dapui.close
 
     vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Debug () Toggle Breakpoint" })
     vim.keymap.set("n", "<leader>dB", function()
