@@ -13,6 +13,11 @@ return {
       },
     }
 
+    vim.cmd [[highlight DapBreakpointColor guifg=#fa4848]]
+    vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpointColor" })
+    vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DapBreakpointColor" })
+    vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapBreakpointColor" })
+
     vim.cmd.colorscheme "onedark"
 
     local config = {
@@ -24,19 +29,15 @@ return {
     onedark.setup(config)
     onedark.load()
 
-    local set_diagnostics_bg_transparency = function()
-      vim.cmd [[highlight DiagnosticVirtualTextError guibg=none]]
-      vim.cmd [[highlight DiagnosticVirtualTextWarn guibg=none]]
-      vim.cmd [[highlight DiagnosticVirtualTextInfo guibg=none]]
-      vim.cmd [[highlight DiagnosticVirtualTextHint guibg=none]]
-    end
-    set_diagnostics_bg_transparency()
+    -- vim.cmd [[highlight DiagnosticVirtualTextError guibg=none]]
+    -- vim.cmd [[highlight DiagnosticVirtualTextWarn guibg=none]]
+    -- vim.cmd [[highlight DiagnosticVirtualTextInfo guibg=none]]
+    -- vim.cmd [[highlight DiagnosticVirtualTextHint guibg=none]]
 
     local toggle_transparency = function()
       config.transparent = not config.transparent
       onedark.setup(config)
       onedark.load()
-      set_diagnostics_bg_transparency()
     end
 
     vim.keymap.set(
