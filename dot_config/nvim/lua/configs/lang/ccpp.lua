@@ -4,6 +4,18 @@ local lsp_utils = require "configs.lspconfig"
 if lsp_utils.executable "clangd" then
   require("lspconfig").clangd.setup {
     capabilities = vim.tbl_deep_extend("force", lsp_utils.capabilities, { offsetEncoding = { "utf-16" } }),
+    cmd = {
+      "clangd",
+      "--background-index",
+      "--clang-tidy",
+      "--header-insertion=iwyu",
+      "--completion-style=detailed",
+      "--all-scopes-completion",
+      "--fallback-style=llvm",
+    },
+    init_options = {
+      fallbackFlags = { "-std=c++20" },
+    },
   }
 else
   vim.notify("clangd (c, cpp) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
@@ -15,6 +27,12 @@ dap.adapters.codelldb = {
   type = "executable",
   command = "codelldb",
   -- detached = false, -- on windows you may have to uncomment this:
+  -- type = "server",
+  port = "${port}",
+  executable = {
+    command = "codelldb",
+    args = { "--port", "${port}" },
+  },
 }
 for _, lang in ipairs { "c", "cpp" } do
   dap.configurations[lang] = {
