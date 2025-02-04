@@ -118,9 +118,7 @@
           "foreground": "lightGreen",
           "type": "status",
           "style": "powerline",
-          "foreground_templates": [
-            "{{ if gt .Code 0 }}red{{ end }}"
-          ]
+          "foreground_templates": ["{{ if gt .Code 0 }}red{{ end }}"]
         }
       ],
       "newline": true
