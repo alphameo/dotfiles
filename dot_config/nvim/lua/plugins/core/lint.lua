@@ -4,6 +4,24 @@ return {
   config = function()
     local lint = require "lint"
 
+    vim.diagnostic.config {
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.HINT] = "󰌵",
+        },
+      },
+      update_in_insert = true,
+      virtual_text = true,
+    }
+
+    -- vim.cmd [[highlight DiagnosticVirtualTextError guibg=none]]
+    -- vim.cmd [[highlight DiagnosticVirtualTextWarn guibg=none]]
+    -- vim.cmd [[highlight DiagnosticVirtualTextInfo guibg=none]]
+    -- vim.cmd [[highlight DiagnosticVirtualTextHint guibg=none]]
+
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
