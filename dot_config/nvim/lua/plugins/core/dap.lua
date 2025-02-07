@@ -9,6 +9,11 @@ return {
     },
   },
   config = function()
+    vim.cmd [[highlight DapBreakpointColor guifg=#fa4848]]
+    vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpointColor" })
+    vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DapBreakpointColor" })
+    vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapBreakpointColor" })
+
     local dap = require "dap"
     local dapui = require "dapui"
     dapui.setup()
