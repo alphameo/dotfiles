@@ -6,18 +6,26 @@
       "alignment": "left",
       "segments": [
         {
+          "background": "#29315A",
           "foreground": "#3EC669",
+          "leading_diamond": " \ue0b6",
           "properties": {
-            "cache_duration": "none"
+            "style": "full"
           },
+          "style": "diamond",
           "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
-          "type": "os",
-          "style": "powerline"
+          "type": "os"
         },
         {
+          "background": "#29315A",
           "foreground": "#3EC669",
-          "style": "plain",
-          "template": " {{ .UserName }}  ",
+          "leading_diamond": "\ue0b6",
+          "properties": {
+            "style": "full"
+          },
+          "style": "diamond",
+          "template": "{{ .UserName }}",
+          "trailing_diamond": "\ue0b4 ",
           "type": "session"
         },
         {
@@ -63,7 +71,7 @@
             "always_enabled": true,
             "cache_duration": "none"
           },
-          "template": "➜ ",
+          "template": " ➜ ",
           "foreground": "green",
           "type": "status",
           "style": "powerline",

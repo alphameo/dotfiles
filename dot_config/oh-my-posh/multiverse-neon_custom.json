@@ -7,7 +7,7 @@
         {
           "background": "#29315A",
           "foreground": "#3EC669",
-          "leading_diamond": "\ue0b6",
+          "leading_diamond": " \ue0b6",
           "properties": {
             "style": "full"
           },
@@ -127,7 +127,7 @@
         {
           "foreground": "#63F08C",
           "style": "plain",
-          "template": "\u279c ",
+          "template": "  \u279c ",
           "type": "text"
         }
       ],
