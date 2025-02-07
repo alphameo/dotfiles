@@ -27,7 +27,7 @@
           },
           "style": "diamond",
           "leading_diamond": "\u256d\u2500\ue0b2",
-          "template": " {{ .Icon }} ",
+          "template": " {{ .Icon }}  ",
           "type": "os"
         },
         {
@@ -43,9 +43,7 @@
           "foreground": "#f2f3f8",
           "properties": {
             "style": "agnoster_short",
-            "max_depth": 3,
-            "folder_icon": "\u2026",
-            "folder_separator_icon": " <transparent>\ue0b1</> "
+            "max_depth": 3
           },
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
@@ -124,5 +122,5 @@
     }
   ],
   "final_space": true,
-  "version": 2
+  "version": 3
 }

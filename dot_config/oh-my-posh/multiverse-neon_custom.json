@@ -3,13 +3,36 @@
   "blocks": [
     {
       "alignment": "left",
-     "segments": [
+      "segments": [
         {
           "background": "#29315A",
           "foreground": "#3EC669",
           "leading_diamond": "\ue0b6",
           "properties": {
-            "style": "mixed"
+            "style": "full"
+          },
+          "style": "diamond",
+          "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+          "type": "os"
+        },
+        {
+          "background": "#29315A",
+          "foreground": "#3EC669",
+          "leading_diamond": "\ue0b6",
+          "properties": {
+            "style": "full"
+          },
+          "style": "diamond",
+          "template": "{{ .UserName }}",
+          "trailing_diamond": "\ue0b4 ",
+          "type": "session"
+        },
+        {
+          "background": "#29315A",
+          "foreground": "#3EC669",
+          "leading_diamond": "\ue0b6",
+          "properties": {
+            "style": "full"
           },
           "style": "diamond",
           "template": "\ue5ff {{ .Path }}",
@@ -33,7 +56,7 @@
             "fetch_upstream_icon": true
           },
           "style": "diamond",
-          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "template": "{{ .UpstreamIcon }} {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}",
           "trailing_diamond": "\ue0b4",
           "type": "git"
         },
@@ -47,7 +70,7 @@
       ],
       "type": "prompt"
     },
-     {
+    {
       "alignment": "right",
       "segments": [
         {
@@ -111,5 +134,5 @@
       "type": "prompt"
     }
   ],
-  "version": 2
+  "version": 3
 }
