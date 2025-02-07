@@ -28,7 +28,7 @@ alias fm='yazi_filemanager'
 # EVALS
 eval "$(zoxide init --cmd z zsh)"
 eval "$(fzf --zsh)"
-eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/negligible_custom.json)"
+eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/custom.json)"
 
 
 # FUNCTIONS
