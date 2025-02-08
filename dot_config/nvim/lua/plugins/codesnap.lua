@@ -2,14 +2,8 @@ return {
   "mistricky/codesnap.nvim",
   build = "make build_generator",
   keys = {
-    { "<leader>cc", ":CodeSnap<cr>", mode = "x", silent = true, desc = "Save selected code snapshot into clipboard" },
-    {
-      "<leader>cS",
-      ":CodeSnapSave<cr>",
-      mode = "x",
-      silent = true,
-      desc = "Save selected code snapshot",
-    },
+    { "<leader>ss", ":CodeSnap<cr>", mode = "x", silent = true, desc = "Save selected code snapshot into clipboard" },
+    { "<leader>sS", ":CodeSnapSave<cr>", mode = "x", silent = true, desc = "Save selected code snapshot" },
   },
   opts = {
     mac_window_bar = true,

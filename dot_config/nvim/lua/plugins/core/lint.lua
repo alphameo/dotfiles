@@ -33,7 +33,7 @@ return {
 
     vim.keymap.set("n", "<leader>cF", function()
       lint.try_lint()
-    end, { desc = "Trigger linting" })
+    end, { desc = "Code lint" })
 
     vim.api.nvim_create_user_command("LintInfo", function()
       local out = "\n"
