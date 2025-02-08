@@ -18,6 +18,7 @@ return {
         function()
           harpoon:list():add()
         end,
+        silent = true,
         desc = "Harpoon File",
       },
       {
@@ -25,6 +26,7 @@ return {
         function()
           harpoon.ui:toggle_quick_menu(harpoon:list())
         end,
+        silent = true,
         desc = "Harpoon Menu",
       },
     }
