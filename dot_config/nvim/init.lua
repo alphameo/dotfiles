@@ -13,7 +13,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require "options"
 require "mappings"
+require "autocmds"
 require("lazy").setup "plugins"
+vim.keymap.set({ "n" }, "<leader>L", ":Lazy<cr>", { silent = true, desc = "Mason" })
 
 require "configs.lang.bash"
 require "configs.lang.ccpp"
