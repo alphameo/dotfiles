@@ -1,10 +1,24 @@
-[plugin]
-deps = [
-    { use = "yazi-rs/plugins:git", rev = "49137fe" },
-    { use = "yazi-rs/plugins:full-border", rev = "49137fe" },
-    { use = "yazi-rs/plugins:chmod", rev = "49137fe" },
-    { use = "yazi-rs/plugins:diff", rev = "932b931" },
-]
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "49137fe"
+hash = "f4e7aa2ec799f3a95474f9bfc40857f7"
 
-[flavor]
-deps = [{ use = "yazi-rs/flavors:onedark", rev = "d479f67" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "49137fe"
+hash = "f91923f1510af9dd3a0e2b057944ea9c"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "49137fe"
+hash = "916186558a9937d1cc64cd6f6976974a"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:diff"
+rev = "932b931"
+hash = "ede87227b87cc20ee8ada4223c387f78"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:onedark"
+rev = "d479f67"
+hash = ""
