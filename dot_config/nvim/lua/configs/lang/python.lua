@@ -94,3 +94,10 @@ require("conform").formatters_by_ft.python = { "black" }
 
 -- INFO: LINTING
 require("lint").linters_by_ft.python = { "mypy" }
+
+-- INFO: VENV
+-- Add venv_wrapper to .zshrc, then in CMD
+-- mkvenv neovim # create a new venv called neovim
+-- venv neovim # activate the virtual environment
+-- pip install pynvim jupyter_client cairosvg plotly kaleido pnglatex pyperclip
+vim.g.python3_host_prog = vim.fn.expand "~/.virtualenvs/neovim/bin/python3"
