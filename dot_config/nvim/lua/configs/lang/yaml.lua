@@ -14,11 +14,6 @@ if lsp_utils.executable "yaml-language-server" then
   require("lspconfig").yamlls.setup {
     capabilities = vim.tbl_deep_extend("force", lsp_utils.capabilities, new_capabilities),
 
-    on_new_config = function(new_config)
-      new_config.settings.yaml.schemas =
-        vim.tbl_deep_extend("force", new_config.settings.yaml.schemas or {}, require("schemastore").yaml.schemas())
-    end,
-
     settings = {
       redhat = { telemetry = { enabled = false } },
       yaml = {
