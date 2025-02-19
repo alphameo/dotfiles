@@ -45,7 +45,7 @@ return {
     map("c", "<S-Enter>", function() noice.redirect(vim.fn.getcmdline()) end, { desc = "Redirect Cmdline" })
     map("n",  "<leader>nl", function() noice.cmd("last") end, { desc = "Noice Last Message" })
     map("n",  "<leader>nh", function() noice.cmd("history") end, { desc = "Noice History" })
-    map("n",  "<leader>na", function() noice.cmd("all") end, { desc = "Noice All" })
+    map("n",  "<leader>nn", function() noice.cmd("all") end, { desc = "Noice Messages" })
     map("n",  "<leader>nd", function() noice.cmd("dismiss") end, { desc = "Noice Dismiss All" })
     map("n",  "<leader>nt", function() noice.cmd("pick") end, { desc = "Noice Picker" })
     map({ "i", "n", "s" }, "<c-f>", function() if not noice.lsp.scroll(4) then return "<c-f>" end end, { silent = true, expr = true, desc = "Scroll Forward" })
