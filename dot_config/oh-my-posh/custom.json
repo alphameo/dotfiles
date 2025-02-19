@@ -71,7 +71,7 @@
             "always_enabled": true,
             "cache_duration": "none"
           },
-          "template": " ➜ ",
+          "template": "  ➜",
           "foreground": "green",
           "type": "status",
           "style": "powerline",
