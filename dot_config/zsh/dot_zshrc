@@ -62,15 +62,19 @@ function yazi_filemanager() {
 export VENV_HOME="$HOME/.virtualenvs"
 [[ -d $VENV_HOME ]] || mkdir $VENV_HOME
 
-hvenv() {
-  echo "Current venv: $VIRTUAL_ENV"
-  echo "USAGE:
+VENV_HELP="Current venv: $VIRTUAL_ENV
+USAGE:
 $ hvenv               # shows venv help
+$ lsvenv              # list available venvs
 $ mkvenv myvirtualenv # creates venv under ~/.virtualenvs/
 $ venv myvirtualenv   # activates venv
 $ deactivate          # deactivates venv
 $ rmvenv myvirtualenv # removes venv"
+
+hvenv() {
+  echo "$VENV_HELP"
 }
+
 lsvenv() {
   ls -1 $VENV_HOME
 }
@@ -79,6 +83,7 @@ venv() {
   if [ $# -eq 0 ]
     then
       echo "Please provide venv name"
+      echo "$VENV_HELP"
     else
       source "$VENV_HOME/$1/bin/activate"
   fi
