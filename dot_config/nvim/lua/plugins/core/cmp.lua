@@ -87,6 +87,7 @@ return {
           { name = "luasnip" },
           { name = "path" },
           { name = "buffer" },
+          { name = "otter" },
         },
         formatting = {
           fields = { "kind", "abbr", "menu" },
