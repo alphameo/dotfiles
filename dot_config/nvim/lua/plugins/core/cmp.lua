@@ -12,6 +12,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
+      "jmbuhr/otter.nvim", -- markdown with ipynb
     },
     config = function()
       local cmp = require "cmp"

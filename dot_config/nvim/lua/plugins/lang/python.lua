@@ -41,29 +41,24 @@ return {
     "quarto-dev/quarto-nvim",
     ft = { "quarto", "markdown", "python" },
     dev = false,
-    dependencies = {
-      "jmbuhr/otter.nvim",
-    },
     config = function()
       local quarto = require "quarto"
 
       quarto.setup {
+        lspFeatures = {
+          languages = { "python" },
+          chunks = "all",
+          diagnostics = {
+            enabled = true,
+            triggers = { "BufWritePost" },
+          },
+          completion = { enabled = true },
+        },
         codeRunner = {
+          enabled = true,
           default_method = "molten",
         },
       }
-
-      vim.keymap.set("n", "<leader>ji", ":QuartoActivate<CR>", { silent = true, desc = "Quatro Initialize" })
-      vim.keymap.set("n", "<leader>jp", quarto.quartoPreview, { silent = true, desc = "Quatro Preview" })
-      local runner = require "quarto.runner"
-      vim.keymap.set("n", "<leader>jc", runner.run_cell, { silent = true, desc = "Run Cell" })
-      vim.keymap.set("n", "<leader>ju", runner.run_above, { silent = true, desc = "Run Cell And Upper" })
-      vim.keymap.set("n", "<leader>ja", runner.run_all, { silent = true, desc = "Run All Cells" })
-      vim.keymap.set("n", "<leader>jl", runner.run_line, { silent = true, desc = "Run Line" })
-      vim.keymap.set("v", "<leader>j", runner.run_range, { silent = true, desc = "Run Visual Range" })
-      vim.keymap.set("n", "<leader>jA", function()
-        runner.run_all(true)
-      end, { desc = "Run All Cells of All Languages", silent = true })
     end,
   },
 }
