@@ -9,9 +9,12 @@ function M.executable(name)
   return false
 end
 
-M.pref_cap = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-M.pref_cap.textDocument.completion.completionItem.snippetSupport = false -- autofill func placeholders
-M.pref_cap.textDocument.completion.completionItem.labelDetailsSupport = false -- disable params in cmp window
+M.capabilities = function()
+  local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+  capabilities.textDocument.completion.completionItem.snippetSupport = false -- autofill func placeholders
+  capabilities.textDocument.completion.completionItem.labelDetailsSupport = false -- disable params in cmp window
+  return capabilities
+end
 
 -- NOTE: The same code-block via table extension with all defaults
 -- M.cmp_cap = require("cmp_nvim_lsp").default_capabilities()
@@ -38,7 +41,11 @@ M.pref_cap.textDocument.completion.completionItem.labelDetailsSupport = false --
 --   },
 -- }
 
-M.capabilities = M.pref_cap
+M.extended_capabilities = function(extension_table)
+  local capabilities = M.capabilities()
+  vim.tbl_deep_extend("force", capabilities, extension_table)
+  return capabilities
+end
 
 M.on_init = function(client, _)
   if client.supports_method "textDocument/semanticTokens" then

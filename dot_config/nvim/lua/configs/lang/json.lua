@@ -3,7 +3,7 @@ local lsp_utils = require "configs.lspconfig"
 
 if lsp_utils.executable "vscode-json-language-server" then
   require("lspconfig").jsonls.setup {
-    capabilities = lsp_utils.capabilities,
+    capabilities = lsp_utils.capabilities(),
 
     settings = {
       json = {

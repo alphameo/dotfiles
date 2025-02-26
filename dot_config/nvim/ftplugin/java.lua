@@ -153,7 +153,7 @@ local config = {
     },
   },
   -- Needed for auto-completion with method signatures and placeholders
-  capabilities = require("configs.lspconfig").capabilities,
+  capabilities = require("configs.lspconfig").capabilities(),
   flags = {
     allow_incremental_sync = true,
   },

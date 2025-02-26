@@ -4,7 +4,7 @@ local lsp_utils = require "configs.lspconfig"
 if lsp_utils.executable "gopls" then
   local util = require "lspconfig.util"
   require("lspconfig").gopls.setup {
-    capabilities = lsp_utils.capabilities,
+    capabilities = lsp_utils.capabilities(),
     cmd = { "gopls" },
     filetypes = { "go", "gomod", "gowork", "gotmpl" },
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),

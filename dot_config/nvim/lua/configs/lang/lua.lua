@@ -3,7 +3,7 @@ local lsp_utils = require "configs.lspconfig"
 
 if lsp_utils.executable "lua-language-server" then
   require("lspconfig").lua_ls.setup {
-    capabilities = lsp_utils.capabilities,
+    capabilities = lsp_utils.capabilities(),
     settings = {
       Lua = {
         completion = {

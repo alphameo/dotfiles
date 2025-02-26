@@ -6,7 +6,7 @@ if not lsp_utils.executable "rust-analyzer" then
 end
 if lsp_utils.executable "bacon-ls" then
   require("lspconfig").bacon_ls.setup {
-    capabilities = lsp_utils.capabilities,
+    capabilities = lsp_utils.capabilities(),
     -- enabled = diagnostics == "bacon-ls",
   }
 else

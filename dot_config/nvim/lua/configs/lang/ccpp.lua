@@ -3,7 +3,7 @@ local lsp_utils = require "configs.lspconfig"
 
 if lsp_utils.executable "clangd" then
   require("lspconfig").clangd.setup {
-    capabilities = vim.tbl_deep_extend("force", lsp_utils.capabilities, { offsetEncoding = { "utf-16" } }),
+    capabilities = lsp_utils.extended_capabilities { offsetEncoding = { "utf-16" } },
     cmd = {
       "clangd",
       "--background-index",
