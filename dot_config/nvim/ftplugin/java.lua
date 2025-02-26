@@ -1,23 +1,17 @@
--- JDTLS (Java LSP) configuration
 local jdtls = require "jdtls"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = vim.env.HOME .. "/jdtls-workspace/" .. project_name
 
--- Needed for debugging
 local bundles = {
   vim.fn.glob(vim.env.HOME .. "/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar"),
 }
 
--- Needed for running/debugging unit tests
 vim.list_extend(
   bundles,
   vim.split(vim.fn.glob(vim.env.HOME .. "/.local/share/nvim/mason/share/java-test/*.jar", 1), "\n")
 )
 
--- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
-  -- The command that starts the language server
-  -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = {
     "java",
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -34,7 +28,6 @@ local config = {
     "java.base/java.lang=ALL-UNNAMED",
     "-javaagent:" .. vim.env.HOME .. "/.local/share/nvim/mason/share/jdtls/lombok.jar",
 
-    -- Eclipse jdtls location
     "-jar",
     vim.env.HOME .. "/.local/share/nvim/mason/share/jdtls/plugins/org.eclipse.equinox.launcher.jar",
     -- TODO: Update this to point to the correct jdtls subdirectory for your OS (config_linux, config_mac, config_win, etc)
@@ -44,12 +37,8 @@ local config = {
     workspace_dir,
   },
 
-  -- This is the default if not provided, you can remove it. Or adjust as needed.
-  -- One dedicated LSP server & client will be started per unique root_dir
   root_dir = require("jdtls.setup").find_root { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" },
 
-  -- Here you can configure eclipse.jdt.ls specific settings
-  -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
   settings = {
     java = {
       -- TODO: Replace this with the absolute path to your main java version (JDK 17 or higher)
@@ -69,7 +58,6 @@ local config = {
       },
       format = {
         enabled = true,
-        -- Formatting works by default, but you can refer to a specific file/URL if you choose
         settings = {
           -- url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
           -- path = "$HOME/.config/nvim//utility/styles/intellij-java-google-style.xml",
@@ -84,8 +72,9 @@ local config = {
       maven = {
         downloadSources = true,
       },
-      signatureHelp = { enabled = true },
-      -- Use the fernflower decompiler when using the javap command to decompile byte code back to java code
+      signatureHelp = {
+        enabled = true,
+      },
       contentProvider = {
         preferred = "fernflower",
       },
@@ -102,7 +91,6 @@ local config = {
           "java.util.Objects.requireNonNullElse",
           "org.mockito.Mockito.*",
         },
-        -- Try not to suggest imports from these packages in the code action window
         filteredTypes = {
           "com.sun.*",
           "io.micrometer.shaded.*",
@@ -125,11 +113,9 @@ local config = {
         },
       },
       codeGeneration = {
-        -- When generating toString use a json format
         toString = {
           template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
         },
-        -- When generating hashCode and equals methods use the java 7 objects method
         hashCodeEquals = {
           useJava7Objects = true,
         },
@@ -141,7 +127,6 @@ local config = {
       referencesCodeLens = {
         enabled = true,
       },
-      -- enable inlay hints for parameter names,
       inlayHints = {
         parameterNames = {
           enabled = "all",
@@ -152,13 +137,11 @@ local config = {
       },
     },
   },
-  -- Needed for auto-completion with method signatures and placeholders
   capabilities = require("configs.lspconfig").capabilities(),
   flags = {
     allow_incremental_sync = true,
   },
   init_options = {
-    -- References the bundles defined above to support Debugging and Unit Testing
     bundles = bundles,
   },
 
