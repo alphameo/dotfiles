@@ -3,7 +3,7 @@ local lsp_utils = require "configs.lspconfig"
 
 if lsp_utils.executable "intelephense" then
   require("lspconfig").intelephense.setup {
-    capabilities = lsp_utils.capabilities(),
+    capabilities = lsp_utils.capabilities,
   }
 else
   vim.notify("intelephense (php) not found!", vim.log.levels.WARN, { title = "Nvim-config" })

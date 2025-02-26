@@ -3,7 +3,7 @@ local lsp_utils = require "configs.lspconfig"
 
 if lsp_utils.executable "sql-language-server" then
   require("lspconfig").sqlls.setup {
-    capabilities = lsp_utils.capabilities(),
+    capabilities = lsp_utils.capabilities,
   }
 else
   vim.notify("sql-language-server (sql) not found!", vim.log.levels.WARN, { title = "Nvim-config" })

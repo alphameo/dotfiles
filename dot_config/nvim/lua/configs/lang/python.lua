@@ -43,7 +43,7 @@ end
 
 if lsp_utils.executable "ruff" then
   require("lspconfig").ruff.setup {
-    capabilities = lsp_utils.capabilities(),
+    capabilities = lsp_utils.capabilities,
     init_options = {
       -- the settings can be found here: https://docs.astral.sh/ruff/editors/settings/
       settings = {

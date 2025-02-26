@@ -4,7 +4,7 @@ local lsp_utils = require "configs.lspconfig"
 if not lsp_utils.executable "rust-analyzer" then
   require("lspconfig").rust_analyzer.setup {
     cmd = { "rust-analyzer" },
-    capabilities = lsp_utils.capabilities(),
+    capabilities = lsp_utils.capabilities,
     settings = {
       ["rust-analyzer"] = {
         diagnostics = {

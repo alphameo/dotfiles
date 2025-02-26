@@ -9,12 +9,14 @@ function M.executable(name)
   return false
 end
 
-M.capabilities = function()
+M.generate_capabilities = function()
   local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
   capabilities.textDocument.completion.completionItem.snippetSupport = false -- autofill func placeholders
   capabilities.textDocument.completion.completionItem.labelDetailsSupport = false -- disable params in cmp window
   return capabilities
 end
+
+M.capabilities = M.generate_capabilities()
 
 -- NOTE: The same code-block via table extension with all defaults
 -- M.cmp_cap = require("cmp_nvim_lsp").default_capabilities()
@@ -42,7 +44,7 @@ end
 -- }
 
 M.extended_capabilities = function(extension_table)
-  local capabilities = M.capabilities()
+  local capabilities = M.generate_capabilities()
   vim.tbl_deep_extend("force", capabilities, extension_table)
   return capabilities
 end

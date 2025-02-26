@@ -3,7 +3,7 @@ local lsp_utils = require "configs.lspconfig"
 
 if lsp_utils.executable "kotlin-language-server" then
   require("lspconfig").kotlin_language_server.setup {
-    capabilities = lsp_utils.capabilities(),
+    capabilities = lsp_utils.capabilities,
   }
 else
   vim.notify("kotlin-language-server (kotlin) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
@@ -15,7 +15,9 @@ if not dap.adapters.kotlin then
   dap.adapters.kotlin = {
     type = "executable",
     command = "kotlin-debug-adapter",
-    options = { auto_continue_if_many_stopped = false },
+    options = {
+      auto_continue_if_many_stopped = false,
+    },
   }
 end
 
