@@ -5,7 +5,7 @@ local lsp_utils = require "configs.lspconfig"
 local def_cap = lsp_utils.capabilities
 
 if lsp_utils.executable "pyright" then
-  local new_capability = {
+  local new_capabilities = {
     -- this will remove some of the diagnostics that duplicates those from ruff, idea taken and adapted from
     -- here: https://github.com/astral-sh/ruff-lsp/issues/384#issuecomment-1989619482
     textDocument = {
@@ -15,39 +15,22 @@ if lsp_utils.executable "pyright" then
         },
       },
       hover = {
-        contentFormat = { "markdown", "plaintex" },
+        contentFormat = { "plaintex" },
         dynamicRegistration = true,
       },
     },
   }
 
   lspconfig.pyright.setup {
-    cmd = { "pyright-langserver", "--stdio" },
-    capabilities = vim.tbl_deep_extend("force", def_cap, new_capability),
-    filetypes = { "python" },
+    capabilities = lsp_utils.extended_capabilities(new_capabilities),
     settings = {
       pyright = {
-        -- disable import sorting and use Ruff for this
-        disableOrganizeImports = true,
-        disableTaggedHints = false,
+        disableOrganizeImports = true, -- use ruff
       },
       python = {
         analysis = {
-          autoSearchPaths = true,
-          diagnosticMode = "workspace",
-          typeCheckingMode = "standard",
-          useLibraryCodeForTypes = true,
-          -- we can this setting below to redefine some diagnostics
-          diagnosticSeverityOverrides = {
-            deprecateTypingAliases = false,
-          },
-          -- inlay hint settings are provided by pylance?
-          inlayHints = {
-            callArgumentNames = "partial",
-            functionReturnTypes = true,
-            pytestParameters = true,
-            variableTypes = true,
-          },
+          ignore = { "*" },
+          autoImportCompletions = false,
         },
       },
     },
@@ -58,7 +41,7 @@ end
 
 if lsp_utils.executable "ruff" then
   require("lspconfig").ruff.setup {
-    capabilities = def_cap,
+    -- capabilities = def_cap,
     init_options = {
       -- the settings can be found here: https://docs.astral.sh/ruff/editors/settings/
       settings = {
