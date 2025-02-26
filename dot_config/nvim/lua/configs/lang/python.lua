@@ -2,7 +2,6 @@
 local lspconfig = require "lspconfig"
 
 local lsp_utils = require "configs.lspconfig"
-local def_cap = lsp_utils.capabilities
 
 if lsp_utils.executable "pyright" then
   local new_capabilities = {
@@ -30,7 +29,10 @@ if lsp_utils.executable "pyright" then
       python = {
         analysis = {
           ignore = { "*" },
-          autoImportCompletions = false,
+          autoImportCompletions = true,
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true,
+          diagnosticMode = "workspace",
         },
       },
     },
@@ -41,7 +43,7 @@ end
 
 if lsp_utils.executable "ruff" then
   require("lspconfig").ruff.setup {
-    -- capabilities = def_cap,
+    capabilities = lsp_utils.capabilities(),
     init_options = {
       -- the settings can be found here: https://docs.astral.sh/ruff/editors/settings/
       settings = {
