@@ -6,9 +6,9 @@ require("lspconfig").bashls.setup {
 }
 
 -- INFO: FORMATTING
-require("conform").formatters_by_ft.sh = { "shfmt" }
-require("conform").formatters_by_ft.zsh = { "shfmt" }
-require("conform").formatters_by_ft.bash = { "shfmt" }
+-- require("conform").formatters_by_ft.sh = { "shfmt" }
+-- require("conform").formatters_by_ft.zsh = { "shfmt" }
+-- require("conform").formatters_by_ft.bash = { "shfmt" }
 
 -- INFO: LINTING
-require("lint").linters_by_ft.bash = { "shellcheck" }
+-- require("lint").linters_by_ft.bash = { "shellcheck" }

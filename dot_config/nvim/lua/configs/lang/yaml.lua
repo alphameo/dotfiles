@@ -32,7 +32,7 @@ require("lspconfig").yamlls.setup {
 }
 
 -- INFO: FORMATTING
-require("conform").formatters_by_ft.yaml = { "prettierd" }
+-- require("conform").formatters_by_ft.yaml = { "prettierd" }
 
 -- INFO: LINTING
-require("lint").linters_by_ft.yaml = { "yamllint" }
+-- require("lint").linters_by_ft.yaml = { "yamllint" }

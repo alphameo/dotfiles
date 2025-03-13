@@ -8,5 +8,5 @@ require("lspconfig").texlab.setup {
 -- INFO: FORMATTING
 require("conform").formatters_by_ft.tex = { "bibtex-tidy" }
 
--- -- INFO: LINTING
+-- INFO: LINTING
 -- require("lint").linters_by_ft.tex = { "vale" }

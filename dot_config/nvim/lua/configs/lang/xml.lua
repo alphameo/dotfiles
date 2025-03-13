@@ -6,7 +6,7 @@ require("lspconfig").lemminx.setup {
 }
 
 -- INFO: FORMATTING
-require("conform").formatters_by_ft.xml = { "xmlformatter" }
+-- require("conform").formatters_by_ft.xml = { "xmlformatter" }
 
 -- INFO: LINTING
 -- lemminx
