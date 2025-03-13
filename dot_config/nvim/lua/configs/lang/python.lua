@@ -3,57 +3,49 @@ local lspconfig = require "lspconfig"
 
 local lsp_utils = require "configs.lspconfig"
 
-if lsp_utils.executable "pyright" then
-  local new_capabilities = {
-    -- this will remove some of the diagnostics that duplicates those from ruff, idea taken and adapted from
-    -- here: https://github.com/astral-sh/ruff-lsp/issues/384#issuecomment-1989619482
-    textDocument = {
-      publishDiagnostics = {
-        tagSupport = {
-          valueSet = { 2 },
-        },
-      },
-      hover = {
-        contentFormat = { "plaintex" },
-        dynamicRegistration = true,
+local new_capabilities = {
+  -- this will remove some of the diagnostics that duplicates those from ruff, idea taken and adapted from
+  -- here: https://github.com/astral-sh/ruff-lsp/issues/384#issuecomment-1989619482
+  textDocument = {
+    publishDiagnostics = {
+      tagSupport = {
+        valueSet = { 2 },
       },
     },
-  }
+    hover = {
+      contentFormat = { "plaintex" },
+      dynamicRegistration = true,
+    },
+  },
+}
 
-  lspconfig.pyright.setup {
-    capabilities = lsp_utils.extended_capabilities(new_capabilities),
+lspconfig.pyright.setup {
+  capabilities = lsp_utils.extended_capabilities(new_capabilities),
+  settings = {
+    pyright = {
+      disableOrganizeImports = true, -- use ruff
+    },
+    python = {
+      analysis = {
+        ignore = { "*" },
+        autoImportCompletions = true,
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = "workspace",
+      },
+    },
+  },
+}
+
+require("lspconfig").ruff.setup {
+  capabilities = lsp_utils.capabilities,
+  init_options = {
+    -- the settings can be found here: https://docs.astral.sh/ruff/editors/settings/
     settings = {
-      pyright = {
-        disableOrganizeImports = true, -- use ruff
-      },
-      python = {
-        analysis = {
-          ignore = { "*" },
-          autoImportCompletions = true,
-          autoSearchPaths = true,
-          useLibraryCodeForTypes = true,
-          diagnosticMode = "workspace",
-        },
-      },
+      organizeImports = true,
     },
-  }
-else
-  vim.notify("pyright (python) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
-end
-
-if lsp_utils.executable "ruff" then
-  require("lspconfig").ruff.setup {
-    capabilities = lsp_utils.capabilities,
-    init_options = {
-      -- the settings can be found here: https://docs.astral.sh/ruff/editors/settings/
-      settings = {
-        organizeImports = true,
-      },
-    },
-  }
-else
-  vim.notify("ruff (python) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
-end
+  },
+}
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),

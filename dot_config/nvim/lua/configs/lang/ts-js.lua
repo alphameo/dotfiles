@@ -1,49 +1,45 @@
 -- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
-if lsp_utils.executable "typescript-language-server" then
-  local function organize_imports()
-    local params = {
-      command = "_typescript.organizeImports",
-      arguments = { vim.api.nvim_buf_get_name(0) },
-    }
-    vim.lsp.buf.execute_command(params)
-  end
-
-  require("lspconfig").ts_ls.setup {
-    capabilities = lsp_utils.capabilities,
-
-    init_options = {
-      plugins = {
-        {
-          name = "@vue/typescript-plugin",
-          location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-          languages = { "javascript", "typescript", "vue" },
-        },
-      },
-      preferences = {
-        disableSuggestions = true,
-      },
-    },
-
-    filetypes = {
-      "javascript",
-      "typescript",
-      "vue",
-    },
-
-    commands = {
-      OrganizeImports = {
-        organize_imports,
-        description = "Organize Imports",
-      },
-    },
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
   }
-else
-  vim.notify("ts_ls (TypeScript, JavaScript) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
+  vim.lsp.buf.execute_command(params)
 end
 
--- DAP
+require("lspconfig").ts_ls.setup {
+  capabilities = lsp_utils.capabilities,
+
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+        languages = { "javascript", "typescript", "vue" },
+      },
+    },
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
+
+  filetypes = {
+    "javascript",
+    "typescript",
+    "vue",
+  },
+
+  commands = {
+    OrganizeImports = {
+      organize_imports,
+      description = "Organize Imports",
+    },
+  },
+}
+
+-- INFO: DAP
 
 local dap = require "dap"
 

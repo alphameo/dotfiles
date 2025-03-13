@@ -1,13 +1,9 @@
 -- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
-if lsp_utils.executable "vscode-css-language-server" then
-  require("lspconfig").cssls.setup {
-    capabilities = lsp_utils.capabilities,
-  }
-else
-  vim.notify("cssls (css) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
-end
+require("lspconfig").cssls.setup {
+  capabilities = lsp_utils.capabilities,
+}
 
 if lsp_utils.executable "css-variables-language-server" then
   require("lspconfig").css_variables.setup {

@@ -1,25 +1,21 @@
 -- INFO: LSP
 local lsp_utils = require "configs.lspconfig"
 
-if lsp_utils.executable "clangd" then
-  require("lspconfig").clangd.setup {
-    capabilities = lsp_utils.extended_capabilities { offsetEncoding = { "utf-16" } },
-    cmd = {
-      "clangd",
-      "--background-index",
-      "--clang-tidy",
-      "--header-insertion=iwyu",
-      "--completion-style=detailed",
-      "--all-scopes-completion",
-      "--fallback-style=llvm",
-    },
-    init_options = {
-      fallbackFlags = { "-std=c++20" },
-    },
-  }
-else
-  vim.notify("clangd (c, cpp) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
-end
+require("lspconfig").clangd.setup {
+  capabilities = lsp_utils.extended_capabilities { offsetEncoding = { "utf-16" } },
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+    "--completion-style=detailed",
+    "--all-scopes-completion",
+    "--fallback-style=llvm",
+  },
+  init_options = {
+    fallbackFlags = { "-std=c++20" },
+  },
+}
 
 -- INFO: DAP
 local dap = require "dap"
