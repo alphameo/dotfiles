@@ -60,18 +60,19 @@ local conform = require "conform"
 conform.formatters_by_ft.c = { "clang_format" }
 conform.formatters_by_ft.cpp = { "clang_format" }
 conform.formatters = {
-  ["clang-format"] = {
-    prepend_args = {
-      "-style={ \
-                BasedOnStyle: Google, \
-                UseTab: Never, \
-                TabWidth: 4, \
-                indentWidth: 4, \
-                InsertNewlineAtEOF: true, \
-                IndentCaseLabels: true, \
-                BreakBeforeBraces: Attach, \
-                AllowShortIfStatementsOnASingleLine: false, \
-                AllowShortBlocksOnASingleLine: Empty}",
+  clang_format = {
+    args = {
+      "--style={BasedOnStyle: Google,"
+        .. "UseTab: Never,"
+        .. "TabWidth: 4,"
+        .. "IndentWidth: 4,"
+        .. "InsertNewlineAtEOF: true,"
+        .. "IndentCaseLabels: true,"
+        .. "LineEnding: LF,"
+        .. "BreakBeforeBraces: Attach,"
+        .. "AllowShortIfStatementsOnASingleLine: false,"
+        .. "AllowShortBlocksOnASingleLine: Empty"
+        .. "}",
     },
   },
 }
