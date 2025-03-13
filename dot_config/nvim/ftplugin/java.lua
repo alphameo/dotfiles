@@ -30,7 +30,7 @@ local config = {
 
     "-jar",
     vim.env.HOME .. "/.local/share/nvim/mason/share/jdtls/plugins/org.eclipse.equinox.launcher.jar",
-    -- TODO: Update this to point to the correct jdtls subdirectory for your OS (config_linux, config_mac, config_win, etc)
+    -- TODO: jdtls subdirectory for the OS (config_linux, config_mac, config_win, etc)
     "-configuration",
     vim.env.HOME .. "/.local/share/nvim/mason/packages/jdtls/config_linux",
     "-data",
@@ -41,14 +41,11 @@ local config = {
 
   settings = {
     java = {
-      -- TODO: Replace this with the absolute path to your main java version (JDK 17 or higher)
+      -- TODO: path to the main java version (JDK 17 or higher)
       home = "/usr/lib/jvm/java-23-openjdk",
 
       configuration = {
-        -- If changes to the project will require the developer to update the projects configuration advise the developer before accepting the change
         updateBuildConfiguration = "interactive",
-        -- TODO: Update this by adding any runtimes that you need to support your Java projects and removing any that you don't have installed
-        -- The runtime name parameters need to match specific Java execution environments.
         runtimes = {
           {
             name = "JavaSE-23",
@@ -153,25 +150,18 @@ local config = {
 
 -- Mappings
 vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
--- Allow yourself/register to run JdtUpdateConfig as a Vim command
 vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()"
--- Allow yourself/register to run JdtBytecode as a Vim command
 vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
--- Allow yourself/register to run JdtShell as a Vim command
 vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
 
 vim.keymap.set("n", "<leader>li", require("jdtls").organize_imports, { desc = "Java Organize Imports" })
-
 vim.keymap.set("n", "<leader>lv", require("jdtls").extract_variable, { desc = "Java Extract Variable" })
-
 vim.keymap.set("n", "<leader>lc", require("jdtls").extract_constant, { desc = "Java Extract Constant" })
 
 vim.keymap.set("n", "<leader>lt", require("jdtls").test_nearest_method, { desc = "Java Test Method" })
-
 vim.keymap.set("n", "<leader>lT", require("jdtls").test_class, { desc = "Java Test Class" })
 
 vim.keymap.set("n", "<leader>lu", "<Cmd> JdtUpdateConfig<CR>", { silent = true, desc = "Java Update Config" })
 vim.keymap.set("n", "<leader>lr", "<Cmd> JdtRestart<CR>", { silent = true, desc = "Java Restart JDTLS" })
 
--- This starts a new client & server, or attaches to an existing client & server based on the `root_dir`.
 jdtls.start_or_attach(config)
