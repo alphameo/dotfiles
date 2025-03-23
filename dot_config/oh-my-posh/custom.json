@@ -8,7 +8,7 @@
         {
           "background": "#29315A",
           "foreground": "#3EC669",
-          "leading_diamond": " \ue0b6",
+          "leading_diamond": "\ue0b6",
           "properties": {
             "style": "full"
           },
@@ -71,7 +71,7 @@
             "always_enabled": true,
             "cache_duration": "none"
           },
-          "template": "  ➜",
+          "template": " ➜",
           "foreground": "green",
           "type": "status",
           "style": "powerline",
