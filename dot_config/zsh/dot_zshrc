@@ -13,9 +13,11 @@ source "${ZINIT_HOME}/zinit.zsh"
 # ALIASES
 alias sudo='sudo '
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
-alias grep='grep --color=always'
+alias grep='rg --color=always'
 alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 alias pacman='pacman --color=always'
+alias cdi="zi"
+alias lgit="lazygit"
 
 alias cz='chezmoi'
 alias fetch='fastfetch'
@@ -23,6 +25,7 @@ alias ls='eza --color=always'
 alias lt='eza_tree'
 alias cat='bat --style=plain --pager=never'
 alias fm='yazi_filemanager'
+alias nv='nvim'
 
 
 # EVALS
