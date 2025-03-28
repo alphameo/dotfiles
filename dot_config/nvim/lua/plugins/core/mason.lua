@@ -69,7 +69,7 @@ return {
     mason_tool_installer.setup {
       ensure_installed = {
         "prettierd", -- ts, js, ... fmt
-        "eslint_d", -- ts, js, ... lint
+        {'eslint_d', version = '13.1.2'}, -- ts, js, ... lint
         "stylua", -- lua fmt
         "luacheck", -- lua lint
         "ktlint", -- kotlin fmt/lint
