@@ -66,9 +66,33 @@ for _, language in ipairs { "typescript", "javascript", "typescriptreact", "java
 end
 
 -- INFO: FORMATTING
-require("conform").formatters_by_ft.javascript = { "prettierd" }
-require("conform").formatters_by_ft.typescript = { "prettierd" }
+local conform_ft = require("conform").formatters_by_ft
+conform_ft.javascript = { "prettierd" }
+conform_ft.typescript = { "prettierd" }
+conform_ft.javascriptreact = { "prettierd" }
+conform_ft.typescriptreact = { "prettierd" }
 
 -- INFO: LINTING
-require("lint").linters_by_ft.javascript = { "eslint_d" }
-require("lint").linters_by_ft.typescript = { "eslint_d" }
+vim.env.ESLINT_D_PPID = vim.fn.getpid()
+local lint = require "lint"
+lint.linters.eslint_d = {
+  cmd = "eslint_d",
+  stdin = true,
+  args = {
+    "--config",
+    os.getenv "ESLINT_D_DEFAULT_CONFIG",
+  },
+}
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    local success, err = pcall(require("lint").try_lint)
+    if not success then
+      vim.notify("Linting error: " .. tostring(err), vim.log.levels.ERROR)
+    end
+  end,
+})
+local lint_ft = lint.linters_by_ft
+-- lint_ft.javascript = { "eslint_d" }
+-- lint_ft.typescript = { "eslint_d" }
+lint_ft.javascriptreact = { "eslint_d" }
+lint_ft.typescriptreact = { "eslint_d" }
