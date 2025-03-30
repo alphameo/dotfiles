@@ -162,6 +162,12 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons=always --color=always $
 # GPG
 export GPG_TTY=$(tty)
 
+# prettier
+export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/nvim/utils/prettierrc.json"
+
+# eslint
+export ESLINT_D_DEFAULT_CONFIG="$HOME/.config/nvim/utils/eslintrc.js"
+
 # file matching
 setopt EXTENDED_GLOB
 setopt NOMATCH
@@ -194,3 +200,5 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
         print -P "%F{33} %F{34}Installation successful.%f%b" || \
         print -P "%F{160} The clone has failed.%f%b"
 fi
+
+. "$HOME/.local/share/../bin/env"
