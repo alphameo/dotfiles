@@ -59,7 +59,8 @@ return {
         "cppdbg", -- c, cpp
         "codelldb", -- c, cpp, rust
         "python", -- python
-        "js", -- javascript
+        "js", -- javascript, typescript
+        "firefox", -- javascript, typescript
         "kotlin", -- kotlin
         "delve", -- go
         "php", -- php

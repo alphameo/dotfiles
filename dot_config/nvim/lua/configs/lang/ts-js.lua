@@ -9,27 +9,20 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
+local js_based_langs = {
+  "javascript",
+  "javascriptreact",
+  "javascript.jsx",
+  "typescript",
+  "typescriptreact",
+  "typescript.tsx",
+  "vue",
+}
+
 require("lspconfig").ts_ls.setup {
   capabilities = lsp_utils.capabilities,
 
-  init_options = {
-    plugins = {
-      {
-        name = "@vue/typescript-plugin",
-        location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-        languages = { "javascript", "typescript", "vue" },
-      },
-    },
-    preferences = {
-      disableSuggestions = true,
-    },
-  },
-
-  filetypes = {
-    "javascript",
-    "typescript",
-    "vue",
-  },
+  filetypes = js_based_langs,
 
   commands = {
     OrganizeImports = {
@@ -45,22 +38,40 @@ local dap = require "dap"
 
 dap.adapters["pwa-node"] = {
   type = "server",
-  host = "127.0.0.1",
-  port = 8123,
+  host = "localhost",
+  port = "${port}",
   executable = {
-    command = "js-debug-adapter",
+    command = "node",
+    args = {
+      os.getenv "HOME" .. "/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+      "${port}",
+    },
   },
 }
 
-for _, language in ipairs { "typescript", "javascript", "typescriptreact", "javascriptreact" } do
+dap.adapters.firefox = {
+  type = "executable",
+  command = "node",
+  args = { os.getenv "HOME" .. "/.local/share/nvim/mason/packages/firefox-debug-adapter/dist/adapter.bundle.js" },
+}
+
+for _, language in ipairs(js_based_langs) do
   dap.configurations[language] = {
     {
+      name = "Launch file",
       type = "pwa-node",
       request = "launch",
-      name = "Launch file",
       program = "${file}",
       cwd = "${workspaceFolder}",
-      runtimeExecutable = "node",
+    },
+    {
+      name = "Debug with Firefox",
+      type = "firefox",
+      request = "launch",
+      reAttach = true,
+      url = "http://localhost:3000",
+      webRoot = "${workspaceFolder}",
+      firefoxExecutable = "/usr/bin/firefox",
     },
   }
 end
@@ -73,8 +84,10 @@ conform_ft.javascriptreact = { "prettierd" }
 conform_ft.typescriptreact = { "prettierd" }
 
 -- INFO: LINTING
+
 vim.env.ESLINT_D_PPID = vim.fn.getpid()
 local lint = require "lint"
+
 lint.linters.eslint_d = {
   cmd = "eslint_d",
   stdin = true,
@@ -83,16 +96,9 @@ lint.linters.eslint_d = {
     os.getenv "ESLINT_D_DEFAULT_CONFIG",
   },
 }
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  callback = function()
-    local success, err = pcall(require("lint").try_lint)
-    if not success then
-      vim.notify("Linting error: " .. tostring(err), vim.log.levels.ERROR)
-    end
-  end,
-})
+
 local lint_ft = lint.linters_by_ft
 -- lint_ft.javascript = { "eslint_d" }
 -- lint_ft.typescript = { "eslint_d" }
-lint_ft.javascriptreact = { "eslint_d" }
-lint_ft.typescriptreact = { "eslint_d" }
+-- lint_ft.javascriptreact = { "eslint_d" }
+-- lint_ft.typescriptreact = { "eslint_d" }

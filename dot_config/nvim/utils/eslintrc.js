@@ -1,8 +1,8 @@
 module.exports = {
   rules: {
     "no-console": "warn",
-    indent: ["error", 2],
-    quotes: ["error", "single"],
+    indent: ["error", 4],
+    quotes: ["error", "double"],
     "no-unused-vars": "warn",
     "no-undef": "error",
     "no-trailing-spaces": "error",
