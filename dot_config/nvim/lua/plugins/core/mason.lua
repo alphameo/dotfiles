@@ -39,6 +39,8 @@ return {
         "css_variables", -- css
         "tailwindcss", -- tailwind
         "ts_ls", -- javascript, typescript
+        "denols", -- javascript, typescript
+        "vtsls", -- typescript
         "pyright", -- python
         "basedpyright", -- python static checker
         "lemminx", -- xml

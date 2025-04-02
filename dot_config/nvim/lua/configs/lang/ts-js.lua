@@ -19,44 +19,81 @@ local js_based_langs = {
   "vue",
 }
 
-require("lspconfig").ts_ls.setup {
+-- require("lspconfig").vtsls.setup {
+--   capabilities = lsp_utils.capabilities,
+--
+--   settings = {
+--     typescript = {
+--       inlayHints = {
+--         parameterNames = { enabled = "all" },
+--         parameterTypes = { enabled = true },
+--         variableTypes = { enabled = true },
+--         propertyDeclarationTypes = { enabled = true },
+--         functionLikeReturnTypes = { enabled = true },
+--         enumMemberValues = { enabled = true },
+--       },
+--     },
+--   },
+-- }
+
+vim.g.markdown_fenced_languages = {
+  "ts=typescript",
+}
+
+require("lspconfig").denols.setup {
   capabilities = lsp_utils.capabilities,
-
   filetypes = js_based_langs,
-
-  commands = {
-    OrganizeImports = {
-      organize_imports,
-      description = "Organize Imports",
-    },
-  },
   settings = {
-    typescript = {
+    deno = {
       inlayHints = {
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      },
-    },
-    javascript = {
-      inlayHints = {
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
+        parameterNames = { enabled = "all", suppressWhenArgumentMatchesName = true },
+        parameterTypes = { enabled = true },
+        variableTypes = { enabled = true, suppressWhenTypeMatchesName = true },
+        propertyDeclarationTypes = { enabled = true },
+        functionLikeReturnTypes = { enable = true },
+        enumMemberValues = { enabled = true },
       },
     },
   },
 }
+-- require("lspconfig").ts_ls.setup {
+--   capabilities = lsp_utils.capabilities,
+--
+--   filetypes = js_based_langs,
+--
+--   commands = {
+--     OrganizeImports = {
+--       organize_imports,
+--       description = "Organize Imports",
+--     },
+--   },
+--   settings = {
+--     typescript = {
+--       inlayHints = {
+--         includeInlayParameterNameHints = "all",
+--         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+--         includeInlayFunctionParameterTypeHints = true,
+--         includeInlayVariableTypeHints = true,
+--         includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+--         includeInlayPropertyDeclarationTypeHints = true,
+--         includeInlayFunctionLikeReturnTypeHints = true,
+--         includeInlayEnumMemberValueHints = true,
+--       },
+--     },
+--     javascript = {
+--       inlayHints = {
+--         includeInlayParameterNameHints = "all",
+--         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+--         includeInlayFunctionParameterTypeHints = true,
+--         includeInlayVariableTypeHints = true,
+--         includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+--         includeInlayPropertyDeclarationTypeHints = true,
+--         includeInlayFunctionLikeReturnTypeHints = true,
+--         includeInlayEnumMemberValueHints = true,
+--       },
+--     },
+--   },
+-- }
 
 -- INFO: DAP
 
@@ -103,27 +140,30 @@ for _, language in ipairs(js_based_langs) do
 end
 
 -- INFO: FORMATTING
-local conform_ft = require("conform").formatters_by_ft
-conform_ft.javascript = { "prettierd" }
-conform_ft.typescript = { "prettierd" }
-conform_ft.javascriptreact = { "prettierd" }
-conform_ft.typescriptreact = { "prettierd" }
+-- denols
+--
+-- local conform_ft = require("conform").formatters_by_ft
+-- conform_ft.javascript = { "prettierd" }
+-- conform_ft.typescript = { "prettierd" }
+-- conform_ft.javascriptreact = { "prettierd" }
+-- conform_ft.typescriptreact = { "prettierd" }
 
 -- INFO: LINTING
-
-vim.env.ESLINT_D_PPID = vim.fn.getpid()
-local lint = require "lint"
-
-lint.linters.eslint_d = {
-  cmd = "eslint_d",
-  stdin = true,
-  args = {
-    "--config",
-    os.getenv "ESLINT_D_DEFAULT_CONFIG",
-  },
-}
-
-local lint_ft = lint.linters_by_ft
+-- denols
+--
+-- vim.env.ESLINT_D_PPID = vim.fn.getpid()
+-- local lint = require "lint"
+--
+-- lint.linters.eslint_d = {
+--   cmd = "eslint_d",
+--   stdin = true,
+--   args = {
+--     "--config",
+--     os.getenv "ESLINT_D_DEFAULT_CONFIG",
+--   },
+-- }
+--
+-- local lint_ft = lint.linters_by_ft
 -- lint_ft.javascript = { "eslint_d" }
 -- lint_ft.typescript = { "eslint_d" }
 -- lint_ft.javascriptreact = { "eslint_d" }
