@@ -53,13 +53,19 @@ return {
       local builtin = require "telescope.builtin"
       local map = vim.keymap.set
 
+      map("n", "<leader>ac", builtin.colorscheme, { desc = "Choose Colorscheme" })
+
+      map("n", "<leader>fp", builtin.builtin, { desc = "Find Picker" })
+      map("n", "<leader>fm", builtin.marks, { desc = "Find Marks" })
+      map("n", "<leader>fb", builtin.marks, { desc = "Find Buffers" })
+
       map("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
       map("n", "<leader>fg", builtin.live_grep, { desc = "Find by Grep" })
       map("n", "<leader>fw", builtin.grep_string, { desc = "Find Words" })
-      map("n", "<leader>f.", builtin.oldfiles, { desc = "Find Recent Files" })
-      map("n", "<leader>sh", builtin.help_tags, { desc = "Help Tags" })
-      map("n", "<leader>sk", builtin.keymaps, { desc = "Keymaps" })
-      map("n", "<leader>sn", function()
+      map("n", "<leader>fr", builtin.oldfiles, { desc = "Find Recent Files" })
+      map("n", "<leader>.h", builtin.help_tags, { desc = "Help Tags" })
+      map("n", "<leader>.k", builtin.keymaps, { desc = "Keymaps" })
+      map("n", "<leader>.n", function()
         builtin.find_files { cwd = vim.fn.stdpath "config" }
       end, { desc = "Neovim Config" })
     end,
