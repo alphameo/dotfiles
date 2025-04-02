@@ -57,9 +57,9 @@ local config = {
         enabled = true,
         settings = {
           -- url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
-          -- path = "$HOME/.config/nvim//utility/styles/intellij-java-google-style.xml",
+          -- path = "$HOME/.config/nvim//utils/intellij-java-google-style.xml",
           -- url = "https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml",
-          path = "$HOME/.config/nvim/utility/styles/eclipse-java-google-style.xml",
+          path = "$HOME/.config/nvim/utils/eclipse-java-google-style.xml",
           profile = "GoogleStyle",
         },
       },
@@ -148,6 +148,8 @@ local config = {
   end,
 }
 
+jdtls.start_or_attach(config)
+
 -- Mappings
 vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
 vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()"
@@ -163,5 +165,3 @@ vim.keymap.set("n", "<leader>lT", require("jdtls").test_class, { desc = "Java Te
 
 vim.keymap.set("n", "<leader>lu", "<Cmd> JdtUpdateConfig<CR>", { silent = true, desc = "Java Update Config" })
 vim.keymap.set("n", "<leader>lr", "<Cmd> JdtRestart<CR>", { silent = true, desc = "Java Restart JDTLS" })
-
-jdtls.start_or_attach(config)
