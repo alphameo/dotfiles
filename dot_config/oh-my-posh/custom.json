@@ -63,16 +63,16 @@
                 {
                     "foreground": "#fee464",
                     "background": "#3670a1",
-                    "template": "\ue235 {{ .Full }} {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }}{{ end }}{{ end }}",
+                    "template": " {{ .Full }} {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }}{{ end }}{{ end }}",
                     "style": "diamond",
                     "leading_diamond": "\ue0b6",
                     "trailing_diamond": "\ue0b4 ",
                     "type": "python"
                 },
                 {
-                    "background": "#408540",
-                    "foreground": "#63B64A",
-                    "template": "\ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
+                    "background": "#69be44",
+                    "foreground": "#303030",
+                    "template": " {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
                     "style": "diamond",
                     "leading_diamond": " \ue0b6",
                     "trailing_diamond": "\ue0b4",
