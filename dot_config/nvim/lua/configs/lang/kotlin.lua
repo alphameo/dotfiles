@@ -3,6 +3,15 @@ local lsp_utils = require "configs.lspconfig"
 
 require("lspconfig").kotlin_language_server.setup {
   capabilities = lsp_utils.capabilities,
+  settings = {
+    kotlin = {
+      hints = {
+        typeHints = true,
+        parameterHints = true,
+        chaineHints = true,
+      },
+    },
+  },
 }
 
 -- INFO: DAP

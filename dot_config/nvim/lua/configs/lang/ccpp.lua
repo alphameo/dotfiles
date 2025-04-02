@@ -12,8 +12,16 @@ require("lspconfig").clangd.setup {
     "--all-scopes-completion",
     "--fallback-style=llvm",
   },
-  init_options = {
-    fallbackFlags = { "-std=c++20" },
+  settings = {
+    clangd = {
+      InlayHints = {
+        Designators = true,
+        Enabled = true,
+        ParameterNames = true,
+        DeducedTypes = true,
+      },
+      fallbackFlags = { "-std=c++20" },
+    },
   },
 }
 
@@ -67,7 +75,9 @@ conform.formatters = {
         .. "LineEnding: LF,"
         .. "BreakBeforeBraces: Attach,"
         .. "AllowShortIfStatementsOnASingleLine: false,"
-        .. "AllowShortBlocksOnASingleLine: Empty"
+        .. "AllowShortBlocksOnASingleLine: Empty,"
+        .. "IndentAccessModifiers: false,"
+        .. "AccessModifierOffset: -3"
         .. "}",
     },
   },

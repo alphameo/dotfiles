@@ -40,6 +40,7 @@ return {
         "tailwindcss", -- tailwind
         "ts_ls", -- javascript, typescript
         "pyright", -- python
+        "basedpyright", -- python static checker
         "lemminx", -- xml
         "taplo", -- toml
         "jsonls", -- json
