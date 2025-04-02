@@ -1,27 +1,45 @@
+local icons = {
+  Error = "",
+  Warn = "",
+  Hint = "󰌵",
+  Info = "",
+}
+
+local signs = {
+  text = {},
+  numhl = {},
+  texthl = {},
+}
+
+for type, icon in pairs(icons) do
+  local hl = "DiagnosticSign" .. type
+  local severity = vim.diagnostic.severity[string.upper(type)]
+
+  signs.text[severity] = icon
+  signs.numhl[severity] = hl
+  signs.texthl[severity] = hl
+end
+
+vim.diagnostic.config {
+  underline = true,
+  virtual_text = {
+    source = true,
+    spacing = 0,
+  },
+  float = {
+    source = true,
+    border = "rounded",
+  },
+  update_in_insert = true,
+  severity_sort = true,
+  signs = signs,
+}
+
 return {
   "mfussenegger/nvim-lint",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local lint = require "lint"
-
-    vim.diagnostic.config {
-      signs = {
-        text = {
-          [vim.diagnostic.severity.ERROR] = "",
-          [vim.diagnostic.severity.WARN] = "",
-          [vim.diagnostic.severity.INFO] = "",
-          [vim.diagnostic.severity.HINT] = "󰌵",
-        },
-      },
-      update_in_insert = true,
-      virtual_text = true,
-    }
-
-    -- vim.cmd [[highlight DiagnosticVirtualTextError guibg=none]]
-    -- vim.cmd [[highlight DiagnosticVirtualTextWarn guibg=none]]
-    -- vim.cmd [[highlight DiagnosticVirtualTextInfo guibg=none]]
-    -- vim.cmd [[highlight DiagnosticVirtualTextHint guibg=none]]
-
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
@@ -35,6 +53,7 @@ return {
       lint.try_lint()
     end, { desc = "Code lint" })
 
+    -- INFO: command for Linters checking
     vim.api.nvim_create_user_command("LintInfo", function()
       local out = "\n"
 
