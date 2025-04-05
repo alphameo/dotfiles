@@ -6,14 +6,28 @@ return {
       codelens = { enabled = true },
     },
     config = function()
+      -- vim.api.nvim_create_autocmd("LspAttach", {
+      --   callback = function(args)
+      --     local client = vim.lsp.get_client_by_id(args.data.client_id)
+      --     if client:supports_method "textDocument/completion" then
+      --       local map = vim.keymap.set
+      --       local opts = function(desc)
+      --         return { buffer = args.buf, desc = desc }
+      --       end
+      --       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+      --       map({ "i" }, "<C- >", "<C-x><C-o>", opts "Trigger completion")
+      --     end
+      --   end,
+      -- })
+
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-        callback = function(e)
+        callback = function(args)
           local lsp = vim.lsp
           local lsp_b = lsp.buf
           local map = vim.keymap.set
           local opts = function(desc)
-            return { buffer = e.buf, desc = desc }
+            return { buffer = args.buf, desc = desc }
           end
 
           local telescope = require "telescope.builtin"
@@ -26,12 +40,12 @@ return {
           map("n", "gI", telescope.lsp_implementations, opts "Go to Implementations")
           map("n", "gr", telescope.lsp_references, opts "Go to References")
           map("n", "gt", telescope.lsp_type_definitions, opts "Go to Type Definition")
+          map("n", "gs", telescope.lsp_document_symbols, { desc = "Go to Document Symbols" })
+          map("n", "gS", telescope.lsp_dynamic_workspace_symbols, { desc = "Go to Workspace Symbols" })
           map("n", "gb", "<C-o>", opts "Go Back")
 
           map("n", "<leader>cd", telescope.diagnostics, opts "Code Diagnostics")
           map("n", "<leader>cq", telescope.quickfix, { desc = "Code Quickfix" })
-          map("n", "<leader>cs", telescope.lsp_document_symbols, { desc = "Code Document Symbols" })
-          map("n", "<leader>cS", telescope.lsp_dynamic_workspace_symbols, { desc = "Code Workspace Symbols" })
 
           map("n", "<leader>ct", telescope.treesitter, { desc = "Find Files" })
           map({ "n", "v" }, "<leader>ca", lsp_b.code_action, opts "Code Actions")
