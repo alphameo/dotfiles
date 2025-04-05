@@ -2,7 +2,7 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   dependencies = {
-    { "echasnovski/mini.icons", version = false },
+    "nvim-tree/nvim-web-devicons",
   },
   opts = {
     preset = "helix", -- "classic" | "modern" | "helix"
@@ -17,7 +17,6 @@ return {
   config = function(_, opts)
     local which_key = require "which-key"
 
-    require("mini.icons").setup()
     which_key.setup(opts)
 
     which_key.add {
