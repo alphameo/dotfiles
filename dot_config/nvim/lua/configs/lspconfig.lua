@@ -10,13 +10,12 @@ function M.executable(name)
 end
 
 M.generate_capabilities = function()
-  local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-  capabilities.textDocument.completion.completionItem.snippetSupport = false -- autofill func placeholders
-  capabilities.textDocument.completion.completionItem.labelDetailsSupport = false -- disable params in cmp window
+  local capabilities = require("blink.cmp").get_lsp_capabilities()
+  -- local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+  -- capabilities.textDocument.completion.completionItem.snippetSupport = false -- autofill func placeholders
+  -- capabilities.textDocument.completion.completionItem.labelDetailsSupport = false -- disable params in cmp window
   return capabilities
 end
-
-M.capabilities = M.generate_capabilities()
 
 -- NOTE: The same code-block via table extension with all defaults
 -- M.cmp_cap = require("cmp_nvim_lsp").default_capabilities()
