@@ -1,5 +1,5 @@
 return {
-  require "plugins.core.cmp",
+  require "plugins.core.cmp-blink",
   require "plugins.core.conform",
   require "plugins.core.dap",
   require "plugins.core.lsp",
