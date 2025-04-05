@@ -57,7 +57,7 @@ return {
 
       map("n", "<leader>fp", builtin.builtin, { desc = "Find Picker" })
       map("n", "<leader>fm", builtin.marks, { desc = "Find Marks" })
-      map("n", "<leader>fb", builtin.marks, { desc = "Find Buffers" })
+      map("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
 
       map("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
       map("n", "<leader>fg", builtin.live_grep, { desc = "Find by Grep" })
