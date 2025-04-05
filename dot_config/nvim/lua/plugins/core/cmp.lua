@@ -12,6 +12,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
+      "kdheepak/cmp-latex-symbols",
       "jmbuhr/otter.nvim", -- markdown with ipynb
     },
     config = function()
@@ -47,6 +48,7 @@ return {
         TypeParameter = "",
       }
 
+      ---@diagnostic disable: redundant-parameter
       cmp.setup {
         snippet = {
           expand = function(args)
@@ -89,16 +91,18 @@ return {
           { name = "path" },
           { name = "buffer" },
           { name = "otter" },
+          { name = "latex_symbols" },
         },
         formatting = {
           fields = { "kind", "abbr", "menu" },
           format = function(entry, vim_item)
-            vim_item.kind = cmp_kinds[vim_item.kind] or ""
+            vim_item.kind = (string.format("%s %s", cmp_kinds[vim_item.kind], vim_item.kind)) or ""
             vim_item.menu = ({
               nvim_lsp = "[lsp]",
               luasnip = "[snip]",
               buffer = "[bufr]",
               path = "[path]",
+              latex_symbols = "[LaTeX]",
             })[entry.source.name]
             return vim_item
           end,
