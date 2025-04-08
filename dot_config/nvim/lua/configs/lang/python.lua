@@ -19,25 +19,25 @@ local new_capabilities = {
   },
 }
 
-lspconfig.pyright.setup {
-  capabilities = lsp_utils.extended_capabilities(new_capabilities),
-  settings = {
-    pyright = {
-      disableOrganizeImports = true, -- use ruff
-    },
-    python = {
-      analysis = {
-        ignore = { "*" },
-        autoImportCompletions = true,
-        autoSearchPaths = true,
-        useLibraryCodeForTypes = true,
-        diagnosticMode = "workspace",
-      },
-    },
-  },
-}
+-- lspconfig.pyright.setup {
+--   capabilities = lsp_utils.extended_capabilities(new_capabilities),
+--   settings = {
+--     pyright = {
+--       disableOrganizeImports = true, -- use ruff
+--     },
+--     python = {
+--       analysis = {
+--         -- ignore = { "*" },
+--         autoImportCompletions = true,
+--         autoSearchPaths = true,
+--         useLibraryCodeForTypes = true,
+--         diagnosticMode = "workspace",
+--       },
+--     },
+--   },
+-- }
 
-require("lspconfig").ruff.setup {
+lspconfig.ruff.setup {
   capabilities = lsp_utils.capabilities,
   init_options = {
     -- the settings can be found here: https://docs.astral.sh/ruff/editors/settings/
@@ -47,13 +47,19 @@ require("lspconfig").ruff.setup {
   },
 }
 
-require("lspconfig").basedpyright.setup {
+lspconfig.basedpyright.setup {
+  capabilities = lsp_utils.extended_capabilities(new_capabilities),
   settings = {
+    pyright = {
+      disableOrganizeImports = true, -- use ruff
+    },
     basedpyright = {
       analysis = {
+        -- ignore = { "*" },
+        autoImportCompletions = true,
         autoSearchPaths = true,
-        diagnosticMode = "openFilesOnly",
         useLibraryCodeForTypes = true,
+        diagnosticMode = "workspace",
       },
     },
   },
