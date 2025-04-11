@@ -49,9 +49,25 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>cF", function()
-      lint.try_lint()
-    end, { desc = "Code lint" })
+    local map = vim.keymap.set
+
+    map("n", "<leader>cF", lint.try_lint, { desc = "Code lint" })
+
+    map("n", "<leader>al", function()
+      if vim.diagnostic.config().virtual_text then
+        vim.diagnostic.config { virtual_text = false }
+      else
+        vim.diagnostic.config { virtual_text = true }
+      end
+    end, { silent = true, desc = "Toggle Lint Virtual Text" })
+
+    map("n", "<leader>aL", function()
+      if not vim.diagnostic.is_enabled() then
+        vim.diagnostic.enable(true)
+      else
+        vim.diagnostic.enable(false)
+      end
+    end, { silent = true, desc = "Toggle Linting" })
 
     -- INFO: command for Linters checking
     vim.api.nvim_create_user_command("LintInfo", function()
