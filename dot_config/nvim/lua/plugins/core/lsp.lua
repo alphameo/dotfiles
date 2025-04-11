@@ -61,8 +61,8 @@ return {
             lsp.inlay_hint.enable(true, { 0 })
           end
 
-          map("n", "[d", vim.diagnostic.goto_next, opts "Next Diagnostic")
-          map("n", "]d", vim.diagnostic.goto_prev, opts "Previous Diagnostic")
+          map("n", "[d", vim.diagnostic.goto_prev, opts "Previous Diagnostic")
+          map("n", "]d", vim.diagnostic.goto_next, opts "Next Diagnostic")
         end,
       })
     end,
