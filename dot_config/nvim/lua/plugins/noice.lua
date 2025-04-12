@@ -47,7 +47,7 @@ return {
     map("n",  "<leader>nh", function() noice.cmd("history") end, { desc = "Noice History" })
     map("n",  "<leader>nn", function() noice.cmd("all") end, { desc = "Noice Messages" })
     map("n",  "<leader>nd", function() noice.cmd("dismiss") end, { desc = "Noice Dismiss All" })
-    map("n",  "<leader>nt", function() noice.cmd("pick") end, { desc = "Noice Picker" })
+    map("n",  "<leader>np", function() noice.cmd("pick") end, { desc = "Noice Picker" })
     map({ "i", "n", "s" }, "<c-f>", function() if not noice.lsp.scroll(4) then return "<c-f>" end end, { silent = true, expr = true, desc = "Scroll Forward" })
     map({ "i", "n", "s" }, "<c-b>", function() if not noice.lsp.scroll(-4) then return "<c-b>" end end,{ silent = true, expr = true, desc = "Scroll Backward" })
   end,
