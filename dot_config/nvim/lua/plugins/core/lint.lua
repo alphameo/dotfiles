@@ -76,7 +76,10 @@ return {
       local cur_ft = vim.bo.filetype
       local cur_linters = lint.linters_by_ft[cur_ft]
       if cur_linters then
-        out = out .. "Linters for " .. cur_ft .. ": " .. table.concat(cur_linters, ", ") .. "\n"
+        out = out .. "Linters for " .. cur_ft .. ":\n"
+        for i, linter in ipairs(cur_linters) do
+          out = out .. i .. ") " .. linter .. "\nconf = " .. vim.inspect(require("lint").linters[linter])
+        end
       else
         out = out .. "No linters configured for filetype: " .. cur_ft .. "\n"
       end
@@ -93,8 +96,9 @@ return {
         end
       end
 
+      out = out .. "\n\nList of configured linters:\n"
       for linter, ft in pairs(linter_map) do
-        out = out .. string.format("%s (%s)\n", linter, table.concat(ft, ", "))
+        out = out .. string.format("\t- %s (%s)\n", linter, table.concat(ft, ", "))
       end
       vim.notify(out, vim.log.levels.INFO, { title = "Nvim-lint" })
     end, {})
