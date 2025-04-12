@@ -100,7 +100,14 @@ return {
       for linter, ft in pairs(linter_map) do
         out = out .. string.format("\t- %s (%s)\n", linter, table.concat(ft, ", "))
       end
+
       vim.notify(out, vim.log.levels.INFO, { title = "Nvim-lint" })
+
+      -- TODO: check noice installed
+      local noice = require "noice"
+      if noice then
+        noice.cmd "last"
+      end
     end, {})
   end,
 }
