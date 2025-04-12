@@ -29,20 +29,20 @@ map("n", "<leader>aw", "<cmd> set wrap! <CR>", { silent = true, desc = "Toggle L
 map("n", "<A-t>", "<cmd> enew <CR>", { silent = true, desc = "Tab New" }) -- new buffer
 map("n", "<A-w>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
 
-map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next tab (buffer)" })
-map("n", "<A-]>", ":bnext<CR>", { silent = true, desc = "Next tab (buffer)" })
-map("n", "<C-S-Tab>", ":bprevious<CR>", { silent = true, desc = "Previous tab (buffer)" })
-map("n", "<A-[>", ":bprevious<CR>", { silent = true, desc = "Previous tab (buffer)" })
+map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+map("n", "<A-]>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+map("n", "<C-S-Tab>", ":bprevious<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+map("n", "<A-[>", ":bprevious<CR>", { silent = true, desc = "Previous Tab (buffer)" })
 
 -- Windows
 map("n", "<A-s>", "<C-w>s", { desc = "Window Horizontal Split" })
 map("n", "<A-v>", "<C-w>v", { desc = "Window Vertical Split" })
 map("n", "<A-q>", "<C-w>q", { desc = "Window Quit" })
 
-map("n", "<A-k>", "<C-w>k", { desc = "Go to upper window" })
-map("n", "<A-j>", "<C-w>j", { desc = "Go to lower window" })
-map("n", "<A-h>", "<C-w>h", { desc = "Go to left window" })
-map("n", "<A-l>", "<C-w>l", { desc = "Go to right window" })
+map("n", "<A-k>", "<C-w>k", { desc = "Go to Upper Window" })
+map("n", "<A-j>", "<C-w>j", { desc = "Go to Lower Window" })
+map("n", "<A-h>", "<C-w>h", { desc = "Go to Left Window" })
+map("n", "<A-l>", "<C-w>l", { desc = "Go to Right Window" })
 
 map("n", "<A-=>", "<C-w>+", { desc = "Window Taller" })
 map("n", "<A-->", "<C-w>-", { desc = "Window Shorter" })
@@ -70,3 +70,21 @@ map("i", "kj", "<ESC>", { desc = "Exit INSERT MODE" }) -- exit insert mode
 map("i", "<C-/>", "<ESC>:Commentary<CR>", { silent = true, desc = "Toggle comment" })
 map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
 map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
+
+map("n", "<A-\\>", ":terminal<CR>a", { silent = true, desc = "Terminal: Open New" })
+map("t", "<Esc>", "<C-\\><C-n>", { remap = true, desc = "Exit Terminal Mode" })
+map("t", "<A-t>", "<ESC><A-t>", { remap = true, desc = "Terminal: Tab New" })
+map("t", "<A-w>", "<ESC><A-w>", { remap = true, desc = "Terminal: Tab Quit" })
+map("t", "<A-]>", "<ESC><A-]>", { remap = true, desc = "Terminal: Next Tab (buffer)" })
+map("t", "<A-[>", "<ESC><A-[>", { remap = true, desc = "Terminal: Previous Tab (buffer)" })
+map("t", "<A-s>", "<ESC><A-s>", { remap = true, desc = "Terminal: Window Horizontal Split" })
+map("t", "<A-v>", "<ESC><A-v>", { remap = true, desc = "Terminal: Window Vertical Split" })
+map("t", "<A-q>", "<ESC><A-q>", { remap = true, desc = "Terminal: Window Quit" })
+map("t", "<A-k>", "<Esc><C-k>", { remap = true, desc = "Terminal: Go to Upper window" })
+map("t", "<A-j>", "<Esc><A-j>", { remap = true, desc = "Terminal: Go to Lower window" })
+map("t", "<A-h>", "<Esc><A-h>", { remap = true, desc = "Terminal: Go to Left window" })
+map("t", "<A-l>", "<Esc><A-l>", { remap = true, desc = "Terminal: Go to Right window" })
+map("t", "<A-=>", "<Esc><A-=>", { remap = true, desc = "Terminal: Window Taller" })
+map("t", "<A-->", "<Esc><A-->", { remap = true, desc = "Terminal: Window Shorter" })
+map("t", "<A-.>", "<Esc><A-.>", { remap = true, desc = "Terminal: Window Wider" })
+map("t", "<A-,>", "<Esc><A-,>", { remap = true, desc = "Terminal: Window Narrower" })
