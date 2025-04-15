@@ -68,7 +68,7 @@ lspconfig.basedpyright.setup {
     },
     basedpyright = {
       analysis = {
-        -- ignore = { "*" },
+        ignore = { "*" },
         autoImportCompletions = true,
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
