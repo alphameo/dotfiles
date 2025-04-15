@@ -42,7 +42,20 @@ lspconfig.ruff.setup {
   init_options = {
     -- the settings can be found here: https://docs.astral.sh/ruff/editors/settings/
     settings = {
+      fixAll = true,
       organizeImports = true,
+      showSyntaxErrors = true,
+      codeAction = {
+        disableRuleComment = {
+          enable = false,
+        },
+        fixViolation = {
+          enable = false,
+        },
+      },
+      lint = {
+        enable = true,
+      },
     },
   },
 }
@@ -85,16 +98,18 @@ require("dap-python").setup(vim.env.HOME .. "/.local/share/nvim/mason/packages/d
 require("dap-python").default_port = 38000
 
 -- INFO: FORMATTING
-require("conform").formatters_by_ft.python = { "black" }
+require("conform").formatters_by_ft.python = { "ruff" }
+-- require("conform").formatters_by_ft.python = { "black" }
 
 -- INFO: LINTING
 lint = require "lint"
-lint.linters_by_ft.python = { "mypy" }
-lint.linters.mypy.args = vim.tbl_deep_extend(
-  "force",
-  lint.linters.mypy.args,
-  { "--python-executable", os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr" .. "bin/mypy" }
-)
+lint.linters_by_ft.python = { "ruff" }
+-- lint.linters_by_ft.python = { "mypy" }
+-- lint.linters.mypy.args = vim.tbl_deep_extend(
+--   "force",
+--   lint.linters.mypy.args,
+--   { "--python-executable", os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr" .. "bin/mypy" }
+-- )
 
 -- INFO: Jupyter Notebook
 local default_notebook = [[
