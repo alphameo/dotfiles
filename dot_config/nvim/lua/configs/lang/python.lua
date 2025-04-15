@@ -68,11 +68,19 @@ lspconfig.basedpyright.setup {
     },
     basedpyright = {
       analysis = {
-        ignore = { "*" },
+        -- ignore = { "*" },
         autoImportCompletions = true,
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         diagnosticMode = "workspace",
+        inlayHints = {
+          variableTypes = true,
+          callArgumentNames = true,
+          functionReturnTypes = true,
+          genericTypes = true,
+        },
+        -- "off", "basic", "standard", "recommended", "strict", "all"
+        typeCheckingMode = "standard",
       },
     },
   },
