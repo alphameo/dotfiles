@@ -51,7 +51,7 @@ return {
 
     local map = vim.keymap.set
 
-    map("n", "<leader>cF", lint.try_lint, { desc = "Code lint" })
+    map("n", "<leader>cl", lint.try_lint, { desc = "Code Lint" })
 
     map("n", "<leader>al", function()
       if vim.diagnostic.config().virtual_text then
