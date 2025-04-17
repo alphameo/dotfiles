@@ -74,10 +74,10 @@ lspconfig.basedpyright.setup {
         useLibraryCodeForTypes = true,
         diagnosticMode = "workspace",
         inlayHints = {
-          variableTypes = true,
+          variableTypes = false,
           callArgumentNames = true,
           functionReturnTypes = true,
-          genericTypes = true,
+          genericTypes = false,
         },
         -- "off", "basic", "standard", "recommended", "strict", "all"
         typeCheckingMode = "standard",
@@ -106,12 +106,11 @@ require("dap-python").setup(vim.env.HOME .. "/.local/share/nvim/mason/packages/d
 require("dap-python").default_port = 38000
 
 -- INFO: FORMATTING
-require("conform").formatters_by_ft.python = { "ruff" }
--- require("conform").formatters_by_ft.python = { "black" }
+require("conform").formatters_by_ft.python = { "black" }
 
 -- INFO: LINTING
 lint = require "lint"
-lint.linters_by_ft.python = { "ruff" }
+lint.linters_by_ft.python = { "mypy" }
 -- lint.linters_by_ft.python = { "mypy" }
 -- lint.linters.mypy.args = vim.tbl_deep_extend(
 --   "force",
