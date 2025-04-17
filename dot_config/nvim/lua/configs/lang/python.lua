@@ -111,12 +111,12 @@ require("conform").formatters_by_ft.python = { "black" }
 -- INFO: LINTING
 lint = require "lint"
 lint.linters_by_ft.python = { "mypy" }
--- lint.linters_by_ft.python = { "mypy" }
--- lint.linters.mypy.args = vim.tbl_deep_extend(
---   "force",
---   lint.linters.mypy.args,
---   { "--python-executable", os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr" .. "bin/mypy" }
--- )
+lint.linters_by_ft.python = { "mypy" }
+lint.linters.mypy.args = vim.tbl_deep_extend(
+  "force",
+  lint.linters.mypy.args,
+  { "--python-executable", os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr" .. "bin/mypy" }
+)
 
 -- INFO: Jupyter Notebook
 local default_notebook = [[
