@@ -61,7 +61,11 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" }) -- center after scroll up
 map("n", "n", "nzzzv", { desc = "Next occurance" }) -- center after find
 map("n", "N", "Nzzzv", { desc = "Previous occurance" }) -- center after find
 
--- map("v", "p", '"_dP', { desc = "Paste" }) -- keep last yanked when pasting (doesn't work with cmp snippets)
+-- map("v", "p", "_dp", { desc = "Paste" }) -- keep last yanked when pasting (doesn't work with cmp snippets)
+-- map("v", "P", "_dP", { desc = "Paste pre" }) -- keep last yanked when pasting (doesn't work with cmp snippets)
+vim.keymap.set("x", "p", function()
+  return 'pgv"' .. vim.v.register .. "y"
+end, { remap = false, expr = true })
 
 map("i", "jk", "<ESC>", { desc = "Exit INSERT MODE" }) -- exit insert mode
 map("i", "kj", "<ESC>", { desc = "Exit INSERT MODE" }) -- exit insert mode
@@ -71,6 +75,7 @@ map("i", "<C-/>", "<ESC>:Commentary<CR>", { silent = true, desc = "Toggle commen
 map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
 map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
 
+-- Terminal
 map("n", "<A-\\>", ":terminal<CR>a", { silent = true, desc = "Terminal: Open New" })
 map("t", "<C-q>", "<C-\\><C-n>", { remap = true, desc = "Exit Terminal Mode" })
 map("t", "<A-t>", "<C-\\><C-n><A-t>", { remap = true, desc = "Terminal: Tab New" })
