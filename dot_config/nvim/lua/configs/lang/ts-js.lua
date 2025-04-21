@@ -36,64 +36,65 @@ local js_based_langs = {
 --   },
 -- }
 
-vim.g.markdown_fenced_languages = {
-  "ts=typescript",
-}
+-- vim.g.markdown_fenced_languages = {
+--   "ts=typescript",
+-- }
 
-require("lspconfig").denols.setup {
-  capabilities = lsp_utils.capabilities,
-  filetypes = js_based_langs,
-  settings = {
-    deno = {
-      inlayHints = {
-        parameterNames = { enabled = "all", suppressWhenArgumentMatchesName = true },
-        parameterTypes = { enabled = true },
-        variableTypes = { enabled = true, suppressWhenTypeMatchesName = true },
-        propertyDeclarationTypes = { enabled = true },
-        functionLikeReturnTypes = { enable = true },
-        enumMemberValues = { enabled = true },
-      },
-    },
-  },
-}
--- require("lspconfig").ts_ls.setup {
+-- require("lspconfig").denols.setup {
 --   capabilities = lsp_utils.capabilities,
---
 --   filetypes = js_based_langs,
---
---   commands = {
---     OrganizeImports = {
---       organize_imports,
---       description = "Organize Imports",
---     },
---   },
 --   settings = {
---     typescript = {
+--     deno = {
 --       inlayHints = {
---         includeInlayParameterNameHints = "all",
---         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
---         includeInlayFunctionParameterTypeHints = true,
---         includeInlayVariableTypeHints = true,
---         includeInlayVariableTypeHintsWhenTypeMatchesName = true,
---         includeInlayPropertyDeclarationTypeHints = true,
---         includeInlayFunctionLikeReturnTypeHints = true,
---         includeInlayEnumMemberValueHints = true,
---       },
---     },
---     javascript = {
---       inlayHints = {
---         includeInlayParameterNameHints = "all",
---         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
---         includeInlayFunctionParameterTypeHints = true,
---         includeInlayVariableTypeHints = true,
---         includeInlayVariableTypeHintsWhenTypeMatchesName = true,
---         includeInlayPropertyDeclarationTypeHints = true,
---         includeInlayFunctionLikeReturnTypeHints = true,
---         includeInlayEnumMemberValueHints = true,
+--         parameterNames = { enabled = "all", suppressWhenArgumentMatchesName = true },
+--         parameterTypes = { enabled = true },
+--         variableTypes = { enabled = true, suppressWhenTypeMatchesName = true },
+--         propertyDeclarationTypes = { enabled = true },
+--         functionLikeReturnTypes = { enable = true },
+--         enumMemberValues = { enabled = true },
 --       },
 --     },
 --   },
 -- }
+
+require("lspconfig").ts_ls.setup {
+  capabilities = lsp_utils.capabilities,
+
+  filetypes = js_based_langs,
+
+  commands = {
+    OrganizeImports = {
+      organize_imports,
+      description = "Organize Imports",
+    },
+  },
+  settings = {
+    typescript = {
+      inlayHints = {
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+    javascript = {
+      inlayHints = {
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+  },
+}
 
 -- INFO: DAP
 
