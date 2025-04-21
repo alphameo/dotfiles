@@ -1,8 +1,5 @@
 return {
   "Wansmer/langmapper.nvim",
-  cond = true,
-  name = "langmapper",
-  main = "langmapper",
   lazy = false,
   priority = 1,
   config = function()

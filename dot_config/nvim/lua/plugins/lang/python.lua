@@ -5,6 +5,8 @@ return {
   },
   {
     "benlubas/molten-nvim",
+    lazy = true,
+    ft = { "python", "markdown", "json" },
     version = "^1.0.0",
     dependencies = { "3rd/image.nvim" },
     build = ":UpdateRemotePlugins",
@@ -14,6 +16,7 @@ return {
       vim.g.molten_wrap_output = true
       vim.g.molten_virt_text_output = true
       vim.g.molten_virt_lines_off_by_1 = true
+      vim.g.molten_virt_text_max_lines = 999
 
       -- INFO: VENV
       -- mkdir ~/.virtualenvs
@@ -31,6 +34,7 @@ return {
   },
   {
     "GCBallesteros/jupytext.nvim",
+    lazy = false,
     opts = {
       style = "markdown",
       output_extension = "md",
@@ -39,7 +43,12 @@ return {
   },
   {
     "quarto-dev/quarto-nvim",
-    ft = { "quarto", "markdown", "python" },
+    dependencies = {
+      "jmbuhr/otter.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    lazy = true,
+    ft = { "quarto", "markdown", "json", "python" },
     dev = false,
     config = function()
       local quarto = require "quarto"

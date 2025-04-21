@@ -1,6 +1,8 @@
 return {
   "folke/todo-comments.nvim",
-  event = "VimEnter",
+  lazy = true,
+  cmd = { "TodoTelescope" },
+  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = { signs = true },
   config = function()

@@ -37,7 +37,8 @@ vim.diagnostic.config {
 
 return {
   "mfussenegger/nvim-lint",
-  event = { "BufReadPre", "BufNewFile" },
+  lazy = true,
+  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
   config = function()
     local lint = require "lint"
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

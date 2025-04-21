@@ -1,5 +1,7 @@
 return {
   "3rd/image.nvim",
+  lazy = true,
+  ft = { "markdown" },
   opts = {
     backend = "kitty",
     max_width = 128,

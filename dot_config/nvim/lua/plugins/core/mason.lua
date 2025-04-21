@@ -1,9 +1,20 @@
 return {
   "williamboman/mason.nvim",
+  lazy = true,
+  build = ":MasonUpdate",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    "jay-babu/mason-nvim-dap.nvim",
+    {
+      "williamboman/mason-lspconfig.nvim",
+      lazy = true,
+    },
+    {
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      lazy = true,
+    },
+    {
+      "jay-babu/mason-nvim-dap.nvim",
+      lazy = true,
+    },
   },
   config = function()
     local mason = require "mason"
@@ -39,9 +50,9 @@ return {
         "css_variables", -- css
         "tailwindcss", -- tailwind
         "ts_ls", -- javascript, typescript
-        "denols", -- javascript, typescript
-        "vtsls", -- typescript
-        "pyright", -- python
+        -- "denols", -- javascript, typescript
+        -- "vtsls", -- typescript
+        -- "pyright", -- python
         "basedpyright", -- python static checker
         "lemminx", -- xml
         "taplo", -- toml
@@ -91,19 +102,19 @@ return {
         "golangci-lint", -- go lint
         "php-cs-fixer", -- php fmt
         "phpcs", -- php lint
-        "bacon", -- rust lint
         "rustfmt", -- rust fmt
-        "bacon-ls", -- rust
+        -- "bacon-ls", -- rust
+        -- "bacon", -- rust lint
         "shfmt", -- bash fmt
-        "stylelint", -- css lint
+        -- "stylelint", -- css lint
         "htmlhint", -- html lint
-        "jsonlint", -- json lint
+        -- "jsonlint", -- json lint
         "sqlfluff", -- sql lint
         "sqlfmt", -- sql fmt
-        "vale", -- tex lint
+        -- "vale", -- tex lint
         "bibtex-tidy", -- tex fmt
-        "xmlformatter", -- xml fmt
-        "yamllint", -- yaml lint
+        -- "xmlformatter", -- xml fmt
+        -- "yamllint", -- yaml lint
       },
     }
 
