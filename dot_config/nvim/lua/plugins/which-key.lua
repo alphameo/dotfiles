@@ -22,7 +22,8 @@ return {
     which_key.add {
       { "<leader>a", group = "Appearance", mode = { "n", "v" }, icon = { icon = " ", color = "blue" } },
       { "<leader>c", group = "Code", mode = { "n", "v" }, icon = { icon = " ", color = "gray" } },
-      { "<leader>d", group = "Debug", mode = { "n", "v" } },
+      { "<leader>d", group = "Debug", mode = { "n", "v" }, icon = { icon = " ", color = "red" } },
+      { "<leader>D", group = "Debug Printf", mode = { "n", "v" }, icon = { icon = " ", color = "orange" } },
       { "<leader>g", group = "Git", mode = { "n", "v" }, icon = { icon = "󰊢 ", color = "orange" } },
       { "<leader>M", group = "Mason", mode = { "n", "v" }, icon = { icon = " ", color = "green" } },
       { "<leader>L", group = "Lazy", mode = { "n", "v" }, icon = { icon = " ", color = "green" } },
@@ -33,7 +34,6 @@ return {
       { "<leader>F", group = "Find & Replace", mode = { "n", "v" }, icon = { icon = "󰛔 ", color = "cyan" } },
       { "<leader>n", group = "Noice", mode = { "n", "v" }, icon = { icon = "󱅫 ", color = "yellow" } },
 
-      { "<leader>s", group = "Snapshot", mode = { "v" }, icon = { icon = "󰄀 ", color = "white" } },
       { "[", group = "prev" },
       { "]", group = "next" },
       { "g", group = "goto" },
