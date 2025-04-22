@@ -4,19 +4,14 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require "conform"
-    vim.keymap.set({ "n", "v", "i" }, "<C-S-i>", function()
+    local fmt = function()
       conform.format {
         lsp_fallback = true,
         async = false,
         timeout_ms = 1000,
       }
-    end, { desc = "Code Format" })
-    vim.keymap.set({ "n", "v" }, "<leader>cf", function()
-      conform.format {
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      }
-    end, { desc = "Code Format" })
+    end
+    vim.keymap.set({ "n", "v", "i" }, "<C-S-i>", fmt, { desc = "Code Format" })
+    vim.keymap.set({ "n", "v" }, "<leader>cf", fmt, { desc = "Code Format" })
   end,
 }
