@@ -1,31 +1,12 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  branch = "v3.x",
   dependencies = {
-    {
-      "nvim-lua/plenary.nvim",
-      lazy = true,
-    },
     "nvim-tree/nvim-web-devicons",
+    "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    "3rd/image.nvim",
-    {
-      "s1n7ax/nvim-window-picker",
-      version = "2.*",
-      config = function()
-        require("window-picker").setup {
-          filter_rules = {
-            include_current_win = false,
-            autoselect_one = true,
-            bo = {
-              filetype = { "neo-tree", "neo-tree-popup", "notify" },
-              buftype = { "terminal", "quickfix" },
-            },
-          },
-        }
-      end,
-    },
   },
+  branch = "v3.x",
+  lazy = false,
   config = function()
     require("neo-tree").setup {
       close_if_last_window = true,

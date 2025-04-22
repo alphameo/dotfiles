@@ -13,6 +13,8 @@ return {
       opts = {},
     },
   },
+  lazy = true,
+  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
   config = function()
     local dap = require "dap"
     local dapui = require "dapui"

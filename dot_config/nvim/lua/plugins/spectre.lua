@@ -1,5 +1,11 @@
 return {
   "nvim-pack/nvim-spectre",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+  },
+  lazy = true,
+  event = { "BufReadPost", "BufNewFile" },
   -- stylua: ignore
   config = function()
     local spectre = require "spectre"

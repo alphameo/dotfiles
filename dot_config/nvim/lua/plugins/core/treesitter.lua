@@ -1,8 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   version = false, -- last release doesn't work on windows
-  event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
   lazy = vim.fn.argc(-1) == 0,
+  event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
   build = ":TSUpdate",
   config = function()
     local config = require "nvim-treesitter.configs"
@@ -49,7 +49,9 @@ return {
         enable = true,
         use_languagetree = true,
       },
-      indent = { enable = true },
+      indent = {
+        enable = true,
+      },
     }
   end,
 }

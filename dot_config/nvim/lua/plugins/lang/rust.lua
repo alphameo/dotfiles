@@ -1,6 +1,7 @@
 return {
   {
     "Saecki/crates.nvim",
+    lazy = true,
     event = { "BufRead Cargo.toml" },
     opts = {
       completion = {
@@ -19,6 +20,7 @@ return {
   {
     "mrcjkb/rustaceanvim",
     version = vim.fn.has "nvim-0.10.0" == 0 and "^4" or false,
+    lazy = true,
     ft = { "rust" },
     opts = {
       server = {

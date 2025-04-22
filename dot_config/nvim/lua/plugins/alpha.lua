@@ -3,6 +3,8 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
+  lazy = true,
+  event = "VimEnter",
 
   config = function()
     local alpha = require "alpha"

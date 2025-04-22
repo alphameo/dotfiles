@@ -1,9 +1,11 @@
 return {
   "akinsho/bufferline.nvim",
   dependencies = {
-    "moll/vim-bbye",
     "nvim-tree/nvim-web-devicons",
+    "moll/vim-bbye",
   },
+  version = "*",
+  lazy = false,
   config = function()
     require("bufferline").setup {
       options = {

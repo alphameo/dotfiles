@@ -1,7 +1,8 @@
 return {
   {
     "iamcco/markdown-preview.nvim",
-    ft = "markdown",
+    lazy = true,
+    ft = { "markdown" },
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = function()
       require("lazy").load { plugins = { "markdown-preview.nvim" } }
@@ -17,6 +18,8 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
+    lazy = true,
+    ft = { "markdown", "norg", "rmd", "org" },
     opts = {
       code = {
         sign = false,
@@ -28,7 +31,6 @@ return {
         icons = {},
       },
     },
-    ft = { "markdown", "norg", "rmd", "org" },
     config = function(_, opts)
       require("render-markdown").setup(opts)
     end,

@@ -2,9 +2,9 @@ return {
   "folke/which-key.nvim",
   lazy = true,
   event = "VeryLazy",
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-  },
+  -- dependencies = {
+  --   "nvim-tree/nvim-web-devicons",
+  -- },
   opts = {
     preset = "helix", -- "classic" | "modern" | "helix"
     layout = { align = "center" },

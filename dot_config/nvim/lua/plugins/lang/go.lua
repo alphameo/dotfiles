@@ -1,6 +1,7 @@
 return {
   {
     "olexsmir/gopher.nvim",
+    lazy = true,
     ft = "go",
     config = function(_, opts)
       require("gopher").setup(opts)
@@ -11,6 +12,8 @@ return {
   },
   {
     "leoluz/nvim-dap-go",
+    lazy = true,
+    ft = "go",
   },
   {
     "nvim-neotest/neotest",

@@ -1,20 +1,15 @@
 return {
   "williamboman/mason.nvim",
+  dependencies = {
+    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "jay-babu/mason-nvim-dap.nvim",
+  },
   lazy = true,
   build = ":MasonUpdate",
-  dependencies = {
-    {
-      "williamboman/mason-lspconfig.nvim",
-      lazy = true,
-    },
-    {
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
-      lazy = true,
-    },
-    {
-      "jay-babu/mason-nvim-dap.nvim",
-      lazy = true,
-    },
+  cmd = { "Mason", "MasonInstall", "MasonUpdate" },
+  keys = {
+    { mode = "n", "<leader>M", ":Mason<cr>", silent = true, desc = "Mason" },
   },
   config = function()
     local mason = require "mason"
@@ -117,7 +112,5 @@ return {
         -- "yamllint", -- yaml lint
       },
     }
-
-    vim.keymap.set({ "n" }, "<leader>M", ":Mason<cr>", { silent = true, desc = "Mason" })
   end,
 }

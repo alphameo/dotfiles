@@ -1,6 +1,7 @@
 return {
   "f-person/git-blame.nvim",
-  event = "VeryLazy",
+  lazy = true,
+  event = "BufReadPre",
   opts = {
     enabled = true,
     date_format = "%m/%d/%y %H:%M:%S",

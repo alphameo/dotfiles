@@ -1,6 +1,7 @@
 return {
   {
     "tpope/vim-dadbod",
+    lazy = true,
     cmd = "DB",
   },
   {
@@ -8,8 +9,11 @@ return {
   },
   {
     "kristijanhusak/vim-dadbod-ui",
+    dependencies = {
+      "vim-dadbod",
+    },
+    lazy = true,
     cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
-    dependencies = "vim-dadbod",
 
     init = function()
       local data_path = vim.fn.stdpath "data"
@@ -52,6 +56,9 @@ return {
   },
   {
     "saghen/blink.cmp",
+    dependencies = {
+      "kristijanhusak/vim-dadbod-completion",
+    },
     optional = true,
     opts = {
       sources = {
@@ -60,9 +67,6 @@ return {
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
         },
       },
-    },
-    dependencies = {
-      "kristijanhusak/vim-dadbod-completion",
     },
   },
 }

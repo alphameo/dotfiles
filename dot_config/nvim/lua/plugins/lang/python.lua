@@ -1,6 +1,7 @@
 return {
   {
     "mfussenegger/nvim-dap-python",
+    lazy = true,
     ft = "python",
   },
   {
@@ -35,6 +36,7 @@ return {
   {
     "GCBallesteros/jupytext.nvim",
     lazy = false,
+    ft = { "python", "markdown", "julia", "r", "rust" },
     opts = {
       style = "markdown",
       output_extension = "md",
@@ -75,6 +77,8 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
+    lazy = true,
+    ft = { "quarto", "markdown", "python", "r", "julia" },
     opts = {},
   },
 }

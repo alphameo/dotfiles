@@ -3,7 +3,10 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
+    "nvim-telescope/telescope.nvim",
   },
+  lazy = true,
+  event = { "BufReadPost", "BufNewFile" },
   -- stylua: ignore
   config = function()
     local map = vim.keymap.set
