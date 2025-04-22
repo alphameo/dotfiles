@@ -36,6 +36,8 @@ return {
     completion = {
       documentation = {
         auto_show = true,
+        auto_show_delay_ms = 0,
+        treesitter_highlighting = true,
       },
       menu = {
         auto_show = true,
