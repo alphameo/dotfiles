@@ -6,7 +6,8 @@ return {
     "MunifTanjim/nui.nvim",
   },
   branch = "v3.x",
-  lazy = false,
+  lazy = true,
+  event = "VeryLazy",
   config = function()
     require("neo-tree").setup {
       close_if_last_window = true,

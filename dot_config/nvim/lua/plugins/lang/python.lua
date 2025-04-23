@@ -35,7 +35,8 @@ return {
   },
   {
     "GCBallesteros/jupytext.nvim",
-    lazy = false,
+    lazy = true,
+    event = "VeryLazy",
     ft = { "python", "markdown", "julia", "r", "rust" },
     opts = {
       style = "markdown",

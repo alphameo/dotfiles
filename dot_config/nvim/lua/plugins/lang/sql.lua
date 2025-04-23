@@ -11,7 +11,7 @@ return {
       "DBUIAddConnection",
       "DBUIFindBuffer",
     },
-    init = function()
+    config = function()
       local data_path = vim.fn.stdpath "data"
 
       vim.g.db_ui_auto_execute_table_helpers = 1

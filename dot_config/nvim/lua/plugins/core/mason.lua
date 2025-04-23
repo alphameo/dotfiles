@@ -7,6 +7,7 @@ return {
   },
   build = ":MasonUpdate",
   lazy = true,
+  event = "VeryLazy",
   cmd = { "Mason", "MasonInstall", "MasonUpdate" },
   keys = {
     { mode = "n", "<leader>M", ":Mason<CR>", silent = true, desc = "Mason" },
