@@ -1,7 +1,6 @@
 return {
   "3rd/image.nvim",
   lazy = true,
-  event = "BufReadPre",
   ft = { "markdown" },
   opts = {
     backend = "kitty",

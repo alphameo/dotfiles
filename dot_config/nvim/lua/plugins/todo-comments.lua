@@ -18,7 +18,4 @@ return {
       desc = "Find TODO/FIX/...",
     },
   },
-  config = function()
-    require("todo-comments").setup()
-  end,
 }

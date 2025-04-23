@@ -3,8 +3,7 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  lazy = true,
-  event = "VeryLazy",
+  lazy = false,
   config = function()
     local mode = {
       "mode",

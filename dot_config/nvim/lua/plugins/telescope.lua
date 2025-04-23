@@ -7,18 +7,7 @@ return {
     },
     branch = "0.1.x",
     lazy = true,
-    keys = {
-      { mode = "n", "<leader>ac", ":Telescope colorscheme<CR>", silent = true, desc = "Choose Colorscheme" },
-      { mode = "n", "<leader>fp", ":Telescope<CR>", silent = true, desc = "Find Picer" },
-      { mode = "n", "<leader>fm", ":Telescope marks<CR>", silent = true, desc = "Fid Marks" },
-      { mode = "n", "<leader>fb", ":Telescope buffers<CR>", silent = true, desc = "ind Buffers" },
-      { mode = "n", "<leader>ff", ":Telescope find_files<CR>", silent = true, desc = "Find Files" },
-      { mode = "n", "<leader>fg", ":Telescope live_grep<CR>", silent = true, desc = "Find by Grep" },
-      { mode = "n", "<leader>fw", ":Telescope grep_string<CR>", silent = true, desc = "Find Words" },
-      { mode = "n", "<leader>fr", ":Telescope oldfiles<CR>", silent = true, desc = "Find Recent Files" },
-      { mode = "n", "<leader>.h", ":Telescope help_tags<CR>", silent = true, desc = "Help Tags" },
-      mode = { "n", "<leader>.k", ":Telescope keymaps<CR>", silent = true, desc = "eymaps" },
-    },
+    event = "VeryLazy",
     config = function()
       local telescope = require "telescope"
       telescope.setup {
@@ -65,6 +54,16 @@ return {
 
       local builtin = require "telescope.builtin"
       local map = vim.keymap.set
+      map("n", "<leader>ac", ":Telescope colorscheme<CR>", { silent = true, desc = "Choose Colorscheme" })
+      map("n", "<leader>fp", ":Telescope<CR>", { silent = true, desc = "Find Picker" })
+      map("n", "<leader>fm", ":Telescope marks<CR>", { silent = true, desc = "Find Marks" })
+      map("n", "<leader>fb", ":Telescope buffers<CR>", { silent = true, desc = "Find Buffers" })
+      map("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true, desc = "Find Files" })
+      map("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true, desc = "Find by Grep" })
+      map("n", "<leader>fw", ":Telescope grep_string<CR>", { silent = true, desc = "Find Words" })
+      map("n", "<leader>fr", ":Telescope oldfiles<CR>", { silent = true, desc = "Find Recent Files" })
+      map("n", "<leader>.h", ":Telescope help_tags<CR>", { silent = true, desc = "Help Tags" })
+      map("n", "<leader>.k", ":Telescope keymaps<CR>", { silent = true, desc = "eymaps" })
 
       map("n", "<leader>.n", function()
         builtin.find_files { cwd = vim.fn.stdpath "config" }
