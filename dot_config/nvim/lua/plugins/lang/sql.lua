@@ -1,20 +1,16 @@
 return {
   {
-    "tpope/vim-dadbod",
-    lazy = true,
-    cmd = "DB",
-  },
-  {
-    "kristijanhusak/vim-dadbod-completion",
-  },
-  {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {
-      "vim-dadbod",
+      { "tpope/vim-dadbod", lazy = true },
+      -- { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
     },
-    lazy = true,
-    cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
-
+    cmd = {
+      "DBUI",
+      "DBUIToggle",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+    },
     init = function()
       local data_path = vim.fn.stdpath "data"
 
@@ -31,42 +27,5 @@ return {
       -- default keymap: <leader>S
       vim.g.db_ui_execute_on_save = false
     end,
-  },
-  {
-    "folke/edgy.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.right = opts.right or {}
-      table.insert(opts.right, {
-        title = "Database",
-        ft = "dbui",
-        pinned = true,
-        width = 0.3,
-        open = function()
-          vim.cmd "DBUI"
-        end,
-      })
-
-      opts.bottom = opts.bottom or {}
-      table.insert(opts.bottom, {
-        title = "DB Query Result",
-        ft = "dbout",
-      })
-    end,
-  },
-  {
-    "saghen/blink.cmp",
-    dependencies = {
-      "kristijanhusak/vim-dadbod-completion",
-    },
-    optional = true,
-    opts = {
-      sources = {
-        default = { "dadbod" },
-        providers = {
-          dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
-        },
-      },
-    },
   },
 }

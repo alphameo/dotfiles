@@ -3,7 +3,6 @@ return {
     "iamcco/markdown-preview.nvim",
     lazy = true,
     ft = { "markdown" },
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = function()
       require("lazy").load { plugins = { "markdown-preview.nvim" } }
       vim.fn["mkdp#util#install"]()
@@ -31,8 +30,5 @@ return {
         icons = {},
       },
     },
-    config = function(_, opts)
-      require("render-markdown").setup(opts)
-    end,
   },
 }

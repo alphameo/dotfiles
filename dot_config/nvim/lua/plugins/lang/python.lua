@@ -11,7 +11,7 @@ return {
     version = "^1.0.0",
     dependencies = { "3rd/image.nvim" },
     build = ":UpdateRemotePlugins",
-    init = function()
+    config = function()
       vim.g.molten_image_provider = "image.nvim"
       vim.g.molten_auto_open_output = false
       vim.g.molten_wrap_output = true
@@ -52,25 +52,21 @@ return {
     lazy = true,
     ft = { "quarto", "markdown", "json", "python" },
     dev = false,
-    config = function()
-      local quarto = require "quarto"
-
-      quarto.setup {
-        lspFeatures = {
-          languages = { "python" },
-          chunks = "all",
-          diagnostics = {
-            enabled = true,
-            triggers = { "BufWritePost" },
-          },
-          completion = { enabled = true },
-        },
-        codeRunner = {
+    opts = {
+      lspFeatures = {
+        languages = { "python" },
+        chunks = "all",
+        diagnostics = {
           enabled = true,
-          default_method = "molten",
+          triggers = { "BufWritePost" },
         },
-      }
-    end,
+        completion = { enabled = true },
+      },
+      codeRunner = {
+        enabled = true,
+        default_method = "molten",
+      },
+    },
   },
   {
     "jmbuhr/otter.nvim",
