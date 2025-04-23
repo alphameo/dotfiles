@@ -13,5 +13,5 @@ map("n", "<leader>lc", require("jdtls").extract_constant, { desc = "Java Extract
 map("n", "<leader>lt", require("jdtls").test_nearest_method, { desc = "Java Test Method" })
 map("n", "<leader>lT", require("jdtls").test_class, { desc = "Java Test Class" })
 
-map("n", "<leader>lu", "<Cmd> JdtUpdateConfig<CR>", { silent = true, desc = "Java Update Config" })
-map("n", "<leader>lr", "<Cmd> JdtRestart<CR>", { silent = true, desc = "Java Restart JDTLS" })
+map("n", "<leader>lu", ":JdtUpdateConfig<CR>", { silent = true, desc = "Java Update Config" })
+map("n", "<leader>lr", ":JdtRestart<CR>", { silent = true, desc = "Java Restart JDTLS" })

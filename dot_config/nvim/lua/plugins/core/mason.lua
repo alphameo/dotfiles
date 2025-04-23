@@ -5,11 +5,11 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "jay-babu/mason-nvim-dap.nvim",
   },
-  lazy = true,
   build = ":MasonUpdate",
+  lazy = true,
   cmd = { "Mason", "MasonInstall", "MasonUpdate" },
   keys = {
-    { mode = "n", "<leader>M", ":Mason<cr>", silent = true, desc = "Mason" },
+    { mode = "n", "<leader>M", ":Mason<CR>", silent = true, desc = "Mason" },
   },
   config = function()
     local mason = require "mason"
