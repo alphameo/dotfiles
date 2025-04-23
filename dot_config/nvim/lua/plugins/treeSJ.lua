@@ -1,6 +1,7 @@
 return {
   "Wansmer/treesj",
   lazy = true,
+  event = { "BufReadPost", "BufNewFile" },
   cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
   dependencies = { "nvim-treesitter/nvim-treesitter" },
   keys = {
