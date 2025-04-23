@@ -2,6 +2,7 @@ return {
   "saghen/blink.cmp",
   dependencies = {
     "rafamadriz/friendly-snippets",
+    { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
   },
   version = "1.*",
   lazy = true,
@@ -91,7 +92,13 @@ return {
         "omni",
         -- "cmdline",
       },
-      providers = {},
+      per_filetype = {
+        sql = { "snippets", "dadbod", "buffer" },
+      },
+
+      providers = {
+        dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+      },
     },
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
     -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
