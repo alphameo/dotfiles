@@ -45,7 +45,7 @@ local config = {
   settings = {
     java = {
       -- TODO: path to the main java version (JDK 17 or higher)
-      home = "/usr/lib/jvm/java-23-openjdk",
+      home = "/usr/lib/jvm/java-24-openjdk",
 
       configuration = {
         updateBuildConfiguration = "interactive",
