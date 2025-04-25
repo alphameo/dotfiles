@@ -137,24 +137,3 @@ for _, language in ipairs(js_based_langs) do
     },
   }
 end
-
--- INFO: LINTING
--- denols
---
--- vim.env.ESLINT_D_PPID = vim.fn.getpid()
--- local lint = require "lint"
---
--- lint.linters.eslint_d = {
---   cmd = "eslint_d",
---   stdin = true,
---   args = {
---     "--config",
---     os.getenv "ESLINT_D_DEFAULT_CONFIG",
---   },
--- }
---
--- local lint_ft = lint.linters_by_ft
--- lint_ft.javascript = { "eslint_d" }
--- lint_ft.typescript = { "eslint_d" }
--- lint_ft.javascriptreact = { "eslint_d" }
--- lint_ft.typescriptreact = { "eslint_d" }

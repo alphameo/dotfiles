@@ -44,6 +44,3 @@ vim.g.rustaceanvim = {
     },
   },
 }
-
--- INFO: LINTING
--- require("lint").linters_by_ft.rust = { "bacon" }

@@ -57,7 +57,3 @@ for _, lang in ipairs { "c", "cpp" } do
     },
   }
 end
-
--- INFO: LINTING
-require("lint").linters_by_ft.c = { "cpplint" }
-require("lint").linters_by_ft.cpp = { "cpplint" }

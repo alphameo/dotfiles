@@ -8,6 +8,3 @@ vim.lsp.config("jsonls", {
   },
 })
 vim.lsp.enable "jsonls"
-
--- INFO: LINTING
--- require("lint").linters_by_ft.json = { "jsonlint" }

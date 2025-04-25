@@ -23,6 +23,3 @@ vim.lsp.enable "gopls"
 
 -- INFO: DAP
 require("dap-go").setup()
-
--- INFO: LINTING
--- require("lint").linters_by_ft.go = { "golangcilint" }

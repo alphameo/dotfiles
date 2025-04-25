@@ -55,6 +55,3 @@ dap.configurations.kotlin = {
     timeout = 2000,
   },
 }
-
--- INFO: LINTING
-require("lint").linters_by_ft.kotlin = { "ktlint" }

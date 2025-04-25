@@ -10,6 +10,3 @@ dap.adapters.php = {
   command = "node",
   args = { path .. "/extension/out/phpDebug.js" },
 }
-
--- INFO: LINTING
-require("lint").linters_by_ft.php = { "phpcs" }
