@@ -1,47 +1,46 @@
-local icons = {
-  Error = "",
-  Warn = "",
-  Hint = "󰌵",
-  Info = "",
-}
-
-local signs = {
-  text = {},
-  numhl = {},
-  texthl = {},
-}
-
-for type, icon in pairs(icons) do
-  local hl = "DiagnosticSign" .. type
-  local severity = vim.diagnostic.severity[string.upper(type)]
-
-  signs.text[severity] = icon
-  signs.numhl[severity] = hl
-  signs.texthl[severity] = hl
-end
-
-vim.diagnostic.config {
-  underline = true,
-  virtual_text = {
-    source = true,
-    spacing = 0,
-  },
-  float = {
-    source = true,
-    border = "rounded",
-  },
-  update_in_insert = true,
-  severity_sort = true,
-  signs = signs,
-}
-
 return {
   "mfussenegger/nvim-lint",
   lazy = true,
   event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+  cmd = { "LintInfo" },
   config = function()
     local lint = require "lint"
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+
+    lint.linters_by_ft = {
+      c = { "cpplint" },
+      cpp = { "cpplint" },
+      cmake = { "cmakelint" },
+      go = { "golangcilint" },
+      gomod = { "golangcilint" },
+      html = { "hmtlhint" },
+      kotlin = { "ktlint" },
+      lua = { "luacheck" },
+      markdown = { "markdownlint-cli2" },
+      php = { "phpcs" },
+      python = { "mypy" },
+      sql = { "sqlfluff" },
+      javascript = { "eslint_d" },
+      typescript = { "eslint_d" },
+      javascriptreact = { "eslint_d" },
+      typescriptreact = { "eslint_d" },
+    }
+
+    lint.linters.mypy.args = vim.tbl_deep_extend(
+      "force",
+      lint.linters.mypy.args,
+      { "--python-executable", os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr" .. "bin/mypy" }
+    )
+
+    vim.env.ESLINT_D_PPID = vim.fn.getpid()
+    lint.linters.eslint_d = {
+      cmd = "eslint_d",
+      stdin = true,
+      args = {
+        "--config",
+        os.getenv "ESLINT_D_DEFAULT_CONFIG",
+      },
+    }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
       group = lint_augroup,
