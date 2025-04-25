@@ -37,7 +37,6 @@ return {
     "GCBallesteros/jupytext.nvim",
     lazy = vim.fn.argc(-1) == 0,
     event = { "BufEnter" },
-    cmd = { "NewNotebook" },
     ft = { "ipynb", "markdown", "json" },
     opts = {
       style = "markdown",
