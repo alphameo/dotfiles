@@ -1,8 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   version = false, -- last release doesn't work on windows
-  lazy = vim.fn.argc(-1) == 0,
-  event = { "BufReadPost", "BufWritePost", "BufNewFile", "VeryLazy" },
+  lazy = true,
+  event = { "BufReadPost", "BufNewFile", "VeryLazy" },
+  cmd = { "TSUpdate", "TSInstall", "TSBufEnable", "TSBufDisable" },
   build = ":TSUpdate",
   config = function()
     local config = require "nvim-treesitter.configs"
