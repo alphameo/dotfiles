@@ -9,8 +9,5 @@ vim.lsp.config("jsonls", {
 })
 vim.lsp.enable "jsonls"
 
--- INFO: FORMATTING
-require("conform").formatters_by_ft.json = { "prettierd" }
-
 -- INFO: LINTING
 -- require("lint").linters_by_ft.json = { "jsonlint" }

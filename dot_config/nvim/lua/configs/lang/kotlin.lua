@@ -56,8 +56,5 @@ dap.configurations.kotlin = {
   },
 }
 
--- INFO: FORMATTING
-require("conform").formatters_by_ft.kotlin = { "ktlint" }
-
 -- INFO: LINTING
 require("lint").linters_by_ft.kotlin = { "ktlint" }

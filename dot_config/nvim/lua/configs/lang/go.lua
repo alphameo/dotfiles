@@ -24,8 +24,5 @@ vim.lsp.enable "gopls"
 -- INFO: DAP
 require("dap-go").setup()
 
--- INFO: FORMATTING
-require("conform").formatters_by_ft.go = { "goimports", "gofumpt" }
-
 -- INFO: LINTING
 -- require("lint").linters_by_ft.go = { "golangcilint" }

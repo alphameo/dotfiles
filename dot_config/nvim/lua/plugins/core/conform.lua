@@ -11,6 +11,7 @@ return {
         zsh = { "shfmt" },
         sh = { "shfmt" },
         c = { "clang_format" },
+        cpp = { "clang_format" },
         cmake = { "gersemi" },
         css = { "prettierd" },
         go = { "gofumpt", "goimports" },
