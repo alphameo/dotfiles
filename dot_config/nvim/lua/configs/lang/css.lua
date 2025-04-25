@@ -1,25 +1,7 @@
 -- INFO: LSP
-local lsp_utils = require "configs.lspconfig"
-
-require("lspconfig").cssls.setup {
-  capabilities = lsp_utils.capabilities,
-}
-
-if lsp_utils.executable "css-variables-language-server" then
-  require("lspconfig").css_variables.setup {
-    capabilities = lsp_utils.capabilities,
-  }
-else
-  vim.notify("css_variables (css) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
-end
-
-if lsp_utils.executable "cssmodules-language-server" then
-  require("lspconfig").cssmodules_ls.setup {
-    capabilities = lsp_utils.capabilities,
-  }
-else
-  vim.notify("cssmodules_ls (css) not found!", vim.log.levels.WARN, { title = "Nvim-config" })
-end
+vim.lsp.enable "cssls"
+vim.lsp.enable "css_variables"
+vim.lsp.enable "cssmodules_ls"
 
 -- INFO: FORMATTING
 require("conform").formatters_by_ft.css = { "prettierd" }

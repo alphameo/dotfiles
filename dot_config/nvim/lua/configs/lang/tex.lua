@@ -1,9 +1,5 @@
 -- INFO: LSP
-local lsp_utils = require "configs.lspconfig"
-
-require("lspconfig").texlab.setup {
-  capabilities = lsp_utils.capabilities,
-}
+vim.lsp.enable "texlab"
 
 -- INFO: FORMATTING
 require("conform").formatters_by_ft.tex = { "bibtex-tidy" }

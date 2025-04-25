@@ -1,13 +1,8 @@
 -- INFO: LSP
-local lsp_utils = require "configs.lspconfig"
-
-require("lspconfig").lua_ls.setup {
-  capabilities = lsp_utils.capabilities,
+vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
-      completion = {
-        callSnippet = "Replace",
-      },
+      completion = { callSnippet = "Replace" },
       -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
       diagnostics = { disable = { "missing-fields" } },
       runtime = { version = "LuaJIT" },
@@ -18,15 +13,12 @@ require("lspconfig").lua_ls.setup {
           unpack(vim.api.nvim_get_runtime_file("", true)),
         },
       },
-      format = {
-        enable = false,
-      },
-      hint = {
-        enable = true,
-      },
+      format = { enable = false },
+      hint = { enable = true },
     },
   },
-}
+})
+vim.lsp.enable "lua_ls"
 
 -- INFO: FORMATTING
 require("conform").formatters_by_ft.lua = { "stylua" }

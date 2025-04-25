@@ -1,9 +1,5 @@
 -- INFO: LSP
-local lsp_utils = require "configs.lspconfig"
-
-require("lspconfig").bashls.setup {
-  capabilities = lsp_utils.capabilities,
-}
+vim.lsp.enable "bashls"
 
 -- INFO: FORMATTING
 -- require("conform").formatters_by_ft.sh = { "shfmt" }

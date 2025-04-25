@@ -1,13 +1,6 @@
 -- INFO: LSP
-local lsp_utils = require "configs.lspconfig"
-
-require("lspconfig").intelephense.setup {
-  capabilities = lsp_utils.capabilities,
-}
-
-require("lspconfig").phpactor.setup {
-  capabilities = lsp_utils.capabilities,
-}
+vim.lsp.enable "intelephense"
+vim.lsp.enable "phpactor"
 
 -- INFO: DAP
 local dap = require "dap"

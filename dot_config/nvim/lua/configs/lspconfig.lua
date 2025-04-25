@@ -9,7 +9,7 @@ function M.executable(name)
   return false
 end
 
-M.generate_capabilities = function()
+M.capabilities = function()
   local capabilities = require("blink.cmp").get_lsp_capabilities()
   -- local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- capabilities.textDocument.completion.completionItem.snippetSupport = false -- autofill func placeholders
@@ -43,7 +43,7 @@ end
 -- }
 
 M.extended_capabilities = function(extension_table)
-  local capabilities = M.generate_capabilities()
+  local capabilities = M.capabilities()
   vim.tbl_deep_extend("force", capabilities, extension_table)
   return capabilities
 end

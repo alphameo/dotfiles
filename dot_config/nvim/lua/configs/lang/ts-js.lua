@@ -1,6 +1,4 @@
 -- INFO: LSP
-local lsp_utils = require "configs.lspconfig"
-
 local function organize_imports()
   local params = {
     command = "_typescript.organizeImports",
@@ -19,7 +17,7 @@ local js_based_langs = {
   "vue",
 }
 
--- require("lspconfig").vtsls.setup {
+-- vim.lsp.config("vtsls", {
 --   capabilities = lsp_utils.capabilities,
 --
 --   settings = {
@@ -34,13 +32,14 @@ local js_based_langs = {
 --       },
 --     },
 --   },
--- }
+-- })
+-- vim.lsp.enable "vtsls"
 
 -- vim.g.markdown_fenced_languages = {
 --   "ts=typescript",
 -- }
 
--- require("lspconfig").denols.setup {
+-- vim.lsp.config("denols", {
 --   capabilities = lsp_utils.capabilities,
 --   filetypes = js_based_langs,
 --   settings = {
@@ -55,13 +54,11 @@ local js_based_langs = {
 --       },
 --     },
 --   },
--- }
+-- })
+-- vim.lsp.enable "denols"
 
-require("lspconfig").ts_ls.setup {
-  capabilities = lsp_utils.capabilities,
-
+vim.lsp.config("ts_ls", {
   filetypes = js_based_langs,
-
   commands = {
     OrganizeImports = {
       organize_imports,
@@ -94,7 +91,8 @@ require("lspconfig").ts_ls.setup {
       },
     },
   },
-}
+})
+vim.lsp.enable "ts_ls"
 
 -- INFO: DAP
 

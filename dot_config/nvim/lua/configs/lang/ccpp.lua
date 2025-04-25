@@ -1,8 +1,6 @@
 -- INFO: LSP
-local lsp_utils = require "configs.lspconfig"
-
-require("lspconfig").clangd.setup {
-  capabilities = lsp_utils.extended_capabilities { offsetEncoding = { "utf-16" } },
+vim.lsp.config("clangd", {
+  capabilities = { offsetEncoding = { "utf-16" } },
   cmd = {
     "clangd",
     "--background-index",
@@ -23,7 +21,8 @@ require("lspconfig").clangd.setup {
       fallbackFlags = { "-std=c++20" },
     },
   },
-}
+})
+vim.lsp.enable "clangd"
 
 -- INFO: DAP
 local dap = require "dap"

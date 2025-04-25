@@ -1,20 +1,13 @@
 -- INFO: LSP
-local lsp_utils = require "configs.lspconfig"
-
-require("lspconfig").jsonls.setup {
-  capabilities = lsp_utils.capabilities,
-
+vim.lsp.config("jsonls", {
   settings = {
     json = {
-      format = {
-        enable = true,
-      },
-      validate = {
-        enable = true,
-      },
+      format = { enable = true },
+      validate = { enable = true },
     },
   },
-}
+})
+vim.lsp.enable "jsonls"
 
 -- INFO: FORMATTING
 require("conform").formatters_by_ft.json = { "prettierd" }
