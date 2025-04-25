@@ -11,8 +11,5 @@ dap.adapters.php = {
   args = { path .. "/extension/out/phpDebug.js" },
 }
 
--- INFO: FORMATTING
-require("conform").formatters_by_ft.php = { "php_cs_fixer" }
-
 -- INFO: LINTING
 require("lint").linters_by_ft.php = { "phpcs" }

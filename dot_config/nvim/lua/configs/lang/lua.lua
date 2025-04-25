@@ -20,8 +20,5 @@ vim.lsp.config("lua_ls", {
 })
 vim.lsp.enable "lua_ls"
 
--- INFO: FORMATTING
-require("conform").formatters_by_ft.lua = { "stylua" }
-
 -- INFO: LINTING
 require("lint").linters_by_ft.lua = { "luacheck" }

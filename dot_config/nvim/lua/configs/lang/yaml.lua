@@ -25,9 +25,3 @@ vim.lsp.config("yamlls", {
   },
 })
 vim.lsp.enable "yamlls"
-
--- INFO: FORMATTING
--- require("conform").formatters_by_ft.yaml = { "prettierd" }
-
--- INFO: LINTING
--- require("lint").linters_by_ft.yaml = { "yamllint" }

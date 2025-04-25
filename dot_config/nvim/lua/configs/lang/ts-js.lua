@@ -138,15 +138,6 @@ for _, language in ipairs(js_based_langs) do
   }
 end
 
--- INFO: FORMATTING
--- denols
---
--- local conform_ft = require("conform").formatters_by_ft
--- conform_ft.javascript = { "prettierd" }
--- conform_ft.typescript = { "prettierd" }
--- conform_ft.javascriptreact = { "prettierd" }
--- conform_ft.typescriptreact = { "prettierd" }
-
 -- INFO: LINTING
 -- denols
 --

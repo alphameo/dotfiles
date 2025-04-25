@@ -45,8 +45,5 @@ vim.g.rustaceanvim = {
   },
 }
 
--- INFO: FORMATTING
-require("conform").formatters_by_ft.rust = { "rustfmt" }
-
 -- INFO: LINTING
 -- require("lint").linters_by_ft.rust = { "bacon" }
