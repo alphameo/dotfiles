@@ -1,6 +1,4 @@
 -- INFO: LSP
-local lsp_utils = require "configs.lspconfig"
-
 local jdtls = require "jdtls"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = vim.env.HOME .. "/jdtls-workspace/" .. project_name
@@ -66,21 +64,11 @@ local config = {
           profile = "GoogleStyle",
         },
       },
-      eclipse = {
-        downloadSources = true,
-      },
-      maven = {
-        downloadSources = true,
-      },
-      signatureHelp = {
-        enabled = true,
-      },
-      contentProvider = {
-        preferred = "fernflower",
-      },
-      saveActions = {
-        organizeImports = true,
-      },
+      eclipse = { downloadSources = true },
+      maven = { downloadSources = true },
+      signatureHelp = { enabled = true },
+      contentProvider = { preferred = "fernflower" },
+      saveActions = { organizeImports = true },
       completion = {
         favoriteStaticMembers = {
           "org.hamcrest.MatcherAssert.assertThat",
@@ -113,37 +101,21 @@ local config = {
         },
       },
       codeGeneration = {
-        toString = {
-          template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
-        },
-        hashCodeEquals = {
-          useJava7Objects = true,
-        },
+        toString = { template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}" },
+        hashCodeEquals = { useJava7Objects = true },
         useBlocks = true,
       },
-      implementationsCodeLens = {
-        enabled = true,
-      },
-      referencesCodeLens = {
-        enabled = true,
-      },
+      implementationsCodeLens = { enabled = true },
+      referencesCodeLens = { enabled = true },
       inlayHints = {
-        parameterNames = {
-          enabled = "all",
-        },
+        parameterNames = { enabled = "all" },
       },
-      references = {
-        includeDecompiledSources = true,
-      },
+      references = { includeDecompiledSources = true },
     },
   },
-  capabilities = lsp_utils.capabilities,
-  flags = {
-    allow_incremental_sync = true,
-  },
-  init_options = {
-    bundles = bundles,
-  },
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
+  flags = { allow_incremental_sync = true },
+  init_options = { bundles = bundles },
 
   on_attach = function(client, bufnr)
     jdtls.setup_dap { hotcodereplace = "auto" }
