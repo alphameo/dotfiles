@@ -11,8 +11,6 @@ return {
       c = { "cpplint" },
       cpp = { "cpplint" },
       cmake = { "cmakelint" },
-      go = { "golangcilint" },
-      gomod = { "golangcilint" },
       html = { "hmtlhint" },
       kotlin = { "ktlint" },
       lua = { "luacheck" },
