@@ -52,5 +52,142 @@ return {
     -- vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "Debug Toggle REPL" })
     -- vim.keymap.set("n", "<leader>ds", dap.session, { desc = "Debug Session" })
     -- vim.keymap.set("n", "<leader>dw", require("dap.ui.widgets").hover, { desc = "Widgets" })
+
+    -- INFO: DAP CCPP
+    dap.adapters.codelldb = {
+      type = "executable",
+      command = "codelldb",
+      -- detached = false, -- on windows you may have to uncomment this:
+      -- type = "server",
+      port = "${port}",
+      executable = {
+        command = "codelldb",
+        args = { "--port", "${port}" },
+      },
+    }
+    for _, lang in ipairs { "c", "cpp" } do
+      dap.configurations[lang] = {
+        {
+          type = "codelldb",
+          request = "launch",
+          name = "Launch file",
+          program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          end,
+          cwd = "${workspaceFolder}",
+        },
+        {
+          type = "codelldb",
+          request = "attach",
+          name = "Attach to process",
+          pid = require("dap.utils").pick_process,
+          cwd = "${workspaceFolder}",
+        },
+      }
+    end
+
+    -- INFO: DAP JAVA
+    dap.configurations.java = {
+      {
+        type = "java",
+        request = "attach",
+        name = "Debug (Attach) - Remote",
+        hostName = "127.0.0.1",
+        port = 5005,
+      },
+    }
+
+    -- INFO: DAP KOTLIN
+    dap.adapters.kotlin = {
+      type = "executable",
+      command = "kotlin-debug-adapter",
+      options = { auto_continue_if_many_stopped = false },
+    }
+    dap.configurations.kotlin = {
+      {
+        type = "kotlin",
+        request = "launch",
+        name = "This file",
+        mainClass = function()
+          local root = vim.fs.find("src", { path = vim.uv.cwd(), upward = true, stop = vim.env.HOME })[1] or ""
+          local fname = vim.api.nvim_buf_get_name(0)
+          return fname:gsub(root, ""):gsub("main/kotlin/", ""):gsub(".kt", "Kt"):gsub("/", "."):sub(2, -1)
+        end,
+        projectRoot = "${workspaceFolder}",
+        jsonLogFile = "",
+        enableJsonLogging = false,
+      },
+      {
+        type = "kotlin",
+        request = "attach",
+        name = "Attach to debugging session",
+        port = 5005,
+        args = {},
+        projectRoot = vim.fn.getcwd,
+        hostName = "localhost",
+        timeout = 2000,
+      },
+    }
+
+    -- INFO: DAP PHP
+    dap.adapters.php = {
+      type = "executable",
+      command = "node",
+      args = {
+        require("mason-registry").get_package("php-debug-adapter"):get_install_path() .. "/extension/out/phpDebug.js",
+      },
+    }
+
+    -- INFO: DAP PYTHON
+    require("dap-python").setup(vim.env.HOME .. "/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
+    require("dap-python").default_port = 38000
+
+    -- INFO: DAP JAVASCRIPT TYPESCRIPT
+    dap.adapters["pwa-node"] = {
+      type = "server",
+      host = "localhost",
+      port = "${port}",
+      executable = {
+        command = "node",
+        args = {
+          os.getenv "HOME" .. "/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+          "${port}",
+        },
+      },
+    }
+    dap.adapters.firefox = {
+      type = "executable",
+      command = "node",
+      args = { os.getenv "HOME" .. "/.local/share/nvim/mason/packages/firefox-debug-adapter/dist/adapter.bundle.js" },
+    }
+    local js_based_langs = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+      "vue",
+    }
+    for _, language in ipairs(js_based_langs) do
+      dap.configurations[language] = {
+        {
+          name = "Launch file",
+          type = "pwa-node",
+          request = "launch",
+          program = "${file}",
+          cwd = "${workspaceFolder}",
+        },
+        {
+          name = "Debug with Firefox",
+          type = "firefox",
+          request = "launch",
+          reAttach = true,
+          url = "http://localhost:3000",
+          webRoot = "${workspaceFolder}",
+          firefoxExecutable = "/usr/bin/firefox",
+        },
+      }
+    end
   end,
 }
