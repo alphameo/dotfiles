@@ -1,4 +1,3 @@
--- INFO: LSP
 vim.lsp.config("clangd", {
   capabilities = { offsetEncoding = { "utf-16" } },
   cmd = {
@@ -24,36 +23,3 @@ vim.lsp.config("clangd", {
 })
 vim.lsp.enable "clangd"
 
--- INFO: DAP
-local dap = require "dap"
-dap.adapters.codelldb = {
-  type = "executable",
-  command = "codelldb",
-  -- detached = false, -- on windows you may have to uncomment this:
-  -- type = "server",
-  port = "${port}",
-  executable = {
-    command = "codelldb",
-    args = { "--port", "${port}" },
-  },
-}
-for _, lang in ipairs { "c", "cpp" } do
-  dap.configurations[lang] = {
-    {
-      type = "codelldb",
-      request = "launch",
-      name = "Launch file",
-      program = function()
-        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-      end,
-      cwd = "${workspaceFolder}",
-    },
-    {
-      type = "codelldb",
-      request = "attach",
-      name = "Attach to process",
-      pid = require("dap.utils").pick_process,
-      cwd = "${workspaceFolder}",
-    },
-  }
-end

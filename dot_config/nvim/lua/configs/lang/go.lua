@@ -1,4 +1,3 @@
--- INFO: LSP
 vim.lsp.config("gopls", {
   cmd = { "gopls" },
   settings = {
@@ -20,6 +19,3 @@ vim.lsp.config("gopls", {
   },
 })
 vim.lsp.enable "gopls"
-
--- INFO: DAP
-require("dap-go").setup()

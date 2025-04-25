@@ -1,4 +1,3 @@
--- INFO: LSP
 vim.lsp.config("yamlls", {
   capabilities = {
     foldingRange = {

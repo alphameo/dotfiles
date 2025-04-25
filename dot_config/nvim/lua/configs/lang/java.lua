@@ -122,27 +122,6 @@ local config = {
     require("jdtls.dap").setup_dap_main_class_configs()
   end,
 }
-
--- INFO: DAP
-local dap = require "dap"
-
-dap.configurations.java = {
-  {
-    type = "java",
-    request = "attach",
-    name = "Debug (Attach) - Remote",
-    hostName = "127.0.0.1",
-    port = 5005,
-  },
-}
-
--- INFO: FORMATTING
--- check jdtls
-
--- INFO: LINTING
--- check jdtls
-
--- INFO: start function for ftplugin
 local M = {}
 M.start = function()
   jdtls.start_or_attach(config)

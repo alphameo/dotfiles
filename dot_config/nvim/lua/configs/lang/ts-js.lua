@@ -1,4 +1,3 @@
--- INFO: LSP
 local function organize_imports()
   local params = {
     command = "_typescript.organizeImports",
@@ -93,47 +92,3 @@ vim.lsp.config("ts_ls", {
   },
 })
 vim.lsp.enable "ts_ls"
-
--- INFO: DAP
-
-local dap = require "dap"
-
-dap.adapters["pwa-node"] = {
-  type = "server",
-  host = "localhost",
-  port = "${port}",
-  executable = {
-    command = "node",
-    args = {
-      os.getenv "HOME" .. "/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
-      "${port}",
-    },
-  },
-}
-
-dap.adapters.firefox = {
-  type = "executable",
-  command = "node",
-  args = { os.getenv "HOME" .. "/.local/share/nvim/mason/packages/firefox-debug-adapter/dist/adapter.bundle.js" },
-}
-
-for _, language in ipairs(js_based_langs) do
-  dap.configurations[language] = {
-    {
-      name = "Launch file",
-      type = "pwa-node",
-      request = "launch",
-      program = "${file}",
-      cwd = "${workspaceFolder}",
-    },
-    {
-      name = "Debug with Firefox",
-      type = "firefox",
-      request = "launch",
-      reAttach = true,
-      url = "http://localhost:3000",
-      webRoot = "${workspaceFolder}",
-      firefoxExecutable = "/usr/bin/firefox",
-    },
-  }
-end

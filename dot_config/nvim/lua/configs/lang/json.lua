@@ -1,4 +1,3 @@
--- INFO: LSP
 vim.lsp.config("jsonls", {
   settings = {
     json = {
