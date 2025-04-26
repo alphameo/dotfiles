@@ -6,7 +6,7 @@ return {
   },
   version = "*",
   lazy = true,
-  event = "VeryLazy",
+  event = "VimEnter",
   opts = {
     options = {
       mode = "buffers", -- set to "tabs" to only show tabpages instead
