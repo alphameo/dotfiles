@@ -6,7 +6,6 @@ return {
     local langmapper = require "langmapper"
 
     langmapper.setup {}
-    langmapper.automapping { global = true, buffer = true }
 
     local function escape(str)
       local escape_chars = [[;,."|\]]

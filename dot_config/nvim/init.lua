@@ -5,4 +5,4 @@ require "autocmds"
 require "diagnostics"
 require "lazyvim"
 
-require("langmapper").automapping { buffer = false }
+require("langmapper").automapping { global = true, buffer = true }
