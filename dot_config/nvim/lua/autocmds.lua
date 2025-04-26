@@ -5,6 +5,22 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   command = 'silent! normal! g`"zv',
 })
 
+---INFO: LSP DEFAULTCMP
+    -- vim.api.nvim_create_autocmd("LspAttach", {
+    --   callback = function(args)
+    --     local client = vim.lsp.get_client_by_id(args.data.client_id)
+    --     if client:supports_method "textDocument/completion" then
+    --       local map = vim.keymap.set
+    --       local opts = function(desc)
+    --         return { buffer = args.buf, desc = desc }
+    --       end
+    --       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+    --       map({ "i" }, "<C- >", "<C-x><C-o>", opts "Trigger completion")
+    --     end
+    --   end,
+    -- })
+
+
 -- INFO: Jupyter Notebook
 local default_notebook = [[
   {
@@ -56,4 +72,20 @@ vim.api.nvim_create_user_command("NewIPYNB", function(opts)
 end, {
   nargs = 1,
   complete = "file",
+})
+
+-- INFO: RUFF
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+    if client == nil then
+      return
+    end
+    if client.name == "ruff" then
+      client.server_capabilities.hoverProvider = false
+    end
+  end,
+  desc = "LSP: Disable hover capability from Ruff",
 })

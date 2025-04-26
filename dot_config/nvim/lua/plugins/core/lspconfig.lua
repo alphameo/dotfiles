@@ -7,40 +7,7 @@ return {
     codelens = { enabled = true },
   },
   config = function()
-    -- vim.api.nvim_create_autocmd("LspAttach", {
-    --   callback = function(args)
-    --     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    --     if client:supports_method "textDocument/completion" then
-    --       local map = vim.keymap.set
-    --       local opts = function(desc)
-    --         return { buffer = args.buf, desc = desc }
-    --       end
-    --       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-    --       map({ "i" }, "<C- >", "<C-x><C-o>", opts "Trigger completion")
-    --     end
-    --   end,
-    -- })
-
-    require "configs.lang.bash"
-    require "configs.lang.ccpp"
-    require "configs.lang.cmake"
-    require "configs.lang.css"
-    require "configs.lang.go"
-    require "configs.lang.html"
-    require "configs.lang.java"
-    require "configs.lang.json"
-    require "configs.lang.kotlin"
-    require "configs.lang.lua"
-    require "configs.lang.markdown"
-    require "configs.lang.php"
-    require "configs.lang.python"
-    require "configs.lang.rust"
-    require "configs.lang.sql"
-    require "configs.lang.tex"
-    require "configs.lang.toml"
-    require "configs.lang.ts-js"
-    require "configs.lang.xml"
-    require "configs.lang.yaml"
+    require("lsp").setup()
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),

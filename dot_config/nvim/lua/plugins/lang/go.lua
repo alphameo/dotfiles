@@ -14,6 +14,7 @@ return {
     "leoluz/nvim-dap-go",
     lazy = true,
     ft = "go",
+    opts = {},
   },
   {
     "nvim-neotest/neotest",
