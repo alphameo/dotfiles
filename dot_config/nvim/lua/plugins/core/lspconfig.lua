@@ -29,10 +29,10 @@ return {
         map("n", "gI", telescope.lsp_implementations, opts "Go to Implementations")
         map("n", "gr", telescope.lsp_references, opts "Go to References")
         map("n", "gt", telescope.lsp_type_definitions, opts "Go to Type Definition")
-        map("n", "gs", telescope.lsp_document_symbols, { desc = "Go to Document Symbols" })
-        map("n", "gS", telescope.lsp_dynamic_workspace_symbols, { desc = "Go to Workspace Symbols" })
         map("n", "gb", "<C-o>", opts "Go Back")
 
+        map("n", "<leader>ls", telescope.lsp_document_symbols, { desc = "Go to Document Symbols" })
+        map("n", "<leader>lS", telescope.lsp_dynamic_workspace_symbols, { desc = "Go to Workspace Symbols" })
         map("n", "<leader>cd", telescope.diagnostics, opts "Code Diagnostics")
         map("n", "<leader>cq", telescope.quickfix, { desc = "Code Quickfix" })
 
