@@ -4,9 +4,6 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  keys = {
-    { mode = "n", "<leader>cj", ":TSJToggle<CR>", silent = true, desc = "Code Toggle SplitJoin" },
-  },
   config = function()
     local tsj = require "treesj"
     tsj.setup {
@@ -18,8 +15,9 @@ return {
       dot_repeat = true, -- use `dot` for repeat action
     }
 
-    -- vim.keymap.set("n", "<leader>cJ", function()
-    --   tsj.toggle { split = { recursive = true } }
-    -- end, { desc = "Code Toggle SplitJoin Recursively" })
+    vim.keymap.set("n", "<leader>cj", tsj.toggle, { desc = "Code SplitJoin" })
+    vim.keymap.set("n", "<leader>cJ", function()
+      tsj.toggle { split = { recursive = true } }
+    end, { desc = "Code SplitJoin Recursively" })
   end,
 }
