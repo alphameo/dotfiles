@@ -34,6 +34,7 @@ return {
       { "<leader>.", group = "Settings", mode = { "n", "v" }, icon = { icon = " ", color = "white" } },
       { "<leader>F", group = "Find & Replace", mode = { "n", "v" }, icon = { icon = "󰛔 ", color = "cyan" } },
       { "<leader>n", group = "Noice", mode = { "n", "v" }, icon = { icon = "󱅫 ", color = "yellow" } },
+      { "<leader>t", group = "Terminal", mode = { "n", "v" }, icon = { icon = " ", color = "red" } },
 
       { "[", group = "prev" },
       { "]", group = "next" },
