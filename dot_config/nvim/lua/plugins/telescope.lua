@@ -63,7 +63,7 @@ return {
       map("n", "<leader>fw", ":Telescope grep_string<CR>", { silent = true, desc = "Find Words" })
       map("n", "<leader>fr", ":Telescope oldfiles<CR>", { silent = true, desc = "Find Recent Files" })
       map("n", "<leader>.h", ":Telescope help_tags<CR>", { silent = true, desc = "Help Tags" })
-      map("n", "<leader>.k", ":Telescope keymaps<CR>", { silent = true, desc = "eymaps" })
+      map("n", "<leader>.k", ":Telescope keymaps<CR>", { silent = true, desc = "Keymaps" })
 
       map("n", "<leader>.n", function()
         builtin.find_files { cwd = vim.fn.stdpath "config" }
