@@ -9,9 +9,6 @@ return {
   lazy = true,
   event = "VeryLazy",
   cmd = { "Mason", "MasonInstall", "MasonUpdate" },
-  keys = {
-    { mode = "n", "<leader>M", ":Mason<CR>", silent = true, desc = "Mason" },
-  },
   config = function()
     local mason = require "mason"
     local mason_lspconfig = require "mason-lspconfig"
@@ -113,5 +110,7 @@ return {
         -- "yamllint", -- yaml lint
       },
     }
+
+    vim.keymap.set({ "n" }, "<leader>M", ":Mason<CR>", { silent = true, desc = "Mason" })
   end,
 }
