@@ -36,9 +36,7 @@ return {
         map("n", "<leader>cd", telescope.diagnostics, opts "Code Diagnostics")
         map("n", "<leader>cq", telescope.quickfix, { desc = "Code Quickfix" })
 
-        map("n", "<leader>ct", telescope.treesitter, { desc = "Find Files" })
         map({ "n", "v" }, "<leader>ca", lsp_b.code_action, opts "Code Actions")
-
         map("n", "<leader>cr", lsp_b.rename, opts "Code Rename")
         map("n", "<F2>", lsp_b.rename, opts "Code Rename")
 
