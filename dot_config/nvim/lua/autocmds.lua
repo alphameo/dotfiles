@@ -1,25 +1,24 @@
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   group = vim.api.nvim_create_augroup("LastCursorPlace", {}),
-  desc = "return cursor to where it was last time closing the file",
+  desc = "Return cursor to where it was last time closing the file",
   pattern = "*",
   command = 'silent! normal! g`"zv',
 })
 
----INFO: LSP DEFAULTCMP
-    -- vim.api.nvim_create_autocmd("LspAttach", {
-    --   callback = function(args)
-    --     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    --     if client:supports_method "textDocument/completion" then
-    --       local map = vim.keymap.set
-    --       local opts = function(desc)
-    --         return { buffer = args.buf, desc = desc }
-    --       end
-    --       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-    --       map({ "i" }, "<C- >", "<C-x><C-o>", opts "Trigger completion")
-    --     end
-    --   end,
-    -- })
-
+-- INFO: LSP DEFAULTCMP
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   callback = function(args)
+--     local client = vim.lsp.get_client_by_id(args.data.client_id)
+--     if client:supports_method "textDocument/completion" then
+--       local map = vim.keymap.set
+--       local opts = function(desc)
+--         return { buffer = args.buf, desc = desc }
+--       end
+--       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+--       map({ "i" }, "<C- >", "<C-x><C-o>", opts "Trigger completion")
+--     end
+--   end,
+-- })
 
 -- INFO: Jupyter Notebook
 local default_notebook = [[
@@ -88,4 +87,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
   desc = "LSP: Disable hover capability from Ruff",
+})
+
+-- INFO: TERM
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("term-autoinsert", { clear = true }),
+  pattern = { "*" },
+  callback = function()
+    if vim.opt.buftype:get() == "terminal" then
+      vim.cmd ":startinsert"
+    end
+  end,
+  desc = "Autoinsert on terminal open",
 })
