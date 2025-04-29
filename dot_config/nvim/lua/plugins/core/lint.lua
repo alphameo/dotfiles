@@ -39,6 +39,22 @@ return {
         os.getenv "ESLINT_D_DEFAULT_CONFIG",
       },
     }
+    lint.linters.luacheck = {
+      cmd = "luacheck",
+      stdin = true,
+      args = {
+        "--globals",
+        "vim",
+        "lvim",
+        "reload",
+        "--",
+      },
+      stream = "stdout",
+      ignore_exitcode = true,
+      parser = require("lint.parser").from_errorformat("%f:%l:%c: %m", {
+        source = "luacheck",
+      }),
+    }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
       group = lint_augroup,
