@@ -24,7 +24,7 @@ return {
       -- python -m venv ~/.virtualenvs/neovim # create a new venv
       -- # note, activate is a bash/zsh script, use activate.fish for fish shell
       -- source ~/.virtualenvs/neovim/bin/activate # activate the venv
-      -- pip install pynvim jupyter_client cairosvg plotly kaleido pnglatex pyperclip jupytext
+      -- pip install pynvim jupyter_client cairosvg plotly kaleido pnglatex pyperclip jupytext pandas matplotlib sympy
       -- venv project_name # activate the project venv
       -- pip install ipykernel
       -- python -m ipykernel install --user --name project_name
