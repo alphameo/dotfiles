@@ -54,17 +54,16 @@ return {
 
       local builtin = require "telescope.builtin"
       local map = vim.keymap.set
-      map("n", "<leader>ac", ":Telescope colorscheme<CR>", { silent = true, desc = "Choose Colorscheme" })
-      map("n", "<leader>fp", ":Telescope<CR>", { silent = true, desc = "Find Picker" })
-      map("n", "<leader>fm", ":Telescope marks<CR>", { silent = true, desc = "Find Marks" })
-      map("n", "<leader>fb", ":Telescope buffers<CR>", { silent = true, desc = "Find Buffers" })
-      map("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true, desc = "Find Files" })
-      map("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true, desc = "Find by Grep" })
-      map("n", "<leader>fw", ":Telescope grep_string<CR>", { silent = true, desc = "Find Words" })
-      map("n", "<leader>fr", ":Telescope oldfiles<CR>", { silent = true, desc = "Find Recent Files" })
-      map("n", "<leader>.h", ":Telescope help_tags<CR>", { silent = true, desc = "Help Tags" })
-      map("n", "<leader>.k", ":Telescope keymaps<CR>", { silent = true, desc = "Keymaps" })
-
+      map("n", "<leader>ac", builtin.colorscheme, { desc = "Choose Colorscheme" })
+      map("n", "<leader>fp", builtin.builtin, { desc = "Find Picker" })
+      map("n", "<leader>fm", builtin.marks, { desc = "Find Marks" })
+      map("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
+      map("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
+      map("n", "<leader>fg", builtin.live_grep, { desc = "Find by Grep" })
+      map("n", "<leader>fw", builtin.grep_string, { desc = "Find Words" })
+      map("n", "<leader>fr", builtin.oldfiles, { desc = "Find Recent Files" })
+      map("n", "<leader>.h", builtin.help_tags, { desc = "Help Tags" })
+      map("n", "<leader>.k", builtin.keymaps, { desc = "Keymaps" })
       map("n", "<leader>.n", function()
         builtin.find_files { cwd = vim.fn.stdpath "config" }
       end, { desc = "Neovim Config" })
