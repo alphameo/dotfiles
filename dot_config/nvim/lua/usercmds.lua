@@ -53,20 +53,22 @@ end, {
 
 -- NOTE: TERMINALS
 local terminal_state = {
-  floating = {
-    buf = -1,
-    win = -1,
-  },
-  split = {
-    buf = -1,
-    win = -1,
-  },
+  buf = -1,
+  win = -1,
 }
 
--- NOTE: Split Terminal
-local create_split_buffer = function(opts)
-  opts = opts or {}
+local toggle_terminal = function(create_win_func)
+  if not vim.api.nvim_win_is_valid(terminal_state.win) then
+    terminal_state = create_win_func { buf = terminal_state.buf }
+    if vim.bo[terminal_state.buf].buftype ~= "terminal" then
+      vim.cmd.terminal()
+    end
+  else
+    vim.api.nvim_win_hide(terminal_state.win)
+  end
+end
 
+local new_term_state = function(opts, win_config)
   local buf = nil
   if vim.api.nvim_buf_is_valid(opts.buf) then
     buf = opts.buf
@@ -74,30 +76,27 @@ local create_split_buffer = function(opts)
     buf = vim.api.nvim_create_buf(false, true)
   end
 
+  local win = vim.api.nvim_open_win(buf, true, win_config)
+
+  return { buf = buf, win = win }
+end
+
+-- NOTE: Split Terminal
+local create_split_buffer = function(opts)
+  opts = opts or {}
+
   local win_config = {
     vertical = false,
     split = "below",
     height = 15,
     style = "minimal",
   }
-  local win = vim.api.nvim_open_win(buf, true, win_config)
 
-  return { buf = buf, win = win }
+  return new_term_state(opts, win_config)
 end
+
 local toggle_split_terminal = function()
-  if not vim.api.nvim_win_is_valid(terminal_state.floating.win) then
-    terminal_state.floating = create_split_buffer { buf = terminal_state.floating.buf }
-    if vim.bo[terminal_state.floating.buf].buftype ~= "terminal" then
-      vim.cmd.terminal()
-    end
-  else
-    vim.api.nvim_win_hide(terminal_state.floating.win)
-  end
-  -- vim.cmd.vnew()
-  -- vim.cmd.term()
-  -- vim.cmd.wincmd "J"
-  -- vim.api.nvim_win_set_height(0, 15)
-  -- vim.cmd.startinsert()
+  toggle_terminal(create_split_buffer)
 end
 
 vim.api.nvim_create_user_command("ToggleSplitTerm", toggle_split_terminal, {})
@@ -111,13 +110,6 @@ local function create_floating_window(opts)
   local col = math.floor((vim.o.columns - width) / 2)
   local row = math.floor((vim.o.lines - height) / 2)
 
-  local buf = nil
-  if vim.api.nvim_buf_is_valid(opts.buf) then
-    buf = opts.buf
-  else
-    buf = vim.api.nvim_create_buf(false, true)
-  end
-
   local win_config = {
     relative = "editor",
     width = width,
@@ -128,20 +120,11 @@ local function create_floating_window(opts)
     border = "rounded",
   }
 
-  local win = vim.api.nvim_open_win(buf, true, win_config)
-
-  return { buf = buf, win = win }
+  return new_term_state(opts, win_config)
 end
 
 local toggle_float_terminal = function()
-  if not vim.api.nvim_win_is_valid(terminal_state.floating.win) then
-    terminal_state.floating = create_floating_window { buf = terminal_state.floating.buf }
-    if vim.bo[terminal_state.floating.buf].buftype ~= "terminal" then
-      vim.cmd.terminal()
-    end
-  else
-    vim.api.nvim_win_hide(terminal_state.floating.win)
-  end
+  toggle_terminal(create_floating_window)
 end
 
 vim.api.nvim_create_user_command("ToggleFloatTerm", toggle_float_terminal, {})
