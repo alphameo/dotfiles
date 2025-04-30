@@ -5,7 +5,7 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   lazy = true,
-  event = { "BufReadPost", "BufNewFile" },
+  event = "VeryLazy",
   -- stylua: ignore
   config = function()
     local spectre = require "spectre"
