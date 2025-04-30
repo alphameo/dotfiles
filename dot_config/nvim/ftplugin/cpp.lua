@@ -5,7 +5,6 @@ map({ "n" }, "<leader>lH", ":ClangdTypeHierarchy<CR>", { silent = true, desc = "
 map({ "n" }, "<leader>lt", ":ClangdAST<CR>", { silent = true, desc = "C/C++ Abstract Syntax Tree" })
 map({ "n" }, "<leader>lm", ":ClangdMemoryUsage<CR>", { silent = true, desc = "C/C++ Memory Usage" })
 
-
 -- map({ "n" }, "<leader>lb", ":CMakeBuild<CR>", { silent = true, desc = "CMake Build Project" })
 map({ "n" }, "<leader>lb", ":CMakeSelectBuildType<CR>", { silent = true, desc = "CMake Build Project" })
 map({ "n" }, "<leader>lc", ":CMakeClean<CR>", { silent = true, desc = "CMake Clean Project" })
