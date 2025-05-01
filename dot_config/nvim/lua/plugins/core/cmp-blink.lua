@@ -1,7 +1,18 @@
 return {
   "saghen/blink.cmp",
   dependencies = {
-    "rafamadriz/friendly-snippets",
+    {
+      "L3MON4D3/LuaSnip",
+      version = "v2.*",
+      build = "make install_jsregexp",
+      dependencies = {
+        "rafamadriz/friendly-snippets",
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+      },
+      opts = { history = true, delete_check_events = "TextChanged" },
+    },
     { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
   },
   version = "1.*",
@@ -24,10 +35,10 @@ return {
             return cmp.select_and_accept()
           end
         end,
-        "snippet_forward",
         "fallback",
       },
-      ["<S-Tab>"] = { "snippet_backward", "fallback" },
+      ["<C-Tab>"] = { "snippet_forward", "fallback" },
+      ["<C-S-Tab>"] = { "snippet_backward", "fallback" },
     },
     signature = {
       enabled = true,
@@ -67,6 +78,8 @@ return {
         },
       },
     },
+
+    snippets = { preset = "luasnip" },
 
     cmdline = {
       keymap = {
