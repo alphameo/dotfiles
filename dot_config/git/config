@@ -2,24 +2,53 @@
 	name = alphameo
 	email = pavel.2014.play@gmail.com
     signingkey = 1775E37D0C34330F374F58DC262C9AB465D268D0 
-[init]
-	defaultBranch = main
-[core]
-	editor = nvim
-    pager = delta
-	autocrlf = input
 [commit]
 	verbose = true
     gpgsign = true
+[core]
+	editor = nvim
+    pager = delta
+	autocrlf = input  # keep newlines as in input
+	compression = 9  # trade cpu for network
+	whitespace = error  # threat incorrect whitespace as errors
+[advice]
+	addEmptyPathspec = false
+	pushNonFastForward = false
+	statusHints = false
+[blame]
+    coloring = highlightRecent
+    date = relative
+[diff]
+	colorMoved = default
+	context = 3  # less context in diffs
+	renames = copies  # detect copies as renames in diffs
+	interHunkContext = 10  # merge near hunks in diffs
+[init]
+	defaultBranch = main
+[log]
+    abbrevCommit = true  # short commits
+[status]
+    branch = true
+    short = true
+    showStash = true
+    showUntrackedFiles = all  # show individual untracked files
+[merge]
+	conflictstyle = zdiff3
+[push]
+    autoSetupRemote = true  # easier to push new branches
+    default = current  # push only current branch by default
+    followTags = true  # push also tags
+    gpgSign = false  # my remotes doesn't support sign pushes
+[pull]
+    rebase = true
+[rebase]
+    autoStash = true
 [interactive]
 	diffFilter = delta --color-only
+	singlekey = true
 [delta]
 	navigate = true
 	line-numbers = true
 	side-by-side = true
-[merge]
-	conflictstyle = zdiff3
-[diff]
-	colorMoved = default
 [alias]
-  hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an> %G?'%Creset --abbrev-commit --date=relative
+  graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an> %G?'%Creset --abbrev-commit --date=relative
