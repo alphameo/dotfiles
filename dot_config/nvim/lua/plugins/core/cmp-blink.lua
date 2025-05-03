@@ -54,6 +54,7 @@ return {
         treesitter_highlighting = true,
       },
       menu = {
+        direction_priority = { "s", "n" },
         auto_show = true,
         draw = {
           treesitter = { "lsp" },
