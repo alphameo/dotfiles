@@ -1,6 +1,6 @@
 #!/bin/env zsh
 
-# ZINIT
+# NOTE: ZINIT
 # src: https://github.com/zdharma-continuum/zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -10,7 +10,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 
-# ALIASES
+# NOTE:  ALIASES
 alias sudo='sudo '
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
 alias grep='rg --color=always'
@@ -25,36 +25,50 @@ alias gb='git branch'
 alias gba='git branch --all'
 alias gbn='git checkout -b'
 alias gc='git commit'
-alias gca='git commit --amend --no-edit'
-alias gce='git commit --amend'
 alias gco='git checkout'
 alias gcl='git clone --recursive'
 alias gd='git diff'
-alias gds='git diff --staged'
 alias gi='git init'
-alias gl='git log --graph --all --pretty=format:"%C(magenta)%h %C(white) %an  %ar%C(blue)  %D%n%s%n"'
+alias gl='git log'
 alias gm='git merge'
 alias gp='git push'
 alias gr='git reset'
-alias gs='git status --short'
+alias gs='git status'
 alias gP='git pull'
 
 alias cz='chezmoi'
 alias fetch='fastfetch'
-alias ls='eza --color=always'
+alias ls='eza --color=always --icons=always'
 alias lt='eza_tree'
 alias cat='bat --style=plain --pager=never'
 alias fm='yazi_filemanager'
 alias nv='nvim'
 
 
-# EVALS
+# NOTE: ZOXIDE
+
 eval "$(zoxide init --cmd z zsh)"
+
+
+# NOTE: FZF
+
 eval "$(fzf --zsh)"
+
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git "
+export FZF_DEFAULT_OPTS="--height 50% --layout=default --border --color=hl:#2dd4bf"
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
+
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_ALT_C_OPTS="--preview 'eza --icons=always --tree --color=always {} | head -200'"
+
+
+# NOTE: OH-MY-POSH
 eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/custom.json)"
 
 
-# FUNCTIONS
+# NOTE: FUNCTIONS
 
 eza_tree() {
   EZA_TREE="eza --tree --color=always"
@@ -75,12 +89,7 @@ function yazi_filemanager() {
   rm -f -- "$tmp"
 }
 
-# venv
-# usage
-# $ mkvenv myvirtualenv # creates venv under ~/.virtualenvs/
-# $ venv myvirtualenv   # activates venv
-# $ deactivate          # deactivates venv
-# $ rmvenv myvirtualenv # removes venv
+# NOTE:  venv
 
 export VENV_HOME="$HOME/.virtualenvs"
 [[ -d $VENV_HOME ]] || mkdir $VENV_HOME
@@ -88,12 +97,12 @@ export VENV_HOME="$HOME/.virtualenvs"
 hvenv() {
   echo "Current venv: $VIRTUAL_ENV
 USAGE:
-$ hvenv               # shows venv help
-$ lsvenv              # list available venvs
-$ mkvenv myvirtualenv # creates venv under ~/.virtualenvs/
-$ venv myvirtualenv   # activates venv
-$ deactivate          # deactivates venv
-$ rmvenv myvirtualenv # removes venv"
+$ hvenv                 # shows venv help
+$ lsvenv                # list available venvs
+$ mkvenv <myvirtualenv> # creates venv under ~/.virtualenvs/
+$ venv <myvirtualenv>   # activates venv
+$ deactivate            # deactivates venv
+$ rmvenv <myvirtualenv> # removes venv"
 
 }
 
@@ -128,7 +137,9 @@ rmvenv() {
   fi
 }
 
-# HISTORY
+
+# NOTE: HISTORY
+
 # src: https://zsh.sourceforge.io/Doc/Release/Options.html#History
 HISTFILEDIR="$XDG_STATE_HOME"/zsh
 [ -d "$HISTFILEDIR" ] || mkdir "$HISTFILEDIR"
@@ -154,7 +165,8 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 
 
-# ZINIT PLUGINS
+# NOTE: ZINIT PLUGINS
+
 # https://github.com/Aloxaf/fzf-tab
 # https://github.com/zsh-users/zsh-autosuggestions
 # https://github.com/zsh-users/zsh-completions
@@ -178,15 +190,16 @@ zstyle ':completion:*' menu select
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons=always --color=always $realpath'
 
 
-# OTHER
-# GPG
+# NOTE: GPG
 export GPG_TTY=$(tty)
 
-# prettier
+# NOTE: PRETTIER
 export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/nvim/utils/prettierrc.json"
 
-# eslint
+# NOTE: ESLINT
 export ESLINT_D_DEFAULT_CONFIG="$HOME/.config/nvim/utils/eslintrc.js"
+
+# NOTE: OTHER OPTS
 
 # file matching
 setopt EXTENDED_GLOB
@@ -199,7 +212,7 @@ setopt NOTIFY
 [[ $- != *i* ]] && return
 
 
-# BINDKEYS
+# NOTE: BINDKEYS
 bindkey -v
 bindkey '^[[3;5~' kill-word            # ctrl+del
 bindkey '^H' backward-kill-word        # ctrl+backspace
