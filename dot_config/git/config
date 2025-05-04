@@ -51,4 +51,5 @@
 	line-numbers = true
 	side-by-side = true
 [alias]
-  graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an> %G?'%Creset --abbrev-commit --date=relative
+	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an> %G?'%Creset
+	; graph = log --graph --abbrev-commit --date=relative --all --pretty=format:'%C(magenta)%h %C(white) %an  %ar%C(blue)  %D%n%s%n'
