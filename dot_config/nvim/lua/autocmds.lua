@@ -47,3 +47,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
   desc = "Autoinsert on terminal open",
 })
+
+-- INFO: Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.hl.on_yank { higroup = "Visual", timeout = 300 }
+  end,
+  desc = "Highlight yanked text",
+})
