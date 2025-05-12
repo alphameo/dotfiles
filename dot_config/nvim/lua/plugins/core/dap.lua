@@ -116,9 +116,7 @@ return {
     dap.adapters.php = {
       type = "executable",
       command = "node",
-      args = {
-        require("mason-registry").get_package("php-debug-adapter"):get_install_path() .. "/extension/out/phpDebug.js",
-      },
+      args = { os.getenv "HOME" .. ".local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js" },
     }
 
     -- INFO: DAP PYTHON
