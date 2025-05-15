@@ -3,6 +3,6 @@ return {
   lazy = true,
   ft = { "java" },
   config = function()
-    require("lsp").setup_java()
+    require("lsp").start_or_attach_java()
   end,
 }

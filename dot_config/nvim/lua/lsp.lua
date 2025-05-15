@@ -292,6 +292,84 @@ local yamlls_opts = {
   },
 }
 
+local java_init_opts = {
+  root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
+  settings = {
+    java = {
+      -- TODO: path to the main java version (JDK 17 or higher)
+      home = "/usr/lib/jvm/java-24-openjdk",
+
+      configuration = {
+        updateBuildConfiguration = "interactive",
+        runtimes = {
+          {
+            name = "JavaSE-23",
+            path = "/usr/lib/jvm/java-23-openjdk",
+          },
+        },
+      },
+      format = {
+        enabled = true,
+        settings = {
+          -- url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
+          -- path = "$HOME/.config/nvim//utility/styles/intellij-java-google-style.xml",
+          -- url = "https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml",
+          path = "$HOME/.config/nvim/utility/styles/eclipse-java-google-style.xml",
+          profile = "GoogleStyle",
+        },
+      },
+      eclipse = { downloadSources = true },
+      maven = { downloadSources = true },
+      signatureHelp = { enabled = true },
+      contentProvider = { preferred = "fernflower" },
+      saveActions = { organizeImports = true },
+      completion = {
+        favoriteStaticMembers = {
+          "org.hamcrest.MatcherAssert.assertThat",
+          "org.hamcrest.Matchers.*",
+          "org.hamcrest.CoreMatchers.*",
+          "org.junit.jupiter.api.Assertions.*",
+          "java.util.Objects.requireNonNull",
+          "java.util.Objects.requireNonNullElse",
+          "org.mockito.Mockito.*",
+        },
+        filteredTypes = {
+          "com.sun.*",
+          "io.micrometer.shaded.*",
+          "java.awt.*",
+          "jdk.*",
+          "sun.*",
+        },
+        importOrder = {
+          "java",
+          "javax",
+          "com",
+          "org",
+        },
+      },
+      sources = {
+        organizeImports = {
+          starThreshold = 9999,
+          staticStarThreshold = 9999,
+        },
+      },
+      codeGeneration = {
+        toString = { template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}" },
+        hashCodeEquals = { useJava7Objects = true },
+        useBlocks = true,
+      },
+      implementationsCodeLens = { enabled = true },
+      referencesCodeLens = { enabled = true },
+      inlayHints = {
+        parameterNames = { enabled = "all" },
+      },
+      references = { includeDecompiledSources = true },
+    },
+  },
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
+  flags = { allow_incremental_sync = true },
+}
+
 local M = {}
 M.setup_bash = function()
   setup_lsp "bashls"
@@ -312,6 +390,9 @@ M.setup_go = function()
 end
 M.setup_html = function()
   setup_lsp "html"
+end
+M.setup_java = function()
+  vim.lsp.config("jdtls", java_init_opts)
 end
 M.setup_json = function()
   setup_lsp("jsonls", jsonls_opts)
@@ -354,29 +435,7 @@ M.setup_yaml = function()
   setup_lsp("yamlls", yamlls_opts)
 end
 
-M.setup = function()
-  M.setup_bash()
-  M.setup_ccpp()
-  M.setup_cmake()
-  M.setup_css()
-  M.setup_go()
-  M.setup_html()
-  M.setup_json()
-  M.setup_kotlin()
-  M.setup_lua()
-  M.setup_markdown()
-  M.setup_python()
-  M.setup_rust()
-  M.setup_sql()
-  M.setup_sql()
-  M.setup_tex()
-  M.setup_toml()
-  M.setup_tsjs()
-  M.setup_xml()
-  M.setup_yaml()
-end
-
-M.setup_java = function()
+M.start_or_attach_java = function()
   local jdtls = require "jdtls"
   local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
   local workspace_dir = vim.env.HOME .. "/jdtls-workspace/" .. project_name
@@ -417,92 +476,42 @@ M.setup_java = function()
       "-data",
       workspace_dir,
     },
-
-    root_dir = require("jdtls.setup").find_root { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" },
-
     settings = {
       java = {
-        -- TODO: path to the main java version (JDK 17 or higher)
-        home = "/usr/lib/jvm/java-24-openjdk",
-
-        configuration = {
-          updateBuildConfiguration = "interactive",
-          runtimes = {
-            {
-              name = "JavaSE-23",
-              path = "/usr/lib/jvm/java-23-openjdk",
-            },
-          },
-        },
-        format = {
-          enabled = true,
-          settings = {
-            -- url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
-            -- path = "$HOME/.config/nvim//utility/styles/intellij-java-google-style.xml",
-            -- url = "https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml",
-            path = "$HOME/.config/nvim/utility/styles/eclipse-java-google-style.xml",
-            profile = "GoogleStyle",
-          },
-        },
-        eclipse = { downloadSources = true },
-        maven = { downloadSources = true },
-        signatureHelp = { enabled = true },
-        contentProvider = { preferred = "fernflower" },
-        saveActions = { organizeImports = true },
-        completion = {
-          favoriteStaticMembers = {
-            "org.hamcrest.MatcherAssert.assertThat",
-            "org.hamcrest.Matchers.*",
-            "org.hamcrest.CoreMatchers.*",
-            "org.junit.jupiter.api.Assertions.*",
-            "java.util.Objects.requireNonNull",
-            "java.util.Objects.requireNonNullElse",
-            "org.mockito.Mockito.*",
-          },
-          filteredTypes = {
-            "com.sun.*",
-            "io.micrometer.shaded.*",
-            "java.awt.*",
-            "jdk.*",
-            "sun.*",
-          },
-          importOrder = {
-            "java",
-            "javax",
-            "com",
-            "org",
-          },
-        },
         extendedClientCapabilities = jdtls.extendedClientCapabilities,
-        sources = {
-          organizeImports = {
-            starThreshold = 9999,
-            staticStarThreshold = 9999,
-          },
-        },
-        codeGeneration = {
-          toString = { template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}" },
-          hashCodeEquals = { useJava7Objects = true },
-          useBlocks = true,
-        },
-        implementationsCodeLens = { enabled = true },
-        referencesCodeLens = { enabled = true },
-        inlayHints = {
-          parameterNames = { enabled = "all" },
-        },
-        references = { includeDecompiledSources = true },
       },
     },
-    capabilities = require("blink.cmp").get_lsp_capabilities(),
-    flags = { allow_incremental_sync = true },
     init_options = { bundles = bundles },
-
-    on_attach = function(client, bufnr)
+    on_attach = function()
       jdtls.setup_dap { hotcodereplace = "auto" }
       require("jdtls.dap").setup_dap_main_class_configs()
     end,
   }
-  jdtls.start_or_attach(config)
+  local extended_cfg = vim.tbl_deep_extend("force", java_init_opts, config)
+
+  jdtls.start_or_attach(extended_cfg)
+end
+
+M.setup = function()
+  M.setup_bash()
+  M.setup_ccpp()
+  M.setup_cmake()
+  M.setup_css()
+  M.setup_go()
+  M.setup_html()
+  M.setup_java()
+  M.setup_json()
+  M.setup_kotlin()
+  M.setup_lua()
+  M.setup_markdown()
+  M.setup_python()
+  M.setup_rust()
+  M.setup_sql()
+  M.setup_tex()
+  M.setup_toml()
+  M.setup_tsjs()
+  M.setup_xml()
+  M.setup_yaml()
 end
 
 return M
