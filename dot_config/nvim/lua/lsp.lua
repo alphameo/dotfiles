@@ -5,7 +5,7 @@ local function setup_lsp(name, opts)
 
   vim.lsp.enable(name)
 end
-local clangd_opts = {
+local clangd_cfg = {
   capabilities = { offsetEncoding = { "utf-16" } },
   cmd = {
     "clangd",
@@ -29,7 +29,7 @@ local clangd_opts = {
   },
 }
 
-local gopls_opts = {
+local gopls_cfg = {
   cmd = { "gopls" },
   settings = {
     gopls = {
@@ -49,7 +49,7 @@ local gopls_opts = {
     },
   },
 }
-local jsonls_opts = {
+local jsonls_cfg = {
   settings = {
     json = {
       format = { enable = true },
@@ -57,7 +57,7 @@ local jsonls_opts = {
     },
   },
 }
-local kotlin_ls_opts = {
+local kotlin_ls_cfg = {
   settings = {
     kotlin = {
       hints = {
@@ -68,7 +68,7 @@ local kotlin_ls_opts = {
     },
   },
 }
-local lua_ls_opts = {
+local lua_ls_cfg = {
   settings = {
     Lua = {
       completion = { callSnippet = "Replace" },
@@ -87,7 +87,7 @@ local lua_ls_opts = {
     },
   },
 }
-local basedpyright_opts = {
+local basedpyright_cfg = {
   capabilities = {
     -- this will remove some of the diagnostics that duplicates those from ruff, idea taken and adapted from
     -- here: https://github.com/astral-sh/ruff-lsp/issues/384#issuecomment-1989619482
@@ -123,7 +123,7 @@ local basedpyright_opts = {
     },
   },
 }
-local pyright_opts = {
+local pyright_cfg = {
   capabilities = {
     -- this will remove some of the diagnostics that duplicates those from ruff, idea taken and adapted from
     -- here: https://github.com/astral-sh/ruff-lsp/issues/384#issuecomment-1989619482
@@ -152,7 +152,7 @@ local pyright_opts = {
     },
   },
 }
-local ruff_opts = {
+local ruff_cfg = {
   init_options = {
     -- the settings can be found here: https://docs.astral.sh/ruff/editors/settings/
     settings = {
@@ -167,7 +167,7 @@ local ruff_opts = {
     },
   },
 }
-local rust_analyzer_opts = {
+local rust_analyzer_cfg = {
   cmd = { "rust-analyzer" },
   settings = {
     ["rust-analyzer"] = {
@@ -180,7 +180,7 @@ local rust_analyzer_opts = {
     },
   },
 }
-local vtsls_opts = {
+local vtsls_cfg = {
   settings = {
     typescript = {
       inlayHints = {
@@ -194,7 +194,7 @@ local vtsls_opts = {
     },
   },
 }
-local denols_opts = {
+local denols_cfg = {
   filetypes = {
     "javascript",
     "javascriptreact",
@@ -217,7 +217,7 @@ local denols_opts = {
     },
   },
 }
-local ts_ls_opts = {
+local ts_ls_cfg = {
   filetypes = {
     "javascript",
     "javascriptreact",
@@ -266,7 +266,7 @@ local ts_ls_opts = {
     },
   },
 }
-local yamlls_opts = {
+local yamlls_cfg = {
   capabilities = {
     foldingRange = {
       dynamicRegistration = false,
@@ -292,7 +292,7 @@ local yamlls_opts = {
   },
 }
 
-local java_init_opts = {
+local java_init_cfg = {
   root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
   settings = {
     java = {
@@ -375,7 +375,7 @@ M.setup_bash = function()
   setup_lsp "bashls"
 end
 M.setup_ccpp = function()
-  setup_lsp("clangd", clangd_opts)
+  setup_lsp("clangd", clangd_cfg)
 end
 M.setup_cmake = function()
   setup_lsp "neocmake"
@@ -386,33 +386,33 @@ M.setup_css = function()
   setup_lsp "cssmodules_ls"
 end
 M.setup_go = function()
-  setup_lsp("gopls", gopls_opts)
+  setup_lsp("gopls", gopls_cfg)
 end
 M.setup_html = function()
   setup_lsp "html"
 end
 M.setup_java = function()
-  vim.lsp.config("jdtls", java_init_opts)
+  vim.lsp.config("jdtls", java_init_cfg)
 end
 M.setup_json = function()
-  setup_lsp("jsonls", jsonls_opts)
+  setup_lsp("jsonls", jsonls_cfg)
 end
 M.setup_kotlin = function()
-  setup_lsp("kotlin_language_server", kotlin_ls_opts)
+  setup_lsp("kotlin_language_server", kotlin_ls_cfg)
 end
 M.setup_lua = function()
-  setup_lsp("lua_ls", lua_ls_opts)
+  setup_lsp("lua_ls", lua_ls_cfg)
 end
 M.setup_markdown = function()
   setup_lsp "marksman"
 end
 M.setup_python = function()
-  setup_lsp("basedpyright", basedpyright_opts)
-  -- setup("pyright", pyright_opts)
-  setup_lsp("ruff", ruff_opts)
+  setup_lsp("basedpyright", basedpyright_cfg)
+  -- setup("pyright", pyright_cfg)
+  setup_lsp("ruff", ruff_cfg)
 end
 M.setup_rust = function()
-  setup_lsp("rust_analyzer", rust_analyzer_opts)
+  setup_lsp("rust_analyzer", rust_analyzer_cfg)
 end
 M.setup_sql = function()
   setup_lsp "sqlls"
@@ -424,15 +424,15 @@ M.setup_toml = function()
   setup_lsp "taplo"
 end
 M.setup_tsjs = function()
-  -- setup("vtsls", vtsls_opts)
-  -- setup_lsp("denols", denols_opts)
-  setup_lsp("ts_ls", ts_ls_opts)
+  -- setup("vtsls", vtsls_cfg)
+  -- setup_lsp("denols", denols_cfg)
+  setup_lsp("ts_ls", ts_ls_cfg)
 end
 M.setup_xml = function()
   setup_lsp "lemminx"
 end
 M.setup_yaml = function()
-  setup_lsp("yamlls", yamlls_opts)
+  setup_lsp("yamlls", yamlls_cfg)
 end
 
 M.start_or_attach_java = function()
@@ -487,7 +487,7 @@ M.start_or_attach_java = function()
       require("jdtls.dap").setup_dap_main_class_configs()
     end,
   }
-  local extended_cfg = vim.tbl_deep_extend("force", java_init_opts, config)
+  local extended_cfg = vim.tbl_deep_extend("force", java_init_cfg, config)
 
   jdtls.start_or_attach(extended_cfg)
 end
