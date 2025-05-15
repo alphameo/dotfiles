@@ -105,7 +105,7 @@ return {
         },
       }
       --   if LazyVim.has "mason.nvim" then
-      local package_path = require("mason-registry").get_package("codelldb"):get_install_path()
+      local package_path = vim.env.HOME .. ".local/share/nvim/mason/packages/codelldb"
       local codelldb = package_path .. "/extension/adapter/codelldb"
       local library_path = package_path .. "/extension/lldb/lib/liblldb.dylib"
       local uname = io.popen("uname"):read "*l"
@@ -116,14 +116,5 @@ return {
         adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb, library_path),
       }
     end,
-  },
-  {
-    "nvim-neotest/neotest",
-    optional = true,
-    opts = {
-      adapters = {
-        ["rustaceanvim.neotest"] = {},
-      },
-    },
   },
 }
