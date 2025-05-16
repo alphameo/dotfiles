@@ -168,17 +168,18 @@ setopt HIST_IGNORE_SPACE
 # NOTE: ZINIT PLUGINS
 
 # https://github.com/Aloxaf/fzf-tab
-# https://github.com/zsh-users/zsh-autosuggestions
-# https://github.com/zsh-users/zsh-completions
-# https://github.com/marlonrichert/zsh-autocomplete
 # https://github.com/zsh-users/zsh-syntax-highlighting  (see EOF)
 # https://github.com/zdharma-continuum/fast-syntax-highlighting
+# https://github.com/zsh-users/zsh-completions
+# https://github.com/marlonrichert/zsh-autocomplete
+# https://github.com/zsh-users/zsh-autosuggestions
 zinit depth"1" lucid light-mode for \
 		wait atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-		wait zsh-users/zsh-syntax-highlighting \
-		wait zsh-users/zsh-autosuggestions \
-		zsh-users/zsh-completions \
 		Aloxaf/fzf-tab \
+		wait zsh-users/zsh-syntax-highlighting \
+		zsh-users/zsh-completions \
+		wait zsh-users/zsh-autosuggestions \
+
 
 # ZSH-COMPLETIONS
 autoload -U compinit && compinit
