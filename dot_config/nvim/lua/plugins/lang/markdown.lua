@@ -2,13 +2,10 @@ return {
   {
     "iamcco/markdown-preview.nvim",
     lazy = true,
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = function()
-      require("lazy").load { plugins = { "markdown-preview.nvim" } }
       vim.fn["mkdp#util#install"]()
-    end,
-    config = function()
-      vim.cmd [[do FileType]]
     end,
   },
   {
@@ -21,14 +18,16 @@ return {
     ft = { "markdown", "norg", "rmd", "org" },
     opts = {
       code = {
-        sign = false,
         width = "block",
         right_pad = 1,
       },
-      heading = {
-        sign = false,
-        icons = {},
+      completions = {
+        lsp = { enabled = true },
+        blink = { enabled = true },
       },
     },
+    config = function()
+      vim.cmd "RenderMarkdown disable"
+    end,
   },
 }
