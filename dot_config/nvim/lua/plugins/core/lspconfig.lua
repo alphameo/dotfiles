@@ -31,8 +31,8 @@ return {
         map("n", "gt", telescope.lsp_type_definitions, opts "Go to Type Definition")
         map("n", "gb", "<C-o>", opts "Go Back")
 
-        map("n", "<leader>ls", telescope.lsp_document_symbols, { desc = "Go to Document Symbols" })
-        map("n", "<leader>lS", telescope.lsp_dynamic_workspace_symbols, { desc = "Go to Workspace Symbols" })
+        map("n", "<leader>cs", telescope.lsp_document_symbols, { desc = "Go to Document Symbols" })
+        map("n", "<leader>cS", telescope.lsp_dynamic_workspace_symbols, { desc = "Go to Workspace Symbols" })
         map("n", "<leader>cd", telescope.diagnostics, opts "Code Diagnostics")
         map("n", "<leader>cq", telescope.quickfix, { desc = "Code Quickfix" })
 
