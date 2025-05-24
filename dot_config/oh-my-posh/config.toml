@@ -1,4 +1,194 @@
 "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+version = 3
 final_space = true
-version = 2
-auto_upgrade = true
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+
+[[blocks.segments]]
+type = "os"
+template = "{{ if .WSL }}WSL at {{ end }}{{.Icon}} "
+background = "#29315A"
+foreground = "#3EC669"
+style = "diamond"
+leading_diamond = ""
+[blocks.segments.properties]
+style = "full"
+
+[[blocks.segments]]
+type = "session"
+template = "{{ .UserName }}"
+background = "#29315A"
+foreground = "#3EC669"
+style = "diamond"
+leading_diamond = ""
+trailing_diamond = ""
+[blocks.segments.properties]
+style = "full"
+
+[[blocks.segments]]
+type = "path"
+template = "  {{ .Path }}  "
+foreground = "#42A9FF"
+style = "plain"
+[blocks.segments.properties]
+style = "agnoster_short"
+max_depth = 3
+
+[[blocks.segments]]
+type = "git"
+foreground_templates = [ "{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}", "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#FF4500{{ end }}", "{{ if gt .Ahead 0 }}#B388FF{{ end }}", "{{ if gt .Behind 0 }}#B388FF{{ end }}",]
+foreground = "#43CCEA"
+template = "{{ .UpstreamIcon }} {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} "
+style = "plain"
+[blocks.segments.properties]
+cache_duration = "none"
+branch_max_length = 25
+fetch_stash_count = true
+fetch_status = true
+fetch_upstream_icon = true
+branch_icon = " "
+branch_identical_icon = ""
+branch_gone_icon = ""
+
+[[blocks.segments]]
+type = "docker"
+template = " {{ .Context }}"
+foreground = "#000000"
+background = "#0B59E7"
+style = "diamond"
+leading_diamond = " "
+trailing_diamond = ""
+
+[[blocks.segments]]
+type = "kubectl"
+template = "󱃾 {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}"
+foreground = "#000000"
+background = "#ebcc34"
+style = "diamond"
+leading_diamond = " "
+trailing_diamond = ""
+[blocks.segments.properties.context_aliases]
+"arn:aws:eks:eu-west-1:1234567890:cluster/posh" = "posh"
+
+# [[blocks.segments]]
+# type = "npm"
+# template = " {{ .Full }}"
+# foreground = "#193549"
+# background = "#ffeb3b"
+# style = "diamond"
+# leading_diamond = " "
+# trailing_diamond = ""
+
+# [[blocks.segments]]
+# type = "cmake"
+# template = "  cmake {{ .Full }}"
+# foreground = "#E8EAEE"
+# background = "#1E9748"
+# style = "diamond"
+# leading_diamond = " "
+# trailing_diamond = ""
+
+# [[blocks.segments]]
+# type = "mvn"
+# template = " {{ .Full }} "
+# foreground = "#FFFFFF"
+# background = "#2E2A65"
+# style = "diamond"
+# leading_diamond = " "
+# trailing_diamond = ""
+
+# [[blocks.segments]]
+# type = "java"
+# template = " {{ .Full }}"
+# foreground = "#ffffff"
+# background = "#4063D8"
+# style = "diamond"
+# leading_diamond = " "
+# trailing_diamond = ""
+
+# [[blocks.segments]]
+# type = "kotlin"
+# template = " {{ .Full }}"
+# foreground = "#ffffff"
+# background = "#906cff"
+# style = "diamond"
+# leading_diamond = " "
+# trailing_diamond = ""
+
+# [[blocks.segments]]
+# type = "lua"
+# template = " {{ .Full }}"
+# foreground = "white"
+# background = "blue"
+# style = "diamond"
+# leading_diamond = " "
+# trailing_diamond = ""
+
+[[blocks.segments]]
+type = "node"
+template = "󰎙 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}"
+background = "#69be44"
+foreground = "#303030"
+style = "diamond"
+leading_diamond = " "
+trailing_diamond = ""
+
+[[blocks.segments]]
+type = "python"
+template = " {{ .Full }} {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }}{{ end }}{{ end }}"
+foreground = "#fee464"
+background = "#3670a1"
+style = "diamond"
+leading_diamond = " "
+trailing_diamond = ""
+
+# [[blocks.segments]]
+# type = "dart"
+# template = " {{ .Full }} "
+# foreground = "#ffffff"
+# background = "#06A4CE"
+# style = "diamond"
+# leading_diamond = " "
+# trailing_diamond = ""
+
+# [[blocks.segments]]
+# type = "go"
+# template = " {{ .Full }} "
+# foreground = "#ffffff"
+# background = "#7FD5EA"
+# leading_diamond = " "
+# trailing_diamond = ""
+
+# [[blocks.segments]]
+# type = "rust"
+# template = " {{ .Full }} "
+# foreground = "#193549"
+# background = "#99908a"
+# leading_diamond = " "
+# trailing_diamond = ""
+
+# [[blocks.segments]]
+# type = "php"
+# template = " {{ .Full }} "
+# foreground = "#ffffff"
+# background = "#4063D8"
+# leading_diamond = " "
+# trailing_diamond = ""
+
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+[[blocks.segments]]
+type = "status"
+# template = " ➜"
+template = " ❯"
+foreground_templates = [ "{{ if gt .Code 0 }}red{{ end }}",]
+foreground = "green"
+style = "powerline"
+[blocks.segments.properties]
+always_enabled = true
+cache_duration = "none"

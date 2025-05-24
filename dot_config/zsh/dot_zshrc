@@ -65,7 +65,7 @@ export FZF_ALT_C_OPTS="--preview 'eza --icons=always --tree --color=always {} | 
 
 
 # NOTE: OH-MY-POSH
-eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/custom.json)"
+eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/config.toml)"
 
 
 # NOTE: FUNCTIONS
