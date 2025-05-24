@@ -26,7 +26,7 @@ export GPG_TTY=$TTY
 
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
-export JAVA_HOME="/usr/lib/jvm/java-23-openjdk"
+export JAVA_HOME="/usr/lib/jvm/java-24-openjdk"
 
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
