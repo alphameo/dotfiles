@@ -72,14 +72,7 @@ trailing_diamond = ""
 [blocks.segments.properties.context_aliases]
 "arn:aws:eks:eu-west-1:1234567890:cluster/posh" = "posh"
 
-# [[blocks.segments]]
-# type = "npm"
-# template = " {{ .Full }}"
-# foreground = "#193549"
-# background = "#ffeb3b"
-# style = "diamond"
-# leading_diamond = " "
-# trailing_diamond = ""
+# INFO: BUILD
 
 # [[blocks.segments]]
 # type = "cmake"
@@ -98,6 +91,17 @@ trailing_diamond = ""
 # style = "diamond"
 # leading_diamond = " "
 # trailing_diamond = ""
+
+# [[blocks.segments]]
+# type = "npm"
+# template = " {{ .Full }}"
+# foreground = "#cd3e3d"
+# background = "#ffffff"
+# style = "diamond"
+# leading_diamond = " "
+# trailing_diamond = ""
+
+# INFO: LANGUAGES
 
 # [[blocks.segments]]
 # type = "java"
@@ -126,14 +130,14 @@ trailing_diamond = ""
 # leading_diamond = " "
 # trailing_diamond = ""
 
-[[blocks.segments]]
-type = "node"
-template = "󰎙 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}"
-background = "#69be44"
-foreground = "#303030"
-style = "diamond"
-leading_diamond = " "
-trailing_diamond = ""
+# [[blocks.segments]]
+# type = "node"
+# template = "󰎙 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}"
+# background = "#69be44"
+# foreground = "#303030"
+# style = "diamond"
+# leading_diamond = " "
+# trailing_diamond = ""
 
 [[blocks.segments]]
 type = "python"
@@ -176,6 +180,8 @@ trailing_diamond = ""
 # background = "#4063D8"
 # leading_diamond = " "
 # trailing_diamond = ""
+
+# NOTE: PROMPT
 
 [[blocks]]
 type = "prompt"
