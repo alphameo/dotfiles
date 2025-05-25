@@ -36,9 +36,8 @@ map("n", "<leader>lI", function()
   end
 end, { desc = "Molten Initialize for python3", silent = true })
 
-local quarto = require "quarto"
 map("n", "<leader>lI", ":QuartoActivate<CR>", { silent = true, desc = "Quarto Initialize" })
-map("n", "<leader>lP", quarto.quartoPreview, { silent = true, desc = "Quarto Preview" })
+map("n", "<leader>lP", ":QuartoPreview<CR>", { silent = true, desc = "Quarto Preview" })
 local runner = require "quarto.runner"
 map("n", "<leader>lc", runner.run_cell, { silent = true, desc = "Quarto Run Cell" })
 map("n", "<leader>lu", runner.run_above, { silent = true, desc = "Quarto Run Cell And Upper" })
