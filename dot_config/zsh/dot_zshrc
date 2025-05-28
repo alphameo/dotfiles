@@ -13,12 +13,15 @@ source "${ZINIT_HOME}/zinit.zsh"
 # NOTE:  ALIASES
 alias sudo='sudo '
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
-alias grep='rg --color=always'
 alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 alias pacman='pacman --color=always'
-alias cdi="zi"
-
+alias ldoc='lazydocker'
 alias lgit='lazygit'
+alias cz='chezmoi'
+alias fm='yazi_filemanager'
+alias nv='nvim'
+
+# git
 alias ga='git add'
 alias gap='git add --patch'
 alias gb='git branch'
@@ -36,13 +39,14 @@ alias gr='git reset'
 alias gs='git status'
 alias gP='git pull'
 
-alias cz='chezmoi'
+# replacements
 alias fetch='fastfetch'
 alias ls='eza --color=always --icons=always'
 alias lt='eza_tree'
 alias cat='bat --style=plain --pager=never'
-alias fm='yazi_filemanager'
-alias nv='nvim'
+alias grep='rg --color=always'
+# alias cd="__zoxide_z"
+alias cdi="__zoxide_zi"
 
 
 # NOTE: ZOXIDE
