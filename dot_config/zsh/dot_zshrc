@@ -191,6 +191,19 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 
+
+# ZSH-VI-MODE
+export ZVM_VI_ESCAPE_BINDKEY=jk
+export ZVM_VI_INSERT_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
+export ZVM_VI_VISUAL_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
+export ZVM_VI_OPPEND_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
+# enable fzf after load
+zvm_after_init_commands+=('
+    source /usr/share/fzf/key-bindings.zsh
+    source /usr/share/fzf/completion.zsh
+')
+
+
 # FZF-TAB
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons=always --color=always $realpath'
 
@@ -218,7 +231,8 @@ setopt NOTIFY
 
 
 # NOTE: BINDKEYS
-bindkey -v
+
+# bindkey -v                           # built-in vim mode (disable if zsh-vi-mode)
 bindkey '^[[3;5~' kill-word            # ctrl+del
 bindkey '^H' backward-kill-word        # ctrl+backspace
 bindkey '^[[3~' delete-char            # del
