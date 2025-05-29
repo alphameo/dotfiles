@@ -215,7 +215,7 @@ export GPG_TTY=$(tty)
 export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/nvim/utils/prettierrc.json"
 
 # NOTE: ESLINT
-export ESLINT_D_DEFAULT_CONFIG="$HOME/.config/nvim/utils/eslintrc.js"
+export ESLINT_DEFAULT_CONFIG="$HOME/.config/nvim/utils/eslintrc.js"
 
 # NOTE: OTHER OPTS
 
