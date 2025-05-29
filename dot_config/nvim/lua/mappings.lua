@@ -76,14 +76,14 @@ map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
 map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
 
 -- Terminal
-map("n", "<leader>tt", ":terminal<CR>a", { silent = true, desc = "Terminal Tab New" })
-map("n", "<leader>tf", ":ToggleFloatTerm<CR>a", { silent = true, desc = "Terminal Floating" })
-map("n", "<A-\\>", ":ToggleFloatTerm<CR>a", { silent = true, desc = "Terminal Floating" })
+map("n", "<leader>tt", ":terminal<CR>", { silent = true, desc = "Terminal Tab New" })
+map("n", "<leader>tf", ":ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
+map("n", "<A-\\>", ":ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
 map("t", "<leader>tf", "<C-\\><C-n>:ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
 map("t", "<A-\\>", "<C-\\><C-n>:ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
 
-map("n", "<leader>ts", ":ToggleSplitTerm<CR>a", { silent = true, desc = "Terminal Split" })
-map("n", "<C-\\>", ":ToggleSplitTerm<CR>a", { silent = true, desc = "Terminal Split" })
+map("n", "<leader>ts", ":ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
+map("n", "<C-\\>", ":ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
 map("t", "<leader>ts", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
 map("t", "<C-\\>", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
 
