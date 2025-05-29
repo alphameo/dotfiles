@@ -1,7 +1,7 @@
 return {
   "mfussenegger/nvim-lint",
   lazy = true,
-  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+  event = { "BufReadPre", "BufNewFile" },
   cmd = { "LintInfo" },
   config = function()
     local lint = require "lint"
@@ -24,36 +24,38 @@ return {
       typescriptreact = { "eslint_d" },
     }
 
-    lint.linters.mypy.args = vim.tbl_deep_extend(
-      "force",
-      lint.linters.mypy.args,
-      { "--python-executable", os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr" .. "bin/mypy" }
-    )
-
-    vim.env.ESLINT_D_PPID = vim.fn.getpid()
-    lint.linters.eslint_d = {
-      cmd = "eslint_d",
-      stdin = true,
-      args = {
-        "--config",
-        os.getenv "ESLINT_D_DEFAULT_CONFIG",
-      },
+    lint.linters.mypy.args = {
+      "--show-column-numbers",
+      "--show-error-end",
+      "--hide-error-context",
+      "--no-color-output",
+      "--no-error-summary",
+      "--no-pretty",
+      "--python-executable",
+      os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr" .. "bin/mypy",
     }
-    lint.linters.luacheck = {
-      cmd = "luacheck",
-      stdin = true,
-      args = {
-        "--globals",
-        "vim",
-        "lvim",
-        "reload",
-        "--",
-      },
-      stream = "stdout",
-      ignore_exitcode = true,
-      parser = require("lint.parser").from_errorformat("%f:%l:%c: %m", {
-        source = "luacheck",
-      }),
+
+    vim.env.eslint_d_ppid = vim.fn.getpid()
+    lint.linters.eslint_d.args = {
+      "--format",
+      "json",
+      "--config",
+      os.getenv "ESLINT_DEFAULT_CONFIG",
+      "--stdin",
+      "--stdin-filename",
+      function()
+        return vim.api.nvim_buf_get_name(0)
+      end,
+    }
+
+    lint.linters.luacheck.args = {
+      "--formatter",
+      "plain",
+      "--codes",
+      "--globals",
+      "vim",
+      "--ranges",
+      "-",
     }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
