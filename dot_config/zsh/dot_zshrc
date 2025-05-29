@@ -183,6 +183,7 @@ zinit depth"1" lucid light-mode for \
 		wait zsh-users/zsh-syntax-highlighting \
 		zsh-users/zsh-completions \
 		wait zsh-users/zsh-autosuggestions \
+    jeffreytse/zsh-vi-mode \
 
 
 # ZSH-COMPLETIONS
