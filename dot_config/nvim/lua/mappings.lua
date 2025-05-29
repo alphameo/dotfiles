@@ -30,9 +30,7 @@ map("n", "<A-t>", "<cmd> enew <CR>", { silent = true, desc = "Tab New" }) -- new
 map("n", "<A-w>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
 
 map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
-map("n", "<A-]>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
 map("n", "<C-S-Tab>", ":bprevious<CR>", { silent = true, desc = "Previous Tab (buffer)" })
-map("n", "<A-[>", ":bprevious<CR>", { silent = true, desc = "Previous Tab (buffer)" })
 
 -- Windows
 map("n", "<A-s>", "<C-w>s", { desc = "Window Horizontal Split" })
@@ -55,11 +53,13 @@ map("v", ">", ">gv", { desc = "Indent right" }) -- stay in visual mode after ind
 
 map("n", "x", '"_x', { desc = "Delete char" }) -- delete single character without copying into register
 
-map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down" }) -- center after scroll down
-map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" }) -- center after scroll up
+map("n", "<C-d>", "<C-d>zz", { desc = "Page down" }) -- center after scroll down
+map("n", "<C-u>", "<C-u>zz", { desc = "Page up" }) -- center after scroll up
 
 map("n", "n", "nzzzv", { desc = "Next occurance" }) -- center after find
 map("n", "N", "Nzzzv", { desc = "Previous occurance" }) -- center after find
+map("n", "<C-e>", "5<C-e>", { desc = "Scroll down" })
+map("n", "<C-y>", "5<C-y>", { desc = "Scroll up" })
 
 -- map("v", "p", "_dp", { desc = "Paste" }) -- keep last yanked when pasting (doesn't work with cmp snippets)
 -- map("v", "P", "_dP", { desc = "Paste pre" }) -- keep last yanked when pasting (doesn't work with cmp snippets)
