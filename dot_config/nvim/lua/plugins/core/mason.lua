@@ -81,6 +81,7 @@ return {
         "stylua", -- lua fmt
         "luacheck", -- lua lint
         "ktlint", -- kotlin fmt/lint
+        "detekt", -- kotlin lint
         "clang-format", -- c, cpp fmt
         "cpplint", -- c, cpp lint
         "gersemi", -- cmake fmt
