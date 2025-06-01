@@ -6,7 +6,7 @@ return {
   },
   version = "*",
   lazy = true,
-  event = "VimEnter",
+  event = "VeryLazy",
   config = function()
     require("bufferline").setup {
       options = {
