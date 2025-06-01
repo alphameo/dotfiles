@@ -24,8 +24,8 @@ return {
       dashboard.button("n", "   New file", ":ene<CR>"),
       dashboard.button("f", "   Find file", ":Telescope find_files<CR>"),
       dashboard.button("r", "󱋡   Recent Files", ":Telescope oldfiles<CR>"),
-      dashboard.button("l", "   Lazy", ":Lazy<CR>"),
-      dashboard.button("m", "󰰐   Mason", ":Mason<CR>"),
+      dashboard.button("L", "   Lazy", ":Lazy<CR>"),
+      dashboard.button("M", "󰰐   Mason", ":Mason<CR>"),
       dashboard.button("s", "   Settings", ":e $MYVIMRC | :cd %:p:h | pwd<CR>"),
       dashboard.button("q", "󰅙   Quit NVIM", ":qa<CR>"),
     }
