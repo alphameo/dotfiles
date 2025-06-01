@@ -1,0 +1,58 @@
+@import 'mocha.css';
+
+* {
+    /* only nerd fonts because of the icons */
+    font-family: 'RobotoMono Nerd Font';
+    /* font-family: "FiraCode Nerd Font" */
+    font-size: 16px;
+    /* below is for fira code font */
+    font-feature-settings: 'cv02, cv11, cv25, cv26, cv32, cv28, ss04, ss06, ss07';
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* source: https://github.com/Alexays/Waybar/wiki/Module:-Hyprland#example-3 */
+
+window#waybar.empty #window {
+    background-color: transparent;
+    border: none;
+}
+
+#workspaces button,
+#clock,
+#battery,
+#language,
+#network,
+#window,
+#backlight,
+#keyboard-state,
+#bluetooth,
+#wireplumber,
+#cava {
+    background-color: @base;
+    color: @text;
+
+    padding: 6px 16px;
+    margin: 0 4px;
+
+    border: 1px solid alpha(@overlay2, 0.5);
+    border-radius: 8px;
+}
+
+#workspaces button.active {
+    color: @green;
+    border-color: @green;
+}
+
+#battery.charging {
+    color: @green;
+    border-color: @green;
+}
+
+#battery.charge-9,
+#battery.charge-19 {
+    color: @red;
+    border-color: @red;
+}
