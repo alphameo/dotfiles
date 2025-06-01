@@ -13,7 +13,6 @@ return {
       },
       opts = { history = true, delete_check_events = "TextChanged" },
     },
-    { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
   },
   version = "1.*",
   lazy = true,
