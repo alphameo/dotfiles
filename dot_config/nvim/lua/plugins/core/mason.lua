@@ -1,3 +1,5 @@
+vim.keymap.set({ "n" }, "<leader>M", ":Mason<CR>", { silent = true, desc = "Mason" })
+
 return {
   "williamboman/mason.nvim",
   dependencies = {
@@ -7,7 +9,6 @@ return {
   },
   build = ":MasonUpdate",
   lazy = true,
-  event = "VeryLazy",
   cmd = { "Mason", "MasonInstall", "MasonUpdate" },
   config = function()
     local mason = require "mason"
@@ -111,7 +112,5 @@ return {
         -- "yamllint", -- yaml lint
       },
     }
-
-    vim.keymap.set({ "n" }, "<leader>M", ":Mason<CR>", { silent = true, desc = "Mason" })
   end,
 }
