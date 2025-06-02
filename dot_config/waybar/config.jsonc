@@ -5,40 +5,40 @@
     "margin-left": 4,
     "margin-right": 4,
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
+        "hyprland/workspaces"
+        // "hyprland/window"
     ],
     "modules-center": [
         "clock",
-        "hyprland/language"
+        "hyprland/language",
+        "keyboard-state"
     ],
     "modules-right": [
-        "bluetooth",
         "network",
+        "bluetooth",
+        "pulseaudio",
         "cava",
-        "wireplumber",
         "backlight",
-        "battery"
+        "battery",
+        "power-profiles-daemon",
+        "tray",
+        "custom/lock",
+        "custom/reboot",
+        "custom/power"
     ],
-    "hyprland/language": {
-        "format": "{}",
-        "format-en": "en",
-        "format-ru": "ru",
-        // warn: won't work if you don't use kanata
-        "on-click": "hyprctl switchxkblayout kanata next"
-    },
     "hyprland/workspaces": {
         "format": "{name}{icon}{windows}",
         "format-window-separator": " ",
         "window-rewrite-default": "󰣆",
         "window-rewrite": {
-            "class<(firefox|floorp|zen)>": "󰈹",
+            "class<(firefox)>": "󰈹",
+            "class<firefox> title<.*github.*>": "",
             "class<(code)>": "󰨞",
             "class<(kitty)>": "󰆍",
             "class<(obsidian)>": "󰠮",
             "class<(.*telegram.*|.*materialgram)>": "",
             "class<(element|signal)>": "󰍩",
-            "class<(wofi|albert)>": "󰮫",
+            "class<(rofi|albert)>": "󰮫",
             "class<(steam)>": "󰓓",
             "class<(discord|vesktop)>": "󰙯",
             "class<(nekobox)>": "󰖂",
@@ -61,109 +61,163 @@
         "separate-outputs": true,
         "icon": false,
         "on-click": "hyprctl dispatch exec $TERMINAL",
-        "on-click-right": "hyprctl dispatch movetoworkspacesilent special:S",
-        "on-click-middle": "hyprctl dispatch killactive"
-    },
-    "battery": {
-        "states": {
-            "charge-100": 100,
-            "charge-99": 99,
-            "charge-89": 89,
-            "charge-79": 79,
-            "charge-69": 69,
-            "charge-59": 59,
-            "charge-49": 49,
-            "charge-39": 39,
-            "charge-29": 29,
-            "charge-19": 19,
-            "charge-9": 9
-        },
-        "format-charge-100": "{capacity}% 󰁹",
-        "format-charge-99": "{capacity}% 󰂂",
-        "format-charge-89": "{capacity}% 󰂁",
-        "format-charge-79": "{capacity}% 󰂀",
-        "format-charge-69": "{capacity}% 󰁿",
-        "format-charge-59": "{capacity}% 󰁾",
-        "format-charge-49": "{capacity}% 󰁽",
-        "format-charge-39": "{capacity}% 󰁼",
-        "format-charge-29": "{capacity}% 󰁻",
-        "format-charge-19": "{capacity}% 󰁺",
-        "format-charge-9": "{capacity}% 󰂎",
-        "format-charging-charge-100": "{capacity}% 󰂅",
-        "format-charging-charge-99": "{capacity}% 󰂋",
-        "format-charging-charge-89": "{capacity}% 󰂊",
-        "format-charging-charge-79": "{capacity}% 󰢞",
-        "format-charging-charge-69": "{capacity}% 󰂉",
-        "format-charging-charge-59": "{capacity}% 󰢝",
-        "format-charging-charge-49": "{capacity}% 󰂈",
-        "format-charging-charge-39": "{capacity}% 󰂇",
-        "format-charging-charge-29": "{capacity}% 󰂆",
-        "format-charging-charge-19": "{capacity}% 󰢜",
-        "format-charging-charge-9": "{capacity}% 󰢟"
-    },
-    "network": {
-        "format-wifi": "{essid} {icon}",
-        "tooltip-format-wifi": "Signal strength: {signalStrength}%",
-        "format-ethernet": "{bandwidthTotalBytes} 󰲝",
-        "format-disconnected": "n/a 󰲜",
-        "format-icons": [
-            "󰤯",
-            "󰤟",
-            "󰤢",
-            "󰤥",
-            "󰤨"
-        ],
-        "interval": 2
-    },
-    "backlight": {
-        "format": "{percent}% {icon}",
-        "format-icons": [
-            "󰃚",
-            "󰃛",
-            "󰃜",
-            "󰃝",
-            "󰃞",
-            "󰃟",
-            "󰃠"
-        ]
+        "on-click-right": "hyprctl dispatch killactive"
     },
     "keyboard-state": {
+        "numlock": true,
         "capslock": true,
         "format": {
-            "capslock": "caps {icon}"
+            "numlock": "N {icon}",
+            "capslock": "C {icon}"
         },
         "format-icons": {
-            "locked": "󰌾",
-            "unlocked": "󰿆"
+            "locked": "",
+            "unlocked": ""
         }
     },
     "clock": {
+        "format": "<span color='#BF00FF'></span> {:%H:%M}",
         "interval": 60,
-        "tooltip": true,
-        "format": "{:%R}",
-        "tooltip-format": "{:%F (%A, %B %d)}"
+        "format-alt": "<span color='#BF00FF'>󰥔</span> {:%A, %d %B, %Y (%R)}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#f5e0dc'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'><b>{}</b></span>",
+                "weeks": "<span color='#94e2d5'><b>W{}</b></span>",
+                "weekdays": "<span color='#fab387'><b>{}</b></span>",
+                "today": "<span color='#eba0ac'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            // "on-scroll-up": "tz_up",
+            // "on-scroll-down": "tz_down",
+            // "on-scroll-up": "shift_up",
+            // "on-scroll-down": "shift_down",
+            "on-click-right": "mode"
+        }
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-ru": "RU",
+        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+    },
+    "network": {
+        "format-wifi": "<span color='#74c7ec'></span> ",
+        "format-ethernet": "<span color='#74c7ec'>󰲝</span> ",
+        "format-linked": "<span color='#f38ba8'>󱘖</span>{ifname}  (No IP) ",
+        "format-disconnected": "<span color='#cdd6f4'>󰪎</span> ",
+        "interval": 2,
+        // "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
+        "format-icons": [
+            "<span color='#f38ba8'>󰢿</span>",
+            "<span color='#cdd6f4'>󰢼</span>",
+            "<span color='#cdd6f4'>󰢽</span>",
+            "<span color='#cdd6f4'>󰢾</span>"
+        ],
+        "tooltip-format": "{icon} ({signalStrength}%)  {essid} <span color='#eba0ac'>󰅧</span>  {bandwidthUpBytes} <span color='#89dceb'>󰅢</span>  {bandwidthDownBytes}\n({ifname} via {gwaddr})",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "iwgtk"
+    },
+    "custom/wireguard": {
+        "format": "{}<big> 嬨</big>",
+        "exec": "~/.config/waybar/wireguard-rofi-waybar/wireguard.sh",
+        "on-click": "rofi -modi 'WireGuard:~/.config/waybar/wireguard-rofi-waybar/wireguard-rofi.sh' -show WireGuard",
+        "interval": 60,
+        "return-type": "json"
     },
     "bluetooth": {
-        "format": "{status} 󰂯",
-        "format-no-controller": "",
-        "format-disabled": "",
-        "format-off": "",
-        "format-connected": "{device_alias} 󰂱",
-        "format-connected-battery": "{device_alias} 󰂱 {device_battery_percentage}% 󰥉"
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-connected": "<span color='#89dceb'>󰂱</span>",
+        "format-connected-battery": "<span color='#89dceb'>󰂱</span> 󰥉 {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias} ({controller_address})\n\nConnected devices: {num_connections}",
+        "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
+        "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
+        "on-click": "blueberry"
     },
-    "wireplumber": {
-        "format": "{volume}% {icon}",
-        "format-muted": "{volume}% 󰝟",
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "<span color='#f38ba8'>󰖁</span> 0%",
+        "format-icons": {
+            "headphone": "<span color='#cba6f7'></span>",
+            "hands-free": "<span color='#cba6f7'></span>",
+            "headset": "<span color='#cba6f7'></span>",
+            "phone": "<span color='#89dceb'></span>",
+            "portable": "<span color='#89dceb'></span>",
+            "car": "<span color='#fab387'></span>",
+            "default": [
+                "<span color='#f5e0dc'></span>",
+                "<span color='#f9e2af'></span>",
+                "<span color='#a6e3a1'></span>"
+            ]
+        },
+        "on-click-right": "pavucontrol -t 3",
+        "on-click": "pactl -- set-sink-mute 0 toggle",
+        "tooltip": true,
+        "tooltip-format": "Volume: {volume}%",
+        "reverse-scrolling": true
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
         "format-icons": [
-            "󰕿",
-            "󰖀",
-            "󰕾"
+            "<span color='#6c7086'>󰃞</span>",
+            "<span color='#bac2de'>󰃝</span>",
+            "<span color='#f9e2af'>󰃟</span>",
+            "<span color='#fab387'>󰃠</span>"
         ],
-        "scroll-step": 1,
-        "on-click": "pwvucontrol",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "reverse-scrolling": true,
+        "tooltip": false
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        // "format-icons": ["󰂎", "󰁼", "󰁿", "󰂁", "󰁹"],
+        "format-icons": [
+            "<span color='#f38ba8'></span>",
+            "<span color='#a6e3a1'></span>",
+            "<span color='#a6e3a1'></span>",
+            "<span color='#a6e3a1'></span>",
+            "<span color='#a6e3a1'></span>"
+        ],
+        "format-charging": "󱐋 {capacity}%",
+        "interval": 1,
+        "tooltip": true
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "performance": "<span color='#f38ba8'></span>",
+            "balanced": "<span color='#f9e2af'></span>",
+            "power-saver": "<span color='#a6e3a1'></span>"
+        },
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true
+    },
+    "custom/lock": {
+        "format": "<span color='#cdd6f4'></span>",
         "tooltip": false,
-        "reverse-scrolling": false
+        "on-click": "hyprlock"
+    },
+    "custom/reboot": {
+        "format": "<span color='#f9e2af'></span>",
+        "tooltip": false,
+        "on-click": "systemctl reboot"
+    },
+    "custom/power": {
+        "format": "<span color='#f38ba8'></span>",
+        "tooltip": false,
+        "on-click": "systemctl poweroff"
     },
     "cava": {
         "framerate": 144,
@@ -192,5 +246,9 @@
         ],
         "hide_on_silence": true,
         "sleep_timer": 4
+    },
+    "tray": {
+        "icon-size": 17,
+        "spacing": 6
     }
 }
