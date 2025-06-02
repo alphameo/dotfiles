@@ -22,9 +22,10 @@
         "battery",
         "power-profiles-daemon",
         "tray",
-        "custom/lock",
-        "custom/reboot",
-        "custom/power"
+        // "custom/lock",
+        // "custom/reboot",
+        // "custom/power",
+        "custom/powermenu"
     ],
     "hyprland/workspaces": {
         "format": "{name}{icon}{windows}",
@@ -108,6 +109,7 @@
         "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
     },
     "network": {
+        "format": "<span color='#cdd6f4'>󰪎</span> ",
         "format-wifi": "<span color='#74c7ec'></span> ",
         "format-ethernet": "<span color='#74c7ec'>󰲝</span> ",
         "format-linked": "<span color='#f38ba8'>󱘖</span>{ifname}  (No IP) ",
@@ -122,14 +124,8 @@
         ],
         "tooltip-format": "{icon} ({signalStrength}%)  {essid} <span color='#eba0ac'>󰅧</span>  {bandwidthUpBytes} <span color='#89dceb'>󰅢</span>  {bandwidthDownBytes}\n({ifname} via {gwaddr})",
         "tooltip-format-disconnected": "Disconnected",
-        "on-click": "iwgtk"
-    },
-    "custom/wireguard": {
-        "format": "{}<big> 嬨</big>",
-        "exec": "~/.config/waybar/wireguard-rofi-waybar/wireguard.sh",
-        "on-click": "rofi -modi 'WireGuard:~/.config/waybar/wireguard-rofi-waybar/wireguard-rofi.sh' -show WireGuard",
-        "interval": 60,
-        "return-type": "json"
+        "on-click": "$HOME/.config/rofi/modules/rofi-wifi-menu/rofi-wifi-menu.sh"
+        // "on-click": "iwgtk"
     },
     "bluetooth": {
         "format": "󰂯",
@@ -140,7 +136,8 @@
         "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
         "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
-        "on-click": "blueberry"
+        // "on-click": "blueberry"
+        "on-click": "rofi-bluetooth"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -218,6 +215,12 @@
         "format": "<span color='#f38ba8'></span>",
         "tooltip": false,
         "on-click": "systemctl poweroff"
+    },
+    "custom/powermenu": {
+        "format": "⭘",
+        "tooltip": true,
+        "tooltip-format": "Power menu",
+        "on-click": "rofi -show power-menu -modi power-menu:$HOME/.config/rofi/modules/rofi-power-menu.sh"
     },
     "cava": {
         "framerate": 144,
