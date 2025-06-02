@@ -153,6 +153,9 @@ local pyright_cfg = {
   },
 }
 local ruff_cfg = {
+  capabilities = {
+    hoverProvider = false,
+  },
   init_options = {
     -- the settings can be found here: https://docs.astral.sh/ruff/editors/settings/
     settings = {
