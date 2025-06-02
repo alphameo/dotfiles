@@ -1,0 +1,13 @@
+@theme "catppuccin-mocha"
+
+* {
+    bg-col:  @base;
+    bg-col-light: @base;
+    border-col: @base;
+    selected-col: @mantle;
+    blue: @sapphire;
+    fg-col: @text;
+    fg-col2: @red;
+    grey: @subtext1;
+    width: 600;
+}
