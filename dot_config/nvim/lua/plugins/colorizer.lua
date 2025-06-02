@@ -17,7 +17,13 @@ return {
       },
     }
 
-    vim.cmd ":ColorizerToggle"
+    vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+      group = vim.api.nvim_create_augroup("InitColorizer", {}),
+      desc = "Enables Colorizer on Open File",
+      pattern = "*",
+      command = 'ColorizerToggle',
+    })
+
     vim.keymap.set("n", "<leader>aC", ":ColorizerToggle<CR>", { silent = true, desc = "Colorizer Toggle" })
   end,
 }
