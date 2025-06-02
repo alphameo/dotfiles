@@ -35,6 +35,8 @@ opt.signcolumn = "yes" -- Keep signcolumn on by default (default: 'auto')
 opt.isfname:append "@-@"
 
 opt.updatetime = 50 -- Decrease update time (default: 4000)
+vim.opt.timeoutlen = 200 -- keypress delay
+-- vim.opt.ttimeoutlen = 20 -- mode change delay
 
 opt.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim. (default: '')
 opt.mouse = "a" -- Enable mouse mode (default: '')

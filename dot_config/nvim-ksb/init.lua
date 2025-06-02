@@ -49,6 +49,8 @@ opt.scrolloff = 8 -- Minimal number of screen lines to keep above and below the 
 opt.sidescrolloff = 8 -- Minimal number of screen columns either sideof cursor if wrap is `false` (default: 0)
 
 opt.updatetime = 50 -- Decrease update time (default: 4000)
+vim.opt.timeoutlen = 200 -- keypress delay
+-- vim.opt.ttimeoutlen = 20 -- mode change delay
 
 opt.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim. (default: '')
 opt.mouse = "a" -- Enable mouse mode (default: '')
