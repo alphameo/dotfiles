@@ -2,7 +2,7 @@
 
 
 configuration{
-    modes: "ssh,run,drun,filebrowser,calc";
+    modes: "run,drun,ssh";
     lines: 5;
     font: "RobotoMono Nerd Font 14";
     show-icons: true;
@@ -13,10 +13,8 @@ configuration{
     disable-history: false;
     hide-scrollbar: true;
     display-drun: "   ";
-    display-filebrowser: "   ";
     display-run: "   ";
     display-ssh: "   ";
-    display-calc: "   ";
     sidebar-mode: true;
 }
 
