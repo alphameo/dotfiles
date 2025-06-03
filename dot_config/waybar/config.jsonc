@@ -124,9 +124,7 @@
         ],
         "tooltip-format": "{icon} ({signalStrength}%)  {essid} <span color='#eba0ac'>󰅧</span>  {bandwidthUpBytes} <span color='#89dceb'>󰅢</span>  {bandwidthDownBytes}\n({ifname} via {gwaddr})",
         "tooltip-format-disconnected": "Disconnected",
-        "on-click": "$HOME/.config/rofi/modules/rofi-wifi-menu/rofi-wifi-menu.sh"
-        // "on-click": "rofi-wifi-menu"
-        // "on-click": "iwgtk"
+        "on-click": "networkmanager_dmenu"
     },
     "bluetooth": {
         "format": "󰂯",
