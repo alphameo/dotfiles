@@ -25,6 +25,8 @@
         // "custom/lock",
         // "custom/reboot",
         // "custom/power",
+        "custom/bitwarden",
+        "custom/calc",
         "custom/powermenu"
     ],
     "hyprland/workspaces": {
@@ -214,6 +216,16 @@
         "format": "<span color='#f38ba8'></span>",
         "tooltip": false,
         "on-click": "systemctl poweroff"
+    },
+    "custom/bitwarden": {
+        "format": "<span color='#89b4fa'>󰞀</span>",
+        "tooltip": false,
+        "on-click": "bitwarden-desktop"
+    },
+    "custom/calc": {
+        "format": "<span color='#cba6f7'></span>",
+        "tooltip": false,
+        "on-click": "kcalc"
     },
     "custom/powermenu": {
         "format": "⭘",
