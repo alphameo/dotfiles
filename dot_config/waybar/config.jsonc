@@ -219,7 +219,7 @@
         "format": "⭘",
         "tooltip": true,
         "tooltip-format": "Power menu",
-        "on-click": "rofi -show power-menu -modi power-menu:$HOME/.config/rofi/modules/rofi-power-menu.sh"
+        "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu"
     },
     "cava": {
         "framerate": 144,
