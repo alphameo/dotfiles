@@ -1,7 +1,8 @@
 @theme "theme"
 
+
 configuration{
-    modi: "run,drun,window";
+    modes: "ssh,run,drun,filebrowser,calc";
     lines: 5;
     font: "RobotoMono Nerd Font 14";
     show-icons: true;
@@ -11,13 +12,13 @@ configuration{
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-drun: "   Apps ";
-    display-run: "   Run ";
-    display-window: "   window";
-    display-Network: " 󰤨  Network";
+    display-drun: "   ";
+    display-filebrowser: "   ";
+    display-run: "   ";
+    display-ssh: "   ";
+    display-calc: "   ";
     sidebar-mode: true;
 }
-
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;
