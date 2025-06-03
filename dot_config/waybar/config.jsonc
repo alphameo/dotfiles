@@ -135,8 +135,7 @@
         "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
         "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
-        "on-click": "$HOME/.config/rofi/modules/rofi-bluetooth.sh"
-        // "on-click": "rofi-bluetooth"
+        "on-click": "rofi-bluetooth"
         // "on-click": "blueberry"
     },
     "pulseaudio": {
