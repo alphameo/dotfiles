@@ -125,6 +125,7 @@
         "tooltip-format": "{icon} ({signalStrength}%)  {essid} <span color='#eba0ac'>󰅧</span>  {bandwidthUpBytes} <span color='#89dceb'>󰅢</span>  {bandwidthDownBytes}\n({ifname} via {gwaddr})",
         "tooltip-format-disconnected": "Disconnected",
         "on-click": "$HOME/.config/rofi/modules/rofi-wifi-menu/rofi-wifi-menu.sh"
+        // "on-click": "rofi-wifi-menu"
         // "on-click": "iwgtk"
     },
     "bluetooth": {
@@ -136,8 +137,9 @@
         "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
         "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
+        "on-click": "$HOME/.config/rofi/modules/rofi-bluetooth.sh"
+        // "on-click": "rofi-bluetooth"
         // "on-click": "blueberry"
-        "on-click": "rofi-bluetooth"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
