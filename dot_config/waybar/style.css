@@ -15,13 +15,17 @@ window#waybar.empty #window {
     border: none;
 }
 
+#window {
+    padding: 6px 16px;
+    margin: 0 4px;
+}
+
 #workspaces button,
 #clock,
 #battery,
 #power-profiles-daemon,
 #language,
 #network,
-#window,
 #backlight,
 #keyboard-state,
 #bluetooth,

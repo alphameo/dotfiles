@@ -5,8 +5,8 @@
     "margin-left": 4,
     "margin-right": 4,
     "modules-left": [
-        "hyprland/workspaces"
-        // "hyprland/window"
+        "hyprland/workspaces",
+        "hyprland/window"
     ],
     "modules-center": [
         "clock",
