@@ -4,7 +4,7 @@
 configuration{
     modes: "run,drun,ssh";
     lines: 5;
-    font: "RobotoMono Nerd Font 14";
+    font: "RobotoMono Nerd Font 12";
     show-icons: true;
     icon-theme: "Papirus-dark";
     terminal: "kitty";
