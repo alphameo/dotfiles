@@ -81,7 +81,7 @@
     "clock": {
         "format": "<span color='#BF00FF'></span> {:%H:%M}",
         "interval": 60,
-        "format-alt": "<span color='#BF00FF'>󰥔</span> {:%A, %d %B, %Y (%R)}",
+        "format-alt": "<span color='#BF00FF'>󰥔</span> {:%a, %d %b %Y (%R)}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "year",
