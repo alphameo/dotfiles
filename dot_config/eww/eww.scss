@@ -1,0 +1,42 @@
+* {
+  all: unset;
+  background-color: transparent;
+  font-family: RobotoMono Nerd;
+}
+window {
+  background-color: rgba(#1e1e2e, 0.999);
+	color: #ffd5cd;
+  border-radius: 20px;
+  border: 1px solid #9399b2;
+  padding: 30px;
+}
+
+button {
+  all: unset;
+  padding: 10px;
+}
+
+.sysbtn button {
+  font-size: 30px;
+}
+.shutdown-side ~ button:hover {
+  color: #f38ba8;
+}
+.shutdown-side{
+  color: #f38ba8;
+}
+.shutdown-side:hover{
+  color: #ffd5cd;
+}
+.reboot-side{
+  color: #84afdb;
+}
+.lock-side{
+  color: #ffd5cd;
+}
+.suspend-side{
+  color: #c47eb7;
+}
+.logout-side{
+  color: #90c861;
+}

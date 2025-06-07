@@ -1,0 +1,29 @@
+;; Weather vars
+(defwindow click_catcher
+  :monitor 0
+  :geometry (geometry :width "100%" :height "100%")
+  :stacking "fg"
+  :focusable true
+  (eventbox :onclick "eww close-all" :expand true))
+
+;;;;;;;;;;;;;;;
+;; POWERMENU ;;
+;;;;;;;;;;;;;;;
+
+(defwidget powermenu []
+  (box :orientation "h" :halign "center" :class "sysbtn" :space-evenly "true"
+    (button :class "shutdown-side" :onclick "~/.config/eww/scripts/shutdown.sh" :timeout "60s" "")
+    (button :class "reboot-side" :onclick "~/.config/eww/scripts/reboot.sh" :timeout "60s" "")
+    (button :class "lock-side" :onclick "hyprlock" :timeout "60s" "")
+    (button :class "suspend-side" :onclick "~/.config/eww/scripts/suspend.sh" :timeout "60s" "󰤄")
+    (button :class "logout-side" :onclick "~/.config/eww/scripts/logout.sh" :timeout "60s" "󰍃")
+    (button :onclick "eww close powermenu" "")
+  )
+)
+(defwindow powermenu
+  :monitor 0
+  :geometry (
+    geometry :x "1600px" :y "8px" :width "250px" :height "80px"
+  )
+  (powermenu)
+)
