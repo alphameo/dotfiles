@@ -3,9 +3,10 @@
   background-color: transparent;
   font-family: RobotoMono Nerd;
 }
+
 window {
   background-color: rgba(#1e1e2e, 0.999);
-	color: #ffd5cd;
+  color: #ffd5cd;
   border-radius: 20px;
   border: 1px solid #9399b2;
   padding: 30px;
@@ -19,24 +20,79 @@ button {
 .sysbtn button {
   font-size: 30px;
 }
-.shutdown-side ~ button:hover {
+
+.shutdown-side~button:hover {
   color: #f38ba8;
 }
-.shutdown-side{
+
+.shutdown-side {
   color: #f38ba8;
 }
-.shutdown-side:hover{
+
+.shutdown-side:hover {
   color: #ffd5cd;
 }
-.reboot-side{
+
+.reboot-side {
   color: #84afdb;
 }
-.lock-side{
+
+.lock-side {
   color: #ffd5cd;
 }
-.suspend-side{
+
+.suspend-side {
   color: #c47eb7;
 }
-.logout-side{
+
+.logout-side {
   color: #90c861;
+}
+
+
+// Calendar
+.cal {
+  font-family: RobotoMono Nerd Font;
+  font-size: 18px;
+  font-weight: normal;
+
+  .cal-in {
+    padding: 0px 10px 0px 10px;
+    color: #cdd6f4;
+
+    .cal {
+      &.highlight {
+        padding: 20px;
+      }
+
+      padding: 5px 5px 5px 5px;
+      margin-left: 10px;
+    }
+  }
+}
+
+calender {
+  color: red;
+}
+
+calendar:selected {
+  color: #fab387;
+}
+
+calendar.header {
+  color: #cdd6f4;
+  font-weight: bold;
+}
+
+calendar.button {
+  color: #89b4fa;
+}
+
+calendar.highlight {
+  color: #89b4fa;
+  font-weight: bold;
+}
+
+calendar:indeterminate {
+  color: #6c7086;
 }
