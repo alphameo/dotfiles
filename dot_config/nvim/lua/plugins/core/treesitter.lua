@@ -25,6 +25,7 @@ return {
         "cmake",
         "html",
         "css",
+        "scss",
         "javascript",
         "typescript",
         "php",
@@ -45,6 +46,8 @@ return {
         "gitignore",
         "bibtex",
         "dockerfile",
+        "hyprlang",
+        "yuck"
       },
       highlight = {
         enable = true,
