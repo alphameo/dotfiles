@@ -9,9 +9,7 @@
         "hyprland/window"
     ],
     "modules-center": [
-        "clock",
-        "hyprland/language",
-        "keyboard-state"
+        "tray",
     ],
     "modules-right": [
         "network",
@@ -21,12 +19,12 @@
         "backlight",
         "battery",
         "power-profiles-daemon",
-        "tray",
         // "custom/lock",
         // "custom/reboot",
         // "custom/power",
-        "custom/bitwarden",
-        "custom/calc",
+        "hyprland/language",
+        "keyboard-state",
+        "clock",
         "custom/powermenu"
     ],
     "hyprland/workspaces": {
@@ -35,13 +33,10 @@
         "window-rewrite-default": "󰣆",
         "window-rewrite": {
             "class<(firefox)>": "󰈹",
-            "class<firefox> title<.*github.*>": "",
             "class<(code)>": "󰨞",
             "class<(kitty)>": "󰆍",
             "class<(obsidian)>": "󰠮",
             "class<(.*telegram.*|.*materialgram)>": "",
-            "class<(element|signal)>": "󰍩",
-            "class<(rofi|albert)>": "󰮫",
             "class<(steam)>": "󰓓",
             "class<(discord|vesktop)>": "󰙯",
             "class<(nekobox)>": "󰖂",
@@ -111,28 +106,31 @@
         "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
     },
     "network": {
-        "format": "<span color='#cdd6f4'>󰪎</span> ",
+        "format-disabled": "<span color='#cdd6f4'>󰪎</span> ",
+        "format-disconnected": "<span color='#cdd6f4'></span> ",
         "format-wifi": "<span color='#74c7ec'></span> ",
         "format-ethernet": "<span color='#74c7ec'>󰲝</span> ",
-        "format-linked": "<span color='#f38ba8'>󱘖</span>{ifname}  (No IP) ",
-        "format-disconnected": "<span color='#cdd6f4'>󰪎</span> ",
+        "format-linked": "<span color='#74c7ec'>󱘖</span>{ifname}  (No IP) ",
         "interval": 2,
         // "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
         "format-icons": [
-            "<span color='#f38ba8'>󰢿</span>",
-            "<span color='#cdd6f4'>󰢼</span>",
+            "<span color='#f38ba8'>󰢿 </span>",
+            "<span color='#fab387'>󰢼 </span>",
             "<span color='#cdd6f4'>󰢽</span>",
             "<span color='#cdd6f4'>󰢾</span>"
         ],
         "tooltip-format": "{icon} ({signalStrength}%)  {essid} <span color='#eba0ac'>󰅧</span>  {bandwidthUpBytes} <span color='#89dceb'>󰅢</span>  {bandwidthDownBytes}\n({ifname} via {gwaddr})",
         "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-disabled": "Disabled",
         "on-click": "networkmanager_dmenu"
+        // "on-click": "iwgtk"
     },
     "bluetooth": {
-        "format": "󰂯",
-        "format-disabled": "󰂲",
-        "format-connected": "<span color='#89dceb'>󰂱</span>",
-        "format-connected-battery": "<span color='#89dceb'>󰂱</span> 󰥉 {device_battery_percentage}%",
+        "format-disabled": "<span color='#f38ba8'>󰂲</span>",
+        "format-off": "<span color='#cdd6f4'>󰂲</span>",
+        "format-on": "<span color='#cdd6f4'>󰂯</span>",
+        "format-connected": "<span color='#74c7ec'>󰂱</span>",
+        "format-connected-battery": "<span color='#74c7ec'>󰂱</span> 󰥉 {device_battery_percentage}%",
         "tooltip-format": "{controller_alias} ({controller_address})\n\nConnected devices: {num_connections}",
         "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
@@ -198,33 +196,8 @@
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
         "tooltip": true
     },
-    "custom/lock": {
-        "format": "<span color='#cdd6f4'></span>",
-        "tooltip": false,
-        "on-click": "hyprlock"
-    },
-    "custom/reboot": {
-        "format": "<span color='#f9e2af'></span>",
-        "tooltip": false,
-        "on-click": "systemctl reboot"
-    },
-    "custom/power": {
-        "format": "<span color='#f38ba8'></span>",
-        "tooltip": false,
-        "on-click": "systemctl poweroff"
-    },
-    "custom/bitwarden": {
-        "format": "<span color='#89b4fa'>󰞀</span>",
-        "tooltip": false,
-        "on-click": "bitwarden-desktop"
-    },
-    "custom/calc": {
-        "format": "<span color='#cba6f7'></span>",
-        "tooltip": false,
-        "on-click": "kcalc"
-    },
     "custom/powermenu": {
-        "format": "⭘",
+        "format": "<span color='#f38ba8'>󰐦</span>",
         "tooltip": true,
         "tooltip-format": "Power menu",
         "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu"

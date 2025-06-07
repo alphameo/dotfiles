@@ -36,8 +36,6 @@ window#waybar.empty #window {
 #custom-reboot,
 #custom-lock,
 #custom-powermenu,
-#custom-bitwarden,
-#custom-calc,
 #cava {
     background-color: @base;
     color: @text;
@@ -50,8 +48,7 @@ window#waybar.empty #window {
 }
 
 #custom-lock,
-#custom-bitwarden,
-#custom-calc,
+#network,
 #custom-reboot,
 #battery {
     padding-right: 8px;
@@ -62,9 +59,8 @@ window#waybar.empty #window {
 }
 
 #custom-power,
-#custom-calc,
+#bluetooth,
 #custom-reboot,
-#custom-powermenu,
 #power-profiles-daemon {
     padding-left: 8px;
     margin-left: 0;
@@ -77,8 +73,3 @@ window#waybar.empty #window {
     color: @green;
     border-color: @green;
 }
-
-/* #battery.charging { */
-/*     color: @green; */
-    /* border-color: @green; */
-/* } */
