@@ -79,16 +79,16 @@
         "format-alt": "<span color='#BF00FF'>󰥔</span> {:%a, %d %b %Y (%R)}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
-            "mode": "year",
+            "mode": "month",
             "mode-mon-col": 3,
             "weeks-pos": "right",
             "on-scroll": 1,
             "format": {
-                "months": "<span color='#f5e0dc'><b>{}</b></span>",
+                "months": "<span color='#cdd6f4'><b>{}</b></span>",
                 "days": "<span color='#cdd6f4'><b>{}</b></span>",
-                "weeks": "<span color='#94e2d5'><b>W{}</b></span>",
-                "weekdays": "<span color='#fab387'><b>{}</b></span>",
-                "today": "<span color='#eba0ac'><b><u>{}</u></b></span>"
+                "weeks": "<span color='#6c7086'><b>W{}</b></span>",
+                "weekdays": "<span color='#89b4fa'><b>{}</b></span>",
+                "today": "<span color='#fab387'><b><u>{}</u></b></span>"
             }
         },
         "actions": {
