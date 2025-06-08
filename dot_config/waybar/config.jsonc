@@ -155,7 +155,7 @@
             ]
         },
         "reverse-scrolling": true,
-        "tooltip-format": "Volume: {volume}%\n\n<small>SM - control\nLMB - mute\nRMB - settings</small>",
+        "tooltip-format": "Volume: {volume}%\n\nSM - control\nLMB - mute\nRMB - settings",
         "on-click-right": "pavucontrol -t 3",
         "on-click": "pactl -- set-sink-mute 0 toggle"
     },
