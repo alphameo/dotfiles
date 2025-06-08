@@ -36,6 +36,7 @@ window#waybar.empty #window {
 #custom-reboot,
 #custom-lock,
 #custom-powermenu,
+#custom-notifications,
 #cava {
     background-color: @base;
     color: @text;

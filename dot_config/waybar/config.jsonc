@@ -10,6 +10,7 @@
     ],
     "modules-center": [
         "clock",
+        "custom/notifications",
         "tray",
         "hyprland/language",
         "keyboard-state"
@@ -176,7 +177,13 @@
         },
         "format": "{icon} {capacity}%",
         // "format-icons": ["󰂎", "󰁼", "󰁿", "󰂁", "󰁹"],
-        "format-icons": [ "", "", "", "", "" ],
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
         "format-charging": "<span color='#a6e3a1'>󱐋 {capacity}%</span>",
         "format-warning": "<span color='#fab387'></span> {capacity}%",
         "format-critical": "<span color='#f38ba8'> {capacity}%</span>",
@@ -199,6 +206,13 @@
         "tooltip": true,
         "tooltip-format": "Power menu",
         "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu"
+    },
+    "custom/notifications": {
+        "exec": "~/.config/waybar/scripts/dunst.sh",
+        "restart-interval": 1,
+        "tooltip-format": "Notifications",
+        "on-click": "dunstctl set-paused toggle",
+        "on-click-right": "dunstctl history-pop"
     },
     "cava": {
         "framerate": 144,
