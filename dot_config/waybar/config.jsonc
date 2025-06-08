@@ -73,9 +73,9 @@
     },
     "clock": {
         // "format": "<span color='#BF00FF'></span> {:%H:%M}",
-        "format": "<span color='#BF00FF'>󰥔</span> {:%R (%d.%m.%Y)}",
+        "format": "<span color='#BF00FF'>󰥔</span> {:%R <small>(%d.%m.%Y)</small>}",
         "interval": 60,
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>\n\n<small>LMB - reset day\nRMB - year\nMS - change month</small>",
         "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
@@ -118,9 +118,9 @@
             "<span color='#cdd6f4'>󰢽</span>",
             "<span color='#cdd6f4'>󰢾</span>"
         ],
-        "tooltip-format": "{icon} ({signalStrength}%)  {essid} <span color='#eba0ac'>󰅧</span>  {bandwidthUpBytes} <span color='#89dceb'>󰅢</span>  {bandwidthDownBytes}\n({ifname} via {gwaddr})",
-        "tooltip-format-disconnected": "Disconnected",
-        "tooltip-format-disabled": "Disabled",
+        "tooltip-format": "{icon} ({signalStrength}%)  {essid} <span color='#eba0ac'>󰅧</span>  {bandwidthUpBytes} <span color='#89dceb'>󰅢</span>  {bandwidthDownBytes}\n({ifname} via {gwaddr})\n\n<small>LMB - menu</small>",
+        "tooltip-format-disconnected": "Disconnected\n\n<small>LMB - menu</small>",
+        "tooltip-format-disabled": "Disabled\n\n<small>LMB - menu</small>",
         "on-click": "networkmanager_dmenu"
         // "on-click": "iwgtk"
     },
@@ -130,8 +130,8 @@
         "format-on": "<span color='#cdd6f4'>󰂯</span>",
         "format-connected": "<span color='#74c7ec'>󰂱</span>",
         "format-connected-battery": "<span color='#74c7ec'>󰂱</span> 󰥉 {device_battery_percentage}%",
-        "tooltip-format": "{controller_alias} ({controller_address})\n\nConnected devices: {num_connections}",
-        "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}",
+        "tooltip-format": "{controller_alias} ({controller_address})\n\nConnected devices: {num_connections}\n\nLMB - menu",
+        "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}\n\nLMB - menu",
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
         "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
         "on-click": "rofi-bluetooth"
@@ -153,11 +153,10 @@
                 "<span color='#a6e3a1'></span>"
             ]
         },
+        "reverse-scrolling": true,
+        "tooltip-format": "Volume: {volume}%\n\n<small>SM - control\nLMB - mute\nRMB - settings</small>",
         "on-click-right": "pavucontrol -t 3",
-        "on-click": "pactl -- set-sink-mute 0 toggle",
-        "tooltip": true,
-        "tooltip-format": "Volume: {volume}%",
-        "reverse-scrolling": true
+        "on-click": "pactl -- set-sink-mute 0 toggle"
     },
     "backlight": {
         "format": "{icon} {percent}%",
@@ -168,7 +167,7 @@
             "<span color='#fab387'>󰃠</span>"
         ],
         "reverse-scrolling": true,
-        "tooltip": false
+        "tooltip-format": "Backlight\n\nSM - control"
     },
     "battery": {
         "states": {
@@ -187,8 +186,7 @@
         "format-charging": "<span color='#a6e3a1'>󱐋 {capacity}%</span>",
         "format-warning": "<span color='#fab387'></span> {capacity}%",
         "format-critical": "<span color='#f38ba8'> {capacity}%</span>",
-        "interval": 1,
-        "tooltip": true
+        "interval": 1
     },
     "power-profiles-daemon": {
         "format": "{icon}",
@@ -198,19 +196,17 @@
             "balanced": "<span color='#f9e2af'></span>",
             "power-saver": "<span color='#a6e3a1'></span>"
         },
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-        "tooltip": true
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}\n\nLMB/RMB - toggle"
     },
     "custom/powermenu": {
         "format": "<span color='#f38ba8'>󰐦</span>",
-        "tooltip": true,
-        "tooltip-format": "Power menu",
+        "tooltip-format": "Power menu\n\n<small>LMB/M-C-p - open</small>",
         "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu"
     },
     "custom/notifications": {
         "exec": "~/.config/waybar/scripts/dunst.sh",
         "restart-interval": 1,
-        "tooltip-format": "Notifications",
+        "tooltip-format": "Notifications\n\n<small>LMB - pause notifications\nRMB - history</small>",
         "on-click": "dunstctl set-paused toggle",
         "on-click-right": "dunstctl history-pop"
     },
