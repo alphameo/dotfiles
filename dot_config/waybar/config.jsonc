@@ -9,7 +9,10 @@
         "hyprland/window"
     ],
     "modules-center": [
+        "clock",
         "tray",
+        "hyprland/language",
+        "keyboard-state"
     ],
     "modules-right": [
         "network",
@@ -19,12 +22,6 @@
         "backlight",
         "battery",
         "power-profiles-daemon",
-        // "custom/lock",
-        // "custom/reboot",
-        // "custom/power",
-        "hyprland/language",
-        "keyboard-state",
-        "clock",
         "custom/powermenu"
     ],
     "hyprland/workspaces": {
@@ -58,8 +55,8 @@
         "format": "{}",
         "separate-outputs": true,
         "icon": false,
-        "on-click": "hyprctl dispatch exec $TERMINAL",
-        "on-click-right": "hyprctl dispatch killactive"
+        // "on-click": "hyprctl dispatch exec $TERMINAL",
+        // "on-click-right": "hyprctl dispatch killactive"
     },
     "keyboard-state": {
         "numlock": true,
@@ -74,15 +71,15 @@
         }
     },
     "clock": {
-        "format": "<span color='#BF00FF'></span> {:%H:%M}",
+        // "format": "<span color='#BF00FF'></span> {:%H:%M}",
+        "format": "<span color='#BF00FF'>󰥔</span> {:%R (%d.%m.%Y)}",
         "interval": 60,
-        "format-alt": "<span color='#BF00FF'>󰥔</span> {:%a, %d %b %Y (%R)}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
             "weeks-pos": "right",
-            "on-scroll": 1,
+            "on-scroll": 0.01,
             "format": {
                 "months": "<span color='#cdd6f4'><b>{}</b></span>",
                 "days": "<span color='#cdd6f4'><b>{}</b></span>",
@@ -94,15 +91,16 @@
         "actions": {
             // "on-scroll-up": "tz_up",
             // "on-scroll-down": "tz_down",
-            // "on-scroll-up": "shift_up",
-            // "on-scroll-down": "shift_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down",
+            "on-click": "shift_reset",
             "on-click-right": "mode"
         }
     },
     "hyprland/language": {
         "format": "{}",
-        "format-en": "EN",
-        "format-ru": "RU",
+        "format-en": "en",
+        "format-ru": "ru",
         "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
     },
     "network": {
