@@ -80,7 +80,6 @@
             "mode": "month",
             "mode-mon-col": 3,
             "weeks-pos": "right",
-            "on-scroll": 0.01,
             "format": {
                 "months": "<span color='#cdd6f4'><b>{}</b></span>",
                 "days": "<span color='#cdd6f4'><b>{}</b></span>",
@@ -89,6 +88,7 @@
                 "today": "<span color='#fab387'><b><u>{}</u></b></span>"
             }
         },
+        "smooth-scrolling-threshold": 5,
         "actions": {
             // "on-scroll-up": "tz_up",
             // "on-scroll-down": "tz_down",
