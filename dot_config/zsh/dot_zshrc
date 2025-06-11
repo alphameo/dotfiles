@@ -178,7 +178,6 @@ zinit depth"1" lucid light-mode for \
 		wait zsh-users/zsh-syntax-highlighting \
 		zsh-users/zsh-completions \
 		wait zsh-users/zsh-autosuggestions \
-    jeffreytse/zsh-vi-mode \
 
 
 # ZSH-COMPLETIONS
@@ -187,17 +186,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 
-
-# ZSH-VI-MODE
-export ZVM_VI_ESCAPE_BINDKEY=jk
-export ZVM_VI_INSERT_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
-export ZVM_VI_VISUAL_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
-export ZVM_VI_OPPEND_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
-# enable fzf after load
-zvm_after_init_commands+=('
-    source /usr/share/fzf/key-bindings.zsh
-    source /usr/share/fzf/completion.zsh
-')
+export VI_MODE_SET_CURSOR=true
+export KEYTIMEOUT=1
 
 
 # FZF-TAB
@@ -226,9 +216,30 @@ setopt NOTIFY
 [[ $- != *i* ]] && return
 
 
+# Change cursor shape for different vi modes.
+function zle-keymap-select () {
+  case $KEYMAP in
+    vicmd) echo -ne "\e[1 q";; # block
+    viins|main) echo -ne "\e[5 q";; # beam
+  esac
+}
+
+zle -N zle-keymap-select
+
+zle-line-init() {
+  # zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+  echo -ne "\e[5 q"
+}
+
+zle -N zle-line-init
+echo -ne "\e[5 q" # Use beam shape cursor on startup.
+
+preexec() { echo -ne "\e[5 q" ;} # Use beam shape cursor for each new prompt.
+
+
 # NOTE: BINDKEYS
 
-# bindkey -v                           # built-in vim mode (disable if zsh-vi-mode)
+bindkey -v                           # built-in vim mode (disable if zsh-vi-mode)
 bindkey '^[[3;5~' kill-word            # ctrl+del
 bindkey '^H' backward-kill-word        # ctrl+backspace
 bindkey '^[[3~' delete-char            # del
