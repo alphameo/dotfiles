@@ -152,6 +152,7 @@ HISTFILE="$XDG_STATE_HOME/zsh/history"
 
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
+HISTDUP=erase
 
 # append to history
 setopt appendhistory
