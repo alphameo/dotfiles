@@ -1,0 +1,142 @@
+{
+	"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+	"logo": {
+		"type": "small",
+		"padding": {
+			"top": 2,
+			"left": 3,
+			"right": 4
+		}
+	},
+	"display": {
+		"separator": " ",
+		"key": {
+			"width": 35,
+			"type": "both"
+		}
+	},
+	"modules": [
+        "title",
+        "separator",
+        "os",
+        "host",
+        "bios",
+        "bootmgr",
+        "kernel",
+        "initsystem",
+        "board",
+        "chassis",
+        "break",
+        // cpu
+        {
+            "type": "cpu",
+            "showPeCoreCount": true,
+            "temp": true
+        },
+        "cpuusage",
+        "cpucache",
+        "loadavg",
+        "processes",
+        "break",
+        // graphics
+        {
+            "type": "gpu",
+            "driverSpecific": true,
+            "temp": true
+        },
+        "vulkan",
+        "opengl",
+        "opencl",
+        "break",
+        // display
+        "display",
+        "monitor",
+        "lm",
+        "de",
+        "wm",
+        "wmtheme",
+        "brightness",
+        "break",
+        // memory
+        "disk",
+        {
+            "type": "physicaldisk",
+            "key": "Physical Disk",
+            "temp": true
+        },
+        "diskio",
+        "memory",
+        "physicalmemory",
+        {
+            "type": "swap",
+            "separate": true
+        },
+        "btrfs",
+        "zpool",
+        "tpm",
+        "packages",
+        "break",
+        // net
+        {
+            "type": "publicip",
+            "timeout": 1000
+        },
+        {
+            "type": "localip",
+            "showIpv6": true,
+            "showMac": true,
+            "showSpeed": true,
+            "showMtu": true,
+            "showLoop": true,
+            "showFlags": true,
+            "showAllIps": true
+        },
+        "dns",
+        "wifi",
+        "netio",
+        "break",
+        // theme
+        "theme",
+        "icons",
+        "font",
+        "cursor",
+        "wallpaper",
+        "break",
+        // session
+        "users",
+        "datetime",
+        "locale",
+        // session
+        "uptime",
+        {
+            "type": "battery",
+            "temp": true
+        },
+        "break",
+        // devices
+        "bluetooth",
+        {
+            "type": "bluetoothradio",
+            "key": "Bluetooth Radio"
+        },
+        "sound",
+        "camera",
+        "gamepad",
+        "mouse",
+        "keyboard",
+        "break",
+        // terminal
+        "shell",
+        "terminal",
+        "terminalfont",
+        "terminaltheme",
+        "colors",
+        "break",
+        // other
+        "poweradapter",
+        "player",
+        "media",
+        "editor",
+        "break"
+	]
+}

@@ -52,7 +52,7 @@ function run {
     elif [[ $INP == $TOP ]]; then
         launch_cli_app $SYSMONITOR
     elif [[ $INP == $INFO ]]; then
-        open_in_term "fastfetch"
+        open_in_term "fastfetch" "--config" "$HOME/.config/fastfetch/full.jsonc"
     else
         echo $ROFI
         echo $WAYBAR
