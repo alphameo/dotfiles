@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-open_config() {
+function open_config {
     local module="$1"
     if [[ ${#module} != 0 ]]; then
         coproc ($TERMINAL -d $XDG_CONFIG_HOME/$module $EDITOR)
@@ -8,7 +8,7 @@ open_config() {
     fi
 }
 
-execute() {
+function execute {
     coproc (eval "$1")
     exit 0
 }
