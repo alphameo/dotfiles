@@ -14,12 +14,12 @@ execute() {
 }
 
 function launch_cli_app {
-    coproc ($TERMINAL "$1")
+    coproc ($TERMINAL "$@")
     exit 0
 }
 
 function open_in_term {
-    coproc($TERMINAL --hold "$1")
+    coproc($TERMINAL --hold "$@")
     exit 0
 }
 
