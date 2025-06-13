@@ -1,26 +1,29 @@
-@import 'catpuccin-mocha.css';
+@import "catpuccin-mocha.css";
 
 * {
-    font-family: 'RobotoMono Nerd Font';
-    font-size: 12pt;
-    font-weight: bold;
+  font-family: RobotoMono Nerd Font;
+  font-size: 12pt;
+  font-weight: bold;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+  transition-duration: 0s;
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
 }
 
-window#waybar.empty #window {
-    background-color: transparent;
-    border: none;
-}
+/* #window { */
+/*   padding: 2px 10px; */
+/*   margin: 0 4px; */
+/*   font-weight: normal; */
+/*   color: @sapphire; */
+/* } */
 
-#window {
-    padding: 6px 16px;
-    margin: 0 4px;
-}
-
-#workspaces button,
+/* #workspaces button, */
+#workspaces,
 #clock,
 #battery,
 #power-profiles-daemon,
@@ -37,44 +40,65 @@ window#waybar.empty #window {
 #custom-lock,
 #custom-powermenu,
 #custom-notifications,
+#custom-screenlock,
 #cava {
-    background-color: @base;
-    color: @text;
+  background-color: @base;
+  color: @text;
 
-    padding: 6px 16px;
-    margin: 0 4px;
+  padding: 0px 10px;
+  margin: 0 2px;
 
-    border: 1px solid alpha(@overlay2, 0.5);
-    border-radius: 8px;
+  border: 1px solid @overlay1;
+  border-radius: 8px;
 }
 
 #custom-lock,
-#network,
-#custom-reboot,
-#battery {
-    padding-right: 8px;
-    margin-right: 0;
-    border-right: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+#network {
+  padding-right: 8px;
+  margin-right: 0;
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
-#custom-power,
+#lock,
+#pulseaudio,
+#custom-screenlock,
+#backlight,
+#custom-notifications,
 #bluetooth,
 #custom-reboot,
 #power-profiles-daemon {
-    padding-left: 8px;
-    margin-left: 0;
-    border-left: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  padding-right: 8px;
+  margin-right: 0;
+  border-right: 0;
+  padding-left: 8px;
+  margin-left: 0;
+  border-left: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#battery {
+  padding-left: 8px;
+  margin-left: 0;
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#workspaces {
+  padding: 0px 0px;
+}
+
+#workspaces button {
+  padding: 2px 12px;
 }
 
 #workspaces button.active {
-    color: @sapphire;
-    border-color: @sapphire;
-}
-
-#window {
-    color: @sapphire
+  color: @base;
+  background-color: @overlay1;
+  border-radius: 6px;
 }

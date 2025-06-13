@@ -6,24 +6,24 @@
     "margin-right": 4,
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/window"
+        "tray"
     ],
     "modules-center": [
-        "clock",
-        "custom/notifications",
-        "tray",
-        "hyprland/language",
-        "keyboard-state"
+        "hyprland/window",
     ],
     "modules-right": [
         // "custom/media",
+        "hyprland/language",
         "network",
         "bluetooth",
+        "custom/notifications",
+        "custom/screenlock",
+        "power-profiles-daemon",
         "pulseaudio",
         "cava",
         "backlight",
         "battery",
-        "power-profiles-daemon",
+        "clock",
         "custom/powermenu"
     ],
     "hyprland/workspaces": {
@@ -56,25 +56,10 @@
     "hyprland/window": {
         "format": "{}",
         "separate-outputs": true,
-        "icon": false,
-        // "on-click": "hyprctl dispatch exec $TERMINAL",
-        // "on-click-right": "hyprctl dispatch killactive"
-    },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": {
-            "numlock": "N {icon}",
-            "capslock": "C {icon}"
-        },
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
+        "icon": false
     },
     "clock": {
-        // "format": "<span color='#BF00FF'></span> {:%H:%M}",
-        "format": "<span color='#BF00FF'>󰥔</span> {:%R <small>(%d.%m.%Y)</small>}",
+        "format": "<span color='#cba6f7'>󰥔</span> {:%R <small>(%d.%m.%Y)</small>}",
         "interval": 60,
         "tooltip-format": "<tt><small>{calendar}</small></tt>\n\n<small>LMB - reset day\nRMB - year\nMS - change month</small>",
         "calendar": {
@@ -139,19 +124,19 @@
         // "on-click": "blueberry"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "<span color='#f38ba8'>󰖁</span>",
+        "format": "<span color='#cba6f7'>{icon} {volume}%</span>",
+        "format-muted": "<span color='#f38ba8'>󰖁 {volume}%</span>",
         "format-icons": {
-            "headphone": "<span color='#cba6f7'></span>",
-            "hands-free": "<span color='#cba6f7'></span>",
-            "headset": "<span color='#cba6f7'></span>",
-            "phone": "<span color='#89dceb'></span>",
-            "portable": "<span color='#89dceb'></span>",
-            "car": "<span color='#fab387'></span>",
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
             "default": [
-                "<span color='#f5e0dc'></span>",
-                "<span color='#f9e2af'></span>",
-                "<span color='#a6e3a1'></span>"
+                "",
+                "",
+                ""
             ]
         },
         "reverse-scrolling": true,
@@ -160,12 +145,12 @@
         "on-click": "pactl -- set-sink-mute 0 toggle"
     },
     "backlight": {
-        "format": "{icon} {percent}%",
+        "format": "<span color='#fab387'>{icon} {percent}%</span>",
         "format-icons": [
-            "<span color='#6c7086'>󰃞</span>",
-            "<span color='#bac2de'>󰃝</span>",
-            "<span color='#f9e2af'>󰃟</span>",
-            "<span color='#fab387'>󰃠</span>"
+            "󰃞",
+            "󰃝",
+            "󰃟",
+            "󰃠"
         ],
         "reverse-scrolling": true,
         "tooltip-format": "Backlight\n\nSM - control"
@@ -185,7 +170,7 @@
             ""
         ],
         "format-charging": "<span color='#a6e3a1'>󱐋 {capacity}%</span>",
-        "format-warning": "<span color='#fab387'></span> {capacity}%",
+        "format-warning": "<span color='#fab387'> {capacity}</span>%",
         "format-critical": "<span color='#f38ba8'> {capacity}%</span>",
         "interval": 1
     },
