@@ -211,6 +211,12 @@
         "on-click": "dunstctl set-paused toggle",
         "on-click-right": "dunstctl history-pop"
     },
+    "custom/screenlock": {
+        "exec": "$HOME/.config/waybar/scripts/hypridle.sh check",
+        "restart-interval": 1,
+        "tooltip-format": "Screenlock\n\n<small>LMB - pause screenlocking</small>",
+        "on-click": "$HOME/.config/waybar/scripts/hypridle.sh toggle"
+    },
     // "custom/media": {
     //     "format": "{icon} {}",
     //     "escape": true,
