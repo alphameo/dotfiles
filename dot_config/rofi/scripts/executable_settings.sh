@@ -34,6 +34,7 @@ function run {
     TOP="󰙭 monitor"
     SOUND=" sound"
     INFO=" info"
+    GTK_UI="󰏘 gtk UI"
 
     if [[ $INP == $ROFI ]]; then
         open_config "rofi"
@@ -53,6 +54,8 @@ function run {
         launch_cli_app $SYSMONITOR
     elif [[ $INP == $INFO ]]; then
         open_in_term "fastfetch" "--config" "$HOME/.config/fastfetch/full.jsonc"
+    elif [[ $INP == $GTK_UI ]]; then
+        execute "nwg-look"
     else
         echo $ROFI
         echo $WAYBAR
@@ -62,6 +65,7 @@ function run {
         echo $BLUETOOTH
         echo $TOP
         echo $SOUND
+        echo $GTK_UI
         echo $INFO
         exit 0
     fi
