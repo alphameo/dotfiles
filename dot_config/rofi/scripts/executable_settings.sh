@@ -38,6 +38,7 @@ function run {
     KVANTUM="󰏘 GTK-QT link (kvantum)"
     QT5_UI="󰏘 QT5 UI (qt5ct)"
     QT6_UI="󰏘 QT6 UI (qt6ct)"
+    DEFAULT_APPS="󰉺 Default Applications"
 
     if [[ $INP == $ROFI ]]; then
         open_config "rofi"
@@ -65,6 +66,8 @@ function run {
         execute "qt5ct"
     elif [[ $INP == $QT6_UI ]]; then
         execute "qt6ct"
+    elif [[ $INP = $DEFAULT_APPS ]]; then
+        execute "selectdefaultapplication"
     else
         echo $ROFI
         echo $WAYBAR
@@ -78,6 +81,7 @@ function run {
         echo $KVANTUM
         echo $QT5_UI
         echo $QT6_UI
+        echo $DEFAULT_APPS
         echo $INFO
         exit 0
     fi
