@@ -38,6 +38,7 @@ function run {
     QT5_UI="󰏘 QT5 UI (qt5ct)"
     QT6_UI="󰏘 QT6 UI (qt6ct)"
     DEFAULT_APPS="󰉺 Default Applications"
+    POWER="󰐦 Power menu"
     INFO=" info (fastfetch)"
 
     if [[ $INP == $ROFI ]]; then
@@ -68,6 +69,8 @@ function run {
         execute "qt6ct"
     elif [[ $INP = $DEFAULT_APPS ]]; then
         execute "selectdefaultapplication"
+    elif [[ $INP == $POWER ]]; then
+        execute "rofi -show power-menu -modi power-menu:rofi-power-menu"
     else
         echo $ROFI
         echo $WAYBAR
@@ -82,6 +85,7 @@ function run {
         echo $QT5_UI
         echo $QT6_UI
         echo $DEFAULT_APPS
+        echo $POWER
         echo $INFO
         exit 0
     fi
