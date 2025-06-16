@@ -6,10 +6,10 @@
     "margin-right": 4,
     "modules-left": [
         "hyprland/workspaces",
-        "tray"
+        "tray",
+        "hyprland/window"
     ],
     "modules-center": [
-        "hyprland/window",
     ],
     "modules-right": [
         // "custom/media",
@@ -56,7 +56,7 @@
     "hyprland/window": {
         "format": "{}",
         "separate-outputs": true,
-        "icon": false
+        "icon": true
     },
     "clock": {
         "format": "<span color='#cba6f7'>󰥔</span> {:%R <small>(%d.%m.%Y)</small>}",
@@ -170,7 +170,7 @@
             ""
         ],
         "format-charging": "<span color='#a6e3a1'>󱐋 {capacity}%</span>",
-        "format-warning": "<span color='#fab387'> {capacity}</span>%",
+        "format-warning": "<span color='#fab387'> {capacity}%</span>",
         "format-critical": "<span color='#f38ba8'> {capacity}%</span>",
         "interval": 1
     },
