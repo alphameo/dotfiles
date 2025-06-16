@@ -35,6 +35,9 @@ function run {
     SOUND=" sound"
     INFO=" info"
     GTK_UI="󰏘 GTK UI"
+    KVANTUM="󰏘 GTK-QT link (kvantum)"
+    QT5_UI="󰏘 QT5 UI (qt5ct)"
+    QT6_UI="󰏘 QT6 UI (qt6ct)"
 
     if [[ $INP == $ROFI ]]; then
         open_config "rofi"
@@ -56,6 +59,12 @@ function run {
         open_in_term "fastfetch" "--config" "$HOME/.config/fastfetch/full.jsonc"
     elif [[ $INP == $GTK_UI ]]; then
         execute "nwg-look"
+    elif [[ $INP == $KVANTUM ]]; then
+        execute "kvantummanager"
+    elif [[ $INP == $QT5_UI ]]; then
+        execute "qt5ct"
+    elif [[ $INP == $QT6_UI ]]; then
+        execute "qt6ct"
     else
         echo $ROFI
         echo $WAYBAR
@@ -66,6 +75,9 @@ function run {
         echo $TOP
         echo $SOUND
         echo $GTK_UI
+        echo $KVANTUM
+        echo $QT5_UI
+        echo $QT6_UI
         echo $INFO
         exit 0
     fi
