@@ -34,7 +34,7 @@ function run {
     TOP="󰙭 monitor"
     SOUND=" sound"
     INFO=" info"
-    GTK_UI="󰏘 gtk UI"
+    GTK_UI="󰏘 GTK UI"
 
     if [[ $INP == $ROFI ]]; then
         open_config "rofi"
