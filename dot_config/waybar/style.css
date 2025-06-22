@@ -49,7 +49,7 @@ window#waybar {
   border-radius: 8px;
 }
 
-#custom-lock,
+#battery,
 #network {
   padding-right: 8px;
   margin-right: 0;
@@ -58,14 +58,11 @@ window#waybar {
   border-bottom-right-radius: 0;
 }
 
-#lock,
+#power-profiles-daemon,
 #pulseaudio,
-#custom-screenlock,
-#backlight,
 #custom-notifications,
 #bluetooth,
-#custom-reboot,
-#power-profiles-daemon {
+#custom-reboot {
   padding-right: 8px;
   margin-right: 0;
   border-right: 0;
@@ -78,7 +75,8 @@ window#waybar {
   border-bottom-left-radius: 0;
 }
 
-#battery {
+#backlight,
+#custom-screenlock {
   padding-left: 8px;
   margin-left: 0;
   border-left: 0;

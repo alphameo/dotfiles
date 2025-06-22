@@ -17,12 +17,12 @@
         "network",
         "bluetooth",
         "custom/notifications",
-        "custom/screenlock",
-        "power-profiles-daemon",
         "pulseaudio",
         "cava",
         "backlight",
         "battery",
+        "power-profiles-daemon",
+        "custom/screenlock",
         "clock",
         "custom/powermenu"
     ],
@@ -95,7 +95,7 @@
         "format-disconnected": "<span color='#cdd6f4'></span> ",
         "format-wifi": "<span color='#74c7ec'></span> ",
         "format-ethernet": "<span color='#74c7ec'>󰲝</span> ",
-        "format-linked": "<span color='#74c7ec'>󱘖</span>{ifname}  (No IP) ",
+        "format-linked": "<span color='#74c7ec'>󱘖</span> ",
         "interval": 2,
         // "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
         "format-icons": [
@@ -107,8 +107,10 @@
         "tooltip-format": "{icon} ({signalStrength}%)  {essid} <span color='#eba0ac'>󰅧</span>  {bandwidthUpBytes} <span color='#89dceb'>󰅢</span>  {bandwidthDownBytes}\n({ifname} via {gwaddr})\n\n<small>LMB - menu</small>",
         "tooltip-format-disconnected": "Disconnected\n\n<small>LMB - menu</small>",
         "tooltip-format-disabled": "Disabled\n\n<small>LMB - menu</small>",
-        "on-click": "networkmanager_dmenu"
-        // "on-click": "iwgtk"
+        // "on-click": "iwgtk",
+        // "on-click-right": "$TERMINAL impala"
+        "on-click": "networkmanager_dmenu",
+        "on-click-right": "$TERMINAL nmtui"
     },
     "bluetooth": {
         "format-disabled": "<span color='#f38ba8'>󰂲</span>",
@@ -120,8 +122,9 @@
         "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}\n\nLMB - menu",
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
         "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
-        "on-click": "rofi-bluetooth"
-        // "on-click": "blueberry"
+        "on-click": "rofi-bluetooth",
+        // "on-click-right": "blueberry",
+        "on-click-right": "$TERMINAL bluetui"
     },
     "pulseaudio": {
         "format": "<span color='#cba6f7'>{icon} {volume}%</span>",
