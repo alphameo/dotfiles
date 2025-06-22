@@ -29,8 +29,8 @@ function run {
     WAYBAR=" Toolbar (waybar)"
     HYPR=" Hypr"
     DUNST="󰵚 Notifications (dunst)"
-    NETWORK=" Network"
-    BLUETOOTH="󰂯 Bluetooth"
+    NETWORK=" Network (nmtui)"
+    BLUETOOTH="󰂯 Bluetooth (bluetui)"
     TOP="󰙭 System monitor (btop)"
     SOUND=" Sound (pavucontrol)"
     GTK_UI="󰏘 GTK UI (nwg-look)"
@@ -50,9 +50,11 @@ function run {
     elif [[ $INP == $DUNST ]]; then
         open_config "dunst"
     elif [[ $INP == $NETWORK ]]; then
-        execute "networkmanager_dmenu"
+        # execute "networkmanager_dmenu"
+        launch_cli_app "nmtui"
     elif [[ $INP == $BLUETOOTH ]]; then
-        execute "rofi-bluetooth"
+        # execute "rofi-bluetooth"
+        launch_cli_app "bluetui"
     elif [[ $INP == $SOUND ]]; then
         execute "pavucontrol"
     elif [[ $INP == $TOP ]]; then
