@@ -49,3 +49,23 @@ export PATH=$PATH:/home/a1pha/.local/bin
 export GTK_USE_PORTAL=1
 
 export EZA_ICONS_AUTO=1
+
+# For nmtui theming
+export NEWT_COLORS='
+root=#cdd6f4,#1e1e2e
+window=#cdd6f4,#1e1e2e
+border=#181825,#1e1e2e
+shadow=#181825
+title=#89b4fa,#1e1e2e
+textbox=#cdd6f4,#1e1e2e
+actlistbox=#1e1e2e,#89b4fa
+button=#1e1e2e,#89b4fa
+compactbutton=#89b4fa,#1e1e2e
+checkbox=#cdd6f4,#1e1e2e
+actcheckbox=#1e1e2e,#89b4fa
+entry=#cdd6f4,#1e1e2e
+label=#bac2de,#1e1e2e
+listbox=#cdd6f4,#1e1e2e
+actlistbox=#1e1e2e,#89b4fa
+helpline=#f5c2e7,#1e1e2e
+'
