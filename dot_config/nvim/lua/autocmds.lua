@@ -47,7 +47,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*",
   callback = function()
     if vim.bo.filetype == "" then
-      vim.cmd("filetype detect")  -- Force detection
+      vim.cmd "filetype detect" -- Force detection
     end
   end,
+})
+
+-- INFO: Trim whitespaces
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = vim.api.nvim_create_augroup("trim-white-space", {}),
+  pattern = "*",
+  command = "%s/\\s\\+$//e",
 })
