@@ -12,6 +12,11 @@ return {
     local dapui = require "dapui"
     dapui.setup()
 
+    vim.cmd [[highlight DapBreakpointColor guifg=#fa4848]]
+    vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpointColor" })
+    vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DapBreakpointColor" })
+    vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapBreakpointColor" })
+
     dap.listeners.before.attach.dapui_config = dapui.open
     -- dap.listeners.before.event_terminated.dapui_config = dapui.close
     -- dap.listeners.before.event_exited.dapui_config = dapui.close
