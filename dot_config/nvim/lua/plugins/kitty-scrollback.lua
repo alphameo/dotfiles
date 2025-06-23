@@ -1,1 +1,4 @@
-return { "mikesmithgh/kitty-scrollback.nvim" }
+return {
+  "mikesmithgh/kitty-scrollback.nvim",
+  lazy = true,
+}
