@@ -5,7 +5,6 @@ return {
       "nvim-telescope/telescope-ui-select.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
-    branch = "0.1.x",
     lazy = true,
     event = "VeryLazy",
     config = function()
