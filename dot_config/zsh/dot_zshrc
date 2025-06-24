@@ -51,8 +51,8 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git
 export FZF_ALT_C_OPTS="--preview 'eza --icons=always --tree --color=always {} | head -200'"
 
 
-# NOTE: OH-MY-POSH
-eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/config.toml)"
+# NOTE: STARSHIP
+eval "$(starship init zsh)"
 
 
 # NOTE: FUNCTIONS
