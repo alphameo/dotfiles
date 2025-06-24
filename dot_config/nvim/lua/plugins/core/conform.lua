@@ -58,7 +58,12 @@ return {
         timeout_ms = 1000,
       }
     end
-    vim.keymap.set({ "n", "v", "i" }, "<C-S-i>", fmt, { desc = "Code Format" })
-    vim.keymap.set({ "n", "v" }, "<leader>cf", fmt, { desc = "Code Format" })
+
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+
+    local map = vim.keymap.set
+    map({ "n", "v", "i" }, "<C-S-i>", fmt, { desc = "Code Format File" })
+    map({ "n", "v" }, "<leader>cf", fmt, { desc = "Code Format File" })
+    map({ "n", "v" }, "<leader>cF", "gw", { desc = "Code Format Expr" })
   end,
 }
