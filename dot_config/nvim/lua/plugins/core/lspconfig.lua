@@ -9,6 +9,15 @@ return {
   config = function()
     require("lsp").setup()
 
+    local del_map = vim.keymap.del
+    del_map("n", "grn")
+    del_map({ "n", "v" }, "gra")
+    del_map("n", "grr")
+    del_map("n", "gri")
+    del_map("n", "gO")
+    del_map("n", "K")
+    del_map("i", "<C-s>")
+
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(args)

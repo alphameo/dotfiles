@@ -103,3 +103,12 @@ map("t", "<A-=>", "<C-\\><C-n><A-=>", { silent = true, remap = true, desc = "Ter
 map("t", "<A-->", "<C-\\><C-n><A-->", { silent = true, remap = true, desc = "Term: Window Shorter" })
 map("t", "<A-.>", "<C-\\><C-n><A-.>", { silent = true, remap = true, desc = "Term: Window Wider" })
 map("t", "<A-,>", "<C-\\><C-n><A-,>", { silent = true, remap = true, desc = "Term: Window Narrower" })
+
+-- LSP
+map("n", "K", vim.lsp.buf.hover, { desc = "Show Doc Hover" })
+map("n", "grn", vim.lsp.buf.rename, { desc = "Code Rename" })
+map({ "n", "v" }, "gra", vim.lsp.buf.code_action, { desc = "Code Actions" })
+map("n", "grr", vim.lsp.buf.references, { desc = "Go to References" })
+map("n", "gri", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
+map("n", "gO", vim.lsp.buf.document_symbol, { desc = "Go to Document Symbols" })
+map("i", "<C-s>", vim.lsp.buf.signature_help, { desc = "Show Signature Help" })
