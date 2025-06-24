@@ -51,12 +51,11 @@ format = '[ $user]($style)'
 
 [directory]
 style = "fg:blue"
-format = "[  $path ]($style)"
+format = "[  $path]($style)[$read_only]($read_only_style)"
 truncate_to_repo = false
 truncation_length = 4
 truncation_symbol = "../"
 read_only = "󰌾 "
-fish_style_pwd_dir_length = 1
 
 [directory.substitutions]
 "Documents" = "󰈙 "
