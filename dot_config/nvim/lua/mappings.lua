@@ -7,8 +7,8 @@ local map = vim.keymap.set
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
 
 -- save file
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <CR>", { silent = true, desc = "Save File" })
-map({ "n", "i", "v" }, "<C-S-s>", "<cmd> wall <CR>", { silent = true, desc = "Save All Files" })
+map("n", "<C-s>", "<cmd> w <CR>", { silent = true, desc = "Save File" })
+map("n", "<C-S-s>", "<cmd> wall <CR>", { silent = true, desc = "Save All Files" })
 
 -- quit file
 map("n", "<C-q>", ":q <CR>", { silent = true, desc = "Quit" })
