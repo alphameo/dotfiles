@@ -5,6 +5,20 @@ local function setup_lsp(name, opts)
 
   vim.lsp.enable(name)
 end
+
+local global_cfg = {
+  capabilities = {
+    textDocument = {
+      completion = {
+        completionItem = {
+          snippetSupport = false, -- autofill func placeholders
+          labelDetailSupport = false, -- disable params in cmp window
+        },
+      },
+    },
+  },
+}
+
 local clangd_cfg = {
   capabilities = { offsetEncoding = { "utf-16" } },
   cmd = {
@@ -374,6 +388,9 @@ local java_init_cfg = {
 }
 
 local M = {}
+M.setup_global = function()
+  vim.lsp.config("*", global_cfg)
+end
 M.setup_bash = function()
   setup_lsp "bashls"
 end
@@ -496,6 +513,7 @@ M.start_or_attach_java = function()
 end
 
 M.setup = function()
+  M.setup_global()
   M.setup_bash()
   M.setup_ccpp()
   M.setup_cmake()
