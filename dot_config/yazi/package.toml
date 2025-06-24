@@ -1,27 +1,27 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "49137fe"
-hash = "f91923f1510af9dd3a0e2b057944ea9c"
+rev = "5eea960"
+hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "49137fe"
-hash = "916186558a9937d1cc64cd6f6976974a"
+rev = "5eea960"
+hash = "a030fe48d91b04341ad2fba9be957df"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:diff"
-rev = "932b931"
-hash = "ede87227b87cc20ee8ada4223c387f78"
+rev = "5eea960"
+hash = "47865a70cade14a0b9b6bc6a54f16bdb"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "864a021"
-hash = "e0ada736ea676c2bbb3ec705a49526ef"
+rev = "5eea960"
+hash = "e01006bfb38951ea89031bd918b20dbb"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "63f9650"
-hash = "c0b6cd7dc830b96e77e5c8a71eec7926"
+rev = "5eea960"
+hash = "b3f1d6ec3721d4061aad5f69cddb0cf9"
 
 [[plugin.deps]]
 use = "KKV9/compress"
@@ -35,8 +35,8 @@ hash = "34b7f05a5591b6280388fbb682669b1a"
 
 [[plugin.deps]]
 use = "boydaihungst/restore"
-rev = "86dff43"
-hash = "f99f16081c0efc8ed49df9b788f92671"
+rev = "97ebcc3"
+hash = "f997349417b30488a8ccd0e64d476bd8"
 
 [[plugin.deps]]
 use = "Ape/reflink"
