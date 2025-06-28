@@ -6,18 +6,18 @@ local map = vim.keymap.set
 
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
 
--- save file
-map("n", "<C-s>", "<cmd> w <CR>", { silent = true, desc = "Save File" })
-map("n", "<C-S-s>", "<cmd> wall <CR>", { silent = true, desc = "Save All Files" })
+-- Save file
+map("n", "<C-s>", ":w<CR>", { silent = true, desc = "Save File" })
+map("n", "<C-S-s>", ":wall<CR>", { silent = true, desc = "Save All Files" })
 
--- quit file
-map("n", "<C-q>", ":q <CR>", { silent = true, desc = "Quit" })
-map("n", "<C-S-q>", ":q! <CR>", { silent = true, desc = "Force Quit" })
-map("n", "<C-A-q>", ":qall <CR>", { silent = true, desc = "Quit All" })
-map("n", "<C-A-S-q>", ":qall! <CR>", { silent = true, desc = "Force quit All" })
+-- Quit file
+map("n", "<C-q>", ":q<CR>", { silent = true, desc = "Quit" })
+map("n", "<C-S-q>", ":q!<CR>", { silent = true, desc = "Force Quit" })
+map("n", "<C-A-q>", ":qall<CR>", { silent = true, desc = "Quit All" })
+map("n", "<C-A-S-q>", ":qall!<CR>", { silent = true, desc = "Force quit All" })
 
 -- Appearance
-map("n", "<leader>aw", "<cmd> set wrap! <CR>", { silent = true, desc = "Toggle Line Wrap" })
+map("n", "<leader>aw", ":set wrap!<CR>", { silent = true, desc = "Toggle Line Wrap" })
 
 -- Tabs
 -- map('n', '<leader>to', ':tabnew<CR>', { desc = "[T]ab [O]pen" }) -- open new tab
@@ -26,7 +26,7 @@ map("n", "<leader>aw", "<cmd> set wrap! <CR>", { silent = true, desc = "Toggle L
 -- map('n', '<leader>tp', ':tabp<CR>', { desc = "[T]ab [P]revious}" }) --  go to previous tab
 
 -- Buffers
-map("n", "<A-t>", "<cmd> enew <CR>", { silent = true, desc = "Tab New" }) -- new buffer
+map("n", "<A-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
 map("n", "<A-w>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
 
 map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
@@ -55,9 +55,9 @@ map("n", "x", '"_x', { desc = "Delete char" }) -- delete single character withou
 
 map("n", "<C-d>", "<C-d>zz", { desc = "Page down" }) -- center after scroll down
 map("n", "<C-u>", "<C-u>zz", { desc = "Page up" }) -- center after scroll up
-
 map("n", "n", "nzzzv", { desc = "Next occurance" }) -- center after find
 map("n", "N", "Nzzzv", { desc = "Previous occurance" }) -- center after find
+
 map("n", "<C-e>", "5<C-e>", { desc = "Scroll down" })
 map("n", "<C-y>", "5<C-y>", { desc = "Scroll up" })
 
@@ -104,7 +104,7 @@ map("t", "<A-->", "<C-\\><C-n><A-->", { silent = true, remap = true, desc = "Ter
 map("t", "<A-.>", "<C-\\><C-n><A-.>", { silent = true, remap = true, desc = "Term: Window Wider" })
 map("t", "<A-,>", "<C-\\><C-n><A-,>", { silent = true, remap = true, desc = "Term: Window Narrower" })
 
--- LSP
+-- LSP defaults
 map("n", "K", vim.lsp.buf.hover, { desc = "Show Doc Hover" })
 map("n", "grn", vim.lsp.buf.rename, { desc = "Code Rename" })
 map({ "n", "v" }, "gra", vim.lsp.buf.code_action, { desc = "Code Actions" })
