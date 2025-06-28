@@ -102,8 +102,8 @@ return {
         "path",
         "snippets",
         "buffer",
-        "omni",
-        -- "cmdline",
+        -- TODO: remove after tests
+        -- "omni",
       },
       per_filetype = {
         sql = { "snippets", "dadbod", "buffer" },
