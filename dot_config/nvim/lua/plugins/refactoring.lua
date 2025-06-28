@@ -19,7 +19,7 @@ return {
     map({ "n", "x" }, "<leader>ri", ":Refactor inline_var<CR>", { silent = true, desc = "Refactor Inline Variable" })
     map("n", "<leader>rI", ":Refactor inline_func<CR>", { silent = true, desc = "Refactor Inline Function" })
     map("n", "<leader>rb", ":Refactor extract_block<CR>", { silent = true, desc = "Refactor Extract Block" })
-    map("n", "<leader>rB", ":Refactor extract_block_to_file<CR>", { desc = "Refactor Extract Block to File" })
+    map("n", "<leader>rB", ":Refactor extract_block_to_file<CR>", { silent = true, desc = "Refactor Extract Block to File" })
 
     require("telescope").load_extension "refactoring"
 
