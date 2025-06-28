@@ -43,7 +43,7 @@ opt.mouse = "a" -- Enable mouse mode (default: '')
 
 o.showmode = false -- We don't need to see things like -- INSERT -- anymore. We have in lualine plugin (default: true)
 opt.showtabline = 2 -- Always show tabs (default: 1)
-opt.conceallevel = 0 -- So that `` is visible in markdown files (default: 1)
+opt.conceallevel = 2 -- Visual-control chars (**, '') in md etc. (0 - visible, 1-faded(def), 2-hidden, 3-idk)
 
 opt.pumheight = 10 -- Pop up menu height (default: 0)
 
