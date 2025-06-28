@@ -4,10 +4,6 @@ local opt = vim.opt
 opt.wrap = true
 opt.breakindent = true
 opt.linebreak = true
-opt.spelllang = {
-  "en_US",
-  "ru_RU",
-}
 opt.spell = true
 
 map("n", "j", "gj", { silent = true })
