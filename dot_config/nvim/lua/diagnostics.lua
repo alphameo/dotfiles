@@ -34,3 +34,18 @@ vim.diagnostic.config {
   severity_sort = true,
   signs = signs,
 }
+
+local map = vim.keymap.set
+
+map("n", "<leader>cD", function()
+  if not vim.diagnostic.is_enabled() then
+    vim.diagnostic.enable(true)
+  else
+    vim.diagnostic.enable(false)
+  end
+end, { silent = true, desc = "Code Diagnostics Toggle" })
+
+map("n", "<leader>cL", function()
+  vim.opt_local.spell = not (vim.opt_local.spell:get())
+  vim.notify("spell check: " .. tostring(vim.o.spell))
+end, { desc = "Code SpellCheck Toggle" })
