@@ -1,3 +1,4 @@
+-- vim.cmd "source ~/.config/.vimrc"
 local opt = vim.opt
 local o = vim.o
 local g = vim.g
