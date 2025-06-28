@@ -1,49 +1,67 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   lazy = false,
+  event = { "BufReadPre", "BufNewFile" },
   branch = "main",
   build = ":TSUpdate",
   config = function()
     local langs = {
-      "lua",
-      "java",
+      -- LANGUAGES
+      "bash",
       "c",
       "cpp",
-      "kotlin",
-      "python",
+      "cmake",
       "go",
       "gomod",
       "gosum",
       "gowork",
-      "rust",
-      "ron",
-      "make",
-      "cmake",
-      "html",
-      "css",
-      "scss",
+      "java",
       "javascript",
-      "typescript",
-      "php",
-      "sql",
+      "kotlin",
+      "lua",
       "luadoc",
+      "make",
+      "python",
+      "php",
+      "ron",
+      "rust",
+      "scheme",
+      "sql",
+      "typescript",
       "vim",
       "vimdoc",
-      "regex",
-      "printf",
+      -- MARKUP
+      "bibtex",
+      "css",
+      "html",
       "markdown",
       "markdown_inline",
-      "bash",
-      "toml",
-      "yaml",
+      "mermaid",
+      "scss",
       "xml",
+      -- DATA
+      "json",
+      "jsonc",
       "json5",
+      -- TOOLS
       "diff",
-      "gitignore",
-      "bibtex",
       "dockerfile",
+      "gitignore",
+      "git_config",
+      "git_rebase",
+      "gitcommit",
+      "printf",
+      "regex",
+      "query",
+      -- CONFIGURATIONS
+      "dot",
       "hyprlang",
+      "ini",
+      "toml",
+      "rasi",
+      "ssh_config",
       "yuck",
+      "yaml",
     }
 
     require("nvim-treesitter").setup {
@@ -59,7 +77,7 @@ return {
         enable = true,
       },
       incremental_selection = {
-        enable = true,
+        enable = false,
         keymaps = {
           init_selection = "gnn",
           node_incremental = "grn",
@@ -79,6 +97,6 @@ return {
     })
 
     local map = vim.keymap.set
-    map("n", "<leader>ct", ":InspectTree<CR>", { silent = true, desc = "Code Inspec Tree" })
+    map("n", "<leader>ct", ":InspectTree<CR>", { silent = true, desc = "Code Inspect Tree" })
   end,
 }
