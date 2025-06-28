@@ -19,8 +19,9 @@ return {
     which_key.setup(opts)
 
     which_key.add {
-      { "<leader>a", group = "Appearance", mode = { "n", "v" }, icon = { icon = " ", color = "blue" } },
       { "<leader>e", group = "File Tree", mode = { "n", "v" }, icon = { icon = " ", color = "cyan" } },
+      { "<leader>u", group = "Undo Tree", mode = { "n", "v" }, icon = { icon = "󰋚 ", color = "cyan" } },
+      { "<leader>a", group = "Appearance", mode = { "n", "v" }, icon = { icon = " ", color = "blue" } },
       { "<leader>c", group = "Code", mode = { "n", "v" }, icon = { icon = " ", color = "gray" } },
       { "<leader>d", group = "Debug", mode = { "n", "v" }, icon = { icon = " ", color = "red" } },
       { "<leader>D", group = "Debug Printf", mode = { "n", "v" }, icon = { icon = " ", color = "orange" } },
