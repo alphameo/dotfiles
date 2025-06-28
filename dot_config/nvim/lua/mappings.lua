@@ -67,8 +67,8 @@ vim.keymap.set("x", "p", function()
   return 'pgv"' .. vim.v.register .. "y"
 end, { remap = false, expr = true })
 
-map("i", "jk", "<ESC>", { desc = "Exit INSERT MODE" }) -- exit insert mode
-map("i", "kj", "<ESC>", { desc = "Exit INSERT MODE" }) -- exit insert mode
+map("i", "jk", "<ESC>", { desc = "Exit INSERT MODE" })
+map("i", "kj", "<ESC>", { desc = "Exit INSERT MODE" })
 
 -- Comments
 map("i", "<C-/>", "<ESC>:Commentary<CR>", { silent = true, desc = "Toggle comment" })
