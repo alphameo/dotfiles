@@ -38,8 +38,8 @@ function run {
     QT5_UI="󰏘 QT5 UI (qt5ct)"
     QT6_UI="󰏘 QT6 UI (qt6ct)"
     DEFAULT_APPS="󰉺 Default Applications"
-    POWER="󰐦 Power menu"
-    INFO=" info (fastfetch)"
+    POWER="󰐦 Power Menu"
+    INFO=" Info (fastfetch)"
 
     if [[ $INP == $ROFI ]]; then
         open_config "rofi"
