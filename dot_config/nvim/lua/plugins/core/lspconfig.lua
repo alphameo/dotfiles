@@ -30,8 +30,8 @@ return {
 
         local telescope = require "telescope.builtin"
 
-        map({ "n", "i", "v" }, "<C-k>", lsp_b.hover, opts "Show Doc Hover")
-        map({ "n", "i", "v" }, "<C-S-k>", lsp_b.signature_help, opts "Show Signature Help")
+        map("n", "<C-k>", lsp_b.hover, opts "Show Doc Hover")
+        map("i", "<C-S-k>", lsp_b.signature_help, opts "Show Signature Help")
 
         map("n", "gd", telescope.lsp_definitions, opts "Go to Definitions")
         map("n", "gD", lsp_b.declaration, opts "Go to Declaration")
@@ -40,10 +40,10 @@ return {
         map("n", "gt", telescope.lsp_type_definitions, opts "Go to Type Definition")
         map("n", "gb", "<C-o>", opts "Go Back")
 
-        map("n", "<leader>cs", telescope.lsp_document_symbols, { desc = "Code Document Symbols" })
-        map("n", "<leader>cS", telescope.lsp_dynamic_workspace_symbols, { desc = "Code Workspace Symbols" })
+        map("n", "<leader>cs", telescope.lsp_document_symbols, opts "Code Document Symbols")
+        map("n", "<leader>cS", telescope.lsp_dynamic_workspace_symbols, opts "Code Workspace Symbols")
         map("n", "<leader>cd", telescope.diagnostics, opts "Code Diagnostics")
-        map("n", "<leader>cq", telescope.quickfix, { desc = "Code Quickfix" })
+        map("n", "<leader>cq", telescope.quickfix, opts "Code Quickfix")
 
         map({ "n", "v" }, "<leader>ca", lsp_b.code_action, opts "Code Actions")
         map("n", "<leader>cr", lsp_b.rename, opts "Code Rename")
