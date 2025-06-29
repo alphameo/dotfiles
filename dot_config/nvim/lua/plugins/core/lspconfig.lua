@@ -56,19 +56,6 @@ return {
         if lsp.inlay_hint then
           lsp.inlay_hint.enable(true, { 0 })
         end
-
-        map("n", "[d", function()
-          return vim.diagnostic.jump {
-            count = -1,
-            float = true,
-          }
-        end, opts "Previous Diagnostic")
-        map("n", "]d", function()
-          return vim.diagnostic.jump {
-            count = 1,
-            float = true,
-          }
-        end, opts "Next Diagnostic")
       end,
     })
   end,

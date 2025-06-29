@@ -49,3 +49,16 @@ map("n", "<leader>cL", function()
   vim.opt_local.spell = not (vim.opt_local.spell:get())
   vim.notify("spell check: " .. tostring(vim.o.spell))
 end, { desc = "Code SpellCheck Toggle" })
+
+map("n", "[d", function()
+  return vim.diagnostic.jump {
+    count = -1,
+    float = true,
+  }
+end, { silent = true, desc = "Previous Diagnostic" })
+map("n", "]d", function()
+  return vim.diagnostic.jump {
+    count = 1,
+    float = true,
+  }
+end, { silent = true, desc = "Next Diagnostic" })
