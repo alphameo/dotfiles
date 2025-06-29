@@ -20,10 +20,11 @@ return {
   opts = {
     keymap = {
       preset = "default",
-      ["<C-space>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
-      ["<C-e>"] = { "hide", "fallback" },
-      ["<C-k>"] = { "select_prev", "show_signature", "hide_signature", "fallback" },
+      ["<C-space>"] = { "show", "hide", "fallback" },
+      ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
+      ["<C-S-d>"] = { "show_documentation", "hide_documentation", "fallback" },
+      ["<C-S-k>"] = { "show_signature", "hide_signature" }, -- replace default signature
       ["<C-d>"] = { "scroll_documentation_down", "fallback" },
       ["<C-u>"] = { "scroll_documentation_up", "fallback" },
       ["<Tab>"] = {
@@ -83,8 +84,7 @@ return {
 
     cmdline = {
       keymap = {
-        ["<C-Space>"] = { "show", "fallback" },
-        ["<C-e>"] = { "hide", "fallback" },
+        ["<C-Space>"] = { "show", "hide", "fallback" },
         ["<Tab>"] = { "accept", "fallback" },
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-j>"] = { "select_next", "fallback" },
