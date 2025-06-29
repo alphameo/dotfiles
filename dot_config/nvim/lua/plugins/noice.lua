@@ -13,6 +13,11 @@ return {
         ["vim.lsp.util.stylize_markdown"] = true,
         ["cmp.entry.get_documentation"] = true,
       },
+      signature = {
+        auto_open = {
+          enabled = false,
+        },
+      },
     },
     routes = {
       {
@@ -47,7 +52,7 @@ return {
     local map = vim.keymap.set
 
     noice.setup(opts)
-    
+
     map("c", "<S-Enter>", function() noice.redirect(vim.fn.getcmdline()) end, { desc = "Redirect Cmdline" })
     map("n",  "<leader>nl", function() noice.cmd("last") end, { desc = "Noice Last Message" })
     map("n",  "<leader>nh", function() noice.cmd("history") end, { desc = "Noice History" })
