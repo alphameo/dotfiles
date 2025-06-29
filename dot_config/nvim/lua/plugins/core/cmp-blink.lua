@@ -42,6 +42,15 @@ return {
     },
     signature = {
       enabled = true,
+      trigger = {
+        show_on_trigger_character = false,
+        show_on_insert = false,
+        show_on_insert_on_trigger_character = false,
+      },
+      window = {
+        treesitter_highlighting = true,
+        show_documentation = true,
+      },
     },
     appearance = {
       -- "mono" | "normal"
