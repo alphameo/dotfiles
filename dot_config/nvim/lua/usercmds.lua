@@ -83,6 +83,26 @@ local new_term_state = function(opts, win_config)
   return { buf = buf, win = win }
 end
 
+-- NOTE: Terminal mappings
+local map = vim.keymap.set
+map("n", "<leader>tt", ":terminal<CR>", { silent = true, desc = "Terminal Tab New" })
+map("t", "<C-q>", "<C-\\><C-n>", { silent = true, remap = true, desc = "Exit Terminal Mode" })
+map("t", "<A-t>", "<C-\\><C-n><A-t>", { silent = true, remap = true, desc = "Term: Tab New" })
+map("t", "<A-w>", "<C-\\><C-n><A-w>", { silent = true, remap = true, desc = "Term: Tab Quit" })
+map("t", "<A-]>", "<C-\\><C-n><A-]>", { silent = true, remap = true, desc = "Term: Next Tab (buffer)" })
+map("t", "<A-[>", "<C-\\><C-n><A-[>", { silent = true, remap = true, desc = "Term: Previous Tab (buffer)" })
+map("t", "<A-s>", "<C-\\><C-n><A-s>", { silent = true, remap = true, desc = "Term: Window Horizontal Split" })
+map("t", "<A-v>", "<C-\\><C-n><A-v>", { silent = true, remap = true, desc = "Term: Window Vertical Split" })
+map("t", "<A-q>", "<C-\\><C-n><A-q>", { silent = true, remap = true, desc = "Term: Window Quit" })
+map("t", "<A-k>", "<C-\\><C-n><C-k>", { silent = true, remap = true, desc = "Term: Go to Upper window" })
+map("t", "<A-j>", "<C-\\><C-n><A-j>", { silent = true, remap = true, desc = "Term: Go to Lower window" })
+map("t", "<A-h>", "<C-\\><C-n><A-h>", { silent = true, remap = true, desc = "Term: Go to Left window" })
+map("t", "<A-l>", "<C-\\><C-n><A-l>", { silent = true, remap = true, desc = "Term: Go to Right window" })
+map("t", "<A-=>", "<C-\\><C-n><A-=>", { silent = true, remap = true, desc = "Term: Window Taller" })
+map("t", "<A-->", "<C-\\><C-n><A-->", { silent = true, remap = true, desc = "Term: Window Shorter" })
+map("t", "<A-.>", "<C-\\><C-n><A-.>", { silent = true, remap = true, desc = "Term: Window Wider" })
+map("t", "<A-,>", "<C-\\><C-n><A-,>", { silent = true, remap = true, desc = "Term: Window Narrower" })
+
 -- NOTE: Split Terminal
 local create_split_buffer = function(opts)
   opts = opts or {}
@@ -102,6 +122,11 @@ local toggle_split_terminal = function()
 end
 
 vim.api.nvim_create_user_command("ToggleSplitTerm", toggle_split_terminal, {})
+
+map("n", "<leader>ts", ":ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
+map("n", "<C-`>", ":ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
+map("t", "<leader>ts", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
+map("t", "<C-`>", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
 
 -- NOTE: Float Terminal
 local function create_floating_window(opts)
@@ -130,3 +155,8 @@ local toggle_float_terminal = function()
 end
 
 vim.api.nvim_create_user_command("ToggleFloatTerm", toggle_float_terminal, {})
+
+map("n", "<leader>tf", ":ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
+map("n", "<C-S-`>", ":ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
+map("t", "<leader>tf", "<C-\\><C-n>:ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
+map("t", "<C-S-`>", "<C-\\><C-n>:ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
