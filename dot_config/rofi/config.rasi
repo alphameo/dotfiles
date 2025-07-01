@@ -2,7 +2,7 @@
 
 
 configuration{
-    modes: "run,drun,combi,window,ssh";
+    modes: "run,drun,window";
     font: "RobotoMono Nerd Font 12";
     show-icons: true;
     icon-theme: "Papirus-dark";
