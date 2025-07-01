@@ -1,5 +1,6 @@
 [General]
 frontend=widgetsboxmodel-ng
+showTray=false
 telemetry=false
 
 [applications]
