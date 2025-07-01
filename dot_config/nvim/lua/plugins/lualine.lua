@@ -41,6 +41,17 @@ return {
       cond = hide_in_width,
     }
 
+    local eol = {
+      "fileformat",
+      icons_enabled = true,
+      symbols = {
+        unix = "LF",
+        dos = "CRLF",
+        mac = "CR",
+      },
+      cond = hide_in_width,
+    }
+
     require("lualine").setup {
       options = {
         icons_enabled = true,
@@ -64,6 +75,7 @@ return {
           diagnostics,
           diff,
           { "encoding", cond = hide_in_width },
+          eol,
           { "filetype", cond = hide_in_width },
         },
         lualine_y = { "location" },
