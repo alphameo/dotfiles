@@ -4,6 +4,8 @@ return {
   lazy = true,
   event = "VeryLazy",
   config = function()
+    vim.o.showmode = false -- Disable default
+
     local mode = {
       "mode",
       fmt = function(str)

@@ -42,7 +42,6 @@ vim.opt.timeoutlen = 200 -- keypress delay
 opt.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim. (default: '')
 opt.mouse = "a" -- Enable mouse mode (default: '')
 
-o.showmode = false -- We don't need to see things like -- INSERT -- anymore. We have in lualine plugin (default: true)
 opt.showtabline = 2 -- Always show tabs (default: 1)
 opt.conceallevel = 2 -- Visual-control chars (**, '') in md etc. (0 - visible, 1-faded(def), 2-hidden, 3-idk)
 
