@@ -13,17 +13,9 @@ map("n", "<C-S-s>", ":wall<CR>", { silent = true, desc = "Save All Files" })
 -- Quit file
 map("n", "<C-q>", ":q<CR>", { silent = true, desc = "Quit" })
 map("n", "<C-S-q>", ":q!<CR>", { silent = true, desc = "Force Quit" })
-map("n", "<C-A-q>", ":qall<CR>", { silent = true, desc = "Quit All" })
-map("n", "<C-A-S-q>", ":qall!<CR>", { silent = true, desc = "Force quit All" })
 
 -- Appearance
 map("n", "<leader>aw", ":set wrap!<CR>", { silent = true, desc = "Toggle Line Wrap" })
-
--- Tabs
--- map('n', '<leader>to', ':tabnew<CR>', { desc = "[T]ab [O]pen" }) -- open new tab
--- map('n', '<leader>tq', ':tabclose<CR>', { desc = [T]ab [Q]uit)) -- close current tab
--- map('n', '<leader>tn', ':tabn<CR>', { desc = "[T]ab [N]ext" }) --  go to next tab
--- map('n', '<leader>tp', ':tabp<CR>', { desc = "[T]ab [P]revious}" }) --  go to previous tab
 
 -- Buffers
 map("n", "<A-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
@@ -46,6 +38,11 @@ map("n", "<A-=>", "<C-w>+", { desc = "Window Taller" })
 map("n", "<A-->", "<C-w>-", { desc = "Window Shorter" })
 map("n", "<A-.>", "<C-w>>", { desc = "Window Wider" })
 map("n", "<A-,>", "<C-w><", { desc = "Window Narower" })
+
+-- Comments
+map("i", "<C-/>", "<ESC>:Commentary<CR>", { silent = true, desc = "Toggle comment" })
+map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
+map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
 
 -- Features
 map("v", "<", "<gv", { desc = "Indent left" }) -- stay in visual mode after indent
@@ -70,7 +67,7 @@ end, { remap = false, expr = true })
 map("i", "jk", "<ESC>", { desc = "Exit INSERT MODE" })
 map("i", "kj", "<ESC>", { desc = "Exit INSERT MODE" })
 
--- Comments
-map("i", "<C-/>", "<ESC>:Commentary<CR>", { silent = true, desc = "Toggle comment" })
-map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
-map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
+vim.opt.langmap = "ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х\\[,Ъ\\],ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж\\;,Э\\',ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б\\<,Ю\\>"
+  .. ",йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х\\[,ъ\\],фa,ыs,вd,аf,пg,рh,оj,лk,дl,ж\\;,э\\',яz,чx,сc,мv,иb,тn,ьm,б\\<,ю\\>"
+map("i", "ол", "<ESC>", { desc = "Exit INSERT MODE" })
+map("i", "ло", "<ESC>", { desc = "Exit INSERT MODE" })
