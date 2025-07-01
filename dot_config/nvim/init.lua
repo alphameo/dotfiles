@@ -52,7 +52,7 @@ require("lazy").setup {
   },
 }
 
-vim.keymap.set({ "n" }, "<leader>L", ":Lazy<cr>", { silent = true, desc = "Mason" })
+vim.keymap.set({ "n" }, "<leader>L", ":Lazy<CR>", { silent = true, desc = "Mason" })
 
 -- TODO:
 -- require("langmapper").automapping { global = true, buffer = true }
