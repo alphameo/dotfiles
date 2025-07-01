@@ -19,6 +19,12 @@ return {
       path = 2, -- 0 = just filename, 1 = relative path, 2 = absolute path
     }
 
+    local keycommand = {
+      require("noice").api.status.command.get,
+      cond = require("noice").api.status.command.has,
+      color = { fg = "#ff9e64" },
+    }
+
     local hide_in_width = function()
       return vim.fn.winwidth(0) > 100
     end
@@ -41,17 +47,6 @@ return {
       cond = hide_in_width,
     }
 
-    local eol = {
-      "fileformat",
-      icons_enabled = true,
-      symbols = {
-        unix = "LF",
-        dos = "CRLF",
-        mac = "CR",
-      },
-      cond = hide_in_width,
-    }
-
     require("lualine").setup {
       options = {
         icons_enabled = true,
@@ -67,15 +62,9 @@ return {
         lualine_b = { "branch" },
         lualine_c = { filename },
         lualine_x = {
-          {
-            require("noice").api.status.command.get,
-            cond = require("noice").api.status.command.has,
-            color = { fg = "#ff9e64" },
-          },
+          keycommand,
           diagnostics,
           diff,
-          { "encoding", cond = hide_in_width },
-          eol,
           { "filetype", cond = hide_in_width },
         },
         lualine_y = { "location" },
