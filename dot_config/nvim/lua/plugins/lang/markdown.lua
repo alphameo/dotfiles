@@ -2,10 +2,12 @@ return {
   {
     "iamcco/markdown-preview.nvim",
     lazy = true,
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = function()
       vim.fn["mkdp#util#install"]()
+    end,
+    config = function()
+      vim.keymap.set("n", "<leader>lp", ":MarkdownPreviewToggle<CR>", { silent = true, desc = "Markdown Preview" })
     end,
   },
   {
@@ -28,6 +30,7 @@ return {
     },
     config = function()
       vim.cmd "RenderMarkdown disable"
+      vim.keymap.set("n", "<leader>lr", ":RenderMarkdown toggle<CR>", { silent = true, desc = "Markdown Render" })
     end,
   },
 }

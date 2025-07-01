@@ -13,5 +13,7 @@ return {
     vim.o.foldexpr = "vimtex#fold#level(v:lnum)"
     vim.o.foldtext = "vimtex#fold#text()"
     vim.o.foldlevel = 2
+
+    vim.keymap.set("n", "<leader>K", "<plug>(vimtex-doc-package)", { silent = true, desc = "Vimtex Docs" })
   end,
 }
