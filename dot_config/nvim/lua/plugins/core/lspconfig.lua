@@ -10,13 +10,12 @@ return {
     require("lsp").setup()
 
     local del_map = vim.keymap.del
-    del_map("n", "grn")
-    del_map({ "n", "v" }, "gra")
-    del_map("n", "grr")
-    del_map("n", "gri")
-    del_map("n", "gO")
-    del_map("n", "K")
-    del_map("i", "<C-s>")
+    del_map("n", "grn") -- Rename
+    del_map({ "n", "v" }, "gra") -- Code Actions
+    del_map("n", "grr") -- Go to References
+    del_map("n", "gri") -- Fo to Implementation
+    del_map("n", "gO") -- Document Symbols
+    del_map("i", "<C-s>") -- Signature Help
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -31,6 +30,7 @@ return {
         local telescope = require "telescope.builtin"
 
         map("n", "<C-k>", lsp_b.hover, opts "Show Doc Hover")
+        map("n", "K", lsp_b.hover, opts "Show Doc Hover")
         map("i", "<C-S-k>", lsp_b.signature_help, opts "Show Signature Help")
 
         map("n", "gd", telescope.lsp_definitions, opts "Go to Definitions")
@@ -52,6 +52,8 @@ return {
         map("n", "<leader>ah", function()
           lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled(), { 0 })
         end, opts "Toggle Inlay Hints")
+
+        map("n", "<leader>lR", ":LspRestart<CR>", { silent = true, desc = "LSP Restart" })
 
         if lsp.inlay_hint then
           lsp.inlay_hint.enable(true, { 0 })
