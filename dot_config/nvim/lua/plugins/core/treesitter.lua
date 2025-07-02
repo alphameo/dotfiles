@@ -9,7 +9,6 @@ return {
     },
   },
   lazy = false,
-  event = { "BufReadPre", "BufNewFile" },
   branch = "main",
   build = ":TSUpdate",
   config = function()
@@ -80,20 +79,10 @@ return {
         enable = true,
         use_languagetree = true,
         additional_vim_regex_highlighting = false,
+        disable = {},
       },
-      indent = {
-        enable = true,
-      },
+      indent = { enable = true },
       textobjects = { select = { enable = true, lookahead = true } },
-      incremental_selection = {
-        enable = false,
-        keymaps = {
-          init_selection = "gnn",
-          node_incremental = "grn",
-          scope_incremental = "grc",
-          node_decremental = "grm",
-        },
-      },
     }
 
     require("nvim-treesitter").install(langs)
@@ -102,6 +91,8 @@ return {
       pattern = langs,
       callback = function()
         vim.treesitter.start()
+        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
       end,
     })
 
