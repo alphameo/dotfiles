@@ -79,7 +79,7 @@ return {
         lualine_z = {},
       },
       tabline = {},
-      extensions = { "fugitive" },
+      extensions = { "lazy", "mason", "nvim-dap-ui" },
     }
   end,
 }
