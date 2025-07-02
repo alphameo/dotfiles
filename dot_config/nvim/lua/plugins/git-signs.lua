@@ -20,7 +20,7 @@ return {
         changedelete = { text = "▎" },
       },
       current_line_blame = true,
-      word_diff = true,
+      word_diff = false,
     }
 
     map("n", "<leader>gb", ":Gitsigns blame<CR>", { silent = true, desc = "Git Blame" })
