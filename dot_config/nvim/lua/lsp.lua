@@ -346,8 +346,20 @@ local java_init_cfg = {
         updateBuildConfiguration = "interactive",
         runtimes = {
           {
-            name = "JavaSE-23",
-            path = "/usr/lib/jvm/java-23-openjdk",
+            name = "JavaSE-8",
+            path = "/usr/lib/jvm/java-8-openjdk",
+          },
+          {
+            name = "JavaSE-17",
+            path = "/usr/lib/jvm/java-17-openjdk",
+          },
+          {
+            name = "JavaSE-21",
+            path = "/usr/lib/jvm/java-21-openjdk",
+          },
+          {
+            name = "JavaSE-24",
+            path = "/usr/lib/jvm/java-24-openjdk",
           },
         },
       },
