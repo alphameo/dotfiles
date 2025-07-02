@@ -1,5 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    -- TODO: Enable when master branch become default
+    -- { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
+  },
   lazy = false,
   event = { "BufReadPre", "BufNewFile" },
   branch = "main",
@@ -76,6 +80,7 @@ return {
       indent = {
         enable = true,
       },
+      textobjects = { select = { enable = true, lookahead = true } },
       incremental_selection = {
         enable = false,
         keymaps = {
