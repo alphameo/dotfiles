@@ -3,6 +3,10 @@ return {
   dependencies = {
     -- TODO: Enable when master branch become default
     -- { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
+    {
+      "nvim-treesitter/nvim-treesitter-context",
+      opts = { enable = true, mode = "topline", line_numbers = true },
+    },
   },
   lazy = false,
   event = { "BufReadPre", "BufNewFile" },
