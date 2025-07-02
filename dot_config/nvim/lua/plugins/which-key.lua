@@ -21,7 +21,12 @@ return {
     which_key.add {
       { "<leader>e", group = "File Tree", mode = { "n", "v" }, icon = { icon = " ", color = "cyan" } },
       { "<leader>u", group = "Undo Tree", mode = { "n", "v" }, icon = { icon = "󰋚 ", color = "cyan" } },
-      { "<leader>a", group = "Appearance", mode = { "n", "v" }, icon = { icon = " ", color = "blue" } },
+      { "<leader>a", group = "Appearance", mode = { "n", "v" }, icon = { icon = "󰏙 ", color = "blue" } },
+      { "<leader>ac", mode = { "n", "v" }, icon = { icon = "󰏘 ", color = "orange" } },
+      { "<leader>as", mode = { "n", "v" }, icon = { icon = "󰢵 ", color = "orange" } },
+      { "<leader>aw", mode = { "n", "v" }, icon = { icon = "󰖶 ", color = "cyan" } },
+      { "<leader>at", mode = { "n", "v" }, icon = { icon = "󰊠 ", color = "white" } },
+      { "<leader>aC", mode = { "n", "v" }, icon = { icon = "󰉦 ", color = "red" } },
       { "<leader>c", group = "Code", mode = { "n", "v" }, icon = { icon = " ", color = "gray" } },
       { "<leader>d", group = "Debug", mode = { "n", "v" }, icon = { icon = " ", color = "red" } },
       { "<leader>D", group = "Debug Printf", mode = { "n", "v" }, icon = { icon = " ", color = "orange" } },
@@ -36,7 +41,7 @@ return {
       { "<leader>n", group = "Noice", mode = { "n", "v" }, icon = { icon = "󱅫 ", color = "yellow" } },
       { "<leader>t", group = "Terminal", mode = { "n", "v" }, icon = { icon = " ", color = "red" } },
       { "<leader>T", group = "Test", mode = { "n", "v" }, icon = { icon = "󰙨 ", color = "green" } },
-      { "<leader>Ta", group = "Test File", mode = { "n", "v" }, icon = { icon = "󰙨 ", color = "green" } },
+      { "<leader>Ta", mode = { "n", "v" }, icon = { icon = "󰙨 ", color = "green" } },
 
       { "[", group = "prev" },
       { "]", group = "next" },
