@@ -125,10 +125,6 @@ return {
       args = { os.getenv "HOME" .. ".local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js" },
     }
 
-    -- INFO: DAP PYTHON
-    require("dap-python").setup(vim.env.HOME .. "/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
-    require("dap-python").default_port = 38000
-
     -- INFO: DAP JAVASCRIPT TYPESCRIPT
     dap.adapters["pwa-node"] = {
       type = "server",
