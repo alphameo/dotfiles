@@ -6,9 +6,6 @@ return {
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
-    config = function()
-      vim.keymap.set("n", "<leader>lp", ":MarkdownPreviewToggle<CR>", { silent = true, desc = "Markdown Preview" })
-    end,
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
@@ -30,7 +27,6 @@ return {
     },
     config = function()
       vim.cmd "RenderMarkdown disable"
-      vim.keymap.set("n", "<leader>lr", ":RenderMarkdown toggle<CR>", { silent = true, desc = "Markdown Render" })
     end,
   },
 }

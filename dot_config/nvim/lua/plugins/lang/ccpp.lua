@@ -26,11 +26,4 @@ return {
       },
     },
   },
-  config = function()
-    local map = vim.keymap.set
-    map({ "n" }, "<leader>lh", ":ClangdSwitchSourceHeader<CR>", { silent = true, desc = "C/C++ Switch Source/Header" })
-    map({ "n" }, "<leader>lH", ":ClangdTypeHierarchy<CR>", { silent = true, desc = "C/C++ Type Hierarchy" })
-    map({ "n" }, "<leader>lt", ":ClangdAST<CR>", { silent = true, desc = "C/C++ Abstract Syntax Tree" })
-    map({ "n" }, "<leader>lm", ":ClangdMemoryUsage<CR>", { silent = true, desc = "C/C++ Memory Usage" })
-  end,
 }

@@ -54,7 +54,7 @@ g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 
 o.spelllang = "ru_ru,en_us"
-o.spell = true
+o.spell = false
 
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.fn.has "win32" ~= 0

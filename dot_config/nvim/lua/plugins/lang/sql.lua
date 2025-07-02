@@ -39,7 +39,6 @@ select count(*) from {table};
       -- you save the file running those queries can crash neovim to run use the
       -- default keymap: <leader>S
       vim.g.db_ui_execute_on_save = false
-      vim.keymap.set("n", "<leader>ld", ":DBUIToggle<CR>", { silent = true, desc = "DBUI" })
     end,
   },
   {
