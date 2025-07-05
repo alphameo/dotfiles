@@ -12,7 +12,6 @@
     "modules-center": [
     ],
     "modules-right": [
-        // "custom/media",
         "hyprland/language",
         "network",
         "bluetooth",
@@ -76,8 +75,6 @@
         },
         "smooth-scrolling-threshold": 5,
         "actions": {
-            // "on-scroll-up": "tz_up",
-            // "on-scroll-down": "tz_down",
             "on-scroll-up": "shift_up",
             "on-scroll-down": "shift_down",
             "on-click": "shift_reset",
@@ -205,18 +202,6 @@
         "tooltip-format": "Screenlock\n\n<small>LMB - pause screenlocking</small>",
         "on-click": "$HOME/.config/waybar/scripts/hypridle.sh toggle"
     },
-    // "custom/media": {
-    //     "format": "{icon} {}",
-    //     "escape": true,
-    //     "return-type": "json",
-    //     "max-length": 40,
-    //     "on-click": "playerctl play-pause",
-    //     "on-click-right": "playerctl stop",
-    //     "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
-    //     "on-scroll-up": "playerctl next",
-    //     "on-scroll-down": "playerctl previous",
-    //     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
-    // },
     "cava": {
         "framerate": 144,
         "autosens": 1,
