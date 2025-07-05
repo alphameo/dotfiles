@@ -1,5 +1,5 @@
-ENABLED="<span color='#74c7ec'>󰒲</span> "
-DISABLED="<span color='#f38ba8'>󰒳</span> "
+ENABLED="<span color='#74c7ec'>󰒲 </span> "
+DISABLED="<span color='#f38ba8'>󰒳 </span> "
 
 INP=$@
 function check {
