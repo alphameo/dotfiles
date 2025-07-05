@@ -9,22 +9,33 @@
         "tray",
         "hyprland/window"
     ],
-    "modules-center": [
-    ],
+    "modules-center": [],
     "modules-right": [
         "hyprland/language",
-        "network",
-        "bluetooth",
-        "custom/notifications",
-        "pulseaudio",
-        "cava",
-        "backlight",
-        "battery",
-        "power-profiles-daemon",
-        "custom/screenlock",
+        "group/group-controls",
+        "group/group-battery",
         "clock",
         "custom/powermenu"
     ],
+    "group/group-battery": {
+        "orientation": "horizontal",
+        "modules": [
+            "battery",
+            "power-profiles-daemon",
+            "custom/screenlock"
+        ]
+    },
+    "group/group-controls": {
+        "orientation": "horizontal",
+        "modules": [
+            "network",
+            "bluetooth",
+            "custom/notifications",
+            "pulseaudio",
+            "cava",
+            "backlight",
+        ]
+    },
     "hyprland/workspaces": {
         "format": "{name}{icon}{windows}",
         "format-window-separator": " ",
@@ -88,16 +99,16 @@
         "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
     },
     "network": {
-        "format-disabled": "<span color='#cdd6f4'>󰪎</span> ",
-        "format-disconnected": "<span color='#cdd6f4'></span> ",
-        "format-wifi": "<span color='#74c7ec'></span> ",
-        "format-ethernet": "<span color='#74c7ec'>󰲝</span> ",
-        "format-linked": "<span color='#74c7ec'>󱘖</span> ",
+        "format-disabled": "<span color='#cdd6f4'>󰪎 </span>",
+        "format-disconnected": "<span color='#cdd6f4'> </span>",
+        "format-wifi": "<span color='#74c7ec'> </span>",
+        "format-ethernet": "<span color='#74c7ec'>󰲝 </span>",
+        "format-linked": "<span color='#74c7ec'>󱘖 </span>",
         "interval": 2,
         // "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
         "format-icons": [
-            "<span color='#f38ba8'>󰢿 </span>",
-            "<span color='#fab387'>󰢼 </span>",
+            "<span color='#f38ba8'>󰢿</span>",
+            "<span color='#fab387'>󰢼</span>",
             "<span color='#cdd6f4'>󰢽</span>",
             "<span color='#cdd6f4'>󰢾</span>"
         ],
@@ -114,7 +125,7 @@
         "format-off": "<span color='#cdd6f4'>󰂲</span>",
         "format-on": "<span color='#cdd6f4'>󰂯</span>",
         "format-connected": "<span color='#74c7ec'>󰂱</span>",
-        "format-connected-battery": "<span color='#74c7ec'>󰂱</span> 󰥉 {device_battery_percentage}%",
+        "format-connected-battery": "<span color='#74c7ec'>󰥉{device_battery_percentage}%</span>",
         "tooltip-format": "{controller_alias} ({controller_address})\n\nConnected devices: {num_connections}\n\nLMB - menu",
         "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}\n\nLMB - menu",
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
@@ -161,7 +172,7 @@
             "critical": 10
         },
         "format": "{icon} {capacity}%",
-        // "format-icons": ["󰂎", "󰁼", "󰁿", "󰂁", "󰁹"],
+        // "format-icons": ["󰂎 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "],
         "format-icons": [
             "",
             "",
@@ -175,7 +186,7 @@
         "interval": 1
     },
     "power-profiles-daemon": {
-        "format": "{icon}",
+        "format": "{icon} ",
         "format-icons": {
             "default": "",
             "performance": "<span color='#f38ba8'></span>",
@@ -185,7 +196,7 @@
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}\n\nLMB/RMB - toggle"
     },
     "custom/powermenu": {
-        "format": "<span color='#f38ba8'>󰐦</span>",
+        "format": "<span color='#f38ba8'>󰐥</span>",
         "tooltip-format": "Power menu\n\n<small>LMB/M-C-p - open</small>",
         "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu"
     },

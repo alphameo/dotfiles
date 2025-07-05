@@ -16,84 +16,55 @@ window#waybar {
 }
 
 #window {
-  padding: 2px 10px;
-  margin: 0 4px;
-}
-
-#workspaces,
-#clock,
-#battery,
-#power-profiles-daemon,
-#language,
-#network,
-#backlight,
-#keyboard-state,
-#bluetooth,
-#pulseaudio,
-#lock,
-#tray,
-#custom-power,
-#custom-reboot,
-#custom-lock,
-#custom-powermenu,
-#custom-notifications,
-#custom-screenlock,
-#cava {
-  background-color: @base;
-  color: @text;
-
-  padding: 0px 10px;
-  margin: 0 2px;
-
-  border: 1px solid @overlay1;
-  border-radius: 8px;
-}
-
-#battery,
-#network {
-  padding-right: 8px;
-  margin-right: 0;
-  border-right: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-#power-profiles-daemon,
-#pulseaudio,
-#custom-notifications,
-#bluetooth,
-#custom-reboot {
-  padding-right: 8px;
-  margin-right: 0;
-  border-right: 0;
-  padding-left: 8px;
-  margin-left: 0;
-  border-left: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-#backlight,
-#custom-screenlock {
-  padding-left: 8px;
-  margin-left: 0;
-  border-left: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-#workspaces {
-  padding: 0px 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 #workspaces button {
-  padding: 2px 12px;
+  padding: 2 12px;
 }
 
 #workspaces button.active {
   color: @base;
   background-color: @overlay1;
   border-radius: 6px;
+}
+
+#workspaces,
+#tray,
+#clock,
+#language,
+#keyboard-state,
+#group-controls,
+#group-battery,
+#custom-powermenu {
+  background-color: @base;
+  color: @text;
+
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: 0px;
+  margin-right: 4px;
+
+  border: 1px solid @overlay1;
+  border-radius: 8px;
+}
+
+#custom-powermenu {
+  margin-right: 0px;
+}
+
+#workspaces {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#group-battery *,
+#group-controls * {
+  margin-left: 4px;
+  margin-right: 4px;
 }
