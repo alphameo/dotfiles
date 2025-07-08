@@ -29,7 +29,6 @@ return {
 
         local telescope = require "telescope.builtin"
 
-        map("n", "<C-k>", lsp_b.hover, opts "Show Doc Hover")
         map("n", "K", lsp_b.hover, opts "Show Doc Hover")
         map("i", "<C-S-k>", lsp_b.signature_help, opts "Show Signature Help")
 

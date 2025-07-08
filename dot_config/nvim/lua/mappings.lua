@@ -29,15 +29,15 @@ map("n", "<A-s>", "<C-w>s", { desc = "Window Horizontal Split" })
 map("n", "<A-v>", "<C-w>v", { desc = "Window Vertical Split" })
 map("n", "<A-q>", "<C-w>q", { desc = "Window Quit" })
 
-map("n", "<A-k>", "<C-w>k", { desc = "Go to Upper Window" })
-map("n", "<A-j>", "<C-w>j", { desc = "Go to Lower Window" })
-map("n", "<A-h>", "<C-w>h", { desc = "Go to Left Window" })
-map("n", "<A-l>", "<C-w>l", { desc = "Go to Right Window" })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })
+map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
 
-map("n", "<A-=>", "<C-w>+", { desc = "Window Taller" })
-map("n", "<A-->", "<C-w>-", { desc = "Window Shorter" })
-map("n", "<A-.>", "<C-w>>", { desc = "Window Wider" })
-map("n", "<A-,>", "<C-w><", { desc = "Window Narower" })
+map("n", "<C-=>", "<C-w>+", { desc = "Window Taller" })
+map("n", "<C-->", "<C-w>-", { desc = "Window Shorter" })
+map("n", "<C-.>", "<C-w>>", { desc = "Window Wider" })
+map("n", "<C-,>", "<C-w><", { desc = "Window Narower" })
 
 -- Comments
 map("i", "<C-/>", "<ESC>:Commentary<CR>", { silent = true, desc = "Toggle comment" })
