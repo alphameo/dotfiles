@@ -18,16 +18,12 @@ map("n", "<C-S-q>", ":q!<CR>", { silent = true, desc = "Force Quit" })
 map("n", "<leader>aw", ":set wrap!<CR>", { silent = true, desc = "Toggle Line Wrap" })
 
 -- Buffers
-map("n", "<A-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
-map("n", "<A-w>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
-
-map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
-map("n", "<C-S-Tab>", ":bprevious<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+map("n", "<C-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
+map("n", "<C-x>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
 
 -- Windows
-map("n", "<A-s>", "<C-w>s", { desc = "Window Horizontal Split" })
-map("n", "<A-v>", "<C-w>v", { desc = "Window Vertical Split" })
-map("n", "<A-q>", "<C-w>q", { desc = "Window Quit" })
+map("n", "<C-S-\\>", "<C-w>s", { desc = "Window Horizontal Split" })
+map("n", "<C-\\>", "<C-w>v", { desc = "Window Vertical Split" })
 
 map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })

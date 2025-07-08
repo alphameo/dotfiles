@@ -40,8 +40,8 @@ return {
     local map = vim.keymap.set
     map("n", "<C-]>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
     map("n", "<C-[>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
-    map("n", "<C-0>", ":BufferLineMoveNext<CR>", { silent = true, desc = "Move Tab (buffer) Right" })
-    map("n", "<C-9>", ":BufferLineMovePrev<CR>", { silent = true, desc = "Move Tab (buffer) Next" })
+    map("n", "<C-S-]>", ":BufferLineMoveNext<CR>", { silent = true, desc = "Move Tab (buffer) Right" })
+    map("n", "<C-S-[>", ":BufferLineMovePrev<CR>", { silent = true, desc = "Move Tab (buffer) Next" })
     map("n", "<C-g>", ":BufferLinePick<CR>", { silent = true, desc = "Pick Tab (buffer) Next" })
   end,
 }

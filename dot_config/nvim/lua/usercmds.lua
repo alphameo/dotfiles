@@ -33,25 +33,7 @@ end
 -- NOTE: Terminal mappings
 local map = vim.keymap.set
 map("n", "<leader>tt", ":terminal<CR>", { silent = true, desc = "Terminal Tab New" })
-map("t", "<C-q>", "<C-\\><C-n>", { silent = true, remap = true, desc = "Exit Terminal Mode" })
-map("t", "<A-t>", "<C-\\><C-n><A-t>", { silent = true, remap = true, desc = "Term: Tab New" })
-map("t", "<A-w>", "<C-\\><C-n><A-w>", { silent = true, remap = true, desc = "Term: Tab Quit" })
-map("t", "<C-]>", "<C-\\><C-n><C-]>", { silent = true, remap = true, desc = "Term: Next Tab (buffer)" })
-map("t", "<C-[>", "<C-\\><C-n><C-[>", { silent = true, remap = true, desc = "Term: Previous Tab (buffer)" })
-map("t", "<C-0>", "<C-\\><C-n><C-0>", { silent = true, remap = true, desc = "Term: Move Tab (buffer) Right" })
-map("t", "<C-9>", "<C-\\><C-n><C-9>", { silent = true, remap = true, desc = "Term: Move Tab (buffer) Next" })
-map("t", "<C-g>", "<C-\\><C-n><C-g>", { silent = true, remap = true, desc = "Term: Pick Tab (buffer) Next" })
-map("t", "<A-s>", "<C-\\><C-n><A-s>", { silent = true, remap = true, desc = "Term: Window Horizontal Split" })
-map("t", "<A-v>", "<C-\\><C-n><A-v>", { silent = true, remap = true, desc = "Term: Window Vertical Split" })
-map("t", "<A-q>", "<C-\\><C-n><A-q>", { silent = true, remap = true, desc = "Term: Window Quit" })
-map("t", "<C-k>", "<C-\\><C-n><C-k>", { silent = true, remap = true, desc = "Term: Go to Upper window" })
-map("t", "<C-j>", "<C-\\><C-n><C-j>", { silent = true, remap = true, desc = "Term: Go to Lower window" })
-map("t", "<C-h>", "<C-\\><C-n><C-h>", { silent = true, remap = true, desc = "Term: Go to Left window" })
-map("t", "<C-l>", "<C-\\><C-n><C-l>", { silent = true, remap = true, desc = "Term: Go to Right window" })
-map("t", "<C-=>", "<C-\\><C-n><C-=>", { silent = true, remap = true, desc = "Term: Window Taller" })
-map("t", "<C-->", "<C-\\><C-n><C-->", { silent = true, remap = true, desc = "Term: Window Shorter" })
-map("t", "<C-.>", "<C-\\><C-n><C-.>", { silent = true, remap = true, desc = "Term: Window Wider" })
-map("t", "<C-,>", "<C-\\><C-n><C-,>", { silent = true, remap = true, desc = "Term: Window Narrower" })
+map("t", "<ESC><ESC>", "<C-\\><C-n>", { silent = true, remap = true, desc = "Exit Terminal Mode" })
 
 -- NOTE: Split Terminal
 local create_split_buffer = function(opts)
