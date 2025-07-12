@@ -36,34 +36,37 @@ map("n", "<C-.>", "<C-w>>", { desc = "Window Wider" })
 map("n", "<C-,>", "<C-w><", { desc = "Window Narower" })
 
 -- Comments
-map("i", "<C-/>", "<ESC>:Commentary<CR>", { silent = true, desc = "Toggle comment" })
-map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
-map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
+map("i", "<C-/>", "<ESC>:Commentary<CR>", { silent = true, desc = "Toggle Comment" })
+map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle Comment" })
+map("v", "<C-/>", "gc", { remap = true, desc = "Toggle Comment" })
 
 -- Features
-map("v", "<", "<gv", { desc = "Indent left" }) -- stay in visual mode after indent
-map("v", ">", ">gv", { desc = "Indent right" }) -- stay in visual mode after indent
+map("v", "<", "<gv", { desc = "Indent Left" }) -- stay in visual mode after indent
+map("v", ">", ">gv", { desc = "Indent Right" }) -- stay in visual mode after indent
 
-map("n", "x", '"_x', { desc = "Delete char" }) -- delete single character without copying into register
+map("n", "<A-j>", ":m .+1<CR>==", { silent = true, desc = "Move Line Down" })
+map("n", "<A-k>", ":m .-2<CR>==", { silent = true, desc = "Move Line Up" })
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
 
-map("n", "<C-d>", "<C-d>zz", { desc = "Page down" }) -- center after scroll down
-map("n", "<C-u>", "<C-u>zz", { desc = "Page up" }) -- center after scroll up
-map("n", "n", "nzzzv", { desc = "Next occurance" }) -- center after find
-map("n", "N", "Nzzzv", { desc = "Previous occurance" }) -- center after find
+map("n", "<C-d>", "<C-d>zz", { desc = "Page Down" }) -- center after scroll down
+map("n", "<C-u>", "<C-u>zz", { desc = "Page Up" }) -- center after scroll up
+map("n", "n", "nzzzv", { desc = "Next Occurance" }) -- center after find
+map("n", "N", "Nzzzv", { desc = "Previous Occurance" }) -- center after find
 
-map("n", "<C-e>", "5<C-e>", { desc = "Scroll down" })
-map("n", "<C-y>", "5<C-y>", { desc = "Scroll up" })
+map("n", "<C-e>", "5<C-e>", { desc = "Scroll Down" })
+map("n", "<C-y>", "5<C-y>", { desc = "Scroll Up" })
 
--- map("v", "p", "_dp", { desc = "Paste" }) -- keep last yanked when pasting (doesn't work with cmp snippets)
--- map("v", "P", "_dP", { desc = "Paste pre" }) -- keep last yanked when pasting (doesn't work with cmp snippets)
 vim.keymap.set("x", "p", function()
   return 'pgv"' .. vim.v.register .. "y"
 end, { remap = false, expr = true })
 
 map("i", "jk", "<ESC>", { desc = "Exit INSERT MODE" })
+map("i", "jj", "<ESC>", { desc = "Exit INSERT MODE" })
 map("i", "kj", "<ESC>", { desc = "Exit INSERT MODE" })
 
 vim.opt.langmap = "ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х\\[,Ъ\\],ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж\\;,Э\\',ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б\\<,Ю\\>"
   .. ",йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х\\[,ъ\\],фa,ыs,вd,аf,пg,рh,оj,лk,дl,ж\\;,э\\',яz,чx,сc,мv,иb,тn,ьm,б\\<,ю\\>"
 map("i", "ол", "<ESC>", { desc = "Exit INSERT MODE" })
+map("i", "оо", "<ESC>", { desc = "Exit INSERT MODE" })
 map("i", "ло", "<ESC>", { desc = "Exit INSERT MODE" })
