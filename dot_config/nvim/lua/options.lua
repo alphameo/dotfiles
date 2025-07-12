@@ -1,5 +1,4 @@
 local opt = vim.opt
-local o = vim.o
 
 -----------
 -- BASIC --
@@ -7,7 +6,6 @@ local o = vim.o
 opt.number = true -- Line numbers (false)
 opt.relativenumber = true -- Set relative numbered lines (false)
 opt.cursorline = true -- Highlight current line (false)
-opt.cursorcolumn = false -- Highlight current column (false)
 opt.wrap = false -- Display lines as one long line (true)
 opt.linebreak = true -- Companion to wrap, don't split words (false)
 opt.scrolloff = 10 -- Keep n lines above/below cursor (0)
@@ -39,6 +37,8 @@ opt.termguicolors = true -- 24-bit colors (false)
 opt.signcolumn = "yes" -- Show signcolumn ("auto")
 opt.colorcolumn = "" -- Show column at "n" characters
 opt.conceallevel = 0 -- Visual-control chars (**, '') in md etc. (0 - visible, 1-faded(def), 2-hidden, 3-idk)
+opt.splitbelow = true -- Horizontal splits go below
+opt.splitright = true -- Vertical splits go right
 
 -------------------
 -- FILE HANDLING --
@@ -48,8 +48,6 @@ opt.swapfile = false -- Creates a swapfile (true)
 opt.undofile = true -- Save undo history (false)
 opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
 opt.updatetime = 300 -- Decrease update time (4000)
-opt.autoread = true -- Auto reload files changed outside vim (false)
-opt.autowrite = false -- Don't auto save (false)
 opt.encoding = "UTF-8" -- Set encoding
 opt.isfname:append "@-@" -- Allow @ for filenames
 
@@ -58,24 +56,14 @@ opt.isfname:append "@-@" -- Allow @ for filenames
 -----------
 opt.clipboard:append "unnamedplus" -- Use system clipboard ('')
 opt.timeoutlen = 200 -- Key timeout duration (500)
-opt.ttimeoutlen = 0 -- Key code timeout
+opt.ttimeoutlen = 10 -- Key code timeout
 opt.mouse = "a" -- Enable mouse support (default: '')
-
------------
--- SPELL --
------------
-o.spelllang = "ru_ru,en_us"
-o.spell = false
-
------------
--- SPLIT --
------------
-opt.splitbelow = true -- Horizontal splits go below
-opt.splitright = true -- Vertical splits go right
 
 -----------
 -- OTHER --
 -----------
+opt.spelllang = "ru_ru,en_us"
+opt.spell = false
 vim.filetype.add {
   pattern = {
     [".*/.config/hypr/.*%.conf"] = "hyprlang",
