@@ -1,11 +1,10 @@
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   group = vim.api.nvim_create_augroup("LastCursorPlace", {}),
-  desc = "Return cursor to where it was last time closing the file",
   pattern = "*",
   command = 'silent! normal! g`"zv',
+  desc = "Return cursor to where it was last time closing the file",
 })
 
--- INFO: LSP DEFAULTCMP
 -- vim.api.nvim_create_autocmd("LspAttach", {
 --   callback = function(args)
 --     local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -20,7 +19,6 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 --   end,
 -- })
 
--- INFO: TERM
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("term-autoinsert", { clear = true }),
   pattern = { "*" },
@@ -32,7 +30,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   desc = "Autoinsert on terminal open",
 })
 
--- INFO: Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
   callback = function()
@@ -41,7 +38,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight yanked text",
 })
 
--- INFO: Detect filetype
 -- TODO: Remove after fixing non=detecting (mason and BlinkCMP, maybe treesitter)
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*",
@@ -50,11 +46,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
       vim.cmd "filetype detect" -- Force detection
     end
   end,
+  desc = "Detect filetype",
 })
 
--- INFO: Trim whitespaces
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("trim-white-space", {}),
   pattern = "*",
   command = "%s/\\s\\+$//e",
+  desc = "Trim whitespaces",
 })
