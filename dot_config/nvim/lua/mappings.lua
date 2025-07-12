@@ -1,27 +1,30 @@
--- Set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local map = vim.keymap.set
 
-map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
-
--- Save file
+----------
+-- File --
+----------
 map("n", "<C-s>", ":w<CR>", { silent = true, desc = "Save File" })
 map("n", "<C-S-s>", ":wall<CR>", { silent = true, desc = "Save All Files" })
-
--- Quit file
 map("n", "<C-q>", ":q<CR>", { silent = true, desc = "Quit" })
 map("n", "<C-S-q>", ":q!<CR>", { silent = true, desc = "Force Quit" })
 
--- Appearance
+----------------
+-- Appearance --
+----------------
 map("n", "<leader>aw", ":set wrap!<CR>", { silent = true, desc = "Toggle Line Wrap" })
 
--- Buffers
+-------------
+-- Buffers --
+-------------
 map("n", "<C-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
 map("n", "<C-x>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
 
--- Windows
+-------------
+-- Windows --
+-------------
 map("n", "<C-S-\\>", "<C-w>s", { desc = "Window Horizontal Split" })
 map("n", "<C-\\>", "<C-w>v", { desc = "Window Vertical Split" })
 
@@ -35,12 +38,18 @@ map("n", "<C-->", "<C-w>-", { desc = "Window Shorter" })
 map("n", "<C-.>", "<C-w>>", { desc = "Window Wider" })
 map("n", "<C-,>", "<C-w><", { desc = "Window Narower" })
 
--- Comments
+--------------
+-- Comments --
+--------------
 map("i", "<C-/>", "<ESC>:Commentary<CR>", { silent = true, desc = "Toggle Comment" })
 map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle Comment" })
 map("v", "<C-/>", "gc", { remap = true, desc = "Toggle Comment" })
 
--- Features
+--------------
+-- Features --
+--------------
+map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
+
 map("v", "<", "<gv", { desc = "Indent Left" }) -- stay in visual mode after indent
 map("v", ">", ">gv", { desc = "Indent Right" }) -- stay in visual mode after indent
 
@@ -54,12 +63,12 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Page Up" }) -- center after scroll up
 map("n", "n", "nzzzv", { desc = "Next Occurance" }) -- center after find
 map("n", "N", "Nzzzv", { desc = "Previous Occurance" }) -- center after find
 
-map("n", "<C-e>", "5<C-e>", { desc = "Scroll Down" })
-map("n", "<C-y>", "5<C-y>", { desc = "Scroll Up" })
+map("n", "<C-e>", "5<C-e>", { desc = "Scroll Down" }) -- faster scroll without cursor
+map("n", "<C-y>", "5<C-y>", { desc = "Scroll Up" }) -- faster scroll without cursor
 
 vim.keymap.set("x", "p", function()
   return 'pgv"' .. vim.v.register .. "y"
-end, { remap = false, expr = true })
+end, { remap = false, expr = true }) -- paste without yanking
 
 map("i", "jk", "<ESC>", { desc = "Exit INSERT MODE" })
 map("i", "jj", "<ESC>", { desc = "Exit INSERT MODE" })
