@@ -1,28 +1,31 @@
 -- NOTE: TERMINALS
-local terminal_state = {
+local win_state = {
   buf = -1,
   win = -1,
 }
 
 local toggle_terminal = function(create_win_func)
-  if not vim.api.nvim_win_is_valid(terminal_state.win) then
-    terminal_state = create_win_func { buf = terminal_state.buf }
-    if vim.bo[terminal_state.buf].buftype ~= "terminal" then
-      vim.cmd.terminal()
+  if not vim.api.nvim_win_is_valid(win_state.win) or not vim.api.nvim_buf_is_valid(win_state.buf) then
+    win_state = create_win_func { buf = win_state.buf }
+    if vim.bo[win_state.buf].buftype ~= "terminal" then
+      vim.api.nvim_call_function("termopen", { vim.o.shell })
     end
     vim.cmd "startinsert"
   else
-    vim.api.nvim_win_hide(terminal_state.win)
+    vim.api.nvim_win_hide(win_state.win)
     vim.cmd "stopinsert"
   end
 end
 
-local new_term_state = function(opts, win_config)
-  local buf = nil
+local new_hidden_win_state = function(opts, win_config)
+  local buf
   if vim.api.nvim_buf_is_valid(opts.buf) then
     buf = opts.buf
   else
     buf = vim.api.nvim_create_buf(false, true)
+    vim.bo[buf].buflisted = false
+    vim.bo[buf].swapfile = false
+    vim.bo[buf].bufhidden = "hide"
   end
 
   local win = vim.api.nvim_open_win(buf, true, win_config)
@@ -46,7 +49,7 @@ local create_split_buffer = function(opts)
     style = "minimal",
   }
 
-  return new_term_state(opts, win_config)
+  return new_hidden_win_state(opts, win_config)
 end
 
 local toggle_split_terminal = function()
@@ -79,7 +82,7 @@ local function create_floating_window(opts)
     border = "rounded",
   }
 
-  return new_term_state(opts, win_config)
+  return new_hidden_win_state(opts, win_config)
 end
 
 local toggle_float_terminal = function()
