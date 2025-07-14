@@ -10,7 +10,6 @@ $git_branch\
 $git_commit\
 $git_status\
 $git_state\
-$git_metrics\
 $python\
 $line_break\
 $character"""
@@ -94,12 +93,6 @@ staged = " ${count}"
 renamed = '»${count}'
 deleted = "-${count}"
 typechanged = ""
-
-[git_metrics]
-disabled = false
-format = '( [\(([+$added]($added_style))([ -$deleted]($deleted_style))\)](fg:bright-yellow))'
-added_style = "green"
-deleted_style = "red"
 
 [git_state]
 disabled = false
