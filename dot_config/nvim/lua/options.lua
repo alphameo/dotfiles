@@ -1,55 +1,62 @@
+local o = vim.opt
+local g = vim.g
 local opt = vim.opt
 
 -- Basic
-opt.number = true -- Line numbers (false)
-opt.relativenumber = true -- Set relative numbered lines (false)
-opt.cursorline = true -- Highlight current line (false)
-opt.wrap = false -- Display lines as one long line (true)
-opt.linebreak = true -- Companion to wrap, don't split words (false)
-opt.scrolloff = 10 -- Keep n lines above/below cursor (0)
-opt.sidescrolloff = 8 -- Keep n columns left/right of cursor (0)
+g.have_nerd_font = true
+o.number = true -- Line numbers (false)
+o.relativenumber = true -- Set relative numbered lines (false)
+o.cursorline = true -- Highlight current line (false)
+o.wrap = false -- Display lines as one long line (true)
+o.linebreak = true -- Companion to wrap, don't split words (false)
+o.scrolloff = 10 -- Keep n lines above/below cursor (0)
+o.sidescrolloff = 8 -- Keep n columns left/right of cursor (0)
 
 -- Indentation
-opt.tabstop = 4 -- Tab width (8)
-opt.shiftwidth = 4 -- Indent width (8)
-opt.softtabstop = 4 -- Number of spaces that tab counts (0)
-opt.expandtab = true -- Spaces instead of tabs (false)
-opt.smartindent = true -- Smart auto-indenting (false)
-opt.autoindent = true -- Copy indent from current line (true)
-opt.breakindent = true -- Keep wrapped line on same indent level (default: false)
+o.tabstop = 4 -- Tab width (8)
+o.shiftwidth = 4 -- Indent width (8)
+o.softtabstop = 4 -- Number of spaces that tab counts (0)
+o.expandtab = true -- Spaces instead of tabs (false)
+o.smartindent = true -- Smart auto-indenting (false)
+o.autoindent = true -- Copy indent from current line (true)
+o.breakindent = true -- Keep wrapped line on same indent level (default: false)
 
 -- Search
-opt.ignorecase = true -- Case-insensitive search (false)
-opt.smartcase = true -- Case sensitive if uppercase in search (false)
-opt.hlsearch = false -- Highlight search results (true)
-opt.incsearch = true -- Show matches as you type (false)
+o.ignorecase = true -- Case-insensitive search (false)
+o.smartcase = true -- Case sensitive if uppercase in search (false)
+o.hlsearch = false -- Highlight search results (true)
+o.incsearch = true -- Show matches as you type (false)
 
 -- Visual
-opt.termguicolors = true -- 24-bit colors (false)
-opt.signcolumn = "yes" -- Show signcolumn ("auto")
-opt.colorcolumn = "" -- Show column at "n" characters
-opt.conceallevel = 0 -- Visual-control chars (**, '') in md etc. (0 - visible, 1-faded(def), 2-hidden, 3-idk)
-opt.splitbelow = true -- Horizontal splits go below
-opt.splitright = true -- Vertical splits go right
+o.termguicolors = true -- 24-bit colors (false)
+o.signcolumn = "yes" -- Show signcolumn ("auto")
+o.colorcolumn = "" -- Show column at "n" characters
+o.conceallevel = 0 -- Visual-control chars (**, '') in md etc. (0 - visible, 1-faded(def), 2-hidden, 3-idk)
+o.splitbelow = true -- Horizontal splits go below
+o.splitright = true -- Vertical splits go right
 
 -- File Handling
-opt.backup = false -- Creates a backup file (false)
-opt.swapfile = false -- Creates a swapfile (true)
-opt.undofile = true -- Save undo history (false)
-opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
-opt.updatetime = 300 -- Decrease update time (4000)
-opt.encoding = "UTF-8" -- Set encoding
+o.backup = false -- Creates a backup file (false)
+o.swapfile = false -- Creates a swapfile (true)
+o.undofile = true -- Save undo history (false)
+o.undodir = os.getenv "HOME" .. "/.vim/undodir"
+o.updatetime = 250 -- Decrease update time (4000)
+o.encoding = "UTF-8" -- Set encoding
 opt.isfname:append "@-@" -- Allow @ for filenames
+o.confirm = true
 
 -- Input
-opt.clipboard:append "unnamedplus" -- Use system clipboard ('')
-opt.timeoutlen = 200 -- Key timeout duration (500)
-opt.ttimeoutlen = 10 -- Key code timeout
-opt.mouse = "a" -- Enable mouse support (default: '')
+vim.schedule(function()
+  o.clipboard = "unnamedplus"
+end) -- Use system clipboard ('')
+o.timeoutlen = 200 -- Key timeout duration (500)
+o.ttimeoutlen = 10 -- Key code timeout
+o.mouse = "a" -- Enable mouse support (default: '')
 
 -- Other
-opt.spelllang = "ru_ru,en_us"
-opt.spell = false
+o.spelllang = "ru_ru,en_us"
+o.spell = false
+o.inccommand = "split" -- Preview substitutions live, as you type!
 vim.filetype.add {
   pattern = {
     [".*/.config/hypr/.*%.conf"] = "hyprlang",
