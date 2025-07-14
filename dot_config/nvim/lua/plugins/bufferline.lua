@@ -10,6 +10,7 @@ return {
   config = function()
     require("bufferline").setup {
       options = {
+        numbers = "ordinal",
         mode = "buffers", -- set to "tabs" to only show tabpages instead
         themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
         close_command = "Bdelete! %d", -- mouse action exit (press x) command (string or function)
@@ -38,10 +39,15 @@ return {
       },
     }
     local map = vim.keymap.set
-    map("n", "<C-]>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
-    map("n", "<C-[>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
-    map("n", "<C-S-]>", ":BufferLineMoveNext<CR>", { silent = true, desc = "Move Tab (buffer) Right" })
-    map("n", "<C-S-[>", ":BufferLineMovePrev<CR>", { silent = true, desc = "Move Tab (buffer) Next" })
-    map("n", "<C-g>", ":BufferLinePick<CR>", { silent = true, desc = "Pick Tab (buffer) Next" })
+    map("n", "<A-]>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+    map("n", "<C-Tab>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+    map("n", "<A-[>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+    map("n", "<C-S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+    map("n", "<A-.>", ":BufferLineMoveNext<CR>", { silent = true, desc = "Move Tab (buffer) Right" })
+    map("n", "<A-,>", ":BufferLineMovePrev<CR>", { silent = true, desc = "Move Tab (buffer) Next" })
+    map("n", "<A-g>", ":BufferLinePick<CR>", { silent = true, desc = "Pick Tab (buffer) Next" })
+    map("n", "<A-x>", ":BufferLinePickClose<CR>", { silent = true, desc = "Pick buffer to close" })
+    map("n", "<A-o>", ":BufferLineCloseOthers<CR>", { silent = true, desc = "Close other buffers" })
+    map("n", "<A-\\>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
   end,
 }

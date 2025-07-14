@@ -13,8 +13,8 @@ map("n", "<C-S-q>", ":q!<CR>", { silent = true, desc = "Force Quit" })
 map("n", "<leader>aw", ":set wrap!<CR>", { silent = true, desc = "Toggle Line Wrap" })
 
 -- Buffers
-map("n", "<C-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
-map("n", "<C-x>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
+map("n", "<A-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
+map("n", "<A-w>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
 
 -- Windows
 map("n", "<C-S-\\>", "<C-w>s", { desc = "Window Horizontal Split" })
@@ -24,6 +24,10 @@ map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })
 map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
+map("n", "<C-left>", "<C-w>H", { desc = "Move Window to the Left" })
+map("n", "<C-right>", "<C-w>L", { desc = "Move Window to the Right" })
+map("n", "<C-down>", "<C-w>J", { desc = "Move Window to the Lower" })
+map("n", "<C-up>", "<C-w>K", { desc = "Move Window to the Upper" })
 
 map("n", "<C-=>", "<C-w>+", { desc = "Window Taller" })
 map("n", "<C-->", "<C-w>-", { desc = "Window Shorter" })
@@ -37,6 +41,12 @@ map("v", "<C-/>", "gc", { remap = true, desc = "Toggle Comment" })
 
 -- Features
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
+map("n", "<left>", ':echo "Use h to move!"<CR>', { silent = true })
+map("n", "<right>", ':echo "Use l to move!"<CR>', { silent = true })
+map("n", "<up>", ':echo "Use k to move!"<CR>', { silent = true })
+map("n", "<down>", ':echo "Use j to move!"<CR>', { silent = true })
+
+map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 
 map("v", "<", "<gv", { desc = "Indent Left" }) -- stay in visual mode after indent
 map("v", ">", ">gv", { desc = "Indent Right" }) -- stay in visual mode after indent
@@ -45,7 +55,6 @@ map("n", "<A-j>", ":m .+1<CR>==", { silent = true, desc = "Move Line Down" })
 map("n", "<A-k>", ":m .-2<CR>==", { silent = true, desc = "Move Line Up" })
 map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
-
 map("n", "<C-d>", "<C-d>zz", { desc = "Page Down" }) -- center after scroll down
 map("n", "<C-u>", "<C-u>zz", { desc = "Page Up" }) -- center after scroll up
 map("n", "n", "nzzzv", { desc = "Next Occurance" }) -- center after find
