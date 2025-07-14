@@ -19,7 +19,7 @@ function launch_cli_app {
 }
 
 function open_in_term {
-    coproc($TERMINAL --hold "$@")
+    coproc ($TERMINAL --hold "$@")
     exit 0
 }
 
@@ -70,7 +70,7 @@ function run {
     elif [[ $INP == $QT6_UI ]]; then
         execute "qt6ct"
     elif [[ $INP = $DEFAULT_APPS ]]; then
-        execute "selectdefaultapplication"
+        execute "lxqt-config-file-associations"
     elif [[ $INP == $POWER ]]; then
         execute "rofi -show power-menu -modi power-menu:rofi-power-menu"
     else
