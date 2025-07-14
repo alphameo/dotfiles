@@ -88,9 +88,6 @@ return {
         },
       },
     },
-
-    snippets = { preset = "luasnip" },
-
     cmdline = {
       keymap = {
         ["<C-Space>"] = { "show", "hide", "fallback" },
@@ -104,24 +101,21 @@ return {
       },
       enabled = true,
     },
-
     sources = {
       default = {
         "lsp",
         "path",
         "snippets",
-        "buffer",
-        -- TODO: remove after tests
-        -- "omni",
       },
       per_filetype = {
-        sql = { "snippets", "dadbod", "buffer" },
+        sql = { "snippets", "dadbod" },
       },
 
       providers = {
         dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
       },
     },
+    snippets = { preset = "luasnip" },
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
     -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
     -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
