@@ -6,45 +6,10 @@ return {
   config = function()
     vim.o.showmode = false -- Disable default
 
-    local mode = {
-      "mode",
-      fmt = function(str)
-        return " " .. str
-      end,
-    }
-
-    local filename = {
-      "filename",
-      file_status = true,
-      path = 2, -- 0 = just filename, 1 = relative path, 2 = absolute path
-    }
-
     local keycommand = {
       require("noice").api.status.command.get,
       cond = require("noice").api.status.command.has,
       color = { fg = "#ff9e64" },
-    }
-
-    local hide_in_width = function()
-      return vim.fn.winwidth(0) > 100
-    end
-
-    local diagnostics = {
-      "diagnostics",
-      sources = { "nvim_diagnostic" },
-      sections = { "error", "warn" },
-      symbols = { error = " ", warn = " ", info = " ", hint = " " },
-      colored = true,
-      update_in_insert = true,
-      always_visible = false,
-      cond = hide_in_width,
-    }
-
-    local diff = {
-      "diff",
-      colored = false,
-      symbols = { added = " ", modified = " ", removed = " " },
-      cond = hide_in_width,
     }
 
     require("lualine").setup {
@@ -58,14 +23,14 @@ return {
         always_divide_middle = true,
       },
       sections = {
-        lualine_a = { mode },
+        lualine_a = { "mode" },
         lualine_b = { "branch" },
-        lualine_c = { filename },
+        lualine_c = { { "filename", file_status = true, path = 2 } },
         lualine_x = {
           keycommand,
-          diagnostics,
-          diff,
-          { "filetype", cond = hide_in_width },
+          { "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " } },
+          { "diff", symbols = { added = " ", modified = " ", removed = " " } },
+          "filetype",
         },
         lualine_y = { "location" },
         lualine_z = { "progress" },
