@@ -10,7 +10,7 @@ return {
   config = function()
     require("bufferline").setup {
       options = {
-        numbers = "ordinal",
+        -- numbers = "ordinal",
         mode = "buffers", -- set to "tabs" to only show tabpages instead
         themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
         close_command = "Bdelete! %d", -- mouse action exit (press x) command (string or function)
