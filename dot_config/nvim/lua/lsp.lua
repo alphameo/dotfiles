@@ -506,7 +506,7 @@ M.start_or_attach_java = function()
 
   vim.list_extend(
     bundles,
-    vim.split(vim.fn.glob(vim.env.HOME .. "/.local/share/nvim/mason/share/java-test/*.jar", 1), "\n")
+    vim.split(vim.fn.glob(vim.env.HOME .. "/.local/share/nvim/mason/share/java-test/*.jar", true), "\n")
   )
 
   local config = {
