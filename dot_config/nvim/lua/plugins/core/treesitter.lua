@@ -93,6 +93,10 @@ return {
         end,
       })
 
+      vim.api.nvim_create_user_command("TSInfo", function()
+        vim.cmd "checkhealth nvim-treesitter"
+      end, {})
+
       local map = vim.keymap.set
       map("n", "<leader>ct", ":InspectTree<CR>", { silent = true, desc = "Code Inspect Tree" })
     end,
