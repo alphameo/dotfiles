@@ -63,6 +63,8 @@ map("n", "N", "Nzzzv", { desc = "Previous Occurance" }) -- center after find
 map("n", "<C-e>", "5<C-e>", { desc = "Scroll Down" }) -- faster scroll without cursor
 map("n", "<C-y>", "5<C-y>", { desc = "Scroll Up" }) -- faster scroll without cursor
 
+map("n", "gb", "<C-o>", { desc = "Go Back" })
+
 vim.keymap.set("x", "p", function()
   return 'pgv"' .. vim.v.register .. "y"
 end, { remap = false, expr = true }) -- paste without yanking

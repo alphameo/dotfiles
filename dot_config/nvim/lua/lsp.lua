@@ -1,3 +1,65 @@
+-------------------
+-- Main settings --
+-------------------
+local M = {}
+local del_map = vim.keymap.del
+del_map("n", "grn") -- Rename
+del_map({ "n", "v" }, "gra") -- Code Actions
+del_map("n", "grr") -- Go to References
+del_map("n", "gri") -- Fo to Implementation
+del_map("n", "grt") -- Fo to Type defenition
+del_map("n", "gO") -- Document Symbols
+del_map("i", "<C-s>") -- Signature Help
+
+local lsp_b = vim.lsp.buf
+M.actions = {
+  def = lsp_b.definition,
+  impl = lsp_b.implementation,
+  ref = lsp_b.references,
+  type_def = lsp_b.type_definition,
+  doc_symb = lsp_b.document_symbol,
+  wsp_symb = lsp_b.workspace_symbol,
+}
+
+vim.api.nvim_create_user_command("LspInfo", function()
+  vim.cmd "checkhealth vim.lsp"
+end, {})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(args)
+    local map = vim.keymap.set
+    local opts = function(desc)
+      return { buffer = args.buf, desc = desc }
+    end
+
+    map("n", "K", lsp_b.hover, opts "Show Doc Hover")
+    map("i", "<C-S-k>", lsp_b.signature_help, opts "Show Signature Help")
+
+    map("n", "gd", M.actions.def, opts "Go to Definitions")
+    map("n", "gD", lsp_b.declaration, opts "Go to Declaration")
+    map("n", "gI", M.actions.impl, opts "Go to Implementations")
+    map("n", "gr", M.actions.ref, opts "Go to References")
+    map("n", "gt", M.actions.type_def, opts "Go to Type Definition")
+
+    map("n", "<leader>cs", M.actions.doc_symb, opts "Code Document Symbols")
+    map("n", "<leader>cS", M.actions.wsp_symb, opts "Code Workspace Symbols")
+
+    map({ "n", "v" }, "<leader>ca", lsp_b.code_action, opts "Code Actions")
+    map("n", "<leader>cr", lsp_b.rename, opts "Code Rename")
+    map("n", "<F2>", lsp_b.rename, opts "Code Rename")
+
+    local lsp = vim.lsp
+    map("n", "<leader>ah", function()
+      lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled(), { 0 })
+    end, opts "Toggle Inlay Hints")
+
+    if lsp.inlay_hint then
+      lsp.inlay_hint.enable(true, { 0 })
+    end
+  end,
+})
+
 local function setup_lsp(name, opts)
   if opts then
     vim.lsp.config(name, opts)
@@ -6,6 +68,9 @@ local function setup_lsp(name, opts)
   vim.lsp.enable(name)
 end
 
+--------------------
+-- Configurations --
+--------------------
 local global_cfg = {
   capabilities = {
     textDocument = {
@@ -421,11 +486,10 @@ local java_init_cfg = {
       references = { includeDecompiledSources = true },
     },
   },
-  capabilities = require("blink.cmp").get_lsp_capabilities(),
+  -- capabilities = require("blink.cmp").get_lsp_capabilities(),
   flags = { allow_incremental_sync = true },
 }
 
-local M = {}
 M.setup_global = function()
   vim.lsp.config("*", global_cfg)
 end
@@ -550,6 +614,9 @@ M.start_or_attach_java = function()
   jdtls.start_or_attach(extended_cfg)
 end
 
+------------
+-- Setups --
+------------
 M.setup = function()
   M.setup_global()
   M.setup_bash()

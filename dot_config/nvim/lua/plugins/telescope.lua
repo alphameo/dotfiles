@@ -60,6 +60,15 @@ return {
       telescope.load_extension "fzf"
 
       local builtin = require "telescope.builtin"
+
+      local lsp_act = require("lsp").actions
+      lsp_act.def = builtin.lsp_definitions
+      lsp_act.impl = builtin.lsp_implementations
+      lsp_act.ref = builtin.lsp_references
+      lsp_act.type_def = builtin.lsp_type_definitions
+      lsp_act.doc_symb = builtin.lsp_document_symbols
+      lsp_act.wsp_symb = builtin.lsp_dynamic_workspace_symbols
+
       local map = vim.keymap.set
       map("n", "<leader>ac", builtin.colorscheme, { desc = "Choose Colorscheme" })
       map("n", "<leader>fp", builtin.builtin, { desc = "Find Picker" })
@@ -69,11 +78,15 @@ return {
       map("n", "<leader>fg", builtin.live_grep, { desc = "Find by Grep" })
       map("n", "<leader>fw", builtin.grep_string, { desc = "Find Words" })
       map("n", "<leader>fr", builtin.oldfiles, { desc = "Find Recent Files" })
+
       map("n", "<leader>.h", builtin.help_tags, { desc = "Help Tags" })
       map("n", "<leader>.k", builtin.keymaps, { desc = "Keymaps" })
       map("n", "<leader>.n", function()
         builtin.find_files { cwd = vim.fn.stdpath "config" }
       end, { desc = "Neovim Config Files" })
+
+      map("n", "<leader>cd", builtin.diagnostics, { desc = "Code Diagnostics" })
+      map("n", "<leader>cq", builtin.quickfix, { desc = "Code Quickfix" })
     end,
   },
 }
