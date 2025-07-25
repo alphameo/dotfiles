@@ -2,15 +2,6 @@
 -- Main settings --
 -------------------
 local M = {}
-local del_map = vim.keymap.del
-del_map("n", "grn") -- Rename
-del_map({ "n", "v" }, "gra") -- Code Actions
-del_map("n", "grr") -- Go to References
-del_map("n", "gri") -- Fo to Implementation
-del_map("n", "grt") -- Fo to Type defenition
-del_map("n", "gO") -- Document Symbols
-del_map("i", "<C-s>") -- Signature Help
-
 local lsp_b = vim.lsp.buf
 M.actions = {
   def = lsp_b.definition,
@@ -21,44 +12,51 @@ M.actions = {
   wsp_symb = lsp_b.workspace_symbol,
 }
 
-vim.api.nvim_create_user_command("LspInfo", function()
-  vim.cmd "checkhealth vim.lsp"
-end, {})
+local setup_mappings = function()
+  local del_map = vim.keymap.del
+  del_map("n", "grn") -- Rename
+  del_map({ "n", "v" }, "gra") -- Code Actions
+  del_map("n", "grr") -- Go to References
+  del_map("n", "gri") -- Fo to Implementation
+  del_map("n", "grt") -- Fo to Type defenition
+  del_map("n", "gO") -- Document Symbols
+  del_map("i", "<C-s>") -- Signature Help
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-  callback = function(args)
-    local map = vim.keymap.set
-    local opts = function(desc)
-      return { buffer = args.buf, desc = desc }
-    end
+  vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+    callback = function(args)
+      local map = vim.keymap.set
+      local opts = function(desc)
+        return { buffer = args.buf, desc = desc }
+      end
 
-    map("n", "K", lsp_b.hover, opts "Show Doc Hover")
-    map("i", "<C-S-k>", lsp_b.signature_help, opts "Show Signature Help")
+      map("n", "K", lsp_b.hover, opts "Show Doc Hover")
+      map("i", "<C-S-k>", lsp_b.signature_help, opts "Show Signature Help")
 
-    map("n", "gd", M.actions.def, opts "Go to Definitions")
-    map("n", "gD", lsp_b.declaration, opts "Go to Declaration")
-    map("n", "gI", M.actions.impl, opts "Go to Implementations")
-    map("n", "gr", M.actions.ref, opts "Go to References")
-    map("n", "gt", M.actions.type_def, opts "Go to Type Definition")
+      map("n", "gd", M.actions.def, opts "Go to Definitions")
+      map("n", "gD", lsp_b.declaration, opts "Go to Declaration")
+      map("n", "gI", M.actions.impl, opts "Go to Implementations")
+      map("n", "gr", M.actions.ref, opts "Go to References")
+      map("n", "gt", M.actions.type_def, opts "Go to Type Definition")
 
-    map("n", "<leader>cs", M.actions.doc_symb, opts "Code Document Symbols")
-    map("n", "<leader>cS", M.actions.wsp_symb, opts "Code Workspace Symbols")
+      map("n", "<leader>cs", M.actions.doc_symb, opts "Code Document Symbols")
+      map("n", "<leader>cS", M.actions.wsp_symb, opts "Code Workspace Symbols")
 
-    map({ "n", "v" }, "<leader>ca", lsp_b.code_action, opts "Code Actions")
-    map("n", "<leader>cr", lsp_b.rename, opts "Code Rename")
-    map("n", "<F2>", lsp_b.rename, opts "Code Rename")
+      map({ "n", "v" }, "<leader>ca", lsp_b.code_action, opts "Code Actions")
+      map("n", "<leader>cr", lsp_b.rename, opts "Code Rename")
+      map("n", "<F2>", lsp_b.rename, opts "Code Rename")
 
-    local lsp = vim.lsp
-    map("n", "<leader>ah", function()
-      lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled(), { 0 })
-    end, opts "Toggle Inlay Hints")
+      local lsp = vim.lsp
+      map("n", "<leader>ah", function()
+        lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled(), { 0 })
+      end, opts "Toggle Inlay Hints")
 
-    if lsp.inlay_hint then
-      lsp.inlay_hint.enable(true, { 0 })
-    end
-  end,
-})
+      if lsp.inlay_hint then
+        lsp.inlay_hint.enable(true, { 0 })
+      end
+    end,
+  })
+end
 
 local function setup_lsp(name, opts)
   if opts then
@@ -490,70 +488,70 @@ local java_init_cfg = {
   flags = { allow_incremental_sync = true },
 }
 
-M.setup_global = function()
+local setup_global = function()
   vim.lsp.config("*", global_cfg)
 end
-M.setup_bash = function()
+local setup_bash = function()
   setup_lsp "bashls"
 end
-M.setup_ccpp = function()
+local setup_ccpp = function()
   setup_lsp("clangd", clangd_cfg)
 end
-M.setup_cmake = function()
+local setup_cmake = function()
   setup_lsp "neocmake"
 end
-M.setup_css = function()
+local setup_css = function()
   setup_lsp "cssls"
   setup_lsp "css_variables"
   setup_lsp "cssmodules_ls"
 end
-M.setup_go = function()
+local setup_go = function()
   setup_lsp("gopls", gopls_cfg)
 end
-M.setup_html = function()
+local setup_html = function()
   setup_lsp "html"
 end
-M.setup_java = function()
+local setup_java = function()
   vim.lsp.config("jdtls", java_init_cfg)
 end
-M.setup_json = function()
+local setup_json = function()
   setup_lsp("jsonls", jsonls_cfg)
 end
-M.setup_kotlin = function()
+local setup_kotlin = function()
   setup_lsp("kotlin_language_server", kotlin_ls_cfg)
 end
-M.setup_lua = function()
+local setup_lua = function()
   setup_lsp("lua_ls", lua_ls_cfg)
 end
-M.setup_markdown = function()
+local setup_markdown = function()
   setup_lsp "marksman"
 end
-M.setup_python = function()
+local setup_python = function()
   setup_lsp("basedpyright", basedpyright_cfg)
   -- setup("pyright", pyright_cfg)
   setup_lsp("ruff", ruff_cfg)
 end
-M.setup_rust = function()
+local setup_rust = function()
   setup_lsp("rust_analyzer", rust_analyzer_cfg)
 end
-M.setup_sql = function()
+local setup_sql = function()
   setup_lsp "sqlls"
 end
-M.setup_tex = function()
+local setup_tex = function()
   setup_lsp "texlab"
 end
-M.setup_toml = function()
+local setup_toml = function()
   setup_lsp "taplo"
 end
-M.setup_tsjs = function()
+local setup_tsjs = function()
   -- setup("vtsls", vtsls_cfg)
   -- setup_lsp("denols", denols_cfg)
   setup_lsp("ts_ls", ts_ls_cfg)
 end
-M.setup_xml = function()
+local setup_xml = function()
   setup_lsp "lemminx"
 end
-M.setup_yaml = function()
+local setup_yaml = function()
   setup_lsp("yamlls", yamlls_cfg)
 end
 
@@ -618,26 +616,28 @@ end
 -- Setups --
 ------------
 M.setup = function()
-  M.setup_global()
-  M.setup_bash()
-  M.setup_ccpp()
-  M.setup_cmake()
-  M.setup_css()
-  M.setup_go()
-  M.setup_html()
-  M.setup_java()
-  M.setup_json()
-  M.setup_kotlin()
-  M.setup_lua()
-  M.setup_markdown()
-  M.setup_python()
-  M.setup_rust()
-  M.setup_sql()
-  M.setup_tex()
-  M.setup_toml()
-  M.setup_tsjs()
-  M.setup_xml()
-  M.setup_yaml()
+  setup_global()
+  setup_bash()
+  setup_ccpp()
+  setup_cmake()
+  setup_css()
+  setup_go()
+  setup_html()
+  setup_java()
+  setup_json()
+  setup_kotlin()
+  setup_lua()
+  setup_markdown()
+  setup_python()
+  setup_rust()
+  setup_sql()
+  setup_tex()
+  setup_toml()
+  setup_tsjs()
+  setup_xml()
+  setup_yaml()
+
+  setup_mappings()
 end
 
 return M
