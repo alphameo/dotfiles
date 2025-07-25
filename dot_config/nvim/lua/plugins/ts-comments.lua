@@ -5,5 +5,7 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
-  opts = {},
+  config = function()
+    require("ts-comments").setup()
+  end,
 }

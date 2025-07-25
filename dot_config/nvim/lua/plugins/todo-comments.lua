@@ -4,9 +4,10 @@ return {
   cmd = { "TodoTelescope" },
   event = { "BufReadPost", "BufWritePost", "BufNewFile" },
   dependencies = { "nvim-lua/plenary.nvim" },
-  opts = { signs = true },
   config = function()
-    require("todo-comments").setup()
+    require("todo-comments").setup {
+      signs = true,
+    }
 
     local map = vim.keymap.set
     map("n", "<leader>ft", ":TodoTelescope<CR>", { silent = true, desc = "Find TODOs" })

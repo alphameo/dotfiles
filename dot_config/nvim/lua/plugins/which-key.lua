@@ -3,20 +3,19 @@ return {
   lazy = true,
   event = "VeryLazy",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  opts = {
-    preset = "helix", -- "classic" | "modern" | "helix"
-    layout = { align = "center" },
-    title = true,
-    title_pos = "center",
-    keys = {
-      scroll_down = "<c-d>", -- binding to scroll down inside the popup
-      scroll_up = "<c-u>", -- binding to scroll up inside the popup
-    },
-  },
-  config = function(_, opts)
+  config = function()
     local which_key = require "which-key"
 
-    which_key.setup(opts)
+    which_key.setup {
+      preset = "helix", -- "classic" | "modern" | "helix"
+      layout = { align = "center" },
+      title = true,
+      title_pos = "center",
+      keys = {
+        scroll_down = "<c-d>", -- binding to scroll down inside the popup
+        scroll_up = "<c-u>", -- binding to scroll up inside the popup
+      },
+    }
 
     which_key.add {
       { "<leader>e", group = "File Tree", mode = { "n", "v" }, icon = { icon = " ", color = "cyan" } },

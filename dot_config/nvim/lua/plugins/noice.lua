@@ -6,7 +6,19 @@ return {
   },
   lazy = true,
   event = "VeryLazy",
-  opts = {
+  -- stylua: ignore
+  config = function()
+    -- HACK: noice shows messages from before it was enabled,
+    -- but this is not ideal when Lazy is installing plugins,
+    -- so clear the messages in this case.
+    if vim.o.filetype == "lazy" then
+      vim.cmd [[messages clear]]
+    end
+
+    local noice = require "noice"
+    local map = vim.keymap.set
+
+    noice.setup({
     lsp = {
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -38,20 +50,7 @@ return {
       long_message_to_split = true,
       lsp_doc_border = true,
     },
-  },
-  -- stylua: ignore
-  config = function(_, opts)
-    -- HACK: noice shows messages from before it was enabled,
-    -- but this is not ideal when Lazy is installing plugins,
-    -- so clear the messages in this case.
-    if vim.o.filetype == "lazy" then
-      vim.cmd [[messages clear]]
-    end
-
-    local noice = require "noice"
-    local map = vim.keymap.set
-
-    noice.setup(opts)
+  })
 
     map("c", "<S-Enter>", function() noice.redirect(vim.fn.getcmdline()) end, { desc = "Redirect Cmdline" })
     map("n",  "<leader>nl", function() noice.cmd("last") end, { desc = "Noice Last Message" })

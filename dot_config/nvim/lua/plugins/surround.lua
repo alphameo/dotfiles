@@ -3,5 +3,7 @@ return {
   version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
   lazy = true,
   event = "VeryLazy",
-  opts = {},
+  config = function()
+    require("nvim-surround").setup()
+  end,
 }
