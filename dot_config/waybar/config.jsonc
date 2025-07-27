@@ -1,19 +1,19 @@
 {
     "layer": "bottom",
     "position": "top",
-    "margin-top": 8,
+    "margin-top": 4,
     "margin-left": 4,
     "margin-right": 4,
     "modules-left": [
         "hyprland/workspaces",
-        "tray",
         "hyprland/window",
     ],
     "modules-center": [
         "clock",
+        "hyprland/language",
     ],
     "modules-right": [
-        "hyprland/language",
+        "tray",
         "group/group-controls",
         "group/group-battery",
         "group/group-power",

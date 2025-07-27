@@ -16,10 +16,7 @@ window#waybar {
 }
 
 #window {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding: 0px;
   margin-left: 4px;
   margin-right: 4px;
 }
@@ -55,13 +52,25 @@ window#waybar {
   border-radius: 8px;
 }
 
-#custom-powermenu {
+#group-power {
   margin-right: 0px;
 }
 
 #group-power *,
-#group-battery *,
+#group-battery * {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
 #group-controls * {
-  margin-left: 6px;
-  margin-right: 6px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+#network {
+  margin-left: 4px;
+}
+
+#backlight {
+  margin-right: 4px;
 }
