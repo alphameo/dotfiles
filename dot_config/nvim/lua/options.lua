@@ -60,8 +60,6 @@ o.inccommand = "split" -- Preview substitutions live, as you type!
 vim.filetype.add {
   pattern = {
     [".*/.config/hypr/.*%.conf"] = "hyprlang",
-    [".*/.config/waybar/.*%.css"] = "gtkcss",
-    [".*/.config/rofi/.*%.css"] = "gtkcss",
     [".*/.config/kitty/.*%.conf"] = "kitty",
   },
 }
