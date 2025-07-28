@@ -18,7 +18,10 @@ return {
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch" },
+        lualine_b = {
+          "branch",
+          { "diff", symbols = { added = " ", modified = " ", removed = " " } },
+        },
         lualine_c = { { "filename", file_status = true, path = 2 } },
         lualine_x = {
           {
@@ -27,7 +30,6 @@ return {
             color = { fg = "#ff9e64" },
           },
           { "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " } },
-          { "diff", symbols = { added = " ", modified = " ", removed = " " } },
           "filetype",
         },
         lualine_y = { "location" },
