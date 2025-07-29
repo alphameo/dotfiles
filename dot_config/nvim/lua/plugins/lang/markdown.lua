@@ -15,17 +15,17 @@ return {
     },
     lazy = true,
     ft = { "markdown", "norg", "rmd", "org" },
-    opts = {
-      code = {
-        width = "block",
-        right_pad = 1,
-      },
-      completions = {
-        lsp = { enabled = true },
-        blink = { enabled = true },
-      },
-    },
     config = function()
+      require("render-markdown").setup {
+        code = {
+          width = "block",
+          right_pad = 1,
+        },
+        completions = {
+          lsp = { enabled = true },
+          blink = { enabled = true },
+        },
+      }
       vim.cmd "RenderMarkdown disable"
     end,
   },

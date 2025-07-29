@@ -94,11 +94,13 @@ return {
     lazy = vim.fn.argc(-1) == 0,
     event = { "BufEnter" },
     ft = { "ipynb", "markdown" },
-    opts = {
-      style = "markdown",
-      output_extension = "md",
-      force_ft = "markdown",
-    },
+    config = function()
+      require("jupytext").setup {
+        style = "markdown",
+        output_extension = "md",
+        force_ft = "markdown",
+      }
+    end,
   },
   {
     "quarto-dev/quarto-nvim",
@@ -108,21 +110,23 @@ return {
     },
     lazy = true,
     ft = { "quarto", "ipynb", "markdown" },
-    opts = {
-      lspFeatures = {
-        languages = { "python" },
-        chunks = "all",
-        diagnostics = {
-          enabled = true,
-          triggers = { "BufWritePost" },
+    config = function()
+      require("quarto").setup {
+        lspFeatures = {
+          languages = { "python" },
+          chunks = "all",
+          diagnostics = {
+            enabled = true,
+            triggers = { "BufWritePost" },
+          },
+          completion = { enabled = true },
         },
-        completion = { enabled = true },
-      },
-      codeRunner = {
-        enabled = true,
-        default_method = "molten",
-      },
-    },
+        codeRunner = {
+          enabled = true,
+          default_method = "molten",
+        },
+      }
+    end,
   },
   {
     "jmbuhr/otter.nvim",
@@ -131,6 +135,8 @@ return {
     },
     lazy = true,
     ft = { "quarto", "markdown", "python", "r", "julia" },
-    opts = {},
+    config = function()
+      require("otter").setup()
+    end,
   },
 }
