@@ -1,4 +1,50 @@
--- NOTE: TERMINALS
+------------------AUTOCMDS------------------
+
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  group = vim.api.nvim_create_augroup("LastCursorPlace", {}),
+  pattern = "*",
+  command = 'silent! normal! g`"zv',
+  desc = "Return cursor to where it was last time closing the file",
+})
+
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   callback = function(args)
+--     local client = vim.lsp.get_client_by_id(args.data.client_id)
+--     if client:supports_method "textDocument/completion" then
+--       local map = vim.keymap.set
+--       local opts = function(desc)
+--         return { buffer = args.buf, desc = desc }
+--       end
+--       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+--       map({ "i" }, "<C- >", "<C-x><C-o>", opts "Trigger completion")
+--     end
+--   end,
+-- })
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.hl.on_yank { higroup = "Visual", timeout = 300 }
+  end,
+  desc = "Highlight yanked text",
+})
+
+-- TODO: Remove after fixing non=detecting (mason and lspconfig)
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype == "" then
+      vim.cmd "filetype detect" -- Force detection
+    end
+  end,
+  desc = "Detect filetype",
+})
+
+------------------USERCMDS------------------
+
+---------------
+-- Terminals --
+---------------
 local win_state = {
   buf = -1,
   win = -1,
@@ -33,12 +79,11 @@ local new_hidden_win_state = function(opts, win_config)
   return { buf = buf, win = win }
 end
 
--- NOTE: Terminal mappings
 local map = vim.keymap.set
 map("n", "<leader>tt", ":terminal<CR>", { silent = true, desc = "Terminal Tab New" })
 map("t", "<ESC><ESC>", "<C-\\><C-n>", { silent = true, remap = true, desc = "Exit Terminal Mode" })
 
--- NOTE: Split Terminal
+-- Split Terminal
 local create_split_buffer = function(opts)
   opts = opts or {}
 
@@ -63,7 +108,7 @@ map("n", "<C-`>", ":ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Spli
 map("t", "<leader>ts", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
 map("t", "<C-`>", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
 
--- NOTE: Float Terminal
+-- Float Terminal
 local function create_floating_window(opts)
   opts = opts or {}
   local width = opts.width or math.floor(vim.o.columns * 0.8)
