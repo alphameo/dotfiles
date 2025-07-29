@@ -1,3 +1,6 @@
+-- TODO: paste at the end of config
+-- require("langmapper").automapping { global = true, buffer = true }
+
 return {
   "Wansmer/langmapper.nvim",
   lazy = false,

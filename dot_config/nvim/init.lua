@@ -24,10 +24,12 @@ require("lazy").setup {
   spec = {
     { import = "plugins" },
   },
-  install = { colorscheme = { "onedark" } },
   checker = { enabled = false },
   rocks = { hererocks = true },
-  change_detection = { enabled = false },
+  change_detection = {
+    enabled = false,
+    notify = false,
+  },
   performance = {
     cache = { enabled = true },
     reset_packpath = true,
@@ -53,6 +55,3 @@ require("lazy").setup {
 }
 
 vim.keymap.set({ "n" }, "<leader>L", ":Lazy<CR>", { silent = true, desc = "Mason" })
-
--- TODO:
--- require("langmapper").automapping { global = true, buffer = true }
