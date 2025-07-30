@@ -69,6 +69,7 @@ end
 --------------------
 -- Configurations --
 --------------------
+-- INFO: check default  :lua print(vim.inspect(vim.lsp.protocol.make_client_capabilities()))<CR>
 local global_cfg = {
   capabilities = {
     textDocument = {
@@ -83,7 +84,6 @@ local global_cfg = {
 }
 
 local clangd_cfg = {
-  capabilities = { offsetEncoding = { "utf-16" } },
   cmd = {
     "clangd",
     "--background-index",
@@ -197,10 +197,6 @@ local basedpyright_cfg = {
     textDocument = {
       publishDiagnostics = {
         tagSupport = { valueSet = { 2 } },
-      },
-      hover = {
-        contentFormat = { "plaintex" },
-        dynamicRegistration = true,
       },
     },
   },
@@ -373,12 +369,6 @@ local ts_ls_cfg = {
   },
 }
 local yamlls_cfg = {
-  capabilities = {
-    foldingRange = {
-      dynamicRegistration = false,
-      lineFoldingOnly = true,
-    },
-  },
   settings = {
     redhat = { telemetry = { enabled = false } },
     yaml = {
