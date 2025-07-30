@@ -3,18 +3,35 @@ vim.g.maplocalleader = " "
 
 local map = vim.keymap.set
 
--- File
-map("n", "<C-s>", ":w<CR>", { silent = true, desc = "Save File" })
-map("n", "<C-S-s>", ":wall<CR>", { silent = true, desc = "Save All Files" })
-map("n", "<C-q>", ":q<CR>", { silent = true, desc = "Quit" })
-map("n", "<C-S-q>", ":q!<CR>", { silent = true, desc = "Force Quit" })
+-- Togglers
+map("n", "\\c", ":setlocal cursorline! cursorline?<CR>", { silent = true, desc = "Toggle 'cursorline'" })
+map("n", "\\C", ":setlocal cursorcolumn! cursorcolumn?<CR>", { silent = true, desc = "Toggle 'cursorcolumn'" })
+map("n", "\\l", ":setlocal list! list?<CR>", { silent = true, desc = "Toggle 'list'" })
+map("n", "\\n", ":setlocal relativenumber! relativenumber?<CR>", { silent = true, desc = "Toggle 'relativenumber'" })
+map("n", "\\s", ":setlocal spell! spell?<CR>", { silent = true, desc = "Toggle 'spell'" })
+map("n", "\\w", ":setlocal wrap! wrap?<CR>", { silent = true, desc = "Toggle 'wrap'" })
 
--- Appearance
-map("n", "<leader>aw", ":set wrap!<CR>", { silent = true, desc = "Toggle Line Wrap" })
+-- Insert movements
+map("c", "<A-h>", "<Left>", { silent = false, desc = "Left" })
+map("c", "<A-l>", "<Right>", { silent = false, desc = "Right" })
+map("i", "<A-h>", "<Left>", { noremap = false, desc = "Left" })
+map("i", "<A-j>", "<Down>", { noremap = false, desc = "Down" })
+map("i", "<A-k>", "<Up>", { noremap = false, desc = "Up" })
+map("i", "<A-l>", "<Right>", { noremap = false, desc = "Right" })
+
+map("t", "<A-h>", "<Left>", { desc = "Left" })
+map("t", "<A-j>", "<Down>", { desc = "Down" })
+map("t", "<A-k>", "<Up>", { desc = "Up" })
+map("t", "<A-l>", "<Right>", { desc = "Right" })
+
+-- File
+map("n", "<C-s>", ":update<CR>", { silent = true, desc = "Save File" })
+map("n", "<C-S-s>", ":wall<CR>", { silent = true, desc = "Save All Files" })
+map("n", "<C-q>", ":quit<CR>", { silent = true, desc = "Quit" })
+map("n", "<C-S-q>", ":quit!<CR>", { silent = true, desc = "Force Quit" })
 
 -- Buffers
 map("n", "<A-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
-map("n", "<A-w>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
 
 -- Windows
 map("n", "<C-S-\\>", "<C-w>s", { desc = "Window Horizontal Split" })
@@ -41,10 +58,10 @@ map("v", "<C-/>", "gc", { remap = true, desc = "Toggle Comment" })
 
 -- Features
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
-map("n", "<left>", ':echo "Use h to move!"<CR>', { silent = true })
-map("n", "<right>", ':echo "Use l to move!"<CR>', { silent = true })
-map("n", "<up>", ':echo "Use k to move!"<CR>', { silent = true })
-map("n", "<down>", ':echo "Use j to move!"<CR>', { silent = true })
+map("n", "<Left>", ':echo "Use h to move!"<CR>', { silent = true })
+map("n", "<Right>", ':echo "Use l to move!"<CR>', { silent = true })
+map("n", "<Up>", ':echo "Use k to move!"<CR>', { silent = true })
+map("n", "<Down>", ':echo "Use j to move!"<CR>', { silent = true })
 
 map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 
