@@ -1,3 +1,6 @@
+-- General
+vim.cmd "filetype plugin indent on"
+
 -- Basic
 vim.g.have_nerd_font = true
 vim.o.number = true -- Line numbers (false)
@@ -15,10 +18,11 @@ vim.o.softtabstop = 4 -- Number of spaces that tab counts (0)
 vim.o.expandtab = true -- Spaces instead of tabs (false)
 vim.o.smartindent = true -- Smart auto-indenting (false)
 vim.o.autoindent = true -- Copy indent from current line (true)
-vim.o.breakindent = true -- Keep wrapped line on same indent level (default: false)
+vim.o.breakindent = true -- Keep wrapped line on same indent level (false)
 
 -- Search
 vim.o.ignorecase = true -- Case-insensitive search (false)
+vim.o.infercase = true -- Infer letter cases for a richer built-in keyword completion (false)
 vim.o.smartcase = true -- Case sensitive if uppercase in search (false)
 vim.o.hlsearch = false -- Highlight search results (true)
 vim.o.incsearch = true -- Show matches as you type (false)
@@ -26,13 +30,15 @@ vim.o.incsearch = true -- Show matches as you type (false)
 -- Visual
 vim.o.termguicolors = true -- 24-bit colors (false)
 vim.o.signcolumn = "yes" -- Show signcolumn ("auto")
+vim.o.fillchars = "eob: " -- Don't show `~` outside of buffer
 vim.o.colorcolumn = "" -- Show column at "n" characters
 vim.o.conceallevel = 0 -- Visual-control chars (**, '') in md etc. (0 - visible, 1-faded(def), 2-hidden, 3-idk)
 vim.o.splitbelow = true -- Horizontal splits go below
 vim.o.splitright = true -- Vertical splits go right
 
 -- File Handling
-vim.o.backup = false -- Creates a backup file (false)
+vim.o.backup = false -- Don't store backup while overwriting the file
+vim.o.writebackup = false -- Don't store backup while overwriting the file
 vim.o.swapfile = false -- Creates a swapfile (true)
 vim.o.undofile = true -- Save undo history (false)
 vim.o.undodir = os.getenv "HOME" .. "/.vim/undodir"
@@ -53,11 +59,17 @@ vim.o.mouse = "a" -- Enable mouse support (default: '')
 vim.o.spelllang = "ru_ru,en_us"
 vim.o.spell = false
 vim.o.inccommand = "split" -- Preview substitutions live, as you type!
+vim.o.virtualedit = "block" -- Allow going past the end of line in visual block mode
+vim.o.completeopt = "menuone,noselect" -- Customize completions
 vim.filetype.add {
   pattern = {
     [".*/.config/kitty/.*%.conf"] = "ini",
   },
 }
+vim.opt.shortmess:append "WcC" -- Reduce command line messages
+vim.o.splitkeep = "screen" -- Reduce scroll during window split
+vim.o.listchars = "tab:> ,extends:…,precedes:…,nbsp:␣" -- Define which helper symbols to show
+vim.o.list = true -- Show some helper symbols
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.fn.has "win32" ~= 0
 local sep = is_windows and "\\" or "/"
