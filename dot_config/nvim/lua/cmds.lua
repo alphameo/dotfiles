@@ -29,17 +29,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight yanked text",
 })
 
--- TODO: Remove after fixing non=detecting (mason and lspconfig)
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype == "" then
-      vim.cmd "filetype detect" -- Force detection
-    end
-  end,
-  desc = "Detect filetype",
-})
-
 ------------------USERCMDS------------------
 
 ---------------
