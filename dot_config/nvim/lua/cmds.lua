@@ -1,6 +1,6 @@
 ------------------AUTOCMDS------------------
 
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+vim.api.nvim_create_autocmd("BufWinEnter", {
   group = vim.api.nvim_create_augroup("LastCursorPlace", {}),
   pattern = "*",
   command = 'silent! normal! g`"zv',
@@ -19,6 +19,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 --       map({ "i" }, "<C- >", "<C-x><C-o>", opts "Trigger completion")
 --     end
 --   end,
+--   desc = "Built-in completion",
 -- })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
