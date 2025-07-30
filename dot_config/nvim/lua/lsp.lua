@@ -69,7 +69,7 @@ end
 --------------------
 -- Configurations --
 --------------------
--- INFO: check default  :lua print(vim.inspect(vim.lsp.protocol.make_client_capabilities()))<CR>
+-- INFO: check default  lua print(vim.inspect(vim.lsp.protocol.make_client_capabilities()))
 local global_cfg = {
   capabilities = {
     textDocument = {
