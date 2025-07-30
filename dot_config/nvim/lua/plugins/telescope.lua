@@ -84,9 +84,6 @@ return {
       map("n", "<leader>.n", function()
         builtin.find_files { cwd = vim.fn.stdpath "config" }
       end, { desc = "Neovim Config Files" })
-
-      map("n", "<leader>cd", builtin.diagnostics, { desc = "Code Diagnostics" })
-      map("n", "<leader>cq", builtin.quickfix, { desc = "Code Quickfix" })
     end,
   },
 }

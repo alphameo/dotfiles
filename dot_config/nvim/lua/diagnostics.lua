@@ -37,28 +37,33 @@ vim.diagnostic.config {
 
 local map = vim.keymap.set
 
-map("n", "<leader>cD", function()
-  if not vim.diagnostic.is_enabled() then
-    vim.diagnostic.enable(true)
-  else
-    vim.diagnostic.enable(false)
-  end
-end, { silent = true, desc = "Code Diagnostics Toggle" })
-
-map("n", "<leader>cL", function()
-  vim.opt_local.spell = not (vim.opt_local.spell:get())
-  vim.notify("spell check: " .. tostring(vim.o.spell))
-end, { desc = "Code SpellCheck Toggle" })
+map("n", "\\d", function()
+  local buf_id = vim.api.nvim_get_current_buf()
+  local is_enabled = vim.diagnostic.is_enabled { bufnr = buf_id }
+  vim.diagnostic.enable(not is_enabled, { bufnr = buf_id })
+  local new_buf_state = not is_enabled
+  return new_buf_state and "  diagnostic" or "nodiagnostic"
+end, { silent = true, desc = "Toggle 'diagnostics'" })
 
 map("n", "[d", function()
   return vim.diagnostic.jump {
     count = -1,
-    float = true,
+    float = false,
   }
 end, { silent = true, desc = "Previous Diagnostic" })
 map("n", "]d", function()
   return vim.diagnostic.jump {
     count = 1,
-    float = true,
+    float = false,
   }
 end, { silent = true, desc = "Next Diagnostic" })
+
+map("n", "<leader>cd", function()
+  vim.diagnostic.open_float(nil, {
+    focusable = false,
+  })
+end, { silent = true, desc = "Code Open Diagnostics" })
+
+map("n", "<leader>cD", ":Telescope diagnostics<CR>", { desc = "Code Diagnostic List" })
+map("n", "<leader>cq", ":Telescope quickfix<CR>", { desc = "Code Quickfix" })
+map("n", "<leader>cQ", ":Telescope quickfixhistory<CR>", { desc = "Code Quickfix History" })
