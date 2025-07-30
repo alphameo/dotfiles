@@ -89,6 +89,7 @@ return {
       },
     },
     cmdline = {
+      enabled = true,
       keymap = {
         ["<C-Space>"] = { "show", "hide", "fallback" },
         ["<Tab>"] = { "accept", "fallback" },
@@ -97,9 +98,8 @@ return {
       },
       completion = {
         menu = { auto_show = true },
-        ghost_text = { enabled = true },
+        ghost_text = { enabled = false },
       },
-      enabled = true,
     },
     sources = {
       default = {
