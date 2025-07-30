@@ -11,13 +11,7 @@ return {
     local spectre = require "spectre"
     local map = vim.keymap.set
 
-    spectre.setup {
-      default = {
-        replace = {
-          cmd = "sed",
-        },
-      },
-    }
+    spectre.setup()
     map("n", "<leader>FF", spectre.toggle, { desc = "Find & Replace Menu Open" })
     map("n", "<leader>Fw", function() spectre.open_visual { select_word = true } end, { desc = "Find & Repalce Word" })
     map("v", "<leader>Fw", '<ESC>:lua require("spectre").open_visual()<CR>', { desc = "Find & Replace Word" })
