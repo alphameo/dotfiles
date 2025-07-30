@@ -72,13 +72,9 @@ map("n", "<A-j>", ":m .+1<CR>==", { silent = true, desc = "Move Line Down" })
 map("n", "<A-k>", ":m .-2<CR>==", { silent = true, desc = "Move Line Up" })
 map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
-map("n", "<C-d>", "<C-d>zz", { desc = "Page Down" }) -- center after scroll down
-map("n", "<C-u>", "<C-u>zz", { desc = "Page Up" }) -- center after scroll up
+
 map("n", "n", "nzzzv", { desc = "Next Occurance" }) -- center after find
 map("n", "N", "Nzzzv", { desc = "Previous Occurance" }) -- center after find
-
-map("n", "<C-e>", "5<C-e>", { desc = "Scroll Down" }) -- faster scroll without cursor
-map("n", "<C-y>", "5<C-y>", { desc = "Scroll Up" }) -- faster scroll without cursor
 
 map("n", "gb", "<C-o>", { desc = "Go Back" })
 
