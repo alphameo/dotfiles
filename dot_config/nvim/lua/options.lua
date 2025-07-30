@@ -80,7 +80,8 @@ vim.o.smartcase = true -- Case sensitive if uppercase in search
 vim.o.hlsearch = false -- Highlight search results
 vim.o.incsearch = true -- Show matches as you type
 
-vim.o.completeopt = "menuone,noselect" -- Customize completions
+-- vim.o.completeopt = "menuone,noinsert,popup,preview,fuzzy" -- Customize built-in completions
+
 vim.o.virtualedit = "block" -- Allow going past the end of line in visual block mode
 
 vim.o.inccommand = "split" -- Preview :substitute options
