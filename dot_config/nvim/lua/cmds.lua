@@ -11,12 +11,12 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 --   callback = function(args)
 --     local client = vim.lsp.get_client_by_id(args.data.client_id)
 --     if client:supports_method "textDocument/completion" then
---       local map = vim.keymap.set
 --       local opts = function(desc)
 --         return { buffer = args.buf, desc = desc }
 --       end
+--       vim.o.completeopt = "menu,menuone,noinsert,fuzzy,popup" -- Customize built-in completions
 --       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
---       map({ "i" }, "<C- >", "<C-x><C-o>", opts "Trigger completion")
+--       vim.keymap.set({ "i" }, "<C-Space>", vim.lsp.completion.get, opts "Trigger completion")
 --     end
 --   end,
 --   desc = "Built-in completion",
