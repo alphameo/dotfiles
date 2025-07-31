@@ -25,7 +25,7 @@ return {
           ["cmp.entry.get_documentation"] = true,
         },
         signature = {
-          enabled = true,
+          enabled = false,
           auto_open = {
             enabled = false,
           },
@@ -38,7 +38,7 @@ return {
         bottom_search = true,
         command_palette = true,
         long_message_to_split = true,
-        lsp_doc_border = true,
+        -- lsp_doc_border = true,
       },
     }
 

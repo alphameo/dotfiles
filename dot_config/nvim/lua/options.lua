@@ -73,6 +73,8 @@ if vim.fn.exists "syntax_on" ~= 1 then
   vim.cmd "syntax enable" -- Enable syntax highlighting
 end
 
+vim.o.winborder = "none" -- Border of documentation, signature, completion
+
 -- Editing
 vim.o.ignorecase = true -- Case-insensitive search
 vim.o.infercase = true -- Infer letter cases for a richer built-in keyword completion
