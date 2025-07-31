@@ -46,6 +46,7 @@ return {
     map("n", "<A-.>", ":BufferLineMoveNext<CR>", { silent = true, desc = "Move Tab (buffer) Right" })
     map("n", "<A-,>", ":BufferLineMovePrev<CR>", { silent = true, desc = "Move Tab (buffer) Next" })
     map("n", "<A-g>", ":BufferLinePick<CR>", { silent = true, desc = "Pick Tab (buffer) Next" })
+    map("n", "<A-w>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
     map("n", "<A-x>", ":BufferLinePickClose<CR>", { silent = true, desc = "Pick buffer to close" })
     map("n", "<A-o>", ":BufferLineCloseOthers<CR>", { silent = true, desc = "Close other buffers" })
     map("n", "<A-\\>", "<C-^>", { silent = true, desc = "Switch to last buffer" })

@@ -4,7 +4,8 @@ return {
   lazy = true,
   event = "VeryLazy",
   config = function()
-    vim.o.showmode = false -- Disable default
+    vim.o.showmode = false -- Don't show mode in command line
+    vim.o.ruler = false -- Don't show cursor position in command line
 
     require("lualine").setup {
       options = {
