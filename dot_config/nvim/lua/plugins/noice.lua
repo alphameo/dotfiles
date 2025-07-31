@@ -42,11 +42,11 @@ return {
       },
     }
 
-    map("n", "<leader>nl", ":NoiceLast<CR>", { silent = true, desc = "Noice Last Message" })
-    map("n", "<leader>nh", ":NoiceHistory<CR>", { silent = true, desc = "Noice History" })
-    map("n", "<leader>nn", ":NoiceAll<CR>", { silent = true, desc = "Noice Messages" })
-    map("n", "<leader>nd", ":NoiceDismiss<CR>", { silent = true, desc = "Noice Dismiss All" })
-    map("n", "<leader>np", ":NoicePick<CR>", { silent = true, desc = "Noice Picker" })
+    map("n", "<leader>nl", ":NoiceLast<CR>", { silent = true, desc = "Notifications Last Message" })
+    map("n", "<leader>nh", ":NoiceHistory<CR>", { silent = true, desc = "Notifications History" })
+    map("n", "<leader>nn", ":NoiceAll<CR>", { silent = true, desc = "Notifications Messages" })
+    map("n", "<leader>nd", ":NoiceDismiss<CR>", { silent = true, desc = "Notifications Dismiss All" })
+    map("n", "<leader>np", ":NoicePick<CR>", { silent = true, desc = "Notifications Picker" })
     map("c", "<S-Enter>", function()
       noice.redirect(vim.fn.getcmdline())
     end, { desc = "Redirect Cmdline" })

@@ -83,7 +83,7 @@ return {
       map("n", "<leader>.k", builtin.keymaps, { desc = "Keymaps" })
       map("n", "<leader>.n", function()
         builtin.find_files { cwd = vim.fn.stdpath "config" }
-      end, { desc = "Neovim Config Files" })
+      end, { desc = "Settings Neovim" })
     end,
   },
 }
