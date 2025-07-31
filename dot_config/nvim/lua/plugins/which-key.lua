@@ -38,6 +38,7 @@ return {
       { "<leader>n", group = "Notifications", mode = { "n", "v" } },
       { "<leader>r", group = "Refactor", mode = { "n", "v" } },
       { "<leader>t", group = "Terminal", mode = { "n", "v" } },
+      { "<leader>T", group = "Test", mode = { "n", "v" } },
       { "<leader>.", group = "Settings", mode = { "n", "v" }, icon = { icon = " ", color = "white" } },
 
       { "[", group = "prev" },
