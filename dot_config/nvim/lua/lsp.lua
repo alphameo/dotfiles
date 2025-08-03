@@ -58,17 +58,6 @@ local setup_mappings = function()
   })
 end
 
-local function setup_lsp(name, opts)
-  if opts then
-    vim.lsp.config(name, opts)
-  end
-
-  vim.lsp.enable(name)
-end
-
---------------------
--- Configurations --
---------------------
 -- INFO: check default  lua print(vim.inspect(vim.lsp.protocol.make_client_capabilities()))
 local global_cfg = {
   capabilities = {
@@ -173,9 +162,6 @@ local java_init_cfg = {
   flags = { allow_incremental_sync = true },
 }
 
-local setup_global = function()
-  vim.lsp.config("*", global_cfg)
-end
 local setup_java = function()
   vim.lsp.config("jdtls", java_init_cfg)
 end
@@ -241,7 +227,7 @@ end
 -- Setups --
 ------------
 M.setup = function()
-  setup_global()
+  vim.lsp.config("*", global_cfg)
   vim.lsp.enable "bashls"
   vim.lsp.enable "clangd"
   vim.lsp.enable "neocmake"
