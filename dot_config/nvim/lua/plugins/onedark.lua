@@ -30,13 +30,13 @@ return {
 
     vim.keymap.set(
       "n",
-      "<leader>at",
+      "\\t",
       toggle_transparency,
       { noremap = true, silent = true, desc = "Toggle Background Transparency" }
     )
     vim.keymap.set(
       "n",
-      "<leader>as",
+      "\\T",
       ':lua require("onedark").toggle()<CR>',
       { silent = true, desc = "Toggle Onedark-theme Style" }
     )

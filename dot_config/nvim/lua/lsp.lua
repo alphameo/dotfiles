@@ -47,7 +47,7 @@ local setup_mappings = function()
       map("n", "<F2>", lsp_b.rename, opts "Code Rename")
 
       local lsp = vim.lsp
-      map("n", "<leader>ah", function()
+      map("n", "\\h", function()
         lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled(), { 0 })
       end, opts "Toggle Inlay Hints")
 
