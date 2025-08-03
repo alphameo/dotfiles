@@ -1,3 +1,4 @@
+-- TODO: check ftplugin, when removing plugin
 return {
   "echasnovski/mini.starter",
   version = false,
