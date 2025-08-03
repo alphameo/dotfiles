@@ -68,15 +68,17 @@ map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 map("v", "<", "<gv", { desc = "Indent Left" }) -- stay in visual mode after indent
 map("v", ">", ">gv", { desc = "Indent Right" }) -- stay in visual mode after indent
 
-map("n", "<A-j>", ":m .+1<CR>==", { silent = true, desc = "Move Line Down" })
-map("n", "<A-k>", ":m .-2<CR>==", { silent = true, desc = "Move Line Up" })
-map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
-map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
+-- TODO: uncomment, when disabling mini.bracketed
+-- map("n", "<A-j>", ":m .+1<CR>==", { silent = true, desc = "Move Line Down" })
+-- map("n", "<A-k>", ":m .-2<CR>==", { silent = true, desc = "Move Line Up" })
+-- map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
+-- map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
 
 map("n", "n", "nzzzv", { desc = "Next Occurance" }) -- center after find
 map("n", "N", "Nzzzv", { desc = "Previous Occurance" }) -- center after find
 
-map("n", "gb", "<C-o>", { desc = "Go Back" })
+map("n", "[j", "<C-o>", { desc = "Buffer Back" })
+map("n", "]j", "<C-i>", { desc = "Buffer Forward" })
 
 vim.keymap.set("x", "p", function()
   return 'pgv"' .. vim.v.register .. "y"

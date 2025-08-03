@@ -1,3 +1,4 @@
+-- TODO: check mappings, when removing plugin
 return {
   "echasnovski/mini.nvim",
   dependencies = {
@@ -15,7 +16,22 @@ return {
 
     require("mini.move").setup()
 
-    -- -- require("mini.bracketed").setup()
+    require("mini.bracketed").setup {
+      buffer = { suffix = "b", options = {} },
+      comment = { suffix = "c", options = {} },
+      conflict = { suffix = "x", options = {} },
+      diagnostic = { suffix = "" }, -- exists in diagnostics
+      file = { suffix = "f", options = {} },
+      indent = { suffix = "i", options = {} },
+      jump = { suffix = "" }, -- exists in mappings
+      location = { suffix = "l", options = {} },
+      oldfile = { suffix = "o", options = {} },
+      quickfix = { suffix = "q", options = {} },
+      treesitter = { suffix = "t", options = {} },
+      undo = { suffix = "u", options = {} },
+      window = { suffix = "w", options = {} },
+      yank = { suffix = "y", options = {} },
+    }
 
     local sessions = require "mini.sessions"
     sessions.setup()
