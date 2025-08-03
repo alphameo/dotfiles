@@ -70,7 +70,6 @@ return {
       lsp_act.wsp_symb = builtin.lsp_dynamic_workspace_symbols
 
       local map = vim.keymap.set
-      map("n", "<leader>ac", builtin.colorscheme, { desc = "Choose Colorscheme" })
       map("n", "<leader>fp", builtin.builtin, { desc = "Find Picker" })
       map("n", "<leader>fm", builtin.marks, { desc = "Find Marks" })
       map("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
@@ -78,7 +77,9 @@ return {
       map("n", "<leader>fg", builtin.live_grep, { desc = "Find by Grep" })
       map("n", "<leader>fw", builtin.grep_string, { desc = "Find Words" })
       map("n", "<leader>fr", builtin.oldfiles, { desc = "Find Recent Files" })
+      map("n", "<leader>fj", builtin.jumplist, { desc = "Find Recent Files" })
 
+      map("n", "<leader>.c", builtin.colorscheme, { desc = "Choose Colorscheme" })
       map("n", "<leader>.h", builtin.help_tags, { desc = "Help Tags" })
       map("n", "<leader>.k", builtin.keymaps, { desc = "Keymaps" })
       map("n", "<leader>.n", function()
