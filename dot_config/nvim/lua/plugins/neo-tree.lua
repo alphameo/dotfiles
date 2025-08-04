@@ -54,6 +54,6 @@ return {
         reveal = true,
         toggle = true,
       }
-    end, { noremap = true, desc = "File Explorer" })
+    end, { desc = "File Explorer" })
   end,
 }

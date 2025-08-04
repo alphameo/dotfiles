@@ -1,4 +1,14 @@
--- TODO: check ftplugin, when removing plugin
+vim.api.nvim_create_autocmd("User", {
+  pattern = "MiniStarterOpened",
+  callback = function()
+    vim.keymap.set(
+      "n",
+      "<leader>e",
+      ":Neotree focus left toggle<CR>",
+      { buffer = true, silent = true, desc = "File Explorer" }
+    )
+  end,
+})
 return {
   "echasnovski/mini.starter",
   version = false,
