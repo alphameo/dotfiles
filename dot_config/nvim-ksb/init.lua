@@ -228,6 +228,20 @@ require("lazy").setup {
   },
   event = { "User KittyScrollbackLaunch" },
   config = function()
-    require("kitty-scrollback").setup {}
+    require("kitty-scrollback").setup {
+      {
+        status_window = {
+          autoclose = true,
+        },
+        paste_window = {
+          highlight_as_normal_win = true,
+        },
+      },
+      ksb_builtin_get_text_all = {
+        kitty_get_text = {
+          ansi = true,
+        },
+      },
+    }
   end,
 }
