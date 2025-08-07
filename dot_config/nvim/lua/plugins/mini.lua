@@ -1,3 +1,14 @@
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = { "neo-tree" },
+  callback = function(args)
+    vim.b[args.buf].ministatusline_disable = true
+  end,
+})
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function(args)
+    vim.b[args.buf].miniindentscope_disable = true
+  end,
+})
 -- TODO: check mappings, when removing plugin
 return {
   "echasnovski/mini.nvim",
@@ -139,6 +150,7 @@ return {
           if pcall(require, "noice") and require("noice").api.status.command.has() then
             noice_cmd = require("noice").api.status.command.get()
           end
+
           return stl.combine_groups {
             { hl = mode_hl, strings = { mode } },
             { hl = "MiniStatuslineDevinfo", strings = { git, diff } },
@@ -149,6 +161,17 @@ return {
             { hl = "MiniStatuslineDevinfo", strings = { diagnostics } },
             { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
             { hl = mode_hl, strings = { search, location } },
+          }
+        end,
+        inactive = function()
+          local filename = stl.section_filename { trunc_width = 140 }
+          local fileinfo = stl.section_fileinfo { trunc_width = 9999 }
+
+          return stl.combine_groups {
+            "%<", -- general truncate point
+            { hl = "MiniStatuslineFilename", strings = { filename } },
+            "%=", -- end left alignment
+            { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
           }
         end,
       },
