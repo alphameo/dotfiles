@@ -18,13 +18,17 @@ map("i", "<A-h>", "<Left>", { noremap = false, desc = "Left" })
 map("i", "<A-j>", "<Down>", { noremap = false, desc = "Down" })
 map("i", "<A-k>", "<Up>", { noremap = false, desc = "Up" })
 map("i", "<A-l>", "<Right>", { noremap = false, desc = "Right" })
-
 map("t", "<A-h>", "<Left>", { desc = "Left" })
 map("t", "<A-j>", "<Down>", { desc = "Down" })
 map("t", "<A-k>", "<Up>", { desc = "Up" })
 map("t", "<A-l>", "<Right>", { desc = "Right" })
 
--- File
+-- Escape Insert
+map("i", "jk", "<ESC>", { desc = "Exit INSERT MODE" })
+map("i", "jj", "<ESC>", { desc = "Exit INSERT MODE" })
+map("i", "kj", "<ESC>", { desc = "Exit INSERT MODE" })
+
+-- Files
 map("n", "<C-s>", ":update<CR>", { silent = true, desc = "Save File" })
 map("n", "<C-S-s>", ":wall<CR>", { silent = true, desc = "Save All Files" })
 map("n", "<C-q>", ":quit<CR>", { silent = true, desc = "Quit" })
@@ -56,15 +60,12 @@ map("i", "<C-/>", "<ESC>:Commentary<CR>", { silent = true, desc = "Toggle Commen
 map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle Comment" })
 map("v", "<C-/>", "gc", { remap = true, desc = "Toggle Comment" })
 
--- Features
-map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
-map("n", "<Left>", ':echo "Use h to move!"<CR>', { silent = true })
-map("n", "<Right>", ':echo "Use l to move!"<CR>', { silent = true })
-map("n", "<Up>", ':echo "Use k to move!"<CR>', { silent = true })
-map("n", "<Down>", ':echo "Use j to move!"<CR>', { silent = true })
+-- Terminals
+map("n", "<leader>tt", ":terminal<CR>", { silent = true, desc = "Terminal Tab New" })
+map("t", "<ESC><ESC>", "<C-\\><C-n>", { silent = true, remap = true, desc = "Exit Terminal Mode" })
+map("t", "<C-q>", "<C-\\><C-n>:quit<CR>", { silent = true, remap = true, desc = "Exit Terminal Mode" })
 
-map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
-
+-- Text Movement
 map("v", "<", "<gv", { desc = "Indent Left" }) -- stay in visual mode after indent
 map("v", ">", ">gv", { desc = "Indent Right" }) -- stay in visual mode after indent
 
@@ -74,20 +75,27 @@ map("v", ">", ">gv", { desc = "Indent Right" }) -- stay in visual mode after ind
 -- map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
 -- map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
 
+-- Jumps
+map("n", "[j", "<C-o>", { desc = "Jump Back" })
+map("n", "]j", "<C-i>", { desc = "Jump Forward" })
+
+-- Other Features
+map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
+map("n", "<Left>", ':echo "Use h to move!"<CR>', { silent = true })
+map("n", "<Right>", ':echo "Use l to move!"<CR>', { silent = true })
+map("n", "<Up>", ':echo "Use k to move!"<CR>', { silent = true })
+map("n", "<Down>", ':echo "Use j to move!"<CR>', { silent = true })
+
+map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
+
 map("n", "n", "nzzzv", { desc = "Next Occurance" }) -- center after find
 map("n", "N", "Nzzzv", { desc = "Previous Occurance" }) -- center after find
-
-map("n", "[j", "<C-o>", { desc = "Buffer Back" })
-map("n", "]j", "<C-i>", { desc = "Buffer Forward" })
 
 vim.keymap.set("x", "p", function()
   return 'pgv"' .. vim.v.register .. "y"
 end, { remap = false, expr = true }) -- paste without yanking
 
-map("i", "jk", "<ESC>", { desc = "Exit INSERT MODE" })
-map("i", "jj", "<ESC>", { desc = "Exit INSERT MODE" })
-map("i", "kj", "<ESC>", { desc = "Exit INSERT MODE" })
-
+-- Russian Keybard
 vim.opt.langmap = "ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х\\[,Ъ\\],ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж\\;,Э\\',ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б\\<,Ю\\>"
   .. ",йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х\\[,ъ\\],фa,ыs,вd,аf,пg,рh,оj,лk,дl,ж\\;,э\\',яz,чx,сc,мv,иb,тn,ьm,б\\<,ю\\>"
 map("i", "ол", "<ESC>", { desc = "Exit INSERT MODE" })
