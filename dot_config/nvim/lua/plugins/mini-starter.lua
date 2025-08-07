@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd("User", {
       ":Neotree focus left toggle<CR>",
       { buffer = true, silent = true, desc = "File Explorer" }
     )
+    vim.b.miniindentscope_disable = true
   end,
 })
 return {
