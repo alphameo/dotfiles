@@ -158,7 +158,7 @@ local java_init_cfg = {
       references = { includeDecompiledSources = true },
     },
   },
-  -- capabilities = require("blink.cmp").get_lsp_capabilities(),
+  -- capabilities = vim.lsp.protocol.make_client_capabilities(),
   flags = { allow_incremental_sync = true },
 }
 
@@ -228,32 +228,34 @@ end
 ------------
 M.setup = function()
   vim.lsp.config("*", global_cfg)
-  vim.lsp.enable "bashls"
-  vim.lsp.enable "clangd"
-  vim.lsp.enable "neocmake"
-  vim.lsp.enable "cssls"
-  vim.lsp.enable "css_variables"
-  vim.lsp.enable "cssmodules_ls"
-  vim.lsp.enable "gopls"
-  vim.lsp.enable "html"
-  setup_java()
-  vim.lsp.enable "jsonls"
-  vim.lsp.enable "kotlin_language_server"
-  vim.lsp.enable "lua_ls"
-  vim.lsp.enable "marksman"
-  vim.lsp.enable "ruff"
-  -- vim.lsp.enable "pyright"
-  vim.lsp.enable "basedpyright"
-  vim.lsp.enable "rust_analyzer"
-  vim.lsp.enable "sqlls"
-  vim.lsp.enable "texlab"
-  vim.lsp.enable "taplo"
-  vim.lsp.enable "ts_ls"
-  -- vim.lsp.enable "vtsls"
-  -- vim.lsp.enable "denols"
-  vim.lsp.enable "lemminx"
-  vim.lsp.enable "yamlls"
+  vim.lsp.enable {
+    "bashls",
+    "clangd",
+    "neocmake",
+    "cssls",
+    "css_variables",
+    "cssmodules_ls",
+    "gopls",
+    "html",
+    "jsonls",
+    "kotlin_language_server",
+    "lua_ls",
+    "marksman",
+    "ruff",
+    -- "pyright",
+    "basedpyright",
+    "rust_analyzer",
+    "sqlls",
+    "texlab",
+    "taplo",
+    "ts_ls",
+    -- "vtsls",
+    -- "denols",
+    "lemminx",
+    "yamlls",
+  }
 
+  setup_java()
   setup_mappings()
 end
 
