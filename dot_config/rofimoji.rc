@@ -1,0 +1,16 @@
+clipboarder = wl-copy
+typer = xdotool
+selector = rofi
+action = [copy]
+files = [emojis, math]
+skin-tone = ask
+no-frecency = false
+only-official = true
+hidden-descriptions = false
+use-icons = true
+keybinding-copy = Control+C
+keybinding-type = ""
+keybinding-clipboard = ""
+keybinding-type-numerical = ""
+keybinding-unicode = Control+U
+keybinding-copy-unicode = ""
