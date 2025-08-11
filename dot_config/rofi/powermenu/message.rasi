@@ -3,7 +3,7 @@
 * {
     background-color:       @bg-col;
     text-color:             @fg-col;
-    font: "RobotoMono Nerd Font 12";
+    font: "RobotoMono Nerd Font Propo 12";
 }
 
 window {
