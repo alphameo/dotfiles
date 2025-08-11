@@ -1,12 +1,15 @@
 #!/usr/bin/bash
 
-function open_config {
-    local module="$1"
-    if [[ ${#module} != 0 ]]; then
-        coproc ($TERMINAL -d $XDG_CONFIG_HOME/$module $EDITOR)
-        exit 0
-    fi
-}
+CONFIG_MNGR=" Config Manager"
+NETWORK=" Network (nmtui)"
+BLUETOOTH="󰂯 Bluetooth (bluetui)"
+SOUND=" Sound (pavucontrol)"
+UI_MNGR="󰏘 UI Manager"
+DEFAULT_APPS="󰉺 Default Applications"
+WALLPAPER_MNGR="󰸉 Wallpaper Manager"
+POWER="󰐦 Power Menu"
+SYS_MONITOR="󰙭 System Monitor (btop)"
+INFO=" System Info (fastfetch)"
 
 function execute {
     coproc (eval "$1")
@@ -25,30 +28,9 @@ function open_in_term {
 
 function run {
     INP="$@"
-    ROFI=" Runner (rofi)"
-    WAYBAR=" Toolbar (waybar)"
-    HYPR=" Hypr"
-    DUNST="󰵚 Notifications (dunst)"
-    NETWORK=" Network (nmtui)"
-    BLUETOOTH="󰂯 Bluetooth (bluetui)"
-    TOP="󰙭 System monitor (btop)"
-    SOUND=" Sound (pavucontrol)"
-    GTK_UI="󰏘 GTK UI (nwg-look)"
-    KVANTUM="󰏘 GTK-QT link (kvantum)"
-    QT5_UI="󰏘 QT5 UI (qt5ct)"
-    QT6_UI="󰏘 QT6 UI (qt6ct)"
-    DEFAULT_APPS="󰉺 Default Applications"
-    POWER="󰐦 Power Menu"
-    INFO=" Info (fastfetch)"
 
-    if [[ $INP == $ROFI ]]; then
-        open_config "rofi"
-    elif [[ $INP == $WAYBAR ]]; then
-        open_config "waybar"
-    elif [[ $INP == $HYPR ]]; then
-        open_config "hypr"
-    elif [[ $INP == $DUNST ]]; then
-        open_config "dunst"
+    if [[ $INP == $CONFIG_MNGR ]]; then
+        execute "$HOME/.config/rofi/scripts/config_manager.sh open"
     elif [[ $INP == $NETWORK ]]; then
         # execute "networkmanager_dmenu"
         launch_cli_app "nmtui"
@@ -57,44 +39,38 @@ function run {
         launch_cli_app "bluetui"
     elif [[ $INP == $SOUND ]]; then
         execute "pavucontrol"
-    elif [[ $INP == $TOP ]]; then
+    elif [[ $INP == $SYS_MONITOR ]]; then
         launch_cli_app $SYSMONITOR
     elif [[ $INP == $INFO ]]; then
         open_in_term "fastfetch" "--config" "$HOME/.config/fastfetch/full.jsonc"
-    elif [[ $INP == $GTK_UI ]]; then
-        execute "nwg-look"
-    elif [[ $INP == $KVANTUM ]]; then
-        execute "kvantummanager"
-    elif [[ $INP == $QT5_UI ]]; then
-        execute "qt5ct"
-    elif [[ $INP == $QT6_UI ]]; then
-        execute "qt6ct"
+    elif [[ $INP == $UI_MNGR ]]; then
+        execute "$HOME/.config/rofi/scripts/ui_manager.sh open"
     elif [[ $INP = $DEFAULT_APPS ]]; then
         execute "lxqt-config-file-associations"
     elif [[ $INP == $POWER ]]; then
         execute "rofi -show power-menu -modi power-menu:rofi-power-menu"
+    elif [[ $INP == $WALLPAPER_MNGR ]]; then
+        execute "$HOME/.config/rofi/scripts/wallpaper_manager.sh open"
     else
-        echo $ROFI
-        echo $WAYBAR
-        echo $HYPR
-        echo $DUNST
+        echo $CONFIG_MNGR
         echo $NETWORK
         echo $BLUETOOTH
-        echo $TOP
         echo $SOUND
-        echo $GTK_UI
+        echo $UI_MNGR
         echo $KVANTUM
         echo $QT5_UI
         echo $QT6_UI
+        echo $WALLPAPER_MNGR
         echo $DEFAULT_APPS
         echo $POWER
+        echo $SYS_MONITOR
         echo $INFO
         exit 0
     fi
 }
 
 if [[ $1 == "open" ]]; then
-    rofi -show "   " -modes "   :~/.config/rofi/scripts/settings.sh"
+    rofi -show "  " -modes "  :~/.config/rofi/scripts/settings.sh"
 else
     run $@
 fi
