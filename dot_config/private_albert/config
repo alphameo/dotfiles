@@ -3,6 +3,9 @@ frontend=widgetsboxmodel-ng
 showTray=false
 telemetry=false
 
+[application]
+enabled=true
+
 [applications]
 enabled=true
 
