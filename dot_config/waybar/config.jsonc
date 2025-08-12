@@ -78,7 +78,7 @@
         },
         "format-icons": {
             "default": "",
-            "urgent": " ",
+            "urgent": "<span color='#fab387'></span>",
             "active": ""
         },
         "on-scroll-up": "hyprctl dispatch workspace m+1",
