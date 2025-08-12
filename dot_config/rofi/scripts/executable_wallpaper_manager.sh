@@ -1,8 +1,6 @@
 #!/usr/bin/bash
 
-DEFAULT_WALLPAPER=$HOME/Media/Pictures/Wallpapers/astronaut.jpg
-PICKER=" Pick Wallpaper"
-CYCLE=" Next Wallpaper"
+PICKER=" Pick Wallpaper (waypaper)"
 RESET=" Reset Wallpaper"
 
 function execute {
@@ -14,14 +12,11 @@ function run {
     INP="$@"
 
     if [[ $INP == $PICKER ]]; then
-        execute "$HOME/.config/rofi/scripts/wallpaper_picker.sh"
-    elif [[ $INP == $CYCLE ]]; then
-        execute "$HOME/.config/swww/next-wallpaper.sh"
+        execute "waypaper"
     elif [[ $INP == $RESET ]]; then
         swww img $DEFAULT_WALLPAPER
     else
         echo $PICKER
-        echo $CYCLE
         echo $RESET
         exit 0
     fi
