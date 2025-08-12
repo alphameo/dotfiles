@@ -1,9 +1,10 @@
 #!/usr/bin/bash
 
-GTK_UI="󰏘 GTK UI (nwg-look)"
-KVANTUM="󰏘 GTK-QT link (kvantum)"
-QT5_UI="󰏘 QT5 UI (qt5ct)"
-QT6_UI="󰏘 QT6 UI (qt6ct)"
+COMMON_UI="󰉼 COMMON UI (lxqt)"
+GTK_UI="󰉼 GTK UI (nwg-look)"
+KVANTUM="󰉼 GTK-QT link (kvantum)"
+QT5_UI="󰉼 QT5 UI (qt5ct)"
+QT6_UI="󰉼 QT6 UI (qt6ct)"
 
 function execute {
     coproc (eval "$1")
@@ -13,7 +14,9 @@ function execute {
 function run {
     INP="$@"
 
-    if [[ $INP == $GTK_UI ]]; then
+    if [[ $INP == $COMMON_UI ]]; then
+        execute "lxqt-config-appearance"
+    elif [[ $INP == $GTK_UI ]]; then
         execute "nwg-look"
     elif [[ $INP == $KVANTUM ]]; then
         execute "kvantummanager"
@@ -22,6 +25,7 @@ function run {
     elif [[ $INP == $QT6_UI ]]; then
         execute "qt6ct"
     else
+        echo $COMMON_UI
         echo $GTK_UI
         echo $KVANTUM
         echo $QT5_UI
@@ -31,7 +35,7 @@ function run {
 }
 
 if [[ $1 == "open" ]]; then
-    rofi -show " 󰏘 " -modes " 󰏘 :~/.config/rofi/scripts/ui_manager.sh"
+    rofi -show " 󰉼 " -modes " 󰉼 :~/.config/rofi/scripts/ui_manager.sh"
 else
     run $@
 fi

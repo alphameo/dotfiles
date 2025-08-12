@@ -4,8 +4,10 @@ CONFIG_MNGR=" Config Manager"
 NETWORK=" Network (nmtui)"
 BLUETOOTH="󰂯 Bluetooth (bluetui)"
 SOUND=" Sound (pavucontrol)"
-UI_MNGR="󰏘 UI Manager"
-DEFAULT_APPS="󰉺 Default Applications"
+UI_MNGR="󰉼 UI Manager"
+LOCALE=" Locale Config (lxqt)"
+INPUT_DEVICES="󰍽 Input Devices (lxqt)"
+DEFAULT_APPS="󰉺 Default Apps (lxqt)"
 WALLPAPER_MNGR="󰸉 Wallpaper Manager"
 POWER="󰐦 Power Menu"
 SYS_MONITOR="󰙭 System Monitor (btop)"
@@ -47,6 +49,10 @@ function run {
         execute "$HOME/.config/rofi/scripts/ui_manager.sh open"
     elif [[ $INP = $DEFAULT_APPS ]]; then
         execute "lxqt-config-file-associations"
+    elif [[ $INP = $LOCALE ]]; then
+        execute "lxqt-config-locale"
+    elif [[ $INP = $INPUT_DEVICES ]]; then
+        execute "lxqt-config-input"
     elif [[ $INP == $POWER ]]; then
         execute "rofi -show power-menu -modi power-menu:rofi-power-menu"
     elif [[ $INP == $WALLPAPER_MNGR ]]; then
@@ -57,11 +63,10 @@ function run {
         echo $BLUETOOTH
         echo $SOUND
         echo $UI_MNGR
-        echo $KVANTUM
-        echo $QT5_UI
-        echo $QT6_UI
         echo $WALLPAPER_MNGR
         echo $DEFAULT_APPS
+        echo $LOCALE
+        echo $INPUT_DEVICES
         echo $POWER
         echo $SYS_MONITOR
         echo $INFO
