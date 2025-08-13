@@ -19,7 +19,6 @@ function open_config {
 
 function run {
     INP="$@"
-
     if [[ $INP == $ALL ]]; then
         coproc ($TERMINAL -d $XDG_CONFIG_HOME/)
         exit 0

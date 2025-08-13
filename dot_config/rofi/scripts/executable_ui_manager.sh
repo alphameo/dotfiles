@@ -13,7 +13,6 @@ function execute {
 
 function run {
     INP="$@"
-
     if [[ $INP == $COMMON_UI ]]; then
         execute "lxqt-config-appearance"
     elif [[ $INP == $GTK_UI ]]; then

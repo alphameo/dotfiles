@@ -6,6 +6,8 @@ BLUETOOTH="󰂯 Bluetooth (bluetui)"
 SOUND=" Sound (pavucontrol)"
 UI_MNGR="󰉼 UI Manager"
 LOCALE=" Locale Config (lxqt)"
+DATE_TIME=" Date&Time (lxqt)"
+USER=" User (lxqt)"
 INPUT_DEVICES="󰍽 Input Devices (lxqt)"
 DEFAULT_APPS="󰉺 Default Apps (lxqt)"
 WALLPAPER_MNGR="󰸉 Wallpaper Manager"
@@ -30,7 +32,6 @@ function open_in_term {
 
 function run {
     INP="$@"
-
     if [[ $INP == $CONFIG_MNGR ]]; then
         execute "$HOME/.config/rofi/scripts/config_manager.sh open"
     elif [[ $INP == $NETWORK ]]; then
@@ -53,6 +54,10 @@ function run {
         execute "lxqt-config-locale"
     elif [[ $INP = $INPUT_DEVICES ]]; then
         execute "lxqt-config-input"
+    elif [[ $INP = $DATE_TIME ]]; then
+        execute "lxqt-admin-time"
+    elif [[ $INP = $USER ]]; then
+        execute "lxqt-admin-user"
     elif [[ $INP == $POWER ]]; then
         execute "rofi -show power-menu -modi power-menu:rofi-power-menu"
     elif [[ $INP == $WALLPAPER_MNGR ]]; then
@@ -66,7 +71,9 @@ function run {
         echo $WALLPAPER_MNGR
         echo $DEFAULT_APPS
         echo $LOCALE
+        echo $DATE_TIME
         echo $INPUT_DEVICES
+        echo $USER
         echo $POWER
         echo $SYS_MONITOR
         echo $INFO

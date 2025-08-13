@@ -10,7 +10,6 @@ function execute {
 
 function run {
     INP="$@"
-
     if [[ $INP == $PICKER ]]; then
         execute "waypaper"
     elif [[ $INP == $RESET ]]; then
