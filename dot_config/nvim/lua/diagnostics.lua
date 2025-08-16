@@ -43,7 +43,7 @@ map("n", "\\d", function()
   vim.diagnostic.enable(not is_enabled, { bufnr = buf_id })
   local new_buf_state = not is_enabled
   return new_buf_state and "  diagnostic" or "nodiagnostic"
-end, { silent = true, desc = "Toggle 'diagnostics'" })
+end, { silent = true, desc = "Toggle Diagnostics" })
 
 map("n", "[d", function()
   return vim.diagnostic.jump {
