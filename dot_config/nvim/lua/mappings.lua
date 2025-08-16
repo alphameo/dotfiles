@@ -4,12 +4,12 @@ vim.g.maplocalleader = " "
 local map = vim.keymap.set
 
 -- Togglers
-map("n", "\\c", ":setlocal cursorline! cursorline?<CR>", { silent = true, desc = "Toggle 'cursorline'" })
-map("n", "\\C", ":setlocal cursorcolumn! cursorcolumn?<CR>", { silent = true, desc = "Toggle 'cursorcolumn'" })
-map("n", "\\l", ":setlocal list! list?<CR>", { silent = true, desc = "Toggle 'list'" })
-map("n", "\\n", ":setlocal relativenumber! relativenumber?<CR>", { silent = true, desc = "Toggle 'relativenumber'" })
-map("n", "\\s", ":setlocal spell! spell?<CR>", { silent = true, desc = "Toggle 'spell'" })
-map("n", "\\w", ":setlocal wrap! wrap?<CR>", { silent = true, desc = "Toggle 'wrap'" })
+map("n", "\\l", ":setlocal cursorline! cursorline?<CR>", { silent = true, desc = "Toggle Location Line" })
+map("n", "\\L", ":setlocal cursorcolumn! cursorcolumn?<CR>", { silent = true, desc = "Toggle Location Column" })
+map("n", "\\g", ":setlocal list! list?<CR>", { silent = true, desc = "Toggle Glyphs" })
+map("n", "\\n", ":setlocal relativenumber! relativenumber?<CR>", { silent = true, desc = "Toggle Relative Numbers" })
+map("n", "\\s", ":setlocal spell! spell?<CR>", { silent = true, desc = "Toggle Spellcheck" })
+map("n", "\\w", ":setlocal wrap! wrap?<CR>", { silent = true, desc = "Toggle Wrapping" })
 
 -- Insert movements
 map("c", "<A-h>", "<Left>", { silent = false, desc = "Left" })
@@ -69,11 +69,10 @@ map("t", "<C-q>", "<C-\\><C-n>:quit<CR>", { silent = true, remap = true, desc = 
 map("v", "<", "<gv", { desc = "Indent Left" }) -- stay in visual mode after indent
 map("v", ">", ">gv", { desc = "Indent Right" }) -- stay in visual mode after indent
 
--- TODO: uncomment, when disabling mini.bracketed
--- map("n", "<A-j>", ":m .+1<CR>==", { silent = true, desc = "Move Line Down" })
--- map("n", "<A-k>", ":m .-2<CR>==", { silent = true, desc = "Move Line Up" })
--- map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
--- map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
+map("n", "<A-j>", ":m .+1<CR>==", { silent = true, desc = "Move Line Down" })
+map("n", "<A-k>", ":m .-2<CR>==", { silent = true, desc = "Move Line Up" })
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
 
 -- Jumps
 map("n", "[j", "<C-o>", { desc = "Jump Back" })

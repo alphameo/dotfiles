@@ -19,6 +19,6 @@ return {
       command = "ColorizerToggle",
     })
 
-    vim.keymap.set("n", "\\p", ":ColorizerToggle<CR>", { silent = true, desc = "Toggle 'colorizer'" })
+    vim.keymap.set("n", "\\c", ":ColorizerToggle<CR>", { silent = true, desc = "Toggle Colorizer" })
   end,
 }
