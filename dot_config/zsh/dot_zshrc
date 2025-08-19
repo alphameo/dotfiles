@@ -21,15 +21,13 @@ alias cz='chezmoi'
 alias fm='yazi_filemanager'
 alias nv='nvim'
 alias snv='sudoedit'
-
-# replacements
-alias fetch='fastfetch'
+alias bat='bat --style=plain --pager=never'
+alias rg='rg --color=always'
+alias md="__zoxide_z"
+alias mdi="__zoxide_zi"
+alias ff='fastfetch'
 alias ls='eza --color=always --icons=always'
 alias lt='eza_tree'
-alias cat='bat --style=plain --pager=never'
-alias grep='rg --color=always'
-# alias cd="__zoxide_z"
-alias cdi="__zoxide_zi"
 
 
 # NOTE: ZOXIDE
