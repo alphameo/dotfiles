@@ -12,16 +12,16 @@ map("n", "\\s", ":setlocal spell! spell?<CR>", { silent = true, desc = "Toggle S
 map("n", "\\w", ":setlocal wrap! wrap?<CR>", { silent = true, desc = "Toggle Wrapping" })
 
 -- Insert movements
-map("c", "<A-h>", "<Left>", { silent = false, desc = "Left" })
-map("c", "<A-l>", "<Right>", { silent = false, desc = "Right" })
-map("i", "<A-h>", "<Left>", { noremap = false, desc = "Left" })
-map("i", "<A-j>", "<Down>", { noremap = false, desc = "Down" })
-map("i", "<A-k>", "<Up>", { noremap = false, desc = "Up" })
-map("i", "<A-l>", "<Right>", { noremap = false, desc = "Right" })
-map("t", "<A-h>", "<Left>", { desc = "Left" })
-map("t", "<A-j>", "<Down>", { desc = "Down" })
-map("t", "<A-k>", "<Up>", { desc = "Up" })
-map("t", "<A-l>", "<Right>", { desc = "Right" })
+map("c", "<M-h>", "<Left>", { silent = false, desc = "Left" })
+map("c", "<M-l>", "<Right>", { silent = false, desc = "Right" })
+map("i", "<M-h>", "<Left>", { noremap = false, desc = "Left" })
+map("i", "<M-j>", "<Down>", { noremap = false, desc = "Down" })
+map("i", "<M-k>", "<Up>", { noremap = false, desc = "Up" })
+map("i", "<M-l>", "<Right>", { noremap = false, desc = "Right" })
+map("t", "<M-h>", "<Left>", { desc = "Left" })
+map("t", "<M-j>", "<Down>", { desc = "Down" })
+map("t", "<M-k>", "<Up>", { desc = "Up" })
+map("t", "<M-l>", "<Right>", { desc = "Right" })
 
 -- Escape Insert
 map("i", "jk", "<ESC>", { desc = "Exit INSERT MODE" })
@@ -35,7 +35,7 @@ map("n", "<C-q>", ":quit<CR>", { silent = true, desc = "Quit" })
 map("n", "<C-S-q>", ":quit!<CR>", { silent = true, desc = "Force Quit" })
 
 -- Buffers
-map("n", "<A-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
+map("n", "<M-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
 
 -- Windows
 map("n", "<C-S-\\>", "<C-w>s", { desc = "Window Horizontal Split" })
@@ -45,10 +45,10 @@ map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })
 map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
-map("n", "<C-left>", "<C-w>H", { desc = "Move Window to the Left" })
-map("n", "<C-right>", "<C-w>L", { desc = "Move Window to the Right" })
-map("n", "<C-down>", "<C-w>J", { desc = "Move Window to the Lower" })
-map("n", "<C-up>", "<C-w>K", { desc = "Move Window to the Upper" })
+map("n", "<C-Left>", "<C-w>H", { desc = "Move Window to the Left" })
+map("n", "<C-Right>", "<C-w>L", { desc = "Move Window to the Right" })
+map("n", "<C-Down>", "<C-w>J", { desc = "Move Window to the Lower" })
+map("n", "<C-Up>", "<C-w>K", { desc = "Move Window to the Upper" })
 
 map("n", "<C-=>", "<C-w>+", { desc = "Window Taller" })
 map("n", "<C-->", "<C-w>-", { desc = "Window Shorter" })
@@ -69,10 +69,10 @@ map("t", "<C-q>", "<C-\\><C-n>:quit<CR>", { silent = true, remap = true, desc = 
 map("v", "<", "<gv", { desc = "Indent Left" }) -- stay in visual mode after indent
 map("v", ">", ">gv", { desc = "Indent Right" }) -- stay in visual mode after indent
 
-map("n", "<A-j>", ":m .+1<CR>==", { silent = true, desc = "Move Line Down" })
-map("n", "<A-k>", ":m .-2<CR>==", { silent = true, desc = "Move Line Up" })
-map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
-map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
+map("n", "<M-j>", ":m .+1<CR>==", { silent = true, desc = "Move Line Down" })
+map("n", "<M-k>", ":m .-2<CR>==", { silent = true, desc = "Move Line Up" })
+map("v", "<M-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
+map("v", "<M-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
 
 -- Jumps
 map("n", "[j", "<C-o>", { desc = "Jump Back" })
@@ -86,13 +86,6 @@ map("n", "<Up>", ':echo "Use k to move!"<CR>', { silent = true })
 map("n", "<Down>", ':echo "Use j to move!"<CR>', { silent = true })
 
 map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
-
-map("n", "n", "nzzzv", { desc = "Next Occurance" }) -- center after find
-map("n", "N", "Nzzzv", { desc = "Previous Occurance" }) -- center after find
-
-vim.keymap.set("x", "p", function()
-  return 'pgv"' .. vim.v.register .. "y"
-end, { remap = false, expr = true }) -- paste without yanking
 
 -- Russian Keybard
 vim.opt.langmap = "ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х\\[,Ъ\\],ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж\\;,Э\\',ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б\\<,Ю\\>"
