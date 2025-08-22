@@ -156,7 +156,7 @@
         // "on-click": "iwgtk",
         // "on-click-right": "$TERMINAL impala"
         "on-click": "networkmanager_dmenu",
-        "on-click-right": "$TERMINAL nmtui"
+        "on-click-right": "$TERMINAL ~/Development/GoLang/nm-tui/main"
     },
     "bluetooth": {
         "format-disabled": "<span color='#f38ba8'>󰂲</span>",
