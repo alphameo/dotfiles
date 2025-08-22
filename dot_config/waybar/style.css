@@ -63,8 +63,8 @@ window#waybar {
 }
 
 #group-controls * {
-  margin-left: 12px;
-  margin-right: 12px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #network {
