@@ -201,6 +201,8 @@
             "󰃟",
             "󰃠"
         ],
+        "on-scroll-up": "brightnessctl -q s 1%+",
+        "on-scroll-down": "brightnessctl -q s 1%-",
         "reverse-scrolling": true,
         "tooltip-format": "Backlight\n\nSM - control"
     },
