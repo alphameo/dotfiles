@@ -56,6 +56,7 @@ window#waybar {
   margin-right: 0px;
 }
 
+#group-backlight *,
 #group-power *,
 #group-battery * {
   margin-left: 4px;
@@ -71,6 +72,39 @@ window#waybar {
   margin-left: 4px;
 }
 
-#backlight {
+#group-backlight {
   margin-right: 4px;
+}
+
+#group-backlight * {
+  margin: 0;
+  padding: 0;
+}
+
+#backlight-slider {
+  margin-left: 4px;
+  padding-right: 5px;
+}
+
+#backlight-slider trough {
+  min-height: 6px;
+  min-width: 100px;
+  border-radius: 3px;
+  background-color: black;
+}
+
+#backlight-slider highlight {
+  min-height: 0px;
+  min-width: 0px;
+  border-radius: 3px;
+  border: 3px solid @peach;
+}
+
+#backlight-slider slider {
+  min-height: 10px;
+  min-width: 10px;
+  background-image: none;
+  background-color: @maroon;
+  border-radius: 5px;
+  margin: -4px;
 }

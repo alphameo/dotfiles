@@ -31,6 +31,18 @@
             "custom/screenlock",
         ]
     },
+    "group/group-backlight": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "battery-nodes",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "backlight",
+            "backlight/slider",
+        ]
+    },
     "group/group-controls": {
         "orientation": "inherit",
         "modules": [
@@ -38,8 +50,8 @@
             "bluetooth",
             "custom/notifications",
             "pulseaudio",
+            "group/group-backlight",
             "cava",
-            "backlight",
         ]
     },
     "group/group-power": {
@@ -191,6 +203,11 @@
         ],
         "reverse-scrolling": true,
         "tooltip-format": "Backlight\n\nSM - control"
+    },
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
     },
     "cava": {
         "framerate": 144,
