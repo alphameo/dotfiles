@@ -18,17 +18,15 @@
         "group/group-battery",
         "group/group-power",
     ],
-    "group/group-battery": {
+    "group/group-controls": {
         "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "battery-nodes",
-            "transition-left-to-right": true
-        },
         "modules": [
-            "battery",
-            "power-profiles-daemon",
-            "custom/screenlock",
+            "network",
+            "bluetooth",
+            "custom/notifications",
+            "group/group-wireplumber",
+            "group/group-backlight",
+            "cava",
         ]
     },
     "group/group-wireplumber": {
@@ -55,15 +53,17 @@
             "backlight/slider",
         ]
     },
-    "group/group-controls": {
+    "group/group-battery": {
         "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "battery-nodes",
+            "transition-left-to-right": true
+        },
         "modules": [
-            "network",
-            "bluetooth",
-            "custom/notifications",
-            "group/group-wireplumber",
-            "group/group-backlight",
-            "cava",
+            "battery",
+            "power-profiles-daemon",
+            "custom/screenlock",
         ]
     },
     "group/group-power": {
@@ -165,8 +165,6 @@
         "tooltip-format": "{icon}({signalStrength}%)  {essid}  <span color='#eba0ac'>󰅧</span> {bandwidthUpBytes} <span color='#89dceb'>󰅢</span> {bandwidthDownBytes}\n({ifname} via {gwaddr})\n\n<small>LMB - menu</small>",
         "tooltip-format-disconnected": "Disconnected\n\n<small>LMB - menu</small>",
         "tooltip-format-disabled": "Disabled\n\n<small>LMB - menu</small>",
-        // "on-click": "iwgtk",
-        // "on-click-right": "$TERMINAL impala"
         "on-click": "networkmanager_dmenu",
         "on-click-right": "$TERMINAL ~/Development/GoLang/nm-tui/main"
     },
@@ -181,7 +179,6 @@
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
         "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
         "on-click": "rofi-bluetooth",
-        // "on-click-right": "blueberry",
         "on-click-right": "$TERMINAL bluetui"
     },
     "wireplumber#sink": {
