@@ -72,13 +72,18 @@ window#waybar {
   margin-left: 4px;
 }
 
-#group-backlight {
-  margin-right: 4px;
-}
-
+#group-wireplumber *,
 #group-backlight * {
   margin: 0;
   padding: 0;
+}
+
+#wireplumber.source {
+  padding-left: 8px;
+}
+
+#group-backlight {
+  margin-right: 4px;
 }
 
 #backlight-slider {
