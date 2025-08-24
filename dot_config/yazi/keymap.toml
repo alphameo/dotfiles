@@ -1,55 +1,71 @@
-[[mgr.prepend_keymap]]
-on   = [ "c", "m" ]
-run  = "plugin chmod"
-desc = "Chmod on selected files"
+[mgr]
+prepend_keymap = [
+    ##############
+    ### CUSTOM ###
+    ##############
+    #
+    # NOTE: need to install dragon-drop
+{ on  = "<C-n>", run = 'shell -- dragon-drop -x -i -T "$1"', desc = "Activate drag & drop" },
+{ on   = "<C-;>", for  = "unix", run  = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
+{ on   = "<C-;>", for  = "windows", run  = 'shell "powershell.exe" --block', desc = "Open PowerShell here" },
+    #
+    #
+    ###############
+    ### PLUGINS ###
+    ###############
+    #
+    # yazi-rs/plugins:chmod
+{ on   = [ "c", "m" ], run  = "plugin chmod", desc = "Chmod on selected files" },
+    #
+    # Ape/reflink
+{ on = [ "_", "r" ], run = "plugin reflink", desc = "Reflink the yanked files" },
+    #
+    # KKV9/compress
+{ on   = [ "A", "a" ], run  = "plugin compress", desc = "Archive selected files" },
+{ on   = [ "A", "p" ], run  = "plugin compress -p", desc = "Archive selected files (password)" },
+{ on   = [ "A", "h" ], run  = "plugin compress -ph", desc = "Archive selected files (password+header)" },
+{ on   = [ "A", "l" ], run  = "plugin compress -l", desc = "Archive selected files (compression level)" },
+{ on   = [ "A", "u" ], run  = "plugin compress -phl", desc = "Archive selected files (password+header+level)" },
+    #
+    # boydaihungst/restore
+    # need to install trash-cli
+{ on = [ "u" ], run = "plugin restore", desc = "Restore last deleted files/folders" },
+    #
+    # uhs-robert/recycle-bin
+    # need to install trash-cli
+{ on = [ "g", "t" ], run = "plugin recycle-bin open", desc = "Go to Trash" },
+{ on = [ "R", "o" ], run = "plugin recycle-bin open", desc = "Open Trash" },
+{ on = [ "R", "e" ], run = "plugin recycle-bin empty", desc = "Empty Trash" },
+{ on = [ "R", "d" ], run = "plugin recycle-bin delete", desc = "Delete from Trash" },
+{ on = [ "R", "D" ], run = "plugin recycle-bin emptyDays", desc = "Empty by days deleted" },
+{ on = [ "R", "r" ], run = "plugin recycle-bin restore", desc = "Restore from Trash" },
+    #
+    # yazi-rs/plugins:mount
+{ on  = [ "M", "M" ], run = "plugin mount", desc = "Mount UI" },
+    #
+    # gvfs plugin
+{ on = [ "M", "m" ], run = "plugin gvfs -- select-then-mount --jump", desc = "Select device to mount and jump to its mount point" },
+{ on = [ "M", "R" ], run = "plugin gvfs -- remount-current-cwd-device", desc = "Remount device under cwd" },
+{ on = [ "M", "u" ], run = "plugin gvfs -- select-then-unmount --eject", desc = "Select device then eject" },
+{ on = [ "M", "U" ], run = "plugin gvfs -- select-then-unmount --eject --force", desc = "Select device then force to eject/unmount" },
 
-[[mgr.prepend_keymap]]
-on   = "<C-d>"
-run  = "plugin diff"
-desc = "Diff the selected file with the hovered file"
+    # Add|Edit|Remove mountpoint: smb, sftp, ftp, nfs, dns-sd, dav, davs, dav+sd, davs+sd, afp, afc, sshfs
+    # Read more about the schemes here: https://wiki.gnome.org/Projects(2f)gvfs(2f)schemes.html
+    # Explain about the scheme: If it show like this: {ftp,ftps,ftpis}://[user@]host[:port]
+    #   -> Every value within [] are optional; values within {} you need to choose only one of them; The rest are hardcoded
+    #   -> {ftp,ftps,ftpis}://[user@]host[:port] => ftp://myusername@IP:PORT or ftps://myusername@github.com
+    # More examples: smb://user@192.168.1.2/share, smb://WORKGROUP;user@192.168.1.2/share, sftp://user@192.168.1.2/, ftp://192.168.1.2/
+    # - Scheme/Mount URIs shouldn't contain password.
+    # - Google Drive, One drive are mounted automatically via GNOME Online Accounts (GOA). Avoid adding them. Use GOA instead: ./GNOME_ONLINE_ACCOUNTS_GOA.md
+    # - MTP, GPhoto2, AFC, Hard disk/drive, fstab with x-gvfs-show are listed automatically. Avoid adding them.
+{ on = [ "M", "a" ], run = "plugin gvfs -- add-mount", desc = "Add a GVFS mount URI" },
+    # Edit or remove a GVFS mount URI will clear saved passwords for that mount URI.
+{ on = [ "M", "e" ], run = "plugin gvfs -- edit-mount", desc = "Edit a GVFS mount URI" },
+{ on = [ "M", "r" ], run = "plugin gvfs -- remove-mount", desc = "Remove a GVFS mount URI" },
 
-# NOTE: need to install dragon-drop
-[[mgr.prepend_keymap]]
-on  = "<C-n>"
-run = 'shell -- dragon-drop -x -i -T "$1"'
-desc = "Activate drag & drop"
-
-[[mgr.prepend_keymap]]
-on  = "<C-m>"
-run = "plugin mount"
-desc = "Mount UI"
-
-[[mgr.prepend_keymap]]
-on   = [ "c", "a", "a" ]
-run  = "plugin compress"
-desc = "Archive selected files"
-
-[[mgr.prepend_keymap]]
-on   = [ "c", "a", "p" ]
-run  = "plugin compress -p"
-desc = "Archive selected files (password)"
-
-[[mgr.prepend_keymap]]
-on   = [ "c", "a", "h" ]
-run  = "plugin compress -ph"
-desc = "Archive selected files (password+header)"
-
-[[mgr.prepend_keymap]]
-on   = [ "c", "a", "l" ]
-run  = "plugin compress -l"
-desc = "Archive selected files (compression level)"
-
-[[mgr.prepend_keymap]]
-on   = [ "c", "a", "u" ]
-run  = "plugin compress -phl"
-desc = "Archive selected files (password+header+level)"
-
-[[mgr.prepend_keymap]]
-on = "u"
-run = "plugin restore"
-desc = "Restore last deleted files/folders"
-
-[[manager.prepend_keymap]]
-on = [ "_", "r" ]
-run = "plugin reflink"
-desc = "Reflink the yanked files"
+    # Jump
+{ on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device", desc = "Select device then jump to its mount point" },
+    # If you use `x-systemd.automount` in /etc/fstab or manually added automount unit, you can use `--automount` to automount device automatically
+{ on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device --automount", desc = "Automount then select device to jump to its mount point" },
+{ on = [ "`", "`" ], run = "plugin gvfs -- jump-back-prev-cwd", desc = "Jump back to the position before jumped to device" },
+]

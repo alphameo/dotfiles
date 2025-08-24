@@ -1,2 +1,3 @@
 [flavor]
-dar = "onedark"
+# git clone https://github.com/BennyOe/onedark.yazi.git ~/.config/yazi/flavors/onedark.yazi
+dark = "onedark"
