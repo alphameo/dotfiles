@@ -7,6 +7,9 @@ hyprshot
 flameshot
 
 waybar
+playerctl
+brightnessctl
+wpctl
 
 swww
 waypaper
