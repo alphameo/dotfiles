@@ -1,14 +1,4 @@
 -- INFO: update: $ ya pkg upgrade
--- ya pkg add yazi-rs/plugins:chmod
--- ya pkg add KKV9/compress
--- ya pkg add yazi-rs/plugins:full-border
--- ya pkg add yazi-rs/plugins:git
--- ya pkg add boydaihungst/gvfs
--- ya pkg add yazi-rs/plugins:mount
--- ya pkg add uhs-robert/recycle-bin
--- ya pkg add Ape/reflink
--- ya pkg add boydaihungst/restore
--- ya pkg add Rolv-Apneseth/starship
 
 require("full-border"):setup({
 	type = ui.Border.ROUNDED,
