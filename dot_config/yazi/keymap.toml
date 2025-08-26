@@ -27,6 +27,12 @@ prepend_keymap = [
 	{ on = "t", run = "tasks:show", desc = "Show task manager" },
 	{ on = "K", run = "spot", desc = "Spot hovered file" },
 
+	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
+	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go ~/.config" },
+	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go ~/Downloads" },
+	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
+	{ on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
+
 
 	{ on = [ "c", "m" ], run  = "plugin chmod", desc = "Chmod on selected files" },
 
@@ -38,7 +44,7 @@ prepend_keymap = [
 	{ on = [ "A", "l" ], run  = "plugin compress -l", desc = "Archive selected files (compression level)" },
 	{ on = [ "A", "u" ], run  = "plugin compress -phl", desc = "Archive selected files (password+header+level)" },
 
-	{ on = ["A", "o"], run = "plugin ouch", desc = "Archive with ouch" },
+	{ on = ["A", "o"], run = "plugin ouch 7z", desc = "Archive with ouch" },
 
 	{ on = [ "R", "l" ], run = "plugin restore", desc = "Restore last deleted files/folders" },
 
@@ -67,7 +73,6 @@ prepend_keymap = [
 	{ on = [ "M", "a" ], run = "plugin gvfs -- add-mount", desc = "Add a GVFS mount URI" },
 	{ on = [ "M", "e" ], run = "plugin gvfs -- edit-mount", desc = "Edit a GVFS mount URI" },
 	{ on = [ "M", "r" ], run = "plugin gvfs -- remove-mount", desc = "Remove a GVFS mount URI" },
-	{ on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device", desc = "Select device then jump to its mount point" },
 	{ on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device --automount", desc = "Automount then select device to jump to its mount point" },
 	{ on = [ "`", "`" ], run = "plugin gvfs -- jump-back-prev-cwd", desc = "Jump back to the position before jumped to device" },
 ]
