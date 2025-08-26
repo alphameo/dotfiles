@@ -1,54 +1,60 @@
-[mgr]
-prepend_keymap = [
-    ##############
-    ### CUSTOM ###
-    ##############
-    #
-    # NOTE: need to install dragon-drop
-{ on  = "<C-n>", run = 'shell -- dragon-drop -x -i -T "$1"', desc = "Activate drag & drop" },
-{ on   = "<C-;>", for  = "unix", run  = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
-{ on   = "<C-;>", for  = "windows", run  = 'shell "powershell.exe" --block', desc = "Open PowerShell here" },
-    #
-    #
-    ###############
-    ### PLUGINS ###
-    ###############
-    #
-    # yazi-rs/plugins:chmod
-{ on   = [ "c", "m" ], run  = "plugin chmod", desc = "Chmod on selected files" },
-    #
-    # Ape/reflink
-{ on = [ "_", "r" ], run = "plugin reflink", desc = "Reflink the yanked files" },
-    #
-    # KKV9/compress
-{ on   = [ "A", "a" ], run  = "plugin compress", desc = "Archive selected files" },
-{ on   = [ "A", "p" ], run  = "plugin compress -p", desc = "Archive selected files (password)" },
-{ on   = [ "A", "h" ], run  = "plugin compress -ph", desc = "Archive selected files (password+header)" },
-{ on   = [ "A", "l" ], run  = "plugin compress -l", desc = "Archive selected files (compression level)" },
-{ on   = [ "A", "u" ], run  = "plugin compress -phl", desc = "Archive selected files (password+header+level)" },
-    #
-    # boydaihungst/restore
-    # need to install trash-cli
-{ on = [ "u" ], run = "plugin restore", desc = "Restore last deleted files/folders" },
-    #
-    # uhs-robert/recycle-bin
-    # need to install trash-cli
-{ on = [ "g", "t" ], run = "plugin recycle-bin open", desc = "Go to Trash" },
-{ on = [ "R", "o" ], run = "plugin recycle-bin open", desc = "Open Trash" },
-{ on = [ "R", "e" ], run = "plugin recycle-bin empty", desc = "Empty Trash" },
-{ on = [ "R", "d" ], run = "plugin recycle-bin delete", desc = "Delete from Trash" },
-{ on = [ "R", "D" ], run = "plugin recycle-bin emptyDays", desc = "Empty by days deleted" },
-{ on = [ "R", "r" ], run = "plugin recycle-bin restore", desc = "Restore from Trash" },
-    #
-    # yazi-rs/plugins:mount
-{ on  = [ "M", "M" ], run = "plugin mount", desc = "Mount UI" },
-    #
-    # gvfs plugin
-{ on = [ "M", "m" ], run = "plugin gvfs -- select-then-mount --jump", desc = "Select device to mount and jump to its mount point" },
-{ on = [ "M", "R" ], run = "plugin gvfs -- remount-current-cwd-device", desc = "Remount device under cwd" },
-{ on = [ "M", "u" ], run = "plugin gvfs -- select-then-unmount --eject", desc = "Select device then eject" },
-{ on = [ "M", "U" ], run = "plugin gvfs -- select-then-unmount --eject --force", desc = "Select device then force to eject/unmount" },
+# See https://github.com/sxyazi/yazi/blob/shipped/yazi-config/preset/keymap-default.toml
 
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+[mgr]
+
+prepend_keymap = [
+	{ on = "<C-n>", run = 'shell -- dragon-drop -x -i -T "$1"', desc = "Activate drag & drop" },
+	{ on = "<C-`>", for  = "unix", run  = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
+	{ on = "<C-`>", for  = "windows", run  = 'shell "powershell.exe" --block', desc = "Open PowerShell here" },
+	{ on = "<C-q>", run = "quit", desc = "Quit the process" },
+	{ on = "<C-Q>", run = "quit --no-cwd-file", desc = "Quit without outputting cwd-file" },
+	{ on = "<C-t>", run = "tab_create --current", desc = "Create a new tab with CWD" },
+	{ on = "<C-w>", run = "close", desc = "Close the current tab, or quit if it's last" },
+	{ on = "<C-[>", run = "tab_switch -1 --relative", desc = "Switch to previous tab" },
+	{ on = "<C-]>", run = "tab_switch 1 --relative",  desc = "Switch to next tab" },
+	{ on = "<C-9>", run = "tab_swap -1", desc = "Swap current tab with previous tab" },
+	{ on = "<C-0>", run = "tab_swap 1",  desc = "Swap current tab with next tab" },
+	{ on = [ "f", "f" ], run = "search --via=fd", desc = "Search files by name via fd" },
+	{ on = [ "f", "g" ], run = "search --via=rg", desc = "Search files by content via ripgrep" },
+	{ on = [ "f", "z" ], run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
+	{ on = [ "f", "r" ], run = "plugin zoxide", desc = "Jump to a directory via zoxide" },
+	{ on = "<C-Space>", run = [ "toggle" ], desc = "Toggle the current selection state" },
+	{ on = "<C-u>", run = "seek -5", desc = "Seek up 5 units in the preview" },
+	{ on = "<C-d>", run = "seek 5",  desc = "Seek down 5 units in the preview" },
+	{ on = "H", run = "hidden toggle", desc = "Toggle the visibility of hidden files" },
+	{ on = "t", run = "tasks:show", desc = "Show task manager" },
+	{ on = "K", run = "spot", desc = "Spot hovered file" },
+
+
+	{ on = [ "c", "m" ], run  = "plugin chmod", desc = "Chmod on selected files" },
+
+	{ on = [ "_", "r" ], run = "plugin reflink", desc = "Reflink the yanked files" },
+
+	{ on = [ "A", "a" ], run  = "plugin compress", desc = "Archive selected files" },
+	{ on = [ "A", "p" ], run  = "plugin compress -p", desc = "Archive selected files (password)" },
+	{ on = [ "A", "h" ], run  = "plugin compress -ph", desc = "Archive selected files (password+header)" },
+	{ on = [ "A", "l" ], run  = "plugin compress -l", desc = "Archive selected files (compression level)" },
+	{ on = [ "A", "u" ], run  = "plugin compress -phl", desc = "Archive selected files (password+header+level)" },
+
+	{ on = ["A", "o"], run = "plugin ouch", desc = "Archive with ouch" },
+
+	{ on = [ "R", "l" ], run = "plugin restore", desc = "Restore last deleted files/folders" },
+
+	{ on = [ "g", "t" ], run = "plugin recycle-bin open", desc = "Go to Trash" },
+	{ on = [ "R", "o" ], run = "plugin recycle-bin open", desc = "Open Trash" },
+	{ on = [ "R", "e" ], run = "plugin recycle-bin empty", desc = "Empty Trash" },
+	{ on = [ "R", "d" ], run = "plugin recycle-bin delete", desc = "Delete from Trash" },
+	{ on = [ "R", "D" ], run = "plugin recycle-bin emptyDays", desc = "Empty by days deleted" },
+	{ on = [ "R", "r" ], run = "plugin recycle-bin restore", desc = "Restore from Trash" },
+
+	{ on  = [ "M", "M" ], run = "plugin mount", desc = "Mount UI" },
+
+	{ on = [ "M", "m" ], run = "plugin gvfs -- select-then-mount --jump", desc = "Select device to mount and jump to its mount point" },
+	{ on = [ "M", "R" ], run = "plugin gvfs -- remount-current-cwd-device", desc = "Remount device under cwd" },
+	{ on = [ "M", "u" ], run = "plugin gvfs -- select-then-unmount --eject", desc = "Select device then eject" },
+	{ on = [ "M", "U" ], run = "plugin gvfs -- select-then-unmount --eject --force", desc = "Select device then force to eject/unmount" },
     # Add|Edit|Remove mountpoint: smb, sftp, ftp, nfs, dns-sd, dav, davs, dav+sd, davs+sd, afp, afc, sshfs
     # Read more about the schemes here: https://wiki.gnome.org/Projects(2f)gvfs(2f)schemes.html
     # Explain about the scheme: If it show like this: {ftp,ftps,ftpis}://[user@]host[:port]
@@ -58,14 +64,48 @@ prepend_keymap = [
     # - Scheme/Mount URIs shouldn't contain password.
     # - Google Drive, One drive are mounted automatically via GNOME Online Accounts (GOA). Avoid adding them. Use GOA instead: ./GNOME_ONLINE_ACCOUNTS_GOA.md
     # - MTP, GPhoto2, AFC, Hard disk/drive, fstab with x-gvfs-show are listed automatically. Avoid adding them.
-{ on = [ "M", "a" ], run = "plugin gvfs -- add-mount", desc = "Add a GVFS mount URI" },
-    # Edit or remove a GVFS mount URI will clear saved passwords for that mount URI.
-{ on = [ "M", "e" ], run = "plugin gvfs -- edit-mount", desc = "Edit a GVFS mount URI" },
-{ on = [ "M", "r" ], run = "plugin gvfs -- remove-mount", desc = "Remove a GVFS mount URI" },
+	{ on = [ "M", "a" ], run = "plugin gvfs -- add-mount", desc = "Add a GVFS mount URI" },
+	{ on = [ "M", "e" ], run = "plugin gvfs -- edit-mount", desc = "Edit a GVFS mount URI" },
+	{ on = [ "M", "r" ], run = "plugin gvfs -- remove-mount", desc = "Remove a GVFS mount URI" },
+	{ on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device", desc = "Select device then jump to its mount point" },
+	{ on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device --automount", desc = "Automount then select device to jump to its mount point" },
+	{ on = [ "`", "`" ], run = "plugin gvfs -- jump-back-prev-cwd", desc = "Jump back to the position before jumped to device" },
+]
 
-    # Jump
-{ on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device", desc = "Select device then jump to its mount point" },
-    # If you use `x-systemd.automount` in /etc/fstab or manually added automount unit, you can use `--automount` to automount device automatically
-{ on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device --automount", desc = "Automount then select device to jump to its mount point" },
-{ on = [ "`", "`" ], run = "plugin gvfs -- jump-back-prev-cwd", desc = "Jump back to the position before jumped to device" },
+[tasks]
+prepend_keymap = [
+	{ on = "<C-q>", run = "close", desc = "Close task manager" },
+]
+
+[spot]
+prepend_keymap = [
+	{ on = "<C-q>", run = "close", desc = "Close the spot" },
+]
+
+[pick]
+prepend_keymap = [
+	{ on = "<C-q>",   run = "close",          desc = "Cancel pick" },
+]
+
+[input]
+prepend_keymap = [
+	{ on = "<C-q>",   run = "close",          desc = "Cancel input" },
+]
+
+[confirm]
+prepend_keymap = [
+	{ on = "<C-q>",   run = "close",          desc = "Cancel the confirm" },
+]
+
+[cmp]
+prepend_keymap = [
+	{ on = "<C-q>",   run = "close",                                      desc = "Cancel completion" },
+	{ on = "<C-k>", run = "arrow prev", desc = "Previous item" },
+	{ on = "<C-j>", run = "arrow next", desc = "Next item" },
+]
+
+[help]
+prepend_keymap = [
+	{ on = "<C-q>", run = "close",  desc = "Hide the help" },
+	{ on = "//", run = "filter", desc = "Filter help items" },
 ]
