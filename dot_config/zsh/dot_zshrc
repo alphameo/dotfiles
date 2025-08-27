@@ -1,7 +1,10 @@
 #!/bin/env zsh
 
-# NOTE: ZINIT
-# src: https://github.com/zdharma-continuum/zinit
+#############
+### ZINIT ###
+#############
+
+# See https://github.com/zdharma-continuum/zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -10,7 +13,10 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 
-# NOTE:  ALIASES
+###############
+### ALIASES ###
+###############
+
 alias sudo='sudo '
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
 alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
@@ -30,48 +36,26 @@ alias ls='eza --color=always --icons=always'
 alias lt='eza_tree'
 
 
-# NOTE: ZOXIDE
+###############
+### MODULES ###
+###############
 
 eval "$(zoxide init --cmd z zsh)"
 
-
-# NOTE: FZF
-
 eval "$(fzf --zsh)"
-
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git "
 export FZF_DEFAULT_OPTS="--height 50% --layout=default --border --color=hl:#2dd4bf"
-
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
-
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 export FZF_ALT_C_OPTS="--preview 'eza --icons=always --tree --color=always {} | head -200'"
 
-
-# NOTE: STARSHIP
 eval "$(starship init zsh)"
 
 
-# NOTE: SUPERFILE
-spf() {
-    os=$(uname -s)
-    if [[ "$os" == "Linux" ]]; then
-        export SPF_LAST_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/superfile/lastdir"
-    fi
-    if [[ "$os" == "Darwin" ]]; then
-        export SPF_LAST_DIR="$HOME/Library/Application Support/superfile/lastdir"
-    fi
-
-    command spf "$@"
-    [ ! -f "$SPF_LAST_DIR" ] || {
-        . "$SPF_LAST_DIR"
-        rm -f -- "$SPF_LAST_DIR" > /dev/null
-    }
-}
-
-
-# NOTE: FUNCTIONS
+########################
+### CUSTOM FUNCTIONS ###
+########################
 
 eza_tree() {
   EZA_TREE="eza --tree --color=always"
@@ -92,21 +76,15 @@ function yazi_filemanager() {
   rm -f -- "$tmp"
 }
 
-# NOTE:  venv
-
-export VENV_HOME="$HOME/.virtualenvs"
-[[ -d $VENV_HOME ]] || mkdir $VENV_HOME
-
 hvenv() {
   echo "Current venv: $VIRTUAL_ENV
 USAGE:
 $ hvenv                 # shows venv help
 $ lsvenv                # list available venvs
-$ mkvenv <myvirtualenv> # creates venv under ~/.virtualenvs/
+$ mkvenv <myvirtualenv> # creates venv under $VENV_HOME
 $ venv <myvirtualenv>   # activates venv
 $ deactivate            # deactivates venv
 $ rmvenv <myvirtualenv> # removes venv"
-
 }
 
 lsvenv() {
@@ -141,33 +119,12 @@ rmvenv() {
 }
 
 
-# NOTE: HISTORY
-
-# src: https://zsh.sourceforge.io/Doc/Release/Options.html#History
-HISTFILEDIR="$XDG_STATE_HOME"/zsh
-[ -d "$HISTFILEDIR" ] || mkdir "$HISTFILEDIR"
-
-HISTFILE="$XDG_STATE_HOME/zsh/history"
-
-HISTSIZE=10000
-SAVEHIST=$HISTSIZE
-HISTDUP=erase
-
-# append to history
-setopt appendhistory
-
-setopt sharehistory # share history between instances and update history on the fly
-setopt hist_find_no_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_ignore_all_dups # don't save duplicate commands, old commands are deleted, new are written
-setopt hist_ignore_space # ignore commands starting with a space
-
-
-# NOTE: ZINIT PLUGINS
+#####################
+### ZINIT PLUGINS ###
+#####################
 
 # https://github.com/Aloxaf/fzf-tab
-# https://github.com/zsh-users/zsh-syntax-highlighting  (see EOF)
+# https://github.com/zsh-users/zsh-syntax-highlighting (see EOF)
 # https://github.com/zdharma-continuum/fast-syntax-highlighting
 # https://github.com/zsh-users/zsh-completions
 # https://github.com/marlonrichert/zsh-autocomplete
@@ -180,30 +137,38 @@ zinit depth"1" lucid light-mode for \
 		wait zsh-users/zsh-autosuggestions \
 
 
-# ZSH-COMPLETIONS
+# zsh-completions
 autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 
-export VI_MODE_SET_CURSOR=true
-export KEYTIMEOUT=1
-
-
-# FZF-TAB
+# fzf-tab
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons=always --color=always $realpath'
 
 
-# NOTE: GPG
-export GPG_TTY=$(tty)
+###############
+### OPTIONS ###
+###############
 
-# NOTE: PRETTIER
-export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/nvim/utils/prettierrc.json"
+# disbale Software Flow Control ctrl+s (to enable: stty -ixoff)
+stty -ixon
 
-# NOTE: ESLINT
-export ESLINT_DEFAULT_CONFIG="$HOME/.config/nvim/utils/eslintrc.js"
+# See https://zsh.sourceforge.io/Doc/Release/Options.html#History
+HISTFILEDIR="$XDG_STATE_HOME"/zsh
+[ -d "$HISTFILEDIR" ] || mkdir "$HISTFILEDIR"
+HISTFILE="$XDG_STATE_HOME/zsh/history"
 
-# NOTE: OTHER OPTS
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
+
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY # share history between instances
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS # don't save duplicate commands, old commands are deleted, new are written
+setopt HIST_IGNORE_SPACE # ignore commands starting with a space
 
 # file matching
 setopt EXTENDED_GLOB
@@ -212,34 +177,28 @@ setopt NOMATCH
 # report status of background
 setopt NOTIFY
 
-# if not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-
 # Change cursor shape for different vi modes.
-function zle-keymap-select () {
+function zle-keymap-select zle-line-init zle-line-finish
+{
   case $KEYMAP in
-    vicmd) echo -ne "\e[1 q";; # block
-    viins|main) echo -ne "\e[5 q";; # beam
+      vicmd)      print -n '\033[1 q';; # block cursor
+      viins|main) print -n '\033[5 q';; # line cursor
   esac
 }
 
+zle -N zle-line-init
+zle -N zle-line-finish
 zle -N zle-keymap-select
 
-zle-line-init() {
-  # zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-  echo -ne "\e[5 q"
-}
 
-zle -N zle-line-init
-echo -ne "\e[5 q" # Use beam shape cursor on startup.
-
-preexec() { echo -ne "\e[5 q" ;} # Use beam shape cursor for each new prompt.
-
-
-# NOTE: BINDKEYS
+################
+### BINDKEYS ###
+################
 
 bindkey -v                           # built-in vim mode (disable if zsh-vi-mode)
+export VI_MODE_SET_CURSOR=true
+export KEYTIMEOUT=1
+
 bindkey '^[[3;5~' kill-word            # ctrl+del
 bindkey '^H' backward-kill-word        # ctrl+backspace
 bindkey '^[[3~' delete-char            # del

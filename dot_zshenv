@@ -6,6 +6,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+# source: https://wiki.archlinux.org/title/Zsh#Startup/Shutdown_files
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
 
 # src: https://wiki.archlinux.org/title/Environment_variables#Default_programs
 export SHELL="/usr/bin/zsh"
@@ -21,17 +24,24 @@ export NOTES='obsidian'
 export SYSMONITOR='btop'
 
 
-# source: https://wiki.archlinux.org/title/Zsh#Startup/Shutdown_files
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 export LF_CONFIG_HOME="$XDG_CONFIG_HOME"
+
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+
+export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/nvim/utils/prettierrc.json"
+
+export ESLINT_DEFAULT_CONFIG="$HOME/.config/nvim/utils/eslintrc.js"
 
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export GPG_TTY=$TTY
 
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-
 export JAVA_HOME="/usr/lib/jvm/java-24-openjdk"
+
+export VENV_HOME="$HOME/.virtualenvs"
+[[ -d $VENV_HOME ]] || mkdir $VENV_HOME
+
 
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
