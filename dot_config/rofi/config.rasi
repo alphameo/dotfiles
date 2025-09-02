@@ -39,8 +39,8 @@ configuration{
     kb-accept-custom-alt: "Control+Shift+Return";
     kb-accept-alt: "Shift+Return";
     kb-delete-entry: "";
-    kb-mode-next: "Control+braceright,Control+Tab";
-    kb-mode-previous: "Control+braceleft,Control+ISO_Left_Tab";
+    kb-mode-next: "Control+bracketright,Control+Tab";
+    kb-mode-previous: "Control+bracketleft,Control+ISO_Left_Tab";
     kb-mode-complete: "";
     kb-row-left: "Control+H";
     kb-row-right: "Control+L";
