@@ -1,7 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   lazy = true,
-  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+  event = { "FileType" },
   opts = {
     inlay_hints = { enabled = true },
     codelens = { enabled = true },
