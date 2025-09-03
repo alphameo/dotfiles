@@ -24,8 +24,6 @@ export NOTES='obsidian'
 export SYSMONITOR='btop'
 
 
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
-
 export LF_CONFIG_HOME="$XDG_CONFIG_HOME"
 
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
