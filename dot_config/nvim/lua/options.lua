@@ -79,7 +79,7 @@ vim.o.winborder = "none" -- Border of documentation, signature, completion
 vim.o.ignorecase = true -- Case-insensitive search
 vim.o.infercase = true -- Infer letter cases for a richer built-in keyword completion
 vim.o.smartcase = true -- Case sensitive if uppercase in search
-vim.o.hlsearch = false -- Highlight search results
+vim.o.hlsearch = true -- Highlight search results
 vim.o.incsearch = true -- Show matches as you type
 
 vim.o.virtualedit = "block" -- Allow going past the end of line in visual block mode
