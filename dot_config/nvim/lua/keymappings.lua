@@ -24,9 +24,7 @@ map("t", "<M-k>", "<Up>", { desc = "Up" })
 map("t", "<M-l>", "<Right>", { desc = "Right" })
 
 -- Escape Insert
-map("i", "jk", "<ESC>", { desc = "Exit INSERT MODE" })
 map("i", "jj", "<ESC>", { desc = "Exit INSERT MODE" })
-map("i", "kj", "<ESC>", { desc = "Exit INSERT MODE" })
 
 -- Files
 map("n", "<C-s>", ":update<CR>", { silent = true, desc = "Save File" })
@@ -56,9 +54,9 @@ map("n", "<C-.>", "<C-w>>", { desc = "Window Wider" })
 map("n", "<C-,>", "<C-w><", { desc = "Window Narower" })
 
 -- Comments
-map("i", "<C-/>", "<ESC>:Commentary<CR>", { silent = true, desc = "Toggle Comment" })
-map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle Comment" })
-map("v", "<C-/>", "gc", { remap = true, desc = "Toggle Comment" })
+map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
+map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
+map({ "n", "v" }, "gc", "gc", { remap = true, desc = "Toggle comment" })
 
 -- Terminals
 map("n", "<leader>tt", ":terminal<CR>", { silent = true, desc = "Terminal Tab New" })
@@ -88,8 +86,7 @@ map("n", "<Down>", ':echo "Use j to move!"<CR>', { silent = true })
 map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 
 -- Russian Keybard
-vim.opt.langmap = "ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х\\[,Ъ\\],ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж\\;,Э\\',ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б\\<,Ю\\>"
-  .. ",йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х\\[,ъ\\],фa,ыs,вd,аf,пg,рh,оj,лk,дl,ж\\;,э\\',яz,чx,сc,мv,иb,тn,ьm,б\\<,ю\\>"
-map("i", "ол", "<ESC>", { desc = "Exit INSERT MODE" })
+vim.opt.langmap = "ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х\\[,Ъ\\],ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж\\;,Э\\'"
+  .. ",ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б\\<,Ю\\>,йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х\\[,ъ\\],фa,ыs,вd,аf,пg,рh"
+  .. ",оj,лk,дl,ж\\;,э\\',яz,чx,сc,мv,иb,тn,ьm,б\\<,ю\\>"
 map("i", "оо", "<ESC>", { desc = "Exit INSERT MODE" })
-map("i", "ло", "<ESC>", { desc = "Exit INSERT MODE" })
