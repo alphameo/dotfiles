@@ -24,7 +24,7 @@ return {
       { "<leader>L", group = "Lazy", mode = { "n", "v" }, icon = { icon = " ", color = "green" } },
       { "<leader>c", group = "Code", mode = { "n", "v" } },
       { "<leader>d", group = "Debug", mode = { "n", "v" } },
-      { "<leader>D", group = "Debug Printf", mode = { "n", "v" } },
+      { "<leader>D", group = "Diff", mode = { "n", "v" } },
       { "<leader>f", group = "Find", mode = { "n", "v" } },
       { "<leader>F", group = "F&Replace", mode = { "n", "v" }, icon = { icon = "󰛔 ", color = "cyan" } },
       { "<leader>g", group = "Git", mode = { "n", "v" } },

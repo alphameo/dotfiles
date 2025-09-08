@@ -63,7 +63,3 @@ map("n", "<leader>cd", function()
     focusable = false,
   })
 end, { silent = true, desc = "Code Open Diagnostics" })
-
-map("n", "<leader>cD", ":Telescope diagnostics<CR>", { silent = true, desc = "Code Diagnostic List" })
-map("n", "<leader>cq", ":Telescope quickfix<CR>", { silent = true, desc = "Code Quickfix" })
-map("n", "<leader>cQ", ":Telescope quickfixhistory<CR>", { silent = true, desc = "Code Quickfix History" })

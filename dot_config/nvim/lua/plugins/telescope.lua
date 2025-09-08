@@ -77,7 +77,11 @@ return {
       map("n", "<leader>fg", builtin.live_grep, { desc = "Find by Grep" })
       map("n", "<leader>fw", builtin.grep_string, { desc = "Find Words" })
       map("n", "<leader>fr", builtin.oldfiles, { desc = "Find Recent Files" })
-      map("n", "<leader>fj", builtin.jumplist, { desc = "Find Recent Files" })
+
+      map("n", "<leader>fj", builtin.jumplist, { desc = "Find in Jump List" })
+      map("n", "<leader>fq", builtin.quickfix, { silent = true, desc = "Find in Quickfix List" })
+      map("n", "<leader>fQ", builtin.quickfixhistory, { silent = true, desc = "Find in Quickfix List History" })
+      map("n", "<leader>fd", builtin.diagnostics, { silent = true, desc = "Find in Diagnostic List" })
 
       map("n", "<leader>.c", builtin.colorscheme, { desc = "Choose Colorscheme" })
       map("n", "<leader>.h", builtin.help_tags, { desc = "Help Tags" })

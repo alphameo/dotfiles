@@ -39,8 +39,8 @@ local setup_mappings = function()
       map("n", "gr", M.actions.ref, opts "Go to References")
       map("n", "gt", M.actions.type_def, opts "Go to Type Definition")
 
-      map("n", "<leader>cs", M.actions.doc_symb, opts "Code Document Symbols")
-      map("n", "<leader>cS", M.actions.wsp_symb, opts "Code Workspace Symbols")
+      map("n", "go", M.actions.doc_symb, opts "Code Document Symbols")
+      map("n", "gO", M.actions.wsp_symb, opts "Code Workspace Symbols")
 
       map({ "n", "v" }, "<leader>ca", lsp_b.code_action, opts "Code Actions")
       map("n", "<leader>cr", lsp_b.rename, opts "Code Rename")
