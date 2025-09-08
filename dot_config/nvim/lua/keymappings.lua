@@ -76,6 +76,14 @@ map("v", "<M-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up
 map("n", "[j", "<C-o>", { desc = "Jump Back" })
 map("n", "]j", "<C-i>", { desc = "Jump Forward" })
 
+-- Diffs
+map("n", "<leader>DA", ":diffthis<CR>", { silent = true, desc = "Diff Add" })
+map("n", "<leader>DR", ":diffoff<CR>", { silent = true, desc = "Diff Remove" })
+map("n", "<leader>DO", ":diffoff!<CR>", { silent = true, desc = "Diff Off" })
+map("n", "<leader>DU", ":diffupdate<CR>", { silent = true, desc = "Diff Update" })
+map({ "n", "v" }, "<leader>DP", ":diffput<CR>", { silent = true, desc = "Diff Put" })
+map({ "n", "v" }, "<leader>DG", ":diffget<CR>", { silent = true, desc = "Diff Get" })
+
 -- Other Features
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
 map("n", "<Left>", ':echo "Use h to move!"<CR>', { silent = true })
