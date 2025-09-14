@@ -56,7 +56,6 @@ map("n", "<C-,>", "<C-w><", { desc = "Window Narower" })
 -- Comments
 map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
 map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
-map({ "n", "v" }, "gc", "gc", { remap = true, desc = "Toggle comment" })
 
 -- Terminals
 map("n", "<leader>tt", ":terminal<CR>", { silent = true, desc = "Terminal Tab New" })
