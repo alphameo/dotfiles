@@ -108,6 +108,8 @@ return {
           "bibtex-tidy", -- tex fmt
           -- "xmlformatter", -- xml fmt
           -- "yamllint", -- yaml lint
+          "shellcheck",
+          "shellharden",
         },
       }
     end,
