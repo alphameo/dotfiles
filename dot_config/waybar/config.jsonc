@@ -10,10 +10,10 @@
     ],
     "modules-center": [
         "clock",
-        "hyprland/language",
     ],
     "modules-right": [
         "tray",
+        "hyprland/language",
         "group/group-controls",
         "group/group-battery",
         "group/group-power",
