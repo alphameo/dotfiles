@@ -150,7 +150,7 @@
     "network": {
         "format-disabled": "<span color='#cdd6f4'>󰪎</span>",
         "format-disconnected": "<span color='#cdd6f4'></span>",
-        "format-wifi": "<span color='#74c7ec'></span>",
+        "format-wifi": "<span color='#74c7ec'> {essid}</span>",
         "format-ethernet": "<span color='#74c7ec'>󰲝</span>",
         "format-linked": "<span color='#74c7ec'>󱘖</span>",
         "interval": 2,
