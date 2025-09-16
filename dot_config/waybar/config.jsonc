@@ -118,7 +118,7 @@
         "spacing": 6
     },
     "clock": {
-        "format": "<span color='#cba6f7'>󰥔</span> {:%H:%M}",
+        "format": "<span color='#cba6f7'>󰥔</span> {:%H:%M <small>(%a, %d.%m.%Y)</small>}",
         "interval": 60,
         "tooltip-format": "<small>Today:</small> {:%d.%m.%Y}\n<tt><small>{calendar}</small></tt>\n\n<small>LMB - reset day\nRMB - year\nMS - change month</small>",
         "calendar": {
