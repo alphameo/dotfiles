@@ -61,6 +61,8 @@ vim.opt.shortmess:append "WcC" -- Reduce command line messages
 
 vim.o.splitkeep = "screen" -- Reduce scroll during window split
 
+vim.o.foldenable = false
+
 -- Extra UI
 vim.o.pumblend = 10 -- Make builtin completion menus slightly transparent
 vim.o.pumheight = 10 -- Make popup menu smaller
