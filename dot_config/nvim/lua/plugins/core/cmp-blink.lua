@@ -106,9 +106,10 @@ return {
         "lsp",
         "path",
         "snippets",
+        "buffer",
       },
       per_filetype = {
-        sql = { "snippets", "dadbod" },
+        sql = { "snippets", "dadbod", "buffer" },
       },
 
       providers = {
