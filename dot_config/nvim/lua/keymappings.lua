@@ -28,9 +28,7 @@ map("i", "jj", "<ESC>", { desc = "Exit INSERT MODE" })
 
 -- Files
 map("n", "<C-s>", ":update<CR>", { silent = true, desc = "Save File" })
-map("n", "<C-S-s>", ":wall<CR>", { silent = true, desc = "Save All Files" })
 map("n", "<C-q>", ":quit<CR>", { silent = true, desc = "Quit" })
-map("n", "<C-S-q>", ":quit!<CR>", { silent = true, desc = "Force Quit" })
 
 -- Buffers
 map("n", "<M-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
@@ -41,9 +39,6 @@ map("n", "<M-[>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" 
 map("n", "<C-S-Tab>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
 
 -- Windows
-map("n", "<C-S-\\>", "<C-w>s", { desc = "Window Horizontal Split" })
-map("n", "<C-\\>", "<C-w>v", { desc = "Window Vertical Split" })
-
 map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })
 map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
