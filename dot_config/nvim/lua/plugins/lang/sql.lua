@@ -3,7 +3,6 @@ return {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {
       { "tpope/vim-dadbod", lazy = true },
-      "kristijanhusak/vim-dadbod-completion",
     },
     lazy = true,
     cmd = {
@@ -39,17 +38,16 @@ select count(*) from {table};
       -- you save the file running those queries can crash neovim to run use the
       -- default keymap: <leader>S
       vim.g.db_ui_execute_on_save = false
+      -- NOTE: To add connection:
+      -- CMD :DBUIAddConnection<CR>
+      -- Enter connection url: <database>://<user>:<password>@<url>:<port>/<db_name>
+      -- e.g.: mariadb://root:1056@localhost:3306/railways<CR>
+      vim.keymap.set("n", "<leader>b", ":DBUIToggle<CR>", { silent = true, desc = "DataBases" })
     end,
   },
   {
     "kristijanhusak/vim-dadbod-completion",
     lazy = true,
     ft = { "sql", "mysql", "plsql" },
-    config = function()
-      vim.cmd [[
-                autocmd FileType sql setlocal omnifunc=vim_dadbod_completion#omni
-                autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
-            ]]
-    end,
   },
 }
