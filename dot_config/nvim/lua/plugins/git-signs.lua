@@ -29,7 +29,7 @@ return {
     map("n", "<leader>gw", ":Gitsigns toggle_word_diff<CR>", { silent = true, desc = "Git Word Diff" })
     map("n", "]h", ":Gitsigns nav_hunk next<CR>", { silent = true, desc = "Git Hunk Next" })
     map("n", "[h", ":Gitsigns nav_hunk prev<CR>", { silent = true, desc = "Git Hunk Prev" })
-    map("n", "<leader>ga", ":Gitsigns stage_hunk<CR>", { silent = true, desc = "Git Toggle Stage Hunk" })
+    map("n", "<leader>gs", ":Gitsigns stage_hunk<CR>", { silent = true, desc = "Git Toggle Stage Hunk" })
     map("n", "<leader>gr", ":Gitsigns reset_hunk<CR>", { silent = true, desc = "Git Hunk Reset" })
   end,
 }
