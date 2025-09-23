@@ -122,13 +122,8 @@ local setup_tabline = function()
       return prefix .. tabline.default_format(buf_id, label) .. get_diagnostic_symbol(buf_id) .. suffix
     end,
   }
-  vim.keymap.set("n", "<M-]>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
-  vim.keymap.set("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
-  vim.keymap.set("n", "<M-[>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
-  vim.keymap.set("n", "<C-S-Tab>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
   vim.keymap.set("n", "<M-g>", ":Telescope buffers<CR>", { silent = true, desc = "Pick Tab (buffer) Next" })
   vim.keymap.set("n", "<M-w>", ":Bdelete<CR>", { silent = true, desc = "Pick buffer to close" })
-  vim.keymap.set("n", "<M-Backspace>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
 end
 
 local setup_statusline = function()

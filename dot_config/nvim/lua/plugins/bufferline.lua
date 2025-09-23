@@ -49,6 +49,5 @@ return {
     map("n", "<M-w>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
     map("n", "<M-x>", ":BufferLinePickClose<CR>", { silent = true, desc = "Pick buffer to close" })
     map("n", "<M-o>", ":BufferLineCloseOthers<CR>", { silent = true, desc = "Close other buffers" })
-    map("n", "<M-Backspace>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
   end,
 }

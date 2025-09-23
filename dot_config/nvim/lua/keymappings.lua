@@ -34,6 +34,11 @@ map("n", "<C-S-q>", ":quit!<CR>", { silent = true, desc = "Force Quit" })
 
 -- Buffers
 map("n", "<M-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
+map("n", "<M-Backspace>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
+map("n", "<M-]>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+map("n", "<M-[>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+map("n", "<C-S-Tab>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
 
 -- Windows
 map("n", "<C-S-\\>", "<C-w>s", { desc = "Window Horizontal Split" })
