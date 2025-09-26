@@ -64,12 +64,14 @@ vim.opt.shortmess:append "WcC" -- Reduce command line messages
 
 vim.o.splitkeep = "screen" -- Reduce scroll during window split
 
+vim.o.foldenable = false
+
 -- Extra UI
 vim.o.pumblend = 10 -- Make builtin completion menus slightly transparent
 vim.o.pumheight = 10 -- Make popup menu smaller
-vim.o.winblend = 10 -- Make floating windows slightly transparent
+-- vim.o.winblend = 10 -- Make floating windows slightly transparent (causes bugs with block cursor in overlays)
 
-vim.o.listchars = "tab:> ,extends:…,precedes:…,nbsp:␣" -- Define which helper symbols to show
+vim.o.listchars = "tab:> ,extends:…,precedes:…,nbsp:" -- Define which helper symbols to show
 vim.o.list = false -- Show some helper symbols
 
 if vim.fn.exists "syntax_on" ~= 1 then
@@ -82,12 +84,18 @@ vim.o.winborder = "none" -- Border of documentation, signature, completion
 vim.o.ignorecase = true -- Case-insensitive search
 vim.o.infercase = true -- Infer letter cases for a richer built-in keyword completion
 vim.o.smartcase = true -- Case sensitive if uppercase in search
-vim.o.hlsearch = false -- Highlight search results
+vim.o.hlsearch = true -- Highlight search results
 vim.o.incsearch = true -- Show matches as you type
 
 vim.o.virtualedit = "block" -- Allow going past the end of line in visual block mode
 
 vim.o.inccommand = "split" -- Preview :substitute options
+
+-- Binaries
+local is_windows = vim.fn.has "win32" ~= 0
+local sep = is_windows and "\\" or "/"
+local delim = is_windows and ";" or ":"
+vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
 
 --------------
 -- MAPPINGS --
@@ -98,51 +106,49 @@ vim.g.maplocalleader = " "
 local map = vim.keymap.set
 
 -- Togglers
-map("n", "\\c", ":setlocal cursorline! cursorline?<CR>", { silent = true, desc = "Toggle 'cursorline'" })
-map("n", "\\C", ":setlocal cursorcolumn! cursorcolumn?<CR>", { silent = true, desc = "Toggle 'cursorcolumn'" })
-map("n", "\\l", ":setlocal list! list?<CR>", { silent = true, desc = "Toggle 'list'" })
-map("n", "\\n", ":setlocal relativenumber! relativenumber?<CR>", { silent = true, desc = "Toggle 'relativenumber'" })
-map("n", "\\s", ":setlocal spell! spell?<CR>", { silent = true, desc = "Toggle 'spell'" })
-map("n", "\\w", ":setlocal wrap! wrap?<CR>", { silent = true, desc = "Toggle 'wrap'" })
+map("n", "\\l", ":setlocal cursorline! cursorline?<CR>", { silent = true, desc = "Toggle Location Line" })
+map("n", "\\L", ":setlocal cursorcolumn! cursorcolumn?<CR>", { silent = true, desc = "Toggle Location Column" })
+map("n", "\\g", ":setlocal list! list?<CR>", { silent = true, desc = "Toggle Glyphs" })
+map("n", "\\n", ":setlocal relativenumber! relativenumber?<CR>", { silent = true, desc = "Toggle Relative Numbers" })
+map("n", "\\s", ":setlocal spell! spell?<CR>", { silent = true, desc = "Toggle Spellcheck" })
+map("n", "\\w", ":setlocal wrap! wrap?<CR>", { silent = true, desc = "Toggle Wrapping" })
 
 -- Insert movements
-map("c", "<A-h>", "<Left>", { silent = false, desc = "Left" })
-map("c", "<A-l>", "<Right>", { silent = false, desc = "Right" })
-map("i", "<A-h>", "<Left>", { noremap = false, desc = "Left" })
-map("i", "<A-j>", "<Down>", { noremap = false, desc = "Down" })
-map("i", "<A-k>", "<Up>", { noremap = false, desc = "Up" })
-map("i", "<A-l>", "<Right>", { noremap = false, desc = "Right" })
-map("t", "<A-h>", "<Left>", { desc = "Left" })
-map("t", "<A-j>", "<Down>", { desc = "Down" })
-map("t", "<A-k>", "<Up>", { desc = "Up" })
-map("t", "<A-l>", "<Right>", { desc = "Right" })
+map("c", "<M-h>", "<Left>", { silent = false, desc = "Left" })
+map("c", "<M-l>", "<Right>", { silent = false, desc = "Right" })
+map("i", "<M-h>", "<Left>", { noremap = false, desc = "Left" })
+map("i", "<M-j>", "<Down>", { noremap = false, desc = "Down" })
+map("i", "<M-k>", "<Up>", { noremap = false, desc = "Up" })
+map("i", "<M-l>", "<Right>", { noremap = false, desc = "Right" })
+map("t", "<M-h>", "<Left>", { desc = "Left" })
+map("t", "<M-j>", "<Down>", { desc = "Down" })
+map("t", "<M-k>", "<Up>", { desc = "Up" })
+map("t", "<M-l>", "<Right>", { desc = "Right" })
 
 -- Escape Insert
-map("i", "jk", "<ESC>", { desc = "Exit INSERT MODE" })
 map("i", "jj", "<ESC>", { desc = "Exit INSERT MODE" })
-map("i", "kj", "<ESC>", { desc = "Exit INSERT MODE" })
 
 -- Files
 map("n", "<C-s>", ":update<CR>", { silent = true, desc = "Save File" })
-map("n", "<C-S-s>", ":wall<CR>", { silent = true, desc = "Save All Files" })
 map("n", "<C-q>", ":quit<CR>", { silent = true, desc = "Quit" })
-map("n", "<C-S-q>", ":quit!<CR>", { silent = true, desc = "Force Quit" })
 
 -- Buffers
-map("n", "<A-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
+map("n", "<M-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
+map("n", "<M-Backspace>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
+map("n", "<M-]>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+map("n", "<M-[>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+map("n", "<C-S-Tab>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
 
 -- Windows
-map("n", "<C-S-\\>", "<C-w>s", { desc = "Window Horizontal Split" })
-map("n", "<C-\\>", "<C-w>v", { desc = "Window Vertical Split" })
-
 map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })
 map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
-map("n", "<C-left>", "<C-w>H", { desc = "Move Window to the Left" })
-map("n", "<C-right>", "<C-w>L", { desc = "Move Window to the Right" })
-map("n", "<C-down>", "<C-w>J", { desc = "Move Window to the Lower" })
-map("n", "<C-up>", "<C-w>K", { desc = "Move Window to the Upper" })
+map("n", "<C-Left>", "<C-w>H", { desc = "Move Window to the Left" })
+map("n", "<C-Right>", "<C-w>L", { desc = "Move Window to the Right" })
+map("n", "<C-Down>", "<C-w>J", { desc = "Move Window to the Lower" })
+map("n", "<C-Up>", "<C-w>K", { desc = "Move Window to the Upper" })
 
 map("n", "<C-=>", "<C-w>+", { desc = "Window Taller" })
 map("n", "<C-->", "<C-w>-", { desc = "Window Shorter" })
@@ -150,9 +156,8 @@ map("n", "<C-.>", "<C-w>>", { desc = "Window Wider" })
 map("n", "<C-,>", "<C-w><", { desc = "Window Narower" })
 
 -- Comments
-map("i", "<C-/>", "<ESC>:Commentary<CR>", { silent = true, desc = "Toggle Comment" })
-map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle Comment" })
-map("v", "<C-/>", "gc", { remap = true, desc = "Toggle Comment" })
+map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
+map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
 
 -- Terminals
 map("n", "<leader>tt", ":terminal<CR>", { silent = true, desc = "Terminal Tab New" })
@@ -163,14 +168,22 @@ map("t", "<C-q>", "<C-\\><C-n>:quit<CR>", { silent = true, remap = true, desc = 
 map("v", "<", "<gv", { desc = "Indent Left" }) -- stay in visual mode after indent
 map("v", ">", ">gv", { desc = "Indent Right" }) -- stay in visual mode after indent
 
-map("n", "<A-j>", ":m .+1<CR>==", { silent = true, desc = "Move Line Down" })
-map("n", "<A-k>", ":m .-2<CR>==", { silent = true, desc = "Move Line Up" })
-map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
-map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
+map("n", "<M-j>", ":m .+1<CR>==", { silent = true, desc = "Move Line Down" })
+map("n", "<M-k>", ":m .-2<CR>==", { silent = true, desc = "Move Line Up" })
+map("v", "<M-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
+map("v", "<M-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
 
 -- Jumps
 map("n", "[j", "<C-o>", { desc = "Jump Back" })
 map("n", "]j", "<C-i>", { desc = "Jump Forward" })
+
+-- Diffs
+map("n", "<leader>DA", ":diffthis<CR>", { silent = true, desc = "Diff Add" })
+map("n", "<leader>DR", ":diffoff<CR>", { silent = true, desc = "Diff Remove" })
+map("n", "<leader>DO", ":diffoff!<CR>", { silent = true, desc = "Diff Off" })
+map("n", "<leader>DU", ":diffupdate<CR>", { silent = true, desc = "Diff Update" })
+map({ "n", "v" }, "<leader>DP", ":diffput<CR>", { silent = true, desc = "Diff Put" })
+map({ "n", "v" }, "<leader>DG", ":diffget<CR>", { silent = true, desc = "Diff Get" })
 
 -- Other Features
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
@@ -181,19 +194,11 @@ map("n", "<Down>", ':echo "Use j to move!"<CR>', { silent = true })
 
 map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 
-map("n", "n", "nzzzv", { desc = "Next Occurance" }) -- center after find
-map("n", "N", "Nzzzv", { desc = "Previous Occurance" }) -- center after find
-
-vim.keymap.set("x", "p", function()
-  return 'pgv"' .. vim.v.register .. "y"
-end, { remap = false, expr = true }) -- paste without yanking
-
 -- Russian Keybard
-vim.opt.langmap = "ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х\\[,Ъ\\],ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж\\;,Э\\',ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б\\<,Ю\\>"
-  .. ",йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х\\[,ъ\\],фa,ыs,вd,аf,пg,рh,оj,лk,дl,ж\\;,э\\',яz,чx,сc,мv,иb,тn,ьm,б\\<,ю\\>"
-map("i", "ол", "<ESC>", { desc = "Exit INSERT MODE" })
+vim.opt.langmap = "ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х\\[,Ъ\\],ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж\\;,Э\\'"
+  .. ",ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б\\<,Ю\\>,йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х\\[,ъ\\],фa,ыs,вd,аf,пg,рh"
+  .. ",оj,лk,дl,ж\\;,э\\',яz,чx,сc,мv,иb,тn,ьm,б\\<,ю\\>"
 map("i", "оо", "<ESC>", { desc = "Exit INSERT MODE" })
-map("i", "ло", "<ESC>", { desc = "Exit INSERT MODE" })
 
 --------------------
 -- PLUGIN MANAGER --
@@ -231,7 +236,8 @@ require("lazy").setup {
     require("kitty-scrollback").setup {
       {
         status_window = {
-          autoclose = true,
+          autoclose = false,
+          style_simple = false,
         },
         paste_window = {
           highlight_as_normal_win = true,
