@@ -153,7 +153,7 @@ local setup_statusline = function()
         local filename = stl.section_filename { trunc_width = 140 }
         local fileinfo = stl.section_fileinfo { trunc_width = 9999 }
         local location = stl.section_location { trunc_width = 75 }
-        local search = stl.section_searchcount { trunc_width = 75 }
+        -- local search = stl.section_searchcount { trunc_width = 75 }
 
         local noice_cmd = ""
         if pcall(require, "noice") and require("noice").api.status.command.has() then
@@ -174,7 +174,7 @@ local setup_statusline = function()
           "%=", -- end left alignment
           { hl = "MiniStatuslineFilename", strings = {} },
           { hl = "MiniStatuslineFilename", strings = { noice_cmd, sep, diagnostics } },
-          { hl = "MiniStatuslineFilename", strings = { fileinfo, search } },
+          { hl = "MiniStatuslineFilename", strings = { fileinfo } },
           { hl = "MiniStatuslineFileinfo", strings = { location } },
           { hl = mode_hl, strings = { percentage } },
         }
