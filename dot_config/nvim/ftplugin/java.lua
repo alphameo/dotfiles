@@ -38,3 +38,5 @@ map(
 
 map("n", "<leader>lu", ":JdtUpdateConfig<CR>", { buffer = true, silent = true, desc = "Java Update Config" })
 map("n", "<leader>lr", ":JdtRestart<CR>", { buffer = true, silent = true, desc = "Java Restart JDTLS" })
+
+require("lsp").start_or_attach_java()
