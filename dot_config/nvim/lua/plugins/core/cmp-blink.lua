@@ -23,10 +23,10 @@ return {
       ["<C-space>"] = { "show", "hide", "fallback" },
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
-      ["<C-S-d>"] = { "show_documentation", "hide_documentation", "fallback" },
-      ["<C-S-k>"] = { "show_signature", "hide_signature" }, -- replace default signature
-      ["<C-d>"] = { "scroll_documentation_down", "fallback" },
-      ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-d>"] = { "show_documentation", "hide_documentation", "fallback" },
+      ["<C-s>"] = { "show_signature", "hide_signature" }, -- replace default signature
+      ["<C-e>"] = { "scroll_documentation_down", "fallback" },
+      ["<C-y>"] = { "scroll_documentation_up", "fallback" },
       ["<Tab>"] = {
         function(cmp)
           if cmp.snippet_active() then
@@ -37,6 +37,8 @@ return {
         end,
         "fallback",
       },
+      ["<C-]>"] = { "snippet_forward", "fallback" },
+      ["<C-["] = { "snippet_backward", "fallback" },
       ["<C-Tab>"] = { "snippet_forward", "fallback" },
       ["<C-S-Tab>"] = { "snippet_backward", "fallback" },
     },
