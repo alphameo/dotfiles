@@ -12,7 +12,7 @@ return {
       cpp = { "cpplint" },
       cmake = { "cmakelint" },
       html = { "htmlhint" },
-      kotlin = { "ktlint", "detekt" },
+      kotlin = { "ktlint" },
       lua = { "luacheck" },
       markdown = { "markdownlint-cli2" },
       php = { "phpcs" },

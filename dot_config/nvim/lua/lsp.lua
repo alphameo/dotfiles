@@ -231,7 +231,7 @@ M.setup = function()
     "gopls",
     "html",
     "jsonls",
-    "kotlin_language_server",
+    "kotlin_lsp",
     "lua_ls",
     "marksman",
     "ruff",
