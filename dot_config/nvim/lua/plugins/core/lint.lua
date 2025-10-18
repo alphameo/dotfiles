@@ -34,6 +34,16 @@ return {
       "--python-executable",
       os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr" .. "bin/mypy",
     }
+    lint.linters.sqlfluff.args = {
+      "lint",
+      "--format=json",
+      -- NOTE: flag or direct into file
+      -- `*/.sqlfluff`
+      -- [sqlfluff]
+      -- dialect = mysql
+      --------------------
+      -- "--dialect=postgres",
+    }
 
     vim.env.eslint_d_ppid = vim.fn.getpid()
     lint.linters.eslint_d.args = {

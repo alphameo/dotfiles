@@ -23,7 +23,7 @@ return {
         php = { "php_cs_fixer" },
         python = { "black" },
         rust = { "rustfmt" },
-        sql = { "sqlfmt" },
+        sql = { "sqlfluff" },
         tex = { "bibtex-tidy" },
         javascript = { "prettierd" },
         typescript = { "prettierd" },
@@ -48,6 +48,17 @@ return {
             .. "IndentAccessModifiers: false,"
             .. "AccessModifierOffset: -3"
             .. "}",
+        },
+      },
+      sqlfluff = {
+        args = {
+          "format",
+          -- NOTE: flag or direct into file `.sqlfluff`
+          -- [sqlfluff]
+          -- dialect = mysql
+          --------------------
+          -- "--dialect=ansi",
+          "-",
         },
       },
     }
