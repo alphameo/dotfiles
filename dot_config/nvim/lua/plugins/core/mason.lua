@@ -43,7 +43,7 @@ return {
           "neocmake", -- cmake
           "marksman", -- markdown
           "texlab", -- LaTeX
-          "kotlin_language_server", -- kotlin
+          "kotlin_lsp", -- kotlin
           "html", -- html
           "cssls", -- css
           "cssmodules_ls", -- css
@@ -102,8 +102,7 @@ return {
           -- "stylelint", -- css lint
           "htmlhint", -- html lint
           -- "jsonlint", -- json lint
-          "sqlfluff", -- sql lint
-          "sqlfmt", -- sql fmt
+          "sqlfluff", -- sql fmt/lint
           -- "vale", -- tex lint
           "bibtex-tidy", -- tex fmt
           -- "xmlformatter", -- xml fmt
