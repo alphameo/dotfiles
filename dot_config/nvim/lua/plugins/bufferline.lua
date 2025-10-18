@@ -40,14 +40,20 @@ return {
     }
     local map = vim.keymap.set
     map("n", "<M-]>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
-    map("n", "<C-Tab>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
     map("n", "<M-[>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
-    map("n", "<C-S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
     map("n", "<M-0>", ":BufferLineMoveNext<CR>", { silent = true, desc = "Move Tab (buffer) Right" })
     map("n", "<M-9>", ":BufferLineMovePrev<CR>", { silent = true, desc = "Move Tab (buffer) Next" })
     map("n", "<M-g>", ":BufferLinePick<CR>", { silent = true, desc = "Pick Tab (buffer) Next" })
-    map("n", "<M-w>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" }) -- close buffer
+    map("n", "<M-w>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" })
     map("n", "<M-x>", ":BufferLinePickClose<CR>", { silent = true, desc = "Pick buffer to close" })
     map("n", "<M-o>", ":BufferLineCloseOthers<CR>", { silent = true, desc = "Close other buffers" })
+
+    map("n", "]b", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+    map("n", "[b", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+    map("n", "<C-Tab>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+    map("n", "<C-S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+    map("n", "<C-0>", ":BufferLineMoveNext<CR>", { silent = true, desc = "Move Tab (buffer) Right" })
+    map("n", "<C-9>", ":BufferLineMovePrev<CR>", { silent = true, desc = "Move Tab (buffer) Next" })
+    map("n", "<C-x>", ":Bdelete!<CR>", { silent = true, desc = "Tab Quit" })
   end,
 }

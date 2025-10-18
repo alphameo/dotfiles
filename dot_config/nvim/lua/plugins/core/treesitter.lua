@@ -98,7 +98,7 @@ return {
       end, {})
 
       local map = vim.keymap.set
-      map("n", "<leader>ct", ":InspectTree<CR>", { silent = true, desc = "Code Inspect Tree" })
+      map("n", "gs", ":InspectTree<CR>", { silent = true, desc = "Syntax Tree" })
     end,
   },
   {

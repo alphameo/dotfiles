@@ -26,16 +26,14 @@ map("t", "<M-l>", "<Right>", { desc = "Right" })
 -- Escape Insert
 map("i", "jj", "<ESC>", { desc = "Exit INSERT MODE" })
 
--- Files
-map("n", "<C-s>", ":update<CR>", { silent = true, desc = "Save File" })
-map("n", "<C-q>", ":quit<CR>", { silent = true, desc = "Quit" })
-
 -- Buffers
-map("n", "<M-t>", ":enew<CR>", { silent = true, desc = "Tab New" }) -- new buffer
-map("n", "<M-Backspace>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
 map("n", "<M-]>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
-map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
 map("n", "<M-[>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+map("n", "<M-Backspace>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
+
+map("n", "<]b>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+map("n", "<[b>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
 map("n", "<C-S-Tab>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
 
 -- Windows
@@ -47,6 +45,7 @@ map("n", "<C-Left>", "<C-w>H", { desc = "Move Window to the Left" })
 map("n", "<C-Right>", "<C-w>L", { desc = "Move Window to the Right" })
 map("n", "<C-Down>", "<C-w>J", { desc = "Move Window to the Lower" })
 map("n", "<C-Up>", "<C-w>K", { desc = "Move Window to the Upper" })
+map("n", "<C-q>", ":close<CR>", { silent = true, desc = "Close Window" })
 
 map("n", "<C-=>", "<C-w>+", { desc = "Window Taller" })
 map("n", "<C-->", "<C-w>-", { desc = "Window Shorter" })
@@ -60,7 +59,7 @@ map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
 -- Terminals
 map("n", "<leader>tt", ":terminal<CR>", { silent = true, desc = "Terminal Tab New" })
 map("t", "<ESC><ESC>", "<C-\\><C-n>", { silent = true, remap = true, desc = "Exit Terminal Mode" })
-map("t", "<C-q>", "<C-\\><C-n>:quit<CR>", { silent = true, remap = true, desc = "Exit Terminal Mode" })
+map("t", "<C-q>", "<C-\\><C-n>:close<CR>", { silent = true, remap = true, desc = "Exit Terminal Mode" })
 
 -- Text Movement
 map("v", "<", "<gv", { desc = "Indent Left" }) -- stay in visual mode after indent

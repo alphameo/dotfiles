@@ -5,6 +5,6 @@ return {
   config = function()
     require("guess-indent").setup {}
 
-    vim.keymap.set("n", "<leader>ci", ":GuessIndent<CR>", { silent = true, desc = "Code Detect Indent" })
+    vim.keymap.set("n", "gI", ":GuessIndent<CR>", { silent = true, desc = "Detect Indent" })
   end,
 }

@@ -22,13 +22,12 @@ return {
       { "<leader>u", group = "Undo Tree", mode = { "n", "v" }, icon = { icon = "󰋚 ", color = "cyan" } },
       { "<leader>M", group = "Mason", mode = { "n", "v" }, icon = { icon = "󰰐 ", color = "green" } },
       { "<leader>L", group = "Lazy", mode = { "n", "v" }, icon = { icon = " ", color = "green" } },
-      { "<leader>c", group = "Code", mode = { "n", "v" } },
       { "<leader>d", group = "Debug", mode = { "n", "v" } },
       { "<leader>D", group = "Diff", mode = { "n", "v" }, icon = { icon = " ", color = "yellow" } },
       { "<leader>f", group = "Find", mode = { "n", "v" } },
-      { "<leader>F", group = "F&Replace", mode = { "n", "v" }, icon = { icon = "󰛔 ", color = "cyan" } },
+      { "<leader>fR", group = "&Replace", mode = { "n", "v" }, icon = { icon = "󰛔 ", color = "cyan" } },
       { "<leader>g", group = "Git", mode = { "n", "v" } },
-      { "<leader>l", group = "LSP", mode = { "n", "v" }, icon = { icon = "󰰍 ", color = "white" } },
+      { "<leader>l", group = "Language specific", mode = { "n", "v" }, icon = { icon = "󰰍 ", color = "white" } },
       { "<leader>n", group = "Notifications", mode = { "n", "v" } },
       { "<leader>r", group = "Refactor", mode = { "n", "v" } },
       { "<leader>t", group = "Terminal", mode = { "n", "v" } },
@@ -36,9 +35,9 @@ return {
       { "<leader>w", group = "Workspaces", mode = { "n", "v" }, icon = { icon = " ", color = "blue" } },
       { "<leader>.", group = "Settings", mode = { "n", "v" }, icon = { icon = " ", color = "white" } },
 
+      { "gr", group = "Goto&Refactor", mode = { "n", "v" } },
       { "[", group = "prev" },
       { "]", group = "next" },
-      { "g", group = "goto" },
       { "z", group = "fold" },
 
       vim.keymap.set("n", "<leader>.?", function()

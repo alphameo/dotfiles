@@ -43,7 +43,7 @@ map("n", "\\d", function()
   vim.diagnostic.enable(not is_enabled, { bufnr = buf_id })
   local new_buf_state = not is_enabled
   return new_buf_state and "  diagnostic" or "nodiagnostic"
-end, { silent = true, desc = "Toggle Diagnostics" })
+end, { silent = true, desc = "Toggle Diagnostic" })
 
 map("n", "[d", function()
   return vim.diagnostic.jump {
@@ -58,8 +58,8 @@ map("n", "]d", function()
   }
 end, { silent = true, desc = "Next Diagnostic" })
 
-map("n", "<leader>cd", function()
+map("n", "gd", function()
   vim.diagnostic.open_float(nil, {
     focusable = false,
   })
-end, { silent = true, desc = "Code Open Diagnostics" })
+end, { silent = true, desc = "Reveal Diagnostic" })

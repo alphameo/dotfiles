@@ -13,15 +13,6 @@ M.actions = {
 }
 
 local setup_mappings = function()
-  local del_map = vim.keymap.del
-  del_map("n", "grn") -- Rename
-  del_map({ "n", "v" }, "gra") -- Code Actions
-  del_map("n", "grr") -- Go to References
-  del_map("n", "gri") -- Fo to Implementation
-  del_map("n", "grt") -- Fo to Type defenition
-  del_map("n", "gO") -- Document Symbols
-  del_map("i", "<C-s>") -- Signature Help
-
   vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(args)
@@ -31,20 +22,18 @@ local setup_mappings = function()
       end
 
       map("n", "K", lsp_b.hover, opts "Show Doc Hover")
-      map("i", "<C-S-k>", lsp_b.signature_help, opts "Show Signature Help")
+      map("i", "<C-s>", lsp_b.signature_help, opts "Show Signature Help")
 
-      map("n", "gd", M.actions.def, opts "Go to Definitions")
-      map("n", "gD", lsp_b.declaration, opts "Go to Declaration")
-      map("n", "gI", M.actions.impl, opts "Go to Implementations")
-      map("n", "gr", M.actions.ref, opts "Go to References")
-      map("n", "gt", M.actions.type_def, opts "Go to Type Definition")
+      map("n", "grD", lsp_b.declaration, opts "Go to Declaration")
+      map("n", "grd", M.actions.def, opts "Go to Definition")
+      map("n", "gri", M.actions.impl, opts "Go to Implementations")
+      map("n", "grr", M.actions.ref, opts "Go to References")
+      map("n", "grt", M.actions.type_def, opts "Go to Type Definition")
+      map("n", "grn", lsp_b.rename, opts "Refactor Rename")
+      map({ "n", "v" }, "gra", lsp_b.code_action, opts "Go to Actions")
 
-      map("n", "go", M.actions.doc_symb, opts "Code Document Symbols")
-      map("n", "gO", M.actions.wsp_symb, opts "Code Workspace Symbols")
-
-      map({ "n", "v" }, "<leader>ca", lsp_b.code_action, opts "Code Actions")
-      map("n", "<leader>cr", lsp_b.rename, opts "Code Rename")
-      map("n", "<F2>", lsp_b.rename, opts "Code Rename")
+      map("n", "go", M.actions.doc_symb, opts "Go to Document Symbols")
+      map("n", "gO", M.actions.wsp_symb, opts "Go to Workspace Symbols")
 
       local lsp = vim.lsp
       map("n", "\\h", function()

@@ -65,7 +65,11 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>cl", lint.try_lint, { desc = "Code Lint" })
+    vim.api.nvim_create_user_command("Lint", function()
+      lint.try_lint()
+      vim.notify "Linted"
+    end, {})
+    vim.keymap.set("n", "gl", ":Lint<CR>", { silent = true, desc = "Lint file" })
 
     -- INFO: command for Linters checking
     vim.api.nvim_create_user_command("LintInfo", function()

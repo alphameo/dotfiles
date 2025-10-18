@@ -124,6 +124,7 @@ local setup_tabline = function()
   }
   vim.keymap.set("n", "<M-g>", ":Telescope buffers<CR>", { silent = true, desc = "Pick Tab (buffer) Next" })
   vim.keymap.set("n", "<M-w>", ":Bdelete<CR>", { silent = true, desc = "Pick buffer to close" })
+  vim.keymap.set("n", "<C-x>", ":Bdelete<CR>", { silent = true, desc = "Pick buffer to close" })
 end
 
 local setup_statusline = function()

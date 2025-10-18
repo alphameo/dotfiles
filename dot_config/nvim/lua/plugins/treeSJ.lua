@@ -15,9 +15,11 @@ return {
       dot_repeat = true, -- use `dot` for repeat action
     }
 
-    vim.keymap.set("n", "<leader>cj", tsj.toggle, { desc = "Code SplitJoin" })
-    vim.keymap.set("n", "<leader>cJ", function()
+    local tsj_recursive = function()
       tsj.toggle { split = { recursive = true } }
-    end, { desc = "Code SplitJoin Recursively" })
+    end
+
+    vim.keymap.set("n", "grj", tsj.toggle, { desc = "Refactor SplitJoin" })
+    vim.keymap.set("n", "grJ", tsj_recursive, { desc = "Refactor recursive SplitJoin" })
   end,
 }

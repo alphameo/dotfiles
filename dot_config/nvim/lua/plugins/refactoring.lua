@@ -23,11 +23,11 @@ return {
 
     require("telescope").load_extension "refactoring"
 
-    map({ "n", "x" }, "<leader>rr", function() t_refactoring.refactors() end, { desc = "Refactor Menu" })
-    map({ "n", "x" }, "<leader>cc", function() t_refactoring.refactors() end, { desc = "Refactor Menu" })
+    map({ "n", "x" }, "<leader>rr",  t_refactoring.refactors, { desc = "Refactor Menu" })
+    map({ "n", "x" }, "grR",  t_refactoring.refactors, { desc = "Refactor Menu" })
     map("n", "<leader>dP", function() refactoring.debug.printf { below = false } end, { desc = "Debug Printf Marker" })
-    map({ "x", "n" }, "<leader>dV", function() refactoring.debug.print_var() end, { desc = "Debug Printf Variable" })
-    map("n", "<leader>dC", function() refactoring.debug.cleanup {} end, { desc = "Debug Printf Clear" })
+    map({ "x", "n" }, "<leader>dV", refactoring.debug.print_var, { desc = "Debug Printf Variable" })
+    map("n", "<leader>dC", refactoring.debug.cleanup, { desc = "Debug Printf Clear" })
 
     refactoring.setup {
       prompt_func_return_type = {

@@ -71,8 +71,6 @@ return {
 
     vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
-    local map = vim.keymap.set
-    map({ "n", "v" }, "<C-S-i>", ":Format<CR>", { silent = true, desc = "Code Format" })
-    map({ "n", "v" }, "<leader>cf", ":Format<CR>", { silent = true, desc = "Code Format" })
+    vim.keymap.set({ "n", "v" }, "gq", ":Format<CR>", { silent = true, desc = "Format lines" })
   end,
 }
