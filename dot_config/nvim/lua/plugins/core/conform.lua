@@ -16,7 +16,6 @@ return {
         css = { "prettierd" },
         go = { "gofumpt", "goimports" },
         html = { "prettierd" },
-        json = { "prettierd" },
         kotlin = { "ktlint" },
         lua = { "stylua" },
         markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },

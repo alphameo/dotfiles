@@ -101,7 +101,6 @@ return {
           "shfmt", -- bash fmt
           -- "stylelint", -- css lint
           "htmlhint", -- html lint
-          -- "jsonlint", -- json lint
           "sqlfluff", -- sql fmt/lint
           -- "vale", -- tex lint
           "bibtex-tidy", -- tex fmt
