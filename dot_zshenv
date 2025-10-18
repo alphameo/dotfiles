@@ -35,7 +35,7 @@ export ESLINT_DEFAULT_CONFIG="$HOME/.config/nvim/utils/eslintrc.js"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export GPG_TTY=$TTY
 
-export JAVA_HOME="/usr/lib/jvm/java-24-openjdk"
+export JAVA_HOME="/usr/lib/jvm/java-25-openjdk"
 
 export VENV_HOME="$HOME/.virtualenvs"
 [[ -d $VENV_HOME ]] || mkdir $VENV_HOME
