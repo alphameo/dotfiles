@@ -66,7 +66,7 @@ local java_init_cfg = {
   settings = {
     java = {
       -- TODO: path to the main java version (JDK 17 or higher)
-      home = "/usr/lib/jvm/java-24-openjdk",
+      home = "/usr/lib/jvm/java-25-openjdk",
 
       configuration = {
         updateBuildConfiguration = "interactive",
@@ -86,6 +86,10 @@ local java_init_cfg = {
           {
             name = "JavaSE-24",
             path = "/usr/lib/jvm/java-24-openjdk",
+          },
+          {
+            name = "JavaSE-25",
+            path = "/usr/lib/jvm/java-25-openjdk",
           },
         },
       },
@@ -148,6 +152,7 @@ local java_init_cfg = {
     },
   },
   -- capabilities = vim.lsp.protocol.make_client_capabilities(),
+  capabilities = global_cfg.capabilities,
   flags = { allow_incremental_sync = true },
 }
 
