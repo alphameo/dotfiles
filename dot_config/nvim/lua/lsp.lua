@@ -47,8 +47,8 @@ local setup_mappings = function()
   })
 end
 
--- INFO: check default  lua print(vim.inspect(vim.lsp.protocol.make_client_capabilities()))
 local global_cfg = {
+  -- INFO: check default: lua print(vim.inspect(vim.lsp.protocol.make_client_capabilities()))
   capabilities = {
     textDocument = {
       completion = {
@@ -221,8 +221,7 @@ end
 -- Setups --
 ------------
 M.setup = function()
-  vim.lsp.config("*", global_cfg)
-  vim.lsp.enable {
+  local lsp_list = {
     "bashls",
     "clangd",
     "neocmake",
@@ -248,6 +247,12 @@ M.setup = function()
     "lemminx",
     "yamlls",
   }
+
+  -- vim.lsp.config("*", global_cfg)
+  for _, lsp in ipairs(lsp_list) do
+    vim.lsp.config(lsp, global_cfg)
+  end
+  vim.lsp.enable(lsp_list)
 
   setup_java()
   setup_mappings()
