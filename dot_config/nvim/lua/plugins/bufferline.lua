@@ -8,6 +8,7 @@ return {
   lazy = true,
   event = "VeryLazy",
   config = function()
+    local icons = require("diagnostics").icons
     require("bufferline").setup {
       options = {
         -- numbers = "ordinal",
@@ -20,7 +21,7 @@ return {
         },
         diagnostics = "nvim_lsp",
         diagnostics_indicator = function(count, level)
-          local icon = level:match "error" and " " or " "
+          local icon = level:match "error" and icons.Error or icons.Warn
           return " " .. icon .. count
         end,
       },

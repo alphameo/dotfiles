@@ -1,8 +1,9 @@
-local icons = {
-  Error = "",
-  Warn = "",
-  Hint = "󰌵",
-  Info = "",
+local M = {}
+M.icons = {
+  Error = " ",
+  Warn = " ",
+  Hint = "󰌵 ",
+  Info = " ",
 }
 
 local signs = {
@@ -11,7 +12,7 @@ local signs = {
   texthl = {},
 }
 
-for type, icon in pairs(icons) do
+for type, icon in pairs(M.icons) do
   local hl = "DiagnosticSign" .. type
   local severity = vim.diagnostic.severity[string.upper(type)]
 
@@ -63,3 +64,5 @@ map("n", "gd", function()
     focusable = false,
   })
 end, { silent = true, desc = "Reveal Diagnostic" })
+
+return M

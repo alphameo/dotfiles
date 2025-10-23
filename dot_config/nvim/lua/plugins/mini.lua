@@ -84,15 +84,16 @@ end
 local setup_sj = function()
   local sj = require "mini.splitjoin"
   sj.setup()
-  vim.keymap.set("n", "<leader>cj", sj.toggle, { desc = "Code SplitJoin" })
+  vim.keymap.set("n", "grj", sj.toggle, { desc = "Refactor SplitJoin" })
 end
 
 local setup_tabline = function()
   local tabline = require "mini.tabline"
+  local icon = require("diagnostics").icons
   local function get_diagnostic_symbol(bufnr)
     local levels = {
-      [vim.diagnostic.severity.ERROR] = " ",
-      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.ERROR] = icon.Error,
+      [vim.diagnostic.severity.WARN] = icon.Warn,
     }
 
     local diagnostics = vim.diagnostic.get(bufnr)
@@ -136,6 +137,7 @@ local setup_statusline = function()
   stl.section_location = function()
     return "%2l:%-2v"
   end
+  local icon = require("diagnostics").icons
   stl.setup {
     use_icons = true,
     set_vim_settings = false, -- You already set vim.o.showmode = false
@@ -148,7 +150,7 @@ local setup_statusline = function()
         local diagnostics = stl.section_diagnostics {
           trunc_width = 75,
           icon = "",
-          signs = { ERROR = " ", WARN = " ", INFO = " ", HINT = "󰌵 " },
+          signs = { ERROR = icon.Error, WARN = icon.Warn, INFO = icon.Info, HINT = icon.Hint },
         }
         -- local lsp = stl.section_lsp { trunc_width = 75 }
         local filename = stl.section_filename { trunc_width = 140 }
@@ -212,7 +214,7 @@ return {
     setup_sessions()
     -- setup_bracketed()
     setup_indentscope()
-    -- setup_sj()
+    setup_sj()
     -- setup_tabline()
     setup_statusline()
   end,
