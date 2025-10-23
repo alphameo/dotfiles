@@ -111,4 +111,12 @@ return {
       line_numbers = true,
     },
   },
+  {
+    "folke/ts-comments.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    config = function()
+      require("ts-comments").setup()
+    end,
+  },
 }
