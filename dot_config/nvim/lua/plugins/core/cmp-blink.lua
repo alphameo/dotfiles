@@ -42,31 +42,15 @@ return {
       ["<C-Tab>"] = { "snippet_forward", "fallback" },
       ["<C-S-Tab>"] = { "snippet_backward", "fallback" },
     },
-    signature = {
-      enabled = true,
-      trigger = {
-        show_on_trigger_character = false,
-        show_on_insert = false,
-        show_on_insert_on_trigger_character = false,
-      },
-      window = {
-        treesitter_highlighting = true,
-        show_documentation = true,
-      },
-    },
-    appearance = {
-      -- "mono" | "normal"
-      nerd_font_variant = "mono",
-    },
     completion = {
       documentation = {
-        auto_show = true,
-        auto_show_delay_ms = 0,
+        auto_show = false,
+        auto_show_delay_ms = 500,
         treesitter_highlighting = true,
       },
       menu = {
-        direction_priority = { "s", "n" },
         auto_show = true,
+        direction_priority = { "s", "n" },
         draw = {
           treesitter = { "lsp" },
           columns = {
@@ -90,6 +74,42 @@ return {
         },
       },
     },
+    signature = {
+      enabled = true,
+      trigger = {
+        show_on_trigger_character = false,
+        show_on_insert = false,
+        show_on_insert_on_trigger_character = false,
+      },
+      window = {
+        treesitter_highlighting = true,
+        show_documentation = true,
+      },
+    },
+    snippets = { preset = "luasnip" },
+    sources = {
+      default = {
+        "lsp",
+        "path",
+        "snippets",
+        "buffer",
+      },
+      per_filetype = {
+        sql = {
+          "snippets",
+          "dadbod",
+          "buffer",
+        },
+      },
+
+      providers = {
+        dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+      },
+    },
+    -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
+    -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
+    -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
+    fuzzy = { implementation = "prefer_rust_with_warning" },
     cmdline = {
       enabled = true,
       keymap = {
@@ -103,26 +123,10 @@ return {
         ghost_text = { enabled = false },
       },
     },
-    sources = {
-      default = {
-        "lsp",
-        "path",
-        "snippets",
-        "buffer",
-      },
-      per_filetype = {
-        sql = { "snippets", "dadbod", "buffer" },
-      },
-
-      providers = {
-        dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
-      },
+    appearance = {
+      -- "mono" | "normal"
+      nerd_font_variant = "mono",
     },
-    snippets = { preset = "luasnip" },
-    -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
-    -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
-    -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
-    fuzzy = { implementation = "prefer_rust_with_warning" },
   },
   opts_extend = { "sources.default" },
 }
