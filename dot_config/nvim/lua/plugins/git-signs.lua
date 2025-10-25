@@ -1,7 +1,7 @@
 return {
   "lewis6991/gitsigns.nvim",
   lazy = true,
-  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+  event = { "VeryLazy" },
   config = function()
     local map = vim.keymap.set
     require("gitsigns").setup {

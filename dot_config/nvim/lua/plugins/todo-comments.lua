@@ -2,7 +2,7 @@ return {
   "folke/todo-comments.nvim",
   lazy = true,
   cmd = { "TodoTelescope" },
-  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+  event = { "VeryLazy" },
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     require("todo-comments").setup {

@@ -6,7 +6,7 @@ return {
     "theHamsta/nvim-dap-virtual-text",
   },
   lazy = true,
-  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+  event = { "VeryLazy" },
   config = function()
     local dap = require "dap"
     local dapui = require "dapui"

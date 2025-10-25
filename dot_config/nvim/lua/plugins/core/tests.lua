@@ -11,7 +11,7 @@ return {
       "nvim-neotest/neotest-python",
     },
     lazy = true,
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    event = { "VeryLazy" },
     config = function()
       local neotest = require "neotest"
 
