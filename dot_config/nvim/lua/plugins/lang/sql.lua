@@ -50,4 +50,9 @@ select count(*) from {table};
     lazy = true,
     ft = { "sql", "mysql", "plsql" },
   },
+  {
+    "ray-x/cmp-sql",
+    lazy = true,
+    ft = { "sql", "mysql", "plsql" },
+  },
 }
