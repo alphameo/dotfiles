@@ -1,35 +1,35 @@
-@import "catpuccin-mocha.css";
+@import 'catpuccin-mocha.css';
 
 * {
-  font-family: RobotoMono Nerd Font Propo;
-  font-size: 12pt;
-  font-weight: bold;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  text-shadow: none;
-  transition-duration: 0s;
+    font-family: RobotoMono Nerd Font Propo;
+    font-size: 12pt;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    transition-duration: 0s;
 }
 
 window#waybar {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 #window {
-  padding: 0px;
-  margin-left: 4px;
-  margin-right: 4px;
+    padding: 0px;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 #workspaces button {
-  padding: 0 4px;
+    padding: 0 4px;
 }
 
 #workspaces button.active {
-  color: @blue;
-  /* color: @base; */
-  /* background-color: @overlay1; */
-  /* border-radius: 6px; */
+    color: @blue;
+    /* color: @base; */
+    /* background-color: @overlay1; */
+    /* border-radius: 6px; */
 }
 
 #workspaces,
@@ -40,76 +40,105 @@ window#waybar {
 #group-controls,
 #group-battery,
 #group-power {
-  background-color: @base;
-  color: @text;
+    background-color: @base;
+    color: @text;
 
-  padding-left: 4px;
-  padding-right: 4px;
-  margin-left: 0px;
-  margin-right: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-left: 0px;
+    margin-right: 4px;
 
-  border: 1px solid @overlay1;
-  border-radius: 8px;
+    border: 1px solid @overlay1;
+    border-radius: 8px;
 }
 
 #group-power {
-  margin-right: 0px;
+    margin-right: 0px;
 }
 
-#group-backlight *,
 #group-power *,
 #group-battery * {
-  margin-left: 4px;
-  margin-right: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 #group-controls * {
-  margin-left: 10px;
-  margin-right: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 #network {
-  margin-left: 4px;
-}
-
-#group-wireplumber *,
-#group-backlight * {
-  margin: 0;
-  padding: 0;
-}
-
-#wireplumber.source {
-  padding-left: 8px;
+    margin-left: 4px;
 }
 
 #group-backlight {
-  margin-right: 4px;
+    margin-right: 4px;
 }
 
+#group-audioin *,
+#group-audioout *,
+#group-backlight * {
+    margin: 0;
+    padding: 0;
+}
+
+#wireplumber.sourceicon {
+    min-width: 12px;
+}
+#wireplumber.sinkicon {
+    min-width: 12px;
+}
+#backlight.percentage,
+#wireplumber.sinkpercentage,
+#wireplumber.sourcepercentage {
+    margin-left: 5px;
+    margin-right: 0px;
+    min-width: 40px;
+}
+
+#pulseaudio-slider,
 #backlight-slider {
-  margin-left: 4px;
-  padding-right: 5px;
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
+#pulseaudio-slider trough,
 #backlight-slider trough {
-  min-height: 6px;
-  min-width: 100px;
-  border-radius: 3px;
-  background-color: black;
+    min-height: 6px;
+    min-width: 100px;
+    border-radius: 3px;
+    background-color: black;
+}
+
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+    min-height: 0px;
+    min-width: 0px;
+    border-radius: 3px;
+    border: 3px solid;
+}
+
+#pulseaudio-slider slider,
+#backlight-slider slider {
+    min-height: 10px;
+    min-width: 10px;
+    background-image: none;
+    border-radius: 5px;
+    margin: -4px;
 }
 
 #backlight-slider highlight {
-  min-height: 0px;
-  min-width: 0px;
-  border-radius: 3px;
-  border: 3px solid @peach;
+    border-color: @peach;
+}
+#backlight-slider slider {
+    background-color: @peach;
 }
 
-#backlight-slider slider {
-  min-height: 10px;
-  min-width: 10px;
-  background-image: none;
-  background-color: @maroon;
-  border-radius: 5px;
-  margin: -4px;
+#pulseaudio-slider highlight {
+    border-color: @mauve;
+}
+
+#pulseaudio-slider slider {
+    background-color: @mauve;
 }

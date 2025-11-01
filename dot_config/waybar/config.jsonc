@@ -24,11 +24,25 @@
             "network",
             "bluetooth",
             "custom/notifications",
-            "group/group-wireplumber",
+            "group/group-audioout",
+            "group/group-audioin",
             "group/group-backlight",
         ]
     },
-    "group/group-wireplumber": {
+    "group/group-audioout": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "battery-nodes",
+            "transition-left-to-right": true,
+        },
+        "modules": [
+            "wireplumber#sinkicon",
+            "pulseaudio/slider",
+            "wireplumber#sinkpercentage",
+        ]
+    },
+    "group/group-audioin": {
         "orientation": "inherit",
         "drawer": {
             "transition-duration": 500,
@@ -36,8 +50,8 @@
             "transition-left-to-right": true
         },
         "modules": [
-            "wireplumber#sink",
-            "wireplumber#source",
+            "wireplumber#sourceicon",
+            "wireplumber#sourcepercentage",
         ]
     },
     "group/group-backlight": {
@@ -48,8 +62,9 @@
             "transition-left-to-right": true
         },
         "modules": [
-            "backlight",
+            "backlight#icon",
             "backlight/slider",
+            "backlight#percentage",
         ]
     },
     "group/group-battery": {
@@ -180,34 +195,73 @@
         "on-click": "rofi-bluetooth",
         "on-click-right": "$TERMINAL bluetui"
     },
-    "wireplumber#sink": {
-        "format": "<span color='#cba6f7'>{icon} {volume}%</span> {format_source}",
-        "format-muted": "<span color='#f38ba8'>󰖁 {volume}%</span> {format_source}",
-        "format-source": "<span color='#94e2d5'>󰍬</span>",
-        "format-source-muted": "<span color='#f38ba8'>󰍭</span>",
-        "format-icons": ["", "", ""],
+    "wireplumber#sinkicon": {
+        "node-type": "Audio/Sink",
+        "format": "<span color='#cba6f7'>{icon}</span>",
+        "format-muted": "<span color='#f38ba8'>󰸈</span>",
+        // "format-source": "<span color='#94e2d5'>󰍬</span>",
+        // "format-source-muted": "<span color='#f38ba8'>󰍭</span>",
+        "format-icons": [
+            "󰕿",
+            "󰖀",
+            "󰕾"
+        ],
         "tooltip-format": "Volume: {volume}%\nSink: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
         "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-click-right": "pavucontrol -t 3",
     },
-    "wireplumber#source": {
+    "wireplumber#sinkpercentage": {
+        "node-type": "Audio/Sink",
+        "format": "<span color='#cba6f7'>{volume}%</span>",
+        "format-muted": "<span color='#f38ba8'>{volume}%</span>",
+        "tooltip-format": "Volume: {volume}%\nSink: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol -t 3",
+    },
+    "wireplumber#sourceicon": {
+        "node-type": "Audio/Source",
+        "format": "<span color='#94e2d5'>󰍬</span>",
+        "format-muted": "<span color='#f38ba8'>󰍭</span>",
+        "tooltip-format": "Volume: {volume}%\nSource: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-click-right": "pavucontrol -t 4",
+    },
+    "wireplumber#sourcepercentage": {
         "node-type": "Audio/Source",
         "format": "<span color='#94e2d5'>{volume}%</span>",
         "format-muted": "<span color='#f38ba8'>{volume}%</span>",
         "tooltip-format": "Volume: {volume}%\nSource: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
         "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
         "on-click-right": "pavucontrol -t 4",
     },
-    "backlight": {
-        "format": "<span color='#fab387'>{icon} {percent}%</span>",
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+    "backlight#icon": {
+        "format": "<span color='#fab387'>{icon}</span>",
         "format-icons": [
             "󰃞",
             "󰃝",
             "󰃟",
             "󰃠"
         ],
+        "on-scroll-up": "brightnessctl -q s 1%+",
+        "on-scroll-down": "brightnessctl -q s 1%-",
+        "reverse-scrolling": true,
+        "tooltip-format": "Backlight\n\nSM - control"
+    },
+    "backlight#percentage": {
+        "format": "<span color='#fab387'>{percent}%</span>",
         "on-scroll-up": "brightnessctl -q s 1%+",
         "on-scroll-down": "brightnessctl -q s 1%-",
         "reverse-scrolling": true,
