@@ -33,6 +33,7 @@ return {
       { "<leader>t", group = "Terminal", mode = { "n", "v" } },
       { "<leader>T", group = "Test", mode = { "n", "v" } },
       { "<leader>p", group = "Project", mode = { "n", "v" }, icon = { icon = " ", color = "blue" } },
+      { "<leader>c", group = "Code", mode = { "n", "v" }, icon = { icon = " ", color = "orange" } },
       { "<leader>.", group = "Settings", mode = { "n", "v" }, icon = { icon = " ", color = "white" } },
 
       { "gr", group = "Goto&Refactor", mode = { "n", "v" } },
