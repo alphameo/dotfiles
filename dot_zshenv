@@ -26,19 +26,19 @@ export SYSMONITOR='btop'
 
 export LF_CONFIG_HOME="$XDG_CONFIG_HOME"
 
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 
 export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/nvim/utils/prettierrc.json"
 
 export ESLINT_DEFAULT_CONFIG="$HOME/.config/nvim/utils/eslintrc.js"
 
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-export GPG_TTY=$TTY
+export GPG_TTY="$TTY"
 
 export JAVA_HOME="/usr/lib/jvm/java-25-openjdk"
 
 export VENV_HOME="$HOME/.virtualenvs"
-[[ -d $VENV_HOME ]] || mkdir $VENV_HOME
+[ -d "$VENV_HOME" ] || mkdir "$VENV_HOME"
 
 
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
@@ -51,7 +51,7 @@ mkdir -p "$XDG_DATA_HOME"/wineprefixes
 export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
 
 # oh-my-posh requirement
-export PATH=$PATH:/home/a1pha/.local/bin
+export PATH="$PATH":/home/a1pha/.local/bin
 
 # Native file dialog for electron apps
 export GTK_USE_PORTAL=1
