@@ -98,7 +98,7 @@ return {
       end, {})
 
       local map = vim.keymap.set
-      map("n", "gs", ":InspectTree<CR>", { silent = true, desc = "Syntax Tree" })
+      map("n", "gS", ":InspectTree<CR>", { silent = true, desc = "Syntax Tree" })
     end,
   },
   {
