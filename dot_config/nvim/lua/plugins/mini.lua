@@ -105,7 +105,28 @@ end
 
 local setup_sj = function()
   local sj = require "mini.splitjoin"
-  sj.setup()
+  sj.setup {
+    mappings = {
+      toggle = "",
+      split = "",
+      join = "",
+    },
+    detect = {
+      -- Default: { '%b()', '%b[]', '%b{}' }
+      brackets = nil,
+      separator = ",",
+      -- Default: { '%b()', '%b[]', '%b{}', '%b""', "%b''" }
+      exclude_regions = nil,
+    },
+    split = {
+      hooks_pre = {},
+      hooks_post = {},
+    },
+    join = {
+      hooks_pre = {},
+      hooks_post = {},
+    },
+  }
   vim.keymap.set("n", "grj", sj.toggle, { desc = "Refactor SplitJoin" })
 end
 
