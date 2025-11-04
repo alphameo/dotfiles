@@ -33,22 +33,22 @@ vim.api.nvim_create_autocmd("FileType", {
 local setup_sessions = function()
   local sessions = require "mini.sessions"
   sessions.setup()
-  vim.keymap.set("n", "<leader>wo", function()
+  vim.keymap.set("n", "<leader>po", function()
     sessions.select "read"
-  end, { desc = "Workspaces Open" })
-  vim.keymap.set("n", "<leader>wr", function()
+  end, { desc = "Project Open" })
+  vim.keymap.set("n", "<leader>pr", function()
     sessions.select "write"
-  end, { desc = "Workspaces Replace" })
-  vim.keymap.set("n", "<leader>wd", function()
+  end, { desc = "Project Replace" })
+  vim.keymap.set("n", "<leader>pd", function()
     sessions.select "delete"
-  end, { desc = "Workspaces Delete" })
-  vim.keymap.set("n", "<leader>ws", function()
-    vim.ui.input({ prompt = "Workspace name: " }, function(input)
+  end, { desc = "Project Delete" })
+  vim.keymap.set("n", "<leader>ps", function()
+    vim.ui.input({ prompt = "Project name: " }, function(input)
       if input and input ~= "" then
         sessions.write(input)
       end
     end)
-  end, { desc = "Workspaces Save" })
+  end, { desc = "Project Save" })
 end
 
 local setup_bracketed = function()

@@ -32,7 +32,7 @@ return {
       { "<leader>r", group = "Refactor", mode = { "n", "v" } },
       { "<leader>t", group = "Terminal", mode = { "n", "v" } },
       { "<leader>T", group = "Test", mode = { "n", "v" } },
-      { "<leader>w", group = "Workspaces", mode = { "n", "v" }, icon = { icon = " ", color = "blue" } },
+      { "<leader>p", group = "Project", mode = { "n", "v" }, icon = { icon = " ", color = "blue" } },
       { "<leader>.", group = "Settings", mode = { "n", "v" }, icon = { icon = " ", color = "white" } },
 
       { "gr", group = "Goto&Refactor", mode = { "n", "v" } },

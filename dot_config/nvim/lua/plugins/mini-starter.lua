@@ -41,7 +41,7 @@ return {
         { name = "n    New file", action = "ene", section = section_name },
         { name = "f    Find file", action = "Telescope find_files", section = section_name },
         { name = "r 󱋡   Recent Files", action = "Telescope oldfiles", section = section_name },
-        { name = "w    Workspaces", action = "lua require('mini.sessions').select('read')", section = section_name },
+        { name = "p    Project Open", action = "lua require('mini.sessions').select('read')", section = section_name },
         { name = "l    Lazy", action = "Lazy", section = section_name },
         { name = "m 󰰐   Mason", action = "Mason", section = section_name },
         { name = "s    Settings", action = "e $MYVIMRC | :cd %:p:h | pwd", section = section_name },
