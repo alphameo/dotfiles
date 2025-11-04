@@ -103,7 +103,7 @@ return {
         },
         per_filetype = {
           sql = {
-          "lsp",
+            "lsp",
             "sql",
             "snippets",
             "dadbod",
@@ -116,7 +116,6 @@ return {
             "buffer",
           },
         },
-
         providers = {
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
           sql = {
