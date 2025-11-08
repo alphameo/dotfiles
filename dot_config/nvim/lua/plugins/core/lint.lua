@@ -44,6 +44,9 @@ return {
       --------------------
       -- "--dialect=postgres",
     }
+    lint.linters.cpplint.args = {
+      "--filter=-legal/copyright",
+    }
 
     vim.env.eslint_d_ppid = vim.fn.getpid()
     lint.linters.eslint_d.args = {
