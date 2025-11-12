@@ -1,9 +1,9 @@
 ------------------AUTOCMDS------------------
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
-  group = vim.api.nvim_create_augroup("LastCursorPlace", {}),
+  group = vim.api.nvim_create_augroup("last-cursor-place", {}),
   pattern = "*",
-  command = 'silent! normal! g`"zv',
+  command = 'silent! normal! g`"zz',
   desc = "Return cursor to where it was last time closing the file",
 })
 
@@ -24,10 +24,52 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  pattern = "*",
   callback = function()
-    vim.hl.on_yank { higroup = "Visual", timeout = 300 }
+    vim.highlight.on_yank { higroup = "Visual", timeout = 300 }
   end,
   desc = "Highlight yanked text",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "help",
+  command = "wincmd L",
+  desc = "Open HELP in vertical split",
+})
+
+vim.api.nvim_create_autocmd("VimResized", {
+  command = "wincmd =",
+  desc = "Auto-resize splits on terminal window resizing",
+})
+
+vim.api.nvim_create_autocmd("CursorMoved", {
+  group = vim.api.nvim_create_augroup("LspReferenceHighlight", { clear = true }),
+  desc = "Highlight references under cursor",
+  callback = function()
+    if vim.fn.mode() ~= "i" then
+      local clients = vim.lsp.get_clients { bufnr = 0 }
+      local supports_highlight = false
+      for _, client in ipairs(clients) do
+        if client.server_capabilities.documentHighlightProvider then
+          supports_highlight = true
+          break
+        end
+      end
+
+      if supports_highlight then
+        vim.lsp.buf.clear_references()
+        vim.lsp.buf.document_highlight()
+      end
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("CursorMovedI", {
+  group = "LspReferenceHighlight",
+  desc = "Clear highlights when entering insert mode",
+  callback = function()
+    vim.lsp.buf.clear_references()
+  end,
 })
 
 ------------------USERCMDS------------------
