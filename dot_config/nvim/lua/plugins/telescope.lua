@@ -71,24 +71,23 @@ return {
 
       local map = vim.keymap.set
       map("n", "<leader>fp", builtin.builtin, { desc = "Find Picker" })
-      map("n", "<leader>fm", builtin.marks, { desc = "Find Marks" })
-      map("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
+
       map("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
       map("n", "<leader>fg", builtin.live_grep, { desc = "Find by Grep" })
       map("n", "<leader>fw", builtin.grep_string, { desc = "Find Words" })
       map("n", "<leader>fr", builtin.oldfiles, { desc = "Find Recent Files" })
 
+      map("n", "<leader>fm", builtin.marks, { desc = "Find Marks" })
+      map("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
       map("n", "<leader>fj", builtin.jumplist, { desc = "Find in Jump List" })
       map("n", "<leader>fq", builtin.quickfix, { silent = true, desc = "Find in Quickfix List" })
       map("n", "<leader>fQ", builtin.quickfixhistory, { silent = true, desc = "Find in Quickfix List History" })
       map("n", "<leader>fd", builtin.diagnostics, { silent = true, desc = "Find in Diagnostic List" })
 
+      map("n", "<leader>fh", builtin.help_tags, { desc = "Find Help Tag" })
+
       map("n", "<leader>.c", builtin.colorscheme, { desc = "Choose Colorscheme" })
-      map("n", "<leader>.h", builtin.help_tags, { desc = "Help Tags" })
-      map("n", "<leader>.k", builtin.keymaps, { desc = "Keymaps" })
-      map("n", "<leader>.n", function()
-        builtin.find_files { cwd = vim.fn.stdpath "config" }
-      end, { desc = "Settings Neovim" })
+      map("n", "<leader>.k", builtin.keymaps, { desc = "Inspect Keymapping" })
     end,
   },
 }
