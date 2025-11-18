@@ -177,6 +177,40 @@ local setup_statusline = function()
     return "%2l:%-2v"
   end
   local icon = require("diagnostics").icons
+
+  vim.api.nvim_create_autocmd("RecordingEnter", {
+    pattern = "*",
+    callback = function()
+      vim.cmd "redrawstatus"
+    end,
+  })
+  vim.api.nvim_create_autocmd("RecordingLeave", {
+    pattern = "*",
+    callback = function()
+      vim.cmd "redrawstatus"
+    end,
+  })
+
+  local get_recording_macro_prefix = function()
+    if vim.fn.reg_recording() ~= "" then
+      return "Recording @" .. vim.fn.reg_recording() .. ": "
+    else
+      return ""
+    end
+  end
+  local get_keystroke = function()
+    if pcall(require, "noice") and require("noice").api.status.command.has() then
+      return require("noice").api.status.command.get()
+    end
+    return ""
+  end
+  local get_file_percentage = function()
+    local line = vim.fn.line "."
+    local total = vim.fn.line "$"
+    local percent = math.floor(line / total * 100)
+    return string.format("%d%%%%", percent)
+  end
+
   stl.setup {
     use_icons = true,
     set_vim_settings = false, -- You already set vim.o.showmode = false
@@ -197,16 +231,13 @@ local setup_statusline = function()
         local location = stl.section_location { trunc_width = 75 }
         -- local search = stl.section_searchcount { trunc_width = 75 }
 
-        local noice_cmd = ""
-        if pcall(require, "noice") and require("noice").api.status.command.has() then
-          noice_cmd = require("noice").api.status.command.get()
-        end
 
         local line = vim.fn.line "."
         local total = vim.fn.line "$"
         local percent = math.floor(line / total * 100)
 
         local percentage = string.format("%d%%%%", percent)
+        local key_cmd = get_recording_macro_prefix() .. get_keystroke()
 
         return stl.combine_groups {
           { hl = mode_hl, strings = { mode } },
@@ -215,7 +246,7 @@ local setup_statusline = function()
           { hl = "MiniStatuslineFilename", strings = { filename } },
           "%=", -- end left alignment
           { hl = "MiniStatuslineFilename", strings = {} },
-          { hl = "MiniStatuslineFilename", strings = { noice_cmd, sep, diagnostics } },
+          { hl = "MiniStatuslineFilename", strings = { key_cmd, sep, diagnostics } },
           { hl = "MiniStatuslineFilename", strings = { fileinfo } },
           { hl = "MiniStatuslineFileinfo", strings = { location } },
           { hl = mode_hl, strings = { percentage } },
