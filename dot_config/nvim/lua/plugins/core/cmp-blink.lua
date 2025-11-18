@@ -51,7 +51,7 @@ return {
       },
       completion = {
         documentation = {
-          auto_show = false,
+          auto_show = true,
           auto_show_delay_ms = 500,
           treesitter_highlighting = true,
         },
@@ -84,9 +84,9 @@ return {
       signature = {
         enabled = true,
         trigger = {
-          show_on_trigger_character = false,
-          show_on_insert = false,
-          show_on_insert_on_trigger_character = false,
+          show_on_trigger_character = true,
+          show_on_insert = true,
+          show_on_insert_on_trigger_character = true,
         },
         window = {
           treesitter_highlighting = true,
