@@ -91,6 +91,8 @@ map("n", "<Down>", ':echo "Use j to move!"<CR>', { silent = true })
 
 map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 
+map("n", "<leader>.s", ":e $MYVIMRC | :cd %:p:h | pwd<CR>", { silent = true, desc = "Open nvim config" })
+
 -- Russian Keybard
 vim.opt.langmap = "ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х\\[,Ъ\\],ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж\\;,Э\\'"
   .. ",ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б\\<,Ю\\>,йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х\\[,ъ\\],фa,ыs,вd,аf,пg,рh"
