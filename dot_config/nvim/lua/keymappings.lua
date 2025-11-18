@@ -31,8 +31,10 @@ map("n", "<M-]>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
 map("n", "<M-[>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
 map("n", "<M-Backspace>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
 
-map("n", "<]b>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
-map("n", "<[b>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+map("n", "]b", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+map("n", "[b", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+map("n", "<C-n>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+map("n", "<C-p>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
 map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
 map("n", "<C-S-Tab>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
 

@@ -51,6 +51,8 @@ return {
 
     map("n", "]b", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
     map("n", "[b", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+    map("n", "<C-n>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
+    map("n", "<C-p>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
     map("n", "<C-Tab>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
     map("n", "<C-S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
     map("n", "<C-0>", ":BufferLineMoveNext<CR>", { silent = true, desc = "Move Tab (buffer) Right" })
