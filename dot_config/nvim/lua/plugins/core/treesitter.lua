@@ -91,11 +91,18 @@ return {
           vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
           vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end,
+        desc = "triggers treesitter on filetype detection",
       })
 
       vim.api.nvim_create_user_command("TSInfo", function()
         vim.cmd "checkhealth nvim-treesitter"
-      end, {})
+      end, { desc = "treesitter information (checkhealth)" })
+      vim.api.nvim_create_user_command("TSInspect", function()
+        vim.cmd "Inspect"
+      end, { desc = "treesitter inspect token" })
+      vim.api.nvim_create_user_command("TSInspectTree", function()
+        vim.cmd "InspectTree"
+      end, { desc = "treesitter show tree" })
 
       local map = vim.keymap.set
       map("n", "gS", ":InspectTree<CR>", { silent = true, desc = "Syntax Tree" })
