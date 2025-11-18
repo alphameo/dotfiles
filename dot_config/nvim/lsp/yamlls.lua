@@ -8,12 +8,13 @@ return {
       },
       validate = true,
       schemaStore = {
-        -- Must disable built-in schemaStore support to use
-        -- schemas from SchemaStore.nvim plugin
-        enable = true,
+        -- You must disable built-in schemaStore support if you want to use
+        -- this plugin and its advanced options like `ignore`.
+        enable = false,
         -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
         url = "",
       },
+      schemas = require("schemastore").yaml.schemas(),
     },
   },
 }
