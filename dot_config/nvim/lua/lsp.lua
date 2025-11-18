@@ -47,6 +47,38 @@ local setup_mappings = function()
   })
 end
 
+local setup_cmds = function()
+  vim.api.nvim_create_autocmd("CursorMoved", {
+    group = vim.api.nvim_create_augroup("LspReferenceHighlight", { clear = true }),
+    desc = "Highlight references under cursor",
+    callback = function()
+      if vim.fn.mode() ~= "i" then
+        local clients = vim.lsp.get_clients { bufnr = 0 }
+        local supports_highlight = false
+        for _, client in ipairs(clients) do
+          if client.server_capabilities.documentHighlightProvider then
+            supports_highlight = true
+            break
+          end
+        end
+
+        if supports_highlight then
+          vim.lsp.buf.clear_references()
+          vim.lsp.buf.document_highlight()
+        end
+      end
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("CursorMovedI", {
+    group = "LspReferenceHighlight",
+    desc = "Clear highlights when entering insert mode",
+    callback = function()
+      vim.lsp.buf.clear_references()
+    end,
+  })
+end
+
 local global_cfg = {
   -- INFO: check default: lua print(vim.inspect(vim.lsp.protocol.make_client_capabilities()))
   capabilities = {
@@ -238,7 +270,7 @@ M.setup = function()
     -- "pyright",
     "basedpyright",
     "rust_analyzer",
-    "sqlls",
+    -- "sqlls",
     "texlab",
     "taplo",
     "ts_ls",
@@ -256,6 +288,7 @@ M.setup = function()
 
   setup_java()
   setup_mappings()
+  setup_cmds()
 end
 
 return M

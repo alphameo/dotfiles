@@ -42,36 +42,6 @@ vim.api.nvim_create_autocmd("VimResized", {
   desc = "Auto-resize splits on terminal window resizing",
 })
 
-vim.api.nvim_create_autocmd("CursorMoved", {
-  group = vim.api.nvim_create_augroup("LspReferenceHighlight", { clear = true }),
-  desc = "Highlight references under cursor",
-  callback = function()
-    if vim.fn.mode() ~= "i" then
-      local clients = vim.lsp.get_clients { bufnr = 0 }
-      local supports_highlight = false
-      for _, client in ipairs(clients) do
-        if client.server_capabilities.documentHighlightProvider then
-          supports_highlight = true
-          break
-        end
-      end
-
-      if supports_highlight then
-        vim.lsp.buf.clear_references()
-        vim.lsp.buf.document_highlight()
-      end
-    end
-  end,
-})
-
-vim.api.nvim_create_autocmd("CursorMovedI", {
-  group = "LspReferenceHighlight",
-  desc = "Clear highlights when entering insert mode",
-  callback = function()
-    vim.lsp.buf.clear_references()
-  end,
-})
-
 ------------------USERCMDS------------------
 
 ---------------
