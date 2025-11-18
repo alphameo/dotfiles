@@ -104,6 +104,8 @@ return {
         vim.cmd "InspectTree"
       end, { desc = "treesitter show tree" })
 
+      -- NOTE: fix for overriding by @spell of (spell > ts defined)
+      vim.api.nvim_set_hl(0, "@spell", { link = "NONE" })
     end,
   },
   {
