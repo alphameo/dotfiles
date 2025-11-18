@@ -104,8 +104,6 @@ return {
         vim.cmd "InspectTree"
       end, { desc = "treesitter show tree" })
 
-      local map = vim.keymap.set
-      map("n", "gS", ":InspectTree<CR>", { silent = true, desc = "Syntax Tree" })
     end,
   },
   {
