@@ -64,6 +64,10 @@ vim.o.splitkeep = "screen" -- Reduce scroll during window split
 vim.o.foldenable = false
 
 -- Extra UI
+vim.o.showcmd = true -- show keystrokes in default command line (noice uses it too)
+vim.o.cmdheight = 0 -- height of default command line
+vim.o.showmode = false -- show mode in default command line
+
 vim.o.pumblend = 10 -- Make builtin completion menus slightly transparent
 vim.o.pumheight = 10 -- Make popup menu smaller
 -- vim.o.winblend = 10 -- Make floating windows slightly transparent (causes bugs with block cursor in overlays)
