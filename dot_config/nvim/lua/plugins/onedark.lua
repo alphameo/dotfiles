@@ -22,6 +22,8 @@ return {
     vim.api.nvim_set_hl(0, "MiniTablineModifiedHidden", { fg = "#e5c07b", bg = "#1e2127", italic = true })
     vim.api.nvim_set_hl(0, "MiniTablineFill", { fg = "#5c6370", bg = "#16181c" })
 
+    vim.api.nvim_set_hl(0, "MiniStatuslineFilename", { fg = "#abb2bf", bg = "#31353f" })
+
     local toggle_transparency = function()
       config.transparent = not config.transparent
       onedark.setup(config)

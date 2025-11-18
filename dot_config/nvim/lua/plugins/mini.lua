@@ -172,10 +172,6 @@ local setup_tabline = function()
 end
 
 local setup_statusline = function()
-  vim.api.nvim_set_hl(0, "MiniStatuslineFilename", {
-    fg = "#abb2bf",
-    bg = "#31353f",
-  })
   local stl = require "mini.statusline"
   stl.section_location = function()
     return "%2l:%-2v"
