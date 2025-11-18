@@ -173,10 +173,15 @@ end
 
 local setup_statusline = function()
   local stl = require "mini.statusline"
-  stl.section_location = function()
+
+  local sep = "︙"
+
+  local icon = require("diagnostics").icons
+  local signs = { ERROR = icon.Error, WARN = icon.Warn, INFO = icon.Info, HINT = icon.Hint }
+
+  local get_location = function()
     return "%2l:%-2v"
   end
-  local icon = require("diagnostics").icons
 
   vim.api.nvim_create_autocmd("RecordingEnter", {
     pattern = "*",
@@ -212,32 +217,26 @@ local setup_statusline = function()
   end
 
   stl.setup {
-    use_icons = true,
+    use_icons = vim.g.have_nerd_font,
     set_vim_settings = false, -- You already set vim.o.showmode = false
     content = {
       active = function()
-        local sep = "︙"
         local mode, mode_hl = stl.section_mode { trunc_width = 120 }
         local git = stl.section_git { trunc_width = 40 }
         local diff = stl.section_diff { trunc_width = 75 }
         local diagnostics = stl.section_diagnostics {
           trunc_width = 75,
           icon = "",
-          signs = { ERROR = icon.Error, WARN = icon.Warn, INFO = icon.Info, HINT = icon.Hint },
+          signs = signs,
         }
         -- local lsp = stl.section_lsp { trunc_width = 75 }
         local filename = stl.section_filename { trunc_width = 140 }
         local fileinfo = stl.section_fileinfo { trunc_width = 9999 }
-        local location = stl.section_location { trunc_width = 75 }
+        local location = get_location()
         -- local search = stl.section_searchcount { trunc_width = 75 }
 
-
-        local line = vim.fn.line "."
-        local total = vim.fn.line "$"
-        local percent = math.floor(line / total * 100)
-
-        local percentage = string.format("%d%%%%", percent)
         local key_cmd = get_recording_macro_prefix() .. get_keystroke()
+        local percentage = get_file_percentage()
 
         return stl.combine_groups {
           { hl = mode_hl, strings = { mode } },
