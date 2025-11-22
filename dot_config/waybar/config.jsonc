@@ -1,5 +1,5 @@
 {
-    "layer": "bottom",
+    "layer": "top",
     "position": "top",
     "margin-top": 4,
     "margin-left": 4,
@@ -118,10 +118,12 @@
             "default": "",
             "active": "",
             "urgent": "",
+            "magic": "",
         },
-        "on-scroll-up": "hyprctl dispatch workspace m+1",
-        "on-scroll-down": "hyprctl dispatch workspace m-1",
-        "show-special": true
+        "all-outputs": false,
+        "disable-scroll": true,
+        "show-special": true,
+        "special-visible-only": true,
     },
     "hyprland/window": {
         "format": "{}",
@@ -160,6 +162,8 @@
         "format": "{}",
         "format-en": "en",
         "format-ru": "ru",
+        // "format-en": "🇺🇸",
+        // "format-ru": "🇷🇺",
         "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
     },
     "network": {
