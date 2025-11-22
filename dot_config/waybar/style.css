@@ -25,13 +25,6 @@ window#waybar {
     padding: 0 4px;
 }
 
-#workspaces button.active {
-    color: @blue;
-    /* color: @base; */
-    /* background-color: @overlay1; */
-    /* border-radius: 6px; */
-}
-
 #workspaces,
 #tray,
 #clock,
@@ -128,6 +121,53 @@ window#waybar {
     margin: -4px;
 }
 
+
+/* Element colors  */
+
+#workspaces button.active {
+    color: @blue;
+    /* color: @base; */
+    /* background-color: @overlay1; */
+    /* border-radius: 6px; */
+}
+#workspaces button.urgent {
+    color: @peach;
+}
+
+#network.linked,
+#network.ethernet,
+#network.wifi {
+    color: @sapphire;
+}
+#network.ethernet {
+    color: @sapphire;
+}
+
+#bluetooth.disabled {
+    color: @red;
+}
+#bluetooth.connected {
+    color: @sapphire;
+}
+
+#wireplumber.sinkicon,
+#wireplumber.sinkpercentage {
+    color: @mauve;
+}
+#wireplumber.sourceicon,
+#wireplumber.sourcepercentage {
+    color: @teal;
+}
+#pulseaudio-slider highlight {
+    border-color: @mauve;
+}
+#pulseaudio-slider slider {
+    background-color: @mauve;
+}
+
+#backlight {
+    color: @peach;
+}
 #backlight-slider highlight {
     border-color: @peach;
 }
@@ -135,10 +175,38 @@ window#waybar {
     background-color: @peach;
 }
 
-#pulseaudio-slider highlight {
-    border-color: @mauve;
+#battery.charging {
+    color: @green;
+}
+#battery.warning {
+    color: @peach;
+}
+#battery.critical {
+    color: @red;
 }
 
-#pulseaudio-slider slider {
-    background-color: @mauve;
+#power-profiles-daemon.performance {
+    color: @red;
+}
+#power-profiles-daemon.balanced {
+    color: @yellow;
+}
+#power-profiles-daemon.power-saver {
+    color: @green;
+}
+
+#custom-powermenu {
+    color: @red;
+}
+#custom-power {
+    color: @red;
+}
+#custom-reboot {
+    color: @sapphire;
+}
+#custom-quit {
+    color: @green;
+}
+#custom-lock {
+    color: @yellow;
 }
