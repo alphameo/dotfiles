@@ -42,6 +42,7 @@ return {
           "gopls", -- go
           "neocmake", -- cmake
           "marksman", -- markdown
+          "tinymist", -- typst
           "texlab", -- LaTeX
           "kotlin_lsp", -- kotlin
           "html", -- html
@@ -103,6 +104,7 @@ return {
           "htmlhint", -- html lint
           "sqlfluff", -- sql fmt/lint
           -- "vale", -- tex lint
+          "prettypst", -- typst fmt
           "bibtex-tidy", -- tex fmt
           -- "xmlformatter", -- xml fmt
           -- "yamllint", -- yaml lint

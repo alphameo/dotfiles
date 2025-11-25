@@ -38,10 +38,12 @@ return {
         "bibtex",
         "css",
         "html",
+        "latex",
         "markdown",
         "markdown_inline",
         "mermaid",
         "scss",
+        "typst",
         "xml",
         -- DATA
         "json",
@@ -119,8 +121,10 @@ return {
     "folke/ts-comments.nvim",
     lazy = true,
     event = "VeryLazy",
-    config = function()
-      require("ts-comments").setup()
-    end,
+    opts = {
+      lang = {
+        typst = { "// %s", "/* %s */" },
+      },
+    },
   },
 }
