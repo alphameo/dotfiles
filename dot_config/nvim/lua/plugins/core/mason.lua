@@ -64,6 +64,7 @@ return {
           "intelephense", -- php
           "phpactor", -- php
           "rust_analyzer", -- rust
+          "mbake", -- makefile
           -- Debuggers
           "java-debug-adapter",
           "java-test",
