@@ -19,7 +19,7 @@ fastfetch
 dunst
 acpi
 
-undiskie
+udiskie
 
 rofi-wayland
 rofimoji
@@ -49,9 +49,12 @@ qt6-wayland
 pavucontrol
 
 ttf-roboto-mono-nerd
+ttf-times-new-roman
+ttf-jetbrains-mono-nerd
 
 lxqt-config
 lxqt-admin
+sddm-conf
 
 neovim
 
@@ -69,6 +72,7 @@ gimp
 inkskape
 upskayl
 krita
+drawio-desktop
 
 bitwarden
 
@@ -97,6 +101,10 @@ maven
 gradle
 git
 
+jdk-openjdk
+openjdk-doc
+openjdk-src
+
 shotwell
 gwenview
 
@@ -105,10 +113,12 @@ kdenlive
 
 libreoffice
 
-nekoray
+nekoray-bin
 
 lazygit
 lazydocker
 delta
 
 btop
+
+nwg-displays
