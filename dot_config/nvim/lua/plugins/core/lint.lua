@@ -15,6 +15,7 @@ return {
       kotlin = { "ktlint" },
       lua = { "luacheck" },
       markdown = { "markdownlint-cli2" },
+      make = { "checkmake" },
       php = { "phpcs" },
       python = { "mypy" },
       sql = { "sqlfluff" },

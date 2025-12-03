@@ -64,7 +64,6 @@ return {
           "intelephense", -- php
           "phpactor", -- php
           "rust_analyzer", -- rust
-          "mbake", -- makefile
           -- Debuggers
           "java-debug-adapter",
           "java-test",
@@ -86,6 +85,7 @@ return {
           "clang-format", -- c, cpp fmt
           "cpplint", -- c, cpp lint
           "gersemi", -- cmake fmt
+          "checkmake", -- makefile lint
           "cmakelint", -- cmake lint
           "ruff", -- python fmt
           "black", -- python fmt
