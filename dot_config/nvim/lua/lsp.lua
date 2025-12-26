@@ -85,7 +85,7 @@ local global_cfg = {
     textDocument = {
       completion = {
         completionItem = {
-          snippetSupport = false, -- autofill func placeholders
+          snippetSupport = true, -- autofill func placeholders
           labelDetailSupport = false, -- disable params in cmp window
         },
       },
