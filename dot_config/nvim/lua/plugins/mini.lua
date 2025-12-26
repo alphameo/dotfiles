@@ -277,7 +277,7 @@ return {
   lazy = true,
   event = "VeryLazy",
   config = function()
-    -- require("mini.pairs").setup()
+    require("mini.pairs").setup()
     setup_pairs()
     -- require("mini.move").setup()
     setup_sessions()
