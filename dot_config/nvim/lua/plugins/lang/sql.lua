@@ -1,3 +1,14 @@
+-- NOTE: The default behavior of auto-execution of queries on save is disabled
+-- this is useful when you have a big query that you don't want to run every time
+-- you save the file running those queries can crash neovim to run use the
+-- default keymap: <leader>S
+vim.g.db_ui_execute_on_save = false
+-- NOTE: To add connection:
+-- CMD :DBUIAddConnection<CR>
+-- Enter connection url: <database>://<user>:<password>@<url>:<port>/<db_name>
+-- e.g.: mariadb://root:1056@localhost:3306/railways<CR>
+vim.keymap.set("n", "<leader>b", ":DBUIToggle<CR>", { silent = true, desc = "DataBases" })
+
 return {
   {
     "kristijanhusak/vim-dadbod-ui",
@@ -11,7 +22,6 @@ return {
       "DBUIAddConnection",
       "DBUIFindBuffer",
     },
-    ft = { "sql", "mysql", "plsql" },
     config = function()
       local data_path = vim.fn.stdpath "data"
 
@@ -32,17 +42,6 @@ select count(*) from {table};
 ]],
         },
       }
-
-      -- NOTE: The default behavior of auto-execution of queries on save is disabled
-      -- this is useful when you have a big query that you don't want to run every time
-      -- you save the file running those queries can crash neovim to run use the
-      -- default keymap: <leader>S
-      vim.g.db_ui_execute_on_save = false
-      -- NOTE: To add connection:
-      -- CMD :DBUIAddConnection<CR>
-      -- Enter connection url: <database>://<user>:<password>@<url>:<port>/<db_name>
-      -- e.g.: mariadb://root:1056@localhost:3306/railways<CR>
-      vim.keymap.set("n", "<leader>b", ":DBUIToggle<CR>", { silent = true, desc = "DataBases" })
     end,
   },
   {
