@@ -76,11 +76,13 @@ return {
       vim.g.molten_virt_text_max_lines = 999
 
       -- INFO: VENV
+      -- [Setup neovim venv]
       -- mkdir ~/.virtualenvs
       -- python -m venv ~/.virtualenvs/neovim # create a new venv
-      -- # note, activate is a bash/zsh script, use activate.fish for fish shell
+      -- # activate the venv: note, activate is a bash/zsh script, use activate.fish for fish shell
       -- source ~/.virtualenvs/neovim/bin/activate # activate the venv
       -- pip install pynvim jupyter_client cairosvg plotly kaleido pnglatex pyperclip jupytext pandas matplotlib sympy
+      -- [Setup project venv]
       -- venv project_name # activate the project venv
       -- pip install ipykernel
       -- python -m ipykernel install --user --name project_name
