@@ -280,7 +280,7 @@ return {
     require("mini.pairs").setup()
     setup_pairs()
     -- require("mini.move").setup()
-    setup_sessions()
+    -- setup_sessions()
     -- setup_bracketed()
     setup_indentscope()
     setup_sj()
