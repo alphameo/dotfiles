@@ -11,17 +11,17 @@ return {
     local map = vim.keymap.set
     local opencode = require "opencode"
 
-    map({ "n", "t" }, "<leader>o", function()
+    map({ "n", "t" }, "<leader>a", function()
       opencode.toggle()
-    end, { desc = "Opencode" })
-    map({ "n", "x" }, "goa", function()
+    end, { desc = "AI Agent" })
+    map({ "n", "x" }, "gaa", function()
       opencode.select()
     end, { desc = "Opencode actions" })
 
-    map({ "n", "x" }, "gor", function()
+    map({ "n", "x" }, "gar", function()
       return opencode.operator "@this "
     end, { expr = true, desc = "Opencode add range" })
-    map("n", "gol", function()
+    map("n", "gal", function()
       return opencode.operator "@this " .. "_"
     end, { expr = true, desc = "Opencode add line" })
   end,
