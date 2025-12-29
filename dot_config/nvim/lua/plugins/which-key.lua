@@ -19,12 +19,13 @@ return {
 
     which_key.add {
       { "<leader>e", group = "File Tree", mode = { "n", "v" }, icon = { icon = " ", color = "cyan" } },
+      { "<leader>o", group = "Opencode", mode = { "n", "v" }, icon = { icon = "󰧑 ", color = "white" } },
+      { "<leader>b", group = "DataBase", mode = { "n", "v" }, icon = { icon = " ", color = "orange" } },
       { "<leader>u", group = "Undo Tree", mode = { "n", "v" }, icon = { icon = "󰋚 ", color = "cyan" } },
       { "<leader>M", group = "Mason", mode = { "n", "v" }, icon = { icon = "󰰐 ", color = "green" } },
       { "<leader>L", group = "Lazy", mode = { "n", "v" }, icon = { icon = " ", color = "green" } },
       { "<leader>d", group = "Debug", mode = { "n", "v" } },
       { "<leader>D", group = "Diff", mode = { "n", "v" }, icon = { icon = " ", color = "yellow" } },
-      { "<leader>b", group = "DataBase", mode = { "n", "v" }, icon = { icon = " ", color = "orange" } },
       { "<leader>f", group = "Find", mode = { "n", "v" } },
       { "<leader>fR", group = "&Replace", mode = { "n", "v" }, icon = { icon = "󰛔 ", color = "cyan" } },
       { "<leader>g", group = "Git", mode = { "n", "v" } },
@@ -38,6 +39,7 @@ return {
       { "<leader>.", group = "Settings", mode = { "n", "v" }, icon = { icon = " ", color = "white" } },
 
       { "gr", group = "Goto&Refactor", mode = { "n", "v" } },
+      { "go", group = "Opencode", mode = { "n", "v" } },
       { "[", group = "prev" },
       { "]", group = "next" },
       { "z", group = "fold" },
