@@ -46,6 +46,11 @@ return {
             ["h"] = "close_node",
           },
         },
+        filesystem = {
+          filtered_items = {
+            visible = true,
+          },
+        },
       }
       vim.keymap.set("n", "<leader>e", function()
         require("neo-tree.command").execute {
