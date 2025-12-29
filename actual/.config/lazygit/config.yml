@@ -1,0 +1,15 @@
+gui:
+  scrollHeight: 4
+  scrollPastBottom: true
+  sidePanelWidth: 0.25
+  expandFocusedSidePanel: true
+  expandedSidePanelWeight: 2
+  timeFormat: 2006-01-02 (Mon, Jan 01)
+  shortTimeFormat: 15:04
+  nerdFontsVersion: "3"
+  showFileIcons: true
+  filterMode: fuzzy
+git:
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never
