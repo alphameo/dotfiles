@@ -32,6 +32,8 @@ export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/nvim/utils/prettierrc.json"
 
 export ESLINT_DEFAULT_CONFIG="$HOME/.config/nvim/utils/eslintrc.js"
 
+export MARKDOWNLINT_DEFAULTCONFIG="$HOME/.config/nvim/utils/markdown-lint-cli2.yaml"
+
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export GPG_TTY="$TTY"
 

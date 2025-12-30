@@ -73,6 +73,11 @@ return {
       "-",
     }
 
+    lint.linters["markdownlint-cli2"].args = {
+      "--config",
+      os.getenv "MARKDOWNLINT_DEFAULTCONFIG",
+    }
+
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
       group = lint_augroup,
       callback = function()
