@@ -1,8 +1,8 @@
 local map = vim.keymap.set
-map({ "n" }, "<leader>lh", ":ClangdSwitchSourceHeader<CR>", { buffer = true, silent = true, desc = "C/C++ Switch Source/Header" })
-map({ "n" }, "<leader>lH", ":ClangdTypeHierarchy<CR>", { buffer = true, silent = true, desc = "C/C++ Type Hierarchy" })
-map({ "n" }, "<leader>lt", ":ClangdAST<CR>", { buffer = true, silent = true, desc = "C/C++ Abstract Syntax Tree" })
-map({ "n" }, "<leader>lm", ":ClangdMemoryUsage<CR>", { buffer = true, silent = true, desc = "C/C++ Memory Usage" })
+map("n", "<leader>lh", ":ClangdSwitchSourceHeader<CR>", { buffer = true, silent = true, desc = "C/C++ Switch Source/Header" })
+map("n", "<leader>lH", ":ClangdTypeHierarchy<CR>", { buffer = true, silent = true, desc = "C/C++ Type Hierarchy" })
+map("n", "<leader>lt", ":ClangdAST<CR>", { buffer = true, silent = true, desc = "C/C++ Abstract Syntax Tree" })
+map("n", "<leader>lm", ":ClangdMemoryUsage<CR>", { buffer = true, silent = true, desc = "C/C++ Memory Usage" })
 
 -- map( "n" , "<leader>lb", ":CMakeBuild<CR>", { buffer = true, silent = true, desc = "CMake Build Project" })
 map("n", "<leader>lb", ":CMakeSelectBuildType<CR>", { buffer = true, silent = true, desc = "CMake Build Project" })
