@@ -111,6 +111,11 @@ return {
           -- "yamllint", -- yaml lint
           "shellcheck",
           "shellharden",
+          -- Tools
+          "gomodifytags", -- go
+          "gotests", -- go
+          "iferr", -- go
+          "impl", -- go
         },
       }
     end,
