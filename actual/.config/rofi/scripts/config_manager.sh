@@ -7,6 +7,7 @@ HYPR=" Hypr (hypr)"
 DUNST="󰵚 Notifier (dunst)"
 SWWW="󰸉 Wallpaper (waypaper)"
 FLAMESHOT=" Screenshots (flameshot)"
+WLOGOUT="󰐦 Logout menu (wlogout)"
 
 function open_config {
     local module="$1"
@@ -34,6 +35,8 @@ function run {
         open_config "waypaper" "config.ini"
     elif [[ $INP == $FLAMESHOT ]]; then
         open_config "flameshot" "flameshot.ini"
+    elif [[ $INP == $WLOGOUT ]]; then
+        open_config "wlogout" "layout"
     else
         echo $ALL
         echo $ROFI
@@ -42,6 +45,7 @@ function run {
         echo $DUNST
         echo $SWWW
         echo $FLAMESHOT
+        echo $WLOGOUT
         exit 0
     fi
 }
