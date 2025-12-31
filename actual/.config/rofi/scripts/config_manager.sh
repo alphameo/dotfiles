@@ -5,6 +5,7 @@ ROFI=" Runner (rofi)"
 WAYBAR=" Toolbar (waybar)"
 HYPR=" Hypr (hypr)"
 DUNST="󰵚 Notifier (dunst)"
+SWAYNC="󰵚 Notifier (swaync)"
 SWWW="󰸉 Wallpaper (waypaper)"
 FLAMESHOT=" Screenshots (flameshot)"
 WLOGOUT="󰐦 Logout menu (wlogout)"
@@ -31,6 +32,8 @@ function run {
         open_config "hypr" "hyprland.conf"
     elif [[ $INP == $DUNST ]]; then
         open_config "dunst" "dunstrc"
+    elif [[ $INP == $SWAYNC ]]; then
+        open_config "swaync" "config.json"
     elif [[ $INP == $SWWW ]]; then
         open_config "waypaper" "config.ini"
     elif [[ $INP == $FLAMESHOT ]]; then
@@ -43,6 +46,7 @@ function run {
         echo $WAYBAR
         echo $HYPR
         echo $DUNST
+        echo $SWAYNC
         echo $SWWW
         echo $FLAMESHOT
         echo $WLOGOUT
