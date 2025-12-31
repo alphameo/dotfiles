@@ -89,9 +89,11 @@
         },
         "modules": [
             "custom/powermenu",
-            "custom/power",
+            "custom/poweroff",
             "custom/reboot",
-            "custom/quit",
+            "custom/suspend",
+            "custom/hibernate",
+            "custom/logout",
             "custom/lock",
         ]
     },
@@ -323,9 +325,9 @@
         "tooltip-format": "Power menu\n\n<small>LMB/M-C-p - open</small>",
         "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu"
     },
-    "custom/power": {
+    "custom/poweroff": {
         "format": "",
-        "tooltip-format": "Power",
+        "tooltip-format": "Poweroff",
         "on-click": "shutdown now"
     },
     "custom/reboot": {
@@ -333,14 +335,24 @@
         "tooltip-format": "Reboot",
         "on-click": "reboot"
     },
-    "custom/quit": {
+    "custom/logout": {
         "format": "󰗼",
-        "tooltip-format": "Quit",
+        "tooltip-format": "Logout",
         "on-click": "hyprctl dispatch exit"
     },
     "custom/lock": {
         "format": "󰍁",
         "tooltip-format": "Lock",
-        "on-click": "swaylock"
+        "on-click": "loginctl lock-session"
+    },
+    "custom/suspend": {
+        "format": "",
+        "tooltip-format": "Sleep",
+        "on-click": "loginctl lock-session && systemctl suspend"
+    },
+    "custom/hibernate": {
+        "format": "󰤁",
+        "tooltip-format": "Hibernate",
+        "on-click": "systemctl hibernate"
     },
 }

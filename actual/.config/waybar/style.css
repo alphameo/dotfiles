@@ -1,4 +1,4 @@
-@import 'catpuccin-mocha.css';
+@import 'catppuccin-mocha.css';
 
 * {
     font-family: RobotoMono Nerd Font Propo;
@@ -198,15 +198,23 @@ window#waybar {
 #custom-powermenu {
     color: @red;
 }
-#custom-power {
+#custom-poweroff {
     color: @red;
 }
 #custom-reboot {
     color: @sapphire;
 }
-#custom-quit {
+#custom-logout {
     color: @green;
 }
 #custom-lock {
     color: @yellow;
+}
+
+#custom-suspend {
+    color: @flamingo;
+}
+
+#custom-hibernate {
+    color: @sky;
 }
