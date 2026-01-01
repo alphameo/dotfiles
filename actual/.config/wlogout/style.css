@@ -27,8 +27,9 @@ button {
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 10px 2px transparent;
     border-radius: 36px;
-    margin: 150px 10px 150px 10px;
-    color: @text;
+    margin: 210px 10px 210px 10px;
+    font-weight: bold;
+    color: @crust;
 }
 
 button:focus {
