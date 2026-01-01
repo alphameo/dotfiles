@@ -17,12 +17,6 @@
     "keybind" : "s"
 }
 {
-    "label" : "hibernate",
-    "action" : "~/.scripts/hibernate.sh",
-    "text" : "Hibernate",
-    "keybind" : "h"
-}
-{
     "label" : "logout",
     "action" : "~/.scripts/logout.sh",
     "text" : "Exit",

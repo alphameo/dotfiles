@@ -366,9 +366,9 @@
         "tooltip-format": "Sleep",
         "on-click": "~/.scripts/suspend.sh"
     },
-    "custom/hibernate": {
-        "format": "󰤁",
-        "tooltip-format": "Hibernate",
-        "on-click": "~/.scripts/hibernate.sh"
-    },
+    // "custom/hibernate": {
+    //     "format": "󰤁",
+    //     "tooltip-format": "Hibernate",
+    //     "on-click": "~/.scripts/hibernate.sh"
+    // },
 }
