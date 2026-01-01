@@ -1,3 +1,3 @@
 #!/bin/bash
 
-swww img $DEFAULT_WALLPAPER
+swww img "$DEFAULT_WALLPAPER"
