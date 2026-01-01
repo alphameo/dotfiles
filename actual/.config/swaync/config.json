@@ -24,10 +24,12 @@
   "hide-on-action": true,
   "script-fail-notify": true,
   "widgets": [
-    "title",
+    "menubar#label",
     "buttons-grid",
     "mpris",
     "volume",
+    "backlight",
+    "title",
     "dnd",
     "notifications"
   ],
@@ -52,7 +54,13 @@
       "label": "󰕾",
       "show-per-app": true
     },
+    "backlight": {
+      "label": "󰃠",
+      "device": "amdgpu_bl1",
+      "min": 10
+    },
     "buttons-grid": {
+      "buttons-per-row": 5,
       "actions": [
         {
           "label": "󰐥",

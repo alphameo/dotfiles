@@ -4,8 +4,8 @@
 
 * {
     all: unset;
-    font-size: 14px;
-    font-family: 'Roboto Mono Nerd Font';
+    font-size: 12pt;
+    font-family: 'Roboto Mono Nerd Font Propo';
     font-weight: bold;
     transition: 200ms;
 }
@@ -33,10 +33,11 @@ trough slider {
     background-color: @blue;
 }
 
-trough slider:hover {
+trough slider:hover,
+switch:hover {
     box-shadow:
         0 0 2px @shadow,
-        0 0 8px @blue;
+        0 0 8px @text;
 }
 
 trough {
@@ -196,13 +197,19 @@ trough {
     background-color: @surface0;
 }
 
-scrollbar slider {
-    margin: -3px;
-    opacity: 0.8;
-}
-
-scrollbar trough {
-    margin: 2px 0;
+/* hidden scrollbars */
+.control-center scrollbar,
+.control-center scrollbar contents,
+.control-center scrollbar slider,
+.control-center scrollbar slider:hover,
+.control-center scrollbar slider:active,
+.control-center scrollbar trough,
+.control-center .notification-row scrollbar,
+.control-center .notification-row scrollbar thumb,
+.control-center .notification-row scrollbar thumb:hover {
+    background: transparent;
+    min-width: 1px;
+    margin-right: -100px;
 }
 
 /* dnd */
@@ -216,7 +223,6 @@ scrollbar trough {
     font-size: initial;
     border-radius: 8px;
     background: @surface0;
-    box-shadow: none;
 }
 
 .widget-dnd > switch:checked {
@@ -269,11 +275,11 @@ scrollbar trough {
 }
 
 .widget-mpris button:hover {
-    background-color: @surface0;
+    background-color: @surface1;
 }
 
 .widget-mpris button:active {
-    background-color: @surface1;
+    background-color: @surface2;
 }
 
 .widget-mpris button:disabled {
@@ -302,32 +308,78 @@ scrollbar trough {
 
 .widget-buttons-grid {
     padding-top: 1rem;
+    font-size: x-large;
+    padding: 5px;
+    margin: 5px 0 10px 0;
+    border-radius: 5px;
+    background-color: @mantle;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button label {
-    font-size: 2.5rem;
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    margin: 3px;
+    background: @surface0;
+    border-radius: 5px;
+    color: @text;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: @surface1;
+    color: @blue;
 }
 
 .widget-volume {
-    padding: 1rem 0;
+    margin: 1rem 0;
 }
 
 .widget-volume label {
-    color: @saphire;
-    padding: 0 1rem;
+    color: @mauve;
+    margin: 0 1rem;
+}
+
+.widget-volume trough {
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .widget-volume trough highlight {
-    background: @saphire;
+    background: @mauve;
 }
 
-.widget-backlight trough highlight {
-    background: @yellow;
+.widget-volume trough slider {
+    background-color: @mauve;
+}
+
+.widget-volume > box > button:hover {
+    color: @blue;
+}
+
+.widget-volume .per-app-volume {
+    margin: 0 29px 0 10px;
+}
+
+.widget-volume .per-app-volume trough {
+    margin: 8px 0 8px 24px;
+}
+
+.widget-backlight {
+    margin-right: 17px;
+    padding: 0 12px;
 }
 
 .widget-backlight label {
-    font-size: 1.5rem;
-    color: @yellow;
+    color: @peach;
+}
+
+.widget-backlight trough {
+    margin: 8px 0 8px 24px;
+}
+
+.widget-backlight trough slider {
+    background-color: @peach;
+}
+
+.widget-backlight trough highlight {
+    background-color: @peach;
 }
 
 .widget-backlight .KB {
