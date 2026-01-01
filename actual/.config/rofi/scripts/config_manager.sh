@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 ALL=" Configs (.config/)"
+SCRIPTS=" Scripts (.scripts/)"
 ROFI=" Runner (rofi)"
 WAYBAR=" Toolbar (waybar)"
 HYPR=" Hypr (hypr)"
@@ -24,6 +25,9 @@ function run {
     if [[ $INP == $ALL ]]; then
         coproc ($TERMINAL -d $XDG_CONFIG_HOME/)
         exit 0
+    elif [[ $INP == $SCRIPTS ]]; then
+        coproc ($TERMINAL -d ~/.scripts/)
+        exit 0
     elif [[ $INP == $ROFI ]]; then
         open_config "rofi" "config.rasi"
     elif [[ $INP == $WAYBAR ]]; then
@@ -42,6 +46,7 @@ function run {
         open_config "wlogout" "layout"
     else
         echo $ALL
+        echo $SCRIPTS
         echo $ROFI
         echo $WAYBAR
         echo $HYPR
