@@ -1,36 +1,36 @@
 {
     "label" : "poweroff",
-    "action" : "systemctl poweroff",
+    "action" : "~/.scripts/poweroff.sh",
     "text" : "Poweroff",
     "keybind" : "p"
 }
 {
     "label" : "reboot",
-    "action" : "systemctl reboot",
+    "action" : "~/.scripts/reboot.sh",
     "text" : "Reboot",
     "keybind" : "r"
 }
 {
     "label" : "suspend",
-    "action" : "loginctl lock-session && systemctl suspend",
+    "action" : "~/.scripts/suspend.sh",
     "text" : "Sleep",
     "keybind" : "s"
 }
 {
     "label" : "hibernate",
-    "action" : "systemctl hibernate",
+    "action" : "~/.scripts/hibernate.sh",
     "text" : "Hibernate",
     "keybind" : "h"
 }
 {
     "label" : "logout",
-    "action" : "loginctl terminate-user $USER",
+    "action" : "~/.scripts/logout.sh",
     "text" : "Exit",
     "keybind" : "e"
 }
 {
     "label" : "lock",
-    "action" : "loginctl lock-session",
+    "action" : "~/.scripts/lock.sh",
     "text" : "Lock",
     "keybind" : "l"
 }
