@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# hyprctl dispatch exit
-loginctl terminate-user $USER
+hyprctl dispatch exit
+# loginctl terminate-user $USER
