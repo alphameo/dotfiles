@@ -83,7 +83,7 @@
           "command": "swayosd-client --input-volume mute-toggle"
         },
         {
-          "label": "󰖩",
+          "label": "",
           "command": "$HOME/.local/bin/shved/rofi-menus/wifi-menu.sh"
         },
         {
