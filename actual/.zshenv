@@ -20,7 +20,7 @@ export PAGER="less"
 export TERMINAL='kitty'
 export LAUNCHER='rofi'
 export FILEMANAGER='yazi'
-export NOTES='obsidian'
+export EXPLORER='thunar'
 export SYSMONITOR='btop'
 
 
