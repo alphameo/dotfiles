@@ -2,6 +2,9 @@ hyprland
 hypridle
 hyprlock
 hyprpicker
+hyprpolkitagent
+
+wlogout
 
 hyprshot
 flameshot
@@ -18,6 +21,7 @@ fastfetch
 
 dunst
 acpi
+swaync
 
 udiskie
 
