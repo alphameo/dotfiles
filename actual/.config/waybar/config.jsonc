@@ -354,7 +354,7 @@
         "on-click": "reboot"
     },
     "custom/logout": {
-        "format": "󰗼",
+        "format": "󰍃",
         "tooltip-format": "Logout",
         "on-click": "hyprctl dispatch exit"
     },
