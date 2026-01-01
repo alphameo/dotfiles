@@ -166,7 +166,7 @@
         "format-ru": "ru",
         // "format-en": "🇺🇸",
         // "format-ru": "🇷🇺",
-        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+        "on-click": "~/.scripts/switch-kb-layout.sh"
     },
     "network": {
         "format-disabled": "󰪎",
@@ -185,8 +185,7 @@
         "tooltip-format": "{icon}({signalStrength}%)  {essid}  <span color='#eba0ac'>󰅧</span> {bandwidthUpBytes} <span color='#89dceb'>󰅢</span> {bandwidthDownBytes}\n({ifname} via {gwaddr})\n\n<small>LMB - menu</small>",
         "tooltip-format-disconnected": "Disconnected\n\n<small>LMB - menu</small>",
         "tooltip-format-disabled": "Disabled\n\n<small>LMB - menu</small>",
-        "on-click": "networkmanager_dmenu",
-        "on-click-right": "$TERMINAL ~/Development/GoLang/nm-tui/main"
+        "on-click": "~/.scripts/open-network-manager.sh",
     },
     "bluetooth": {
         "format-disabled": "󰂲",
@@ -198,8 +197,7 @@
         "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}\n\nLMB - menu",
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
         "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
-        "on-click": "rofi-bluetooth",
-        "on-click-right": "$TERMINAL bluetui"
+        "on-click": "~/.scripts/open-bluetooth-manager.sh",
     },
     "wireplumber#sinkicon": {
         "node-type": "Audio/Sink",
@@ -215,8 +213,8 @@
         "tooltip-format": "Volume: {volume}%\nSink: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "pavucontrol -t 3",
+        "on-click": "~/.scripts/toggle-mute-sink.sh",
+        "on-click-right": "~/.scripts/open-sound-sink-manager.sh",
     },
     "wireplumber#sinkpercentage": {
         "node-type": "Audio/Sink",
@@ -225,8 +223,8 @@
         "tooltip-format": "Volume: {volume}%\nSink: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "pavucontrol -t 3",
+        "on-click": "~/.scripts/toggle-mute-sink.sh",
+        "on-click-right": "~/.scripts/open-sound-sink-manager.sh",
     },
     "wireplumber#sourceicon": {
         "node-type": "Audio/Source",
@@ -235,8 +233,8 @@
         "tooltip-format": "Volume: {volume}%\nSource: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-        "on-click-right": "pavucontrol -t 4",
+        "on-click": "~/.scripts/toggle-mute-source.sh",
+        "on-click-right": "~/.scripts/open-sound-source-manager.sh",
     },
     "wireplumber#sourcepercentage": {
         "node-type": "Audio/Source",
@@ -245,8 +243,8 @@
         "tooltip-format": "Volume: {volume}%\nSource: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-        "on-click-right": "pavucontrol -t 4",
+        "on-click": "~/.scripts/toggle-mute-source.sh",
+        "on-click-right": "~/.scripts/open-sound-source-manager.sh",
     },
     "pulseaudio/slider": {
         "min": 0,
@@ -261,15 +259,15 @@
             "󰃟",
             "󰃠"
         ],
-        "on-scroll-up": "brightnessctl -q s 1%+",
-        "on-scroll-down": "brightnessctl -q s 1%-",
+        "on-scroll-up": "~/.scripts/brightness-increase.sh",
+        "on-scroll-down": "~/.scripts/brightness-decrease.sh",
         "reverse-scrolling": true,
         "tooltip-format": "Backlight\n\nSM - control"
     },
     "backlight#percentage": {
         "format": "<span color='#fab387'>{percent}%</span>",
-        "on-scroll-up": "brightnessctl -q s 1%+",
-        "on-scroll-down": "brightnessctl -q s 1%-",
+        "on-scroll-up": "~/.scripts/brightness-increase.sh",
+        "on-scroll-down": "~/.scripts/brightness-decrease.sh",
         "reverse-scrolling": true,
         "tooltip-format": "Backlight\n\nSM - control"
     },
@@ -328,49 +326,49 @@
         "return-type": "json",
         "exec-if": "which swaync-client",
         "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
+        "on-click": "~/.scripts/open-notification-manager.sh",
+        "on-click-right": "~/.scripts/toggle-notification-dnd.sh",
         "escape": true
     },
     "custom/screenlock": {
-        "exec": "$HOME/.config/waybar/scripts/hypridle.sh check",
+        "exec": "~/.config/waybar/scripts/hypridle.sh check",
         "restart-interval": 1,
         "tooltip-format": "Screenlock\n\n<small>LMB - pause screenlocking</small>",
-        "on-click": "$HOME/.config/waybar/scripts/hypridle.sh toggle"
+        "on-click": "~/.config/waybar/scripts/hypridle.sh toggle"
     },
     "custom/powermenu": {
         "format": "󰐦",
         "tooltip-format": "Power menu\n\n<small>LMB/M-C-p - open</small>",
-        "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu"
+        "on-click": "~/.scripts/open-power-menu.sh"
     },
     "custom/poweroff": {
         "format": "",
         "tooltip-format": "Poweroff",
-        "on-click": "shutdown now"
+        "on-click": "~/.scripts/poweroff.sh"
     },
     "custom/reboot": {
         "format": "󰜉",
         "tooltip-format": "Reboot",
-        "on-click": "reboot"
+        "on-click": "~/.scripts/reboot.sh"
     },
     "custom/logout": {
         "format": "󰍃",
         "tooltip-format": "Logout",
-        "on-click": "hyprctl dispatch exit"
+        "on-click": "~/.scripts/logout.sh"
     },
     "custom/lock": {
         "format": "󰍁",
         "tooltip-format": "Lock",
-        "on-click": "loginctl lock-session"
+        "on-click": "~/.scripts/lock.sh"
     },
     "custom/suspend": {
         "format": "",
         "tooltip-format": "Sleep",
-        "on-click": "loginctl lock-session && systemctl suspend"
+        "on-click": "~/.scripts/suspend.sh"
     },
     "custom/hibernate": {
         "format": "󰤁",
         "tooltip-format": "Hibernate",
-        "on-click": "systemctl hibernate"
+        "on-click": "~/.scripts/hibernate.sh"
     },
 }
