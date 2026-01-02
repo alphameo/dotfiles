@@ -1,8 +1,7 @@
 return {
   "NickvanDyke/opencode.nvim",
-  dependencies = {
-    { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
-  },
+  lazy = true,
+  event = "VeryLazy",
   config = function()
     vim.g.opencode_opts = {}
 
@@ -11,7 +10,7 @@ return {
     local map = vim.keymap.set
     local opencode = require "opencode"
 
-    map({ "n", "t" }, "<leader>a", function()
+    map({ "n", "t" }, "<M-`>", function()
       opencode.toggle()
     end, { desc = "AI Agent" })
     map({ "n", "x" }, "gaa", function()
