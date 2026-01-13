@@ -5,6 +5,7 @@ return {
   require "plugins.lang.java",
   require "plugins.lang.markdown",
   require "plugins.lang.python",
+  require "plugins.lang.sql",
   require "plugins.lang.tex",
   require "plugins.lang.typst",
 }

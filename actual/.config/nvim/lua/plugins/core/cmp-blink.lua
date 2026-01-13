@@ -1,11 +1,5 @@
 return {
   {
-    "saghen/blink.compat",
-    version = "2.*", -- use v2.* for blink.cmp v1.*
-    lazy = true, -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
-    opts = {},
-  },
-  {
     "saghen/blink.cmp",
     dependencies = {
       {
@@ -155,5 +149,11 @@ return {
       },
     },
     opts_extend = { "sources.default" },
+  },
+  {
+    "saghen/blink.compat",
+    version = "2.*", -- use v2.* for blink.cmp v1.*
+    lazy = true, -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+    opts = {},
   },
 }

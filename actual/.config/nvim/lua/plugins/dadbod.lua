@@ -10,48 +10,36 @@ vim.g.db_ui_execute_on_save = false
 vim.keymap.set("n", "<leader>b", ":DBUIToggle<CR>", { silent = true, desc = "DataBases" })
 
 return {
-  {
-    "kristijanhusak/vim-dadbod-ui",
-    dependencies = {
-      { "tpope/vim-dadbod", lazy = true },
-    },
-    lazy = true,
-    cmd = {
-      "DBUI",
-      "DBUIToggle",
-      "DBUIAddConnection",
-      "DBUIFindBuffer",
-    },
-    config = function()
-      local data_path = vim.fn.stdpath "data"
+  "kristijanhusak/vim-dadbod-ui",
+  dependencies = {
+    { "tpope/vim-dadbod", lazy = true },
+  },
+  lazy = true,
+  cmd = {
+    "DBUI",
+    "DBUIToggle",
+    "DBUIAddConnection",
+    "DBUIFindBuffer",
+  },
+  config = function()
+    local data_path = vim.fn.stdpath "data"
 
-      vim.g.db_ui_auto_execute_table_helpers = 1
-      -- vim.g.db_ui_save_location = data_path .. "/dadbod_ui"
-      vim.g.db_ui_save_location = vim.fn.getcwd() .. "/sql/"
-      vim.g.db_ui_show_database_icon = true
-      vim.g.db_ui_tmp_query_location = data_path .. "/dadbod_ui/tmp"
-      vim.g.db_ui_use_nerd_fonts = true
-      vim.g.db_ui_use_nvim_notify = true
-      vim.g.db_ui_table_helpers = {
-        postgresql = {
-          ["Table Size"] = [[
+    vim.g.db_ui_auto_execute_table_helpers = 1
+    -- vim.g.db_ui_save_location = data_path .. "/dadbod_ui"
+    vim.g.db_ui_save_location = vim.fn.getcwd() .. "/sql/"
+    vim.g.db_ui_show_database_icon = true
+    vim.g.db_ui_tmp_query_location = data_path .. "/dadbod_ui/tmp"
+    vim.g.db_ui_use_nerd_fonts = true
+    vim.g.db_ui_use_nvim_notify = true
+    vim.g.db_ui_table_helpers = {
+      postgresql = {
+        ["Table Size"] = [[
 select table_name, pg_size_pretty(pg_total_relation_size(quote_ident(table_name))), pg_total_relation_size(quote_ident(table_name)) from information_schema.tables where table_schema = 'public' and table_name = '{table}';
 ]],
-          ["Count"] = [[
+        ["Count"] = [[
 select count(*) from {table};
 ]],
-        },
-      }
-    end,
-  },
-  {
-    "kristijanhusak/vim-dadbod-completion",
-    lazy = true,
-    ft = { "sql", "mysql", "plsql" },
-  },
-  {
-    "ray-x/cmp-sql",
-    lazy = true,
-    ft = { "sql", "mysql", "plsql" },
-  },
+      },
+    }
+  end,
 }
