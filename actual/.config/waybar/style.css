@@ -29,6 +29,7 @@ window#waybar {
 #tray,
 #clock,
 #language,
+#cava,
 #keyboard-state,
 #group-controls,
 #group-battery,
@@ -43,6 +44,10 @@ window#waybar {
 
     border: 1px solid @overlay1;
     border-radius: 8px;
+}
+
+#cava {
+    color: @green;
 }
 
 #group-power {
