@@ -1,6 +1,6 @@
 #!/bin/env sh
 
-# source: https://wiki.archlinux.org/title/XDG_Base_Directory#User_directories 
+# source: https://wiki.archlinux.org/title/XDG_Base_Directory#User_directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -8,7 +8,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # source: https://wiki.archlinux.org/title/Zsh#Startup/Shutdown_files
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-
 
 # src: https://wiki.archlinux.org/title/Environment_variables#Default_programs
 export SHELL="/usr/bin/zsh"
@@ -22,7 +21,6 @@ export LAUNCHER='rofi'
 export FILEMANAGER='yazi'
 export EXPLORER='thunar'
 export SYSMONITOR='btop'
-
 
 export LF_CONFIG_HOME="$XDG_CONFIG_HOME"
 
@@ -42,7 +40,6 @@ export JAVA_HOME="/usr/lib/jvm/java-25-openjdk"
 export VENV_HOME="$HOME/.virtualenvs"
 [ -d "$VENV_HOME" ] || mkdir "$VENV_HOME"
 
-
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
@@ -59,6 +56,8 @@ export PATH="$PATH":/home/a1pha/.local/bin
 export GTK_USE_PORTAL=1
 
 export EZA_ICONS_AUTO=1
+
+export RAINFROG_CONFIG=~/.config/rainfrog
 
 # For nmtui theming
 export NEWT_COLORS='
