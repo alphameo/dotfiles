@@ -1,7 +1,6 @@
 {
     "hyprland/workspaces": {
-        // "format": "{name}{icon}{windows}",
-        "format": "{name}",
+        "format": "{name}", // vars: name, icon, windows
         "format-window-separator": " ",
         "window-rewrite-default": "󰣆",
         "window-rewrite": {
@@ -65,8 +64,8 @@
     "hyprland/language": {
         "format": "{}",
         "format-en": "en",
-        "format-ru": "ru",
         // "format-en": "🇺🇸",
+        "format-ru": "ru",
         // "format-ru": "🇷🇺",
         "on-click": "~/.scripts/switch-kb-layout.sh"
     },
@@ -206,30 +205,6 @@
             "power-saver": ""
         },
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}\n\nLMB/RMB - toggle"
-    },
-    // NOTE: neeed waybar built with cava module
-    "cava": {
-        "cava_config": "$HOME/.config/cava/config",
-        "framerate": 30,
-        "bars": 6,
-        "sleep_timer": 2,
-        "raw_target": "/dev/stdout",
-        "data_format": "ascii",
-        "bar_delimiter": 0,
-        "hide_on_silence": true,
-        "format-icons": [
-            "▁",
-            "▂",
-            "▃",
-            "▄",
-            "▅",
-            "▆",
-            "▇",
-            "█"
-        ],
-        "actions": {
-            "on-click-right": "mode"
-        }
     },
     "custom/notifications": {
         // "exec": "~/.config/waybar/scripts/dunst.sh",

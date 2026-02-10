@@ -14,7 +14,6 @@
     ],
     "modules-right": [
         "tray",
-        "cava",
         "hyprland/language",
         "group/group-controls",
         "group/group-battery",
