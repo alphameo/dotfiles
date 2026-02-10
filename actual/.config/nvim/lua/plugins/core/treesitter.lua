@@ -100,7 +100,13 @@ return {
       map("n", "grsp", function()
         ts_obj_swap.swap_next "@parameter.inner"
       end, { desc = "Swap parameter with next" })
+      map("n", "<M-l>", function()
+        ts_obj_swap.swap_next "@parameter.inner"
+      end, { desc = "Swap parameter with next" })
       map("n", "grsP", function()
+        ts_obj_swap.swap_previous "@parameter.inner"
+      end, { desc = "Swap parameter with previous" })
+      map("n", "<M-h>", function()
         ts_obj_swap.swap_previous "@parameter.inner"
       end, { desc = "Swap parameter with previous" })
     end,
