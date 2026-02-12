@@ -1,10 +1,11 @@
 #!/usr/bin/bash
 
-COMMON_UI="󰉼 COMMON UI (lxqt)"
-GTK_UI="󰉼 GTK UI (nwg-look)"
-KVANTUM="󰉼 GTK-QT link (kvantum)"
-QT5_UI="󰉼 QT5 UI (qt5ct)"
-QT6_UI="󰉼 QT6 UI (qt6ct)"
+ICON="󰉼 "
+COMMON_UI=$ICON"COMMON UI (lxqt)"
+GTK_UI=$ICON"GTK UI (nwg-look)"
+KVANTUM=$ICON"GTK-QT link (kvantum)"
+QT5_UI=$ICON"QT5 UI (qt5ct)"
+QT6_UI=$ICON"QT6 UI (qt6ct)"
 
 function execute {
     coproc (eval "$1")
