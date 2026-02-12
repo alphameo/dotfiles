@@ -129,6 +129,7 @@ return {
         "gowork",
         "java",
         "javadoc",
+        "c_sharp",
         "javascript",
         "jsdoc",
         "kotlin",

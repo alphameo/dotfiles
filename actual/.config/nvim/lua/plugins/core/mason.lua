@@ -8,6 +8,10 @@ return {
     cmd = { "Mason", "MasonInstall", "MasonUpdate" },
     config = function()
       require("mason").setup {
+        registries = {
+          "github:mason-org/mason-registry", -- for roslyn
+          "github:Crashdummyy/mason-registry", -- for roslyn
+        },
         ui = {
           icons = {
             package_pending = " ",
@@ -64,17 +68,19 @@ return {
           "intelephense", -- php
           "phpactor", -- php
           "rust_analyzer", -- rust
+          "roslyn", -- c#
           -- Debuggers
           "java-debug-adapter",
           "java-test",
           "cpptools", -- c, cpp
           "codelldb", -- c, cpp, rust
+          "netcoredbg", -- c#
           "debugpy", -- python
           "js-debug-adapter", -- javascript, typescript
           "firefox-debug-adapter", -- javascript, typescript
-          "kotlin-debug-adapter",
+          "kotlin-debug-adapter", -- kotlin
           "delve", -- go
-          "php-debug-adapter",
+          "php-debug-adapter", -- php
           -- Formatters & Linters
           "prettierd", -- ts, js, ... fmt
           "eslint_d", -- ts, js, ... lint
@@ -116,6 +122,7 @@ return {
           "gotests", -- go
           "iferr", -- go
           "impl", -- go
+          "csharpier", -- c#
         },
       }
     end,

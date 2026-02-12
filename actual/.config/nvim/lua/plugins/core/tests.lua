@@ -9,6 +9,7 @@ return {
       "fredrikaverpil/neotest-golang",
       "rcasia/neotest-java",
       "nvim-neotest/neotest-python",
+      "Nsidorenco/neotest-vstest",
     },
     lazy = true,
     event = { "VeryLazy" },
@@ -35,6 +36,7 @@ return {
             -- junit_jar = nil, -- default: stdpath("data") .. /.local/share/nvim/neotest-java/junit-platform-console-standalone-[version].jar
             incremental_build = true,
           },
+          ["neotest-vstest"] = {},
         },
       }
 

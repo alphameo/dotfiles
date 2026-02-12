@@ -1,6 +1,7 @@
 return {
   require "plugins.lang.ccpp",
   require "plugins.lang.cmake",
+  require "plugins.lang.csharp",
   require "plugins.lang.go",
   require "plugins.lang.java",
   require "plugins.lang.markdown",

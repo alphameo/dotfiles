@@ -266,6 +266,7 @@ M.setup = function()
     "kotlin_lsp",
     "lua_ls",
     "marksman",
+    "roslyn",
     "ruff",
     -- "pyright",
     "basedpyright",
