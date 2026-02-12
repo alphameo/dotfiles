@@ -11,22 +11,33 @@ SWWW="󰸉 Wallpaper (waypaper)"
 FLAMESHOT=" Screenshots (flameshot)"
 WLOGOUT="󰐦 Logout menu (wlogout)"
 
+function open {
+    local path="$1"
+    coproc ($TERMINAL -d $path)
+}
+
+function open_in_editor {
+    local path="$1"
+    local file="$2"
+    if [[ ${#path} != 0 ]]; then
+        coproc ($TERMINAL -d $path $EDITOR $file)
+        exit 0
+    fi
+}
+
 function open_config {
     local module="$1"
     local file="$2"
-    if [[ ${#module} != 0 ]]; then
-        coproc ($TERMINAL -d $XDG_CONFIG_HOME/$module $EDITOR $file)
-        exit 0
-    fi
+    open_in_editor $XDG_CONFIG_HOME/$module $file
 }
 
 function run {
     INP="$@"
     if [[ $INP == $ALL ]]; then
-        coproc ($TERMINAL -d $XDG_CONFIG_HOME/)
+        open $XDG_CONFIG_HOME
         exit 0
     elif [[ $INP == $SCRIPTS ]]; then
-        coproc ($TERMINAL -d ~/.scripts/)
+        open_in_editor "~/.scripts/" "."
         exit 0
     elif [[ $INP == $ROFI ]]; then
         open_config "rofi" "config.rasi"
