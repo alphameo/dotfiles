@@ -11,6 +11,7 @@ USER=" User (lxqt)"
 INPUT_DEVICES="󰍽 Input Devices (lxqt)"
 DEFAULT_APPS="󰉺 Default Apps (lxqt)"
 WALLPAPER_MNGR="󰸉 Wallpaper Manager"
+UPDATE_MANAGER="󰚰 Update Manager"
 POWER="󰐦 Power Menu"
 SYS_MONITOR="󰙭 System Monitor (btop)"
 INFO=" System Info (fastfetch)"
@@ -48,6 +49,8 @@ function run {
         open_in_term "fastfetch" "--config" "$HOME/.config/fastfetch/full.jsonc"
     elif [[ $INP == $UI_MNGR ]]; then
         execute "$HOME/.config/rofi/scripts/ui_manager.sh open"
+    elif [[ $INP == $UPDATE_MANAGER ]]; then
+        execute "$HOME/.config/rofi/scripts/update_manager.sh open"
     elif [[ $INP = $DEFAULT_APPS ]]; then
         execute "lxqt-config-file-associations"
     elif [[ $INP = $LOCALE ]]; then
@@ -68,6 +71,7 @@ function run {
         echo $BLUETOOTH
         echo $SOUND
         echo $UI_MNGR
+        echo $UPDATE_MANAGER
         echo $WALLPAPER_MNGR
         echo $DEFAULT_APPS
         echo $LOCALE
