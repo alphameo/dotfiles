@@ -1,0 +1,4 @@
+linux-headers
+virtualbox
+virtualbox-guest-iso
+virtualbox-ext-oracle
