@@ -29,8 +29,8 @@ alias nv='nvim'
 alias snv='sudoedit'
 alias bat='bat --style=plain --pager=never'
 alias rg='rg --color=always'
-alias z="__zoxide_z"
-alias zi="__zoxide_zi"
+# alias cdr="__zoxide_z"
+alias cdr="__zoxide_zi"
 alias ff='fastfetch'
 alias e='eza --color=always --icons=always'
 alias et='eza_tree'
