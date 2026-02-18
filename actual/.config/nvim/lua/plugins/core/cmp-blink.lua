@@ -43,7 +43,7 @@ return {
       },
       completion = {
         documentation = {
-          auto_show = true,
+          auto_show = false,
           auto_show_delay_ms = 500,
           treesitter_highlighting = true,
         },
@@ -139,7 +139,7 @@ return {
           ["<C-j>"] = { "select_next", "fallback" },
         },
         completion = {
-          menu = { auto_show = true },
+          menu = { auto_show = false },
           ghost_text = { enabled = false },
         },
       },
