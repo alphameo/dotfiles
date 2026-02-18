@@ -1,0 +1,22 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "theme": "one-dark",
+    "autoupdate": true,
+    "provider": {
+        // install https://github.com/QwenLM/qwen-code
+        // log in `> qwen` with OAuth (/auth)
+        // connect provider by adding API from ~/.qwen/oauth_creds.json:"access_token"
+        "myqwenprovider": {
+            "npm": "@ai-sdk/openai-compatible",
+            "name": "Qwen 3 Coder",
+            "options": {
+                "baseURL": "https://portal.qwen.ai/v1"
+            },
+            "models": {
+                "qwen3-coder-plus": {
+                    "name": "Qwen-3 Coder Plus"
+                }
+            }
+        }
+    }
+}
