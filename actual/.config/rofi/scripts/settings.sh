@@ -1,9 +1,10 @@
 #!/usr/bin/bash
 
 CONFIG_MNGR=" Config Manager"
-NETWORK=" Network (nmtui)"
-BLUETOOTH="󰂯 Bluetooth (bluetui)"
-SOUND=" Sound (pavucontrol)"
+NETWORK=" Network"
+BLUETOOTH="󰂯 Bluetooth"
+SOUND=" Sound"
+DISPLAY_MNGR="󰍺 Display Manager"
 UI_MNGR="󰉼 UI Manager"
 LOCALE=" Locale Config (lxqt)"
 DATE_TIME=" Date&Time (lxqt)"
@@ -21,11 +22,6 @@ function execute {
     exit 0
 }
 
-function launch_cli_app {
-    coproc ($TERMINAL "$@")
-    exit 0
-}
-
 function open_in_term {
     coproc ($TERMINAL --hold "$@")
     exit 0
@@ -36,15 +32,15 @@ function run {
     if [[ $INP == $CONFIG_MNGR ]]; then
         execute "$HOME/.config/rofi/scripts/config_manager.sh open"
     elif [[ $INP == $NETWORK ]]; then
-        # execute "networkmanager_dmenu"
-        launch_cli_app "nmtui"
+        execute "$HOME/.scripts/open-network-manager.sh"
     elif [[ $INP == $BLUETOOTH ]]; then
-        # execute "rofi-bluetooth"
-        launch_cli_app "bluetui"
+        execute "$HOME/.scripts/open-bluetooth-manager.sh"
     elif [[ $INP == $SOUND ]]; then
-        execute "pavucontrol"
+        execute "$HOME/.scripts/open-sound-playback-manager.sh"
     elif [[ $INP == $SYS_MONITOR ]]; then
-        launch_cli_app $SYSMONITOR
+        execute "$HOME/.scripts/open-system-monitor.sh"
+    elif [[ $INP == $DISPLAY_MNGR ]]; then
+        execute "$HOME/.scripts/open-display-manager.sh"
     elif [[ $INP == $INFO ]]; then
         open_in_term "fastfetch" "--config" "$HOME/.config/fastfetch/full.jsonc"
     elif [[ $INP == $UI_MNGR ]]; then
@@ -71,6 +67,7 @@ function run {
         echo $BLUETOOTH
         echo $SOUND
         echo $UI_MNGR
+        echo $DISPLAY_MNGR
         echo $UPDATE_MANAGER
         echo $WALLPAPER_MNGR
         echo $DEFAULT_APPS

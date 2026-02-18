@@ -52,6 +52,8 @@ qt6-wayland
 
 pavucontrol
 
+wiremix
+
 ttf-roboto-mono-nerd
 ttf-times-new-roman
 ttf-jetbrains-mono-nerd
@@ -126,3 +128,5 @@ delta
 btop
 
 nwg-displays
+
+calcurse

@@ -1,3 +1,4 @@
 #!/bin/bash
 
-pavucontrol -t 4
+# pavucontrol -t 4
+coproc ($TERMINAL wiremix --tab input)
