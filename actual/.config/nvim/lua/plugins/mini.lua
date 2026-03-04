@@ -282,7 +282,7 @@ return {
     -- setup_sessions()
     -- setup_bracketed()
     setup_indentscope()
-    setup_sj()
+    -- setup_sj()
     -- setup_tabline()
     setup_statusline()
   end,
