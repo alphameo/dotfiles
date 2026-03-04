@@ -1,6 +1,6 @@
 {
     "style": "~/.config/waybar/style.css",
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
     "margin-top": 4,
     "margin-left": 4,
