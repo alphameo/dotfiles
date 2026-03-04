@@ -10,6 +10,13 @@ map("n", "\\g", ":setlocal list! list?<CR>", { silent = true, desc = "Toggle Gly
 map("n", "\\n", ":setlocal relativenumber! relativenumber?<CR>", { silent = true, desc = "Toggle Relative Numbers" })
 map("n", "\\s", ":setlocal spell! spell?<CR>", { silent = true, desc = "Toggle Spellcheck" })
 map("n", "\\w", ":setlocal wrap! wrap?<CR>", { silent = true, desc = "Toggle Wrapping" })
+map("n", "\\c", function()
+  if vim.o.colorcolumn ~= "" then
+    vim.o.colorcolumn = ""
+  else
+    vim.o.colorcolumn = "80"
+  end
+end, { desc = "Toggle colorcolumn" })
 
 -- Insert movements
 map("c", "<M-h>", "<Left>", { silent = false, desc = "Left" })
@@ -93,7 +100,7 @@ map("n", "<Down>", ':echo "Use j to move!"<CR>', { silent = true })
 
 map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 
-map("n", "<leader>.s", ":e $MYVIMRC | :cd %:p:h | pwd<CR>", { silent = true, desc = "Open nvim config" })
+map("n", "<leader>..", ":e $MYVIMRC | :cd %:p:h | pwd<CR>", { silent = true, desc = "Open nvim config" })
 
 -- Russian Keybard
 vim.opt.langmap = "ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х\\[,Ъ\\],ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж\\;,Э\\'"
