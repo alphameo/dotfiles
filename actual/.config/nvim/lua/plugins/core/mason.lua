@@ -87,6 +87,7 @@ return {
           "stylua", -- lua fmt
           "luacheck", -- lua lint
           "ktlint", -- kotlin fmt/lint
+          "kdlfmt", -- kdl formatter
           "detekt", -- kotlin lint
           "clang-format", -- c, cpp fmt
           "cpplint", -- c, cpp lint
