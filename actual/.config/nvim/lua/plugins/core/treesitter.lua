@@ -176,6 +176,7 @@ return {
         "dot",
         "hyprlang",
         "ini",
+        "kdl",
         "rasi",
         "ssh_config",
         "yuck",
