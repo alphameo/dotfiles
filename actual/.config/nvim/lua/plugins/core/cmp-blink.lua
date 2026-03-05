@@ -151,7 +151,7 @@ return {
           ["<C-j>"] = { "select_next", "fallback" },
         },
         completion = {
-          menu = { auto_show = false },
+          menu = { auto_show = true },
           ghost_text = { enabled = false },
         },
       },
