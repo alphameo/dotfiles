@@ -45,10 +45,13 @@ return {
         documentation = {
           auto_show = false,
           auto_show_delay_ms = 500,
+          update_delay_ms = 50,
           treesitter_highlighting = true,
         },
         menu = {
+          enabled = true,
           auto_show = true,
+          auto_show_delay_ms = 50,
           direction_priority = { "s", "n" },
           draw = {
             treesitter = { "lsp" },
@@ -63,8 +66,17 @@ return {
             },
           },
         },
+        accept = {
+          auto_brackets = {
+            enabled = true,
+          },
+        },
         ghost_text = {
           enabled = false,
+          show_with_selection = true,
+          show_without_selection = false,
+          show_with_menu = false,
+          show_without_menu = true,
         },
         list = {
           selection = {
@@ -76,6 +88,8 @@ return {
       signature = {
         enabled = true,
         trigger = {
+          enabled = true,
+          show_on_keyword = true,
           show_on_trigger_character = true,
           show_on_insert = true,
           show_on_insert_on_trigger_character = true,
@@ -144,8 +158,7 @@ return {
         },
       },
       appearance = {
-        -- "mono" | "normal"
-        nerd_font_variant = "mono",
+        nerd_font_variant = "mono", -- "mono" | "normal"
       },
     },
     opts_extend = { "sources.default" },
