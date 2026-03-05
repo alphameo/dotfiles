@@ -202,12 +202,11 @@ local setup_statusline = function()
       return ""
     end
   end
+
   local get_keystroke = function()
-    if pcall(require, "noice") and require("noice").api.status.command.has() then
-      return require("noice").api.status.command.get()
-    end
-    return ""
+    return require("util").key_history or ""
   end
+
   local get_file_percentage = function()
     local line = vim.fn.line "."
     local total = vim.fn.line "$"
@@ -217,7 +216,7 @@ local setup_statusline = function()
 
   stl.setup {
     use_icons = vim.g.have_nerd_font,
-    set_vim_settings = false, -- You already set vim.o.showmode = false
+    set_vim_settings = true,
     content = {
       active = function()
         local mode, mode_hl = stl.section_mode { trunc_width = 120 }
@@ -244,7 +243,7 @@ local setup_statusline = function()
           { hl = "MiniStatuslineFilename", strings = { filename } },
           "%=", -- end left alignment
           { hl = "MiniStatuslineFilename", strings = {} },
-          { hl = "MiniStatuslineFilename", strings = { key_cmd, sep, diagnostics } },
+          { hl = "MiniStatuslineFilename", strings = { key_cmd, diagnostics } },
           { hl = "MiniStatuslineFilename", strings = { fileinfo } },
           { hl = "MiniStatuslineFileinfo", strings = { location } },
           { hl = mode_hl, strings = { percentage } },
