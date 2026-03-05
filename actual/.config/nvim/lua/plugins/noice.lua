@@ -33,7 +33,11 @@ return {
         progress = { enabled = true },
         signature = {
           enabled = false,
-          auto_open = { enabled = false },
+          auto_open = {
+            enabled = false,
+            trigger = true,
+            luasnip = true,
+          },
         },
         hover = { enabled = true },
         message = { enabled = true },
@@ -41,8 +45,11 @@ return {
       cmdline = {
         enabled = true,
         view = "cmdline", -- "cmdline" | "cmdline_popup"
+        format = {
+          input = { view = "cmdline" },
+        },
       },
-      popupmenu = { enabled = true },
+      popupmenu = { enabled = false },
       -- routes = { {
       --   view = "notify", -- "notify" | "split"
       --   filter = { event = "msg_showmode" }, -- show macro '@recording'
