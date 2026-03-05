@@ -2,7 +2,6 @@ return {
   "folke/noice.nvim",
   dependencies = {
     "MunifTanjim/nui.nvim",
-    -- "rcarriga/nvim-notify",
   },
   lazy = true,
   event = "VeryLazy",
@@ -18,27 +17,37 @@ return {
     local map = vim.keymap.set
 
     noice.setup {
-      lsp = {
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
-        },
-        signature = {
-          enabled = false,
-          auto_open = {
-            enabled = false,
-          },
-        },
-        hover = {
-          enabled = true,
-        },
-      },
       presets = {
         bottom_search = true,
         command_palette = true,
         long_message_to_split = true,
-        -- lsp_doc_border = true,
+        inc_rename = false,
+        lsp_doc_border = false,
+      },
+      lsp = {
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+        },
+        progress = { enabled = true },
+        signature = {
+          enabled = false,
+          auto_open = { enabled = false },
+        },
+        hover = { enabled = true },
+        message = { enabled = true },
+      },
+      cmdline = {
+        enabled = true,
+        view = "cmdline", -- "cmdline" | "cmdline_popup"
+      },
+      popupmenu = { enabled = true },
+      routes = {
+        {
+          view = "notify",
+          filter = { event = "msg_showmode" },
+        },
       },
     }
 
