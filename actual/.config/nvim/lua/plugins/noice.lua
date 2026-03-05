@@ -43,12 +43,10 @@ return {
         view = "cmdline", -- "cmdline" | "cmdline_popup"
       },
       popupmenu = { enabled = true },
-      routes = {
-        {
-          view = "notify",
-          filter = { event = "msg_showmode" },
-        },
-      },
+      -- routes = { {
+      --   view = "notify", -- "notify" | "split"
+      --   filter = { event = "msg_showmode" }, -- show macro '@recording'
+      -- } },
     }
 
     map("n", "<leader>nl", ":NoiceLast<CR>", { silent = true, desc = "Notifications Last" })
