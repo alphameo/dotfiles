@@ -123,13 +123,8 @@ return {
         out = out .. string.format("\t- %s (%s)\n", linter, table.concat(ft, ", "))
       end
 
-      vim.notify(out, vim.log.levels.INFO, { title = "Nvim-lint" })
-
-      -- TODO: check noice installed
-      local noice = require "noice"
-      if noice then
-        noice.cmd "last"
-      end
+      -- vim.notify(out, vim.log.levels.INFO, { title = "Nvim-lint" })
+      require("util").open_win(out, "Nvim-lint")
     end, {})
   end,
 }

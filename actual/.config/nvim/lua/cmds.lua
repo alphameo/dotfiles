@@ -47,6 +47,7 @@ vim.api.nvim_create_autocmd("VimResized", {
 ---------------
 -- Terminals --
 ---------------
+local util = require "util"
 local win_state = {
   buf = -1,
   win = -1,
@@ -65,38 +66,10 @@ local toggle_terminal = function(create_win_func)
   end
 end
 
-local new_hidden_win_state = function(opts, win_config)
-  local buf
-  if vim.api.nvim_buf_is_valid(opts.buf) then
-    buf = opts.buf
-  else
-    buf = vim.api.nvim_create_buf(false, true)
-    vim.bo[buf].buflisted = false
-    vim.bo[buf].swapfile = false
-    vim.bo[buf].bufhidden = "hide"
-  end
-
-  local win = vim.api.nvim_open_win(buf, true, win_config)
-
-  return { buf = buf, win = win }
-end
-
 -- Split Terminal
-local create_split_buffer = function(opts)
-  opts = opts or {}
-
-  local win_config = {
-    vertical = false,
-    split = "below",
-    height = 15,
-    style = "minimal",
-  }
-
-  return new_hidden_win_state(opts, win_config)
-end
 
 local toggle_split_terminal = function()
-  toggle_terminal(create_split_buffer)
+  toggle_terminal(util.create_split_buffer)
 end
 
 vim.api.nvim_create_user_command("ToggleSplitTerm", toggle_split_terminal, {})
@@ -107,29 +80,9 @@ vim.keymap.set("t", "<leader>ts", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = 
 vim.keymap.set("t", "<C-`>", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
 
 -- Float Terminal
-local function create_floating_window(opts)
-  opts = opts or {}
-  local width = opts.width or math.floor(vim.o.columns * 0.8)
-  local height = opts.height or math.floor(vim.o.lines * 0.8)
-
-  local col = math.floor((vim.o.columns - width) / 2)
-  local row = math.floor((vim.o.lines - height) / 2)
-
-  local win_config = {
-    relative = "editor",
-    width = width,
-    height = height,
-    col = col,
-    row = row,
-    style = "minimal",
-    border = "rounded",
-  }
-
-  return new_hidden_win_state(opts, win_config)
-end
 
 local toggle_float_terminal = function()
-  toggle_terminal(create_floating_window)
+  toggle_terminal(util.create_floating_window)
 end
 
 vim.api.nvim_create_user_command("ToggleFloatTerm", toggle_float_terminal, {})
