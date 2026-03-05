@@ -100,4 +100,7 @@ map("n", "<Down>", ':echo "Use j to move!"<CR>', { silent = true })
 
 map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 
-map("n", "<leader>..", ":e $MYVIMRC | :cd %:p:h | pwd<CR>", { silent = true, desc = "Open nvim config" })
+map("n", "<leader>..", function()
+  vim.cmd "e $MYVIMRC | cd %:p:h"
+  vim.notify("Current working directory: " .. vim.fn.getcwd())
+end, { silent = true, desc = "Open nvim config" })
