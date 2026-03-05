@@ -41,6 +41,7 @@ vim.o.linebreak = true -- Companion to wrap, don't split words
 
 vim.o.number = true -- Line numbers
 vim.o.relativenumber = true -- Set relative numbered lines
+vim.o.signcolumn = "yes" -- Show column with help signs (e.g. breakpoints, warns)
 
 vim.o.scrolloff = 10 -- Keep n lines above/below cursor
 vim.o.sidescrolloff = 8 -- Keep n columns left/right of cursor
@@ -48,29 +49,15 @@ vim.o.sidescrolloff = 8 -- Keep n columns left/right of cursor
 vim.o.splitbelow = true -- Horizontal splits go below
 vim.o.splitright = true -- Vertical splits go right
 
-vim.o.signcolumn = "yes" -- Show signcolumn
 vim.o.fillchars = "eob: " -- Don't show `~` outside of buffer
 
 vim.o.termguicolors = true -- 24-bit colors
 
 vim.o.conceallevel = 0 -- Visual-control chars (**, '') in md etc.
 
-vim.o.colorcolumn = "" -- Show column at "n" character
-
-vim.opt.shortmess:append "WcC" -- Reduce command line messages
-
 vim.o.splitkeep = "screen" -- Reduce scroll during window split
 
 vim.o.foldenable = false
-
--- Extra UI
-vim.o.showcmd = true -- show keystrokes in default command line (noice uses it too)
-vim.o.cmdheight = 0 -- height of default command line
-vim.o.showmode = true -- show mode in default command line
-
-vim.o.pumblend = 10 -- Make builtin completion menus slightly transparent
-vim.o.pumheight = 10 -- Make popup menu smaller
--- vim.o.winblend = 10 -- Make floating windows slightly transparent (causes bugs with block cursor in overlays)
 
 vim.opt.showbreak = "↳"
 local space = "·"
@@ -86,11 +73,9 @@ vim.opt.listchars = {
 }
 vim.opt.list = false -- Show non-printing characters (glyphs)
 
-if vim.fn.exists "syntax_on" ~= 1 then
-  vim.cmd "syntax enable" -- Enable syntax highlighting
-end
-
 vim.o.winborder = "none" -- Border of documentation, signature, completion
+
+vim.o.cmdheight = 0 -- height of default command line
 
 -- Editing
 vim.o.ignorecase = true -- Case-insensitive search
@@ -108,6 +93,10 @@ local is_windows = vim.fn.has "win32" ~= 0
 local sep = is_windows and "\\" or "/"
 local delim = is_windows and ";" or ":"
 vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
+
+if vim.fn.exists "syntax_on" ~= 1 then
+  vim.cmd "syntax enable" -- Enable syntax highlighting
+end
 
 -- Custom filetypes
 vim.filetype.add {
