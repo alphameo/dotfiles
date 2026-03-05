@@ -5,9 +5,11 @@ return {
   main = "ibl",
   config = function()
     require("ibl").setup {
+      indent = { char = "▎" },
       scope = {
-        show_start = false,
-        show_end = false,
+        enabled = true,
+        show_start = true,
+        show_end = true,
         show_exact_scope = true,
       },
       exclude = {
