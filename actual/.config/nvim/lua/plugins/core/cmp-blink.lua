@@ -151,8 +151,14 @@ return {
           ["<C-j>"] = { "select_next", "fallback" },
         },
         completion = {
-          menu = { auto_show = true },
+          menu = { auto_show = false },
           ghost_text = { enabled = false },
+          list = {
+            selection = {
+              preselect = true,
+              auto_insert = false,
+            },
+          },
         },
       },
       appearance = {
