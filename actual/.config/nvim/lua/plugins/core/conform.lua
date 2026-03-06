@@ -12,8 +12,6 @@ return {
         sh = { "shfmt" },
         c = { "clang_format" },
         cpp = { "clang_format" },
-        cs = { "csharpier" },
-        csproj = { "csharpier" },
         cmake = { "gersemi" },
         css = { "prettierd" },
         go = { "gofumpt", "goimports" },
