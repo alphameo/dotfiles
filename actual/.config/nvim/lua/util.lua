@@ -34,15 +34,12 @@ M.create_floating_window = function(opts)
   local width = opts.width or math.floor(vim.o.columns * 0.8)
   local height = opts.height or math.floor(vim.o.lines * 0.8)
 
-  local col = math.floor((vim.o.columns - width) / 2)
-  local row = math.floor((vim.o.lines - height) / 2)
-
   local win_config = {
     relative = "editor",
     width = width,
     height = height,
-    row = row,
-    col = col,
+    row = (vim.o.lines - height) / 2,
+    col = (vim.o.columns - width) / 2,
     style = "minimal",
     border = "rounded",
   }
@@ -50,16 +47,8 @@ M.create_floating_window = function(opts)
   return M.new_hidden_win_state(opts, win_config)
 end
 
-local function split_lines(str)
-  local lines = {}
-  for line in str:gmatch "[^\n]+" do
-    table.insert(lines, line)
-  end
-  return lines
-end
-
 M.open_win = function(text, title)
-  local text_lines = split_lines(text)
+  local text_lines = vim.split(text, "\n")
   local buf = vim.api.nvim_create_buf(false, true)
 
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, text_lines)
@@ -98,7 +87,8 @@ end
 M.key_history = ""
 local key_hist_lim = 10
 vim.on_key(function(key)
-  local mode = vim.fn.mode()
+  -- local mode = vim.fn.mode()
+  local mode = vim.api.nvim_get_mode().mode
   if mode == "i" or mode == "R" then
     return
   end
