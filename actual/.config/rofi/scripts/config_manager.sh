@@ -37,7 +37,7 @@ function run {
         open $XDG_CONFIG_HOME
         exit 0
     elif [[ $INP == $SCRIPTS ]]; then
-        open_in_editor "~/.scripts/" "."
+        open "~/.scripts/"
         exit 0
     elif [[ $INP == $ROFI ]]; then
         open_config "rofi" "config.rasi"
