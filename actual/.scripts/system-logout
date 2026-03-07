@@ -2,3 +2,5 @@
 
 hyprctl dispatch exit
 # loginctl terminate-user $USER
+
+hyprshutdown -t 'Logging out...' --post-cmd 'hyprctl dispatch exit'
