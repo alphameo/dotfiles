@@ -197,7 +197,7 @@ window#waybar {
 #custom-powermenu {
     color: @red;
 }
-#custom-poweroff {
+#custom-shutdown {
     color: @red;
 }
 #custom-reboot {

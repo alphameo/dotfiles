@@ -71,9 +71,9 @@ button:hover {
     );
 }
 
-#poweroff {
+#shutdown {
     background-image: image(
-        url('icons/poweroff.svg')
+        url('icons/shutdown.svg')
     );
 }
 

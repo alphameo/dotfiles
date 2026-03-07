@@ -1,30 +1,30 @@
 {
-    "label" : "poweroff",
-    "action" : "~/.scripts/poweroff.sh",
-    "text" : "Poweroff",
-    "keybind" : "p"
+    "label" : "shutdown",
+    "action" : "~/.scripts/system-shutdown",
+    "text" : "Shutdown",
+    "keybind" : "S"
 }
 {
     "label" : "reboot",
-    "action" : "~/.scripts/reboot.sh",
+    "action" : "~/.scripts/system-reboot",
     "text" : "Reboot",
     "keybind" : "r"
 }
 {
     "label" : "suspend",
-    "action" : "~/.scripts/suspend.sh",
+    "action" : "~/.scripts/system-suspend",
     "text" : "Sleep",
     "keybind" : "s"
 }
 {
     "label" : "logout",
-    "action" : "~/.scripts/logout.sh",
+    "action" : "~/.scripts/system-logout",
     "text" : "Exit",
     "keybind" : "e"
 }
 {
     "label" : "lock",
-    "action" : "~/.scripts/lock.sh",
+    "action" : "~/.scripts/system-lock",
     "text" : "Lock",
     "keybind" : "l"
 }

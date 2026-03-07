@@ -14,7 +14,7 @@ DEFAULT_APPS="󰉺 Default Apps (lxqt)"
 WALLPAPER_MNGR="󰸉 Wallpaper Manager"
 UPDATE_MANAGER="󰚰 Update Manager"
 POWER="󰐦 Power Menu"
-SYS_MONITOR="󰙭 System Monitor (btop)"
+TASK_MNGR="󰙭 System Monitor (btop)"
 INFO=" System Info (fastfetch)"
 
 function execute {
@@ -32,15 +32,15 @@ function run {
     if [[ $INP == $CONFIG_MNGR ]]; then
         execute "$HOME/.config/rofi/scripts/config_manager.sh open"
     elif [[ $INP == $NETWORK ]]; then
-        execute "$HOME/.scripts/open-network-manager.sh"
+        execute "$HOME/.scripts/network-manager"
     elif [[ $INP == $BLUETOOTH ]]; then
-        execute "$HOME/.scripts/open-bluetooth-manager.sh"
+        execute "$HOME/.scripts/bluetooth-manager"
     elif [[ $INP == $SOUND ]]; then
-        execute "$HOME/.scripts/open-sound-playback-manager.sh"
-    elif [[ $INP == $SYS_MONITOR ]]; then
-        execute "$HOME/.scripts/open-system-monitor.sh"
+        execute "$HOME/.scripts/sound-playback-manager"
+    elif [[ $INP == $TASK_MNGR ]]; then
+        execute "$HOME/.scripts/task-manager"
     elif [[ $INP == $DISPLAY_MNGR ]]; then
-        execute "$HOME/.scripts/open-display-manager.sh"
+        execute "$HOME/.scripts/display-manager"
     elif [[ $INP == $INFO ]]; then
         open_in_term "fastfetch" "--config" "$HOME/.config/fastfetch/full.jsonc"
     elif [[ $INP == $UI_MNGR ]]; then
@@ -76,7 +76,7 @@ function run {
         echo $INPUT_DEVICES
         echo $USER
         echo $POWER
-        echo $SYS_MONITOR
+        echo $TASK_MNGR
         echo $INFO
         exit 0
     fi

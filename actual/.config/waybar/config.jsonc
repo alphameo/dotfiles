@@ -90,7 +90,7 @@
         },
         "modules": [
             "custom/powermenu",
-            "custom/poweroff",
+            "custom/shutdown",
             "custom/reboot",
             "custom/suspend",
             // "custom/hibernate",

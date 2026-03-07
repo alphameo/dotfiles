@@ -3,6 +3,11 @@ hypridle
 hyprlock
 hyprpicker
 hyprpolkitagent
+hyprshutdown
+hyprpwcenter
+hyprsysteminfo
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
 
 wlogout
 
@@ -45,7 +50,7 @@ impala
 cliphist
 
 pipepwire
-xdg-desktop-portal-hyprland
+wireplumber
 
 qt5-wayland
 qt6-wayland
@@ -130,3 +135,12 @@ btop
 nwg-displays
 
 calcurse
+
+dotnet-runtime
+dotnet-sdk
+aspnet-runtime
+aspnet-targeting-pack
+dotnet-runtime-8.0
+dotnet-sdk-8.0
+aspnet-runtime-8.0
+aspnet-targeting-pack-8.0

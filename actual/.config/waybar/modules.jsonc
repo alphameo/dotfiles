@@ -67,7 +67,7 @@
         // "format-en": "🇺🇸",
         "format-ru": "ru",
         // "format-ru": "🇷🇺",
-        "on-click": "~/.scripts/switch-kb-layout.sh"
+        "on-click": "~/.scripts/keyboard-layout-switch"
     },
     "network": {
         "format-disabled": "󰪎",
@@ -86,7 +86,7 @@
         "tooltip-format": "{icon}({signalStrength}%)  {essid}  <span color='#eba0ac'>󰅧</span> {bandwidthUpBytes} <span color='#89dceb'>󰅢</span> {bandwidthDownBytes}\n({ifname} via {gwaddr})\n\n<small>LMB - menu</small>",
         "tooltip-format-disconnected": "Disconnected\n\n<small>LMB - menu</small>",
         "tooltip-format-disabled": "Disabled\n\n<small>LMB - menu</small>",
-        "on-click": "~/.scripts/open-network-manager.sh"
+        "on-click": "~/.scripts/network-manager"
     },
     "bluetooth": {
         "format-disabled": "󰂲",
@@ -98,7 +98,7 @@
         "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}\n\nLMB - menu",
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
         "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
-        "on-click": "~/.scripts/open-bluetooth-manager.sh"
+        "on-click": "~/.scripts/bluetooth-manager"
     },
     "wireplumber#sinkicon": {
         "node-type": "Audio/Sink",
@@ -114,8 +114,8 @@
         "tooltip-format": "Volume: {volume}%\nSink: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
-        "on-click": "~/.scripts/toggle-mute-sink.sh",
-        "on-click-right": "~/.scripts/open-sound-sink-manager.sh"
+        "on-click": "~/.scripts/sound-sink-toggle",
+        "on-click-right": "~/.scripts/sound-sink-manager"
     },
     "wireplumber#sinkpercentage": {
         "node-type": "Audio/Sink",
@@ -124,8 +124,8 @@
         "tooltip-format": "Volume: {volume}%\nSink: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
-        "on-click": "~/.scripts/toggle-mute-sink.sh",
-        "on-click-right": "~/.scripts/open-sound-sink-manager.sh"
+        "on-click": "~/.scripts/sound-sink-toggle",
+        "on-click-right": "~/.scripts/sound-sink-manager"
     },
     "wireplumber#sourceicon": {
         "node-type": "Audio/Source",
@@ -134,8 +134,8 @@
         "tooltip-format": "Volume: {volume}%\nSource: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
-        "on-click": "~/.scripts/toggle-mute-source.sh",
-        "on-click-right": "~/.scripts/open-sound-source-manager.sh"
+        "on-click": "~/.scripts/sound-source-toggle",
+        "on-click-right": "~/.scripts/sound-source-manager"
     },
     "wireplumber#sourcepercentage": {
         "node-type": "Audio/Source",
@@ -144,8 +144,8 @@
         "tooltip-format": "Volume: {volume}%\nSource: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
-        "on-click": "~/.scripts/toggle-mute-source.sh",
-        "on-click-right": "~/.scripts/open-sound-source-manager.sh"
+        "on-click": "~/.scripts/sound-source-toggle",
+        "on-click-right": "~/.scripts/sound-source-manager"
     },
     "pulseaudio/slider": {
         "min": 0,
@@ -160,15 +160,15 @@
             "󰃟",
             "󰃠"
         ],
-        "on-scroll-up": "~/.scripts/brightness-increase.sh",
-        "on-scroll-down": "~/.scripts/brightness-decrease.sh",
+        "on-scroll-up": "~/.scripts/brightness-increase",
+        "on-scroll-down": "~/.scripts/brightness-decrease",
         "reverse-scrolling": true,
         "tooltip-format": "Backlight\n\nSM - control"
     },
     "backlight#percentage": {
         "format": "<span color='#fab387'>{percent}%</span>",
-        "on-scroll-up": "~/.scripts/brightness-increase.sh",
-        "on-scroll-down": "~/.scripts/brightness-decrease.sh",
+        "on-scroll-up": "~/.scripts/brightness-increase",
+        "on-scroll-down": "~/.scripts/brightness-decrease",
         "reverse-scrolling": true,
         "tooltip-format": "Backlight\n\nSM - control"
     },
@@ -227,8 +227,8 @@
         "return-type": "json",
         "exec-if": "which swaync-client",
         "exec": "swaync-client -swb",
-        "on-click": "~/.scripts/open-notification-manager.sh",
-        "on-click-right": "~/.scripts/toggle-notification-dnd.sh",
+        "on-click": "~/.scripts/notification-manager",
+        "on-click-right": "~/.scripts/notification-dnd-toggle",
         "escape": true
     },
     "custom/screenlock": {
@@ -240,32 +240,32 @@
     "custom/powermenu": {
         "format": "󰐦",
         "tooltip-format": "Power menu\n\n<small>LMB/M-C-p - open</small>",
-        "on-click": "~/.scripts/open-power-menu.sh"
+        "on-click": "~/.scripts/power-menu"
     },
-    "custom/poweroff": {
+    "custom/shutdown": {
         "format": "",
-        "tooltip-format": "Poweroff",
-        "on-click": "~/.scripts/poweroff.sh"
+        "tooltip-format": "Shutdown",
+        "on-click": "~/.scripts/system-shutdown"
     },
     "custom/reboot": {
         "format": "󰜉",
         "tooltip-format": "Reboot",
-        "on-click": "~/.scripts/reboot.sh"
+        "on-click": "~/.scripts/system-reboot"
     },
     "custom/logout": {
         "format": "󰍃",
         "tooltip-format": "Logout",
-        "on-click": "~/.scripts/logout.sh"
+        "on-click": "~/.scripts/system-logout"
     },
     "custom/lock": {
         "format": "󰍁",
         "tooltip-format": "Lock",
-        "on-click": "~/.scripts/lock.sh"
+        "on-click": "~/.scripts/system-lock"
     },
     "custom/suspend": {
         "format": "",
         "tooltip-format": "Sleep",
-        "on-click": "~/.scripts/suspend.sh"
+        "on-click": "~/.scripts/system-suspend"
     }
     // "custom/hibernate": {
     //     "format": "󰤁",

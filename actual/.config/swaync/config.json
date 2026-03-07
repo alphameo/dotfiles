@@ -63,39 +63,39 @@
       "actions": [
         {
           "label": "󰐥",
-          "command": "~/.scripts/poweroff.sh"
+          "command": "~/.scripts/system-shutdown"
         },
         {
           "label": "󰜉",
-          "command": "~/.scripts/reboot.sh"
+          "command": "~/.scripts/system-reboot"
         },
         {
           "label": "󰤄",
-          "command": "~/.scripts/suspend.sh"
+          "command": "~/.scripts/system-suspend"
         },
         {
           "label": "󰌾",
-          "command": "~/.scripts/lock.sh"
+          "command": "~/.scripts/system-lock"
         },
         {
           "label": "󰍃",
-          "command": "~/.scripts/logout.sh"
+          "command": "~/.scripts/system-logout"
         },
         {
           "label": "",
-          "command": "~/.scripts/open-network-manager.sh"
+          "command": "~/.scripts/network-manager"
         },
         {
           "label": "󰂯",
-          "command": "~/.scripts/open-bluetooth-manager.sh"
+          "command": "~/.scripts/bluetooth-manager"
         },
         {
           "label": "󰕾",
-          "command": "~/.scripts/toggle-mute-sink.sh"
+          "command": "~/.scripts/sound-sink-toggle"
         },
         {
           "label": "󰍬",
-          "command": "~/.scripts/toggle-mute-source.sh"
+          "command": "~/.scripts/sound-source-toggle"
         },
         {
           "label": "",
