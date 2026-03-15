@@ -28,8 +28,7 @@ window#waybar {
 #workspaces,
 #tray,
 #clock,
-#language,
-#keyboard-state,
+#group-keyboard,
 #group-controls,
 #group-battery,
 #group-power {
@@ -50,6 +49,7 @@ window#waybar {
 }
 
 #group-power *,
+#group-keyboard *,
 #group-battery * {
     margin-left: 4px;
     margin-right: 4px;

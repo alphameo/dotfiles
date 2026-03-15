@@ -69,6 +69,21 @@
         // "format-ru": "🇷🇺",
         "on-click": "~/.scripts/keyboard-layout-switch"
     },
+    // Activation: `usermod -a -G input [username]`
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "scrolllock": true,
+        "format": {
+            "capslock": "c{icon}",
+            "numlock": "n{icon}",
+            "scrolllock": "s{icon}"
+        },
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
     "network": {
         "format-disabled": "󰪎",
         "format-disconnected": "",

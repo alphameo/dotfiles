@@ -14,11 +14,18 @@
     ],
     "modules-right": [
         "tray",
-        "hyprland/language",
+        "group/group-keyboard",
         "group/group-controls",
         "group/group-battery",
         "group/group-power",
     ],
+    "group/group-keyboard": {
+        "orientation": "inherit",
+        "modules": [
+            "hyprland/language",
+            "keyboard-state",
+        ]
+    },
     "group/group-controls": {
         "orientation": "inherit",
         "modules": [
