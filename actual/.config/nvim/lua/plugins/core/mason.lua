@@ -92,6 +92,7 @@ return {
           "ktlint", -- kotlin fmt/lint
           "kdlfmt", -- kdl formatter
           "detekt", -- kotlin lint
+          "hadolint", -- docker lint
           "clang-format", -- c, cpp fmt
           "cpplint", -- c, cpp lint
           "gersemi", -- cmake fmt

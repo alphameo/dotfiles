@@ -11,6 +11,7 @@ return {
       c = { "cpplint" },
       cpp = { "cpplint" },
       cmake = { "cmakelint" },
+      dockerfile = { "hadolint" },
       go = { "golangcilint" },
       html = { "htmlhint" },
       kotlin = { "ktlint" },
@@ -24,6 +25,8 @@ return {
       typescript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
+      -- sh = { "shellcheck" },
+      -- bash = { "shellcheck" },
     }
 
     lint.linters.mypy.args = {
