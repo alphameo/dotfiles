@@ -71,6 +71,7 @@ return {
           "intelephense", -- php
           "phpactor", -- php
           "rust_analyzer", -- rust
+          -- "bacon-ls", -- rust
           "roslyn", -- c#
           -- Debuggers
           "java-debug-adapter",
@@ -87,17 +88,18 @@ return {
           -- Formatters & Linters
           "prettierd", -- ts, js, ... fmt
           "eslint_d", -- ts, js, ... lint
+          -- "jq", -- json fmt
           "stylua", -- lua fmt
           "luacheck", -- lua lint
-          "ktlint", -- kotlin fmt/lint
           "kdlfmt", -- kdl formatter
-          "detekt", -- kotlin lint
+          "ktlint", -- kotlin fmt/lint
+          -- "detekt", -- kotlin lint
           "hadolint", -- docker lint
           "clang-format", -- c, cpp fmt
           "cpplint", -- c, cpp lint
           "gersemi", -- cmake fmt
-          "checkmake", -- makefile lint
           "cmakelint", -- cmake lint
+          "checkmake", -- makefile lint
           "ruff", -- python fmt
           "black", -- python fmt
           "mypy", -- python lint
@@ -109,25 +111,24 @@ return {
           "php-cs-fixer", -- php fmt
           "phpcs", -- php lint
           "rustfmt", -- rust fmt
-          -- "bacon-ls", -- rust
           -- "bacon", -- rust lint
-          "shfmt", -- bash fmt
+          -- "shfmt", -- bash, zsh, sh fmt
           -- "stylelint", -- css lint
           "htmlhint", -- html lint
           "sqlfluff", -- sql fmt/lint
+          -- "csharpier", -- c# fmt
           -- "vale", -- tex lint
           "prettypst", -- typst fmt
           "bibtex-tidy", -- tex fmt
           -- "xmlformatter", -- xml fmt
           -- "yamllint", -- yaml lint
-          "shellcheck",
-          "shellharden",
+          -- "shellcheck",
+          -- "shellharden",
           -- Tools
-          "gomodifytags", -- go
-          "gotests", -- go
-          "iferr", -- go
-          "impl", -- go
-          "csharpier", -- c#
+          "gomodifytags", -- for gopher.nvim
+          "gotests", -- for gopher.nvim
+          "iferr", -- for gopher.nvim
+          "impl", -- for gopher.nvim
         },
       }
     end,

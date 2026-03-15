@@ -7,15 +7,16 @@ return {
     local conform = require "conform"
     conform.setup {
       formatters_by_ft = {
-        bash = { "shfmt" },
-        zsh = { "shfmt" },
-        sh = { "shfmt" },
+        -- bash = { "shfmt" },
+        -- zsh = { "shfmt" },
+        -- sh = { "shfmt" },
         c = { "clang_format" },
         cpp = { "clang_format" },
         cmake = { "gersemi" },
         css = { "prettierd" },
         go = { "gofumpt", "goimports" },
         html = { "prettierd" },
+        kdl = { "kdlfmt" },
         kotlin = { "ktlint" },
         lua = { "stylua" },
         markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
