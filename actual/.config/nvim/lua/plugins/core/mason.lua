@@ -50,8 +50,11 @@ return {
           "texlab", -- LaTeX
           "kotlin_lsp", -- kotlin
           "html", -- html
+          "hyprls", -- hyprlang
           "cssls", -- css
           "cssmodules_ls", -- css
+          "docker-compose-language-service", -- docker
+          "dockerfile-language-server", -- docker
           "css_variables", -- css
           "tailwindcss", -- tailwind
           "ts_ls", -- javascript, typescript
