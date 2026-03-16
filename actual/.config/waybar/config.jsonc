@@ -21,6 +21,11 @@
     ],
     "group/group-keyboard": {
         "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "battery-nodes",
+            "transition-left-to-right": true,
+        },
         "modules": [
             "hyprland/language",
             "keyboard-state",

@@ -73,7 +73,7 @@
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
-        "scrolllock": false,
+        "scrolllock": true,
         "format": {
             "capslock": "c{icon}",
             "numlock": "n{icon}",
