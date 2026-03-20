@@ -5,9 +5,9 @@
         // install https://github.com/QwenLM/qwen-code
         // log in `> qwen` with OAuth (/auth)
         // connect provider by adding API from ~/.qwen/oauth_creds.json:"access_token"
-        "myqwenprovider": {
+        "alibaba-qwen": {
             "npm": "@ai-sdk/openai-compatible",
-            "name": "Qwen 3 Coder",
+            "name": "Qwen (Alibaba)",
             "options": {
                 "baseURL": "https://portal.qwen.ai/v1"
             },
