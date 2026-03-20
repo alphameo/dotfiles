@@ -1,3 +1,5 @@
+debtap
+
 hyprland
 hypridle
 hyprlock
@@ -106,15 +108,27 @@ lsblk
 vlc
 mpv
 
+python
 uv
+
 docker
-maven
-gradle
+lazydocker
+
+kubectl
+kubecm
+minikube
+k9s
+
 git
+lazygit
+delta
 
 jdk-openjdk
 openjdk-doc
 openjdk-src
+
+maven
+gradle
 
 shotwell
 gwenview
@@ -125,10 +139,6 @@ kdenlive
 libreoffice
 
 nekoray-bin
-
-lazygit
-lazydocker
-delta
 
 btop
 
