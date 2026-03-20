@@ -21,8 +21,6 @@ alias sudo='sudo '
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
 alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 alias pacman='pacman --color=always'
-alias ldoc='lazydocker'
-alias lgit='lazygit'
 alias cz='chezmoi'
 alias fm='yazi_filemanager'
 alias nv='nvim'
@@ -34,6 +32,11 @@ alias cdr="__zoxide_zi"
 alias ff='fastfetch'
 alias e='eza --color=always --icons=always'
 alias et='eza_tree'
+alias ldoc='lazydocker'
+alias lgit='lazygit'
+alias kub='kubectl'
+alias doc="docker"
+alias docc="docker compose"
 
 
 ###############
@@ -130,12 +133,12 @@ rmvenv() {
 # https://github.com/marlonrichert/zsh-autocomplete
 # https://github.com/zsh-users/zsh-autosuggestions
 zinit depth"1" lucid light-mode for \
-		wait atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-		Aloxaf/fzf-tab \
-		wait zsh-users/zsh-syntax-highlighting \
-		zsh-users/zsh-completions \
-		wait zsh-users/zsh-autosuggestions \
+    Aloxaf/fzf-tab \
+    zsh-users/zsh-syntax-highlighting \
+    zsh-users/zsh-completions \
+    zsh-users/zsh-autosuggestions
 
+zinit ice wait'0' atinit'zicompinit; zicdreplay'
 
 # zsh-completions
 autoload -U compinit && compinit
