@@ -27,15 +27,17 @@ return {
           },
 
           -- require "rustaceanvim.neotest",
-          --
-          -- NOTE: FILENAME: MyTest.java
+
           require "neotest-java" {
             junit_jar = os.getenv "HOME"
               .. "/.local/share/nvim/neotest-java/junit-platform-console-standalone-1.10.1.jar",
             -- junit_jar = vim.fn.glob(os.getenv "HOME" .. "/.local/share/nvim/neotest-java/junit-platform-console-standalone-*.jar"),
             -- junit_jar = nil, -- default: stdpath("data") .. /.local/share/nvim/neotest-java/junit-platform-console-standalone-[version].jar
             incremental_build = true,
+            disable_update_notifications = false,
+            test_classname_patterns = { "^.*Tests?$", "^.*IT$", "^.*Spec$" },
           },
+
           ["neotest-vstest"] = {},
         },
       }
