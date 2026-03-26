@@ -1,5 +1,6 @@
 {
     "$schema": "https://opencode.ai/config.json",
+    // "model": "opencode/kimi-k2.5",
     "autoupdate": true,
     "provider": {
         // install https://github.com/QwenLM/qwen-code
