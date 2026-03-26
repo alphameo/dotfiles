@@ -21,7 +21,7 @@ playerctl
 brightnessctl
 wpctl
 
-swww
+awww
 waypaper
 
 fastfetch
