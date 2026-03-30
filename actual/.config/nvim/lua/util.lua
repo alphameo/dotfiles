@@ -85,7 +85,7 @@ M.open_win = function(text, title)
 end
 
 M.key_history = ""
-local key_hist_lim = 10
+local key_hist_lim = 20
 vim.on_key(function(key)
   -- local mode = vim.fn.mode()
   local mode = vim.api.nvim_get_mode().mode
@@ -96,7 +96,7 @@ vim.on_key(function(key)
   key = vim.fn.keytrans(key)
 
   -- ignore mouse
-  if key:match "<Mouse" then
+  if key:match "Mouse" or key:match "Wheel" or key:match "Drag" or key:match "Release" then
     return
   end
 
