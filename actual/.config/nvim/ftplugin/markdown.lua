@@ -1,8 +1,4 @@
 local opt = vim.opt_local
-opt.wrap = true
-opt.breakindent = true
-opt.linebreak = true
-opt.spell = true
 opt.conceallevel = 2
 
 local map = vim.keymap.set
