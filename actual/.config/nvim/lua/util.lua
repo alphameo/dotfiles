@@ -1,6 +1,6 @@
 local M = {}
 
-M.new_hidden_win_state = function(opts, win_config)
+local function open_new_hidden_win(opts, win_config)
   local buf
   if vim.api.nvim_buf_is_valid(opts.buf) then
     buf = opts.buf
@@ -16,17 +16,23 @@ M.new_hidden_win_state = function(opts, win_config)
   return { buf = buf, win = win }
 end
 
+local split_win_conf = {
+  vertical = false,
+  split = "below",
+  height = 15,
+  style = "minimal",
+}
+
+local float_win_conf = {
+  relative = "editor",
+  style = "minimal",
+  border = "rounded",
+}
+
 M.create_split_buffer = function(opts)
   opts = opts or {}
 
-  local win_config = {
-    vertical = false,
-    split = "below",
-    height = 15,
-    style = "minimal",
-  }
-
-  return M.new_hidden_win_state(opts, win_config)
+  return open_new_hidden_win(opts, split_win_conf)
 end
 
 M.create_floating_window = function(opts)
@@ -34,20 +40,16 @@ M.create_floating_window = function(opts)
   local width = opts.width or math.floor(vim.o.columns * 0.8)
   local height = opts.height or math.floor(vim.o.lines * 0.8)
 
-  local win_config = {
-    relative = "editor",
-    width = width,
-    height = height,
-    row = (vim.o.lines - height) / 2,
-    col = (vim.o.columns - width) / 2,
-    style = "minimal",
-    border = "rounded",
-  }
+  local win_conf = float_win_conf
+  win_conf.width = width
+  win_conf.height = height
+  win_conf.row = (vim.o.lines - height) / 2
+  win_conf.col = (vim.o.columns - width) / 2
 
-  return M.new_hidden_win_state(opts, win_config)
+  return open_new_hidden_win(opts, win_conf)
 end
 
-M.open_win = function(text, title)
+M.show_text_in_win = function(text, title)
   local text_lines = vim.split(text, "\n")
   local buf = vim.api.nvim_create_buf(false, true)
 
@@ -83,6 +85,8 @@ M.open_win = function(text, title)
 
   return win, buf
 end
+
+-- Key history
 
 M.key_history = ""
 local key_hist_lim = 20

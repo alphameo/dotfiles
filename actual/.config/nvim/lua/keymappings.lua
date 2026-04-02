@@ -3,21 +3,6 @@ vim.g.maplocalleader = " "
 
 local map = vim.keymap.set
 
--- Togglers
-map("n", "\\l", ":setlocal cursorline! cursorline?<CR>", { silent = true, desc = "Toggle Location Line" })
-map("n", "\\L", ":setlocal cursorcolumn! cursorcolumn?<CR>", { silent = true, desc = "Toggle Location Column" })
-map("n", "\\g", ":setlocal list! list?<CR>", { silent = true, desc = "Toggle Glyphs" })
-map("n", "\\n", ":setlocal relativenumber! relativenumber?<CR>", { silent = true, desc = "Toggle Relative Numbers" })
-map("n", "\\s", ":setlocal spell! spell?<CR>", { silent = true, desc = "Toggle Spellcheck" })
-map("n", "\\w", ":setlocal wrap! wrap?<CR>", { silent = true, desc = "Toggle Wrapping" })
-map("n", "\\c", function()
-  if vim.o.colorcolumn ~= "" then
-    vim.o.colorcolumn = ""
-  else
-    vim.o.colorcolumn = "80"
-  end
-end, { desc = "Toggle colorcolumn" })
-
 -- Insert movements
 map("c", "<M-h>", "<Left>", { silent = false, desc = "Left" })
 map("c", "<M-l>", "<Right>", { silent = false, desc = "Right" })
@@ -90,6 +75,26 @@ map("n", "<leader>DO", ":diffoff!<CR>", { silent = true, desc = "Diff Off" })
 map("n", "<leader>DU", ":diffupdate<CR>", { silent = true, desc = "Diff Update" })
 map({ "n", "v" }, "<leader>DP", ":diffput<CR>", { silent = true, desc = "Diff Put" })
 map({ "n", "v" }, "<leader>DG", ":diffget<CR>", { silent = true, desc = "Diff Get" })
+
+-- Diagnostics
+map("n", "[d", function()
+  return vim.diagnostic.jump {
+    count = -1,
+    float = false,
+  }
+end, { silent = true, desc = "Previous Diagnostic" })
+map("n", "]d", function()
+  return vim.diagnostic.jump {
+    count = 1,
+    float = false,
+  }
+end, { silent = true, desc = "Next Diagnostic" })
+
+map("n", "gd", function()
+  vim.diagnostic.open_float(nil, {
+    focusable = false,
+  })
+end, { silent = true, desc = "Reveal Diagnostic" })
 
 -- Other Features
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior

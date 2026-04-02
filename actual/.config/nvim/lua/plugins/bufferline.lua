@@ -44,6 +44,7 @@ return {
     map("n", "<M-[>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
     map("n", "<M-0>", ":BufferLineMoveNext<CR>", { silent = true, desc = "Move Tab (buffer) Right" })
     map("n", "<M-9>", ":BufferLineMovePrev<CR>", { silent = true, desc = "Move Tab (buffer) Next" })
+
     map("n", "<M-g>", ":BufferLinePick<CR>", { silent = true, desc = "Pick Tab (buffer) Next" })
     map("n", "<M-w>", ":Bdelete!<CR>", { silent = true, desc = "Tab Close" })
     map("n", "<M-x>", ":BufferLinePickClose<CR>", { silent = true, desc = "Pick buffer to close" })
@@ -54,11 +55,11 @@ return {
 
     map("n", "<C-n>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
     map("n", "<C-p>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
-    map("n", "<C-0>", ":BufferLineMoveNext<CR>", { silent = true, desc = "Move Tab (buffer) Right" })
-    map("n", "<C-9>", ":BufferLineMovePrev<CR>", { silent = true, desc = "Move Tab (buffer) Next" })
 
     map("n", "<C-Tab>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Tab (buffer)" })
     map("n", "<C-S-Tab>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
-    map("n", "<leader>x", ":Bdelete!<CR>", { silent = true, desc = "Tab Close" })
+
+    map("n", "<C-0>", ":BufferLineMoveNext<CR>", { silent = true, desc = "Move Tab (buffer) Right" })
+    map("n", "<C-9>", ":BufferLineMovePrev<CR>", { silent = true, desc = "Move Tab (buffer) Next" })
   end,
 }

@@ -126,8 +126,7 @@ return {
         out = out .. string.format("\t- %s (%s)\n", linter, table.concat(ft, ", "))
       end
 
-      -- vim.notify(out, vim.log.levels.INFO, { title = "Nvim-lint" })
-      require("util").open_win(out, "Nvim-lint")
+      require("util").show_text_in_win(out, "Nvim-lint")
     end, {})
   end,
 }

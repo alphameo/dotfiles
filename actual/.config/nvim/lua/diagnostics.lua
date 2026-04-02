@@ -36,33 +36,4 @@ vim.diagnostic.config {
   signs = signs,
 }
 
-local map = vim.keymap.set
-
-map("n", "\\d", function()
-  local buf_id = vim.api.nvim_get_current_buf()
-  local is_enabled = vim.diagnostic.is_enabled { bufnr = buf_id }
-  vim.diagnostic.enable(not is_enabled, { bufnr = buf_id })
-  local new_buf_state = not is_enabled
-  return new_buf_state and "  diagnostic" or "nodiagnostic"
-end, { silent = true, desc = "Toggle Diagnostic" })
-
-map("n", "[d", function()
-  return vim.diagnostic.jump {
-    count = -1,
-    float = false,
-  }
-end, { silent = true, desc = "Previous Diagnostic" })
-map("n", "]d", function()
-  return vim.diagnostic.jump {
-    count = 1,
-    float = false,
-  }
-end, { silent = true, desc = "Next Diagnostic" })
-
-map("n", "gd", function()
-  vim.diagnostic.open_float(nil, {
-    focusable = false,
-  })
-end, { silent = true, desc = "Reveal Diagnostic" })
-
 return M
