@@ -79,20 +79,23 @@ map("n", "\\l", ":ColColumn<CR>", { silent = true, desc = "Toggle Limit Column" 
 -- Terminals --
 ---------------
 local util = require "util"
-local win_state = {
+local term_win_state = {
   buf = -1,
   win = -1,
 }
 
 local toggle_terminal = function(create_win_func)
-  if not vim.api.nvim_win_is_valid(win_state.win) or not vim.api.nvim_buf_is_valid(win_state.buf) then
-    win_state = create_win_func { buf = win_state.buf }
-    if vim.bo[win_state.buf].buftype ~= "terminal" then
+  if not vim.api.nvim_buf_is_valid(term_win_state.buf) then
+    term_win_state.buf = util.create_hidden_buf()
+  end
+  if not vim.api.nvim_win_is_valid(term_win_state.win) or not vim.api.nvim_buf_is_valid(term_win_state.buf) then
+    term_win_state.win = create_win_func(term_win_state.buf)
+    if vim.bo[term_win_state.buf].buftype ~= "terminal" then
       vim.api.nvim_call_function("termopen", { vim.o.shell })
     end
     vim.cmd "startinsert"
   else
-    vim.api.nvim_win_hide(win_state.win)
+    vim.api.nvim_win_hide(term_win_state.win)
     vim.cmd "stopinsert"
   end
 end
@@ -100,7 +103,7 @@ end
 -- Split Terminal
 
 local toggle_split_terminal = function()
-  toggle_terminal(util.create_split_buffer)
+  toggle_terminal(util.create_hidden_split)
 end
 
 cmd("ToggleSplitTerm", toggle_split_terminal, {})
@@ -113,7 +116,7 @@ map("t", "<C-`>", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = true, desc = "Te
 -- Float Terminal
 
 local toggle_float_terminal = function()
-  toggle_terminal(util.create_floating_window)
+  toggle_terminal(util.create_hidden_float)
 end
 
 cmd("ToggleFloatTerm", toggle_float_terminal, {})
