@@ -1,6 +1,7 @@
 return {
   {
     "seblyng/roslyn.nvim",
+    ft = "csharp",
     opts = {
       -- "auto" | "roslyn" | "off"
       --
