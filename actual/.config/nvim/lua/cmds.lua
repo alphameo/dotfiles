@@ -88,7 +88,7 @@ local toggle_terminal = function(create_win_func)
   if not vim.api.nvim_buf_is_valid(term_win_state.buf) then
     term_win_state.buf = util.create_hidden_buf()
   end
-  if not vim.api.nvim_win_is_valid(term_win_state.win) or not vim.api.nvim_buf_is_valid(term_win_state.buf) then
+  if not vim.api.nvim_win_is_valid(term_win_state.win) then
     term_win_state.win = create_win_func(term_win_state.buf)
     if vim.bo[term_win_state.buf].buftype ~= "terminal" then
       vim.api.nvim_call_function("termopen", { vim.o.shell })
