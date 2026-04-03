@@ -12,9 +12,9 @@ return {
     local map = vim.keymap.set
 
     spectre.setup()
-    map("n", "<leader>fRR", spectre.toggle, { desc = "Find&Replace Menu" })
-    map("n", "<leader>fRW", function() spectre.open_visual { select_word = true } end, { desc = "Find&Repalce Word" })
-    map("v", "<leader>fRW", '<ESC>:lua require("spectre").open_visual()<CR>', { desc = "Find&Replace Selected" })
-    map("n", "<leader>fRF", function() spectre.open_file_search { select_word = true } end, { desc = "Find&Replace in File" })
+    map("n", "<leader>rr", spectre.toggle, { desc = "Replace Menu" })
+    map("n", "<leader>rw", function() spectre.open_visual { select_word = true } end, { desc = "Repalce Word" })
+    map("v", "<leader>rw", '<ESC>:lua require("spectre").open_visual()<CR>', { desc = "Replace Selected" })
+    map("n", "<leader>rf", function() spectre.open_file_search { select_word = true } end, { desc = "Replace in File" })
   end,
 }

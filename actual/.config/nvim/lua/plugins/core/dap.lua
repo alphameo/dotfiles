@@ -23,6 +23,7 @@ return {
 
     local map = vim.keymap.set
     map("n", "<leader>db", dap.toggle_breakpoint, { desc = "Debug () Toggle Breakpoint" })
+    map("n", "\\b", dap.toggle_breakpoint, { desc = "Toggle Debug () Breakpoint" })
     map("n", "<leader>dB", function()
       dap.set_breakpoint(vim.fn.input "Breakpoint condition: ")
     end, { desc = "Debug () Set Conditional Breakpoint" })
