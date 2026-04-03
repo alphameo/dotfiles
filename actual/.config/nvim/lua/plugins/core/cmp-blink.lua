@@ -51,7 +51,7 @@ return {
         menu = {
           enabled = true,
           auto_show = true,
-          auto_show_delay_ms = 50,
+          auto_show_delay_ms = 100,
           direction_priority = { "s", "n" },
           draw = {
             treesitter = { "lsp" },
@@ -151,7 +151,9 @@ return {
           ["<C-j>"] = { "select_next", "fallback" },
         },
         completion = {
-          menu = { auto_show = false },
+          menu = {
+            auto_show = true,
+          },
           ghost_text = { enabled = false },
           list = {
             selection = {
@@ -159,6 +161,26 @@ return {
               auto_insert = false,
             },
           },
+        },
+      },
+      term = {
+        enabled = false,
+        keymap = { preset = "inherit" },
+        sources = {},
+        completion = {
+          trigger = {
+            show_on_blocked_trigger_characters = {},
+            show_on_x_blocked_trigger_characters = nil, -- Inherits from top level config when not set
+          },
+          -- Inherits from top level config options when not set
+          list = {
+            selection = {
+              preselect = nil,
+              auto_insert = nil,
+            },
+          },
+          menu = { auto_show = nil },
+          ghost_text = { enabled = nil },
         },
       },
       appearance = {
