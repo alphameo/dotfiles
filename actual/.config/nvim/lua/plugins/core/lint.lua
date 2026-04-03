@@ -95,8 +95,8 @@ return {
     vim.keymap.set("n", "gl", ":Lint<CR>", { silent = true, desc = "Lint file" })
 
     -- INFO: command for Linters checking
-    vim.api.nvim_create_user_command("LintInfo", function()
-      local out = "\n"
+    local lint_info = function()
+      local out = ""
 
       local cur_ft = vim.bo.filetype
       local cur_linters = lint.linters_by_ft[cur_ft]
@@ -126,7 +126,8 @@ return {
         out = out .. string.format("\t- %s (%s)\n", linter, table.concat(ft, ", "))
       end
 
-      require("util").show_text_in_win(out, "Nvim-lint")
-    end, {})
+      require("util").show_info(out, { ft = "lint-info" })
+    end
+    vim.api.nvim_create_user_command("LintInfo", lint_info, {})
   end,
 }

@@ -1,19 +1,19 @@
 local M = {}
 
 local function open_new_hidden_win(opts, win_config)
-  local buf
+  local bufid
   if vim.api.nvim_buf_is_valid(opts.buf) then
-    buf = opts.buf
+    bufid = opts.buf
   else
-    buf = vim.api.nvim_create_buf(false, true)
-    vim.bo[buf].buflisted = false
-    vim.bo[buf].swapfile = false
-    vim.bo[buf].bufhidden = "hide"
+    bufid = vim.api.nvim_create_buf(false, true)
+    vim.bo[bufid].buflisted = false
+    vim.bo[bufid].swapfile = false
+    vim.bo[bufid].bufhidden = "hide"
   end
 
-  local win = vim.api.nvim_open_win(buf, true, win_config)
+  local winid = vim.api.nvim_open_win(bufid, true, win_config)
 
-  return { buf = buf, win = win }
+  return { buf = bufid, win = winid }
 end
 
 local split_win_conf = {
@@ -49,41 +49,39 @@ M.create_floating_window = function(opts)
   return open_new_hidden_win(opts, win_conf)
 end
 
-M.show_text_in_win = function(text, title)
-  local text_lines = vim.split(text, "\n")
-  local buf = vim.api.nvim_create_buf(false, true)
-
-  vim.api.nvim_buf_set_lines(buf, 0, -1, false, text_lines)
-
-  vim.bo[buf].buftype = "nofile"
-  vim.bo[buf].modifiable = false
-  vim.bo[buf].bufhidden = "wipe"
-  if title then
-    vim.bo[buf].filetype = "text"
-  end
-
-  local width = 60
-  local height = #text_lines
-  local config = {
+M.show_info = function(text, opts)
+  local lines = vim.split(text, "\n")
+  local bufnr = vim.api.nvim_create_buf(false, true)
+  local winid = vim.api.nvim_open_win(bufnr, true, {
     relative = "editor",
-    width = width,
-    height = height,
-    row = (vim.o.lines - height) / 2,
-    col = (vim.o.columns - width) / 2,
-    style = "minimal",
     border = "rounded",
-    title = title,
-    title_pos = "center",
-  }
+    width = vim.o.columns - 6,
+    height = vim.o.lines - 6,
+    col = 2,
+    row = 2,
+    style = "minimal",
+  })
+  vim.api.nvim_buf_set_lines(bufnr, 0, -1, true, lines)
 
-  local win = vim.api.nvim_open_win(buf, true, config)
+  vim.bo[bufnr].modifiable = false
+  vim.bo[bufnr].modified = false
+  vim.bo[bufnr].bufhidden = "wipe"
+  vim.bo[bufnr].filetype = opts.ft or "info"
 
-  vim.wo[win].number = false
-  vim.wo[win].relativenumber = false
-  vim.wo[win].cursorline = false
-  vim.wo[win].signcolumn = "no"
+  vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = bufnr, nowait = true })
+  vim.keymap.set("n", "<C-c>", "<cmd>close<cr>", { buffer = bufnr })
 
-  return win, buf
+  vim.api.nvim_create_autocmd("BufLeave", {
+    desc = "Close info window when leaving buffer",
+    buffer = bufnr,
+    once = true,
+    nested = true,
+    callback = function()
+      if vim.api.nvim_win_is_valid(winid) then
+        vim.api.nvim_win_close(winid, true)
+      end
+    end,
+  })
 end
 
 -- Key history
