@@ -138,7 +138,7 @@ kdenlive
 
 libreoffice
 
-nekoray-bin
+v2rayn
 
 btop
 
@@ -160,3 +160,5 @@ gdb
 cmake
 cmake-init-git
 conan
+
+zen-browser
