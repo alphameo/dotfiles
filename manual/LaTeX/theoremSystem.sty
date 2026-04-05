@@ -1,0 +1,421 @@
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems,skins,breakable}
+% Theorem System
+% The following boxes are provided:
+%   Опр.:           \defn{title}{content}
+%   Теорема:        \thm{title}{content}
+%   Лемма:          \lem{title}{content}
+%   Формула:        \frm{title}{content}
+%   Следствие:      \cor{content}
+%   Утверждение:    \prop{content}
+%   Пустая зона:    \ebox{title}{content}
+%   Claim:          \clm{}{content}{ref}
+%   Факт:           \fact{content}
+%   Док-во:         \pf
+%   Пример:         \ex{content}
+%   Замечание:      \rmk{content} (sentence), \rmkb{content} (block)
+% Suffix
+%   r:              Allow Theorem/Definition to be referenced, e.g. thmr
+%   p:              Add a short proof block for Lemma, Corollary, Proposition or Claim, e.g. lemp
+%                   For theorems, use \pf for proof blocks
+
+% Definition
+\newtcbtheorem[no counter]{mydefinition}{\bfseries Опр.}
+{
+	enhanced,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	coltitle=black,
+	colbacktitle=green!20!white,
+	colback=green!10!white,
+	colframe=green!20!white,
+}{defn}
+
+\NewDocumentCommand{\defn}{m+m}{
+	\begin{mydefinition}{#1}{}
+	#2
+	\end{mydefinition}
+}
+
+\NewDocumentCommand{\defnr}{mm+m}{
+	\begin{mydefinition}{\underline{#1}}{#2}
+	#3
+	\end{mydefinition}
+}
+
+% Theorem
+\newtcbtheorem[no counter]{mytheorem}{\bfseries Теорема}
+{
+	enhanced,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	coltitle=black,
+	colbacktitle=cyan!40!white,
+	colback=cyan!20!white,
+	colframe=cyan!40!white,
+}{thm}
+
+\NewDocumentCommand{\thm}{m+m}{
+	\begin{mytheorem}{#1}{}
+		\raggedright#2
+	\end{mytheorem}
+}
+
+\NewDocumentCommand{\thmr}{mm+m}{
+	\begin{mytheorem}{#1}{#2}
+		\raggedright#3
+	\end{mytheorem}
+}
+\newenvironment{thmpf}{
+	{\noindent{\it \textbf{Доказательство}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+		before upper={\parindent15pt},
+		after skip=10pt,
+		borderline west={1mm}{0pt}{cyan!40!white}]
+}{
+	\textcolor{cyan!40!white}{\hbox{}\nobreak\hfill$\blacksquare$}
+	\endtcolorbox
+}
+
+\NewDocumentCommand{\thmp}{m+m+m}{
+	\begin{mytheorem}{#1}{}
+		\raggedright#2
+	\end{mytheorem}
+
+	\begin{thmpf}
+		\raggedright#3
+	\end{thmpf}
+}
+
+% Lemma
+\newtcbtheorem[no counter]{mylemma}{\bfseries Лемма}
+{
+	enhanced,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	coltitle=black,
+	colbacktitle=cyan!20!white,
+	colback=cyan!10!white,
+	colframe=cyan!20!white,
+}{lem}
+
+\NewDocumentCommand{\lem}{m+m}{
+	\begin{mylemma}{#1}{}
+		\raggedright#2
+	\end{mylemma}
+}
+
+\newenvironment{lempf}{
+	{\noindent{\it \textbf{Доказательство}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+		before upper={\parindent15pt},
+		after skip=10pt,
+		borderline west={1mm}{0pt}{cyan!20!white}]
+}{
+	\textcolor{cyan!20!white}{\hbox{}\nobreak\hfill$\blacksquare$}
+	\endtcolorbox
+}
+
+\NewDocumentCommand{\lemp}{m+m+m}{
+	\begin{mylemma}{#1}{}
+		\raggedright#2
+	\end{mylemma}
+
+	\begin{lempf}
+		\raggedright#3
+	\end{lempf}
+}
+
+%Formula
+\newtcbtheorem[no counter]{myformula}{\bfseries Формула}
+{
+	enhanced,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	coltitle=black,
+	colbacktitle=blue!20!white,
+	colback=blue!10!white,
+	colframe=blue!20!white,
+}{frm}
+
+\NewDocumentCommand{\frm}{m+m}{
+	\begin{myformula}{#1}{}
+		\raggedright#2
+	\end{myformula}
+}
+
+\newenvironment{frmpf}{
+	{\noindent{\it \textbf{Выведение}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+		before upper={\parindent15pt},
+		after skip=10pt,
+		borderline west={1mm}{0pt}{blue!20!white}]
+}{
+	\textcolor{blue!20!white}{\hbox{}\nobreak\hfill$\blacksquare$}
+	\endtcolorbox
+}
+
+\NewDocumentCommand{\frmp}{m+m+m}{
+	\begin{myformula}{#1}{}
+		\raggedright#2
+	\end{myformula}
+
+	\begin{frmpf}
+		\raggedright#3
+	\end{frmpf}
+}
+
+% Corollary
+\newtcbtheorem[no counter]{mycorollary}{Следствие}
+{
+	enhanced,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries,
+	coltitle=black,
+	colbacktitle=orange!20!white,
+	colback=orange!10!white,
+	colframe=orange!20!white,
+}{cor}
+
+\NewDocumentCommand{\cor}{+m}{
+	\begin{mycorollary}{}{}
+		\raggedright#1
+	\end{mycorollary}
+}
+
+\newenvironment{corpf}{
+	{\noindent{\it \textbf{Доказательство}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+		before upper={\parindent15pt},
+		after skip=10pt,
+		borderline west={1mm}{0pt}{orange!20!white}]
+}{
+	\textcolor{orange!20!white}{\hbox{}\nobreak\hfill$\blacksquare$}
+	\endtcolorbox
+}
+
+\NewDocumentCommand{\corp}{+m+m}{
+	\begin{mycorollary}{}{}
+		\raggedright#1
+	\end{mycorollary}
+
+	\begin{corpf}
+		\raggedright#2
+	\end{corpf}
+}
+
+% Proposition
+\newtcbtheorem[no counter]{myproposition}{Утверждение}
+{
+	enhanced,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries,
+	coltitle=black,
+	colbacktitle=yellow!30!white,
+	colback=yellow!20!white,
+	colframe=yellow!30!white
+}{prop}
+
+\NewDocumentCommand{\prop}{+m}{
+	\begin{myproposition}{}{}
+		\raggedright#1
+	\end{myproposition}
+}
+
+\newenvironment{proppf}{
+	{\noindent{\it \textbf{Доказательство}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+		before upper={\parindent15pt},
+		after skip=10pt,
+		borderline west={1mm}{0pt}{yellow!30!white}]
+}{
+	\textcolor{yellow!30!white}{\hbox{}\nobreak\hfill$\blacksquare$}
+	\endtcolorbox
+}
+
+\NewDocumentCommand{\propp}{+m+m}{
+	\begin{myproposition}{}{}
+		\raggedright#1
+	\end{myproposition}
+
+	\begin{proppf}
+		\raggedright#2
+	\end{proppf}
+}
+
+% Empty Box
+\newtcolorbox{myemptybox}[1]
+{
+	frame hidden,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	coltitle=black,
+	colbacktitle=red!30!white,
+	colback=red!20!white,
+	colframe=red!30!white,
+	title=\bfseries #1
+}
+
+\NewDocumentCommand{\ebox}{m+m}{
+	\begin{myemptybox}{#1}{
+		\raggedright#2
+		}
+	\end{myemptybox}
+}
+
+\newenvironment{eboxpf}{
+	{\noindent{\it \textbf{Доказательство}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+		before upper={\parindent15pt},
+		after skip=10pt,
+		borderline west={1mm}{0pt}{red!30!white}]
+}{
+	\textcolor{red!30!white}{\hbox{}\nobreak\hfill$\blacksquare$}
+	\endtcolorbox
+}
+
+\NewDocumentCommand{\eboxp}{m+m+m}{
+	\begin{myemptybox}{#1}{
+		\raggedright#2
+	}
+	\end{myemptybox}
+
+	\begin{eboxpf}
+		\raggedright#3
+	\end{eboxpf}
+}
+
+% Claim
+\newtcbtheorem[no counter]{myclaim}{Claim}
+{
+	enhanced,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries,
+	coltitle=black,
+	colbacktitle=pink!30!white,
+	colback=pink!20!white,
+	colframe=pink!30!white,
+}{clm}
+
+
+\NewDocumentCommand{\clm}{m+m}{
+	\begin{myclaim*}{#1}{}
+		\raggedright#2
+	\end{myclaim*}
+}
+
+\newenvironment{clmpf}{
+	{\noindent{\it \textbf{Доказательство}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+		before upper={\parindent15pt},
+		after skip=10pt,
+		borderline west={1mm}{0pt}{pink!30!white}]
+}{
+	\textcolor{pink!30!white}{\hbox{}\nobreak\hfill$\blacksquare$}
+	\endtcolorbox
+}
+
+\NewDocumentCommand{\clmp}{m+m+m}{
+	\begin{myclaim*}{#1}{}
+		\raggedright#2
+	\end{myclaim*}
+
+	\begin{clmpf}
+		\raggedright#3
+	\end{clmpf}
+}
+
+% Proof
+\newenvironment{pff}{
+	{\noindent{\it \textbf{Доказательство}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+		before upper={\parindent15pt},
+		after skip=10pt,
+		borderline west={1mm}{0pt}{red!20!white}]
+}{
+	\textcolor{red!20!white}{\hbox{}\nobreak\hfill$\blacksquare$}
+	\endtcolorbox
+}
+
+\NewDocumentCommand{\pf}{m}{
+	\begin{pff}
+		\raggedright#1
+	\end{pff}
+}
+
+% Example
+\newenvironment{example}{
+	\par
+	\vspace{5pt}
+	\noindent\textbf{Пример}
+	\begin{tcolorbox}[
+			blanker, breakable, left=5mm, parbox=false,
+			before upper={\parindent15pt},
+			after skip=10pt,
+			borderline west={1mm}{0pt}{cyan!10!white}]
+		}{
+	\end{tcolorbox}
+	\vspace{5pt}
+}
+
+\NewDocumentCommand{\ex}{+m}{
+	\begin{example}
+		\raggedright#1
+	\end{example}
+}
+
+% Remark
+\NewDocumentCommand{\rmk}{+m}{
+	{\it \color{blue!50!white}#1}
+}
+
+\newenvironment{remark}{
+	\par
+	\vspace{5pt}
+	\noindent\textbf{Замечание}
+	\begin{tcolorbox}[
+			blanker, breakable, left=5mm, parbox=false,
+			before upper={\parindent15pt},
+			after skip=10pt,
+			borderline west={1mm}{0pt}{blue!50!white}]
+		}{
+	\end{tcolorbox}
+	\vspace{5pt}
+}
+
+\NewDocumentCommand{\rmkb}{+m}{
+	\begin{remark}
+		\raggedright#1
+	\end{remark}
+}
+
+% Fact
+\newtcbtheorem[no counter]{myfact}{Факт}
+{
+	enhanced,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries,
+	coltitle=black,
+	colbacktitle=purple!20!white,
+	colback=purple!10!white,
+	colframe=purple!20!white,
+}{fact}
+
+\NewDocumentCommand{\fact}{+m}{
+	\begin{myfact}{}{}
+		\raggedright#1
+	\end{myfact}
+}

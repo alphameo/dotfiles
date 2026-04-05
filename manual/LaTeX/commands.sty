@@ -1,0 +1,23 @@
+% Заменяем Рис. на Рисунок
+\addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+
+% Изменение формата подписей
+% Стиль номера таблицы/рисунка #1-Таблица/Рис. #2-номер
+\DeclareCaptionLabelFormat{custom}
+{%
+	#1 #2
+}
+% Стиль разделителя номера таблици/рисунка и названия таблицы/рисунка
+\DeclareCaptionLabelSeparator{custom}{$-$}
+% Стиль формата #1-номер таблицы/рисунка #2-разделитель #3-название
+\DeclareCaptionFormat{custom}
+{%
+	#1 #2 #3
+}
+
+\captionsetup
+{
+	format=custom,%
+	labelsep=custom,
+	labelformat=custom
+}
