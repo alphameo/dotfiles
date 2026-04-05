@@ -13,8 +13,8 @@ return {
       window_overlap_clear_enabled = true,
       integrations = {
         markdown = {
-          only_render_image_at_cursor = false, -- defaults to false
-          only_render_image_at_cursor_mode = "popup", -- "popup" or "inline", defaults to "popup"
+          only_render_image_at_cursor = false,
+          only_render_image_at_cursor_mode = "popup", -- "popup" | "inline"
         },
       },
     }
