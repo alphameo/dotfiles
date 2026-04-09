@@ -261,6 +261,7 @@ M.setup = function()
 
   setup_java()
   setup_mappings()
+  vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", {})
 end
 
 return M
