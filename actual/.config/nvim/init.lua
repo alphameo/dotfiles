@@ -1,5 +1,5 @@
 require "options"
-require "keymappings"
+require "keymaps"
 require "cmds"
 require "diagnostics"
 
