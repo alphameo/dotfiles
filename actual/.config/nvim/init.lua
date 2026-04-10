@@ -40,7 +40,7 @@ require("lazy").setup {
         "tarPlugin",
         -- "matchit",
         -- "matchparen",
-        "netrwPlugin",
+        -- "netrwPlugin",
         "tohtml",
         "tutor",
         "editorconfig",

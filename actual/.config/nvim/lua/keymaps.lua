@@ -97,6 +97,7 @@ map("n", "gd", function()
 end, { silent = true, desc = "Reveal Diagnostic" })
 
 -- Other Features
+map("n", "<leader>E", ":Explore<CR>", { silent = true, desc = "Explorer" })
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
 map("n", "<Left>", ':echo "Use h to move!"<CR>', { silent = true })
 map("n", "<Right>", ':echo "Use l to move!"<CR>', { silent = true })

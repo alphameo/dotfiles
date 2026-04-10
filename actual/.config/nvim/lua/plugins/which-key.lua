@@ -19,6 +19,7 @@ return {
 
     which_key.add {
       { "<leader>e", group = "File Tree", mode = { "n", "v" }, icon = { icon = " ", color = "cyan" } },
+      { "<leader>E", group = "File Explorer", mode = { "n", "v" }, icon = { icon = "  ", color = "cyan" } },
       { "<leader>a", group = "AI Agent", mode = { "n", "v" }, icon = { icon = "󰧑 ", color = "white" } },
       { "<leader>b", group = "DataBase", mode = { "n", "v" }, icon = { icon = " ", color = "orange" } },
       { "<leader>u", group = "Undo Tree", mode = { "n", "v" }, icon = { icon = "󰋚 ", color = "cyan" } },
