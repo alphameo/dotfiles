@@ -99,10 +99,6 @@ end, { silent = true, desc = "Reveal Diagnostic" })
 -- Other Features
 map("n", "<leader>E", ":Explore<CR>", { silent = true, desc = "Explorer" })
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
-map("n", "<Left>", ':echo "Use h to move!"<CR>', { silent = true })
-map("n", "<Right>", ':echo "Use l to move!"<CR>', { silent = true })
-map("n", "<Up>", ':echo "Use k to move!"<CR>', { silent = true })
-map("n", "<Down>", ':echo "Use j to move!"<CR>', { silent = true })
 
 map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 
