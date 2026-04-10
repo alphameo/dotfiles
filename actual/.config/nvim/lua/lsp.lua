@@ -21,19 +21,10 @@ local setup_mappings = function()
         return { buffer = args.buf, desc = desc }
       end
 
-      map("n", "K", lsp_b.hover, opts "Show Doc Hover")
-      map("i", "<C-s>", lsp_b.signature_help, opts "Show Signature Help")
+      map("n", "grD", lsp_b.declaration, opts "vim.lsp.buf.declaration()")
+      map("n", "grd", M.actions.def, opts "vim.lsp.buf.definition()")
 
-      map("n", "grD", lsp_b.declaration, opts "Go to Declaration")
-      map("n", "grd", M.actions.def, opts "Go to Definition")
-      map("n", "gri", M.actions.impl, opts "Go to Implementations")
-      map("n", "grr", M.actions.ref, opts "Go to References")
-      map("n", "grt", M.actions.type_def, opts "Go to Type Definition")
-      map("n", "grn", lsp_b.rename, opts "Refactor Rename")
-      map({ "n", "v" }, "gra", lsp_b.code_action, opts "Go to Actions")
-
-      map("n", "go", M.actions.doc_symb, opts "Go to Document Symbols")
-      map("n", "gO", M.actions.wsp_symb, opts "Go to Workspace Symbols")
+      map("n", "go", M.actions.wsp_symb, opts "vim.lsp.buf.workspace_symbol()")
 
       local lsp = vim.lsp
       map("n", "\\h", function()
