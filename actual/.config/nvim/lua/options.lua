@@ -73,8 +73,6 @@ vim.opt.listchars = {
 }
 vim.opt.list = false -- Show non-printing characters (glyphs)
 
-vim.o.winborder = "none" -- Border of documentation, signature, completion
-
 vim.o.cmdheight = 0 -- height of default command line
 
 -- Editing
@@ -87,6 +85,13 @@ vim.o.incsearch = true -- Show matches as you type
 vim.o.virtualedit = "block" -- Allow going past the end of line in visual block mode
 
 vim.o.inccommand = "split" -- Preview :substitute options
+
+-- Popup menu
+vim.o.autocomplete = false
+vim.o.pumborder = "rounded"
+vim.o.pummaxwidth = 40
+vim.o.completeopt = "menu,menuone,noselect,nearest"
+vim.o.winborder = "none" -- Border of documentation, signature, completion
 
 -- Binaries
 local is_windows = vim.fn.has "win32" ~= 0
