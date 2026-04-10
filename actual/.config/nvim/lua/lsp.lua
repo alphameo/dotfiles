@@ -21,9 +21,14 @@ local setup_mappings = function()
         return { buffer = args.buf, desc = desc }
       end
 
-      map("n", "grD", lsp_b.declaration, opts "vim.lsp.buf.declaration()")
+      map("n", "grD", vim.lsp.buf.declaration, opts "vim.lsp.buf.declaration()")
       map("n", "grd", M.actions.def, opts "vim.lsp.buf.definition()")
 
+      map("n", "gri", M.actions.impl, opts "vim.lsp.buf.implementation()")
+      map("n", "grr", M.actions.ref, opts "vim.lsp.buf.references()")
+      map("n", "grt", M.actions.type_def, opts "vim.lsp.buf.type_definition")
+
+      map("n", "gO", M.actions.doc_symb, opts "vim.lsp.buf.document_symbol()")
       map("n", "go", M.actions.wsp_symb, opts "vim.lsp.buf.workspace_symbol()")
 
       local lsp = vim.lsp
