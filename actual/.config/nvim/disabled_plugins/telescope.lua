@@ -68,6 +68,8 @@ return {
     lsp_act.type_def = builtin.lsp_type_definitions
     lsp_act.doc_symb = builtin.lsp_document_symbols
     lsp_act.wsp_symb = builtin.lsp_dynamic_workspace_symbols
+    lsp_act.in_calls = builtin.lsp_incoming_calls
+    lsp_act.out_calls = builtin.lsp_outgoing_calls
 
     local map = vim.keymap.set
     map("n", "<leader>fp", builtin.builtin, { desc = "Find Picker" })
@@ -82,7 +84,10 @@ return {
     map("n", "<leader>fj", builtin.jumplist, { desc = "Find in Jump List" })
     map("n", "<leader>fq", builtin.quickfix, { silent = true, desc = "Find in Quickfix List" })
     map("n", "<leader>fQ", builtin.quickfixhistory, { silent = true, desc = "Find in Quickfix List History" })
-    map("n", "<leader>fd", builtin.diagnostics, { silent = true, desc = "Find in Diagnostic List" })
+    map("n", "<leader>fd", builtin.diagnostics, { silent = true, desc = "Find in Document Diagnostics" })
+    map("n", "<leader>fD", function()
+      builtin.diagnostics { bufnr = 0 }
+    end, { silent = true, desc = "Find in Workspace Diagnostics" })
 
     map("n", "<leader>fh", builtin.help_tags, { desc = "Find Help Tag" })
 

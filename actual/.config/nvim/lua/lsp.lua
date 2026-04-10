@@ -5,11 +5,14 @@ local M = {}
 local lsp_b = vim.lsp.buf
 M.actions = {
   def = lsp_b.definition,
+  decl = lsp_b.declaration,
   impl = lsp_b.implementation,
   ref = lsp_b.references,
   type_def = lsp_b.type_definition,
   doc_symb = lsp_b.document_symbol,
   wsp_symb = lsp_b.workspace_symbol,
+  in_calls = lsp_b.incoming_calls,
+  out_calls = lsp_b.outgoing_calls,
 }
 
 local setup_mappings = function()
@@ -21,7 +24,7 @@ local setup_mappings = function()
         return { buffer = args.buf, desc = desc }
       end
 
-      map("n", "grD", vim.lsp.buf.declaration, opts "vim.lsp.buf.declaration()")
+      map("n", "grD", M.actions.decl, opts "vim.lsp.buf.declaration()")
       map("n", "grd", M.actions.def, opts "vim.lsp.buf.definition()")
 
       map("n", "gri", M.actions.impl, opts "vim.lsp.buf.implementation()")
@@ -30,6 +33,9 @@ local setup_mappings = function()
 
       map("n", "gO", M.actions.doc_symb, opts "vim.lsp.buf.document_symbol()")
       map("n", "go", M.actions.wsp_symb, opts "vim.lsp.buf.workspace_symbol()")
+
+      map("n", "grc", M.actions.in_calls, opts "vim.lsp.buf.incoming_calls()")
+      map("n", "grC", M.actions.out_calls, opts "vim.lsp.buf.outgoing_calls()")
 
       local lsp = vim.lsp
       map("n", "\\h", function()
