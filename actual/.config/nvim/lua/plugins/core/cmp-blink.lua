@@ -51,7 +51,7 @@ return {
         menu = {
           enabled = true,
           auto_show = true,
-          auto_show_delay_ms = 100,
+          auto_show_delay_ms = 200,
           direction_priority = { "s", "n" },
           draw = {
             treesitter = { "lsp" },
