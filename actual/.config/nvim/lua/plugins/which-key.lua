@@ -23,7 +23,6 @@ return {
       { "<leader>b", group = "DataBase", mode = { "n", "v" }, icon = { icon = " ", color = "orange" } },
       { "<leader>u", group = "Undo Tree", mode = { "n", "v" }, icon = { icon = "󰋚 ", color = "cyan" } },
       { "<leader>M", group = "Mason", mode = { "n", "v" }, icon = { icon = "󰰐 ", color = "green" } },
-      { "<leader>L", group = "Lazy", mode = { "n", "v" }, icon = { icon = " ", color = "green" } },
       { "<leader>d", group = "Debug", mode = { "n", "v" } },
       { "<leader>D", group = "Diff", mode = { "n", "v" }, icon = { icon = " ", color = "yellow" } },
       { "<leader>f", group = "Find", mode = { "n", "v" } },
@@ -33,7 +32,7 @@ return {
       { "<leader>n", group = "Notifications", mode = { "n", "v" } },
       { "<leader>t", group = "Terminal", mode = { "n", "v" } },
       { "<leader>T", group = "Test", mode = { "n", "v" } },
-      { "<leader>p", group = "Project", mode = { "n", "v" }, icon = { icon = " ", color = "blue" } },
+      { "<leader>p", group = "Plugins", mode = { "n", "v" }, icon = { icon = " ", color = "green" } },
       { "<leader>c", group = "Code", mode = { "n", "v" }, icon = { icon = " ", color = "orange" } },
       { "<leader>.", group = "Settings", mode = { "n", "v" }, icon = { icon = " ", color = "white" } },
 
