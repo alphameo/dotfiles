@@ -93,10 +93,6 @@ vim.o.pummaxwidth = 40
 vim.o.completeopt = "menu,menuone,noselect,nearest"
 vim.o.winborder = "none" -- Border of documentation, signature, completion
 
-if vim.fn.exists "syntax_on" ~= 1 then
-  vim.cmd "syntax enable" -- Enable syntax highlighting
-end
-
 -- Custom filetypes
 vim.filetype.add {
   extension = {
