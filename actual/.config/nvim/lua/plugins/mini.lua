@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-local setup_pairs = function()
+local setup_surround = function()
   require("mini.surround").setup {
     custom_surroundings = nil,
     highlight_duration = 500,
@@ -39,16 +39,16 @@ local setup_pairs = function()
       delete = "ds", -- Delete surrounding
       find = "", -- Find surrounding (to the right)
       find_left = "", -- Find surrounding (to the left)
-      highlight = "gs", -- Highlight surrounding
+      -- highlight = "s", -- Highlight surrounding
       replace = "cs", -- Replace surrounding
 
-      suffix_last = "l", -- Suffix to search with "prev" method
-      suffix_next = "n", -- Suffix to search with "next" method
+      -- suffix_last = "l", -- Suffix to search with "prev" method
+      -- suffix_next = "n", -- Suffix to search with "next" method
     },
     n_lines = 20,
     respect_selection_type = false,
     search_method = "cover",
-    silent = false,
+    silent = true,
   }
 end
 
@@ -276,7 +276,7 @@ return {
   event = "VeryLazy",
   config = function()
     require("mini.pairs").setup()
-    setup_pairs()
+    setup_surround()
     -- require("mini.move").setup()
     -- setup_sessions()
     -- setup_bracketed()
