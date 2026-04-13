@@ -93,12 +93,6 @@ vim.o.pummaxwidth = 40
 vim.o.completeopt = "menu,menuone,noselect,nearest"
 vim.o.winborder = "none" -- Border of documentation, signature, completion
 
--- Binaries
-local is_windows = vim.fn.has "win32" ~= 0
-local sep = is_windows and "\\" or "/"
-local delim = is_windows and ";" or ":"
-vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
-
 if vim.fn.exists "syntax_on" ~= 1 then
   vim.cmd "syntax enable" -- Enable syntax highlighting
 end
