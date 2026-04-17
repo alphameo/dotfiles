@@ -1,6 +1,7 @@
 return {
   {
     "seblyng/roslyn.nvim",
+    lazy = true,
     ft = "cs",
     opts = {
       -- "auto" | "roslyn" | "off"
