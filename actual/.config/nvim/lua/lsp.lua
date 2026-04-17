@@ -222,44 +222,49 @@ end
 ------------
 -- Setups --
 ------------
-M.setup = function()
-  local lsp_list = {
-    "bashls",
-    "clangd",
-    "neocmake",
-    "cssls",
-    "css_variables",
-    "cssmodules_ls",
-    "dockerls",
-    "docker_compose_language_service",
-    "gopls",
-    "html",
-    "hyprls",
-    "jsonls",
-    "kotlin_lsp",
-    "lua_ls",
-    "marksman",
-    "roslyn",
-    "ruff",
-    -- "pyright",
-    "basedpyright",
-    "rust_analyzer",
-    -- "sqlls",
-    "taplo",
-    "texlab",
-    "ts_ls",
-    "tinymist",
-    -- "vtsls",
-    -- "denols",
-    "lemminx",
-    "yamlls",
-  }
+local lsp_list_enable = {
+  "bashls",
+  "clangd",
+  "neocmake",
+  "cssls",
+  "css_variables",
+  "cssmodules_ls",
+  "dockerls",
+  "docker_compose_language_service",
+  "gopls",
+  "html",
+  "hyprls",
+  "jsonls",
+  "kotlin_lsp",
+  "lua_ls",
+  "marksman",
+  "ruff",
+  -- "pyright",
+  "basedpyright",
+  "rust_analyzer",
+  -- "sqlls",
+  "taplo",
+  "texlab",
+  "ts_ls",
+  "tinymist",
+  -- "vtsls",
+  -- "denols",
+  "lemminx",
+  "yamlls",
+}
 
+local lsp_list_cfg = {
+  "roslyn",
+  unpack(lsp_list_enable),
+}
+
+M.setup = function()
   -- vim.lsp.config("*", global_cfg)
-  for _, lsp in ipairs(lsp_list) do
+  for _, lsp in ipairs(lsp_list_cfg) do
     vim.lsp.config(lsp, global_cfg)
   end
-  vim.lsp.enable(lsp_list)
+
+  vim.lsp.enable(lsp_list_enable)
 
   setup_java()
   setup_mappings()
