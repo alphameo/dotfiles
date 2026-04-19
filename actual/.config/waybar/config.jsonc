@@ -37,34 +37,9 @@
             "network",
             "bluetooth",
             "custom/notifications",
-            "group/group-audioout",
-            "group/group-audioin",
+            "wireplumber#sink",
+            "wireplumber#source",
             "group/group-backlight",
-        ]
-    },
-    "group/group-audioout": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "battery-nodes",
-            "transition-left-to-right": true,
-        },
-        "modules": [
-            "wireplumber#sinkicon",
-            "pulseaudio/slider",
-            "wireplumber#sinkpercentage",
-        ]
-    },
-    "group/group-audioin": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "battery-nodes",
-            "transition-left-to-right": true
-        },
-        "modules": [
-            "wireplumber#sourceicon",
-            "wireplumber#sourcepercentage",
         ]
     },
     "group/group-backlight": {

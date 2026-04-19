@@ -115,10 +115,10 @@
         "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
         "on-click": "~/.scripts/bluetooth-manager"
     },
-    "wireplumber#sinkicon": {
+    "wireplumber#sink": {
         "node-type": "Audio/Sink",
-        "format": "{icon}",
-        "format-muted": "<span color='#f38ba8'>󰸈</span>",
+        "format": "{icon} {volume}%",
+        "format-muted": "<span color='#f38ba8'>󰸈 {volume}%</span>",
         // "format-source": "󰍬",
         // "format-source-muted": "<span color='#f38ba8'>󰍭</span>",
         "format-icons": [
@@ -132,40 +132,15 @@
         "on-click": "~/.scripts/sound-sink-toggle",
         "on-click-right": "~/.scripts/sound-sink-manager"
     },
-    "wireplumber#sinkpercentage": {
-        "node-type": "Audio/Sink",
-        "format": "{volume}%",
-        "format-muted": "<span color='#f38ba8'>{volume}%</span>",
-        "tooltip-format": "Volume: {volume}%\nSink: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
-        "reverse-scrolling": true,
-        "reverse-mouse-scrolling": true,
-        "on-click": "~/.scripts/sound-sink-toggle",
-        "on-click-right": "~/.scripts/sound-sink-manager"
-    },
-    "wireplumber#sourceicon": {
+    "wireplumber#source": {
         "node-type": "Audio/Source",
-        "format": "󰍬",
-        "format-muted": "<span color='#f38ba8'>󰍭</span>",
+        "format": "󰍬 {volume}%",
+        "format-muted": "<span color='#f38ba8'>󰍭 {volume}%</span>",
         "tooltip-format": "Volume: {volume}%\nSource: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
         "on-click": "~/.scripts/sound-source-toggle",
         "on-click-right": "~/.scripts/sound-source-manager"
-    },
-    "wireplumber#sourcepercentage": {
-        "node-type": "Audio/Source",
-        "format": "{volume}%",
-        "format-muted": "<span color='#f38ba8'>{volume}%</span>",
-        "tooltip-format": "Volume: {volume}%\nSource: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
-        "reverse-scrolling": true,
-        "reverse-mouse-scrolling": true,
-        "on-click": "~/.scripts/sound-source-toggle",
-        "on-click-right": "~/.scripts/sound-source-manager"
-    },
-    "pulseaudio/slider": {
-        "min": 0,
-        "max": 100,
-        "orientation": "horizontal"
     },
     "backlight#icon": {
         "format": "{icon}",
