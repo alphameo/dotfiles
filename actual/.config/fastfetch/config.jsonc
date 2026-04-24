@@ -10,121 +10,145 @@
 	},
 	"modules": [
 		"title",
-		"break",
+		"separator",
 		{
 			"type": "custom",
-			"format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐"
+			"format": "\u001b[90m[Hardware]"
+		},
+		{
+			"type": "chassis",
+			"key": " pc",
+			"keyColor": "green"
 		},
 		{
 			"type": "host",
-			"key": "  PC",
+			"key": "├󰌢 host",
+			"keyColor": "green"
+		},
+		{
+			"type": "board",
+			"key": "├ board",
 			"keyColor": "green"
 		},
 		{
 			"type": "cpu",
-			"key": "│ ├ ",
+			"key": "├ cpu",
+			"temp": true,
 			"showPeCoreCount": true,
 			"keyColor": "green"
 		},
 		{
-			"type": "gpu",
-			"key": "│ ├ ",
-			"detectionMethod": "pci",
+			"type": "cpuusage",
+			"key": "│╰ 󰓅 usage ",
 			"keyColor": "green"
 		},
 		{
-			"type": "display",
-			"key": "│ ├󰍹 ",
+			"type": "gpu",
+			"key": "├󰾲 gpu",
+			"detectionMethod": "pci",
+			"driverSpecific": true,
 			"keyColor": "green"
 		},
 		{
 			"type": "disk",
-			"key": "│ ├ ",
+			"key": "├󰋊 disk",
 			"keyColor": "green"
 		},
 		{
 			"type": "memory",
-			"key": "│ ├ ",
+			"key": "├ mem",
+			"keyColor": "green"
+		},
+		{
+			"type": "display",
+			"key": "├󰍹 display",
 			"keyColor": "green"
 		},
 		{
 			"type": "swap",
-			"key": "└ └󰓡 ",
+			"key": "╰󰓡 swap",
 			"keyColor": "green"
-		},
-		{
-			"type": "custom",
-			"format": "\u001b[90m└────────────────────────────────────────────────────┘"
 		},
 		"break",
 		{
 			"type": "custom",
-			"format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
+			"format": "\u001b[90m[Software]"
 		},
 		{
 			"type": "os",
-			"key": "  OS",
+			"key": " os",
 			"keyColor": "yellow"
 		},
 		{
 			"type": "kernel",
-			"key": "│ ├ ",
+			"key": "├ kernel",
+			"keyColor": "yellow"
+		},
+		{
+			"type": "bootmgr",
+			"key": "├ boot mngr",
+			"keyColor": "yellow"
+		},
+		{
+			"type": "initsystem",
+			"key": "├󰿄 init sys",
 			"keyColor": "yellow"
 		},
 		{
 			"type": "packages",
-			"key": "│ ├󰏖 ",
-			"keyColor": "yellow"
-		},
-		{
-			"type": "shell",
-			"key": "└ └ ",
+			"key": "╰󰏖 packages",
 			"keyColor": "yellow"
 		},
 		"break",
 		{
 			"type": "de",
-			"key": " DE",
+			"key": " de",
 			"keyColor": "blue"
 		},
 		{
 			"type": "wm",
-			"key": "│ ├ ",
+			"key": "├ wm",
+			"keyColor": "blue"
+		},
+		{
+			"type": "lm",
+			"key": "├󰧨 lm",
 			"keyColor": "blue"
 		},
 		{
 			"type": "theme",
-			"key": "│ ├󰉼 ",
+			"key": "├󰉼 theme",
 			"keyColor": "blue"
 		},
 		{
 			"type": "icons",
-			"key": "│ ├ ",
+			"key": "├ icons",
 			"keyColor": "blue"
 		},
 		{
 			"type": "cursor",
-			"key": "│ ├󰆿 ",
+			"key": "├󰆿 cursor",
 			"keyColor": "blue"
 		},
 		{
-			"type": "terminalfont",
-			"key": "│ ├ ",
+			"type": "shell",
+			"key": "├ shell",
 			"keyColor": "blue"
 		},
 		{
 			"type": "terminal",
-			"key": "└ └ ",
+			"key": "├ term",
 			"keyColor": "blue"
 		},
 		{
-			"type": "custom",
-			"format": "\u001b[90m└────────────────────────────────────────────────────┘"
+			"type": "terminalfont",
+			"key": "╰ termfont",
+			"keyColor": "blue"
 		},
 		"break",
 		{
 			"type": "custom",
-			"format": "\u001b[90m┌────────────────────Uptime / Age────────────────────┐"
+			"format": "\u001b[90m╭───────────────────────────Session────────────────────────────╮"
 		},
 		{
 			"type": "command",
@@ -134,17 +158,48 @@
 		},
 		{
 			"type": "uptime",
-			"key": "  Uptime ",
+			"key": "    Uptime ",
 			"keyColor": "magenta"
 		},
 		{
+			"type": "datetime",
+			"key": "    Date&Time ",
+			"keyColor": "magenta"
+		},
+		{
+			"type": "battery",
+			"key": "    Battery ",
+			"keyColor": "magenta",
+			"temp": true
+		},
+		{
+			"type": "brightness",
+			"key": "  󰃠  Brightness ",
+			"keyColor": "magenta"
+		},
+		{
+			"type": "sound",
+			"key": "    Sound ",
+			"keyColor": "magenta"
+		},
+		{
+			"type": "wifi",
+			"key": "    Wi-Fi ",
+			"keyColor": "magenta"
+		},
+		// {
+		// 	"type": "netio",
+		// 	"key": "  Network IO ",
+		// 	"keyColor": "magenta"
+		// },
+		{
 			"type": "custom",
-			"format": "\u001b[90m└────────────────────────────────────────────────────┘"
+			"format": "\u001b[90m╰──────────────────────────────────────────────────────────────╯"
 		},
 		"break",
 		{
 			"type": "colors",
-			"paddingLeft": 15
+			"paddingLeft": 20
 		}
 	]
 }
