@@ -19,7 +19,7 @@ return {
     noice.setup {
       presets = {
         bottom_search = true,
-        command_palette = true,
+        command_palette = false,
         long_message_to_split = true,
         inc_rename = false,
         lsp_doc_border = false,
@@ -28,7 +28,7 @@ return {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+          ["cmp.entry.get_documentation"] = false, -- requires hrsh7th/nvim-cmp
         },
         progress = { enabled = true },
         signature = {
@@ -39,7 +39,10 @@ return {
             luasnip = true,
           },
         },
-        hover = { enabled = true },
+        hover = {
+          enabled = false,
+          silent = false, -- warn if hover not available
+        },
         message = { enabled = true },
       },
       cmdline = {
@@ -49,11 +52,22 @@ return {
           input = { view = "cmdline" },
         },
       },
-      popupmenu = { enabled = false },
-      -- routes = { {
-      --   view = "notify", -- "notify" | "split"
-      --   filter = { event = "msg_showmode" }, -- show macro '@recording'
-      -- } },
+      messages = {
+        enabled = true, -- also automatically enables cmdline
+      },
+      popupmenu = {
+        enabled = false,
+        backend = "nui", -- "nui"|"cmp"
+      },
+      notify = {
+        -- Noice can be used as `vim.notify` so you can route any notification like other messages
+        -- Notification messages have their level and other properties set.
+        -- event is always "notify" and kind can be any log level as a string
+        -- The default routes will forward notifications to nvim-notify
+        -- Benefit of using Noice for this is the routing and consistent history view
+        enabled = true,
+        view = "notify",
+      },
     }
 
     map("n", "<leader>nl", ":NoiceLast<CR>", { silent = true, desc = "Notifications Last" })
