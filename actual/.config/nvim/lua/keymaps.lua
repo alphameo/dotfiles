@@ -96,6 +96,9 @@ map("n", "gd", function()
   })
 end, { silent = true, desc = "Reveal Diagnostic" })
 
+-- Vim Pack
+map({ "n" }, "<leader>pu", vim.pack.update, { silent = true, desc = "vim.pack.update" })
+
 -- Other Features
 map("n", "<leader>E", ":Explore<CR>", { silent = true, desc = "Explorer" })
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
