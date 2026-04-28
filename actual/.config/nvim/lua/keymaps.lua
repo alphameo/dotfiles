@@ -102,6 +102,7 @@ map({ "n" }, "<leader>pu", vim.pack.update, { silent = true, desc = "vim.pack.up
 -- Other Features
 map("n", "<leader>E", ":Explore<CR>", { silent = true, desc = "Explorer" })
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
+map("n", "<leader>nn", ":messages<CR>", { silent = true, desc = "Notifications List" })
 
 map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 

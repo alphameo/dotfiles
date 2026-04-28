@@ -135,3 +135,23 @@ vim.filetype.add {
     axaml = "xml",
   },
 }
+
+require("vim._core.ui2").enable {
+  enable = true,
+  msg = {
+    targets = "cmd",
+    cmd = {
+      height = 0.5, -- Maximum height while expanded for messages beyond 'cmdheight'.
+    },
+    dialog = {
+      height = 0.5, -- Maximum height.
+    },
+    msg = {
+      height = 0.5, -- Maximum height.
+      timeout = 2000, -- Time a message is visible in the message window.
+    },
+    pager = {
+      height = 1,
+    },
+  },
+}
