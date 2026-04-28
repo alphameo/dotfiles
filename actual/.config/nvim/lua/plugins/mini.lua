@@ -197,7 +197,7 @@ local setup_statusline = function()
 
   local get_recording_macro_prefix = function()
     if vim.fn.reg_recording() ~= "" then
-      return "Recording @" .. vim.fn.reg_recording() .. ": "
+      return "@" .. vim.fn.reg_recording() .. ": "
     else
       return ""
     end
