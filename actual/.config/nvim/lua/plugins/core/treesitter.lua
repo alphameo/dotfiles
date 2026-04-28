@@ -176,6 +176,7 @@ return {
         "query",
         -- CONFIGURATIONS
         "dot",
+        "helm",
         "hyprlang",
         "ini",
         "kdl",

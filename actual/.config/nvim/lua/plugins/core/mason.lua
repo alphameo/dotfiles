@@ -57,6 +57,7 @@ return {
           "texlab", -- LaTeX
           "kotlin_lsp", -- kotlin
           "html", -- html
+          "helm-ls", -- helm (kubernetes)
           "hyprls", -- hyprlang
           "cssls", -- css
           "cssmodules_ls", -- css
