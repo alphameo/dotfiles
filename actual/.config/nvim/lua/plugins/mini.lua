@@ -231,7 +231,10 @@ local setup_statusline = function()
         local filename = stl.section_filename { trunc_width = 140 }
         local fileinfo = stl.section_fileinfo { trunc_width = 9999 }
         local location = get_location()
-        -- local search = stl.section_searchcount { trunc_width = 75 }
+        local search = stl.section_searchcount { trunc_width = 75 }
+        if #search > 0 then
+          search = " " .. search .. " " .. sep
+        end
 
         local key_cmd = get_recording_macro_prefix() .. get_keystroke()
         local percentage = get_file_percentage()
@@ -243,7 +246,7 @@ local setup_statusline = function()
           { hl = "MiniStatuslineFilename", strings = { filename } },
           "%=", -- end left alignment
           { hl = "MiniStatuslineFilename", strings = {} },
-          { hl = "MiniStatuslineFilename", strings = { key_cmd, diagnostics } },
+          { hl = "MiniStatuslineFilename", strings = { search, key_cmd, diagnostics } },
           { hl = "MiniStatuslineFilename", strings = { fileinfo } },
           { hl = "MiniStatuslineFileinfo", strings = { location } },
           { hl = mode_hl, strings = { percentage } },
