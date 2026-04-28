@@ -60,7 +60,7 @@ vim.o.breakindent = true -- Keep wrapped line on same indent level
 
 -- Completion
 vim.o.autocomplete = false -- Enable default autocompletion
-vim.o.completeopt = "menu,menuone,noselect,nearest" -- Options of default completion
+vim.o.completeopt = "menu,menuone,noselect,nearest,popup" -- Options of default completion
 vim.o.wildmenu = false -- Cmd tab completion
 vim.o.wildmode = "longest:full,full" -- Cmd completion behavior
 
