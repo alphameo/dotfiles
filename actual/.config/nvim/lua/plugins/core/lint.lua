@@ -12,7 +12,7 @@ return {
       cpp = { "cpplint" },
       cmake = { "cmakelint" },
       dockerfile = { "hadolint" },
-      go = { "golangcilint" },
+      -- go = { "golangcilint" },
       html = { "htmlhint" },
       kotlin = { "ktlint" },
       lua = { "luacheck" },

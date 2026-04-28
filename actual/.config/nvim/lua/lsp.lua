@@ -231,6 +231,7 @@ local lsp_list_enable = {
   "cssmodules_ls",
   "dockerls",
   "docker_compose_language_service",
+  "golangci_lint_ls",
   "gopls",
   "html",
   "hyprls",
