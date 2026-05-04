@@ -101,8 +101,23 @@
 		},
 		"break",
 		{
+			"type": "shell",
+			"key": "╭ shell",
+			"keyColor": "blue"
+		},
+		{
+			"type": "terminal",
+			"key": "├ term",
+			"keyColor": "blue"
+		},
+		{
+			"type": "terminalfont",
+			"key": "├ termfont",
+			"keyColor": "blue"
+		},
+		{
 			"type": "de",
-			"key": " de",
+			"key": "├ de",
 			"keyColor": "blue"
 		},
 		{
@@ -127,22 +142,7 @@
 		},
 		{
 			"type": "cursor",
-			"key": "├󰆿 cursor",
-			"keyColor": "blue"
-		},
-		{
-			"type": "shell",
-			"key": "├ shell",
-			"keyColor": "blue"
-		},
-		{
-			"type": "terminal",
-			"key": "├ term",
-			"keyColor": "blue"
-		},
-		{
-			"type": "terminalfont",
-			"key": "╰ termfont",
+			"key": "╰󰆿 cursor",
 			"keyColor": "blue"
 		},
 		"break",
