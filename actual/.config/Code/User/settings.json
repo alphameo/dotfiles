@@ -200,4 +200,5 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features",
   },
+  "chat.viewSessions.orientation": "stacked",
 }
