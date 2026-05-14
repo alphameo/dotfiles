@@ -135,6 +135,7 @@ gwenview
 
 obs-studio
 kdenlive
+losslesscut-bin
 
 libreoffice
 
@@ -162,3 +163,5 @@ cmake-init-git
 conan
 
 zen-browser
+
+opentabletdriver
