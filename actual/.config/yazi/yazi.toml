@@ -1,25 +1,25 @@
 # See https://github.com/sxyazi/yazi/blob/shipped/yazi-config/preset/yazi-default.toml
 
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+#:schema = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [plugin]
 prepend_fetchers = [
-    { id   = "git", name = "*", run  = "git" },
-    { id   = "git", name = "*/", run  = "git" },
+	{ url = "*", run = "git", group = "git" },
+	{ url = "*/", run = "git", group = "git" },
 ]
 prepend_previewers = [
 	# Archive previewer
-	{ mime = "application/*zip",            run = "ouch" },
-	{ mime = "application/x-tar",           run = "ouch" },
-	{ mime = "application/x-bzip2",         run = "ouch" },
+	{ mime = "application/*zip", run = "ouch" },
+	{ mime = "application/x-tar", run = "ouch" },
+	{ mime = "application/x-bzip2", run = "ouch" },
 	{ mime = "application/x-7z-compressed", run = "ouch" },
-	{ mime = "application/x-rar",           run = "ouch" },
-	{ mime = "application/vnd.rar",         run = "ouch" },
-	{ mime = "application/x-xz",            run = "ouch" },
-	{ mime = "application/xz",              run = "ouch" },
-	{ mime = "application/x-zstd",          run = "ouch" },
-	{ mime = "application/zstd",            run = "ouch" },
-	{ mime = "application/java-archive",    run = "ouch" },
+	{ mime = "application/x-rar", run = "ouch" },
+	{ mime = "application/vnd.rar", run = "ouch" },
+	{ mime = "application/x-xz", run = "ouch" },
+	{ mime = "application/xz", run = "ouch" },
+	{ mime = "application/x-zstd", run = "ouch" },
+	{ mime = "application/zstd", run = "ouch" },
+	{ mime = "application/java-archive", run = "ouch" },
 ]
 
 [input]
@@ -28,12 +28,10 @@ cursor_blink = true
 [opener]
 play = [
 	{ run = 'mpv "$@"', orphan = true, for = "unix" },
-	{ run = '"C:\Program Files\mpv.exe" %*', orphan = true, for = "windows" }
+	{ run = '"C:\Program Files\mpv.exe" %*', orphan = true, for = "windows" },
 ]
 edit = [
 	{ run = '$EDITOR "$@"', block = true, for = "unix" },
-	{ run = "%EDITOR% %*",  block = true, for = "windows" },
+	{ run = "%EDITOR% %*", block = true, for = "windows" },
 ]
-open = [
-	{ run = 'xdg-open "$@"', desc = "Open" },
-]
+open = [{ run = 'xdg-open "$@"', desc = "Open" }]
