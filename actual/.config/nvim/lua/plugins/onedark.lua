@@ -36,11 +36,6 @@ return {
       toggle_transparency,
       { noremap = true, silent = true, desc = "Toggle Background Transparency" }
     )
-    vim.keymap.set(
-      "n",
-      "<leader>.T",
-      ':lua require("onedark").toggle()<CR>',
-      { silent = true, desc = "Toggle Onedark-theme Style" }
-    )
+    vim.keymap.set("n", "<leader>.T", onedark.toggle, { silent = true, desc = "Toggle Onedark-theme Style" })
   end,
 }
