@@ -47,7 +47,7 @@ return {
             .. "AllowShortIfStatementsOnASingleLine: false,"
             .. "AllowShortBlocksOnASingleLine: Empty,"
             .. "IndentAccessModifiers: false,"
-            .. "AccessModifierOffset: -3"
+            .. "AccessModifierOffset: -4"
             .. "}",
         },
       },
