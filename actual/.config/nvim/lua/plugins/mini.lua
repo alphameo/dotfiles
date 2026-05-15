@@ -285,7 +285,7 @@ return {
     -- setup_bracketed()
     -- setup_indentscope()
     -- setup_sj()
-    -- setup_tabline()
+    setup_tabline()
     setup_statusline()
   end,
 }
