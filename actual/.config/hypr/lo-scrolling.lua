@@ -9,9 +9,9 @@ hl.config {
     fullscreen_on_one_column = false,
     follow_focus = true,
     follow_min_visible = 0.4,
-    -- wrap_focus = false,
-    -- wrap_swapcol = false,
-    focus_fit_method = 0, -- 0 - center | 1 - fit
+    wrap_focus = false,
+    wrap_swapcol = false,
+    focus_fit_method = 1, -- 0 - center | 1 - fit
     direction = "right",
   },
 }
@@ -23,10 +23,10 @@ hl.unbind(mod .. "SHIFT + H")
 hl.bind(mod .. "SHIFT + L", hl.dsp.layout "move +col")
 hl.bind(mod .. "SHIFT + H", hl.dsp.layout "move -col")
 
-hl.unbind(mod .. "SHIFT + left")
-hl.unbind(mod .. "SHIFT + right")
-hl.bind(mod .. "SHIFT + left", hl.dsp.layout "swap l")
-hl.bind(mod .. "SHIFT + right", hl.dsp.layout "swap r")
+hl.unbind(mod .. "SHIFT + 9")
+hl.unbind(mod .. "SHIFT + 0")
+hl.bind(mod .. "SHIFT + 9", hl.dsp.layout "swapcol l")
+hl.bind(mod .. "SHIFT + 0", hl.dsp.layout "swapcol r")
 
 hl.unbind(mod .. "SHIFT + A")
 hl.unbind(mod .. "SHIFT + V")
