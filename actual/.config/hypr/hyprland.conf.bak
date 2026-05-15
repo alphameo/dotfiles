@@ -352,13 +352,13 @@ input {
     }
 }
 
-# https://wiki.hypr.land/Configuring/Basics/Keywords/#per-device-input-configs
+# https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/
 device {
     name = epic-mouse-v1
     sensitivity = -0.5
 }
 
-# https://wiki.hypr.land/Configuring/Basics/Variables/#gestures
+# https://wiki.hypr.land/Configuring/Advanced-and-Cool/Gestures/
 gesture = 3, down, mod: ALT, close
 gesture = 3, up, mod: SUPER, scale: 1.5, fullscreen
 gesture = 3, left, scale: 1.5, float
@@ -462,9 +462,8 @@ bind = $mod CTRL, B, exec, ~/.scripts/bluetooth-manager
 bind = $mod CTRL, N, exec, ~/.scripts/network-manager
 bind = $mod CTRL, S, exec, ~/.scripts/sound-playback-manager
 bind = $mod CTRL, L, exec, ~/.scripts/system-lock
-bind = $mod CTRL SHIFT, W, exec, ~/.scripts/wallpaper-reset
 bind = $mod CTRL, W, exec, ~/.scripts/wallpaper-manager
-
+bind = $mod CTRL SHIFT, W, exec, ~/.scripts/wallpaper-reset
 bind = $mod SHIFT, C, exec, ~/.scripts/colorpicker
 bind = $mod, semicolon, exec, ~/.scripts/emojipicker
 
@@ -526,10 +525,6 @@ bind = $mod CTRL SHIFT, M, movetoworkspacesilent, special:magic
 # Layout
 bind = $mod CTRL, backslash, exec, ~/.config/hypr/scripts/swap-layout.sh
 
-bind = $mod, H, movefocus, l
-bind = $mod, J, movefocus, d
-bind = $mod, K, movefocus, u
-bind = $mod, L, movefocus, r
 bind = $mod, left, swapwindow, l
 bind = $mod, down, swapwindow, d
 bind = $mod, up, swapwindow, u
