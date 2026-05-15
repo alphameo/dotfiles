@@ -279,7 +279,7 @@ return {
   event = "VeryLazy",
   config = function()
     -- require("mini.pairs").setup()
-    setup_surround()
+    -- setup_surround()
     -- require("mini.move").setup()
     -- setup_sessions()
     -- setup_bracketed()
