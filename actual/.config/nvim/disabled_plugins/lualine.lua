@@ -7,6 +7,9 @@ return {
     vim.o.showmode = false -- Don't show mode in command line
     vim.o.ruler = false -- Don't show cursor position in command line
     local icon = require("diagnostics").icons
+    local get_key = function()
+      return require("util").key_history
+    end
 
     require("lualine").setup {
       options = {
@@ -27,8 +30,7 @@ return {
         lualine_c = { { "filename", file_status = true, path = 2 } },
         lualine_x = {
           {
-            require("noice").api.status.command.get,
-            cond = require("noice").api.status.command.has,
+            get_key,
             color = { fg = "#ff9e64" },
           },
           { "diagnostics", symbols = { error = icon.Error, warn = icon.Warn, info = icon.Info, hint = icon.Hint } },
