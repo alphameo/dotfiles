@@ -72,6 +72,7 @@ return {
       "--codes",
       "--globals",
       "vim",
+      "hl",
       "--ranges",
       "-",
     }
