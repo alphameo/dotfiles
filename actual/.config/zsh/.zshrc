@@ -18,25 +18,19 @@ source "${ZINIT_HOME}/zinit.zsh"
 ###############
 
 alias sudo='sudo '
-alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
 alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 alias pacman='pacman --color=always'
-alias cz='chezmoi'
-alias fm='yazi_filemanager'
 alias nv='nvim'
-alias snv='sudoedit'
+alias sudonv='sudoedit'
 alias bat='bat --style=plain --pager=never'
+alias ls="ls --color"
 alias rg='rg --color=always'
 # alias cdr="__zoxide_z"
 alias cdr="__zoxide_zi"
 alias ff='fastfetch'
 alias e='eza --color=always --icons=always'
-alias et='eza_tree'
 alias ldoc='lazydocker'
 alias lgit='lazygit'
-alias kub='kubectl'
-alias doc="docker"
-alias docc="docker compose"
 
 
 ###############
@@ -60,17 +54,20 @@ eval "$(starship init zsh)"
 ### CUSTOM FUNCTIONS ###
 ########################
 
-eza_tree() {
-  EZA_TREE="eza --tree --color=always"
-  PARAMS="$*"
+# eza tree
+et() {
+  local eza_cmd="eza --tree --color=always"
+  local params="$*"
   case "$1" in ''|*[!0-9]*)
-      eval "$(printf '%s --level=1 %s\n' "$EZA_TREE" "$PARAMS")";;
+      eval "$(printf '%s --level=1 %s\n' "$eza_cmd" "$params")";;
   *)
-      eval "$(printf '%s --level=%s\n' "$EZA_TREE" "$PARAMS")";;
+      eval "$(printf '%s --level=%s\n' "$eza_cmd" "$params")";;
   esac
 }
 
-function yazi_filemanager() {
+# yazi
+# https://yazi-rs.github.io/docs/quick-start#shell-wrapper
+function fm() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
   yazi "$@" --cwd-file="$tmp"
   if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
