@@ -1,18 +1,5 @@
 #!/bin/env zsh
 
-#############
-### ZINIT ###
-#############
-
-# See https://github.com/zdharma-continuum/zinit
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-
-source "${ZINIT_HOME}/zinit.zsh"
-
-
 ###############
 ### ALIASES ###
 ###############
@@ -120,9 +107,14 @@ rmvenv() {
 }
 
 
-#####################
-### ZINIT PLUGINS ###
-#####################
+############################
+### ZINIT plugin manager ###
+############################
+# See https://github.com/zdharma-continuum/zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
 # https://github.com/Aloxaf/fzf-tab
 # https://github.com/zsh-users/zsh-syntax-highlighting (see EOF)
