@@ -76,6 +76,7 @@ function fm() {
   rm -f -- "$tmp"
 }
 
+# python venv
 hvenv() {
   echo "Current venv: $VIRTUAL_ENV
 USAGE:
@@ -88,7 +89,7 @@ $ rmvenv <myvirtualenv> # removes venv"
 }
 
 lsvenv() {
-  ls -1 $VENV_HOME
+  ls -1 "$VENV_HOME"
 }
 
 venv() {
@@ -105,7 +106,7 @@ mkvenv() {
     then
       echo "Please provide venv name"
     else
-      python3 -m venv $VENV_HOME/$1
+      python3 -m venv "$VENV_HOME/$1"
   fi
 }
 
@@ -114,7 +115,7 @@ rmvenv() {
     then
       echo "Please provide venv name"
     else
-      rm -r $VENV_HOME/$1
+      rm -r "$VENV_HOME/$1"
   fi
 }
 
