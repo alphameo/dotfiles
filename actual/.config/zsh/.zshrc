@@ -47,9 +47,9 @@ eval "$(zoxide init --cmd z zsh)"
 
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git "
-export FZF_DEFAULT_OPTS="--height 50% --layout=default --border --color=hl:#2dd4bf"
+export FZF_DEFAULT_OPTS="--height=50% --layout=default --border --color=hl:#2dd4bf"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=plain,numbers --line-range :500 {}'"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 export FZF_ALT_C_OPTS="--preview 'eza --icons=always --tree --color=always {} | head -200'"
 
@@ -158,11 +158,11 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons=always --color=always $
 stty -ixon
 
 # See https://zsh.sourceforge.io/Doc/Release/Options.html#History
-HISTFILEDIR="$XDG_STATE_HOME"/zsh
+HISTFILEDIR="$XDG_STATE_HOME/zsh"
 [ -d "$HISTFILEDIR" ] || mkdir "$HISTFILEDIR"
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 
-HISTSIZE=10000
+HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 
 setopt APPEND_HISTORY
@@ -172,6 +172,7 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS # don't save duplicate commands, old commands are deleted, new are written
 setopt HIST_IGNORE_SPACE # ignore commands starting with a space
+setopt HIST_EXPIRE_DUPS_FIRST
 
 # file matching
 setopt EXTENDED_GLOB
@@ -179,6 +180,10 @@ setopt NOMATCH
 
 # report status of background
 setopt NOTIFY
+
+setopt AUTOCD
+setopt NOBEEP
+setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select zle-line-init zle-line-finish
