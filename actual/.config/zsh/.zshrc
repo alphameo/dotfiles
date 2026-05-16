@@ -124,22 +124,25 @@ source "${ZINIT_HOME}/zinit.zsh"
 # https://github.com/zsh-users/zsh-completions
 # https://github.com/marlonrichert/zsh-autocomplete
 # https://github.com/zsh-users/zsh-autosuggestions
+# https://github.com/zsh-users/zsh-history-substring-search
 zinit depth"1" lucid light-mode for \
     Aloxaf/fzf-tab \
     zsh-users/zsh-syntax-highlighting \
     zsh-users/zsh-completions \
-    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-autosuggestions \
 
-zinit ice wait'0' atinit'zicompinit; zicdreplay'
+# fzf-tab
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --icons=always --color=always $realpath'
 
-# zsh-completions
-autoload -U compinit && compinit
+
+##################
+### COMPLETION ###
+##################
+
+autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
-
-# fzf-tab
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons=always --color=always $realpath'
 
 
 ###############
