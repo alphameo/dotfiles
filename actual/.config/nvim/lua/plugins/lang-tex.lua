@@ -1,8 +1,9 @@
+local ft = { "tex", "sty" }
 return {
   {
     "lervag/vimtex",
     lazy = true, -- lazy-loading will disable inverse search
-    ft = { "tex", "sty" },
+    ft = ft,
     config = function()
       vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- disable `K` as it conflicts with LSP hover
       vim.g.vimtex_quickfix_method = vim.fn.executable "pplatex" == 1 and "pplatex" or "latexlog"
@@ -14,6 +15,14 @@ return {
       vim.o.foldexpr = "vimtex#fold#level(v:lnum)"
       vim.o.foldtext = "vimtex#fold#text()"
       vim.o.foldlevel = 2
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = ft,
+        callback = function()
+          local map = vim.keymap.set
+          map("n", "<leader>K", "<plug>(vimtex-doc-package)", { buffer = true, silent = true, desc = "Vimtex Docs" })
+        end,
+      })
     end,
   },
   {
