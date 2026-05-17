@@ -80,6 +80,55 @@ return {
       -- python3 -m ipykernel install --user
       vim.g.loaded_python3_provider = nil
       vim.g.python3_host_prog = vim.fn.expand "~/.virtualenvs/nvim/bin/python3"
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          local map = vim.keymap.set
+          map("n", "<leader>lm", ":MoltenInit<CR>", { buffer = true, silent = true, desc = "Molten Initialize" })
+          map(
+            "n",
+            "<leader>le",
+            ":MoltenEvaluateOperator<CR>",
+            { buffer = true, silent = true, desc = "Molten Operator Selection" }
+          )
+          map(
+            "n",
+            "<leader>ll",
+            ":MoltenEvaluateLine<CR>",
+            { buffer = true, silent = true, desc = "Molten Evaluate Line" }
+          )
+          map(
+            "n",
+            "<leader>lE",
+            ":MoltenReevaluateCell<CR>",
+            { buffer = true, silent = true, desc = "Molten Re-evaluate Cell" }
+          )
+          map("n", "<leader>ld", ":MoltenDelete<CR>", { buffer = true, silent = true, desc = "Molten Delete Cell" })
+          map("n", "<leader>lh", ":MoltenHideOutput<CR>", { buffer = true, silent = true, desc = "Molten Hide Output" })
+          map(
+            "n",
+            "<leader>ls",
+            ":noautocmd MoltenEnterOutput<CR>",
+            { buffer = true, silent = true, desc = "Molten Show/Enter Output" }
+          )
+          map(
+            "v",
+            "<leader>lE",
+            ":<C-u>MoltenEvaluateVisual<CR>gv",
+            { buffer = true, silent = true, desc = "Evaluate visual selection" }
+          )
+          map("n", "<leader>lM", function()
+            local venv = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX"
+            if venv ~= nil then
+              -- in the form of /home/benlubas/.virtualenvs/VENV_NAME
+              venv = string.match(venv, "/.+/(.+)")
+              vim.cmd(("MoltenInit %s"):format(venv))
+            else
+              vim.cmd "MoltenInit python3"
+            end
+          end, { buffer = true, silent = true, desc = "Molten Initialize for python3" })
+        end,
+      })
     end,
   },
   {
@@ -119,6 +168,24 @@ return {
           default_method = "molten",
         },
       }
+
+      local qrunner = require "quarto.runner"
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          local map = vim.keymap.set
+          map("n", "<leader>lq", ":QuartoActivate<CR>", { buffer = true, silent = true, desc = "Quarto Initialize" })
+          map("n", "<leader>lP", ":QuartoPreview<CR>", { buffer = true, silent = true, desc = "Quarto Preview" })
+          map("n", "<leader>lc", qrunner.run_cell, { buffer = true, desc = "Quarto Run Cell" })
+          map("n", "<leader>lu", qrunner.run_above, { buffer = true, desc = "Quarto Run Cell Above" })
+          map("n", "<leader>la", qrunner.run_all, { buffer = true, desc = "Quarto Run All Cells" })
+          map("n", "<leader>lL", qrunner.run_line, { buffer = true, desc = "Quarto Run Line" })
+          map("n", "<leader>lA", function()
+            qrunner.run_all(true)
+          end, { buffer = true, silent = true, desc = "Quarto Run All Cells of All Languages" })
+          map("v", "<leader>lr", qrunner.run_range, { buffer = true, silent = true, desc = "Quarto Run Visual Range" })
+        end,
+      })
     end,
   },
   {

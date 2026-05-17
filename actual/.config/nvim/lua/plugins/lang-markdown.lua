@@ -6,6 +6,19 @@ return {
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
+    config = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          vim.keymap.set(
+            "n",
+            "<leader>lp",
+            ":MarkdownPreviewToggle<CR>",
+            { buffer = true, silent = true, desc = "Markdown Preview" }
+          )
+        end,
+      })
+    end,
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
@@ -27,6 +40,18 @@ return {
         },
       }
       vim.cmd "RenderMarkdown disable"
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          vim.keymap.set(
+            "n",
+            "<leader>lr",
+            ":RenderMarkdown toggle<CR>",
+            { buffer = true, silent = true, desc = "Markdown Render" }
+          )
+        end,
+      })
     end,
   },
 }
