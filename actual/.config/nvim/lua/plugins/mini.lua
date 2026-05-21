@@ -1,35 +1,3 @@
-vim.api.nvim_create_autocmd("Filetype", {
-  pattern = { "neo-tree" },
-  callback = function(args)
-    vim.b[args.buf].ministatusline_disable = true
-  end,
-})
-vim.api.nvim_create_autocmd("TermOpen", {
-  callback = function(args)
-    vim.b[args.buf].miniindentscope_disable = true
-  end,
-})
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "help",
-    "startify",
-    "alpha",
-    "ministarter",
-    "dashboard",
-    "neo-tree",
-    "NvimTree",
-    "Trouble",
-    "lazy",
-    "packer",
-    "mason",
-    "toggleterm",
-    "neogitstatus",
-  },
-  callback = function()
-    vim.b.miniindentscope_disable = true
-  end,
-})
-
 local setup_surround = function()
   require("mini.surround").setup {
     custom_surroundings = nil,
@@ -93,6 +61,37 @@ local setup_bracketed = function()
 end
 
 local setup_indentscope = function()
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "neo-tree" },
+    callback = function(args)
+      vim.b[args.buf].ministatusline_disable = true
+    end,
+  })
+  vim.api.nvim_create_autocmd("TermOpen", {
+    callback = function(args)
+      vim.b[args.buf].miniindentscope_disable = true
+    end,
+  })
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
+      "help",
+      "startify",
+      "alpha",
+      "ministarter",
+      "dashboard",
+      "neo-tree",
+      "NvimTree",
+      "Trouble",
+      "lazy",
+      "packer",
+      "mason",
+      "toggleterm",
+      "neogitstatus",
+    },
+    callback = function()
+      vim.b.miniindentscope_disable = true
+    end,
+  })
   local indent = require "mini.indentscope"
   indent.setup {
     draw = {
