@@ -1,7 +1,6 @@
 [user]
 	name = alphameo
 	email = pavel.2014.play@gmail.com
-    signingkey = 1775E37D0C34330F374F58DC262C9AB465D268D0 
 [commit]
 	verbose = true
     gpgsign = true
