@@ -24,9 +24,10 @@
             "magic": ""
         },
         "all-outputs": false,
-        "disable-scroll": true,
         "show-special": true,
-        "special-visible-only": true
+        "special-visible-only": true,
+        "on-click": "activate",
+        "disable-scroll": true
     },
     "hyprland/window": {
         "format": "{}",
