@@ -140,6 +140,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --icons=always --color=al
 ##################
 
 autoload -Uz compinit && compinit
+# zinit ice wait'0' atinit'zicompinit; zicdreplay'
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
