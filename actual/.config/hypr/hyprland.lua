@@ -492,9 +492,10 @@ hl.bind(mod .. "F", hl.dsp.window.float { action = "toggle" })
 hl.bind(mod .. "P", hl.dsp.window.pseudo())
 hl.bind(mod .. "return", hl.dsp.window.fullscreen { mode = "maximized", action = "toggle" })
 hl.bind(mod .. "f11", hl.dsp.window.fullscreen { mode = "fullscreen", action = "toggle" })
-hl.bind(mod .. "Q", hl.dsp.window.kill())
+hl.bind(mod .. "Q", hl.dsp.window.close())
+hl.bind(mod .. "SHIFT + Q", hl.dsp.window.kill())
 
-require "lo-scrolling"
+require "lo-dwindle"
 
 hl.bind(mod .. "bracketleft", hl.dsp.focus { workspace = "-1" })
 hl.bind(mod .. "bracketright", hl.dsp.focus { workspace = "+1" })
