@@ -267,6 +267,28 @@ local setup_statusline = function()
   }
 end
 
+local setup_notify = function()
+  local notify = require "mini.notify"
+  notify.setup {
+    lsp_progress = {
+      enable = true,
+      level = "INFO",
+      duration_last = 1000,
+    },
+
+    window = {
+      -- Floating window config
+      config = {},
+
+      max_width_share = 0.382,
+
+      winblend = 25,
+    },
+  }
+
+  vim.keymap.set("n", "<leader>nn", notify.show_history, { desc = "Notifications List" })
+end
+
 -- TODO: check mappings, when removing plugin
 return {
   "echasnovski/mini.nvim",
@@ -287,5 +309,6 @@ return {
     -- setup_sj()
     setup_tabline()
     setup_statusline()
+    setup_notify()
   end,
 }
