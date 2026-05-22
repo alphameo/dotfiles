@@ -44,9 +44,10 @@ return {
     map("n", "<leader>fd", fzf.diagnostics_document, { silent = true, desc = "Find in document Diagnostics" })
     map("n", "<leader>fD", fzf.diagnostics_workspace, { silent = true, desc = "Find in workspace Diagnostics" })
 
-    map("n", "<leader>fh", fzf.helptags, { desc = "Find Help Tag" })
+    map("n", "<leader>fh", fzf.git_hunks, { desc = "Find Git Hunks" })
 
     map("n", "<leader>.c", fzf.colorschemes, { desc = "Choose Colorscheme" })
     map("n", "<leader>.k", fzf.keymaps, { desc = "Inspect Keymapping" })
+    map("n", "<leader>.h", fzf.helptags, { desc = "Find Help Tag" })
   end,
 }
