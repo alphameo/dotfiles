@@ -45,6 +45,7 @@ return {
     map("n", "<leader>fD", fzf.diagnostics_workspace, { silent = true, desc = "Find in workspace Diagnostics" })
 
     map("n", "<leader>fh", fzf.git_hunks, { desc = "Find Git Hunks" })
+    map("n", "<leader>fH", fzf.git_status, { desc = "Find Git Status" })
 
     map("n", "<leader>.c", fzf.colorschemes, { desc = "Choose Colorscheme" })
     map("n", "<leader>.k", fzf.keymaps, { desc = "Inspect Keymapping" })
