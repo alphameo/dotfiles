@@ -405,11 +405,11 @@ if hl.plugin.hyprexpo ~= nil then
   }
 end
 -- https://github.com/VirtCode/hypr-dynamic-cursors
-if hl.plugin["dynamic-cursors"] ~= nil then
+if hl.plugin.dynamic_cursors ~= nil then
   hl.config {
     plugin = {
-      ["dynamic-cursor"] = {
-        enabled = true,
+      dynamic_cursors = {
+        enabled = false,
         mode = "none", -- tilt | rotate | stretch | none
         threshold = 2, -- min angle in deg
         rotate = {
@@ -418,20 +418,19 @@ if hl.plugin["dynamic-cursors"] ~= nil then
         },
         tilt = {
           limit = 5000, -- speed in px/s, on which the full_tilt (60° in both directions) is reached
-          ["function"] = "negative_quadratic", -- relationship between speed and tilt
+          activation = "negative_quadratic", -- relationship between speed and tilt
           -- linear | quadratic | negative_quadratic
           window = 100, -- time window in ms, over which the speed is calculated
         },
         stretch = {
           limit = 3000, -- speed in px/s, on which the full_stretch (2*orig_length) is reached
-          ["function"] = "quadratic", -- relationship between speed and stretch
+          activation = "quadratic", -- relationship between speed and stretch
           -- linear | quadratic | negative_quadratic
           window = 100, -- time window in ms, over which the speed is calculated
         },
         shake = {
           enabled = true,
-          nearest = true, -- use nearest-neighbour pielated scaling
-          threshold = 4.0,
+          threshold = 6.0,
           base = 4.0, -- magnification level on start
           speed = 4.0, -- magnification level on shaking
           influence = 0.0, -- of speed
