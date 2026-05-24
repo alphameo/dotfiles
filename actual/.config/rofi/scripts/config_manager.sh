@@ -44,7 +44,7 @@ function run {
     elif [[ $INP == $WAYBAR ]]; then
         open_config "waybar" "config.jsonc"
     elif [[ $INP == $HYPR ]]; then
-        open_config "hypr" "hyprland.conf"
+        open_config "hypr" "hyprland.lua"
     elif [[ $INP == $DUNST ]]; then
         open_config "dunst" "dunstrc"
     elif [[ $INP == $SWAYNC ]]; then
