@@ -1,4 +1,4 @@
-local cat = require "catppuccin-mocha"
+local cat = require "hyprland.catppuccin-mocha"
 
 return {
   color_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },

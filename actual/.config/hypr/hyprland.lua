@@ -5,7 +5,7 @@
 --- THEME ---
 -------------
 
-local theme = require "theme"
+local theme = require "hyprland.theme"
 local wallpaper_path = "$HOME/Media/Pictures/Wallpapers/astronaut.jpg"
 
 ----------------
@@ -27,7 +27,7 @@ hl.monitor {
 }
 
 -- nwg-displays
--- require("monitors")
+require "monitors"
 
 hl.workspace_rule { workspace = "1", monitor = "eDP-1", default = true, persistent = true }
 hl.workspace_rule { workspace = "4", monitor = "HDMI-A-1", default = true, persistent = false }
@@ -489,6 +489,7 @@ hl.bind(mod .. "CTRL + C", hl.dsp.exec_cmd "~/.scripts/colorpicker")
 hl.bind(mod .. "CTRL + semicolon", hl.dsp.exec_cmd "~/.scripts/emojipicker")
 hl.bind(mod .. "SHIFT + S", hl.dsp.exec_cmd "~/.scripts/screenshot-capture")
 hl.bind(mod .. "V", hl.dsp.exec_cmd "~/.scripts/clipboard")
+hl.bind(mod .. "SHIFT + P", hl.dsp.exec_cmd "~/.scripts/display-manager")
 -- TODO: refactor when available
 -- hl.bind(mod .. "TAB", hl.dsp.exec_cmd "hyprcrtl hyprexpo:expo toggle")
 
@@ -499,7 +500,7 @@ hl.bind(mod .. "f11", hl.dsp.window.fullscreen { mode = "fullscreen", action = "
 hl.bind(mod .. "Q", hl.dsp.window.close())
 hl.bind(mod .. "SHIFT + Q", hl.dsp.window.kill())
 
-require "lo-dwindle"
+require "hyprland.lo-dwindle"
 
 hl.bind(mod .. "bracketleft", hl.dsp.focus { workspace = "-1" })
 hl.bind(mod .. "bracketright", hl.dsp.focus { workspace = "+1" })
