@@ -1,15 +1,15 @@
 #!/bin/env sh
 
-# source: https://wiki.archlinux.org/title/XDG_Base_Directory#User_directories
+# https://wiki.archlinux.org/title/XDG_Base_Directory#User_directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-# source: https://wiki.archlinux.org/title/Zsh#Startup/Shutdown_files
+# https://wiki.archlinux.org/title/Zsh#Startup/Shutdown_files
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-# src: https://wiki.archlinux.org/title/Environment_variables#Default_programs
+# https://wiki.archlinux.org/title/Environment_variables#Default_programs
 export SHELL="/usr/bin/zsh"
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
@@ -17,10 +17,11 @@ export VISUAL="nvim"
 export BROWSER="zen-browser"
 export PAGER="less"
 export TERMINAL='kitty'
+
 export LAUNCHER='rofi'
 export FILEMANAGER='yazi'
 export EXPLORER='thunar'
-export SYSMONITOR='btop'
+export SYSMONITOR='resources'
 
 export LF_CONFIG_HOME="$XDG_CONFIG_HOME"
 
