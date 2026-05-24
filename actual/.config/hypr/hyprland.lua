@@ -476,12 +476,11 @@ hl.bind(mod .. "I", hl.dsp.exec_cmd "~/.scripts/settings")
 
 -- Utility
 hl.bind(mod .. "CTRL + R", hl.dsp.exec_cmd "~/.scripts/desktop-environment-reload")
-hl.bind(mod .. "CTRL + P", hl.dsp.exec_cmd "~/.scripts/power-menu")
 hl.bind(mod .. "CTRL + M", hl.dsp.exec_cmd "~/.scripts/task-manager")
 hl.bind("CTRL + SHIFT + escape", hl.dsp.exec_cmd "~/.scripts/task-manager")
 hl.bind(mod .. "CTRL + B", hl.dsp.exec_cmd "~/.scripts/bluetooth-manager")
 hl.bind(mod .. "CTRL + N", hl.dsp.exec_cmd "~/.scripts/network-manager")
-hl.bind(mod .. "CTRL + S", hl.dsp.exec_cmd "~/.scripts/sound-playback-manager")
+hl.bind(mod .. "CTRL + S", hl.dsp.exec_cmd "~/.scripts/sound-sink-manager")
 hl.bind(mod .. "CTRL + L", hl.dsp.exec_cmd "~/.scripts/system-lock")
 hl.bind(mod .. "CTRL + W", hl.dsp.exec_cmd "~/.scripts/wallpaper-manager")
 hl.bind(mod .. "CTRL + SHIFT + W", hl.dsp.exec_cmd "~/.scripts/wallpaper-reset")
