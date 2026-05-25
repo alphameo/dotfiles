@@ -517,9 +517,9 @@ for key = 1, 8 do
   hl.bind(mod .. "CTRL + SHIFT + " .. key, hl.dsp.window.move { workspace = key, follow = false })
 end
 
-hl.bind(mod .. "M", hl.dsp.workspace.toggle_special "magic")
-hl.bind(mod .. "SHIFT + M", hl.dsp.window.move { workspace = "special:magic", follow = true })
-hl.bind(mod .. "CTRL + SHIFT + M", hl.dsp.window.move { workspace = "special:magic", follow = false })
+hl.bind(mod .. "apostrophe", hl.dsp.workspace.toggle_special "scratch")
+hl.bind(mod .. "SHIFT + apostrophe", hl.dsp.window.move { workspace = "special:scratch", follow = true })
+hl.bind(mod .. "CTRL + apostrophe", hl.dsp.window.move { workspace = "special:scratch", follow = false })
 
 hl.bind(mod .. "H", hl.dsp.focus { direction = "left" })
 hl.bind(mod .. "J", hl.dsp.focus { direction = "down" })
