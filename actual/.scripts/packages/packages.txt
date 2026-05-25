@@ -135,6 +135,8 @@ gwenview
 
 obs-studio
 kdenlive
+audacity
+
 losslesscut-bin
 
 libreoffice
@@ -142,6 +144,7 @@ libreoffice
 v2rayn
 
 btop
+resources
 
 nwg-displays
 
@@ -165,3 +168,10 @@ conan
 zen-browser
 
 opentabletdriver
+
+wl-clipboard
+
+syncthing
+localsend
+
+handy
