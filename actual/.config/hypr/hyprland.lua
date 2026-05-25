@@ -496,6 +496,10 @@ hl.bind(mod .. "F", hl.dsp.window.float { action = "toggle" })
 hl.bind(mod .. "P", hl.dsp.window.pseudo())
 hl.bind(mod .. "return", hl.dsp.window.fullscreen { mode = "maximized", action = "toggle" })
 hl.bind(mod .. "f11", hl.dsp.window.fullscreen { mode = "fullscreen", action = "toggle" })
+
+-- -1 (current) | 0 (none) | 1 (maximize) | 2 (fullscreen) | 3 (maximized&fullscreen)
+hl.bind(mod .. "CTRL + return", hl.dsp.window.fullscreen_state { internal = 1, client = 0, action = "toggle" })
+
 hl.bind(mod .. "Q", hl.dsp.window.close())
 hl.bind(mod .. "SHIFT + Q", hl.dsp.window.kill())
 
