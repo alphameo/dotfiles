@@ -292,12 +292,6 @@ hl.window_rule { match = { class = win_class_all }, idle_inhibit = "fullscreen" 
 hl.window_rule { match = { title = win_class_all }, idle_inhibit = "fullscreen" }
 hl.window_rule { match = { fullscreen = true }, idle_inhibit = "fullscreen" }
 
-local win_title_dialog = "^(.*\\b([Ss]ave|[Oo]pen|[Ff]ile|[Cc]hoose)\\b.*)$"
-hl.window_rule { match = { title = win_title_dialog }, float = true }
-hl.window_rule { match = { title = win_title_dialog }, size = { 900, 600 } }
-hl.window_rule { match = { title = win_title_dialog }, center = true }
-hl.window_rule { match = { title = win_title_dialog }, no_initial_focus = false }
-
 local win_class_rofi = "^(rofi)$"
 hl.window_rule { match = { class = win_class_rofi }, float = true }
 hl.window_rule { match = { class = win_class_rofi }, center = true }
@@ -335,6 +329,12 @@ hl.window_rule { match = { class = win_class_dragon }, pin = true }
 
 local layer_ns_logout = "^(logout_dialog)$"
 hl.layer_rule { match = { namespace = layer_ns_logout }, blur = true }
+
+local win_title_dialog = "^(.*\\b([Ss]ave|[Oo]pen|[Ff]ile|[Cc]hoose)\\b.*)$"
+hl.window_rule { match = { title = win_title_dialog }, float = true }
+hl.window_rule { match = { title = win_title_dialog }, size = { 900, 600 } }
+hl.window_rule { match = { title = win_title_dialog }, center = true }
+hl.window_rule { match = { title = win_title_dialog }, no_initial_focus = false }
 
 -------------
 --- INPUT ---
