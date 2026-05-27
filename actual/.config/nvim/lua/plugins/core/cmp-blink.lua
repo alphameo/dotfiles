@@ -42,6 +42,9 @@ return {
         ["<C-S-Tab>"] = { "snippet_backward", "fallback" },
       },
       completion = {
+        keyword = {
+          range = "full", -- full | prefix
+        },
         documentation = {
           auto_show = false,
           auto_show_delay_ms = 500,
@@ -58,10 +61,7 @@ return {
             columns = {
               { "kind_icon" },
               { "kind" },
-              {
-                "label",
-                "label_description",
-              },
+              { "label", "label_description" },
               { "source_id" },
             },
           },
@@ -192,7 +192,7 @@ return {
   {
     "saghen/blink.compat",
     version = "2.*", -- use v2.* for blink.cmp v1.*
-    lazy = true, -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+    lazy = true,
     opts = {},
   },
 }
