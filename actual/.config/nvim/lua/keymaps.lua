@@ -96,6 +96,8 @@ map("n", "gd", function()
   })
 end, { silent = true, desc = "Reveal Diagnostic" })
 
+map("n", "<leader>fd", vim.diagnostic.setloclist, { silent = true, desc = "Find in document Diagnostics" })
+
 -- Vim Pack
 map({ "n" }, "<leader>pu", vim.pack.update, { silent = true, desc = "vim.pack.update" })
 
