@@ -1,4 +1,8 @@
 -- General
+vim.loader.enable()
+
+vim.g.have_nerd_font = true
+
 vim.o.undofile = true -- Save undo history
 vim.o.undodir = os.getenv "HOME" .. "/.vim/undodir"
 
