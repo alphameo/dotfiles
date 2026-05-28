@@ -5,5 +5,6 @@ return {
   require "plugins.core.lspconfig",
   require "plugins.core.mason",
   require "plugins.core.lint",
+  require "plugins.core.snippets",
   require "plugins.core.treesitter",
 }
