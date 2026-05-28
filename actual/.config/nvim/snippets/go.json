@@ -1,0 +1,12 @@
+{
+    "iferr": {
+        "prefix": "iferr",
+        "body": [
+            "if err != nil {",
+            "\t${1:// handle error}",
+            "}",
+            "$0"
+        ],
+        "description": "Go error handling block"
+    }
+}
