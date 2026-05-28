@@ -49,18 +49,22 @@ local setup_mappings = function()
   })
 end
 
-local global_cfg = {
-  -- INFO: check default: lua print(vim.inspect(vim.lsp.protocol.make_client_capabilities()))
-  capabilities = {
-    textDocument = {
-      completion = {
-        completionItem = {
-          snippetSupport = true, -- autofill func placeholders
-          labelDetailSupport = false, -- disable params in cmp window
-        },
+local capabilities = {
+  textDocument = {
+    completion = {
+      completionItem = {
+        snippetSupport = true, -- autofill func placeholders
+        labelDetailSupport = false, -- disable params in cmp window
       },
     },
   },
+}
+
+capabilities = require("blink.cmp").get_lsp_capabilities(capabilities) or capabilities
+
+local global_cfg = {
+  -- INFO: check default: lua print(vim.inspect(vim.lsp.protocol.make_client_capabilities()))
+  capabilities = capabilities,
 }
 
 local java_init_cfg = {
