@@ -3,105 +3,105 @@ vim.loader.enable()
 
 vim.g.have_nerd_font = true
 
-vim.o.undofile = true -- Save undo history
+vim.o.undofile = true
 vim.o.undodir = os.getenv "HOME" .. "/.vim/undodir"
 
-vim.o.backup = false -- Don't store backup while overwriting the file
-vim.o.writebackup = false -- Don't store backup while overwriting the file
-vim.o.swapfile = false -- Creates a swapfile
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.swapfile = false
 
-vim.o.updatetime = 250 -- Decrease update time
-vim.o.lazyredraw = false -- Do not redraw during macros
-vim.o.synmaxcol = 300 -- Syntax highlighting line limit
-vim.o.redrawtime = 10000 -- Redraw tolerance
-vim.o.maxmempattern = 20000 -- Max memory (KB)
+vim.o.updatetime = 250
+vim.o.lazyredraw = false
+vim.o.synmaxcol = 300
+vim.o.redrawtime = 10000
+vim.o.maxmempattern = 20000
 
-vim.o.timeoutlen = 200 -- Key timeout duration
-vim.o.ttimeoutlen = 10 -- Key code timeout
+vim.o.timeoutlen = 200
+vim.o.ttimeoutlen = 10
 
-vim.o.autoread = true -- Autoread file changes outside nvim
-vim.o.autowrite = false -- Autosave file after edit
+vim.o.autoread = true
+vim.o.autowrite = false
 
-vim.o.mouse = "a" -- Enable mouse support
+vim.o.mouse = "a"
 
 vim.opt.clipboard:append "unnamedplus" -- Use system clipboard
 
-vim.o.backspace = "indent,eol,start" -- Backspace behavior
+vim.o.backspace = "indent,eol,start"
 
 vim.o.encoding = "utf-8"
 
-vim.o.errorbells = false -- No error system sound
+vim.o.errorbells = false
 
-vim.o.confirm = true -- Ask when did not save on exit
+vim.o.confirm = true
 
-vim.o.autochdir = false -- Autochange directories
+vim.o.autochdir = false
 
 vim.opt.isfname:append "@-@" -- Allow @ for filenames
 vim.opt.iskeyword:append "-" -- Include "-" in-words
 
 vim.opt.path:append "**" -- Include subdirs in :find
 
-vim.o.selection = "exclusive" -- Select behavior last char
+vim.o.selection = "exclusive"
 
-vim.o.hidden = true -- Allow hidden buffers
-vim.o.modifiable = true -- Allow buffer modifications
+vim.o.hidden = true
+vim.o.modifiable = true
 
-vim.o.spelllang = "ru_ru,en_us" -- List for spellchecks
-vim.o.spell = false -- Enable spellcheck
+vim.o.spelllang = "ru_ru,en_us"
+vim.o.spell = false
 
 vim.opt.diffopt:append "linematch:60" -- Diff display options
 
 vim.cmd "filetype plugin indent on" -- Load settings, mappings, indent per filetype
 
 -- Editing
-vim.o.tabstop = 4 -- Tab width
-vim.o.shiftwidth = 4 -- Indent width
-vim.o.softtabstop = 4 -- Number of spaces that tab counts
-vim.o.expandtab = true -- Spaces instead of tabs
-vim.o.smartindent = true -- Smart auto-indenting
-vim.o.autoindent = true -- Copy indent from current line
-vim.o.breakindent = true -- Keep wrapped line on same indent level
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
+vim.o.smartindent = true
+vim.o.autoindent = true
+vim.o.breakindent = true
 
 -- Completion
-vim.o.autocomplete = false -- Enable default autocompletion
-vim.o.completeopt = "menu,menuone,noselect,nearest,popup" -- Options of default completion
-vim.o.wildmenu = false -- Cmd tab completion
-vim.o.wildmode = "longest:full,full" -- Cmd completion behavior
+vim.o.autocomplete = false
+vim.o.completeopt = "menu,menuone,noselect,nearest,popup"
+vim.o.wildmenu = false
+vim.o.wildmode = "longest:full,full"
 
 -- Searching
-vim.o.ignorecase = true -- Case-insensitive search
-vim.o.infercase = true -- Infer letter cases for a richer built-in keyword completion
-vim.o.smartcase = true -- Case sensitive if uppercase in search
-vim.o.hlsearch = true -- Highlight search results
-vim.o.incsearch = true -- Show matches as you type
-vim.o.showmatch = true -- Highlights matching brackets
+vim.o.ignorecase = true
+vim.o.infercase = true
+vim.o.smartcase = true
+vim.o.hlsearch = true
+vim.o.incsearch = true
+vim.o.showmatch = true
 
 -- Appearance
-vim.o.termguicolors = true -- 24-bit colors
+vim.o.termguicolors = true
 
-vim.o.cursorline = true -- Highlight current line
+vim.o.cursorline = true
 
-vim.o.number = true -- Line numbers
-vim.o.relativenumber = true -- Set relative numbered lines
-vim.o.signcolumn = "yes" -- Show column with help signs (e.g. breakpoints, warns)
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.signcolumn = "yes"
 
-vim.o.wrap = false -- Display lines as one long line
-vim.o.linebreak = true -- Companion to wrap, don't split words
-vim.o.foldenable = false -- Enable folding
-vim.o.foldmethod = "expr" -- Use expression for folding
-vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Use treesitter for folding
+vim.o.wrap = false
+vim.o.linebreak = true
+vim.o.foldenable = false
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldlevel = 99 -- Start with all opened folds
 
-vim.o.scrolloff = 10 -- Keep n lines above/below cursor
-vim.o.sidescrolloff = 8 -- Keep n columns left/right of cursor
+vim.o.scrolloff = 10
+vim.o.sidescrolloff = 4
 
 vim.o.splitkeep = "screen" -- Reduce scroll during window split
-vim.o.splitbelow = true -- Horizontal splits go below
-vim.o.splitright = true -- Vertical splits go right
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 vim.opt.fillchars = { eob = " " } -- Character on emty lines at the end of buffer
 
-vim.o.conceallevel = 0 -- Visual-control chars (**, '') in md etc.
+vim.o.conceallevel = 0
 
 vim.opt.showbreak = "↳"
 local space = "·"
@@ -117,21 +117,21 @@ vim.opt.listchars = {
 }
 vim.opt.list = false -- Show non-printing characters (glyphs)
 
-vim.o.cmdheight = 0 -- Height of default command line
-vim.o.showmode = true -- Show mode in default statusline
+vim.o.cmdheight = 0
+vim.o.showmode = true
 
 vim.o.virtualedit = "block" -- Allow going past the end of line in visual block mode
 
 vim.o.inccommand = "split" -- Preview :substitute options
 
 -- Popup menu
-vim.o.pumborder = "rounded" -- Popup menu border style
-vim.o.pumheight = 10 -- Popup menu max heght
-vim.o.pumwidth = 15 -- Popup menu min width
-vim.o.pummaxwidth = 40 -- Popup menu max width
-vim.o.pumblend = 0 -- Pupup menu transparency
-vim.o.winblend = 0 -- Floating window transparency
-vim.o.winborder = "none" -- Border of documentation, signature, completion
+vim.o.pumborder = "rounded"
+vim.o.pumheight = 10
+vim.o.pumwidth = 15
+vim.o.pummaxwidth = 40
+vim.o.pumblend = 0
+vim.o.winblend = 0
+vim.o.winborder = "none"
 
 -- Custom filetypes
 vim.filetype.add {
