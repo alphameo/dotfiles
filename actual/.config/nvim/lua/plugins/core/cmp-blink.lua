@@ -31,20 +31,11 @@ return {
         ["<C-S-Tab>"] = { "snippet_backward", "fallback" },
       },
       completion = {
-        keyword = {
-          range = "full", -- full | prefix
-        },
-        documentation = {
-          auto_show = false,
-          auto_show_delay_ms = 500,
-          update_delay_ms = 50,
-          treesitter_highlighting = true,
-        },
+        keyword = { range = "full" }, -- full | prefix
         menu = {
           enabled = true,
           auto_show = true,
-          auto_show_delay_ms = 200,
-          direction_priority = { "s", "n" },
+          auto_show_delay_ms = 0,
           draw = {
             treesitter = { "lsp" },
             columns = {
@@ -55,60 +46,31 @@ return {
             },
           },
         },
-        accept = {
-          auto_brackets = { enabled = true },
-        },
-        ghost_text = {
-          enabled = false,
-          show_with_selection = true,
-          show_without_selection = false,
-          show_with_menu = false,
-          show_without_menu = true,
-        },
         list = {
           selection = {
             preselect = true,
             auto_insert = false,
           },
         },
+        accept = { auto_brackets = { enabled = true } },
+        documentation = {
+          auto_show = false,
+          auto_show_delay_ms = 500,
+        },
+        ghost_text = { enabled = false },
       },
       signature = {
         enabled = true,
-        trigger = {
-          enabled = true,
-          show_on_keyword = true,
-          show_on_trigger_character = true,
-          show_on_insert = true,
-          show_on_insert_on_trigger_character = true,
-        },
-        window = {
-          treesitter_highlighting = true,
-          show_documentation = true,
-        },
+        trigger = { enabled = true },
+        window = { show_documentation = true },
       },
       snippets = { preset = "luasnip" },
       sources = {
-        default = {
-          "lsp",
-          "path",
-          "snippets",
-          "buffer",
-        },
+        default = { "lsp", "path", "snippets", "buffer" },
         per_filetype = {
-          sql = {
-            "lsp",
-            "sql",
-            "dadbod",
-            "snippets",
-            "buffer",
-          },
-          tex = {
-            "latex",
-            "lsp",
-            "path",
-            "snippets",
-            "buffer",
-          },
+          sql = { "lsp", "sql", "dadbod", "path", "snippets", "buffer" },
+          tex = { "lsp", "latex", "path", "snippets", "buffer" },
+          sty = { "lsp", "latex", "path", "snippets", "buffer" },
         },
         providers = {
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
@@ -127,10 +89,10 @@ return {
           },
         },
       },
-      -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
-      -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
-      -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
-      fuzzy = { implementation = "prefer_rust_with_warning" },
+      fuzzy = {
+        frecency = { enabled = true },
+        use_proximity = true,
+      },
       cmdline = {
         enabled = true,
         keymap = {
@@ -140,9 +102,7 @@ return {
           ["<C-j>"] = { "select_next", "fallback" },
         },
         completion = {
-          menu = {
-            auto_show = true,
-          },
+          menu = { auto_show = true },
           ghost_text = { enabled = false },
           list = {
             selection = {
@@ -154,22 +114,15 @@ return {
       },
       term = {
         enabled = false,
-        keymap = { preset = "inherit" },
-        sources = {},
         completion = {
-          trigger = {
-            show_on_blocked_trigger_characters = {},
-            show_on_x_blocked_trigger_characters = nil, -- Inherits from top level config when not set
-          },
-          -- Inherits from top level config options when not set
+          menu = { auto_show = true },
+          ghost_text = { enabled = false },
           list = {
             selection = {
-              preselect = nil,
-              auto_insert = nil,
+              preselect = true,
+              auto_insert = false,
             },
           },
-          menu = { auto_show = nil },
-          ghost_text = { enabled = nil },
         },
       },
       appearance = {
