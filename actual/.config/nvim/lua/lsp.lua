@@ -72,7 +72,7 @@ local java_init_cfg = {
   settings = {
     java = {
       -- TODO: path to the main java version (JDK 17 or higher)
-      home = "/usr/lib/jvm/java-25-openjdk",
+      home = "/usr/lib/jvm/java-26-openjdk",
 
       configuration = {
         updateBuildConfiguration = "interactive",
@@ -82,20 +82,12 @@ local java_init_cfg = {
             path = "/usr/lib/jvm/java-8-openjdk",
           },
           {
-            name = "JavaSE-17",
-            path = "/usr/lib/jvm/java-17-openjdk",
-          },
-          {
             name = "JavaSE-21",
             path = "/usr/lib/jvm/java-21-openjdk",
           },
           {
-            name = "JavaSE-24",
-            path = "/usr/lib/jvm/java-24-openjdk",
-          },
-          {
-            name = "JavaSE-25",
-            path = "/usr/lib/jvm/java-25-openjdk",
+            name = "JavaSE-26",
+            path = "/usr/lib/jvm/java-26-openjdk",
           },
         },
       },
