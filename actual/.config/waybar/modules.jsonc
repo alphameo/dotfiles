@@ -122,6 +122,11 @@
         "on-click": "~/.scripts/sound-sink-toggle",
         "on-click-right": "~/.scripts/sound-sink-manager"
     },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
     "wireplumber#source": {
         "node-type": "Audio/Source",
         "format": "󰍬 {volume}%",

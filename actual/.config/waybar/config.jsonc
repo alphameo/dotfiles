@@ -38,6 +38,7 @@
             "bluetooth",
             "custom/notifications",
             "wireplumber#sink",
+            "pulseaudio/slider",
             "wireplumber#source",
             "group/group-backlight"
         ]
