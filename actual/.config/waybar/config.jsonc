@@ -80,7 +80,7 @@
             "custom/shutdown",
             "custom/reboot",
             "custom/suspend",
-            // "custom/hibernate",
+            "custom/hibernate",
             "custom/logout",
             "custom/lock"
         ]

@@ -39,9 +39,9 @@
         "spacing": 6
     },
     "clock": {
-        "format": "<span color='#cba6f7'>󰥔</span> {:%H:%M <small>(%a, %d.%m.%Y)</small>}",
+        "format": "󰥔 {:%H:%M <small>(%a, %d.%m.%Y)</small>}",
         "interval": 60,
-        "tooltip-format": "<small>Today:</small> {:%d.%m.%Y}\n<tt><small>{calendar}</small></tt>\n\n<small>LMB - reset day\nRMB - year\nMS - change month</small>",
+        "tooltip-format": "<small>Today:</small> {:%d.%m.%Y}\n<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
@@ -53,21 +53,12 @@
                 "weekdays": "<span color='#89b4fa'><b>{}</b></span>",
                 "today": "<span color='#fab387'><b><u>{}</u></b></span>"
             }
-        },
-        "smooth-scrolling-threshold": 5,
-        "actions": {
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down",
-            "on-click": "shift_reset",
-            "on-click-right": "mode"
         }
     },
     "hyprland/language": {
         "format": "{}",
-        "format-en": "en",
-        // "format-en": "🇺🇸",
-        "format-ru": "ru",
-        // "format-ru": "🇷🇺",
+        "format-en": "en", // 🇺🇸
+        "format-ru": "ru", // 🇷🇺
         "on-click": "~/.scripts/keyboard-layout-switch"
     },
     // Activation: `usermod -a -G input [username]`
@@ -94,14 +85,14 @@
         "interval": 2,
         // "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
         "format-icons": [
-            "<span color='#f38ba8'>󰢿</span>",
-            "<span color='#fab387'>󰢼</span>",
-            "<span color='#cdd6f4'>󰢽</span>",
-            "<span color='#cdd6f4'>󰢾</span>"
+            "󰢿",
+            "󰢼",
+            "󰢽",
+            "󰢾"
         ],
-        "tooltip-format": "{icon}({signalStrength}%)  {essid}  <span color='#eba0ac'>󰅧</span> {bandwidthUpBytes} <span color='#89dceb'>󰅢</span> {bandwidthDownBytes}\n({ifname} via {gwaddr})\n\n<small>LMB - menu</small>",
-        "tooltip-format-disconnected": "Disconnected\n\n<small>LMB - menu</small>",
-        "tooltip-format-disabled": "Disabled\n\n<small>LMB - menu</small>",
+        "tooltip-format": "{icon}({signalStrength}%)  {essid}  󰅧 {bandwidthUpBytes} 󰅢 {bandwidthDownBytes}\n({ifname} via {gwaddr})",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-disabled": "Disabled",
         "on-click": "~/.scripts/network-manager"
     },
     "bluetooth": {
@@ -110,8 +101,8 @@
         "format-on": "󰂯",
         "format-connected": "󰂱",
         "format-connected-battery": "󰥉 {device_battery_percentage}%",
-        "tooltip-format": "{controller_alias} ({controller_address})\n\nConnected devices: {num_connections}\n\nLMB - menu",
-        "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}\n\nLMB - menu",
+        "tooltip-format": "{controller_alias} ({controller_address})\n\nConnected devices: {num_connections}",
+        "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
         "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
         "on-click": "~/.scripts/bluetooth-manager"
@@ -119,15 +110,13 @@
     "wireplumber#sink": {
         "node-type": "Audio/Sink",
         "format": "{icon} {volume}%",
-        "format-muted": "<span color='#f38ba8'>󰸈 {volume}%</span>",
-        // "format-source": "󰍬",
-        // "format-source-muted": "<span color='#f38ba8'>󰍭</span>",
+        "format-muted": "󰸈 {volume}%",
         "format-icons": [
             "󰕿",
             "󰖀",
             "󰕾"
         ],
-        "tooltip-format": "Volume: {volume}%\nSink: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
+        "tooltip-format": "Volume: {volume}%\nSink: {source_desc}",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
         "on-click": "~/.scripts/sound-sink-toggle",
@@ -136,8 +125,8 @@
     "wireplumber#source": {
         "node-type": "Audio/Source",
         "format": "󰍬 {volume}%",
-        "format-muted": "<span color='#f38ba8'>󰍭 {volume}%</span>",
-        "tooltip-format": "Volume: {volume}%\nSource: {source_desc}\n\nSM - control\nLMB - mute\nRMB - settings",
+        "format-muted": "󰍭 {volume}%",
+        "tooltip-format": "Volume: {volume}%\nSource: {source_desc}",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
         "on-click": "~/.scripts/sound-source-toggle",
@@ -154,14 +143,14 @@
         "on-scroll-up": "~/.scripts/brightness-increase",
         "on-scroll-down": "~/.scripts/brightness-decrease",
         "reverse-scrolling": true,
-        "tooltip-format": "Backlight\n\nSM - control"
+        "tooltip-format": "Backlight"
     },
     "backlight#percentage": {
-        "format": "<span color='#fab387'>{percent}%</span>",
+        "format": "{percent}%",
         "on-scroll-up": "~/.scripts/brightness-increase",
         "on-scroll-down": "~/.scripts/brightness-decrease",
         "reverse-scrolling": true,
-        "tooltip-format": "Backlight\n\nSM - control"
+        "tooltip-format": "Backlight"
     },
     "backlight/slider": {
         "min": 0,
@@ -195,42 +184,38 @@
             "balanced": "",
             "power-saver": ""
         },
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}\n\nLMB/RMB - toggle"
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}"
     },
     "custom/notifications": {
-        // "exec": "~/.config/waybar/scripts/dunst.sh",
-        // "restart-interval": 1,
-        // "tooltip-format": "Notifications\n\n<small>LMB - pause notifications\nRMB - history</small>",
-        // "on-click": "dunstctl set-paused toggle",
-        // "on-click-right": "dunstctl history-pop",
         "tooltip": true,
         "format": "{icon}{0}",
         "format-icons": {
-            "notification": "<span color='#f9e2af'>󱅫</span>",
-            "none": "<span color='#f9e2af'>󰂜</span>",
-            "dnd-notification": "<span color='#f38ba8'>󰂠</span>",
-            "dnd-none": "<span color='#f38ba8'>󰪓</span>",
-            "inhibited-notification": "<span color='#f38ba8'>󰂛</span>",
-            "inhibited-none": "<span color='#f38ba8'>󰪑</span>",
-            "dnd-inhibited-notification": "<span color='#f38ba8'>󰂛</span>",
-            "dnd-inhibited-none": "<span color='#f38ba8'>󰪑</span>"
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
         },
         "return-type": "json",
+        "restart-interval": 1,
         "exec-if": "which swaync-client",
         "exec": "swaync-client -swb",
-        "on-click": "~/.scripts/notification-manager",
-        "on-click-right": "~/.scripts/notification-dnd-toggle",
+        "on-click": "~/.scripts/notification-dnd-toggle",
+        "on-click-right": "~/.scripts/notification-manager",
         "escape": true
     },
     "custom/screenlock": {
         "exec": "~/.config/waybar/scripts/hypridle.sh check",
         "restart-interval": 1,
-        "tooltip-format": "Screenlock\n\n<small>LMB - pause screenlocking</small>",
+        "tooltip-format": "Screenlock",
         "on-click": "~/.config/waybar/scripts/hypridle.sh toggle"
     },
     "custom/powermenu": {
         "format": "󰐦",
-        "tooltip-format": "Power menu\n\n<small>LMB/M-C-p - open</small>",
+        "tooltip-format": "Power menu",
         "on-click": "~/.scripts/power-menu"
     },
     "custom/shutdown": {
@@ -257,10 +242,10 @@
         "format": "",
         "tooltip-format": "Sleep",
         "on-click": "~/.scripts/system-suspend"
+    },
+    "custom/hibernate": {
+        "format": "󰤁",
+        "tooltip-format": "Hibernate",
+        "on-click": "~/.scripts/hibernate.sh"
     }
-    // "custom/hibernate": {
-    //     "format": "󰤁",
-    //     "tooltip-format": "Hibernate",
-    //     "on-click": "~/.scripts/hibernate.sh"
-    // },
 }

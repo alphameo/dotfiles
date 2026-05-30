@@ -132,28 +132,33 @@ window#waybar {
 #network.wifi {
     color: @sapphire;
 }
-#network.ethernet {
+
+#bluetooth.connected {
     color: @sapphire;
 }
 
-#bluetooth.disabled {
-    color: @red;
-}
-#bluetooth.connected {
-    color: @sapphire;
+#custom-notifications {
+    color: @yellow;
 }
 
 #wireplumber.sink {
     color: @mauve;
 }
-#wireplumber.source {
-    color: @teal;
+#wireplumber.sink-muted {
+    color: @red;
 }
 #pulseaudio-slider highlight {
     border-color: @mauve;
 }
 #pulseaudio-slider slider {
     background-color: @mauve;
+}
+
+#wireplumber.source {
+    color: @teal;
+}
+#wireplumber.source-muted {
+    color: @red;
 }
 
 #backlight {
