@@ -2,13 +2,13 @@
 
 @define-color bg @base;
 @define-color fg @text;
-@define-color border @overlay1;
+@define-color border @base;
 
 @define-color ws-urgent-fg @peach;
 @define-color ws-active-fg @blue;
-@define-color ws-active-bg @base;
+@define-color ws-active-bg @surface0;
 
-@define-color tooltip-fg @blue;
+@define-color tooltip-fg @fg;
 @define-color tooltip-bg alpha(@bg, 0.9);
 @define-color tooltip-border alpha(@border, 0.9);
 
@@ -33,6 +33,7 @@
 @define-color sound-in @teal;
 @define-color sound-out-mute @red;
 @define-color sound-out @mauve;
+@define-color sound-bg @surface0;
 @define-color notif @yellow;
 
 @define-color bluetooth @fg;
@@ -55,8 +56,8 @@
 }
 
 window#waybar {
-    background-color: transparent;
     color: @fg;
+    background-color: transparent;
 }
 
 tooltip {
@@ -65,18 +66,10 @@ tooltip {
     border-radius: 8px;
 }
 tooltip label {
-    color: @fg;
+    color: @tooltip-fg;
 }
 
-#window {
-    margin-left: 4px;
-    margin-right: 4px;
-}
-
-#workspaces button {
-    padding: 0 4px;
-}
-
+#window,
 #workspaces,
 #tray,
 #clock,
@@ -94,7 +87,9 @@ tooltip label {
     margin-right: 0px;
 }
 
+#window,
 #workspaces,
+#workspaces button,
 #tray,
 #clock,
 #language,
@@ -102,16 +97,11 @@ tooltip label {
 #network,
 #bluetooth,
 #custom-notifications,
-#wireplumber.in,
-/* #wireplumber.in-icon, */
-#wireplumber.in-percent,
-#pulseaudio-slider,
-#wireplumber.out,
-/* #wireplumber.out-icon, */
-#wireplumber.out-percent,
+#group-wireplumber-in,
+#group-wireplumber-out,
 #backlight.icon,
 #backlight-slider,
-#backlight.percent,
+#pulseaudio-slider,
 #battery,
 #power-profiles-daemon,
 #custom-screenlock,
@@ -129,9 +119,21 @@ tooltip label {
 #network,
 #bluetooth,
 #custom-notifications,
-#group-sound-out,
-#group-sound-in {
+#group-sound,
+#group-sound-out {
     margin-right: 8px;
+}
+
+#workspaces button {
+    border-radius: 8px;
+}
+#workspaces button.active {
+    color: @ws-active-fg;
+    background-color: @ws-active-bg;
+    border-radius: 8px;
+}
+#workspaces button.urgent {
+    color: @ws-urgent-fg;
 }
 
 #power-profiles-daemon {
@@ -180,15 +182,9 @@ tooltip label {
     box-shadow: none;
 }
 
-/* Element colors  */
-
-#workspaces button.active {
-    color: @ws-active-fg;
-    background-color: @ws-active-bg;
-    border-radius: 6px;
-}
-#workspaces button.urgent {
-    color: @ws-urgent-fg;
+#group-sound {
+    background: @sound-bg;
+    border-radius: 8px;
 }
 
 #network {
