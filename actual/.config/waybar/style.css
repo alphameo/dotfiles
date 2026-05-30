@@ -50,6 +50,8 @@
     box-shadow: none;
     text-shadow: none;
     transition-duration: 0s;
+    margin: 0;
+    padding: 0;
 }
 
 window#waybar {
@@ -60,14 +62,13 @@ window#waybar {
 tooltip {
     background: @tooltip-bg;
     border: 1px solid @tooltip-border;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 tooltip label {
     color: @fg;
 }
 
 #window {
-    padding: 0px;
     margin-left: 4px;
     margin-right: 4px;
 }
@@ -84,70 +85,75 @@ tooltip label {
 #group-battery,
 #group-power {
     background-color: @bg;
-
-    padding-left: 4px;
-    padding-right: 4px;
-    margin-left: 0px;
-    margin-right: 4px;
-
     border: 1px solid @border;
     border-radius: 8px;
+    margin-right: 4px;
 }
 
 #group-power {
     margin-right: 0px;
 }
 
-#group-power *,
-#group-keyboard *,
-#group-battery * {
-    margin-left: 4px;
-    margin-right: 4px;
+#workspaces,
+#tray,
+#clock,
+#language,
+#keyboard-state,
+#network,
+#bluetooth,
+#custom-notifications,
+#wireplumber.in,
+/* #wireplumber.in-icon, */
+#wireplumber.in-percent,
+#pulseaudio-slider,
+#wireplumber.out,
+/* #wireplumber.out-icon, */
+#wireplumber.out-percent,
+#backlight.icon,
+#backlight-slider,
+#backlight.percent,
+#battery,
+#power-profiles-daemon,
+#custom-screenlock,
+#custom-powermenu,
+#custom-shutdown,
+#custom-reboot,
+#custom-logout,
+#custom-lock,
+#custom-suspend,
+#custom-hibernate {
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
-#group-controls * {
-    margin-left: 8px;
+#network,
+#bluetooth,
+#custom-notifications,
+#group-sound-out,
+#group-sound-in {
     margin-right: 8px;
 }
 
-#network {
-    margin-left: 4px;
+#power-profiles-daemon {
+    min-width: 18px;
 }
 
-#group-backlight {
-    margin-right: 4px;
-}
-
-#backlight {
-    margin: 0;
-    padding: 0;
-}
-
-#wireplumber.sourceicon {
+#wireplumber.out-icon {
     min-width: 12px;
 }
-#wireplumber.sinkicon {
+#wireplumber.in-icon {
     min-width: 12px;
 }
-#backlight.percentage,
-#wireplumber.sinkpercentage,
-#wireplumber.sourcepercentage {
-    margin-left: 5px;
-    margin-right: 0px;
+#backlight.percent,
+#wireplumber.in-percent,
+#wireplumber.out-percent {
     min-width: 40px;
 }
 
 #backlight-slider,
-#backlight-slider *,
-#pulseaudio-slider,
-#pulseaudio-slider * {
-    padding: 0;
-    margin: 0;
-}
-#backlight-slider,
 #pulseaudio-slider {
-    margin-left: 5px;
-    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 #backlight-slider trough,
 #pulseaudio-slider trough {
@@ -205,10 +211,14 @@ tooltip label {
     color: @notif;
 }
 
-#wireplumber.out {
+#wireplumber.out,
+#wireplumber.out-percent,
+#wireplumber.out-icon {
     color: @sound-out;
 }
-#wireplumber.out.muted {
+#wireplumber.out.muted,
+#wireplumber.out-percent.muted,
+#wireplumber.out-icon.muted {
     color: @sound-out-mute;
 }
 #pulseaudio-slider highlight {
@@ -219,10 +229,14 @@ tooltip label {
     background-color: @sound-out;
 }
 
-#wireplumber.in {
+#wireplumber.in,
+#wireplumber.in-percent,
+#wireplumber.in-icon {
     color: @sound-in;
 }
-#wireplumber.in.muted {
+#wireplumber.in.muted,
+#wireplumber.in-percent.muted,
+#wireplumber.in-icon.muted {
     color: @sound-in-mute;
 }
 

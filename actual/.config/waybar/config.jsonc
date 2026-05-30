@@ -38,10 +38,26 @@
             "network",
             "bluetooth",
             "custom/notifications",
-            "wireplumber#out",
-            "pulseaudio/slider",
-            "wireplumber#in",
+            "group/group-sound-out",
+            "group/group-sound-in",
             "group/group-backlight"
+        ]
+    },
+    "group/group-sound-out": {
+        "orientation": "inherit",
+        "modules": [
+            // "wireplumber#out",
+            "wireplumber#out-icon",
+            "wireplumber#out-percent",
+            "pulseaudio/slider"
+        ]
+    },
+    "group/group-sound-in": {
+        "orientation": "inherit",
+        "modules": [
+            // "wireplumber#in",
+            "wireplumber#in-icon",
+            "wireplumber#in-percent"
         ]
     },
     "group/group-backlight": {
@@ -54,7 +70,7 @@
         "modules": [
             "backlight#icon",
             "backlight/slider",
-            "backlight#percentage"
+            "backlight#percent"
         ]
     },
     "group/group-battery": {

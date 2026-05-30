@@ -122,6 +122,31 @@
         "on-click": "~/.scripts/sound-sink-toggle",
         "on-click-right": "~/.scripts/sound-sink-manager"
     },
+    "wireplumber#out-icon": {
+        "node-type": "Audio/Sink",
+        "format": "{icon}",
+        "format-muted": "󰸈",
+        "format-icons": [
+            "󰕿",
+            "󰖀",
+            "󰕾"
+        ],
+        "tooltip-format": "Volume: {volume}%\nSink: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-sink-toggle",
+        "on-click-right": "~/.scripts/sound-sink-manager"
+    },
+    "wireplumber#out-percent": {
+        "node-type": "Audio/Sink",
+        "format": "{volume}%",
+        "format-muted": "{volume}%",
+        "tooltip-format": "Volume: {volume}%\nSink: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-sink-toggle",
+        "on-click-right": "~/.scripts/sound-sink-manager"
+    },
     "pulseaudio/slider": {
         "min": 0,
         "max": 100,
@@ -131,6 +156,26 @@
         "node-type": "Audio/Source",
         "format": "󰍬 {volume}%",
         "format-muted": "󰍭 {volume}%",
+        "tooltip-format": "Volume: {volume}%\nSource: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-source-toggle",
+        "on-click-right": "~/.scripts/sound-source-manager"
+    },
+    "wireplumber#in-icon": {
+        "node-type": "Audio/Source",
+        "format": "󰍬",
+        "format-muted": "󰍭",
+        "tooltip-format": "Volume: {volume}%\nSource: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-source-toggle",
+        "on-click-right": "~/.scripts/sound-source-manager"
+    },
+    "wireplumber#in-percent": {
+        "node-type": "Audio/Source",
+        "format": "{volume}%",
+        "format-muted": "{volume}%",
         "tooltip-format": "Volume: {volume}%\nSource: {source_desc}",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
@@ -150,7 +195,7 @@
         "reverse-scrolling": true,
         "tooltip-format": "Backlight"
     },
-    "backlight#percentage": {
+    "backlight#percen": {
         "format": "{percent}%",
         "on-scroll-up": "~/.scripts/brightness-increase",
         "on-scroll-down": "~/.scripts/brightness-decrease",
