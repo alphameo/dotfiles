@@ -318,7 +318,6 @@ hl.window_rule { match = { class = win_class_flameshot }, float = true }
 hl.window_rule { match = { class = win_class_flameshot }, no_anim = true }
 hl.window_rule { match = { class = win_class_flameshot }, move = { 0, 0 } }
 hl.window_rule { match = { class = win_class_flameshot }, pin = true }
-hl.window_rule { match = { class = win_class_flameshot }, no_initial_focus = true }
 hl.window_rule { match = { class = win_class_flameshot }, size = { 1920, 1800 } }
 -- set this to your leftmost monitor id,
 -- otherwise you have to move your cursor to the leftmost monitor before executing flameshot
@@ -336,7 +335,6 @@ local win_title_dialog = "^(.*\\b([Ss]ave|[Oo]pen|[Ff]ile|[Cc]hoose)\\b.*)$"
 hl.window_rule { match = { title = win_title_dialog }, float = true }
 hl.window_rule { match = { title = win_title_dialog }, size = { 900, 600 } }
 hl.window_rule { match = { title = win_title_dialog }, center = true }
-hl.window_rule { match = { title = win_title_dialog }, no_initial_focus = false }
 
 -------------
 --- INPUT ---
