@@ -1,5 +1,42 @@
 @import 'catppuccin-mocha.css';
 
+@define-color bg @base;
+@define-color fg @text;
+@define-color border @overlay1;
+
+@define-color ws-urgent-fg @peach;
+@define-color ws-active-fg @blue;
+@define-color ws-active-bg @base;
+
+@define-color slider-bg black;
+
+@define-color backlight @peach;
+@define-color battery-charge @green;
+@define-color battery-warn @peach;
+@define-color battery-crit @red;
+@define-color profile-eco @green;
+@define-color profile-balance @peach;
+@define-color profile-perf @red;
+@define-color power-menu @red;
+@define-color power-shutdown @red;
+@define-color power-reboot @sapphire;
+@define-color power-logout @green;
+@define-color power-lock @yellow;
+@define-color power-suspend @flamingo;
+@define-color power-hybernate @sky;
+
+@define-color sound-source-mute @red;
+@define-color sound-source @teal;
+@define-color sound-sink-mute @red;
+@define-color sound-sink @mauve;
+@define-color notif @yellow;
+
+@define-color bluetooth @fg;
+@define-color bluetooth-connected @sapphire;
+
+@define-color network @fg;
+@define-color network-connected @sapphire;
+
 * {
     font-family: RobotoMono Nerd Font Propo;
     font-size: 12pt;
@@ -13,6 +50,7 @@
 
 window#waybar {
     background-color: transparent;
+    color: @fg;
 }
 
 #window {
@@ -32,15 +70,14 @@ window#waybar {
 #group-controls,
 #group-battery,
 #group-power {
-    background-color: @base;
-    color: @text;
+    background-color: @bg;
 
     padding-left: 4px;
     padding-right: 4px;
     margin-left: 0px;
     margin-right: 4px;
 
-    border: 1px solid @overlay1;
+    border: 1px solid @border;
     border-radius: 8px;
 }
 
@@ -104,7 +141,7 @@ window#waybar {
     min-height: 6px;
     min-width: 75px;
     border-radius: 3px;
-    background: black;
+    background: @slider-bg;
 }
 #backlight-slider highlight,
 #pulseaudio-slider highlight {
@@ -127,101 +164,106 @@ window#waybar {
 /* Element colors  */
 
 #workspaces button.active {
-    color: @blue;
-    /* color: @base; */
-    /* background-color: @overlay1; */
-    /* border-radius: 6px; */
+    color: @ws-active-fg;
+    background-color: @ws-active-bg;
+    border-radius: 6px;
 }
 #workspaces button.urgent {
-    color: @peach;
+    color: @ws-urgent-fg;
 }
 
+#network {
+    color: @network;
+}
 #network.linked,
 #network.ethernet,
 #network.wifi {
-    color: @sapphire;
+    color: @network-connected;
 }
 
+#bluetooth {
+    color: @bluetooth;
+}
 #bluetooth.connected {
-    color: @sapphire;
+    color: @bluetooth-connected;
 }
 
 #custom-notifications {
-    color: @yellow;
+    color: @notif;
 }
 
 #wireplumber.sink {
-    color: @mauve;
+    color: @sound-sink;
 }
 #wireplumber.sink-muted {
-    color: @red;
+    color: @sound-sink-mute;
 }
 #pulseaudio-slider highlight {
-    background: @mauve;
-    border-color: @mauve;
+    background: @sound-sink;
+    border-color: @sound-sink;
 }
 #pulseaudio-slider slider {
-    background-color: @mauve;
+    background-color: @sound-sink;
 }
 
 #wireplumber.source {
-    color: @teal;
+    color: @sound-source;
 }
 #wireplumber.source-muted {
-    color: @red;
+    color: @sound-source-mute;
 }
 
 #backlight {
-    color: @peach;
+    color: @backlight;
 }
 #backlight-slider highlight {
-    background: @peach;
-    border-color: @peach;
+    background: @backlight;
+    border-color: @backlight;
 }
 #backlight-slider slider {
-    background-color: @peach;
+    background: @backlight;
 }
 
 #battery.charging {
-    color: @green;
+    color: @battery-charge;
 }
 #battery.warning {
-    color: @peach;
+    color: @battery-warn;
 }
 #battery.critical {
-    color: @red;
+    color: @battery-crit;
 }
 
 #power-profiles-daemon.performance {
-    color: @red;
+    color: @profile-perf;
 }
 #power-profiles-daemon.balanced {
-    color: @yellow;
+    color: @profile-balance;
 }
 #power-profiles-daemon.power-saver {
-    color: @green;
+    color: @profile-eco;
 }
 
 #custom-powermenu {
-    color: @red;
+    color: @power-menu;
 }
 #custom-shutdown {
-    color: @red;
+    color: @power-shutdown;
 }
 #custom-reboot {
-    color: @sapphire;
+    color: @power-reboot;
 }
 #custom-logout {
-    color: @green;
+    color: @power-logout;
 }
 #custom-lock {
-    color: @yellow;
+    color: @power-lock;
 }
 
 #custom-suspend {
-    color: @flamingo;
+    color: @power-suspend;
 }
 
 #custom-hibernate {
-    color: @sky;
+    color: @power-hybernate;
 }

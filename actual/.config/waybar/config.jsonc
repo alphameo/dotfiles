@@ -1,3 +1,4 @@
+// Debug: env GTK_DEBUG=interactive waybar
 {
     "style": "~/.config/waybar/style.css",
     "layer": "bottom",
