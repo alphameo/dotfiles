@@ -471,7 +471,7 @@ local mod = "SUPER + "
 -- Applications
 hl.bind(mod .. "T", hl.dsp.exec_cmd "$TERMINAL")
 hl.bind(mod .. "B", hl.dsp.exec_cmd "$BROWSER")
-hl.bind(mod .. "E", hl.dsp.exec_cmd "$EXPLORER")
+hl.bind(mod .. "E", hl.dsp.exec_cmd "~/.scripts/explorer")
 hl.bind(mod .. "R", hl.dsp.exec_cmd "~/.scripts/runner")
 hl.bind(mod .. "I", hl.dsp.exec_cmd "~/.scripts/settings")
 

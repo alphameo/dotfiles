@@ -18,11 +18,6 @@ export BROWSER="zen-browser"
 export PAGER="less"
 export TERMINAL='kitty'
 
-export LAUNCHER='rofi'
-export FILEMANAGER='yazi'
-export EXPLORER='thunar'
-export SYSMONITOR='resources'
-
 export LF_CONFIG_HOME="$XDG_CONFIG_HOME"
 
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
