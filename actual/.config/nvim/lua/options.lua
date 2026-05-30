@@ -36,11 +36,6 @@ vim.o.confirm = true
 
 vim.o.autochdir = false
 
-vim.opt.isfname:append "@-@" -- Allow @ for filenames
-vim.opt.iskeyword:append "-" -- Include "-" in-words
-
-vim.opt.path:append "**" -- Include subdirs in :find
-
 vim.o.selection = "exclusive"
 
 vim.o.hidden = true
