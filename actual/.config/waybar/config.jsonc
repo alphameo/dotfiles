@@ -38,9 +38,9 @@
             "network",
             "bluetooth",
             "custom/notifications",
-            "wireplumber#sink",
+            "wireplumber#out",
             "pulseaudio/slider",
-            "wireplumber#source",
+            "wireplumber#in",
             "group/group-backlight"
         ]
     },

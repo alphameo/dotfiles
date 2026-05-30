@@ -8,6 +8,10 @@
 @define-color ws-active-fg @blue;
 @define-color ws-active-bg @base;
 
+@define-color tooltip-fg @blue;
+@define-color tooltip-bg alpha(@bg, 0.9);
+@define-color tooltip-border alpha(@border, 0.9);
+
 @define-color slider-bg black;
 
 @define-color backlight @peach;
@@ -25,10 +29,10 @@
 @define-color power-suspend @flamingo;
 @define-color power-hybernate @sky;
 
-@define-color sound-source-mute @red;
-@define-color sound-source @teal;
-@define-color sound-sink-mute @red;
-@define-color sound-sink @mauve;
+@define-color sound-in-mute @red;
+@define-color sound-in @teal;
+@define-color sound-out-mute @red;
+@define-color sound-out @mauve;
 @define-color notif @yellow;
 
 @define-color bluetooth @fg;
@@ -50,6 +54,15 @@
 
 window#waybar {
     background-color: transparent;
+    color: @fg;
+}
+
+tooltip {
+    background: @tooltip-bg;
+    border: 1px solid @tooltip-border;
+    border-radius: 5px;
+}
+tooltip label {
     color: @fg;
 }
 
@@ -192,25 +205,25 @@ window#waybar {
     color: @notif;
 }
 
-#wireplumber.sink {
-    color: @sound-sink;
+#wireplumber.out {
+    color: @sound-out;
 }
-#wireplumber.sink-muted {
-    color: @sound-sink-mute;
+#wireplumber.out.muted {
+    color: @sound-out-mute;
 }
 #pulseaudio-slider highlight {
-    background: @sound-sink;
-    border-color: @sound-sink;
+    background: @sound-out;
+    border-color: @sound-out;
 }
 #pulseaudio-slider slider {
-    background-color: @sound-sink;
+    background-color: @sound-out;
 }
 
-#wireplumber.source {
-    color: @sound-source;
+#wireplumber.in {
+    color: @sound-in;
 }
-#wireplumber.source-muted {
-    color: @sound-source-mute;
+#wireplumber.in.muted {
+    color: @sound-in-mute;
 }
 
 #backlight {
@@ -259,11 +272,9 @@ window#waybar {
 #custom-lock {
     color: @power-lock;
 }
-
 #custom-suspend {
     color: @power-suspend;
 }
-
 #custom-hibernate {
     color: @power-hybernate;
 }

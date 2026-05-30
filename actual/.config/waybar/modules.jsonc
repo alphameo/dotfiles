@@ -107,7 +107,7 @@
         "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
         "on-click": "~/.scripts/bluetooth-manager"
     },
-    "wireplumber#sink": {
+    "wireplumber#out": {
         "node-type": "Audio/Sink",
         "format": "{icon} {volume}%",
         "format-muted": "󰸈 {volume}%",
@@ -127,7 +127,7 @@
         "max": 100,
         "orientation": "horizontal"
     },
-    "wireplumber#source": {
+    "wireplumber#in": {
         "node-type": "Audio/Source",
         "format": "󰍬 {volume}%",
         "format-muted": "󰍭 {volume}%",
