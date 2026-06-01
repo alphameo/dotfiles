@@ -31,7 +31,6 @@ return {
         ["<C-S-Tab>"] = { "snippet_backward", "fallback" },
       },
       completion = {
-        keyword = { range = "full" }, -- full | prefix
         menu = {
           enabled = true,
           auto_show = true,
