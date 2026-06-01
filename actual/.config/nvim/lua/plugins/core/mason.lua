@@ -126,7 +126,8 @@ return {
           "sqlfluff", -- sql fmt/lint
           -- "csharpier", -- c# fmt
           -- "vale", -- tex lint
-          "prettypst", -- typst fmt
+          -- "prettypst", -- typst fmt
+          "typstyle", -- typst fmt
           "bibtex-tidy", -- tex fmt
           -- "xmlformatter", -- xml fmt
           -- "yamllint", -- yaml lint

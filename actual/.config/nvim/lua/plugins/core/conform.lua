@@ -25,7 +25,7 @@ return {
         rust = { "rustfmt" },
         sql = { "sqlfluff" },
         tex = { "bibtex-tidy" },
-        typst = { "prettypst", lsp_format = "prefer" },
+        typst = { "typstyle" },
         javascript = { "prettierd" },
         typescript = { "prettierd" },
         javascriptreact = { "prettierd" },
