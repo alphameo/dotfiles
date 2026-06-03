@@ -16,7 +16,7 @@ hl.config {
   },
 }
 
-local mod = "SUPER +"
+local mod = "SUPER + "
 
 hl.unbind(mod .. "SHIFT + L")
 hl.unbind(mod .. "SHIFT + H")
@@ -39,10 +39,10 @@ hl.bind(mod .. "SHIFT + E", hl.dsp.layout "fit toend")
 hl.bind(mod .. "SHIFT + B", hl.dsp.layout "fit tobeg")
 hl.bind(mod .. "SHIFT + return", hl.dsp.layout "fit all")
 
-hl.unbind(mod .. "SHIFT + minus")
-hl.unbind(mod .. "SHIFT + equal")
-hl.bind(mod .. "SHIFT + minus", hl.dsp.layout "colresize -conf")
-hl.bind(mod .. "SHIFT + equal", hl.dsp.layout "colresize +conf")
+hl.unbind(mod .. "SHIFT + w")
+hl.unbind(mod .. "w")
+hl.bind(mod .. "SHIFT + w", hl.dsp.layout "colresize -conf")
+hl.bind(mod .. "w", hl.dsp.layout "colresize +conf")
 
 hl.unbind(mod .. "N")
 hl.bind(mod .. "N", hl.dsp.layout "promote")
