@@ -536,11 +536,12 @@ hl.bind(mod .. "SHIFT + up", hl.dsp.window.swap { direction = "up" })
 hl.bind(mod .. "SHIFT + down", hl.dsp.window.swap { direction = "down" })
 hl.bind(mod .. "CTRL + backslash", hl.dsp.exec_cmd "~/.config/hypr/scripts/swap-layout.sh")
 -- TODO: refactor when fix
-local resize = 5
-hl.bind(mod .. "minus", hl.dsp.window.resize { x = 0, y = -resize })
-hl.bind(mod .. "period", hl.dsp.window.resize { x = resize, y = 0 })
-hl.bind(mod .. "equal", hl.dsp.window.resize { x = 0, y = resize })
-hl.bind(mod .. "comma", hl.dsp.window.resize { x = -resize, y = 0 })
+local resize = 25
+hl.bind(mod .. "SHIFT + comma", hl.dsp.window.resize { x = 0, y = -resize, relative = true })
+hl.bind(mod .. "SHIFT + period", hl.dsp.window.resize { x = 0, y = resize, relative = true })
+hl.bind(mod .. "period", hl.dsp.window.resize { x = resize, y = 0, relative = true })
+hl.bind(mod .. "comma", hl.dsp.window.resize { x = -resize, y = 0, relative = true })
+hl.bind(mod .. "minus", hl.dsp.window.resize())
 
 ---------------------
 --- MOUSEMAPPINGS ---
