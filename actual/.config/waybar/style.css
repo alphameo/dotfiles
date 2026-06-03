@@ -59,6 +59,10 @@ window#waybar {
     color: @fg;
     background-color: transparent;
 }
+window#waybar.empty #window {
+    background: none;
+    border: none;
+}
 
 tooltip {
     background: @tooltip-bg;
