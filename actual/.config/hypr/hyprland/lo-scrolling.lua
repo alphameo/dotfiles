@@ -49,3 +49,44 @@ hl.bind(mod .. "N", hl.dsp.layout "promote")
 
 hl.unbind(mod .. "backslash")
 hl.bind(mod .. "backslash", hl.dsp.layout "togglefit")
+
+-- FIX: fixes maximization behavior (https://github.com/hyprwm/Hyprland/discussions/14380)
+hl.unbind(mod .. "return")
+local had_left_neighbor = false
+hl.bind(mod .. "return", function()
+  local w = hl.get_active_window()
+  if w == nil then
+    return
+  end
+
+  local win_w = w.width or w.w or (w.size and w.size.x) or (w.size and w.size[1])
+  local mon = w.monitor
+  local mon_w = mon and (mon.width or mon.w or (mon.size and mon.size.x))
+  if not win_w or not mon_w then
+    return
+  end
+
+  local ratio = win_w / mon_w
+
+  if ratio < 0.85 then
+    -- About to maximize: check if there's a column to the left by trying
+    -- to focus left and seeing if the focused window changes.
+    local before = w
+    hl.dispatch(hl.dsp.layout "focus l")
+    local after = hl.get_active_window()
+    had_left_neighbor = (after ~= nil and after ~= before)
+    -- Restore focus to original column before maximizing.
+    if had_left_neighbor then
+      hl.dispatch(hl.dsp.layout "focus r")
+    end
+    hl.dispatch(hl.dsp.layout "colresize 1.0")
+  else
+    -- Shrinking: only do the nudge if we had a left neighbor going in.
+    hl.dispatch(hl.dsp.layout "colresize 0.5")
+    if had_left_neighbor then
+      hl.dispatch(hl.dsp.layout "focus l")
+      hl.dispatch(hl.dsp.layout "focus r")
+    end
+    had_left_neighbor = false
+  end
+end, { description = "Toggle active window to maximized (scrolling)" })
