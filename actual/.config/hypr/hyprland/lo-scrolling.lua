@@ -18,25 +18,25 @@ hl.config {
 
 local mod = "SUPER + "
 
-hl.unbind(mod .. "SHIFT + L")
-hl.unbind(mod .. "SHIFT + H")
-hl.bind(mod .. "SHIFT + L", hl.dsp.layout "move +col")
-hl.bind(mod .. "SHIFT + H", hl.dsp.layout "move -col")
+hl.unbind(mod .. "SHIFT + l")
+hl.unbind(mod .. "SHIFT + h")
+hl.bind(mod .. "SHIFT + l", hl.dsp.layout "move +col")
+hl.bind(mod .. "SHIFT + h", hl.dsp.layout "move -col")
 
 hl.unbind(mod .. "SHIFT + 9")
 hl.unbind(mod .. "SHIFT + 0")
 hl.bind(mod .. "SHIFT + 9", hl.dsp.layout "swapcol l")
 hl.bind(mod .. "SHIFT + 0", hl.dsp.layout "swapcol r")
 
-hl.unbind(mod .. "SHIFT + A")
-hl.unbind(mod .. "SHIFT + V")
-hl.unbind(mod .. "SHIFT + E")
-hl.unbind(mod .. "SHIFT + B")
+hl.unbind(mod .. "SHIFT + a")
+hl.unbind(mod .. "SHIFT + v")
+hl.unbind(mod .. "SHIFT + e")
+hl.unbind(mod .. "SHIFT + b")
 hl.unbind(mod .. "SHIFT + return")
-hl.bind(mod .. "SHIFT + A", hl.dsp.layout "fit active")
-hl.bind(mod .. "SHIFT + V", hl.dsp.layout "fit visible")
-hl.bind(mod .. "SHIFT + E", hl.dsp.layout "fit toend")
-hl.bind(mod .. "SHIFT + B", hl.dsp.layout "fit tobeg")
+hl.bind(mod .. "SHIFT + a", hl.dsp.layout "fit active")
+hl.bind(mod .. "SHIFT + v", hl.dsp.layout "fit visible")
+hl.bind(mod .. "SHIFT + e", hl.dsp.layout "fit toend")
+hl.bind(mod .. "SHIFT + b", hl.dsp.layout "fit tobeg")
 hl.bind(mod .. "SHIFT + return", hl.dsp.layout "fit all")
 
 hl.unbind(mod .. "SHIFT + w")
@@ -44,8 +44,8 @@ hl.unbind(mod .. "w")
 hl.bind(mod .. "SHIFT + w", hl.dsp.layout "colresize -conf")
 hl.bind(mod .. "w", hl.dsp.layout "colresize +conf")
 
-hl.unbind(mod .. "N")
-hl.bind(mod .. "N", hl.dsp.layout "promote")
+hl.unbind(mod .. "n")
+hl.bind(mod .. "n", hl.dsp.layout "promote")
 
 hl.unbind(mod .. "backslash")
 hl.bind(mod .. "backslash", hl.dsp.layout "togglefit")
