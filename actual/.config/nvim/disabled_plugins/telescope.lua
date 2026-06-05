@@ -92,6 +92,6 @@ return {
     map("n", "<leader>fh", builtin.help_tags, { desc = "Find Help Tag" })
 
     map("n", "<leader>.c", builtin.colorscheme, { desc = "Choose Colorscheme" })
-    map("n", "<leader>.k", builtin.keymaps, { desc = "Inspect Keymapping" })
+    map("n", "<leader>.K", builtin.keymaps, { desc = "Inspect Keymapping" })
   end,
 }

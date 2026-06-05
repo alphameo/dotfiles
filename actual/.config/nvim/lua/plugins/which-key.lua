@@ -40,7 +40,7 @@ return {
       { "gr", group = "Goto&Refactor", mode = { "n", "v" } },
       { "grs", group = "Swap", mode = { "n", "v" } },
 
-      vim.keymap.set("n", "<leader>.?", function()
+      vim.keymap.set("n", "<leader>.k", function()
         which_key.show { global = false }
       end, { desc = "Settings Local Keymaps" }),
     }

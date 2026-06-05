@@ -48,7 +48,7 @@ return {
     map("n", "<leader>fH", fzf.git_status, { desc = "Find Git Status" })
 
     map("n", "<leader>.c", fzf.colorschemes, { desc = "Choose Colorscheme" })
-    map("n", "<leader>.k", fzf.keymaps, { desc = "Inspect Keymapping" })
+    map("n", "<leader>.K", fzf.keymaps, { desc = "Inspect Keymapping" })
     map("n", "<leader>.h", fzf.helptags, { desc = "Find Help Tag" })
   end,
 }
