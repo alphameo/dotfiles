@@ -398,7 +398,8 @@ if hl.plugin.hyprexpo ~= nil then
     plugin = {
       hyprexpo = {
         columns = 3,
-        gap_size = 1,
+        gaps_in = 5,
+        gaps_out = 0,
         bg_col = "rgb(000000)",
         workspace_method = "first 1",
       },
@@ -490,8 +491,9 @@ hl.bind(mod .. "CTRL + semicolon", hl.dsp.exec_cmd "~/.scripts/emojipicker")
 hl.bind(mod .. "SHIFT + s", hl.dsp.exec_cmd "~/.scripts/screenshot-capture")
 hl.bind(mod .. "v", hl.dsp.exec_cmd "~/.scripts/clipboard")
 hl.bind(mod .. "SHIFT + p", hl.dsp.exec_cmd "~/.scripts/display-manager")
--- TODO: refactor when available
--- hl.bind(mod .. "tab", hl.dsp.exec_cmd "hyprcrtl hyprexpo:expo toggle")
+hl.bind(mod .. "tab", function()
+  hl.plugin.hyprexpo.expo "toggle"
+end)
 
 hl.bind(mod .. "f", hl.dsp.window.float { action = "toggle" })
 hl.bind(mod .. "p", hl.dsp.window.pseudo())
