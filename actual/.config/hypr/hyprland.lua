@@ -411,7 +411,7 @@ if hl.plugin.dynamic_cursors ~= nil then
   hl.config {
     plugin = {
       dynamic_cursors = {
-        enabled = false,
+        enabled = true,
         mode = "none", -- tilt | rotate | stretch | none
         threshold = 2, -- min angle in deg
         rotate = {
@@ -432,7 +432,7 @@ if hl.plugin.dynamic_cursors ~= nil then
         },
         shake = {
           enabled = true,
-          threshold = 6.0,
+          threshold = 3.0,
           base = 4.0, -- magnification level on start
           speed = 4.0, -- magnification level on shaking
           influence = 0.0, -- of speed
