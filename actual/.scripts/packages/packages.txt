@@ -11,8 +11,6 @@ hyprsysteminfo
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 
-wlogout
-
 hyprshot
 flameshot
 
