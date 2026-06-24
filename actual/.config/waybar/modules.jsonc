@@ -195,7 +195,7 @@
         "reverse-scrolling": true,
         "tooltip-format": "Backlight"
     },
-    "backlight#percen": {
+    "backlight#percent": {
         "format": "{percent}%",
         "on-scroll-up": "~/.scripts/brightness-increase",
         "on-scroll-down": "~/.scripts/brightness-decrease",
