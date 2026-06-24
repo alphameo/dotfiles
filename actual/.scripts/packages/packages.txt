@@ -38,7 +38,7 @@ wiremix
 
 ttf-jetbrains-mono-nerd
 ttf-roboto
-ttf-roboto-mono
+ttf-roboto-mono-nerd
 ttf-times-new-roman
 
 lxqt-config
