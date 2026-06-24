@@ -8,6 +8,12 @@
     font-family: 'Roboto Mono Nerd Font Propo';
     font-weight: bold;
     transition: 200ms;
+    margin: 0;
+    padding: 0;
+}
+
+label, image {
+    min-width: 20px;
 }
 
 trough highlight {
@@ -15,12 +21,14 @@ trough highlight {
 }
 
 scale {
-    margin: 0 7px;
+    margin-right: 7px;
 }
 
 scale trough {
-    margin: 0rem 1rem;
     min-height: 8px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-right: 8px;
     min-width: 70px;
     border-radius: 12.6px;
 }
@@ -44,7 +52,6 @@ trough {
     background-color: @surface0;
 }
 
-/* notifications */
 .notification-background {
     box-shadow:
         0 0 8px 0 @shadow,
@@ -143,7 +150,6 @@ trough {
     padding: 3px 0;
 }
 
-/* control center */
 .control-center {
     box-shadow:
         0 0 8px 0 @shadow,
@@ -212,7 +218,6 @@ trough {
     margin-right: -100px;
 }
 
-/* dnd */
 .widget-dnd {
     margin-top: 5px;
     border-radius: 8px;
@@ -234,7 +239,6 @@ trough {
     border-radius: 8px;
 }
 
-/* mpris */
 .widget-mpris-player {
     background: @surface0;
     border-radius: 12.6px;
@@ -328,17 +332,15 @@ trough {
 }
 
 .widget-volume {
-    margin: 1rem 0;
+    margin-top: 1rem;
 }
 
 .widget-volume label {
     color: @mauve;
-    margin: 0 1rem;
 }
 
 .widget-volume trough {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-left: 10px;
 }
 
 .widget-volume trough highlight {
@@ -354,17 +356,23 @@ trough {
 }
 
 .widget-volume .per-app-volume {
-    margin: 0 29px 0 10px;
+    margin-right: 20px;
+    margin-left: 2rem;
+    margin-bottom: 8px;
+}
+
+.widget-volume .per-app-volume row {
+    margin-top: 1px;
 }
 
 .widget-volume .per-app-volume trough {
-    margin: 8px 0 8px 24px;
+    margin-left: 10px;
 }
 
 .widget-backlight {
-    margin-right: 17px;
-    margin-bottom: 15px;
-    padding: 0 12px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 20px;
 }
 
 .widget-backlight label {
@@ -372,7 +380,7 @@ trough {
 }
 
 .widget-backlight trough {
-    margin: 8px 0 8px 24px;
+    margin-left: 10px;
 }
 
 .widget-backlight trough slider {
