@@ -1,5 +1,3 @@
-debtap
-
 hyprland
 hypridle
 hyprlock
@@ -7,83 +5,64 @@ hyprpicker
 hyprpolkitagent
 hyprshutdown
 hyprpwcenter
-hyprsysteminfo
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 
-hyprshot
 flameshot
 
 waybar
-playerctl
+
 brightnessctl
-wpctl
 
 awww
 waypaper
 
 fastfetch
 
-dunst
-acpi
 swaync
 
 udiskie
 
 rofi-wayland
 rofimoji
-rofi-power-menu
 
-bluez
-bluez-utils
-bc
-rofi-bluetooth-git
 bluetui
 
 networkmanager
-networkmanager-dmenu-git
 
 iwd
-iwgtk
-impala
 
-cliphist
-
-pipepwire
-wireplumber
-
-qt5-wayland
-qt6-wayland
-
-pavucontrol
+qt5-wayland qt6-wayland
 
 wiremix
 
-ttf-roboto-mono-nerd
-ttf-times-new-roman
 ttf-jetbrains-mono-nerd
+ttf-roboto
+ttf-roboto-mono
+ttf-times-new-roman
 
 lxqt-config
 lxqt-admin
 sddm-conf
 
 neovim
+treesitter-cli
+cmake
 
 kitty
 zsh
-oh-my-posh
+starship
 fzf
 ripgrep
 fd
 bat
-wl-paste
+wl-clipboard
 
-pinta
 gimp
-inkskape
-upskayl
+inkscape
 krita
 drawio-desktop
+upscayl
 
 bitwarden
 
@@ -91,42 +70,18 @@ qt5ct
 qt6ct
 nwg-look
 kvantum
+kvantum-theme-materia
+materia-gtk-theme
+papirus-icon-theme
+bibata-cursor-theme
+adwaita-cursors adwaita-fonts adwaita-icon-theme
 
 okular
-xournalpp
 pdfarranger
 
 qbittorrent
 
 thunar
-yazi
-trash-cli
-lsblk
-
-vlc
-mpv
-
-python
-uv
-
-docker
-lazydocker
-
-kubectl
-kubecm
-minikube
-k9s
-
-git
-lazygit
-delta
-
-jdk-openjdk
-openjdk-doc
-openjdk-src
-
-maven
-gradle
 
 shotwell
 gwenview
@@ -134,19 +89,59 @@ gwenview
 obs-studio
 kdenlive
 audacity
-
 losslesscut-bin
 
-libreoffice
+yazi
+dragon-drop
+ouch
+gvfs gvfs-mtp gvfs-afc gvfs-google-git gvfs-gphoto2 gvfs-nfs gvfs-smb gvfs-afc gvfs-dnssd gvfs-goa gvfs-onedrive gvfs-wsdd
 
-v2rayn
+7zip
+zip
+
+trash-cli
+
+mpv
+
+libreoffice-fresh
+
+v2rayn-bin
 
 btop
+neohtop
 resources
 
 nwg-displays
 
-calcurse
+opentabletdriver
+
+syncthing
+localsend
+
+handy
+
+zeb-browser-bin
+
+python
+uv
+
+git
+lazygit
+git-delta
+
+docker
+lazydocker
+
+kubectl
+k9s
+minikube
+
+jdk-openjdk
+openjdk-doc
+openjdk-src
+
+maven
+gradle
 
 dotnet-runtime
 dotnet-sdk
@@ -162,14 +157,3 @@ gdb
 cmake
 cmake-init-git
 conan
-
-zen-browser
-
-opentabletdriver
-
-wl-clipboard
-
-syncthing
-localsend
-
-handy
