@@ -45,6 +45,8 @@ lxqt-config
 lxqt-admin
 sddm-conf
 
+catppuccin-sddm-theme-mocha
+
 neovim
 treesitter-cli
 cmake
