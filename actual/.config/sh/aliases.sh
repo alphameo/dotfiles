@@ -4,7 +4,7 @@ alias pacman='pacman --color=always'
 alias nv='nvim'
 alias sudonv='sudoedit'
 alias bat='bat --style=plain --pager=never'
-alias ls="ls --color"
+alias ls="ls --color=always"
 alias rg='rg --color=always'
 # alias cdr="__zoxide_z"
 alias cdr="__zoxide_zi"
@@ -23,7 +23,7 @@ alias ping='ping -c 10'
 alias less='less -R'
 
 # Alias's for multiple directory listing commands
-alias ls='ls -aFh --color=always' # add colors and file type extensions
+alias ls='ls -Fh --color=always' # add colors and file type extensions
 alias la='ls -Alh'                # show hidden files
 alias lx='ls -lXBh'               # sort by extension
 alias lk='ls -lSrh'               # sort by size
