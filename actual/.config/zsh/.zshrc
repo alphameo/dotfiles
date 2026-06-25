@@ -1,40 +1,12 @@
 #!/bin/env zsh
 
-###############
-### ALIASES ###
-###############
 
-alias sudo='sudo '
-alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
-alias pacman='pacman --color=always'
-alias nv='nvim'
-alias sudonv='sudoedit'
-alias bat='bat --style=plain --pager=never'
-alias ls="ls --color"
-alias rg='rg --color=always'
-# alias cdr="__zoxide_z"
-alias cdr="__zoxide_zi"
-alias ff='fastfetch'
-alias e='eza --color=always --icons=always'
-alias ldoc='lazydocker'
-alias lgit='lazygit'
+source "$HOME/.config/sh/aliases.sh"
 
+eval "$(zoxide init zsh)"
 
-###############
-### MODULES ###
-###############
-
-eval "$(zoxide init --cmd z zsh)"
-
-eval "$(fzf --zsh)"
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git "
-export FZF_DEFAULT_OPTS="--height=50% --layout=default --border=rounded --preview-window=right:60%:wrap --color=hl:#2dd4bf"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="
-  --preview 'bat --color=always --style=plain,numbers --line-range :500 {}'
-  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-export FZF_ALT_C_OPTS="--preview 'eza --icons=always --tree --color=always {} | head -200'"
+source <(fzf --zsh)
+source "$HOME/.config/sh/fzf.sh"
 
 eval "$(starship init zsh)"
 
@@ -43,71 +15,7 @@ eval "$(starship init zsh)"
 ### CUSTOM FUNCTIONS ###
 ########################
 
-# eza tree
-et() {
-  local eza_cmd="eza --tree --color=always"
-  local params="$*"
-  case "$1" in ''|*[!0-9]*)
-      eval "$(printf '%s --level=1 %s\n' "$eza_cmd" "$params")";;
-  *)
-      eval "$(printf '%s --level=%s\n' "$eza_cmd" "$params")";;
-  esac
-}
-
-# yazi
-# https://yazi-rs.github.io/docs/quick-start#shell-wrapper
-function fm() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    builtin cd -- "$cwd"
-  fi
-  rm -f -- "$tmp"
-}
-
-# python venv
-hvenv() {
-  echo "Current venv: $VIRTUAL_ENV
-USAGE:
-$ hvenv                 # shows venv help
-$ lsvenv                # list available venvs
-$ mkvenv <myvirtualenv> # creates venv under $VENV_HOME
-$ venv <myvirtualenv>   # activates venv
-$ deactivate            # deactivates venv
-$ rmvenv <myvirtualenv> # removes venv"
-}
-
-lsvenv() {
-  ls -1 "$VENV_HOME"
-}
-
-venv() {
-  if [ $# -eq 0 ]
-    then
-      hvenv
-    else
-      source "$VENV_HOME/$1/bin/activate"
-  fi
-}
-
-mkvenv() {
-  if [ $# -eq 0 ]
-    then
-      echo "Please provide venv name"
-    else
-      python3 -m venv "$VENV_HOME/$1"
-  fi
-}
-
-rmvenv() {
-  if [ $# -eq 0 ]
-    then
-      echo "Please provide venv name"
-    else
-      rm -r "$VENV_HOME/$1"
-  fi
-}
-
+source "$HOME/.config/sh/functions.sh"
 
 ############################
 ### ZINIT plugin manager ###
@@ -158,7 +66,7 @@ HISTFILEDIR="$XDG_STATE_HOME/zsh"
 [ -d "$HISTFILEDIR" ] || mkdir "$HISTFILEDIR"
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 
-HISTSIZE=100000
+HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
 setopt APPEND_HISTORY
@@ -177,7 +85,6 @@ setopt NOMATCH
 # report status of background
 setopt NOTIFY
 
-setopt AUTOCD
 setopt NOBEEP
 setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 
@@ -186,10 +93,11 @@ setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 ### VI MODE ###
 ###############
 
-bindkey -v                           # built-in vim mode (disable if zsh-vi-mode)
+bindkey -v # built-in vim mode (disable if zsh-vi-mode)
 export VI_MODE_SET_CURSOR=true
 export KEYTIMEOUT=1
 
+# Change cursor shape
 # ANSI cursor escape codes:
 # \e[0 q: Reset to the default cursor style.
 # \e[1 q: Blinking block cursor.
