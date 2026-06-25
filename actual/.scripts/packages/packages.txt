@@ -55,10 +55,14 @@ kitty
 zsh
 starship
 fzf
+zoxide
+eza
 ripgrep
 fd
 bat
+less
 wl-clipboard
+man
 
 gimp
 inkscape
