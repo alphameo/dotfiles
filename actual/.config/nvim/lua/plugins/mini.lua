@@ -20,6 +20,15 @@ local setup_surround = function()
   }
 end
 
+local setup_trailspace = function()
+  local trailspace = require "mini.trailspace"
+  trailspace.setup()
+  vim.keymap.set("n", "grT", function()
+    trailspace.trim()
+    trailspace.trim_last_lines()
+  end, { desc = "Refactor trim Trailspaces" })
+end
+
 local setup_sessions = function()
   local sessions = require "mini.sessions"
   sessions.setup()
@@ -309,5 +318,6 @@ return {
     setup_tabline()
     setup_statusline()
     setup_notify()
+    setup_trailspace()
   end,
 }
