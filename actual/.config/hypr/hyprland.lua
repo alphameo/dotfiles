@@ -83,8 +83,8 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 
-hl.env("SWWW_TRANSITION", "any")
-hl.env("SWWW_TRANSITION_FPS", "60")
+hl.env("AWWW_TRANSITION", "any")
+hl.env("AWWW_TRANSITION_FPS", "60")
 hl.env("DEFAULT_WALLPAPER", wallpaper_path)
 
 -------------------
