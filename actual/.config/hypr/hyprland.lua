@@ -67,7 +67,8 @@ end)
 -----------------------------
 -- https://wiki.hypr.land/Configuring/Environment-variables/
 
--- At first, create symlink to cursor theme at /home/a1pha/.local/share/icons (e.g. from /usr/share/icons)
+-- At first, create symlink to cursor theme at ~/.local/share/icons (e.g. from /usr/share/icons)
+-- sudo ln -rs ~/.local/share/icons/Bibata-Modern-Classic/ /usr/share/icons/Bibata-Modern-Classic
 hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("HYPRCURSOR_SIZE", "24")
 
