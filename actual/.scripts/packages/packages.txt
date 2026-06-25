@@ -79,7 +79,7 @@ kvantum
 kvantum-theme-materia
 materia-gtk-theme
 papirus-icon-theme
-bibata-cursor-theme
+bibata-cursor-theme-bin
 adwaita-cursors adwaita-fonts adwaita-icon-theme
 
 okular
