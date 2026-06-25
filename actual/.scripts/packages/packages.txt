@@ -8,7 +8,7 @@ hyprpwcenter
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 
-flameshot
+grim slurp satty
 
 waybar
 

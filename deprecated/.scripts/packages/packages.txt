@@ -20,6 +20,8 @@ oh-my-posh
 
 xournalpp
 
+flameshot
+
 calcurse
 
 openoffice
