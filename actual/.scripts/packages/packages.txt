@@ -63,6 +63,7 @@ bat
 less
 wl-clipboard
 man
+tldr
 
 gimp
 inkscape
