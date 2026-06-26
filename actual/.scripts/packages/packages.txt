@@ -24,7 +24,9 @@ swaync
 udiskie
 
 rofi-wayland
+
 rofimoji
+xdotool
 
 bluetui
 
@@ -40,6 +42,8 @@ ttf-jetbrains-mono-nerd
 ttf-roboto
 ttf-roboto-mono-nerd
 ttf-times-new-roman
+noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu ttf-liberation
+ttf-ms-win11-auto
 
 lxqt-config
 lxqt-admin
