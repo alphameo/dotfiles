@@ -62,7 +62,7 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 shopt -s cmdhist # Save multi-line commands as one
 HISTCONTROL=ignoredups:erasedups:ignorespace
 
-shopt -s extglob   
+shopt -s extglob
 shopt -s globstar # Recursive globbing (**/*)
 
 if [[ $iatest -gt 0 ]]; then bind "set bell-style visible"; fi
@@ -73,7 +73,9 @@ shopt -s checkjobs # Notify on background jobs
 ##### VI MODE ###
 #################
 
-set -o vi # built-in vim mode
+if [[ $- == *i* ]]; then # in interactive session
+    set -o vi # built-in vim mode
+fi
 export KEYTIMEOUT=1
 
 # Change cursor shape
