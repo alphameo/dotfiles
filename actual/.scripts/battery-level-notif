@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+# check ~/.config/systemd/user/battery_notify.service, ~/.config/systemd/user/battery_notify.timer
+# systemctl --user enable --now battery-notify.service
+# journalctl --user -u check-battery.service
+
+BATTERY_INFO=$(acpi -b)
+BATTERY_LEVEL=$(acpi -b | grep -P -o '[0-9]+(?=%)')
+STATUS=$(acpi -b | grep -oP 'Charging|Discharging')
+
+CRITICAL=5
+WARNING=10
+NOTICE=20
+
+if [[ $STATUS =~ "Discharging" ]]; then
+    case $BATTERY_LEVEL in
+    $CRITICAL) notify-send --app-name="battery-critical" "$BATTERY_LEVEL" "CRITICAL: Battery almost dead!" --urgency="critical" ;;
+    $WARNING) notify-send --app-name="battery-warning" "$BATTERY_LEVEL" "Warning: Low battery!" --urgency="normal" ;;
+    $NOTICE) notify-send --app-name="battery-notice" "$BATTERY_LEVEL" "Notice: Battery running low" --urgency="low" ;;
+    esac
+fi

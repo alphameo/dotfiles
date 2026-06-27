@@ -4,7 +4,7 @@ Description=Battery level checker
 
 
 [Service]
-ExecStart=/usr/bin/bash %h/.config/dunst/scripts/battery.sh
+ExecStart=/usr/bin/bash %h/.scripts/battery-level-notif
 
 [Install]
 WantedBy=timers.target
