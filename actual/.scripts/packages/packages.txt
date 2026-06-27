@@ -12,6 +12,8 @@ grim slurp satty
 
 waybar
 
+acpi
+
 brightnessctl
 
 awww
