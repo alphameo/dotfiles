@@ -1,0 +1,11 @@
+; sudo ln -rs ~/.config/manual/systemd/user/battery-notify.service /etc/systemd/user/battery-notify.service
+; systemctl --user enable --now battery-notify.service
+[Unit]
+Description=Battery level checker
+
+
+[Service]
+ExecStart=/usr/bin/bash %h/.scripts/battery-level-notif
+
+[Install]
+WantedBy=timers.target

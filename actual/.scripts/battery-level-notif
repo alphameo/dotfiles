@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 
-# check ~/.config/systemd/user/battery_notify.service, ~/.config/systemd/user/battery_notify.timer
+# check ~/.config/systemd/user/battery-notify.service, ~/.config/systemd/user/battery-notify.timer
 # systemctl --user enable --now battery-notify.service
-# journalctl --user -u check-battery.service
+# journalctl --user -u battery-notify.service
 
 BATTERY_INFO=$(acpi -b)
 BATTERY_LEVEL=$(acpi -b | grep -P -o '[0-9]+(?=%)')
