@@ -1,5 +1,3 @@
-; sudo ln -rs ~/.config/manual/systemd/user/battery-notify.timer /etc/systemd/user/battery-notify.timer
-; systemctl --user enable --now battery-notify.timer
 [Unit]
 Description=Run battery notifier every 1 minute
 

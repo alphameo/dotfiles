@@ -1,5 +1,3 @@
-; sudo ln -rs ~/.config/manual/systemd/user/battery-notify.service /etc/systemd/user/battery-notify.service
-; systemctl --user enable --now battery-notify.service
 [Unit]
 Description=Battery level checker
 
