@@ -118,7 +118,6 @@ return {
           -- "golangci-lint", -- go lint
           "php-cs-fixer", -- php fmt
           "phpcs", -- php lint
-          "rustfmt", -- rust fmt
           -- "bacon", -- rust lint
           -- "shfmt", -- bash, zsh, sh fmt
           -- "stylelint", -- css lint
