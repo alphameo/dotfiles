@@ -1,20 +1,15 @@
 #!/usr/bin/bash
 
-CONFIG_MNGR=" Config Manager"
+DOTFILES_MNGR=" Dotfiles Manager"
 NETWORK=" Network"
 BLUETOOTH="󰂯 Bluetooth"
 SOUND=" Sound"
 DISPLAY_MNGR="󰍺 Display Manager"
 UI_MNGR="󰉼 UI Manager"
-LOCALE=" Locale Config (lxqt)"
-DATE_TIME=" Date&Time (lxqt)"
-USER=" User (lxqt)"
-INPUT_DEVICES="󰍽 Input Devices (lxqt)"
-DEFAULT_APPS="󰉺 Default Apps (lxqt)"
+CONFIG_LXQT=" Config (lxqt)"
 WALLPAPER_MNGR="󰸉 Wallpaper Manager"
 UPDATE_MANAGER="󰚰 Update Manager"
-POWER="󰐦 Power Menu"
-TASK_MNGR="󰙭 System Monitor (btop)"
+TASK_MNGR="󰙭 System Monitor"
 INFO=" System Info (fastfetch)"
 
 function execute {
@@ -29,14 +24,14 @@ function open_in_term {
 
 function run {
     INP="$@"
-    if [[ $INP == $CONFIG_MNGR ]]; then
-        execute "$HOME/.config/rofi/scripts/config_manager.sh open"
+    if [[ $INP == $DOTFILES_MNGR ]]; then
+        execute "$HOME/.config/rofi/scripts/dotfiles_manager.sh open"
     elif [[ $INP == $NETWORK ]]; then
         execute "$HOME/.scripts/network-manager"
     elif [[ $INP == $BLUETOOTH ]]; then
         execute "$HOME/.scripts/bluetooth-manager"
     elif [[ $INP == $SOUND ]]; then
-        execute "$HOME/.scripts/sound-playback-manager"
+        execute "$HOME/.scripts/sound-manager"
     elif [[ $INP == $TASK_MNGR ]]; then
         execute "$HOME/.scripts/task-manager"
     elif [[ $INP == $DISPLAY_MNGR ]]; then
@@ -47,35 +42,20 @@ function run {
         execute "$HOME/.config/rofi/scripts/ui_manager.sh open"
     elif [[ $INP == $UPDATE_MANAGER ]]; then
         execute "$HOME/.config/rofi/scripts/update_manager.sh open"
-    elif [[ $INP = $DEFAULT_APPS ]]; then
-        execute "lxqt-config-file-associations"
-    elif [[ $INP = $LOCALE ]]; then
-        execute "lxqt-config-locale"
-    elif [[ $INP = $INPUT_DEVICES ]]; then
-        execute "lxqt-config-input"
-    elif [[ $INP = $DATE_TIME ]]; then
-        execute "lxqt-admin-time"
-    elif [[ $INP = $USER ]]; then
-        execute "lxqt-admin-user"
-    elif [[ $INP == $POWER ]]; then
-        execute "rofi -show power-menu -modi power-menu:rofi-power-menu"
+    elif [[ $INP = $CONFIG_LXQT ]]; then
+        execute "lxqt-config"
     elif [[ $INP == $WALLPAPER_MNGR ]]; then
         execute "$HOME/.config/rofi/scripts/wallpaper_manager.sh open"
     else
-        echo $CONFIG_MNGR
+        echo $DOTFILES_MNGR
         echo $NETWORK
         echo $BLUETOOTH
         echo $SOUND
+        echo $CONFIG_LXQT
         echo $UI_MNGR
         echo $DISPLAY_MNGR
-        echo $UPDATE_MANAGER
         echo $WALLPAPER_MNGR
-        echo $DEFAULT_APPS
-        echo $LOCALE
-        echo $DATE_TIME
-        echo $INPUT_DEVICES
-        echo $USER
-        echo $POWER
+        echo $UPDATE_MANAGER
         echo $TASK_MNGR
         echo $INFO
         exit 0
