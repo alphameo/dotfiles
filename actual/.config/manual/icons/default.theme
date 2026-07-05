@@ -1,3 +1,2 @@
-<!-- sudo ln -rs ~/.config/manual/icons/default.theme /usr/share/icons/default/index.theme -->
 [Icon Theme]
 Inherits=Bibata-Modern-Classic
