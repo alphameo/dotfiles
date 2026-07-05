@@ -54,6 +54,7 @@ sddm-conf
 catppuccin-sddm-theme-mocha
 
 neovim
+luarocks
 treesitter-cli
 cmake
 
@@ -101,6 +102,7 @@ gwenview
 
 obs-studio
 kdenlive
+shotcut
 audacity
 losslesscut-bin
 
