@@ -20,6 +20,7 @@ return {
         kotlin = { "ktlint" },
         lua = { "stylua" },
         markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
+        ["markdown.mdx"] = { "prettierd", "markdownlint-cli2", "markdown-toc" },
         php = { "php_cs_fixer" },
         python = { "black" },
         rust = { "rustfmt" },
