@@ -1,17 +1,25 @@
 return {
   "ibhagwan/fzf-lua",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  -- dependencies = { "nvim-mini/mini.icons" },
   lazy = true,
   event = "VeryLazy",
   config = function()
     local fzf = require "fzf-lua"
     fzf.setup {
-      "default", -- profile
+      "default",
       keymap = {
         fzf = {
           ["ctrl-l"] = "select-all+accept",
         },
+      },
+      grep = {
+        grep_opts = "--dereference-recursive --binary-files=without-match --line-number --recursive --color=auto --perl-regexp -e",
+        rg_opts = "--follow --no-ignore --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+        hidden = true,
+      },
+      files = {
+        git_icons = true,
+        hidden = true,
       },
     }
 
