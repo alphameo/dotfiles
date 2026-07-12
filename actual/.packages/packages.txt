@@ -58,6 +58,8 @@ luarocks
 treesitter-cli
 cmake
 
+opencode
+
 kitty
 zsh
 starship
@@ -134,6 +136,9 @@ opentabletdriver
 
 syncthing
 localsend
+
+gparted
+xorg-xhost
 
 handy
 
