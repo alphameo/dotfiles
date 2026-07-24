@@ -6,7 +6,14 @@
         "edit": "ask",
         "bash": {
             "*": "ask",
-            "ls": "allow"
+            "ls": "allow",
+            "find": "allow",
+            "fd": "allow",
+            "head": "allow",
+            "echo": "allow",
+            "grep": "allow",
+            "rg": "allow",
+            "sort": "allow",
         }
     },
     "provider": {
