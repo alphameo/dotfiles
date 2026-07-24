@@ -115,7 +115,7 @@ return {
           "markdown-toc", -- markdown fmt
           "gofumpt", -- go fmt
           "goimports", -- go fmt
-          -- "golangci-lint", -- go lint
+          "golangci-lint", -- go lint
           "php-cs-fixer", -- php fmt
           "phpcs", -- php lint
           -- "bacon", -- rust lint
