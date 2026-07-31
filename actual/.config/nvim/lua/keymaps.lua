@@ -19,16 +19,20 @@ map("t", "<M-l>", "<Right>", { desc = "Right" })
 map("i", "jj", "<ESC>", { desc = "Exit INSERT MODE" })
 
 -- Buffers
-map("n", "<M-]>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
-map("n", "<M-[>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+map("n", "<M-]>", ":bnext<CR>", { silent = true, desc = "Next Buffer" })
+map("n", "<M-[>", ":bprev<CR>", { silent = true, desc = "Previous Buffer" })
 map("n", "<M-Backspace>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
+map("n", "<M-w>", ":bdelete<CR>", { silent = true, desc = "Next Buffer" })
 
-map("n", "]b", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
-map("n", "[b", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
-map("n", "<C-n>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
-map("n", "<C-p>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
-map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Tab (buffer)" })
-map("n", "<C-S-Tab>", ":bprev<CR>", { silent = true, desc = "Previous Tab (buffer)" })
+map("n", "]b", ":bnext<CR>", { silent = true, desc = "Next Buffer" })
+map("n", "[b", ":bprev<CR>", { silent = true, desc = "Previous Buffer" })
+map("n", "<C-n>", ":bnext<CR>", { silent = true, desc = "Next Buffer" })
+map("n", "<C-p>", ":bprev<CR>", { silent = true, desc = "Previous Buffer" })
+map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Buffer" })
+map("n", "<C-S-Tab>", ":bprev<CR>", { silent = true, desc = "Previous Buffer" })
+
+map("n", "]T", ":tabnext<CR>", { silent = true, desc = "Next Tab" })
+map("n", "[T", ":tabprev<CR>", { silent = true, desc = "Previous Tab" })
 
 -- Windows
 map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })

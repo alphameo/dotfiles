@@ -81,6 +81,7 @@ return {
 
     map("n", "<leader>fm", builtin.marks, { desc = "Find Marks" })
     map("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
+    map("n", "<leader>ft", builtin.tabs, { desc = "Find Tabs" })
     map("n", "<leader>fj", builtin.jumplist, { desc = "Find in Jump List" })
     map("n", "<leader>fq", builtin.quickfix, { silent = true, desc = "Find in Quickfix List" })
     map("n", "<leader>fQ", builtin.quickfixhistory, { silent = true, desc = "Find in Quickfix List History" })

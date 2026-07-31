@@ -46,6 +46,7 @@ return {
 
     map("n", "<leader>fm", fzf.marks, { desc = "Find Marks" })
     map("n", "<leader>fb", fzf.buffers, { desc = "Find Buffers" })
+    map("n", "<leader>ft", fzf.tabs, { desc = "Find Tabs" })
     map("n", "<leader>fj", fzf.jumps, { desc = "Find in Jump List" })
     map("n", "<leader>fq", fzf.quickfix, { silent = true, desc = "Find in Quickfix List" })
     map("n", "<leader>fQ", fzf.quickfix_stack, { silent = true, desc = "Find in Quickfix List History" })
