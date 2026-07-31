@@ -57,6 +57,9 @@ neovim
 luarocks
 treesitter-cli
 cmake
+chafa
+viu
+ueberzugpp
 
 opencode
 
@@ -125,8 +128,10 @@ mpd
 libreoffice-fresh
 
 v2rayn-bin
+amneziavpn-bin
 
 btop
+nvtop
 neohtop
 resources
 
