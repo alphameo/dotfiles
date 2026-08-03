@@ -29,6 +29,15 @@ local setup_trailspace = function()
   end, { desc = "Refactor trim Trailspaces" })
 end
 
+local setup_jump2d = function()
+  local jump = require "mini.jump2d"
+  jump.setup {
+    mappings = {
+      start_jumping = "gw",
+    },
+  }
+end
+
 local setup_sessions = function()
   local sessions = require "mini.sessions"
   sessions.setup()
@@ -319,5 +328,6 @@ return {
     setup_statusline()
     setup_notify()
     setup_trailspace()
+    -- setup_jump2d()
   end,
 }
