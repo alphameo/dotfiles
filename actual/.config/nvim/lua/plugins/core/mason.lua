@@ -76,6 +76,7 @@ return {
           "yamlls", -- yaml
           "sqlls", -- sql
           "bashls", -- bash
+          "fish-lsp", -- fish
           "intelephense", -- php
           "phpactor", -- php
           "rust_analyzer", -- rust

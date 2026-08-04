@@ -220,6 +220,7 @@ end
 ------------
 local lsp_list_enable = {
   "bashls",
+  "fish-lsp",
   "clangd",
   "neocmake",
   "cssls",
