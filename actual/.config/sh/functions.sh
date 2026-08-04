@@ -9,7 +9,6 @@ et() {
   esac
 }
 
-# yazi
 # https://yazi-rs.github.io/docs/quick-start#shell-wrapper
 function fm() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

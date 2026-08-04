@@ -3,11 +3,14 @@
 
 source "$HOME/.config/sh/aliases.sh"
 
+# https://github.com/ajeetdsouza/zoxide#Installation
 eval "$(zoxide init zsh)"
 
+# https://github.com/junegunn/fzf#setting-up-shell-integration
 source <(fzf --zsh)
 source "$HOME/.config/sh/fzf.sh"
 
+# https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship
 eval "$(starship init zsh)"
 
 

@@ -4,14 +4,23 @@ iatest=$(expr index "$-" i) # is interactive shell
 
 source "$HOME/.config/sh/aliases.sh"
 
+# https://github.com/ajeetdsouza/zoxide#Installation
 eval "$(zoxide init bash)"
 
+# https://github.com/junegunn/fzf#setting-up-shell-integration
 eval "$(fzf --bash)"
 source "$HOME/.config/sh/fzf.sh"
 
+# https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship
 eval "$(starship init bash)"
 
+
+########################
+### CUSTOM FUNCTIONS ###
+########################
+
 source "$HOME/.config/sh/functions.sh"
+
 
 ######################
 #### BLE.SH plugin ###
