@@ -37,6 +37,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 # https://github.com/zsh-users/zsh-autosuggestions
 # https://github.com/zsh-users/zsh-history-substring-search
 zinit depth"1" lucid light-mode for \
+    olets/zsh-abbr \
     Aloxaf/fzf-tab \
     zsh-users/zsh-syntax-highlighting \
     zsh-users/zsh-completions \
@@ -44,6 +45,9 @@ zinit depth"1" lucid light-mode for \
 
 # fzf-tab
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --icons=always --color=always $realpath'
+
+# zsh-abbr
+export ABBR_USER_ABBREVIATIONS_FILE="$XDG_CONFIG_HOME/zsh/abbr.zsh"
 
 
 ##################
