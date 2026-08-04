@@ -64,7 +64,14 @@ ueberzugpp
 opencode
 
 kitty
+
 zsh
+
+fish
+fisher
+
+nushell
+
 starship
 fzf
 zoxide
