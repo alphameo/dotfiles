@@ -48,6 +48,8 @@ export EZA_ICONS_AUTO=1
 
 export RAINFROG_CONFIG="$XDG_CONFIG_HOME/rainfrog"
 
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/config.toml"
+
 # For nmtui theming
 export NEWT_COLORS='
 root=#cdd6f4,#1e1e2e
