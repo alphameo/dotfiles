@@ -4,12 +4,13 @@ alias pacman='pacman --color=always'
 alias nv='nvim'
 alias sudonv='sudoedit'
 alias bat='bat --style=plain --pager=never'
-alias ls="ls --color=always"
+alias ls='ls --color=always'
 alias rg='rg --color=always'
-# alias cdr="__zoxide_z"
+# alias cdr='__zoxide_z'
 alias cdr="__zoxide_zi"
 alias ff='fastfetch'
-alias e='eza --color=always --icons=always'
+alias eza='eza --color=always --icons=always'
+alias e='eza'
 alias ldoc='lazydocker'
 alias lgit='lazygit'
 
@@ -18,7 +19,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias trash='trash -v'
 alias mkdir='mkdir -p'
-alias ps='ps auxf'
+alias psall='ps auxf'
 alias ping='ping -c 10'
 alias less='less -R'
 
