@@ -16,13 +16,13 @@ export TERMINAL='kitty'
 
 export LF_CONFIG_HOME="$XDG_CONFIG_HOME"
 
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
-export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/nvim/utils/prettierrc.json"
+export PRETTIERD_DEFAULT_CONFIG="$XDG_CONFIG_HOME/nvim/utils/prettierrc.json"
 
-export ESLINT_DEFAULT_CONFIG="$HOME/.config/nvim/utils/eslintrc.js"
+export ESLINT_DEFAULT_CONFIG="$XDG_CONFIG_HOME/nvim/utils/eslintrc.js"
 
-export MARKDOWNLINT_DEFAULTCONFIG="$HOME/.config/nvim/utils/markdown-lint-cli2.yaml"
+export MARKDOWNLINT_DEFAULTCONFIG="$XDG_CONFIG_HOME/nvim/utils/markdown-lint-cli2.yaml"
 
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export GPG_TTY="$TTY"
@@ -39,14 +39,14 @@ export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
 export XCURSOR_PATH="${XCURSOR_PATH}:${XDG_DATA_HOME}/icons"
 
 mkdir -p "$XDG_DATA_HOME"/wineprefixes
-export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
+export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 
 # Native file dialog for electron apps
 export GTK_USE_PORTAL=1
 
 export EZA_ICONS_AUTO=1
 
-export RAINFROG_CONFIG=~/.config/rainfrog
+export RAINFROG_CONFIG="$XDG_CONFIG_HOME/rainfrog"
 
 # For nmtui theming
 export NEWT_COLORS='
