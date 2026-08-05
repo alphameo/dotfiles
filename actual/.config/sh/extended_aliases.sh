@@ -24,32 +24,15 @@ alias 666='chmod --recursive 666 '
 alias 755='chmod --recursive 755 '
 alias 777='chmod --recursive 777 '
 
-# Search command line history
-alias h='history | grep '
-
-# Search running processes
-alias p='ps aux | grep '
-alias topcpu='ps -A --format=pcpu,pid,user,args | sort --key=1 --reverse | head -10'
-
-# Search files in the current folder
-alias f='find . | grep '
-
-# Count all files (recursively) in the current folder
-alias countfiles='echo "$(find . -type f 2>/dev/null | wc -l) files"; echo "$(find . -type l 2>/dev/null | wc -l) links"; echo "$(find . -type d 2>/dev/null | wc -l) directories"'
-
-# Show open ports
-alias openports='netstat --numeric --all --programs --extend --inet'
+alias openports='netstat --numeric --all --programs --extend --inet' # Show open ports
 
 # Alias's for safe and forced reboots
 alias rebootsafe='sudo shutdown --reboot now'
 alias rebootforce='sudo shutdown --reboot -n now'
 
 # Alias's to show disk space and space used in a folder
-alias diskspace='du --separate-dirs | sort --numeric-sort --reverse | more'
 alias folders='du --human-readable --max-depth=1'
 alias folderssort='find . -maxdepth 1 -type d -print0 | xargs -0 du --summarize -k | sort --numeric-sort --reverse'
-alias tree='tree -CAhF --dirsfirst'
-alias treed='tree -CAFd'
 alias mountedinfo='df --human-readable --print-type'
 
 # Alias's for archives
@@ -59,9 +42,6 @@ alias mkgz='tar --create --verbose --gzip --file='
 alias untar='tar --extract --verbose --file='
 alias unbz2='tar --extract --verbose --bizp2 --file='
 alias ungz='tar --extract --verbose --gzip --file='
-
-# Show all logs in /var/log
-alias logs='sudo find /var/log -type f -exec file {} \; | grep "text" | cut --delimiter=" " --fields=1 | sed --expression="s/:$//g" | grep --invert-match "[0-9]$" | xargs tail --follow'
 
 # SHA1
 alias sha1='openssl sha1'
