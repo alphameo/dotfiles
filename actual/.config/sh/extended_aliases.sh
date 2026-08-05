@@ -1,83 +1,77 @@
 # Alias's for multiple directory listing commands
-alias ls='ls -Fh --color=always' # add colors and file type extensions
-alias la='ls -Alh'                # show hidden files
-alias lx='ls -lXBh'               # sort by extension
-alias lk='ls -lSrh'               # sort by size
-alias lc='ls -ltcrh'              # sort by change time
-alias lu='ls -lturh'              # sort by access time
-alias lr='ls -lRh'                # recursive ls
-alias lt='ls -ltrh'               # sort by date
-alias lm='ls -alh |more'          # pipe through 'more'
-alias lw='ls -xAh'                # wide listing format
-alias ll='ls -Fls'                # long listing format
-alias labc='ls -lap'              # alphabetical sort
-alias lf="ls -l | egrep -v '^d'"  # files only
-alias ldir="ls -l | egrep '^d'"   # directories only
-alias lla='ls -Al'                # List and Hidden Files
-alias las='ls -A'                 # Hidden Files
-alias lls='ls -l'                 # List
+alias la='ls -l --almost-all --human-readable'                       # show hidden files (-Alh)
+alias lx='ls -l --sort=extension --ignore-backups --human-readable'  # sort by extension (-lXBh)
+alias lk='ls -l --sort=size --reverse --human-readable'              # sort by size (-lSrh)
+alias lc='ls -l --sort=time --time=ctime --reverse --human-readable' # sort by change time (-ltcrh)
+alias lu='ls -l --sort=time --time=atime --reverse --human-readable' # sort by access time (-lturh)
+alias lr='ls -l --recursive --human-readable'                        # recursive ls (-lRh)
+alias lt='ls -l --sort=time --reverse --human-readable'              # sort by date (-ltrh)
+alias lm='ls -l --all --human-readable | more'                       # pipe through 'more' (-alh)
+alias lw='ls -x --almost-all --human-readable'                       # wide listing format (-xAh)
+alias ll='ls -l --classify --size'                                   # long listing format (-Fls)
+alias labc='ls -l --all --indicator-style=slash'                     # alphabetical sort (-lap)
+alias lf='ls -l | grep --invert-match "^d"'                          # files only
+alias ldir='ls -l | grep "^d"'                                       # directories only
+alias lla='ls -l --almost-all'                                       # List and Hidden Files (-Al)
+alias las='ls --almost-all'                                          # Hidden Files (-A)
+alias lls='ls -l'                                                    # List (-l)
 
 # alias chmod commands
-alias mx='chmod a+x'
-alias 000='chmod -R 000'
-alias 644='chmod -R 644'
-alias 666='chmod -R 666'
-alias 755='chmod -R 755'
-alias 777='chmod -R 777'
+alias mx='chmod a+x '
+alias 000='chmod --recursive 000 '
+alias 644='chmod --recursive 644 '
+alias 666='chmod --recursive 666 '
+alias 755='chmod --recursive 755 '
+alias 777='chmod --recursive 777 '
 
 # Search command line history
-alias h="history | grep "
+alias h='history | grep '
 
 # Search running processes
-alias p="ps aux | grep "
-alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
+alias p='ps aux | grep '
+alias topcpu='ps -A --format=pcpu,pid,user,args | sort --key=1 --reverse | head -10'
 
 # Search files in the current folder
-alias f="find . | grep "
+alias f='find . | grep '
 
 # Count all files (recursively) in the current folder
-alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
-
-# To see if a command is aliased, a file, or a built-in command
-alias checkcommand="type -t"
+alias countfiles='echo "$(find . -type f 2>/dev/null | wc -l) files"; echo "$(find . -type l 2>/dev/null | wc -l) links"; echo "$(find . -type d 2>/dev/null | wc -l) directories"'
 
 # Show open ports
-alias openports='netstat -nape --inet'
+alias openports='netstat --numeric --all --programs --extend --inet'
 
 # Alias's for safe and forced reboots
-alias rebootsafe='sudo shutdown -r now'
-alias rebootforce='sudo shutdown -r -n now'
+alias rebootsafe='sudo shutdown --reboot now'
+alias rebootforce='sudo shutdown --reboot -n now'
 
 # Alias's to show disk space and space used in a folder
-alias diskspace="du -S | sort -n -r |more"
-alias folders='du -h --max-depth=1'
-alias folderssort='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
+alias diskspace='du --separate-dirs | sort --numeric-sort --reverse | more'
+alias folders='du --human-readable --max-depth=1'
+alias folderssort='find . -maxdepth 1 -type d -print0 | xargs -0 du --summarize -k | sort --numeric-sort --reverse'
 alias tree='tree -CAhF --dirsfirst'
 alias treed='tree -CAFd'
-alias mountedinfo='df -hT'
+alias mountedinfo='df --human-readable --print-type'
 
 # Alias's for archives
-alias mktar='tar -cvf'
-alias mkbz2='tar -cvjf'
-alias mkgz='tar -cvzf'
-alias untar='tar -xvf'
-alias unbz2='tar -xvjf'
-alias ungz='tar -xvzf'
+alias mktar='tar --create --verbose --file='
+alias mkbz2='tar --create --verbose --bzip2 --file='
+alias mkgz='tar --create --verbose --gzip --file='
+alias untar='tar --extract --verbose --file='
+alias unbz2='tar --extract --verbose --bizp2 --file='
+alias ungz='tar --extract --verbose --gzip --file='
 
 # Show all logs in /var/log
-alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
+alias logs='sudo find /var/log -type f -exec file {} \; | grep "text" | cut --delimiter=" " --fields=1 | sed --expression="s/:$//g" | grep --invert-match "[0-9]$" | xargs tail --follow'
 
 # SHA1
 alias sha1='openssl sha1'
-
-alias clickpaste='sleep 3; xdotool type "$(xclip -o -selection clipboard)"'
 
 # KITTY - alias to be able to use kitty features when connecting to remote servers(e.g use tmux on remote server)
 alias kssh="kitty +kitten ssh"
 
 # Alias to cleanup unused docker containers, images, networks, and volumes
 alias docker-clean=' \
-  docker container prune -f ; \
-  docker image prune -f ; \
-  docker network prune -f ; \
-  docker volume prune -f '
+  docker container prune --force ; \
+  docker image prune --force ; \
+  docker network prune --force ; \
+  docker volume prune --force '
