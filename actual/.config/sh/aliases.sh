@@ -22,7 +22,7 @@ alias h='history | grep' # Search command line history
 alias f='find . | grep' # Search files in the current folder
 
 alias countfiles='echo "$(find . -type f 2>/dev/null | wc -l) files"; echo "$(find . -type l 2>/dev/null | wc -l) links"; echo "$(find . -type d 2>/dev/null | wc -l) directories"'
-alias logs='sudo find /var/log -type f -exec file {} \; | grep "text" | cut --delimiter=" " --fields=1 | sed --expression="s/:$//g" | grep --invert-match "[0-9]$" | xargs tail --follow'
+alias logs='sudo find /var/log -type f -exec file {} \; | grep "text" | cut --delimiter=" " --fields=1 | sed --expression="s/:\$//g" | grep --invert-match "[0-9]\$" | xargs tail --follow'
 alias diskspace='du --separate-dirs | sort --numeric-sort --reverse | more'
 alias folders='du --human-readable --max-depth=1'
 alias folderssort='find . -maxdepth 1 -type d -print0 | xargs -0 du --summarize -k | sort --numeric-sort --reverse'
