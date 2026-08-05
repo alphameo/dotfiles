@@ -25,7 +25,7 @@ abbr lla='ls -l --almost-all'
 abbr las='ls --almost-all'
 abbr lls='ls -l'
 
-abbr mx='chmod a+x '
+abbr mx='chmod a+x'
 abbr 000='chmod --recursive 000'
 abbr 644='chmod --recursive 644'
 abbr 666='chmod --recursive 666'

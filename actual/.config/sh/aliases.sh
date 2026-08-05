@@ -59,7 +59,7 @@ alias lla='ls -l --almost-all'                                       # List and 
 alias las='ls --almost-all'                                          # Hidden Files (-A)
 alias lls='ls -l'                                                    # List (-l)
 
-alias mx='chmod a+x '
+alias mx='chmod a+x'
 alias 000='chmod --recursive 000'
 alias 644='chmod --recursive 644'
 alias 666='chmod --recursive 666'

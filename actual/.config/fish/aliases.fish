@@ -59,7 +59,7 @@ abbr --add lla 'ls -l --almost-all'                                       # List
 abbr --add las 'ls --almost-all'                                          # Hidden Files (-A)
 abbr --add lls 'ls -l'                                                    # List (-l)
 
-abbr --add mx 'chmod a+x '
+abbr --add mx 'chmod a+x'
 abbr --add 000 'chmod --recursive 000'
 abbr --add 644 'chmod --recursive 644'
 abbr --add 666 'chmod --recursive 666'
