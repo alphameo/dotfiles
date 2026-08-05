@@ -25,7 +25,7 @@ export ESLINT_DEFAULT_CONFIG="$XDG_CONFIG_HOME/nvim/utils/eslintrc.js"
 export MARKDOWNLINT_DEFAULTCONFIG="$XDG_CONFIG_HOME/nvim/utils/markdown-lint-cli2.yaml"
 
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-export GPG_TTY="$TTY"
+export GPG_TTY="$(tty)"
 
 export JAVA_HOME="/usr/lib/jvm/java-25-openjdk"
 
