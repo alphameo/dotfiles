@@ -1,5 +1,5 @@
 if status is-interactive
-    source "$XDG_CONFIG_HOME/fish/aliases"
+    source "$XDG_CONFIG_HOME/fish/aliases.fish"
 
     # https://github.com/ajeetdsouza/zoxide#Installation
     zoxide init fish | source
