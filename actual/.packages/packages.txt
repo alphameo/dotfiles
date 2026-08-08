@@ -30,6 +30,8 @@ rofi-wayland
 rofimoji
 xdotool
 
+ntfs-3g
+
 bluetui
 
 networkmanager
@@ -192,3 +194,6 @@ gdb
 cmake
 cmake-init-git
 conan
+
+go
+golangci-lint
