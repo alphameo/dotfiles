@@ -53,15 +53,17 @@ cmd("CursorLine", "set cursorline! cursorline?", { desc = "Toggle Location Line"
 cmd("CursorCol", "set cursorcolumn! cursorcolumn?", { desc = "Toggle Location Column" })
 cmd("RelNum", ":set relativenumber! relativenumber?", { desc = "Toggle Relative Numbers" })
 cmd("Glyphs", "set list! list?", { desc = "Toggle Glyphs" })
-cmd("Wrap", "setlocal wrap! wrap?", { desc = "Toggle Wrapping" })
+cmd("Wrap", "setlocal wrap! wrap?", { desc = "Toggle Wrapping Locally" })
 cmd("ColColumn", function()
   if vim.o.colorcolumn ~= "" then
     vim.o.colorcolumn = ""
+    print "nocolorcolumn"
   else
     vim.o.colorcolumn = "80"
+    print("colorcolumn=" .. vim.o.colorcolumn)
   end
 end, { desc = "Toggle Colorcolumn" })
-cmd("Spell", "setlocal spell! spell?", { desc = "Toggle Spell Check" })
+cmd("Spell", "setlocal spell! spell?", { desc = "Toggle Spellcheck Locally" })
 cmd("Diagnostics", function()
   local buf_id = vim.api.nvim_get_current_buf()
   local is_enabled = vim.diagnostic.is_enabled { bufnr = buf_id }
@@ -69,11 +71,23 @@ cmd("Diagnostics", function()
   -- local new_buf_state = not is_enabled
   -- return new_buf_state and "  diagnostic" or "nodiagnostic"
 end, { desc = "Toggle Diagnostics" })
+cmd("Expandtab", "setlocal expandtab! expandtab?", { desc = "Toggle Expandtab Locally" })
 
-map("n", "\\s", ":Spell<CR>", { silent = true, desc = "Toggle Spellcheck" })
-map("n", "\\w", ":Wrap<CR>", { silent = true, desc = "Toggle Wrapping" })
-map("n", "\\d", ":Diagnostics<CR>", { silent = true, desc = "Toggle Diagnostic" })
+map("n", "\\s", ":Spell<CR>", { silent = true, desc = "Toggle Spellcheck Locally" })
+map("n", "\\w", ":Wrap<CR>", { silent = true, desc = "Toggle Wrapping Locally" })
+map("n", "\\d", ":Diagnostics<CR>", { silent = true, desc = "Toggle Diagnostics" })
 map("n", "\\l", ":ColColumn<CR>", { silent = true, desc = "Toggle Limit Column" })
+map("n", "\\<Tab>", ":Expandtab<CR>", { silent = true, desc = "Toggle Expandtab Locally" })
+
+cmd("Indent", function(opts)
+  local width = tonumber(opts.args)
+  vim.bo.expandtab = true
+  vim.bo.tabstop = width
+  vim.bo.softtabstop = width
+  vim.bo.shiftwidth = width
+
+  print("local_indent=" .. width)
+end, { nargs = 1 })
 
 ---------------
 -- Terminals --
