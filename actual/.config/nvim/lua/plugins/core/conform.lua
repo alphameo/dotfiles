@@ -84,6 +84,6 @@ return {
 
     vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
-    vim.keymap.set({ "n", "v" }, "gq", ":Format<CR>", { silent = true, desc = "Format lines" })
+    vim.keymap.set({ "n", "v" }, "gQ", ":Format<CR>", { silent = true, desc = "Format lines" })
   end,
 }

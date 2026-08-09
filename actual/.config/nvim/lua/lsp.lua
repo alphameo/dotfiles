@@ -13,6 +13,7 @@ M.actions = {
   wsp_symb = lsp_b.workspace_symbol,
   in_calls = lsp_b.incoming_calls,
   out_calls = lsp_b.outgoing_calls,
+  formatexpr = vim.lsp.formatexpr,
 }
 
 local setup_mappings = function()
@@ -29,7 +30,7 @@ local setup_mappings = function()
 
       map("n", "gri", M.actions.impl, opts "vim.lsp.buf.implementation()")
       map("n", "grr", M.actions.ref, opts "vim.lsp.buf.references()")
-      map("n", "grt", M.actions.type_def, opts "vim.lsp.buf.type_definition")
+      map("n", "grt", M.actions.type_def, opts "vim.lsp.buf.type_definition()")
 
       map("n", "gO", M.actions.doc_symb, opts "vim.lsp.buf.document_symbol()")
       map("n", "go", M.actions.wsp_symb, opts "vim.lsp.buf.workspace_symbol()")
