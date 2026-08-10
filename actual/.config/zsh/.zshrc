@@ -29,6 +29,9 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
+# zsh-abbr: set envvar before plugin load
+export ABBR_USER_ABBREVIATIONS_FILE="$XDG_CONFIG_HOME/zsh/abbr.zsh"
+
 # https://github.com/Aloxaf/fzf-tab
 # https://github.com/zsh-users/zsh-syntax-highlighting (see EOF)
 # https://github.com/zdharma-continuum/fast-syntax-highlighting
@@ -36,6 +39,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 # https://github.com/marlonrichert/zsh-autocomplete
 # https://github.com/zsh-users/zsh-autosuggestions
 # https://github.com/zsh-users/zsh-history-substring-search
+# https://github.com/olets/zsh-abbr
 zinit depth"1" lucid light-mode for \
     olets/zsh-abbr \
     Aloxaf/fzf-tab \
@@ -45,9 +49,6 @@ zinit depth"1" lucid light-mode for \
 
 # fzf-tab
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --icons=always --color=always $realpath'
-
-# zsh-abbr
-export ABBR_USER_ABBREVIATIONS_FILE="$XDG_CONFIG_HOME/zsh/abbr.zsh"
 
 
 ##################
