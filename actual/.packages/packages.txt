@@ -137,7 +137,7 @@ mpd
 
 libreoffice-fresh
 
-v2rayn-bin
+v2rayn
 amneziavpn-bin
 
 btop
