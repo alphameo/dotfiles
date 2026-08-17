@@ -3,6 +3,7 @@
     // "model": "opencode/kimi-k2.5",
     "autoupdate": true,
     "permission": {
+        "*": "ask",
         "edit": "ask",
         "bash": {
             "*": "ask",
@@ -16,23 +17,24 @@
             "sort *": "allow",
             "cat *": "allow",
             "bat *": "allow",
+            "wc *": "allow",
         }
     },
-    "provider": {
-        // install https://github.com/QwenLM/qwen-code
-        // log in `> qwen` with OAuth (/auth)
-        // connect provider by adding API from ~/.qwen/oauth_creds.json:"access_token"
-        "alibaba-qwen": {
-            "npm": "@ai-sdk/openai-compatible",
-            "name": "Qwen (Alibaba)",
-            "options": {
-                "baseURL": "https://portal.qwen.ai/v1"
-            },
-            "models": {
-                "qwen3-coder-plus": {
-                    "name": "Qwen-3 Coder Plus"
-                }
-            }
-        }
-    }
+    // "provider": {
+    // install https://github.com/QwenLM/qwen-code
+    // log in `> qwen` with OAuth (/auth)
+    // connect provider by adding API from ~/.qwen/oauth_creds.json:"access_token"
+    //     "alibaba-qwen": {
+    //         "npm": "@ai-sdk/openai-compatible",
+    //         "name": "Qwen (Alibaba)",
+    //         "options": {
+    //             "baseURL": "https://portal.qwen.ai/v1"
+    //         },
+    //         "models": {
+    //             "qwen3-coder-plus": {
+    //                 "name": "Qwen-3 Coder Plus"
+    //             }
+    //         }
+    //     }
+    // }
 }
