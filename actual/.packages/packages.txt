@@ -41,6 +41,7 @@ net-tools
 qt5-wayland qt6-wayland
 
 wiremix
+alsa-utils
 
 ttf-jetbrains-mono-nerd
 ttf-roboto
