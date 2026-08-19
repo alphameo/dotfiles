@@ -23,7 +23,7 @@ end
 local setup_trailspace = function()
   local trailspace = require "mini.trailspace"
   trailspace.setup()
-  vim.keymap.set("n", "grT", function()
+  vim.keymap.set("n", "grs", function()
     trailspace.trim()
     trailspace.trim_last_lines()
   end, { desc = "Refactor trim Trailspaces" })

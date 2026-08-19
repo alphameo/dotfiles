@@ -38,7 +38,6 @@ return {
       { "<leader>.", group = "Settings", mode = { "n", "v" }, icon = { icon = " ", color = "white" } },
 
       { "gr", group = "Goto&Refactor", mode = { "n", "v" } },
-      { "grs", group = "Swap", mode = { "n", "v" } },
 
       vim.keymap.set("n", "<leader>.k", function()
         which_key.show { global = false }

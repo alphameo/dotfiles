@@ -92,20 +92,20 @@ return {
 
       -- Swap
       local ts_obj_swap = require "nvim-treesitter-textobjects.swap"
-      map("n", "grsf", function()
+      map("n", "grf", function()
         ts_obj_swap.swap_next "@function.outer"
       end, { desc = "Swap function with next" })
-      map("n", "grsF", function()
+      map("n", "grF", function()
         ts_obj_swap.swap_previous "@function.outer"
       end, { desc = "Swap function with previous" })
 
-      map("n", "grsp", function()
+      map("n", "grp", function()
         ts_obj_swap.swap_next "@parameter.inner"
       end, { desc = "Swap parameter with next" })
       map("n", "<M-l>", function()
         ts_obj_swap.swap_next "@parameter.inner"
       end, { desc = "Swap parameter with next" })
-      map("n", "grsP", function()
+      map("n", "grP", function()
         ts_obj_swap.swap_previous "@parameter.inner"
       end, { desc = "Swap parameter with previous" })
       map("n", "<M-h>", function()
