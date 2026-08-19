@@ -3,6 +3,18 @@ return {
     "iamcco/markdown-preview.nvim",
     lazy = true,
     ft = { "markdown" },
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    -- INFO: install with yarn/npm
+    build = "cd app && npm install",
+    -- or
+    -- build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    -- INFO: install without yarn/npm
+    -- build = function()
+    --   vim.fn["mkdp#util#install"]()
+    -- end,
     config = function()
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
