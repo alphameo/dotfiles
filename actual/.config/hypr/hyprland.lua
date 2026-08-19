@@ -537,7 +537,6 @@ hl.bind(mod .. "SHIFT + left", hl.dsp.window.swap { direction = "left" })
 hl.bind(mod .. "SHIFT + right", hl.dsp.window.swap { direction = "right" })
 hl.bind(mod .. "SHIFT + up", hl.dsp.window.swap { direction = "up" })
 hl.bind(mod .. "SHIFT + down", hl.dsp.window.swap { direction = "down" })
-hl.bind(mod .. "CTRL + backslash", hl.dsp.exec_cmd "~/.config/hypr/scripts/swap-layout.sh")
 local resize = 25
 hl.bind(mod .. "minus", hl.dsp.window.resize { x = 0, y = -resize, relative = true })
 hl.bind(mod .. "equal", hl.dsp.window.resize { x = 0, y = resize, relative = true })
