@@ -1,4 +1,4 @@
-notification_close_time 50
+notification_close_time 5
 colors {
     // text "#cbcbcb"
     // accent "#865fff"
