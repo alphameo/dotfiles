@@ -29,6 +29,6 @@ else
     if [ -d "$target_theme" ]; then
         sudo ln -rs "$target_theme" "$default_icons"
     else
-        echo "'$target_theme' not foound" >&2
+        echo "'$target_theme' not found" >&2
     fi
 fi
