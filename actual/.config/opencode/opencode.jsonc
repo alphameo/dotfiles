@@ -3,22 +3,22 @@
     // "model": "opencode/kimi-k2.5",
     "autoupdate": true,
     "permission": {
-        "*": "ask",
+        "*": "allow",
         "edit": "ask",
-        "bash": {
-            "*": "ask",
-            "ls *": "allow",
-            "find *": "allow",
-            "fd *": "allow",
-            "head *": "allow",
-            "echo *": "allow",
-            "grep *": "allow",
-            "rg *": "allow",
-            "sort *": "allow",
-            "cat *": "allow",
-            "bat *": "allow",
-            "wc *": "allow",
-        }
+        // "bash": {
+        //     "*": "ask",
+        //     "ls *": "allow",
+        //     "find *": "allow",
+        //     "fd *": "allow",
+        //     "head *": "allow",
+        //     "echo *": "allow",
+        //     "grep *": "allow",
+        //     "rg *": "allow",
+        //     "sort *": "allow",
+        //     "cat *": "allow",
+        //     "bat *": "allow",
+        //     "wc *": "allow",
+        // }
     },
     // "provider": {
     // install https://github.com/QwenLM/qwen-code
