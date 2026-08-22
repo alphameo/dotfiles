@@ -20,11 +20,11 @@ return {
     }
 
     local toggle_img = function()
-      if require("image").is_enabled() then
-        require("image").disable()
+      if img.is_enabled() then
+        img.disable()
         vim.notify("Images disabled", vim.log.levels.INFO)
       else
-        require("image").enable()
+        img.enable()
         vim.notify("Images enabled", vim.log.levels.INFO)
       end
     end
