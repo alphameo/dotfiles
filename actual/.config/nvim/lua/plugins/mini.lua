@@ -231,6 +231,8 @@ local setup_statusline = function()
     return string.format("%d%%%%", percent)
   end
 
+  -- local lsp_status = vim.ui.progress_status
+
   stl.setup {
     use_icons = vim.g.have_nerd_font,
     set_vim_settings = true,
