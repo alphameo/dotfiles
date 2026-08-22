@@ -138,7 +138,7 @@ vim.filetype.add {
 require("vim._core.ui2").enable {
   enable = true,
   msg = {
-    targets = "cmd",
+    targets = "msg", -- "cmd" or "msg"
     cmd = {
       height = 0.5, -- Maximum height while expanded for messages beyond 'cmdheight'.
     },
