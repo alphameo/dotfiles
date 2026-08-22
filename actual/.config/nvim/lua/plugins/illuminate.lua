@@ -3,7 +3,8 @@ return {
   lazy = true,
   event = "VeryLazy",
   config = function()
-    require("illuminate").configure {
+    local illuminate = require "illuminate"
+    illuminate.configure {
       providers = {
         "lsp",
         "treesitter",
@@ -29,9 +30,9 @@ return {
         return true
       end,
       case_insensitive_regex = false,
-      disable_keymaps = false,
+      disable_keymaps = true,
     }
-
-    vim.api.nvim_create_user_command("HlRef", "GuessIndent", { desc = "Highlight Refernces" })
+    vim.keymap.set("n", "]r", illuminate.goto_next_reference, { desc = "Goto next reference"})
+    vim.keymap.set("n", "[r", illuminate.goto_prev_reference, { desc = "Goto next reference"})
   end,
 }

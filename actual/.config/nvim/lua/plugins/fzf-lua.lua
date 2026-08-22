@@ -58,6 +58,5 @@ return {
 
     map("n", "<leader>.c", fzf.colorschemes, { desc = "Choose Colorscheme" })
     map("n", "<leader>.K", fzf.keymaps, { desc = "Inspect Keymapping" })
-    map("n", "<leader>.h", fzf.helptags, { desc = "Find Help Tag" })
   end,
 }
