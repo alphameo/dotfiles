@@ -1,11 +1,118 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    branch = "main",
+    build = ":TSUpdate",
+    config = function()
+      local langs = {
+        -- LANGUAGES
+        "bash",
+        "c",
+        "cpp",
+        "cmake",
+        "go",
+        "gomod",
+        "gosum",
+        "gowork",
+        "java",
+        "javadoc",
+        "c_sharp",
+        "fish",
+        "javascript",
+        "jsdoc",
+        "kotlin",
+        "lua",
+        "luadoc",
+        "make",
+        "nu",
+        "python",
+        "php",
+        "phpdoc",
+        "ron",
+        "rust",
+        "scheme",
+        "sql",
+        "typescript",
+        "vim",
+        "vimdoc",
+        -- MARKUP
+        "bibtex",
+        "css",
+        "html",
+        "latex",
+        "markdown",
+        "markdown_inline",
+        "mermaid",
+        "scss",
+        "typst",
+        "xml",
+        -- DATA SERIALIZATION
+        "json",
+        "json5",
+        "toml",
+        "yaml",
+        -- TOOLS
+        "diff",
+        "dockerfile",
+        "gitignore",
+        "git_config",
+        "git_rebase",
+        "gitcommit",
+        "printf",
+        "regex",
+        "query",
+        -- CONFIGURATIONS
+        "dot",
+        "helm",
+        "hyprlang",
+        "ini",
+        "kdl",
+        "rasi",
+        "ssh_config",
+        "yuck",
+      }
+
+      require("nvim-treesitter").setup {
+        ensure_installed = langs,
+        highlight = { enable = true },
+        indent = { enable = true },
+      }
+
+      require("nvim-treesitter").install(langs)
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = langs,
+        callback = function()
+          vim.treesitter.start()
+          vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
+        desc = "triggers treesitter on filetype detection",
+      })
+
+      vim.api.nvim_create_user_command("TSInfo", function()
+        vim.cmd "checkhealth nvim-treesitter"
+      end, { desc = "treesitter information (checkhealth)" })
+      vim.api.nvim_create_user_command("TSInspect", function()
+        vim.cmd "Inspect"
+      end, { desc = "treesitter inspect token" })
+      vim.api.nvim_create_user_command("TSInspectTree", function()
+        vim.cmd "InspectTree"
+      end, { desc = "treesitter show tree" })
+    end,
+  },
+  {
     "nvim-treesitter/nvim-treesitter-textobjects",
     branch = "main",
     lazy = true,
     event = "VeryLazy",
     init = function()
+      -- Disable entire built-in ftplugin mappings to avoid conflicts.
+      -- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
       vim.g.no_plugin_maps = true
+
+      -- Or, disable per filetype (add as you like)
       -- vim.g.no_python_maps = true
       -- vim.g.no_ruby_maps = true
       -- vim.g.no_rust_maps = true
@@ -111,109 +218,6 @@ return {
       map("n", "<M-h>", function()
         ts_obj_swap.swap_previous "@parameter.inner"
       end, { desc = "Swap parameter with previous" })
-    end,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    lazy = false,
-    branch = "main",
-    build = ":TSUpdate",
-    config = function()
-      local langs = {
-        -- LANGUAGES
-        "bash",
-        "c",
-        "cpp",
-        "cmake",
-        "go",
-        "gomod",
-        "gosum",
-        "gowork",
-        "java",
-        "javadoc",
-        "c_sharp",
-        "fish",
-        "javascript",
-        "jsdoc",
-        "kotlin",
-        "lua",
-        "luadoc",
-        "make",
-        "nu",
-        "python",
-        "php",
-        "phpdoc",
-        "ron",
-        "rust",
-        "scheme",
-        "sql",
-        "typescript",
-        "vim",
-        "vimdoc",
-        -- MARKUP
-        "bibtex",
-        "css",
-        "html",
-        "latex",
-        "markdown",
-        "markdown_inline",
-        "mermaid",
-        "scss",
-        "typst",
-        "xml",
-        -- DATA SERIALIZATION
-        "json",
-        "json5",
-        "toml",
-        "yaml",
-        -- TOOLS
-        "diff",
-        "dockerfile",
-        "gitignore",
-        "git_config",
-        "git_rebase",
-        "gitcommit",
-        "printf",
-        "regex",
-        "query",
-        -- CONFIGURATIONS
-        "dot",
-        "helm",
-        "hyprlang",
-        "ini",
-        "kdl",
-        "rasi",
-        "ssh_config",
-        "yuck",
-      }
-
-      require("nvim-treesitter").setup {
-        ensure_installed = langs,
-        highlight = { enable = true },
-        indent = { enable = true },
-      }
-
-      require("nvim-treesitter").install(langs)
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = langs,
-        callback = function()
-          vim.treesitter.start()
-          vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        end,
-        desc = "triggers treesitter on filetype detection",
-      })
-
-      vim.api.nvim_create_user_command("TSInfo", function()
-        vim.cmd "checkhealth nvim-treesitter"
-      end, { desc = "treesitter information (checkhealth)" })
-      vim.api.nvim_create_user_command("TSInspect", function()
-        vim.cmd "Inspect"
-      end, { desc = "treesitter inspect token" })
-      vim.api.nvim_create_user_command("TSInspectTree", function()
-        vim.cmd "InspectTree"
-      end, { desc = "treesitter show tree" })
     end,
   },
   {
