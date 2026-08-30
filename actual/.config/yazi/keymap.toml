@@ -8,17 +8,14 @@ prepend_keymap = [
 	{ on = "<C-`>", for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
 	{ on = "<C-`>", for = "windows", run = 'shell "powershell.exe" --block', desc = "Open PowerShell here" },
 
-	{ on = "<C-q>", run = "quit", desc = "Quit the process" },
+	{ on = "<C-q>", run = "quit", desc = "Quit" },
 	{ on = "<C-Q>", run = "quit --no-cwd-file", desc = "Quit without outputting cwd-file" },
 
 	{ on = "<C-t>", run = "tab_create --current", desc = "Create a new tab with CWD" },
 	{ on = "<C-w>", run = "close", desc = "Close the current tab, or quit if it's last" },
-	{ on = "<C-x>", run = "close", desc = "Close the current tab, or quit if it's last" },
 
 	{ on = "<C-[>", run = "tab_switch -1 --relative", desc = "Switch to previous tab" },
 	{ on = "<C-]>", run = "tab_switch 1 --relative", desc = "Switch to next tab" },
-	{ on = "<C-p>", run = "tab_switch -1 --relative", desc = "Switch to previous tab" },
-	{ on = "<C-n>", run = "tab_switch 1 --relative", desc = "Switch to next tab" },
 	{ on = "<C-9>", run = "tab_swap -1", desc = "Swap current tab with previous tab" },
 	{ on = "<C-0>", run = "tab_swap 1", desc = "Swap current tab with next tab" },
 	{ on = "[", run = "noop" },
@@ -65,7 +62,7 @@ prepend_keymap = [
 	{ on = "t", run = "tasks:show", desc = "Show task manager" },
 	{ on = "w", run = "noop" },
 
-	{ on = "K", run = "spot", desc = "Spot hovered file" },
+	{ on = "<Tab>", run = "spot", desc = "Spot hovered file" },
 
 	{ on = [ "i", "s" ], run = "linemode size", desc = "Info: size" },
 	{ on = [ "i", "m" ], run = "linemode mtime", desc = "Info: modified time" },
