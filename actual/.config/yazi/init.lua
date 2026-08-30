@@ -21,6 +21,24 @@ require("starship"):setup {
   config_file = os.getenv "STARSHIP_CONFIG" or "~/.config/starship.toml", -- Default: nil
 }
 
+require("bookmarks"):setup {
+  last_directory = { enable = true, persist = true, mode = "dir" },
+  persist = "all",
+  desc_format = "full",
+  file_pick_mode = "hover",
+  custom_desc_input = false,
+  show_keys = true,
+  notify = {
+    enable = true,
+    timeout = 1,
+    message = {
+      new = "New bookmark '<key>' -> '<folder>'",
+      delete = "Deleted bookmark in '<key>'",
+      delete_all = "Deleted all bookmarks",
+    },
+  },
+}
+
 -- Show symlink in status bar
 Status:children_add(function(self)
   local h = self._current.hovered
