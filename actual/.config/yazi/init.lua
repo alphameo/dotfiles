@@ -4,7 +4,11 @@ require("full-border"):setup {
   type = ui.Border.ROUNDED,
 }
 
-require("git"):setup()
+require("git"):setup {
+  -- Order of status signs showing in the linemode
+  order = 1500,
+}
+
 require("recycle-bin"):setup()
 
 -- Show symlink in status bar

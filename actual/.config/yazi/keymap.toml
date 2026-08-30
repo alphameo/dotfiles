@@ -5,8 +5,6 @@
 [mgr]
 
 prepend_keymap = [
-	{ on = "<C-n>", run = 'shell -- dragon-drop -x -i -T "$1"', desc = "Activate drag & drop" },
-
 	{ on = "<C-`>", for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
 	{ on = "<C-`>", for = "windows", run = 'shell "powershell.exe" --block', desc = "Open PowerShell here" },
 

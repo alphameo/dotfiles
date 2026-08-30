@@ -1,2 +1,13 @@
 [flavor]
 dark = "catppuccin-mocha"
+
+# [git]
+# unknown_sign  = " "
+# ignored_sign = " "
+# untracked_sign = " "
+# unstaged_sign = "M"
+# staged_sign = "S"
+# added_sign = "A"
+# deleted_sign  = "D"
+# updated_sign = "U"
+# clean_sign    = "✔"
