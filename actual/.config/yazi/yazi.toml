@@ -25,3 +25,6 @@ edit = [
 	{ run = "%EDITOR% %*", block = true, for = "windows" },
 ]
 open = [{ run = 'xdg-open "$@"', desc = "Open" }]
+
+[mgr]
+show_hidden = true
