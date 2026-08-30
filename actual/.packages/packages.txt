@@ -37,6 +37,7 @@ bluetui
 networkmanager
 iwd
 net-tools
+dnsutils
 
 qt5-wayland qt6-wayland
 
@@ -123,7 +124,6 @@ audacity
 losslesscut-bin
 
 yazi
-dragon-drop
 ouch
 gvfs gvfs-mtp gvfs-afc gvfs-google-git gvfs-gphoto2 gvfs-nfs gvfs-smb gvfs-afc gvfs-dnssd gvfs-goa gvfs-onedrive gvfs-wsdd
 
@@ -168,6 +168,7 @@ lazygit
 git-delta
 
 docker
+docker-compose
 lazydocker
 
 kubectl
