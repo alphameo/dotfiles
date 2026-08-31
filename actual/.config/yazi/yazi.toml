@@ -17,14 +17,14 @@ cursor_blink = true
 
 [opener]
 play = [
-	{ run = 'mpv "$@"', orphan = true, for = "unix" },
-	{ run = '"C:\Program Files\mpv.exe" %*', orphan = true, for = "windows" },
+	{ run = "mpv %s", orphan = true, for = "unix" },
+	{ run = '"C:\Program Files\mpv.exe" %s', orphan = true, for = "windows" },
 ]
 edit = [
-	{ run = '$EDITOR "$@"', block = true, for = "unix" },
-	{ run = "%EDITOR% %*", block = true, for = "windows" },
+	{ run = "$EDITOR %s", block = true, for = "unix" },
+	{ run = "%EDITOR% %s", block = true, for = "windows" },
 ]
-open = [{ run = 'xdg-open "$@"', desc = "Open" }]
+open = [{ run = "xdg-open %s1", desc = "Open" }]
 
 [mgr]
 show_hidden = true
