@@ -8,7 +8,7 @@ return {
     vim.o.ruler = false -- Don't show cursor position in command line
     local icon = require("diagnostics").icons
     local get_key = function()
-      return require("util").key_history
+      return require("custom.key_history").last or ""
     end
 
     require("lualine").setup {

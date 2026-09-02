@@ -220,16 +220,16 @@ return {
       end, { desc = "Swap parameter with previous" })
     end,
   },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    lazy = true,
-    event = "VeryLazy",
-    opts = {
-      enable = true,
-      mode = "topline",
-      line_numbers = true,
-    },
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-context",
+  --   lazy = true,
+  --   event = "VeryLazy",
+  --   opts = {
+  --     enable = true,
+  --     mode = "topline",
+  --     line_numbers = true,
+  --   },
+  -- },
   {
     "folke/ts-comments.nvim",
     lazy = true,

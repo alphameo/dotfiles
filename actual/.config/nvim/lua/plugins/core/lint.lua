@@ -129,7 +129,7 @@ return {
         out = out .. string.format("\t- %s (%s)\n", linter, table.concat(ft, ", "))
       end
 
-      require("util").show_info(out, { ft = "lint-info" })
+      require("custom.info").show(out, { ft = "lint-info" })
     end
     vim.api.nvim_create_user_command("LintInfo", lint_info, {})
   end,

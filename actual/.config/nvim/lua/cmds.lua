@@ -1,5 +1,4 @@
 local cmd = vim.api.nvim_create_user_command
-local map = vim.keymap.set
 
 ------------------AUTOCMDS------------------
 
@@ -49,93 +48,25 @@ vim.api.nvim_create_autocmd("VimResized", {
 --------------
 -- Togglers --
 --------------
-cmd("CursorLine", "set cursorline! cursorline?", { desc = "Toggle Location Line" })
-cmd("CursorCol", "set cursorcolumn! cursorcolumn?", { desc = "Toggle Location Column" })
-cmd("RelNum", ":set relativenumber! relativenumber?", { desc = "Toggle Relative Numbers" })
-cmd("Glyphs", "set list! list?", { desc = "Toggle Glyphs" })
-cmd("Wrap", "setlocal wrap! wrap?", { desc = "Toggle Wrapping Locally" })
-cmd("ColColumn", function()
-  if vim.o.colorcolumn ~= "" then
-    vim.o.colorcolumn = ""
-    print "nocolorcolumn"
-  else
-    vim.o.colorcolumn = "80"
-    print("colorcolumn=" .. vim.o.colorcolumn)
-  end
-end, { desc = "Toggle Colorcolumn" })
-cmd("Spell", "setlocal spell! spell?", { desc = "Toggle Spellcheck Locally" })
-cmd("Diagnostics", function()
-  local buf_id = vim.api.nvim_get_current_buf()
-  local is_enabled = vim.diagnostic.is_enabled { bufnr = buf_id }
-  vim.diagnostic.enable(not is_enabled, { bufnr = buf_id })
-  -- local new_buf_state = not is_enabled
-  -- return new_buf_state and "  diagnostic" or "nodiagnostic"
-end, { desc = "Toggle Diagnostics" })
-cmd("Expandtab", "setlocal expandtab! expandtab?", { desc = "Toggle Expandtab Locally" })
+local toggle = require "custom.toggle"
 
-map("n", "\\s", ":Spell<CR>", { silent = true, desc = "Toggle Spellcheck Locally" })
-map("n", "\\w", ":Wrap<CR>", { silent = true, desc = "Toggle Wrapping Locally" })
-map("n", "\\d", ":Diagnostics<CR>", { silent = true, desc = "Toggle Diagnostics" })
-map("n", "\\l", ":ColColumn<CR>", { silent = true, desc = "Toggle Limit Column" })
-map("n", "\\<Tab>", ":Expandtab<CR>", { silent = true, desc = "Toggle Expandtab Locally" })
+cmd("CursorLine", toggle.cursorline, { desc = "Toggle Location Line" })
+cmd("CursorCol", toggle.colorcolumn, { desc = "Toggle Location Column" })
+cmd("RelNum", toggle.relativenumber, { desc = "Toggle Relative Numbers" })
+cmd("Glyphs", toggle.glyphs, { desc = "Toggle Glyphs" })
+cmd("Wrap", toggle.wrap, { desc = "Toggle Wrapping Locally" })
+cmd("ColColumn", toggle.colorcolumn, { desc = "Toggle Colorcolumn" })
+cmd("Spell", toggle.spell, { desc = "Toggle Spellcheck Locally" })
+cmd("Diagnostics", toggle.diagnostics, { desc = "Toggle Diagnostics" })
+cmd("Expandtab", toggle.expandtab, { desc = "Toggle Expandtab Locally" })
 
-cmd("Indent", function(opts)
-  local width = tonumber(opts.args)
-  vim.bo.expandtab = true
-  vim.bo.tabstop = width
-  vim.bo.softtabstop = width
-  vim.bo.shiftwidth = width
-
-  print("local_indent=" .. width)
-end, { nargs = 1 })
+local indent = require "custom.indent"
+cmd("Indent", indent.set, { nargs = 1 })
 
 ---------------
 -- Terminals --
 ---------------
-local util = require "util"
-local term_win_state = {
-  buf = -1,
-  win = -1,
-}
+local term = require "custom.terminal"
 
-local toggle_terminal = function(create_win_func)
-  if not vim.api.nvim_buf_is_valid(term_win_state.buf) then
-    term_win_state.buf = util.create_hidden_buf()
-  end
-  if not vim.api.nvim_win_is_valid(term_win_state.win) then
-    term_win_state.win = create_win_func(term_win_state.buf)
-    if vim.bo[term_win_state.buf].buftype ~= "terminal" then
-      vim.api.nvim_call_function("termopen", { vim.o.shell })
-    end
-    vim.cmd "startinsert"
-  else
-    vim.api.nvim_win_hide(term_win_state.win)
-    vim.cmd "stopinsert"
-  end
-end
-
--- Split Terminal
-
-local toggle_split_terminal = function()
-  toggle_terminal(util.create_hidden_split)
-end
-
-cmd("ToggleSplitTerm", toggle_split_terminal, {})
-
-map("n", "<leader>ts", ":ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
-map("n", "<C-`>", ":ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
-map("t", "<leader>ts", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
-map("t", "<C-`>", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
-
--- Float Terminal
-
-local toggle_float_terminal = function()
-  toggle_terminal(util.create_hidden_float)
-end
-
-cmd("ToggleFloatTerm", toggle_float_terminal, {})
-
-map("n", "<leader>tf", ":ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
-map("n", "<C-S-`>", ":ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
-map("t", "<leader>tf", "<C-\\><C-n>:ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
-map("t", "<C-S-`>", "<C-\\><C-n>:ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
+cmd("ToggleSplitTerm", term.toggle_split_terminal, {})
+cmd("ToggleFloatTerm", term.toggle_float_terminal, {})
