@@ -2,12 +2,29 @@ return {
   cmd = { "gopls" },
   settings = {
     gopls = {
+      -- Build
       buildFlags = { "-tags=e2e" },
+      -- Formatting
       gofumpt = true,
-      completeUnimported = true,
+      -- UI
+      codelenses = {
+        generate = true,
+        regenerate_cgo = true,
+        test = true,
+        -- run_govulncheck = true, -- legacy
+        tidy = true,
+        upgrade_dependency = true,
+        vendor = true,
+        vulncheck = true,
+      },
+      semanticTokens = true,
+      newGoFileHeader = true,
+      renameMovesSubpackages = true,
+      moveType = true,
+      -- Completion
       usePlaceholders = false,
-      diagnosticsDelay = "250ms",
-      staticcheck = true,
+      completeFunctionCalls = false,
+      -- Diagnostics
       analyses = {
         recursiveiter = true,
         maprange = true,
@@ -25,23 +42,21 @@ return {
         unusedwrite = true,
         useany = true,
       },
-      codelenses = {
-        test = true,
-        gc_details = true,
-        generate = true,
-        run_govulncheck = true,
-        tidy = true,
-        upgrade_dependency = true,
-        vendor = true,
-      },
+      staticcheck = true,
+      vulncheck = "Prompt", -- "Imports" | "Off" | "Prompt"
+      diagnosticsDelay = "250ms",
+      diagnosticsTrigger = "Edit", -- "Edit" | "Save"
+      analysisProgressReporting = true,
+      -- Inlayhint
       hints = {
-        compositeLiteralFields = true,
-        parameterNames = true,
-        constantValues = true,
         assignVariableTypes = true,
-        functionTypeParameters = true,
-        rangeVariableTypes = true,
+        compositeLiteralFields = true,
         compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        ignoredError = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
       },
     },
   },
