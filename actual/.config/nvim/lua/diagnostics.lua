@@ -24,16 +24,22 @@ end
 vim.diagnostic.config {
   underline = true,
   virtual_text = {
+    current_line = false,
     source = true,
     spacing = 0,
+    hl_mode = "replace",
+    virt_text_pos = "eol",
+  },
+  virtual_lines = {
+    current_line = true,
   },
   float = {
     source = true,
     border = "rounded",
   },
-  update_in_insert = true,
-  severity_sort = true,
   signs = signs,
+  update_in_insert = false,
+  severity_sort = true,
 }
 
 return M
