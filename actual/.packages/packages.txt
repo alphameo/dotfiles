@@ -154,6 +154,8 @@ syncthing
 localsend
 
 gparted
+gnome-disk-utility
+dosfstools
 xorg-xhost
 
 handy
