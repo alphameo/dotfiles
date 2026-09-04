@@ -44,7 +44,7 @@ return {
       },
       staticcheck = true,
       vulncheck = "Prompt", -- "Imports" | "Off" | "Prompt"
-      diagnosticsDelay = "250ms",
+      -- diagnosticsDelay = "250ms",
       diagnosticsTrigger = "Edit", -- "Edit" | "Save"
       analysisProgressReporting = true,
       -- Inlayhint
