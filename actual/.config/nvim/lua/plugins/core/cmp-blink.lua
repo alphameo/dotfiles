@@ -34,7 +34,6 @@ return {
         menu = {
           enabled = true,
           auto_show = true,
-          auto_show_delay_ms = 0,
           draw = {
             treesitter = { "lsp" },
             columns = {
@@ -51,10 +50,9 @@ return {
             auto_insert = false,
           },
         },
-        accept = { auto_brackets = { enabled = true } },
+        accept = { auto_brackets = { enabled = false } },
         documentation = {
           auto_show = false,
-          auto_show_delay_ms = 500,
         },
         ghost_text = { enabled = false },
       },
