@@ -52,9 +52,9 @@
     "group/group-wireplumber-out": {
         "orientation": "inherit",
         "modules": [
-            // "wireplumber#out",
+            // "wireplumber#out"
             "wireplumber#out-icon",
-            "wireplumber#out-percent",
+            "wireplumber#out-percent"
         ]
     },
     "group/group-sound-out": {
@@ -67,7 +67,7 @@
     "group/group-wireplumber-in": {
         "orientation": "inherit",
         "modules": [
-            // "wireplumber#in",
+            // "wireplumber#in"
             "wireplumber#in-icon",
             "wireplumber#in-percent"
         ]

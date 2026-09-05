@@ -30,9 +30,11 @@
         "disable-scroll": true
     },
     "hyprland/window": {
-        "format": "{}",
+        "format": "{initialTitle}",
+        "tooltip-format": "Title: {title}\nInitial title: {initialTitle}\nClass: {class}\nInitial class: {initialClass}",
         "separate-outputs": true,
-        "icon": true
+        "icon": true,
+        "icon-size": 17
     },
     "tray": {
         "icon-size": 17,

@@ -73,7 +73,6 @@ tooltip label {
     color: @tooltip-fg;
 }
 
-#window,
 #workspaces,
 #tray,
 #clock,
