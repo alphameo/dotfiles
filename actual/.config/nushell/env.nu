@@ -1,3 +1,7 @@
+# Path for Go
+use std "path add"
+path add (do -i { ^go env GOPATH } | str trim | path join "bin")
+
 # https://github.com/ajeetdsouza/zoxide#Installation
 zoxide init nushell | save -f ~/.zoxide.nu
 
