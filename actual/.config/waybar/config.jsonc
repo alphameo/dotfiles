@@ -172,7 +172,7 @@
             "󰢽",
             "󰢾"
         ],
-        "tooltip-format": "{icon}({signalStrength}%)  {essid}  󰅧 {bandwidthUpBytes} 󰅢 {bandwidthDownBytes}\n({ifname} via {gwaddr})",
+        "tooltip-format": "Network    {essid}\nMAC        {bssid}\nSignal     {signalStrength}% {icon}\nFrequency  {frequency}GHz\nUpload     {bandwidthUpBytes}󰅧\nDownload   {bandwidthDownBytes}󰅢\nInterface  {ifname}\nIP         {ipaddr}/{cidr}\nGateway    {gwaddr}",
         "tooltip-format-disconnected": "Disconnected",
         "tooltip-format-disabled": "Disabled",
         "on-click": "~/.scripts/network-manager"
