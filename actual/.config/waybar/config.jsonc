@@ -7,6 +7,7 @@
     "margin-left": 2,
     "margin-right": 2,
     "modules-left": [
+        "custom/search",
         "hyprland/workspaces",
         "hyprland/window"
     ],
@@ -39,6 +40,7 @@
             "network",
             "bluetooth",
             "custom/notifications",
+            "custom/clipboard",
             "group/group-sound",
             "backlight"
         ]
@@ -302,5 +304,15 @@
         "format": "󰐦",
         "tooltip-format": "Power menu",
         "on-click": "~/.scripts/power-menu"
+    },
+    "custom/search": {
+        "format": "",
+        "tooltip-format": "Search",
+        "on-click": "~/.scripts/runner"
+    },
+    "custom/clipboard": {
+        "format": "",
+        "tooltip-format": "Search",
+        "on-click": "~/.scripts/clipboard"
     }
 }
