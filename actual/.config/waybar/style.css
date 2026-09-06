@@ -3,37 +3,32 @@
 @define-color bg @base;
 @define-color fg @text;
 @define-color border @base;
+@define-color hl @surface0;
 
 @define-color ws-urgent-fg @peach;
-@define-color ws-active-fg @blue;
-@define-color ws-active-bg @surface0;
+@define-color ws-active-fg @base;
+@define-color ws-active-bg @blue;
 
 @define-color tooltip-fg @fg;
 @define-color tooltip-bg alpha(@bg, 0.9);
 @define-color tooltip-border alpha(@border, 0.9);
 
-@define-color slider-bg black;
-
 @define-color backlight @peach;
+
 @define-color battery-charge @green;
 @define-color battery-warn @peach;
 @define-color battery-crit @red;
 @define-color profile-eco @green;
 @define-color profile-balance @peach;
 @define-color profile-perf @red;
-@define-color power-menu @red;
-@define-color power-shutdown @red;
-@define-color power-reboot @sapphire;
-@define-color power-logout @green;
-@define-color power-lock @yellow;
-@define-color power-suspend @flamingo;
-@define-color power-hybernate @sky;
 
-@define-color sound-in-mute @red;
+@define-color power-menu @red;
+
 @define-color sound-in @teal;
-@define-color sound-out-mute @red;
 @define-color sound-out @mauve;
-@define-color sound-bg @surface0;
+@define-color sound-mute @red;
+@define-color sound-bg @mantle;
+
 @define-color notif @yellow;
 
 @define-color bluetooth @fg;
@@ -81,7 +76,7 @@ tooltip label {
 #group-battery,
 #custom-powermenu {
     background-color: @bg;
-    border: 1px solid @border;
+    border: 2px solid @border;
     border-radius: 8px;
     margin-right: 4px;
 }
@@ -109,6 +104,26 @@ tooltip label {
 #custom-powermenu {
     padding-left: 4px;
     padding-right: 4px;
+    border-radius: 12px;
+}
+
+#window:hover,
+#workspaces button:hover,
+#tray:hover,
+#clock:hover,
+#language:hover,
+#keyboard-state:hover,
+#network:hover,
+#bluetooth:hover,
+#custom-notifications:hover,
+#wireplumber.in:hover,
+#wireplumber.out:hover,
+#backlight:hover,
+#battery:hover,
+#power-profiles-daemon:hover,
+#custom-screenlock:hover,
+#custom-powermenu:hover {
+    background: @hl;
 }
 
 #network,
@@ -119,12 +134,12 @@ tooltip label {
 }
 
 #workspaces button {
-    border-radius: 8px;
+    border-radius: 12px;
 }
 #workspaces button.active {
     color: @ws-active-fg;
     background-color: @ws-active-bg;
-    border-radius: 8px;
+    border-radius: 12px;
 }
 #workspaces button.urgent {
     color: @ws-urgent-fg;
@@ -189,14 +204,14 @@ tooltip label {
     color: @sound-out;
 }
 #wireplumber.out.muted {
-    color: @sound-out-mute;
+    color: @sound-mute;
 }
 
 #wireplumber.in {
     color: @sound-in;
 }
 #wireplumber.in.muted {
-    color: @sound-in-mute;
+    color: @sound-mute;
 }
 
 #backlight {
