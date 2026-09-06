@@ -88,7 +88,8 @@ tooltip label {
 #window,
 #workspaces,
 #workspaces button,
-#tray,
+#tray widget > image,
+#tray widget,
 #clock,
 #language,
 #keyboard-state,
@@ -109,7 +110,7 @@ tooltip label {
 
 #window:hover,
 #workspaces button:hover,
-#tray:hover,
+#tray widget:hover,
 #clock:hover,
 #language:hover,
 #keyboard-state:hover,
@@ -130,7 +131,7 @@ tooltip label {
 #bluetooth,
 #custom-notifications,
 #group-sound {
-    margin-right: 8px;
+    margin-right: 6px;
 }
 
 #workspaces button {
@@ -177,7 +178,7 @@ tooltip label {
 
 #group-sound {
     background: @sound-bg;
-    border-radius: 8px;
+    border-radius: 12px;
 }
 
 #network {
