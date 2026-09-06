@@ -182,9 +182,8 @@
         "format-off": "󰂲",
         "format-on": "󰂯",
         "format-connected": "󰂱",
-        "format-connected-battery": "󰥉 {device_battery_percentage}%",
-        "tooltip-format": "{controller_alias} ({controller_address})\n\nConnected devices: {num_connections}",
-        "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}",
+        "tooltip-format": "Controller  {controller_alias}\nMAC         {controller_address}\n\nConnected devices: {num_connections}",
+        "tooltip-format-connected": "Controller  {controller_alias}\nMAC         {controller_address}\n\nConnected devices:\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
         "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
         "on-click": "~/.scripts/bluetooth-manager"
@@ -198,7 +197,7 @@
             "󰖀",
             "󰕾"
         ],
-        "tooltip-format": "Volume: {volume}%\nSink: {source_desc}",
+        "tooltip-format": "Volume       {volume}%\nDevice(out)  {source_desc}",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
         "on-click": "~/.scripts/sound-sink-toggle",
@@ -208,7 +207,7 @@
         "node-type": "Audio/Source",
         "format": "󰍬 {volume}%",
         "format-muted": "󰍭 {volume}%",
-        "tooltip-format": "Volume: {volume}%\nSource: {source_desc}",
+        "tooltip-format": "Volume      {volume}%\nDevice(in)  {source_desc}",
         "reverse-scrolling": true,
         "reverse-mouse-scrolling": true,
         "on-click": "~/.scripts/sound-source-toggle",
@@ -225,7 +224,7 @@
         "on-scroll-up": "~/.scripts/brightness-increase",
         "on-scroll-down": "~/.scripts/brightness-decrease",
         "reverse-scrolling": true,
-        "tooltip-format": "Backlight"
+        "tooltip-format": "Brightness  {percent}%"
     },
     "battery": {
         "states": {
@@ -244,7 +243,8 @@
         "format-charging": "󱐋 {capacity}%",
         "format-warning": " {capacity}%",
         "format-critical": " {capacity}%",
-        "interval": 1
+        "interval": 1,
+        "tooltip-format": "Battery  {capacity}% ({timeTo})\nRate     {power}W\nHealth   {health}%"
     },
     "power-profiles-daemon": {
         "format": "{icon}",
