@@ -115,5 +115,305 @@
             "custom/lock"
         ]
     },
-    "include": "~/.config/waybar/modules.jsonc"
+    "hyprland/workspaces": {
+        "format": "{name}", // vars: name, icon, windows
+        "format-window-separator": " ",
+        "window-rewrite-default": "󰣆",
+        "window-rewrite": {
+            "class<(firefox)>": "󰈹",
+            "class<(code)>": "󰨞",
+            "class<(kitty)>": "󰆍",
+            "class<(obsidian)>": "󰠮",
+            "class<(.*telegram.*|.*materialgram)>": "",
+            "class<(steam)>": "󰓓",
+            "class<(discord|vesktop)>": "󰙯",
+            "class<(nekobox)>": "󰖂",
+            "class<(opentabletdriver.*)>": "󰏬",
+            "class<(spotify)>": "󰓇",
+            "class<(gamescope)>": "󰺵",
+            "class<(.*obsproject.*)>": "󰻂"
+        },
+        "format-icons": {
+            "default": "",
+            "active": "",
+            "urgent": "",
+            "magic": ""
+        },
+        "all-outputs": false,
+        "show-special": true,
+        "special-visible-only": true,
+        "on-click": "activate",
+        "disable-scroll": true
+    },
+    "hyprland/window": {
+        "format": "{initialTitle}",
+        "tooltip-format": "Title: {title}\nInitial title: {initialTitle}\nClass: {class}\nInitial class: {initialClass}",
+        "separate-outputs": true,
+        "icon": true,
+        "icon-size": 17
+    },
+    "tray": {
+        "icon-size": 17,
+        "spacing": 6
+    },
+    "clock": {
+        "format": "󰥔 {:%H:%M <small>(%a, %d.%m.%Y)</small>}",
+        "interval": 60,
+        "tooltip-format": "<small>Today:</small> {:%d.%m.%Y}\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "format": {
+                "months": "<span color='#cdd6f4'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'><b>{}</b></span>",
+                "weeks": "<span color='#6c7086'><b>W{}</b></span>",
+                "weekdays": "<span color='#89b4fa'><b>{}</b></span>",
+                "today": "<span color='#fab387'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "en", // 🇺🇸
+        "format-ru": "ru", // 🇷🇺
+        "on-click": "~/.scripts/keyboard-layout-switch"
+    },
+    // Activation: `usermod -a -G input [username]`
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "scrolllock": true,
+        "format": {
+            "capslock": "c{icon}",
+            "numlock": "n{icon}",
+            "scrolllock": "s{icon}"
+        },
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "network": {
+        "format-disabled": "󰪎",
+        "format-disconnected": "",
+        "format-wifi": " {essid}",
+        "format-ethernet": "󰲝",
+        "format-linked": "󱘖",
+        "interval": 2,
+        // "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
+        "format-icons": [
+            "󰢿",
+            "󰢼",
+            "󰢽",
+            "󰢾"
+        ],
+        "tooltip-format": "{icon}({signalStrength}%)  {essid}  󰅧 {bandwidthUpBytes} 󰅢 {bandwidthDownBytes}\n({ifname} via {gwaddr})",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-disabled": "Disabled",
+        "on-click": "~/.scripts/network-manager"
+    },
+    "bluetooth": {
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱",
+        "format-connected-battery": "󰥉 {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias} ({controller_address})\n\nConnected devices: {num_connections}",
+        "tooltip-format-connected": "{controller_alias} ({controller_address})\n\nConnected devices:\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "  {device_alias} ({device_address})",
+        "tooltip-format-enumerate-connected-battery": "  {device_alias} ({device_address})\t󰥉 {device_battery_percentage}%",
+        "on-click": "~/.scripts/bluetooth-manager"
+    },
+    "wireplumber#out": {
+        "node-type": "Audio/Sink",
+        "format": "{icon} {volume}%",
+        "format-muted": "󰸈 {volume}%",
+        "format-icons": [
+            "󰕿",
+            "󰖀",
+            "󰕾"
+        ],
+        "tooltip-format": "Volume: {volume}%\nSink: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-sink-toggle",
+        "on-click-right": "~/.scripts/sound-sink-manager"
+    },
+    "wireplumber#out-icon": {
+        "node-type": "Audio/Sink",
+        "format": "{icon}",
+        "format-muted": "󰸈",
+        "format-icons": [
+            "󰕿",
+            "󰖀",
+            "󰕾"
+        ],
+        "tooltip-format": "Volume: {volume}%\nSink: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-sink-toggle",
+        "on-click-right": "~/.scripts/sound-sink-manager"
+    },
+    "wireplumber#out-percent": {
+        "node-type": "Audio/Sink",
+        "format": "{volume}%",
+        "format-muted": "{volume}%",
+        "tooltip-format": "Volume: {volume}%\nSink: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-sink-toggle",
+        "on-click-right": "~/.scripts/sound-sink-manager"
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+    "wireplumber#in": {
+        "node-type": "Audio/Source",
+        "format": "󰍬 {volume}%",
+        "format-muted": "󰍭 {volume}%",
+        "tooltip-format": "Volume: {volume}%\nSource: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-source-toggle",
+        "on-click-right": "~/.scripts/sound-source-manager"
+    },
+    "wireplumber#in-icon": {
+        "node-type": "Audio/Source",
+        "format": "󰍬",
+        "format-muted": "󰍭",
+        "tooltip-format": "Volume: {volume}%\nSource: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-source-toggle",
+        "on-click-right": "~/.scripts/sound-source-manager"
+    },
+    "wireplumber#in-percent": {
+        "node-type": "Audio/Source",
+        "format": "{volume}%",
+        "format-muted": "{volume}%",
+        "tooltip-format": "Volume: {volume}%\nSource: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-source-toggle",
+        "on-click-right": "~/.scripts/sound-source-manager"
+    },
+    "backlight#icon": {
+        "format": "{icon}",
+        "format-icons": [
+            "󰃞",
+            "󰃝",
+            "󰃟",
+            "󰃠"
+        ],
+        "on-scroll-up": "~/.scripts/brightness-increase",
+        "on-scroll-down": "~/.scripts/brightness-decrease",
+        "reverse-scrolling": true,
+        "tooltip-format": "Backlight"
+    },
+    "backlight#percent": {
+        "format": "{percent}%",
+        "on-scroll-up": "~/.scripts/brightness-increase",
+        "on-scroll-down": "~/.scripts/brightness-decrease",
+        "reverse-scrolling": true,
+        "tooltip-format": "Backlight"
+    },
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+    "battery": {
+        "states": {
+            "warning": 19,
+            "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        // "format-icons": ["󰂎 ", "󰁼 ", "󰁿 ", "󰂁 ", "󰁹 "],
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "format-charging": "󱐋 {capacity}%",
+        "format-warning": " {capacity}%",
+        "format-critical": " {capacity}%",
+        "interval": 1
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        },
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}"
+    },
+    "custom/notifications": {
+        "tooltip": true,
+        "format": "{icon}{0}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "restart-interval": 1,
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "~/.scripts/notification-dnd-toggle",
+        "on-click-right": "~/.scripts/notification-manager",
+        "escape": true
+    },
+    "custom/screenlock": {
+        "exec": "~/.config/waybar/scripts/hypridle.sh check",
+        "restart-interval": 1,
+        "tooltip-format": "Screenlock",
+        "on-click": "~/.config/waybar/scripts/hypridle.sh toggle"
+    },
+    "custom/powermenu": {
+        "format": "󰐦",
+        "tooltip-format": "Power menu",
+        "on-click": "~/.scripts/power-menu"
+    },
+    "custom/shutdown": {
+        "format": "",
+        "tooltip-format": "Shutdown",
+        "on-click": "~/.scripts/system-shutdown"
+    },
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip-format": "Reboot",
+        "on-click": "~/.scripts/system-reboot"
+    },
+    "custom/logout": {
+        "format": "󰍃",
+        "tooltip-format": "Logout",
+        "on-click": "~/.scripts/system-logout"
+    },
+    "custom/lock": {
+        "format": "󰍁",
+        "tooltip-format": "Lock",
+        "on-click": "~/.scripts/system-lock"
+    },
+    "custom/suspend": {
+        "format": "",
+        "tooltip-format": "Sleep",
+        "on-click": "~/.scripts/system-suspend"
+    },
+    "custom/hibernate": {
+        "format": "󰤁",
+        "tooltip-format": "Hibernate",
+        "on-click": "~/.scripts/hibernate.sh"
+    }
 }
