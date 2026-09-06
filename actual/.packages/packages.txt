@@ -11,6 +11,7 @@ xdg-desktop-portal-gtk
 grim slurp satty
 
 waybar
+wlogout
 
 acpi
 
