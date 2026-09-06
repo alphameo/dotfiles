@@ -69,8 +69,9 @@ tooltip label {
 }
 
 #workspaces,
-#tray,
 #clock,
+#mpris,
+#tray,
 #group-keyboard,
 #group-controls,
 #group-battery,
@@ -90,6 +91,7 @@ tooltip label {
 #workspaces button,
 #tray widget > image,
 #tray widget,
+#mpris,
 #clock,
 #language,
 #keyboard-state,
@@ -110,6 +112,7 @@ tooltip label {
 
 #window:hover,
 #workspaces button:hover,
+#mpris:hover,
 #tray widget:hover,
 #clock:hover,
 #language:hover,

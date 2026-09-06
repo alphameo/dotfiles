@@ -14,6 +14,7 @@
         "clock"
     ],
     "modules-right": [
+        "mpris",
         "tray",
         "group/group-keyboard",
         "group/group-controls",
@@ -136,6 +137,20 @@
                 "today": "<span color='#fab387'><b><u>{}</u></b></span>"
             }
         }
+    },
+    "mpris": {
+        "format": "{player_icon} {status_icon} {dynamic}",
+        "player-icons": {
+            "default": ""
+        },
+        "status-icons": {
+            "playing": "▶",
+            "paused": "",
+            "stopped": ""
+        },
+        "max-length": 28,
+        "interval": 1,
+        "tooltip-format": "Player {player} {player_icon}\n{title} - {artist} ({album})\n{status_icon} {position}/{length}",
     },
     "hyprland/language": {
         "format": "{}",
