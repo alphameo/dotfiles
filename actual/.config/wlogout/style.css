@@ -27,7 +27,7 @@ button {
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 10px 2px transparent;
     border-radius: 36px;
-    margin: 210px 10px 210px 10px;
+    margin: 30px 20px;
     font-weight: bold;
     color: @crust;
 }
@@ -47,38 +47,25 @@ button:hover {
 }
 
 #lock {
-    background-image: image(
-        url('icons/lock.svg')
-    );
+    background-image: image(url('icons/lock.svg'));
 }
 
 #logout {
-    background-image: image(
-        url('icons/logout.svg')
-
-    );
+    background-image: image(url('icons/logout.svg'));
 }
 
 #suspend {
-    background-image: image(
-        url('icons/suspend.svg')
-    );
+    background-image: image(url('icons/suspend.svg'));
 }
 
 #hibernate {
-    background-image: image(
-        url('icons/hibernate.svg')
-    );
+    background-image: image(url('icons/hibernate.svg'));
 }
 
 #shutdown {
-    background-image: image(
-        url('icons/shutdown.svg')
-    );
+    background-image: image(url('icons/shutdown.svg'));
 }
 
 #reboot {
-    background-image: image(
-        url('icons/reboot.svg')
-    );
+    background-image: image(url('icons/reboot.svg'));
 }

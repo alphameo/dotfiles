@@ -28,3 +28,9 @@
     "text" : "Lock",
     "keybind" : "l"
 }
+{
+    "label" : "hibernate",
+    "action" : "~/.scripts/system-hibernate",
+    "text" : "Hibernate",
+    "keybind" : "h"
+}
