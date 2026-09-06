@@ -3,9 +3,9 @@
     "style": "~/.config/waybar/style.css",
     "layer": "bottom",
     "position": "top",
-    "margin-top": 2,
-    "margin-left": 2,
-    "margin-right": 2,
+    "margin-top": 4,
+    "margin-left": 4,
+    "margin-right": 4,
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
@@ -18,7 +18,7 @@
         "group/group-keyboard",
         "group/group-controls",
         "group/group-battery",
-        "custom/powermenu"
+        "group/group-power"
     ],
     "group/group-keyboard": {
         "orientation": "inherit",
@@ -39,14 +39,50 @@
             "bluetooth",
             "custom/notifications",
             "group/group-sound",
-            "backlight"
+            "group/group-backlight"
         ]
     },
     "group/group-sound": {
         "orientation": "inherit",
         "modules": [
-            "wireplumber#out",
-            "wireplumber#in"
+            "group/group-sound-out",
+            "group/group-wireplumber-in"
+        ]
+    },
+    "group/group-wireplumber-out": {
+        "orientation": "inherit",
+        "modules": [
+            // "wireplumber#out"
+            "wireplumber#out-icon",
+            "wireplumber#out-percent"
+        ]
+    },
+    "group/group-sound-out": {
+        "orientation": "inherit",
+        "modules": [
+            "group/group-wireplumber-out",
+            "pulseaudio/slider"
+        ]
+    },
+    "group/group-wireplumber-in": {
+        "orientation": "inherit",
+        "modules": [
+            // "wireplumber#in"
+            "wireplumber#in-icon",
+            "wireplumber#in-percent"
+        ]
+    },
+    "group/group-backlight": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "battery-nodes",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "backlight#icon",
+            "backlight/slider",
+            "backlight#percent"
         ]
     },
     "group/group-battery": {
@@ -204,6 +240,36 @@
         "on-click": "~/.scripts/sound-sink-toggle",
         "on-click-right": "~/.scripts/sound-sink-manager"
     },
+    "wireplumber#out-icon": {
+        "node-type": "Audio/Sink",
+        "format": "{icon}",
+        "format-muted": "󰸈",
+        "format-icons": [
+            "󰕿",
+            "󰖀",
+            "󰕾"
+        ],
+        "tooltip-format": "Volume: {volume}%\nSink: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-sink-toggle",
+        "on-click-right": "~/.scripts/sound-sink-manager"
+    },
+    "wireplumber#out-percent": {
+        "node-type": "Audio/Sink",
+        "format": "{volume}%",
+        "format-muted": "{volume}%",
+        "tooltip-format": "Volume: {volume}%\nSink: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-sink-toggle",
+        "on-click-right": "~/.scripts/sound-sink-manager"
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
     "wireplumber#in": {
         "node-type": "Audio/Source",
         "format": "󰍬 {volume}%",
@@ -214,8 +280,28 @@
         "on-click": "~/.scripts/sound-source-toggle",
         "on-click-right": "~/.scripts/sound-source-manager"
     },
-    "backlight": {
-        "format": "{icon} {percent}%",
+    "wireplumber#in-icon": {
+        "node-type": "Audio/Source",
+        "format": "󰍬",
+        "format-muted": "󰍭",
+        "tooltip-format": "Volume: {volume}%\nSource: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-source-toggle",
+        "on-click-right": "~/.scripts/sound-source-manager"
+    },
+    "wireplumber#in-percent": {
+        "node-type": "Audio/Source",
+        "format": "{volume}%",
+        "format-muted": "{volume}%",
+        "tooltip-format": "Volume: {volume}%\nSource: {source_desc}",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": true,
+        "on-click": "~/.scripts/sound-source-toggle",
+        "on-click-right": "~/.scripts/sound-source-manager"
+    },
+    "backlight#icon": {
+        "format": "{icon}",
         "format-icons": [
             "󰃞",
             "󰃝",
@@ -226,6 +312,18 @@
         "on-scroll-down": "~/.scripts/brightness-decrease",
         "reverse-scrolling": true,
         "tooltip-format": "Backlight"
+    },
+    "backlight#percent": {
+        "format": "{percent}%",
+        "on-scroll-up": "~/.scripts/brightness-increase",
+        "on-scroll-down": "~/.scripts/brightness-decrease",
+        "reverse-scrolling": true,
+        "tooltip-format": "Backlight"
+    },
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
     },
     "battery": {
         "states": {
@@ -287,5 +385,35 @@
         "format": "󰐦",
         "tooltip-format": "Power menu",
         "on-click": "~/.scripts/power-menu"
+    },
+    "custom/shutdown": {
+        "format": "",
+        "tooltip-format": "Shutdown",
+        "on-click": "~/.scripts/system-shutdown"
+    },
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip-format": "Reboot",
+        "on-click": "~/.scripts/system-reboot"
+    },
+    "custom/logout": {
+        "format": "󰍃",
+        "tooltip-format": "Logout",
+        "on-click": "~/.scripts/system-logout"
+    },
+    "custom/lock": {
+        "format": "󰍁",
+        "tooltip-format": "Lock",
+        "on-click": "~/.scripts/system-lock"
+    },
+    "custom/suspend": {
+        "format": "",
+        "tooltip-format": "Sleep",
+        "on-click": "~/.scripts/system-suspend"
+    },
+    "custom/hibernate": {
+        "format": "󰤁",
+        "tooltip-format": "Hibernate",
+        "on-click": "~/.scripts/hibernate.sh"
     }
 }

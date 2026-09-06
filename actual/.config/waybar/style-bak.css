@@ -44,8 +44,8 @@
 
 * {
     font-family: RobotoMono Nerd Font Propo;
-    font-size: 10pt;
-    font-weight: normal;
+    font-size: 12pt;
+    font-weight: bold;
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -79,14 +79,14 @@ tooltip label {
 #group-keyboard,
 #group-controls,
 #group-battery,
-#custom-powermenu {
+#group-power {
     background-color: @bg;
     border: 1px solid @border;
     border-radius: 8px;
     margin-right: 4px;
 }
 
-#custom-powermenu {
+#group-power {
     margin-right: 0px;
 }
 
@@ -100,13 +100,21 @@ tooltip label {
 #network,
 #bluetooth,
 #custom-notifications,
-#wireplumber.in,
-#wireplumber.out,
-#backlight,
+#group-wireplumber-in,
+#group-wireplumber-out,
+#backlight.icon,
+#backlight-slider,
+#pulseaudio-slider,
 #battery,
 #power-profiles-daemon,
 #custom-screenlock,
-#custom-powermenu {
+#custom-powermenu,
+#custom-shutdown,
+#custom-reboot,
+#custom-logout,
+#custom-lock,
+#custom-suspend,
+#custom-hibernate {
     padding-left: 4px;
     padding-right: 4px;
 }
@@ -114,7 +122,8 @@ tooltip label {
 #network,
 #bluetooth,
 #custom-notifications,
-#group-sound {
+#group-sound,
+#group-sound-out {
     margin-right: 8px;
 }
 
@@ -130,35 +139,51 @@ tooltip label {
     color: @ws-urgent-fg;
 }
 
-/* #backlight-slider, */
-/* #pulseaudio-slider { */
-/*     padding-left: 5px; */
-/*     padding-right: 5px; */
-/* } */
-/* #backlight-slider trough, */
-/* #pulseaudio-slider trough { */
-/*     min-height: 6px; */
-/*     min-width: 75px; */
-/*     border-radius: 3px; */
-/*     background: @slider-bg; */
-/* } */
-/* #backlight-slider highlight, */
-/* #pulseaudio-slider highlight { */
-/*     border-radius: 3px; */
-/*     min-height: 0px; */
-/*     min-width: 0px; */
-/* } */
-/* #backlight-slider slider, */
-/* #pulseaudio-slider slider { */
-/*     all: unset; */
-/*     min-height: 10px; */
-/*     min-width: 10px; */
-/*     border-radius: 5px; */
-/*     margin: -4px; */
-/*     opacity: 0; */
-/*     background-image: none; */
-/*     box-shadow: none; */
-/* } */
+#power-profiles-daemon {
+    min-width: 18px;
+}
+
+#wireplumber.out-icon {
+    min-width: 12px;
+}
+#wireplumber.in-icon {
+    min-width: 12px;
+}
+#backlight.percent,
+#wireplumber.in-percent,
+#wireplumber.out-percent {
+    min-width: 40px;
+}
+
+#backlight-slider,
+#pulseaudio-slider {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#backlight-slider trough,
+#pulseaudio-slider trough {
+    min-height: 6px;
+    min-width: 75px;
+    border-radius: 3px;
+    background: @slider-bg;
+}
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+    border-radius: 3px;
+    min-height: 0px;
+    min-width: 0px;
+}
+#backlight-slider slider,
+#pulseaudio-slider slider {
+    all: unset;
+    min-height: 10px;
+    min-width: 10px;
+    border-radius: 5px;
+    margin: -4px; /* diff between dot and slider  */
+    opacity: 0;
+    background-image: none;
+    box-shadow: none;
+}
 
 #group-sound {
     background: @sound-bg;
@@ -185,22 +210,44 @@ tooltip label {
     color: @notif;
 }
 
-#wireplumber.out {
+#wireplumber.out,
+#wireplumber.out-percent,
+#wireplumber.out-icon {
     color: @sound-out;
 }
-#wireplumber.out.muted {
+#wireplumber.out.muted,
+#wireplumber.out-percent.muted,
+#wireplumber.out-icon.muted {
     color: @sound-out-mute;
 }
+#pulseaudio-slider highlight {
+    background: @sound-out;
+    border-color: @sound-out;
+}
+#pulseaudio-slider slider {
+    background-color: @sound-out;
+}
 
-#wireplumber.in {
+#wireplumber.in,
+#wireplumber.in-percent,
+#wireplumber.in-icon {
     color: @sound-in;
 }
-#wireplumber.in.muted {
+#wireplumber.in.muted,
+#wireplumber.in-percent.muted,
+#wireplumber.in-icon.muted {
     color: @sound-in-mute;
 }
 
 #backlight {
     color: @backlight;
+}
+#backlight-slider highlight {
+    background: @backlight;
+    border-color: @backlight;
+}
+#backlight-slider slider {
+    background: @backlight;
 }
 
 #battery.charging {
@@ -225,4 +272,22 @@ tooltip label {
 
 #custom-powermenu {
     color: @power-menu;
+}
+#custom-shutdown {
+    color: @power-shutdown;
+}
+#custom-reboot {
+    color: @power-reboot;
+}
+#custom-logout {
+    color: @power-logout;
+}
+#custom-lock {
+    color: @power-lock;
+}
+#custom-suspend {
+    color: @power-suspend;
+}
+#custom-hibernate {
+    color: @power-hybernate;
 }
