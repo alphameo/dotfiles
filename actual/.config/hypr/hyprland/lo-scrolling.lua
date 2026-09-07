@@ -36,5 +36,10 @@ hl.bind(mod .. "w", hl.dsp.layout "colresize +conf")
 hl.unbind(mod .. "n")
 hl.bind(mod .. "n", hl.dsp.layout "promote")
 
+hl.unbind(mod .. "CTRL + left")
+hl.bind(mod .. "CTRL + left", hl.dsp.layout "consume_or_expel prev")
+hl.unbind(mod .. "CTRL + right")
+hl.bind(mod .. "CTRL + right", hl.dsp.layout "consume_or_expel next")
+
 hl.unbind(mod .. "backslash")
 hl.bind(mod .. "backslash", hl.dsp.layout "fit_into_view")
