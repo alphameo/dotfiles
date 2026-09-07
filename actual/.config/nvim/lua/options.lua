@@ -58,10 +58,10 @@ vim.o.autoindent = true
 vim.o.breakindent = true
 
 -- Completion
-vim.o.autocomplete = true
+vim.o.autocomplete = false
 vim.o.completeopt = "menuone,popup,noselect,noinsert,fuzzy"
 vim.o.complete = "o,w,b,u,t"
-vim.o.wildmenu = true
+vim.o.wildmenu = false
 vim.o.wildmode = "noselect:full"
 vim.o.wildoptions = "pum,fuzzy,tagfile"
 
