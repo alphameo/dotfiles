@@ -6,6 +6,7 @@ return {
   config = function()
     vim.o.showmode = false -- Don't show mode in command line
     vim.o.ruler = false -- Don't show cursor position in command line
+    vim.o.laststatus = 3
     local icon = require("diagnostics").icons
     local get_key = function()
       return require("custom.key_history").last or ""
