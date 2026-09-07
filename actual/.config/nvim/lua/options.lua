@@ -59,7 +59,8 @@ vim.o.breakindent = true
 
 -- Completion
 vim.o.autocomplete = true
-vim.o.completeopt = "menuone,popup,noselect,noinsert,fuzzy,preview"
+vim.o.completeopt = "menuone,popup,noselect,noinsert,fuzzy"
+vim.o.complete = "o,w,b,u,t"
 vim.o.wildmenu = true
 vim.o.wildmode = "noselect:full"
 vim.o.wildoptions = "pum,fuzzy,tagfile"
@@ -126,7 +127,7 @@ vim.o.inccommand = "split" -- Preview :substitute options
 vim.o.pumborder = "rounded"
 vim.o.pumheight = 10
 vim.o.pumwidth = 15
-vim.o.pummaxwidth = 40
+vim.o.pummaxwidth = 0
 vim.o.pumblend = 0
 vim.o.winblend = 0
 vim.o.winborder = "none"
