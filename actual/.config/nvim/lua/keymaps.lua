@@ -120,14 +120,66 @@ map("n", "gd", function()
   })
 end, { silent = true, desc = "Reveal Diagnostic" })
 
-map("n", "<leader>fd", vim.diagnostic.setloclist, { silent = true, desc = "Find in document Diagnostics" })
+map("n", "<leader>fd", function()
+  vim.diagnostic.setqflist()
+  vim.cmd "copen"
+end, { silent = true, desc = "Find in document Diagnostics" })
 
+-- Formatting
 map("n", "gq", vim.lsp.formatexpr, { desc = "Formatexpr" })
+
+-- Finders
+map("n", "<leader>ff", ":find ", { silent = false, desc = "Find Files" })
+
+map("n", "<leader>fg", function()
+  vim.ui.input({ prompt = "Grep: " }, function(pattern)
+    if pattern then
+      vim.cmd("silent grep! " .. vim.fn.fnameescape(pattern))
+      vim.cmd "copen"
+    end
+  end)
+end, { silent = true })
+
+-- Completion
+map("i", "<C-Space>", function()
+  if vim.fn.pumvisible() == 1 then
+    return "<C-e>"
+  else
+    -- vim.lsp.completion.get()
+    -- return ""
+    return "<C-x><C-o>"
+  end
+end, { expr = true, desc = "Toggle Completion" })
+
+map("i", "<C-j>", function()
+  if vim.fn.pumvisible() == 1 then
+    return "<Down>"
+  else
+    return "<C-j>"
+  end
+end, { expr = true, desc = "Next Completion" })
+
+map("i", "<C-k>", function()
+  if vim.fn.pumvisible() == 1 then
+    return "<Up>"
+  else
+    return "<C-k>"
+  end
+end, { expr = true, desc = "Previous Completion" })
+
+map("i", "<Tab>", function()
+  if vim.fn.pumvisible() == 1 then
+    return "<C-y>"
+  else
+    return "<Tab>"
+  end
+end, { expr = true, desc = "Accept Completion" })
 
 -- Vim Pack
 map({ "n" }, "<leader>pu", vim.pack.update, { silent = true, desc = "vim.pack.update" })
 
 -- Other Features
+vim.keymap.set("n", "<leader>e", ":Lexplore<cr>", { silent = true, desc = "File Tree" })
 map("n", "<leader>E", ":Explore<CR>", { silent = true, desc = "Explorer" })
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
 map("n", "<leader>nn", ":messages<CR>", { silent = true, desc = "Notifications List" })
