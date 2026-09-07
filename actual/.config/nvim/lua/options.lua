@@ -58,10 +58,11 @@ vim.o.autoindent = true
 vim.o.breakindent = true
 
 -- Completion
-vim.o.autocomplete = false
-vim.o.completeopt = "menu,menuone,noselect,nearest,popup"
-vim.o.wildmenu = false
-vim.o.wildmode = "longest:full,full"
+vim.o.autocomplete = true
+vim.o.completeopt = "menuone,popup,noselect,noinsert,fuzzy,preview"
+vim.o.wildmenu = true
+vim.o.wildmode = "noselect:full"
+vim.o.wildoptions = "pum,fuzzy,tagfile"
 
 -- Searching
 vim.o.ignorecase = true
@@ -114,6 +115,8 @@ vim.opt.list = false -- Show non-printing characters (glyphs)
 
 vim.o.cmdheight = 0
 vim.o.showmode = true
+vim.o.ruler = true
+vim.o.laststatus = 3
 
 vim.o.virtualedit = "block" -- Allow going past the end of line in visual block mode
 
@@ -135,6 +138,48 @@ vim.filetype.add {
   },
 }
 
+-- Finders
+vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
+vim.opt.grepformat = "%f:%l:%c:%m"
+
+local ignore_patterns = {
+  "node_modules",
+  "%.git",
+  "%.cache",
+  "dist",
+  "build",
+  "%.tmp",
+  "%.log",
+}
+function _G.native_find(text, _)
+  local files = vim.fn.glob("**/*", true, true)
+  local result = {}
+  for _, f in ipairs(files) do
+    if vim.fn.isdirectory(f) == 0 then
+      local skip = false
+      for _, pat in ipairs(ignore_patterns) do
+        if f:match(pat) then
+          skip = true
+          break
+        end
+      end
+      if not skip then
+        result[#result + 1] = f
+      end
+    end
+  end
+  return vim.fn.matchfuzzy(result, text)
+end
+vim.opt.findfunc = "v:lua.native_find"
+
+-- Netrw
+vim.g.netrw_liststyle = 3 -- tree view
+vim.g.netrw_banner = 0 -- hide the top banner
+vim.g.netrw_winsize = 25 -- fix the left split width
+vim.g.netrw_browse_split = 0 -- open files in the previous window
+vim.g.netrw_altfile = 1 -- keep the alternate file correct
+
+-- UI2
 require("vim._core.ui2").enable {
   enable = true,
   msg = {
