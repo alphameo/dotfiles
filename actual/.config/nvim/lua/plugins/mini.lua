@@ -188,6 +188,7 @@ local setup_tabline = function()
 end
 
 local setup_statusline = function()
+  vim.o.laststatus = 3
   local stl = require "mini.statusline"
 
   local sep = "︙"
