@@ -113,7 +113,7 @@
         "disable-scroll": true
     },
     "hyprland/window": {
-        "format": "{initialTitle}",
+        "format": "{title}",
         "tooltip-format": "Title: {title}\nInitial title: {initialTitle}\nClass: {class}\nInitial class: {initialClass}",
         "separate-outputs": true,
         "icon": true,
