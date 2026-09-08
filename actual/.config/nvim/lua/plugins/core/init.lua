@@ -3,8 +3,8 @@ return {
   require "plugins.core.conform",
   require "plugins.core.dap",
   require "plugins.core.lspconfig",
-  require "plugins.core.mason",
   require "plugins.core.lint",
-  require "plugins.core.snippets",
+  require "plugins.core.luasnip",
+  require "plugins.core.mason",
   require "plugins.core.treesitter",
 }
