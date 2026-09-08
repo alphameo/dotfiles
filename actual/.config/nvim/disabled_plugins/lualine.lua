@@ -1,6 +1,9 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    -- "nvim-mini/mini.nvim",
+  },
   lazy = true,
   event = "VeryLazy",
   config = function()

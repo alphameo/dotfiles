@@ -2,6 +2,7 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
+    -- "nvim-mini/mini.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
   },

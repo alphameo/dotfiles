@@ -2,7 +2,10 @@ return {
   "folke/which-key.nvim",
   lazy = true,
   event = "VeryLazy",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    -- "nvim-mini/mini.nvim",
+  },
   config = function()
     local which_key = require "which-key"
 

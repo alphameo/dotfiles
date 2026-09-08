@@ -2,6 +2,7 @@ return {
   "akinsho/bufferline.nvim",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
+    -- "nvim-mini/mini.nvim",
     "moll/vim-bbye",
   },
   version = "*",
