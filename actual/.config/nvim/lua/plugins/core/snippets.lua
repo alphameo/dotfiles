@@ -8,10 +8,30 @@ return {
     },
     lazy = true,
     event = { "InsertEnter", "CmdlineEnter" },
-    opts = {
-      history = true,
-      delete_check_events = "TextChanged",
-    },
+    config = function()
+      local ls = require "luasnip"
+      ls.setup {
+        history = true,
+        delete_check_events = "TextChanged",
+      }
+
+    --   local map = vim.keymap.set
+    --   map({ "i", "s" }, "<M-e>", function()
+    --     if ls.expand_or_jumpable() then
+    --       ls.expand_or_jump()
+    --     end
+    --   end)
+    --   map({ "i", "s" }, "<M-p>", function()
+    --     if ls.jumpable(-1) then
+    --       ls.jump(-1)
+    --     end
+    --   end, { silent = true, desc = "Previous Snippet stop" })
+    --   map({ "i", "s" }, "<M-n>", function()
+    --     if ls.jumpable(1) then
+    --       ls.jump(1)
+    --     end
+    --   end, { silent = true, desc = "Next Snippet stop" })
+    end,
   },
   {
     "rafamadriz/friendly-snippets",
