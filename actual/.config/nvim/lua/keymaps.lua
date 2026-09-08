@@ -179,8 +179,17 @@ end, { desc = "Accept Completion" })
 -- Vim Pack
 map({ "n" }, "<leader>pu", vim.pack.update, { silent = true, desc = "vim.pack.update" })
 
+-- Keymap List
+vim.keymap.set("n", "<leader>.K", function()
+  local keymaps = vim.api.nvim_exec2("map", { output = true }).output
+  local lines = vim.split(keymaps, "\n")
+  local buff = vim.api.nvim_create_buf(true, true)
+  vim.api.nvim_set_current_buf(buff)
+  vim.api.nvim_buf_set_lines(buff, 0, -1, false, lines)
+end, {})
+
 -- Other Features
-vim.keymap.set("n", "<leader>e", ":Lexplore<cr>", { silent = true, desc = "File Tree" })
+vim.keymap.set("n", "<leader>e", ":Lexplore<CR>", { silent = true, desc = "File Tree" })
 map("n", "<leader>E", ":Explore<CR>", { silent = true, desc = "Explorer" })
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
 map("n", "<leader>nn", ":messages<CR>", { silent = true, desc = "Notifications List" })
