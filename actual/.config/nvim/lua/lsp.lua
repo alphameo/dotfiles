@@ -50,7 +50,7 @@ local setup_mappings = function()
   })
 end
 
-local capabilities = {
+local custom_capabilities = {
   textDocument = {
     completion = {
       completionItem = {
@@ -61,7 +61,9 @@ local capabilities = {
   },
 }
 
-capabilities = require("blink.cmp").get_lsp_capabilities(capabilities) or capabilities
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- vim.tbl_deep_extend("force", capabilities, custom_capabilities)
+local capabilities = require("blink.cmp").get_lsp_capabilities(custom_capabilities) or custom_capabilities
 
 local global_cfg = {
   -- INFO: check default: lua print(vim.inspect(vim.lsp.protocol.make_client_capabilities()))
