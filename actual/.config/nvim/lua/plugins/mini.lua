@@ -309,12 +309,103 @@ local setup_notify = function()
   vim.keymap.set("n", "<leader>nn", notify.show_history, { desc = "Notifications List" })
 end
 
+local setup_completion = function()
+  vim.o.completeopt = "menuone,noinsert,fuzzy"
+  vim.o.complete = ".,w,b,u"
+  local completion = require "mini.completion"
+  completion.setup {
+    mappings = {
+      force_twostep = "<C-Space>",
+      force_fallback = "<A-Space>",
+      scroll_down = "<C-e>",
+      scroll_up = "<C-y>",
+    },
+  }
+end
+
+local setup_cmdline_cmp = function()
+  vim.o.wildmenu = true
+  vim.o.wildmode = "noselect,full"
+  vim.o.wildoptions = "pum,fuzzy"
+  local cmdline = require "mini.cmdline"
+  cmdline.setup {
+    autocorrect = { enable = false },
+    autopeek = { enable = false },
+  }
+end
+
+local setup_snippets = function()
+  local snippets = require "mini.snippets"
+  local gen_loader = require("mini.snippets").gen_loader
+  snippets.setup {
+    snippets = {
+      -- gen_loader.from_file "~/.config/nvim/snippets/global.json",
+      gen_loader.from_lang(),
+      snippets.gen_loader.from_runtime "snippets",
+    },
+
+    mappings = {
+      expand = "",
+
+      jump_next = "<M-n>",
+      jump_prev = "<M-p>",
+      stop = "<C-c>",
+    },
+  }
+  require("mini.snippets").start_lsp_server()
+end
+
+local setup_icons = function()
+  local icons = require "mini.icons"
+  icons.setup {
+    style = "glyph", -- "glyph" | "ascii"
+  }
+end
+
+local setup_pickers = function()
+  local pick = require "mini.pick"
+  local extra = require "mini.extra"
+  pick.setup()
+  extra.setup()
+
+  local map = vim.keymap.set
+  map("n", "grR", function()
+    extra.pickers.lsp { scope = "references" }
+  end, { desc = "Find all locations" })
+
+  map("n", "<leader>ff", pick.builtin.files, { desc = "Find Files" })
+  map("n", "<leader>fg", pick.builtin.grep_live, { desc = "Find by Grep" })
+  map("n", "<leader>fw", function()
+    extra.pickers.grep { pattern = vim.fn.expand "<cword>" }
+  end, { desc = "Find Words" })
+  map("n", "<leader>fr", extra.pickers.oldfiles, { desc = "Find Recent Files" })
+
+  map("n", "<leader>fm", extra.pickers.marks, { desc = "Find Marks" })
+  map("n", "<leader>fb", pick.builtin.buffers, { desc = "Find Buffers" })
+  map("n", "<leader>fj", function()
+    extra.pickers.list { scope = "jump" }
+  end, { desc = "Find in Jump List" })
+  map("n", "<leader>fq", function()
+    extra.pickers.list { scope = "quickfix" }
+  end, { silent = true, desc = "Find in Quickfix List" })
+  map("n", "<leader>fd", function()
+    extra.pickers.diagnostic { scope = "current" }
+  end, { silent = true, desc = "Find in document Diagnostics" })
+  map("n", "<leader>fD", function()
+    extra.pickers.diagnostic { scope = "all" }
+  end, { silent = true, desc = "Find in workspace Diagnostics" })
+
+  map("n", "<leader>fh", extra.pickers.git_hunks, { desc = "Find Git Hunks" })
+
+  map("n", "<leader>.K", extra.pickers.keymaps, { desc = "Inspect Keymapping" })
+end
+
 -- TODO: check mappings, when removing plugin
 return {
   "echasnovski/mini.nvim",
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
     "moll/vim-bbye",
+    -- "rafamadriz/friendly-snippets",
   },
   version = false,
   lazy = true,
@@ -332,5 +423,10 @@ return {
     setup_notify()
     setup_trailspace()
     -- setup_jump2d()
+    -- setup_snippets()
+    -- setup_completion()
+    -- setup_cmdline_cmp()
+    -- setup_icons()
+    -- setup_pickers()
   end,
 }

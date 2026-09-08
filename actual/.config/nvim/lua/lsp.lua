@@ -62,7 +62,9 @@ local custom_capabilities = {
 }
 
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- local capabilities = require("mini.completion").get_lsp_capabilities()
 -- vim.tbl_deep_extend("force", capabilities, custom_capabilities)
+
 local capabilities = require("blink.cmp").get_lsp_capabilities(custom_capabilities) or custom_capabilities
 
 local global_cfg = {
