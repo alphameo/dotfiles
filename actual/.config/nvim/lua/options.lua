@@ -124,7 +124,7 @@ vim.o.virtualedit = "block" -- Allow going past the end of line in visual block 
 vim.o.inccommand = "split" -- Preview :substitute options
 
 -- Popup menu
-vim.o.pumborder = "rounded"
+vim.o.pumborder = "none" -- "bold" | "double" | "none" | "rounded" | "shadow" | "single" | "solid"
 vim.o.pumheight = 10
 vim.o.pumwidth = 15
 vim.o.pummaxwidth = 0
