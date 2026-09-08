@@ -27,8 +27,8 @@ return {
           end,
           "fallback",
         },
-        ["<C-Tab>"] = { "snippet_forward", "fallback" },
-        ["<C-S-Tab>"] = { "snippet_backward", "fallback" },
+        ["<M-n>"] = { "snippet_forward", "fallback" },
+        ["<M-p>"] = { "snippet_backward", "fallback" },
       },
       completion = {
         menu = {
