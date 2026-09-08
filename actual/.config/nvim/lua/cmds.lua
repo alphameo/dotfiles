@@ -28,10 +28,30 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 --   callback = function(args)
 --     local client = vim.lsp.get_client_by_id(args.data.client_id)
 --     if client ~= nil and client:supports_method "textDocument/completion" then
---       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+--       vim.lsp.completion.enable(true, client.id, args.buf, {
+--         autotrigger = true,
+--         convert = function(item)
+--           return { abbr = item.label }
+--         end,
+--       })
 --     end
 --   end,
 --   desc = "Built-in completion",
+-- })
+-- vim.api.nvim_create_autocmd("InsertCharPre", {
+--   callback = function()
+--     if vim.fn.pumvisible() == 1 or vim.fn.state "m" == "m" then
+--       return
+--     end
+--
+--     require("custom.lsp").show_cmp()
+--   end,
+--   desc = "Built-in autocompletion",
+-- })
+-- vim.api.nvim_create_autocmd("CmdlineChanged", {
+--   callback = function()
+--     vim.fn.wildtrigger()
+--   end,
 -- })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
