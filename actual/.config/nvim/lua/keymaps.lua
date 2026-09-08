@@ -147,33 +147,34 @@ map("i", "<C-Space>", function()
   else
     -- vim.lsp.completion.get()
     -- return ""
-    return "<C-x><C-o>"
+    -- return "<C-x><C-o>"
+    require("custom.lsp").show_cmp()
   end
-end, { expr = true, desc = "Toggle Completion" })
+end, { desc = "Toggle Completion" })
 
 map("i", "<C-j>", function()
+  local key = vim.keycode "<C-j>"
   if vim.fn.pumvisible() == 1 then
-    return "<Down>"
-  else
-    return "<C-j>"
+    key = vim.keycode "<Down>"
   end
-end, { expr = true, desc = "Next Completion" })
+  vim.api.nvim_feedkeys(key, "n", false)
+end, { desc = "Next Completion" })
 
 map("i", "<C-k>", function()
+  local key = vim.keycode "<C-k>"
   if vim.fn.pumvisible() == 1 then
-    return "<Up>"
-  else
-    return "<C-k>"
+    key = vim.keycode "<Up>"
   end
-end, { expr = true, desc = "Previous Completion" })
+  vim.api.nvim_feedkeys(key, "n", false)
+end, { desc = "Previous Completion" })
 
 map("i", "<Tab>", function()
+  local key = vim.keycode "<Tab>"
   if vim.fn.pumvisible() == 1 then
-    return "<C-y>"
-  else
-    return "<Tab>"
+    key = vim.keycode "<C-y>"
   end
-end, { expr = true, desc = "Accept Completion" })
+  vim.api.nvim_feedkeys(key, "n", false)
+end, { desc = "Accept Completion" })
 
 -- Vim Pack
 map({ "n" }, "<leader>pu", vim.pack.update, { silent = true, desc = "vim.pack.update" })
