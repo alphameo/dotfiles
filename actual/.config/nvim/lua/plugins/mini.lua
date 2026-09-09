@@ -183,8 +183,14 @@ local setup_tabline = function()
       return prefix .. tabline.default_format(buf_id, label) .. get_diagnostic_symbol(buf_id) .. suffix
     end,
   }
-  vim.keymap.set("n", "<M-g>", ":Telescope buffers<CR>", { silent = true, desc = "Pick Tab (buffer) Next" })
-  vim.keymap.set("n", "<M-w>", ":Bdelete<CR>", { silent = true, desc = "Pick buffer to close" })
+end
+
+local setup_bufremove = function()
+  local bufremove = require "mini.bufremove"
+  bufremove.setup()
+  vim.keymap.set("n", "<M-w>", function()
+    bufremove.delete(0, false)
+  end, { desc = "Close buffer" })
 end
 
 local setup_statusline = function()
@@ -404,7 +410,6 @@ end
 return {
   "echasnovski/mini.nvim",
   dependencies = {
-    "moll/vim-bbye",
     -- "rafamadriz/friendly-snippets",
   },
   version = false,
@@ -428,5 +433,6 @@ return {
     -- setup_cmdline_cmp()
     -- setup_icons()
     -- setup_pickers()
+    setup_bufremove()
   end,
 }
