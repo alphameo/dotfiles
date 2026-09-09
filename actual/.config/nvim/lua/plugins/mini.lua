@@ -366,6 +366,7 @@ local setup_icons = function()
   icons.setup {
     style = "glyph", -- "glyph" | "ascii"
   }
+  icons.mock_nvim_web_devicons()
 end
 
 local setup_pickers = function()
