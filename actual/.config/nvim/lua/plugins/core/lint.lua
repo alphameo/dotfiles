@@ -81,6 +81,8 @@ return {
       os.getenv "MARKDOWNLINT_DEFAULTCONFIG",
     }
 
+    table.insert(lint.linters.golangcilint.args, #lint.linters.golangcilint.args, "--allow-parallel-runners")
+
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
       group = lint_augroup,
