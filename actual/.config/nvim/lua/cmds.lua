@@ -131,6 +131,9 @@ cmd("Expandtab", toggle.expandtab, { desc = "Toggle Expandtab Locally" })
 local indent = require "custom.indent"
 cmd("Indent", indent.set, { nargs = 1 })
 
+
+local lsp = require "custom.lsp"
+cmd("DiagnosticsRefresh", lsp.refresh_diagnostics, { desc = "Refresh Diagnostics" })
 ---------------
 -- Terminals --
 ---------------
