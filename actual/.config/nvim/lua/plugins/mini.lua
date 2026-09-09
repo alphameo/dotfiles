@@ -149,11 +149,11 @@ end
 
 local setup_tabline = function()
   local tabline = require "mini.tabline"
-  local icon = require("diagnostics").icons
+  local icons = require("diagnostics").icons
   local function get_diagnostic_symbol(bufnr)
     local levels = {
-      [vim.diagnostic.severity.ERROR] = icon.Error,
-      [vim.diagnostic.severity.WARN] = icon.Warn,
+      [vim.diagnostic.severity.ERROR] = icons.Error,
+      [vim.diagnostic.severity.WARN] = icons.Warn,
     }
 
     local diagnostics = vim.diagnostic.get(bufnr)
