@@ -1,21 +1,21 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "c591a36"
+rev = "58c4f4e"
 hash = "f281261ff04ad7ec867c3f802a50835f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "c591a36"
+rev = "58c4f4e"
 hash = "87472b05a8c420100f6a2b9cde1e7746"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "c591a36"
+rev = "58c4f4e"
 hash = "5bb0bfab901d3601c370eafdd66edd31"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "c591a36"
+rev = "58c4f4e"
 hash = "b95f898e6dc60b52edbc415952e14395"
 
 [[plugin.deps]]
@@ -25,8 +25,8 @@ hash = "868db729374b97871bc30b96d0e9061f"
 
 [[plugin.deps]]
 use = "boydaihungst/restore"
-rev = "7bfcfcb"
-hash = "bbb1569978e6d2b3e8343c6ca08a4ea6"
+rev = "864dd05"
+hash = "3070b579618c4831f5d7ca4293c1c275"
 
 [[plugin.deps]]
 use = "uhs-robert/recycle-bin"
@@ -35,8 +35,8 @@ hash = "edd449b02a169bd8fee052be96a31823"
 
 [[plugin.deps]]
 use = "boydaihungst/gvfs"
-rev = "ebdb87c"
-hash = "69c24ef7e0a591864c76ac6e6dedc805"
+rev = "c92953c"
+hash = "d1e8d33ed36d339d5588f036dc3a9204"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
