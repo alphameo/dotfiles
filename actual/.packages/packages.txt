@@ -167,6 +167,7 @@ zeb-browser-bin
 python
 uv
 python-pipx
+quarto-cli-bin
 
 git
 lazygit
