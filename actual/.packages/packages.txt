@@ -110,6 +110,7 @@ adwaita-cursors adwaita-fonts adwaita-icon-theme
 
 okular
 pdfarranger
+img2pdf
 
 qbittorrent
 
@@ -165,6 +166,7 @@ zeb-browser-bin
 
 python
 uv
+python-pipx
 
 git
 lazygit
