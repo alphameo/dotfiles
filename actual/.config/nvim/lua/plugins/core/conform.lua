@@ -19,8 +19,8 @@ return {
         kdl = { "kdlfmt" },
         kotlin = { "ktlint" },
         lua = { "stylua" },
-        markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
-        ["markdown.mdx"] = { "prettierd", "markdownlint-cli2", "markdown-toc" },
+        markdown = { "injected" },
+        ["markdown.mdx"] = { "injected" },
         php = { "php_cs_fixer" },
         python = { "black" },
         rust = { "rustfmt" },
@@ -59,6 +59,15 @@ return {
             --------------------
             -- "--dialect=ansi",
             "-",
+          },
+        },
+        injected = {
+          options = {
+            ignore_errors = false,
+            lang_to_formatters = {
+              python = { "black" },
+              markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
+            },
           },
         },
       },
