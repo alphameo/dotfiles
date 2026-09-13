@@ -104,7 +104,8 @@ return {
       -- [Setup project venv]
       -- # activate the project venv
       -- # install ipykernel as dependency
-      -- python -m ipykernel install --user --name project_name
+      -- python -m ipykernel install --user --name <project_name>
+      -- # installs kernel at `~/.local/share/jupyter/kernels/`
       vim.g.loaded_python3_provider = nil
       vim.g.python3_host_prog = vim.fn.expand "~/.virtualenvs/nvim/bin/python3"
       vim.api.nvim_create_autocmd("FileType", {
