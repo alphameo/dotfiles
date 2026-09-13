@@ -30,7 +30,7 @@ return {
     end,
   },
   {
-    -- install `libtexprintf`, `python-pylatexenc`
+    -- system deps: `libtexprintf`, `python-pylatexenc`
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",

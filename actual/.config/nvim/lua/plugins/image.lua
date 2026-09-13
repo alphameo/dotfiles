@@ -1,4 +1,4 @@
--- install `imagemagick`
+-- system deps: `imagemagick`
 return {
   "3rd/image.nvim",
   lazy = true,
