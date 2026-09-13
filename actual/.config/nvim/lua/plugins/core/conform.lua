@@ -76,7 +76,7 @@ return {
 
     local format = function()
       local fmt_range = "whole file"
-      conform.format { async = true, lsp_format = "fallback", range = range }
+      conform.format { async = true, lsp_format = "fallback" }
       vim.notify("Lines for formatting: " .. fmt_range)
     end
 
