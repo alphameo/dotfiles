@@ -106,6 +106,9 @@ return {
       -- # install ipykernel as dependency
       -- python -m ipykernel install --user --name <project_name>
       -- # installs kernel at `~/.local/share/jupyter/kernels/`
+      -- [matplotlib]
+      -- to show plots edit  `~/.local/share/jupyter/kernels/<project_name>/kernel.json`:
+      -- add flag `"--matplotlib=inline"`
       vim.g.loaded_python3_provider = nil
       vim.g.python3_host_prog = vim.fn.expand "~/.virtualenvs/nvim/bin/python3"
       vim.api.nvim_create_autocmd("FileType", {
