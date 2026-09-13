@@ -7,6 +7,7 @@ return {
     local img = require "image"
     img.setup {
       backend = "kitty",
+      processor = "magick_cli",
       max_width = 128,
       max_height = 16,
       max_height_window_percentage = math.huge,
@@ -29,7 +30,7 @@ return {
         vim.notify("Images enabled", vim.log.levels.INFO)
       end
     end
-    toggle_img()
+    img.disable()
     vim.keymap.set("n", "\\i", toggle_img, { desc = "Toggle Image Previews" })
   end,
 }
