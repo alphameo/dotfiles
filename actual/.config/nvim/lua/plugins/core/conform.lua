@@ -68,6 +68,7 @@ return {
             lang_to_formatters = {
               python = { "black" },
               markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
+              ["markdown.mdx"] = { "prettierd", "markdownlint-cli2", "markdown-toc" },
             },
           },
         },
