@@ -2,7 +2,8 @@ return {
   "stevearc/conform.nvim",
   lazy = true,
   event = { "BufReadPost", "BufNewFile" },
-  cmd = { "ConformInfo" },
+  keys = { { "gQ", mode = { "n", "v" }, desc = "Format" } },
+  cmd = { "ConformInfo", "Format" },
   config = function()
     local conform = require "conform"
     conform.setup {
@@ -73,7 +74,13 @@ return {
       },
     }
 
-    vim.api.nvim_create_user_command("Format", function(args)
+    local format = function()
+      local fmt_range = "whole file"
+      conform.format { async = true, lsp_format = "fallback", range = range }
+      vim.notify("Lines for formatting: " .. fmt_range)
+    end
+
+    local format_range = function(args)
       local range = nil
       local fmt_range
       if args.count ~= -1 then
@@ -88,10 +95,13 @@ return {
       end
       conform.format { async = true, lsp_format = "fallback", range = range }
       vim.notify("Lines for formatting: " .. fmt_range)
+    end
+    vim.api.nvim_create_user_command("Format", function(args)
+      format_range(args)
     end, { range = true })
 
     vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
-    vim.keymap.set({ "n", "v" }, "gQ", ":Format<CR>", { silent = true, desc = "Format lines" })
+    vim.keymap.set({ "n", "v" }, "gQ", format, { silent = true, desc = "Format lines" })
   end,
 }
