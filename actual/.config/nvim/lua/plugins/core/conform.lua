@@ -32,35 +32,34 @@ return {
         javascriptreact = { "prettierd" },
         typescriptreact = { "prettierd" },
       },
-    }
-
-    conform.formatters = {
-      clang_format = {
-        args = {
-          "--style={BasedOnStyle: Google,"
-            .. "UseTab: Never,"
-            .. "TabWidth: 4,"
-            .. "IndentWidth: 4,"
-            .. "InsertNewlineAtEOF: true,"
-            .. "IndentCaseLabels: true,"
-            .. "LineEnding: LF,"
-            .. "BreakBeforeBraces: Attach,"
-            .. "AllowShortIfStatementsOnASingleLine: false,"
-            .. "AllowShortBlocksOnASingleLine: Empty,"
-            .. "IndentAccessModifiers: false,"
-            .. "AccessModifierOffset: -4"
-            .. "}",
+      formatters = {
+        clang_format = {
+          args = {
+            "--style={BasedOnStyle: Google,"
+              .. "UseTab: Never,"
+              .. "TabWidth: 4,"
+              .. "IndentWidth: 4,"
+              .. "InsertNewlineAtEOF: true,"
+              .. "IndentCaseLabels: true,"
+              .. "LineEnding: LF,"
+              .. "BreakBeforeBraces: Attach,"
+              .. "AllowShortIfStatementsOnASingleLine: false,"
+              .. "AllowShortBlocksOnASingleLine: Empty,"
+              .. "IndentAccessModifiers: false,"
+              .. "AccessModifierOffset: -4"
+              .. "}",
+          },
         },
-      },
-      sqlfluff = {
-        args = {
-          "format",
-          -- NOTE: flag or direct into file `.sqlfluff`
-          -- [sqlfluff]
-          -- dialect = mysql
-          --------------------
-          -- "--dialect=ansi",
-          "-",
+        sqlfluff = {
+          args = {
+            "format",
+            -- NOTE: flag or direct into file `.sqlfluff`
+            -- [sqlfluff]
+            -- dialect = mysql
+            --------------------
+            -- "--dialect=ansi",
+            "-",
+          },
         },
       },
     }
