@@ -1,3 +1,4 @@
+-- install `imagemagick`
 return {
   "3rd/image.nvim",
   lazy = true,
