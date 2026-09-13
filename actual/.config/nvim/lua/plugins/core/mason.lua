@@ -105,6 +105,7 @@ return {
           -- "detekt", -- kotlin lint
           "hadolint", -- docker lint
           "clang-format", -- c, cpp fmt
+          "qmlls", -- qml
           "cpplint", -- c, cpp lint
           "gersemi", -- cmake fmt
           "cmakelint", -- cmake lint
