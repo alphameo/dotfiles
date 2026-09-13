@@ -65,6 +65,9 @@ cmake
 chafa
 viu
 ueberzugpp
+imagemagick
+libtexprintf
+python-pylatexenc
 
 opencode
 
