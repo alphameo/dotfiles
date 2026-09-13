@@ -68,6 +68,7 @@ return {
           sql = { "lsp", "sql", "dadbod", "path", "snippets", "buffer" },
           tex = { "lsp", "latex", "path", "snippets", "buffer" },
           sty = { "lsp", "latex", "path", "snippets", "buffer" },
+          markdown = { "lsp", "latex", "path", "snippets", "buffer" },
         },
         providers = {
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
