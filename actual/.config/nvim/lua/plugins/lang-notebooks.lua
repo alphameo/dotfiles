@@ -151,6 +151,9 @@ return {
         output_extension = "md",
         force_ft = "markdown",
       }
+      local map = vim.keymap.set
+      map("n", "<leader>lf", ":noautocmd edit<CR>", { silent = true, desc = "Jupytext Original File" })
+      map("n", "<leader>lF", ":edit<CR>", { silent = true, desc = "Jupytext Converted File" })
     end,
   },
   {
