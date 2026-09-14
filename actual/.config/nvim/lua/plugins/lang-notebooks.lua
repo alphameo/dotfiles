@@ -115,39 +115,26 @@ return {
         pattern = "markdown",
         callback = function()
           local map = vim.keymap.set
-          map("n", "<leader>lm", ":MoltenInit<CR>", { buffer = true, silent = true, desc = "Molten Initialize" })
-          map(
-            "n",
-            "<leader>le",
-            ":MoltenEvaluateOperator<CR>",
-            { buffer = true, silent = true, desc = "Molten Operator Selection" }
-          )
-          map(
-            "n",
-            "<leader>ll",
-            ":MoltenEvaluateLine<CR>",
-            { buffer = true, silent = true, desc = "Molten Evaluate Line" }
-          )
-          map(
-            "n",
-            "<leader>lE",
-            ":MoltenReevaluateCell<CR>",
-            { buffer = true, silent = true, desc = "Molten Re-evaluate Cell" }
-          )
-          map("n", "<leader>ld", ":MoltenDelete<CR>", { buffer = true, silent = true, desc = "Molten Delete Cell" })
-          map("n", "<leader>lh", ":MoltenHideOutput<CR>", { buffer = true, silent = true, desc = "Molten Hide Output" })
-          map(
-            "n",
-            "<leader>ls",
-            ":noautocmd MoltenEnterOutput<CR>",
-            { buffer = true, silent = true, desc = "Molten Show/Enter Output" }
-          )
-          map(
-            "v",
-            "<leader>lE",
-            ":<C-u>MoltenEvaluateVisual<CR>gv",
-            { buffer = true, silent = true, desc = "Evaluate visual selection" }
-          )
+          local opts = function(desc)
+            return { buffer = true, silent = true, desc = desc }
+          end
+          -- map("n", "<leader>lm", ":MoltenInit<CR>", opts "Molten Initialize")
+          map("n", "<leader>lr", ":MoltenRestart<CR>", opts "Molten Restart")
+          map("n", "<leader>lR", ":MoltenRestart!<CR>", opts "Molten Restart & Delete Cells")
+          -- map("n", "<leader>lO", ":MoltenEvaluateOperator<CR>", opts "Molten Operator Selection")
+          -- map("n", "<leader>ll", ":MoltenEvaluateLine<CR>", opts "Molten Evaluate Line")
+          map("n", "<leader>lE", ":MoltenReevaluateCell<CR>", opts "Molten Re-evaluate Cell")
+          map("v", "<leader>le", ":<C-u>MoltenEvaluateVisual<CR>gv", opts "Evaluate Visual Selection")
+          map("n", "<leader>li", ":MoltenInterrupt<CR>", opts "Molten Interrupt Kernel")
+
+          map("n", "<leader>ld", ":MoltenDelete<CR>", opts "Molten Delete Cell")
+          -- map("n", "<leader>ls", ":MoltenSave<CR>", opts "Molten Save")
+          map("n", "<leader>lE", ":MoltenExportOutput<CR>", opts "Molten Export Output")
+          map("n", "<leader>ly", ":MoltenYankOutput<CR>", opts "Molten Export Output")
+
+          -- map("n", "<leader>lh", ":MoltenHideOutput<CR>", opts "Molten Hide Output")
+          map("n", "<leader>lo", ":noautocmd MoltenEnterOutput<CR>", opts "Molten Show/Enter Output")
+          map("n", "<leader>li", ":MoltenImagePopup<CR>", opts "Molten Open Output Image")
         end,
       })
     end,
@@ -192,17 +179,19 @@ return {
         },
       }
 
-      local qrunner = require "quarto.runner"
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
         callback = function()
+          -- local quarto = require "quarto"
+          local qrunner = require "quarto.runner"
           local map = vim.keymap.set
-          map("n", "<leader>lq", ":QuartoActivate<CR>", { buffer = true, silent = true, desc = "Quarto Initialize" })
-          map("n", "<leader>lP", ":QuartoPreview<CR>", { buffer = true, silent = true, desc = "Quarto Preview" })
+          -- map("n", "<leader>lq", ":QuartoActivate<CR>", { buffer = true, silent = true, desc = "Quarto Initialize" })
+          -- map("n", "<leader>lP", quarto.quartoPreview, { buffer = true, silent = true, desc = "Quarto Preview" })
           map("n", "<leader>lc", qrunner.run_cell, { buffer = true, desc = "Quarto Run Cell" })
           map("n", "<leader>lu", qrunner.run_above, { buffer = true, desc = "Quarto Run Cell Above" })
+          map("n", "<leader>lb", qrunner.run_below, { buffer = true, desc = "Quarto Run Cell Below" })
           map("n", "<leader>la", qrunner.run_all, { buffer = true, desc = "Quarto Run All Cells" })
-          map("n", "<leader>lL", qrunner.run_line, { buffer = true, desc = "Quarto Run Line" })
+          -- map("n", "<leader>ll", qrunner.run_line, { buffer = true, desc = "Quarto Run Line" })
           map("n", "<leader>lA", function()
             qrunner.run_all(true)
           end, { buffer = true, silent = true, desc = "Quarto Run All Cells of All Languages" })
