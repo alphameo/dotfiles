@@ -171,6 +171,7 @@ python
 uv
 python-pipx
 quarto-cli-bin
+jupyter-notebook
 jupyter-nbconvert
 
 git
