@@ -100,14 +100,13 @@ return {
       -- python -m venv ~/.virtualenvs/nvim # create a new venv
       -- # activate the venv: note, activate is a bash/zsh script, use activate.fish for fish shell
       -- pip install pynvim jupyter_client cairosvg plotly kaleido pnglatex pyperclip
-      -- pip install pynvim jupyter_client pnglatex plotly kaleido
       -- [Setup project venv]
       -- # activate the project venv
       -- # install ipykernel as dependency
       -- python -m ipykernel install --user --name <project_name>
       -- # installs kernel at `~/.local/share/jupyter/kernels/`
       -- [matplotlib]
-      -- to show plots edit  `~/.local/share/jupyter/kernels/<project_name>/kernel.json`:
+      -- to show plots edit `~/.local/share/jupyter/kernels/<project_name>/kernel.json`:
       -- add flag `"--matplotlib=inline"`
       vim.g.loaded_python3_provider = nil
       vim.g.python3_host_prog = vim.fn.expand "~/.virtualenvs/nvim/bin/python3"
