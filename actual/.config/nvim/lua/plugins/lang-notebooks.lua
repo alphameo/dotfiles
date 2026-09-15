@@ -133,12 +133,17 @@ return {
       vim.g.molten_image_provider = "image.nvim"
       vim.g.molten_auto_open_output = false
       vim.g.molten_wrap_output = true
+      vim.g.molten_output_show_more = true
+      vim.g.molten_enter_output_behavior = "open_and_enter" -- "open_then_enter" | "open_and_enter" | "no_open"
+
       vim.g.molten_virt_text_output = true
+      vim.g.molten_virt_lines = true
       vim.g.molten_virt_lines_off_by_1 = true
       vim.g.molten_virt_text_max_lines = 999
 
       vim.g.loaded_python3_provider = nil
       vim.g.python3_host_prog = vim.fn.expand "~/.virtualenvs/nvim/bin/python3"
+
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
         callback = function()
