@@ -72,25 +72,29 @@ local function ipy_help()
 *. installed kernel are located at `~/.local/share/jupyter/kernels/`
 
 
-# Plots in matplotlib
+# Show plots from matplotlib
 
-to show plots edit `~/.local/share/jupyter/kernels/<project_name>/kernel.json`:
+Edit `~/.local/share/jupyter/kernels/<project_name>/kernel.json`:
   add flag `"--matplotlib=inline"`
 
 
 # Converts
 
-1. Install jupyter's nbconvert module
+Main requirement: Install jupyter's nbconvert module
 
-html: `jupyter nbconvert --to html <name.ipynb>`
-pdf (required: pandoc, latex): `jupyter nbconvert --to pdf <name.ipynb>`
-latex (required: pandoc, latex): `jupyter nbconvert --to latex <name.ipynb>`
+html:
+    - `jupyter nbconvert --to html <name.ipynb>`
+pdf:
+    - `jupyter nbconvert --to pdf <name.ipynb>` (required: pandoc, latex suite)
+    - `jupyter nbconvert --to webpdf <name.ipynb>` (required: playwright)
+latex:
+    - `jupyter nbconvert --to latex <name.ipynb>` (required: pandoc, latex suite)
     ]]
 
   require("custom.info").show(help_msg, { ft = "lint-info" })
 end
 
-vim.api.nvim_create_user_command("NewIPYNB", function(opts)
+vim.api.nvim_create_user_command("IpynbNew", function(opts)
   new_notebook(opts.args)
 end, {
   nargs = 1,
@@ -98,7 +102,7 @@ end, {
   desc = "Create .ipynb file",
 })
 
-vim.api.nvim_create_user_command("IPYHelp", function()
+vim.api.nvim_create_user_command("IpynbHelp", function()
   ipy_help()
 end, {
   desc = "ipy help",
@@ -107,7 +111,7 @@ end, {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
-    vim.api.nvim_create_user_command("NotebookInit", function()
+    vim.api.nvim_create_user_command("IpynbInit", function()
       vim.cmd "QuartoActivate"
       vim.cmd "MoltenInit"
     end, {
@@ -119,6 +123,8 @@ vim.api.nvim_create_autocmd("FileType", {
     end, {
       desc = "Init Notebook suite",
     })
+
+    require "custom.ipynb2pdf"
   end,
   desc = "Autocmds for Notebooks",
 })
