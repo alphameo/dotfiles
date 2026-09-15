@@ -192,7 +192,7 @@ end, {})
 vim.keymap.set("n", "<leader>e", ":Lexplore<CR>", { silent = true, desc = "File Tree" })
 map("n", "<leader>E", ":Explore<CR>", { silent = true, desc = "Explorer" })
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
-map("n", "<leader>nn", ":messages<CR>", { silent = true, desc = "Notifications List" })
+map("n", "<leader>nm", ":messages<CR>", { silent = true, desc = "Notifications Messages" })
 
 map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 
