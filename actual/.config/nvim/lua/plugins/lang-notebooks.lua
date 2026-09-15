@@ -83,6 +83,7 @@ to show plots edit `~/.local/share/jupyter/kernels/<project_name>/kernel.json`:
 1. Install jupyter's nbconvert module
 
 html: `jupyter nbconvert --to html <name.ipynb>`
+pdf (required: pandoc, latex): `jupyter nbconvert --to pdf <name.ipynb>`
     ]]
 
   require("custom.info").show(help_msg, { ft = "lint-info" })
