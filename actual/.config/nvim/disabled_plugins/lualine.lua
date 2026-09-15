@@ -12,7 +12,7 @@ return {
     vim.o.laststatus = 3
     local icon = require("diagnostics").icons
     local get_key = function()
-      return require("custom.key_history").last or ""
+      return require("custom.key-history").last or ""
     end
 
     require("lualine").setup {

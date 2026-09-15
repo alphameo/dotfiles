@@ -228,7 +228,7 @@ local setup_statusline = function()
   end
 
   local get_keystroke = function()
-    return require("custom.key_history").last or ""
+    return require("custom.key-history").last or ""
   end
 
   local get_file_percentage = function()
