@@ -179,8 +179,19 @@ return {
         force_ft = "markdown",
       }
       local map = vim.keymap.set
-      map("n", "<leader>lf", ":noautocmd edit<CR>", { silent = true, desc = "Jupytext Original File" })
-      map("n", "<leader>lF", ":edit<CR>", { silent = true, desc = "Jupytext Converted File" })
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          map(
+            "n",
+            "<leader>lf",
+            ":noautocmd edit<CR>",
+            { buffer = true, silent = true, desc = "Jupytext Original File" }
+          )
+          map("n", "<leader>lF", ":edit<CR>", { buffer = true, silent = true, desc = "Jupytext Converted File" })
+        end,
+        desc = "Jupytext Filetype Mappings",
+      })
     end,
   },
   {
