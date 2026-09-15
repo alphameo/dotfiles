@@ -1,6 +1,7 @@
 local ft = { "tex", "sty" }
 return {
   {
+    -- system deps: `latexmk`
     "lervag/vimtex",
     lazy = true, -- lazy-loading will disable inverse search
     ft = ft,
@@ -28,6 +29,6 @@ return {
   {
     "erooke/blink-cmp-latex",
     lazy = true,
-    ft = { "tex", "sty" },
+    ft = ft,
   },
 }

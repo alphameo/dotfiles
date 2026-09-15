@@ -174,7 +174,7 @@ return {
     end,
   },
   {
-    -- Needs executable `jupytext` (install via pipx or get from aur)
+    -- system deps: `jupytext` (install via pipx or get from aur)
     "GCBallesteros/jupytext.nvim",
     lazy = vim.fn.argc(-1) == 0,
     event = { "BufEnter" },
@@ -202,6 +202,7 @@ return {
     end,
   },
   {
+    -- system deps: `quarto-cli`
     "quarto-dev/quarto-nvim",
     dependencies = {
       "jmbuhr/otter.nvim",

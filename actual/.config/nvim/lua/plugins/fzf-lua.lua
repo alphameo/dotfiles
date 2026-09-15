@@ -1,5 +1,4 @@
 -- system deps: `chafa`, `viu`, `ueberzugpp`
-
 return {
   "ibhagwan/fzf-lua",
   dependencies = {
