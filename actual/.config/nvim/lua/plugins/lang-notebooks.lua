@@ -126,7 +126,7 @@ return {
   {
     "benlubas/molten-nvim",
     lazy = true,
-    ft = { "python", "markdown", "json" },
+    ft = { "markdown", "json" },
     dependencies = { "3rd/image.nvim" },
     build = ":UpdateRemotePlugins",
     config = function()
