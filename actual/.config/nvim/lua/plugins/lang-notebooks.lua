@@ -119,6 +119,7 @@ vim.api.nvim_create_autocmd("FileType", {
       desc = "Init Notebook suite",
     })
   end,
+  desc = "Autocmds for Notebooks",
 })
 
 return {
@@ -163,6 +164,7 @@ return {
           map("n", "<leader>lo", ":noautocmd MoltenEnterOutput<CR>", opts "Molten Show/Enter Output")
           map("n", "<leader>li", ":MoltenImagePopup<CR>", opts "Molten Open Output Image")
         end,
+        desc = "Molten Filetype Mappings",
       })
     end,
   },
@@ -238,6 +240,7 @@ return {
           end, { buffer = true, silent = true, desc = "Quarto Run All Cells of All Languages" })
           map("v", "<leader>lr", qrunner.run_range, { buffer = true, silent = true, desc = "Quarto Run Visual Range" })
         end,
+        desc = "Quarto Filetype Mappings",
       })
     end,
   },
