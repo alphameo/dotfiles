@@ -1,0 +1,201 @@
+#!/usr/bin/env bash
+#
+# ipynb2pdf.sh — convert a Jupyter Notebook to PDF.
+#
+# Usage:
+#   ./ipynb2pdf.sh task.ipynb
+#   ./ipynb2pdf.sh task.ipynb --execute                  # execute the notebook before converting
+#   ./ipynb2pdf.sh task.ipynb --font "Noto Serif"         # override main font
+#   ./ipynb2pdf.sh task.ipynb --sans-font "Noto Sans"     # override sans font
+#   ./ipynb2pdf.sh task.ipynb --mono-font "DejaVu Sans Mono"  # override monospace font
+#   ./ipynb2pdf.sh task.ipynb --keep-tmp                  # keep the working dir even on success
+#
+# Requirements (Arch Linux):
+#   sudo pacman -S jupyter-nbconvert pandoc texlive-basic texlive-latexextra \
+#                  texlive-xetex texlive-fontsrecommended texlive-plaingeneric
+#   (install noto-fonts / ttf-dejavu / etc. only if you plan to pass --font and friends)
+#
+# Font policy:
+#   By default, NO font is forced — the notebook is built with whatever fonts
+#   nbconvert's LaTeX template picks by default (plain Latin Modern via
+#   fontspec). This means non-Latin scripts (Cyrillic, etc.) will NOT render
+#   unless you explicitly pass --font/--sans-font/--mono-font, since Latin
+#   Modern has no Cyrillic glyphs. Pass a Unicode-capable font explicitly when
+#   you need it — see the earlier troubleshooting notes for why Noto Sans Mono
+#   specifically can misbehave with nbconvert's code-cell "visible space" glyph.
+
+set -euo pipefail
+
+usage() {
+    echo "Usage: $0 <notebook.ipynb> [--execute] [--font \"Font Name\"] [--sans-font \"Font Name\"] [--mono-font \"Font Name\"] [--keep-tmp]" >&2
+    exit 1
+}
+
+if [[ $# -lt 1 ]]; then
+    usage
+fi
+
+NOTEBOOK="$1"
+shift
+
+EXECUTE_FLAG=""
+FONT=""
+SANS_FONT=""
+MONO_FONT=""
+KEEP_TMP=0
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --execute)
+            EXECUTE_FLAG="--execute"
+            shift
+            ;;
+        --font)
+            FONT="${2:?--font requires a value}"
+            shift 2
+            ;;
+        --sans-font)
+            SANS_FONT="${2:?--sans-font requires a value}"
+            shift 2
+            ;;
+        --mono-font)
+            MONO_FONT="${2:?--mono-font requires a value}"
+            shift 2
+            ;;
+        --keep-tmp)
+            KEEP_TMP=1
+            shift
+            ;;
+        *)
+            echo "Unknown argument: $1" >&2
+            usage
+            ;;
+    esac
+done
+
+if [[ ! -f "$NOTEBOOK" ]]; then
+    echo "Error: file '$NOTEBOOK' not found" >&2
+    exit 1
+fi
+
+command -v jupyter >/dev/null 2>&1 || { echo "Error: jupyter not found in PATH" >&2; exit 1; }
+command -v latexmk >/dev/null 2>&1 || { echo "Error: latexmk not found in PATH (texlive-bin package)" >&2; exit 1; }
+
+# Soft font-availability check — only runs for fonts you actually requested,
+# and only warns, doesn't block the run.
+# Important: we use fc-match, not fc-list with a substring grep — otherwise
+# it's easy to get a false positive (e.g. "Noto Serif" matches as a substring
+# of the installed "Noto Serif CJK SC", even though the plain "Noto Serif"
+# family isn't actually present and fontspec will still fail to find it at
+# build time).
+if command -v fc-match >/dev/null 2>&1; then
+    for f in "$FONT" "$SANS_FONT" "$MONO_FONT"; do
+        [[ -z "$f" ]] && continue
+        RESOLVED="$(fc-match -f '%{family}\n' "$f" 2>/dev/null | head -1)"
+        if [[ -z "$RESOLVED" ]]; then
+            echo "Warning: could not resolve font '$f'." >&2
+        elif [[ "${RESOLVED,,}" != *"${f,,}"* ]]; then
+            echo "Warning: font '$f' is not installed, fontconfig will substitute '$RESOLVED' — this may cause a build error or incorrect rendering." >&2
+        fi
+    done
+fi
+
+BASENAME="$(basename "$NOTEBOOK" .ipynb)"
+NOTEBOOK_ABS="$(cd "$(dirname "$NOTEBOOK")" && pwd)/$(basename "$NOTEBOOK")"
+ORIGDIR="$(pwd)"
+WORKDIR="$(mktemp -d --tmpdir "ipynb2pdf.${BASENAME}.XXXXXX")"
+
+cleanup() {
+    if [[ "$KEEP_TMP" -eq 0 ]]; then
+        rm -rf "$WORKDIR"
+    else
+        echo "==> Working directory kept: $WORKDIR" >&2
+    fi
+}
+
+on_error() {
+    echo "==> Build aborted due to an error. Working directory for debugging: $WORKDIR" >&2
+    exit 1
+}
+trap on_error ERR
+
+echo "==> Working directory: $WORKDIR"
+cp "$NOTEBOOK_ABS" "$WORKDIR/$BASENAME.ipynb"
+cd "$WORKDIR"
+
+echo "==> Generating .tex from the notebook..."
+# shellcheck disable=SC2086
+jupyter nbconvert --to latex $EXECUTE_FLAG "$BASENAME.ipynb"
+
+TEXFILE="$BASENAME.tex"
+
+if [[ ! -f "$TEXFILE" ]]; then
+    echo "Error: $TEXFILE was not created" >&2
+    exit 1
+fi
+
+if [[ -n "$FONT" || -n "$SANS_FONT" || -n "$MONO_FONT" ]]; then
+    echo "==> Applying font overrides (main=${FONT:-<default>}, sans=${SANS_FONT:-<default>}, mono=${MONO_FONT:-<default>})..."
+
+    if grep -q '\\setmainfont\|\\setsansfont\|\\setmonofont' "$TEXFILE"; then
+        echo "Warning: a \\setXXXfont command is already present in $TEXFILE — skipping insertion to avoid duplicates." >&2
+    elif grep -q '\\usepackage{fontspec}' "$TEXFILE"; then
+        # Insert only the font commands that were actually requested, right
+        # after \usepackage{fontspec}. Built with awk — more robust than sed
+        # for special characters/spaces in font names, and doesn't leave
+        # stray characters behind (unlike manually patching the line with
+        # sed -i "s/.../.../.").
+        awk -v main="$FONT" -v sans="$SANS_FONT" -v mono="$MONO_FONT" '
+            { print }
+            /\\usepackage\{fontspec\}/ && !done {
+                if (main != "") printf "\\setmainfont{%s}\n", main
+                if (sans != "") printf "\\setsansfont{%s}\n", sans
+                if (mono != "") printf "\\setmonofont{%s}\n", mono
+                done = 1
+            }
+        ' "$TEXFILE" > "$TEXFILE.new"
+        mv "$TEXFILE.new" "$TEXFILE"
+    else
+        echo "Warning: \\usepackage{fontspec} not found — inserting fontspec plus the requested font(s) before \\begin{document}." >&2
+        BLOCK="\\\\usepackage{fontspec}"
+        [[ -n "$FONT" ]] && BLOCK="${BLOCK}\n\\\\setmainfont{${FONT}}"
+        [[ -n "$SANS_FONT" ]] && BLOCK="${BLOCK}\n\\\\setsansfont{${SANS_FONT}}"
+        [[ -n "$MONO_FONT" ]] && BLOCK="${BLOCK}\n\\\\setmonofont{${MONO_FONT}}"
+        BLOCK="${BLOCK}\n\\\\begin{document}"
+        sed -i "0,/\\\\begin{document}/s//${BLOCK}/" "$TEXFILE"
+    fi
+
+    # Sanity check that the insertion didn't leave a stray character on the
+    # same line (e.g. if someone later hand-edits the file and appends
+    # something after the closing `}` — this is exactly what caused "Missing
+    # \begin{document}" inside a live, non-empty \else block in an earlier
+    # run).
+    if grep -nE '\\set(main|sans|mono)font\{[^}]*\}[^[:space:]]' "$TEXFILE" | grep -qv '\\usepackage'; then
+        echo "Warning: found a stray character right after \\setXXXfont{...} — please check $TEXFILE manually." >&2
+    fi
+else
+    echo "==> No font overrides requested — using nbconvert/LaTeX defaults (plain Latin Modern via fontspec; non-Latin scripts won't render)."
+fi
+
+echo "==> Building PDF (latexmk -xelatex)..."
+# Important: -xelatex is passed directly to latexmk and never combined with
+# -pdf (as vimtex does, appending -pdf AFTER -xelatex, which silently rolls
+# the engine back to pdflatex).
+latexmk -xelatex -interaction=nonstopmode -file-line-error -halt-on-error "$TEXFILE" > latexmk.log 2>&1 || {
+    echo "Build failed. Last lines of the log:" >&2
+    tail -n 60 latexmk.log >&2
+    exit 1
+}
+
+if [[ ! -f "$BASENAME.pdf" ]]; then
+    echo "Error: PDF was not created even though latexmk reported success (unexpected)." >&2
+    exit 1
+fi
+
+cp "$BASENAME.pdf" "$ORIGDIR/$BASENAME.pdf"
+cd "$ORIGDIR"
+
+trap - ERR
+cleanup
+
+echo "==> Done: $ORIGDIR/$BASENAME.pdf"
