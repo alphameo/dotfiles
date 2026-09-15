@@ -180,6 +180,7 @@ texlive-latex
 texlive-fontsrecommended
 texlive-latexextra
 texlive-plaingeneric
+texlive-binextra
 
 git
 lazygit
