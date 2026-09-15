@@ -53,12 +53,53 @@ local function new_notebook(filename)
   end
 end
 
+local function ipy_help()
+  local help_msg = [[
+# Setup neovim venv
+
+1. `mkdir ~/.virtualenvs`
+2. `python -m venv ~/.virtualenvs/nvim` # create a new venv
+3. `source ~/.virtualenvs/nvim/bin/activate` # activate the venv (for bash/zsh -- "activate", for fish -- "activate.fish")
+4.1 `pip install pynvim jupyter_client cairosvg plotly kaleido pnglatex pyperclip` # install python modules for molten-plugin
+4.2 `pip install jupytext` # install python modules for jupytext integration
+
+
+# Setup project venv
+
+1. `source .venv/bin/activate` # activate the venv (for bash/zsh -- "activate", for fish -- "activate.fish")
+2. install ipykernel as dependency into venv
+3. `python -m ipykernel install --user --name <project_name>` # registrer ipykernel from venv
+*. installed kernel are located at `~/.local/share/jupyter/kernels/`
+
+
+# Plots in matplotlib
+
+to show plots edit `~/.local/share/jupyter/kernels/<project_name>/kernel.json`:
+  add flag `"--matplotlib=inline"`
+
+
+# Converts
+
+1. Install jupyter's nbconvert module
+
+html: `jupyter nbconvert --to html <name.ipynb>`
+    ]]
+
+  require("custom.info").show(help_msg, { ft = "lint-info" })
+end
+
 vim.api.nvim_create_user_command("NewIPYNB", function(opts)
   new_notebook(opts.args)
 end, {
   nargs = 1,
   complete = "file",
   desc = "Create .ipynb file",
+})
+
+vim.api.nvim_create_user_command("IPYHelp", function()
+  ipy_help()
+end, {
+  desc = "ipy help",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -94,20 +135,6 @@ return {
       vim.g.molten_virt_lines_off_by_1 = true
       vim.g.molten_virt_text_max_lines = 999
 
-      -- INFO: VENV
-      -- [Setup neovim venv]
-      -- mkdir ~/.virtualenvs
-      -- python -m venv ~/.virtualenvs/nvim # create a new venv
-      -- # activate the venv: note, activate is a bash/zsh script, use activate.fish for fish shell
-      -- pip install pynvim jupyter_client cairosvg plotly kaleido pnglatex pyperclip
-      -- [Setup project venv]
-      -- # activate the project venv
-      -- # install ipykernel as dependency
-      -- python -m ipykernel install --user --name <project_name>
-      -- # installs kernel at `~/.local/share/jupyter/kernels/`
-      -- [matplotlib]
-      -- to show plots edit `~/.local/share/jupyter/kernels/<project_name>/kernel.json`:
-      -- add flag `"--matplotlib=inline"`
       vim.g.loaded_python3_provider = nil
       vim.g.python3_host_prog = vim.fn.expand "~/.virtualenvs/nvim/bin/python3"
       vim.api.nvim_create_autocmd("FileType", {
