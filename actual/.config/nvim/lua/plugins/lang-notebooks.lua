@@ -83,12 +83,12 @@ Edit `~/.local/share/jupyter/kernels/<project_name>/kernel.json`:
 Main requirement: Install jupyter's nbconvert module
 
 html:
-    - `jupyter nbconvert --to html <name.ipynb>`
+    - `jupyter nbconvert --to html <name.ipynb>` (cmd: Ipynb2Html)
 pdf:
-    - `jupyter nbconvert --to pdf <name.ipynb>` (required: pandoc, latex suite)
-    - `jupyter nbconvert --to webpdf <name.ipynb>` (required: playwright)
+    - `jupyter nbconvert --to pdf <name.ipynb>` (cmd: Ipynb2Pdf, required: pandoc, latex suite)
+    - `jupyter nbconvert --to webpdf <name.ipynb>` (cmd: Ipynb2Webpdf, required: playwright)
 latex:
-    - `jupyter nbconvert --to latex <name.ipynb>` (required: pandoc, latex suite)
+    - `jupyter nbconvert --to latex <name.ipynb>` (cmd: Ipynb2Latex, required: pandoc, latex suite)
     ]]
 
   require("custom.info").show(help_msg, { ft = "lint-info" })
@@ -124,7 +124,7 @@ vim.api.nvim_create_autocmd("FileType", {
       desc = "Init Notebook suite",
     })
 
-    require "custom.ipynb2pdf"
+    require "custom.ipynb-convert"
   end,
   desc = "Autocmds for Notebooks",
 })
