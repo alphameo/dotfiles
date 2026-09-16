@@ -12,7 +12,7 @@ initial-tool = "brush" # "pointer" | "crop" | "line" | "arrow" | "rectangle" | "
 
 copy-command = "wl-copy"
 annotation-size-factor = 2
-output-filename = "~/Media/Pictures/Screenshots/screenshot-%Y-%m-%d_%H:%M:%S.png"
+output-filename = "~/Media/Pictures/Screenshots/Laptop/screenshot-%Y-%m-%d_%H:%M:%S.png"
 save-after-copy = false
 default-hide-toolbars = false
 focus-toggles-toolbars = false
