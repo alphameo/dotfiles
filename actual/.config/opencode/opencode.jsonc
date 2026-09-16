@@ -18,6 +18,14 @@
             "cat *": "allow",
             "bat *": "allow",
             "wc *": "allow",
+            "git log *": "allow",
+            "git status *": "allow",
+            "git diff *": "allow",
+            "git show *": "allow",
+            "git tag *": "allow",
+            "git describe *": "allow",
+            "go test *": "allow",
+            "gofmt *": "allow",
         }
     },
 }
