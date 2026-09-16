@@ -173,6 +173,7 @@ python-pipx
 quarto-cli-bin
 jupyter-notebook
 jupyter-nbconvert
+python-playwright
 
 pandoc-cli
 
@@ -181,6 +182,7 @@ texlive-fontsrecommended
 texlive-latexextra
 texlive-plaingeneric
 texlive-binextra
+biber
 
 git
 lazygit
