@@ -391,22 +391,9 @@ hl.gesture {
 --- PLUGINS ---
 ---------------
 -- hyprpm add
--- https://github.com/hyprwm/hyprland-plugins
+-- https://hypr.land/plugins/
 -- On appearing any issues: `hyprpm update`
 
-if hl.plugin.hyprexpo ~= nil then
-  hl.config {
-    plugin = {
-      hyprexpo = {
-        columns = 3,
-        gaps_in = 5,
-        gaps_out = 0,
-        bg_col = "rgb(000000)",
-        workspace_method = "first 1",
-      },
-    },
-  }
-end
 -- https://github.com/VirtCode/hypr-dynamic-cursors
 if hl.plugin.dynamic_cursors ~= nil then
   hl.config {
@@ -453,6 +440,8 @@ if hl.plugin.dynamic_cursors ~= nil then
       },
     },
   }
+else
+  hl.notification.create { text = "Dynamic-Cursors are unavailable", timeout = 5000 }
 end
 
 -------------------
