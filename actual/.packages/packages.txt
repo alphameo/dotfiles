@@ -5,6 +5,14 @@ hyprshutdown
 hyprpwcenter
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
+qt5-wayland qt6-wayland
+
+wl-clipboard
+
+nwg-displays
+
+udiskie
+ntfs-3g
 
 grim slurp swappy
 
@@ -12,25 +20,25 @@ acpi
 
 brightnessctl
 
-fastfetch
-
-udiskie
-
-ntfs-3g
-
-bluetui
-
 networkmanager
 iwd
 
-net-tools
-dnsutils
-netsleuth
+mpd
 
-qt5-wayland qt6-wayland
+opentabletdriver
 
-wiremix
-alsa-utils
+qt5ct
+qt6ct
+nwg-look
+kvantum
+kvantum-theme-materia
+materia-gtk-theme
+papirus-icon-theme
+bibata-cursor-theme-bin
+adwaita-cursors adwaita-fonts adwaita-icon-theme
+
+sddm-conf
+catppuccin-sddm-theme-mocha
 
 ttf-jetbrains-mono-nerd
 ttf-roboto
@@ -41,22 +49,6 @@ ttf-times-new-roman
 
 lxqt-config
 lxqt-admin
-sddm-conf
-
-catppuccin-sddm-theme-mocha
-
-neovim
-luarocks
-treesitter-cli
-cmake
-chafa
-viu
-ueberzugpp
-imagemagick
-libtexprintf
-python-pylatexenc
-
-opencode
 
 kitty
 
@@ -75,28 +67,43 @@ ripgrep
 fd
 bat
 less
-wl-clipboard
 man
 tldr
 tree
 
-gimp
-inkscape
-krita
-drawio-desktop
-upscayl
+fastfetch
+btop
+nvtop
+neohtop
+resources
+net-tools
+dnsutils
+netsleuth
 
-bitwarden
+neovim
+luarocks
+treesitter-cli
+cmake
+chafa
+viu
+ueberzugpp
+imagemagick
+libtexprintf
+python-pylatexenc
 
-qt5ct
-qt6ct
-nwg-look
-kvantum
-kvantum-theme-materia
-materia-gtk-theme
-papirus-icon-theme
-bibata-cursor-theme-bin
-adwaita-cursors adwaita-fonts adwaita-icon-theme
+opencode
+
+yazi
+ouch
+gvfs gvfs-mtp gvfs-afc gvfs-google-git gvfs-gphoto2 gvfs-nfs gvfs-smb gvfs-afc gvfs-dnssd gvfs-goa gvfs-onedrive gvfs-wsdd
+7zip
+zip
+trash-cli
+
+bluetui
+
+wiremix
+alsa-utils
 
 okular
 pdfarranger
@@ -109,36 +116,25 @@ thunar
 shotwell
 gwenview
 
+gimp
+inkscape
+krita
+drawio-desktop
+upscayl
+
 obs-studio
 kdenlive
 audacity
-
-yazi
-ouch
-gvfs gvfs-mtp gvfs-afc gvfs-google-git gvfs-gphoto2 gvfs-nfs gvfs-smb gvfs-afc gvfs-dnssd gvfs-goa gvfs-onedrive gvfs-wsdd
-
-7zip
-zip
-
-trash-cli
+handy
 
 mpv
 
-mpd
+bitwarden
 
 libreoffice-fresh
 
 v2rayn
 amneziavpn-bin
-
-btop
-nvtop
-neohtop
-resources
-
-nwg-displays
-
-opentabletdriver
 
 syncthing
 localsend
@@ -147,8 +143,6 @@ gparted
 gnome-disk-utility
 dosfstools
 xorg-xhost
-
-handy
 
 zeb-browser-bin
 helium-browser-bin
