@@ -259,6 +259,9 @@ format = "{:%H:%M (%a, %d.%m.%Y)}"
 capsule = true
 glyph = "home"
 
+    [widget.control-center.actions]
+    right = "exec noctalia msg panel-toggle kenn/keybind-cheatsheet:cheatsheet"
+
 [widget.input_volume.actions]
 left = "mic-mute"
 right = "panel-toggle control-center audio"
