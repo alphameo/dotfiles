@@ -1,0 +1,3 @@
+#!/bin/bash
+
+noctalia msg panel-toggle session
