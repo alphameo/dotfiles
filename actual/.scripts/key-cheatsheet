@@ -1,3 +1,1 @@
-#!/usr/bin/bash
-
-noctalia msg panel-toggle kenn/keybind-cheatsheet:cheatsheet
+noctalia/key-cheatsheet
