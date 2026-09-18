@@ -520,7 +520,7 @@ hl.bind(
 hl.bind(mod .. "q", hl.dsp.window.close(), { description = "Close Window" })
 hl.bind(mod .. "SHIFT + q", hl.dsp.window.kill(), { description = "Kill Window" })
 
-require "hyprland.lo-scrolling"
+require "hyprland.layout-scrolling"
 
 hl.bind(mod .. "bracketleft", hl.dsp.focus { workspace = "-1" }, { description = "Goto Previous Workspace" })
 hl.bind(mod .. "bracketright", hl.dsp.focus { workspace = "+1" }, { description = "Goto Next Workspace" })
