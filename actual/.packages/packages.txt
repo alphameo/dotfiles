@@ -1,6 +1,4 @@
 hyprland
-hypridle
-hyprlock
 hyprpicker
 hyprpolkitagent
 hyprshutdown
@@ -10,26 +8,13 @@ xdg-desktop-portal-gtk
 
 grim slurp swappy
 
-waybar
-wlogout
-
 acpi
 
 brightnessctl
 
-awww
-waypaper
-
 fastfetch
 
-swaync
-
 udiskie
-
-rofi-wayland
-
-rofimoji
-xdotool
 
 ntfs-3g
 
@@ -37,8 +22,10 @@ bluetui
 
 networkmanager
 iwd
+
 net-tools
 dnsutils
+netsleuth
 
 qt5-wayland qt6-wayland
 
@@ -124,9 +111,7 @@ gwenview
 
 obs-studio
 kdenlive
-shotcut
 audacity
-losslesscut-bin
 
 yazi
 ouch
@@ -166,6 +151,7 @@ xorg-xhost
 handy
 
 zeb-browser-bin
+helium-browser-bin
 
 python
 uv
