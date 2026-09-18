@@ -1,0 +1,275 @@
+config_version = 14
+
+[bar.default]
+auto_hide = false
+background_opacity = 0.0
+capsule = false
+capsule_radius = 8
+concave_edge_corners = false
+enabled = true
+end = [
+    "media",
+    "tray",
+    "keyboard_layout",
+    "notifications",
+    "clipboard",
+    "network",
+    "bluetooth",
+    "group:g2",
+    "brightness",
+    "group:g1",
+    "session"
+]
+font_family = "RobotoMono Nerd Font Mono"
+font_weight = 400
+layer = "top"
+margin_edge = 2
+margin_ends = 2
+padding = 4
+reserve_space = true
+shadow = false
+start = [ "control-center", "launcher", "workspaces", "active_window" ]
+thickness = 30
+widget_spacing = 8
+
+    [[bar.default.capsule_group]]
+    accordion = true
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g1"
+    members = [ "battery", "power_profile" ]
+    opacity = 1.0
+    padding = 6.0
+    radius = 8.0
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g2"
+    members = [ "output_volume", "input_volume" ]
+    opacity = 1.0
+    padding = 6.0
+    radius = 8.0
+
+[calendar]
+
+[control_center]
+hidden_tabs = [ "weather" ]
+
+    [control_center.calendar]
+    show_week_numbers = true
+
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 60.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = false
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 70.0
+
+[lockscreen]
+fingerprint = false
+wallpaper = "/home/alphameo/Media/Pictures/Wallpapers/xdd.jpg"
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = false
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 176.0
+    box_width = 240.0
+    cx = 960.0
+    cy = 316.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+        center_text = true
+        clock_style = "digital"
+
+[osd]
+background_opacity = 0.99999997764825821
+border = true
+enabled = true
+orientation = "horizontal"
+
+    [osd.kinds]
+    keyboard_backlight = false
+    keyboard_layout = false
+    lock_keys = false
+
+[plugins]
+enabled = [ "kenn/keybind-cheatsheet" ]
+
+[shell]
+app_icon_colorize = false
+button_borders = true
+card_borders = true
+clipboard_auto_paste = "off"
+clipboard_image_action_command = "swappy -f -"
+external_ip_enabled = true
+font_family = "Roboto"
+input_borders = true
+popup_borders = true
+
+    [shell.launcher]
+    sort_by_usage = false
+
+    [shell.panel]
+    transparency_mode = "solid"
+    wallpaper_placement = "floating"
+    wallpaper_position = "center"
+
+    [shell.shadow]
+    alpha = 0.54999998770654202
+
+[theme]
+builtin = "Catppuccin"
+community_palette = "One Dark Two"
+mode = "dark"
+pure_black_dark = false
+shell_mode = "follow"
+source = "community"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    enable_builtin_templates = false
+
+[wallpaper]
+directory = "/home/alphameo/Media/Pictures/Wallpapers"
+directory_dark = "/home/alphameo/Media/Pictures/Wallpapers"
+directory_light = "/home/alphameo/Media/Pictures/Wallpapers"
+
+    [wallpaper.default]
+    path = "/home/alphameo/Media/Pictures/Wallpapers/forest.jpg"
+
+    [wallpaper.last]
+    path = "/home/alphameo/Media/Pictures/Wallpapers/forest.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/alphameo/Media/Pictures/Wallpapers/forest.jpg"
+
+[weather]
+enabled = false
+
+[widget.battery]
+capsule = true
+
+[widget.bluetooth.actions]
+right = "exec ~/.scripts/bluetooth-manager"
+
+[widget.brightness]
+color = "#EAC786"
+
+    [widget.brightness.actions]
+    scroll_down = "brightness-up"
+    scroll_up = "brightness-down"
+
+[widget.clock]
+capsule = true
+format = "{:%H:%M (%a, %d.%m.%Y)}"
+
+[widget.control-center]
+capsule = true
+glyph = "home"
+
+[widget.input_volume.actions]
+left = "mic-mute"
+right = "panel-toggle control-center audio"
+scroll_down = "volume-up"
+scroll_up = "volume-down"
+
+[widget.keyboard_layout]
+capsule = true
+glyph = ""
+show_glyph = false
+
+[widget.media]
+hide_when_no_media = true
+
+[widget.network]
+color = "primary"
+icon_color = "primary"
+show_vpn_label = true
+
+    [widget.network.actions]
+    right = "exec ~/.scripts/network-manager"
+
+[widget.output_volume.actions]
+left = "volume-mute"
+right = "panel-toggle control-center audio"
+scroll_down = "volume-up"
+scroll_up = "volume-down"
+
+[widget.session]
+capsule = true
+color = "error"
+
+[widget.workspaces]
+active_pill_size = 1.0
+capsule = true
+empty_color = "surface_variant"
+hide_when_empty = true
+occupied_color = "surface_variant"
