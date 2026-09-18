@@ -479,7 +479,6 @@ hl.bind(mod .. "CTRL + n", hl.dsp.exec_cmd "~/.scripts/network-manager", { descr
 hl.bind(mod .. "CTRL + s", hl.dsp.exec_cmd "~/.scripts/sound-sink-manager", { description = "Open Sound Manager" })
 hl.bind(mod .. "CTRL + l", hl.dsp.exec_cmd "~/.scripts/system-lock", { description = "Lock" })
 hl.bind(mod .. "CTRL + w", hl.dsp.exec_cmd "~/.scripts/wallpaper-manager", { description = "Open Wallpapers Manager" })
-hl.bind(mod .. "SHIFT + w", hl.dsp.exec_cmd "~/.scripts/wallpaper-reset", { description = "Reset Wallpapers" })
 hl.bind(mod .. "CTRL + c", hl.dsp.exec_cmd "~/.scripts/colorpicker", { description = "Open Color Picker" })
 hl.bind(mod .. "CTRL + semicolon", hl.dsp.exec_cmd "~/.scripts/emojipicker", { description = "Open Emoji Picker" })
 hl.bind(mod .. "SHIFT + s", hl.dsp.exec_cmd "~/.scripts/screenshot-region", { description = "Screenshot of Region" })
