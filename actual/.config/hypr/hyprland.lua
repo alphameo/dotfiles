@@ -462,8 +462,8 @@ local mod = "SUPER + "
 -- Applications
 hl.bind(mod .. "t", hl.dsp.exec_cmd "$TERMINAL", { description = "Open Terminal" })
 hl.bind(mod .. "b", hl.dsp.exec_cmd "$BROWSER", { description = "Open Browser" })
-hl.bind(mod .. "e", hl.dsp.exec_cmd "~/.scripts/explorer", { description = "Open FIle Explorer" })
-hl.bind(mod .. "r", hl.dsp.exec_cmd "~/.scripts/runner", { description = "Open Runner" })
+hl.bind(mod .. "e", hl.dsp.exec_cmd "~/.scripts/explorer", { description = "Open File Explorer" })
+hl.bind(mod .. "r", hl.dsp.exec_cmd "~/.scripts/launcher", { description = "Open Launcher" })
 hl.bind(mod .. "i", hl.dsp.exec_cmd "~/.scripts/settings", { description = "Open Settings" })
 
 -- Utility
