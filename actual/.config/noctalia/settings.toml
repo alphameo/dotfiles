@@ -38,7 +38,7 @@ widget_spacing = 8
     enabled = true
     fill = "surface_variant"
     id = "g1"
-    members = [ "battery", "power_profile" ]
+    members = [ "battery", "power_profile", "caffeine" ]
     opacity = 1.0
     padding = 6.0
     radius = 8.0
@@ -61,6 +61,24 @@ hidden_tabs = [ "weather" ]
 
     [control_center.calendar]
     show_week_numbers = true
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+    [[control_center.shortcuts]]
+    type = "dark_mode"
+
+    [[control_center.shortcuts]]
+    type = "wallpaper"
 
 [desktop_widgets]
 enabled = false
@@ -209,13 +227,13 @@ directory_dark = "/home/alphameo/Media/Pictures/Wallpapers"
 directory_light = "/home/alphameo/Media/Pictures/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/alphameo/Media/Pictures/Wallpapers/forest.jpg"
+    path = "/home/alphameo/Media/Pictures/Wallpapers/astronaut.jpg"
 
     [wallpaper.last]
-    path = "/home/alphameo/Media/Pictures/Wallpapers/forest.jpg"
+    path = "/home/alphameo/Media/Pictures/Wallpapers/astronaut.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/alphameo/Media/Pictures/Wallpapers/forest.jpg"
+    path = "/home/alphameo/Media/Pictures/Wallpapers/astronaut.jpg"
 
 [weather]
 enabled = false
