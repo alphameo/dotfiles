@@ -182,6 +182,12 @@ popup_borders = true
     wallpaper_placement = "floating"
     wallpaper_position = "center"
 
+    [shell.screenshot]
+    copy_to_clipboard = false
+    pipe_command = "swappy -f -"
+    pipe_to_command = true
+    save_to_file = false
+
     [shell.shadow]
     alpha = 0.54999998770654202
 
@@ -238,8 +244,8 @@ glyph = "home"
 [widget.input_volume.actions]
 left = "mic-mute"
 right = "panel-toggle control-center audio"
-scroll_down = "volume-up"
-scroll_up = "volume-down"
+scroll_down = "mic-volume-up"
+scroll_up = "mic-volume-down"
 
 [widget.keyboard_layout]
 capsule = true
