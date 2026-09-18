@@ -1,12 +1,17 @@
 -- Hyprland Config guide
 -- https://wiki.hypr.land/Configuring/
 
+--------------
+--- PRESET ---
+--------------
+
+require "hyprland.preset-noctalia"
+
 -------------
 --- THEME ---
 -------------
 
 local theme = require "hyprland.theme"
-local wallpaper_path = "$HOME/Media/Pictures/Wallpapers/astronaut.jpg"
 
 ----------------
 --- MONITORS ---
@@ -39,23 +44,9 @@ hl.workspace_rule { workspace = "special:magic", monitor = "HDMI-A-1", default =
 -- https://wiki.hypr.land/Configuring/Basics/Autostart/
 
 hl.on("hyprland.start", function()
-  hl.exec_cmd "waybar" -- Statusbar
-
-  -- hl.exec_cmd("wl-paste --type text --watch cliphist store") -- Stores only text data
-  -- hl.exec_cmd("wl-paste --type image --watch cliphist store") -- Stores only image data
-  hl.exec_cmd "copyq --start-server" -- GUI clipboard history
-
-  hl.exec_cmd "awww-daemon" -- Wallpaper server
-  hl.exec_cmd("awww img" .. wallpaper_path) -- Wallpaper
-
   hl.exec_cmd "systemctl --user start hyprpolkitagent" -- GUI sudo prompt
 
-  -- hl.exec_cmd("dunst") -- Notifications
-  hl.exec_cmd "swaync" -- Notifications
-
   hl.exec_cmd "udiskie" -- Mounter
-
-  hl.exec_cmd "hypridle" -- For lock
 
   hl.exec_cmd "hyprpm reload" -- Hypr plugin manager (run hyprpm update)
 
@@ -83,10 +74,6 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
-
-hl.env("AWWW_TRANSITION", "any")
-hl.env("AWWW_TRANSITION_FPS", "60")
-hl.env("DEFAULT_WALLPAPER", wallpaper_path)
 
 -------------------
 --- PERMISSIONS ---
@@ -558,11 +545,7 @@ for key = 1, 8 do
   )
 end
 
-hl.bind(
-  mod .. "apostrophe",
-  hl.dsp.workspace.toggle_special "scratch",
-  { description = "Goto 'Scratch' Workspace" }
-)
+hl.bind(mod .. "apostrophe", hl.dsp.workspace.toggle_special "scratch", { description = "Goto 'Scratch' Workspace" })
 hl.bind(
   mod .. "SHIFT + apostrophe",
   hl.dsp.window.move { workspace = "special:scratch", follow = true },
@@ -618,7 +601,11 @@ hl.bind(mod .. "mouse_up", hl.dsp.focus { workspace = "e-1" }, { description = "
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mod .. "mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Drag Window with Mouse" })
-hl.bind(mod .. "mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Interactive Window Resize via Mouse" })
+hl.bind(
+  mod .. "mouse:273",
+  hl.dsp.window.resize(),
+  { mouse = true, description = "Interactive Window Resize via Mouse" }
+)
 
 ------------------
 --- FNMAPPINGS ---
@@ -659,4 +646,8 @@ hl.bind(
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd "playerctl next", { locked = true, description = "Player Next Composition" })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd "playerctl pause", { locked = true, description = "Player Pause" })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd "playerctl play", { locked = true, description = "Player Play" })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd "playerctl previous", { locked = true, description = "Player Next Composition" })
+hl.bind(
+  "XF86AudioPrev",
+  hl.dsp.exec_cmd "playerctl previous",
+  { locked = true, description = "Player Next Composition" }
+)
