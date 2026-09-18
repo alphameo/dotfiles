@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -u
+
+source_dir="${1:-}"
+
+if [[ -z "$source_dir" ]]; then
+    echo "Usage: $0 <source-directory>" >&2
+    exit 1
+fi
+
+if [[ ! -d "$source_dir" ]]; then
+    echo "Error: directory does not exist: $source_dir" >&2
+    exit 1
+fi
+
+source_dir=$(realpath "$source_dir")
+target_dir=$(pwd)
+
+for source_file in "$source_dir"/*; do
+    [[ -f "$source_file" ]] || continue
+
+    filename=$(basename "$source_file")
+    target="$target_dir/$filename"
+    relative_source=$(realpath --relative-to="$target_dir" "$source_file")
+
+    if [[ -L "$target" ]]; then
+        echo "REPLACE: $filename -> $relative_source"
+        rm "$target"
+        ln -s "$relative_source" "$target"
+
+    elif [[ -e "$target" ]]; then
+        echo "SKIP: $filename already exists and is not a symlink"
+
+    else
+        echo "CREATE: $filename -> $relative_source"
+        ln -s "$relative_source" "$target"
+    fi
+done
