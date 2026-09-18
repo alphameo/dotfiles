@@ -20,26 +20,34 @@ local mod = "SUPER + "
 
 hl.unbind(mod .. "SHIFT + l")
 hl.unbind(mod .. "SHIFT + h")
-hl.bind(mod .. "SHIFT + l", hl.dsp.layout "move +col")
-hl.bind(mod .. "SHIFT + h", hl.dsp.layout "move -col")
+hl.bind(mod .. "SHIFT + l", hl.dsp.layout "move +col", { description = "Goto Next Column" })
+hl.bind(mod .. "SHIFT + h", hl.dsp.layout "move -col", { description = "Goto Previous Column" })
 
 hl.unbind(mod .. "SHIFT + 9")
 hl.unbind(mod .. "SHIFT + 0")
-hl.bind(mod .. "SHIFT + 9", hl.dsp.layout "swapcol l")
-hl.bind(mod .. "SHIFT + 0", hl.dsp.layout "swapcol r")
+hl.bind(mod .. "SHIFT + 9", hl.dsp.layout "swapcol l", { description = "Swap Next Column" })
+hl.bind(mod .. "SHIFT + 0", hl.dsp.layout "swapcol r", { description = "Swap Previous Column" })
 
 hl.unbind(mod .. "SHIFT + w")
 hl.unbind(mod .. "w")
-hl.bind(mod .. "SHIFT + w", hl.dsp.layout "colresize -conf")
-hl.bind(mod .. "w", hl.dsp.layout "colresize +conf")
+hl.bind(mod .. "SHIFT + w", hl.dsp.layout "colresize -conf", { description = "Next Window Width Preset" })
+hl.bind(mod .. "w", hl.dsp.layout "colresize +conf", { description = "Previous Window Width Preset" })
 
 hl.unbind(mod .. "n")
-hl.bind(mod .. "n", hl.dsp.layout "promote")
+hl.bind(mod .. "n", hl.dsp.layout "promote", { description = "Extract Window to New Column" })
 
 hl.unbind(mod .. "CTRL + left")
-hl.bind(mod .. "CTRL + left", hl.dsp.layout "consume_or_expel prev")
+hl.bind(
+  mod .. "CTRL + left",
+  hl.dsp.layout "consume_or_expel prev",
+  { description = "Exctract/Consume Window from Previous Column" }
+)
 hl.unbind(mod .. "CTRL + right")
-hl.bind(mod .. "CTRL + right", hl.dsp.layout "consume_or_expel next")
+hl.bind(
+  mod .. "CTRL + right",
+  hl.dsp.layout "consume_or_expel next",
+  { description = "Exctract/Consume Window from Next Column" }
+)
 
 hl.unbind(mod .. "backslash")
-hl.bind(mod .. "backslash", hl.dsp.layout "fit_into_view")
+hl.bind(mod .. "backslash", hl.dsp.layout "fit_into_view", { description = "Fit Window into View" })

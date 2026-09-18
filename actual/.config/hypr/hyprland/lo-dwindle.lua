@@ -21,5 +21,5 @@ hl.config {
 local mod = "SUPER +"
 hl.unbind(mod .. "backslash")
 hl.unbind(mod .. "SHIFT + backslash")
-hl.bind(mod .. "backslash", hl.dsp.layout "togglesplit")
-hl.bind(mod .. "SHIFT + backslash", hl.dsp.layout "swapsplit")
+hl.bind(mod .. "backslash", hl.dsp.layout "togglesplit", { description = "Toggle Window Split" })
+hl.bind(mod .. "SHIFT + backslash", hl.dsp.layout "swapsplit", { description = "Swap Window Splits" })

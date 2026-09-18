@@ -460,92 +460,166 @@ hl.config {
 local mod = "SUPER + "
 
 -- Applications
-hl.bind(mod .. "t", hl.dsp.exec_cmd "$TERMINAL")
-hl.bind(mod .. "b", hl.dsp.exec_cmd "$BROWSER")
-hl.bind(mod .. "e", hl.dsp.exec_cmd "~/.scripts/explorer")
-hl.bind(mod .. "r", hl.dsp.exec_cmd "~/.scripts/runner")
-hl.bind(mod .. "i", hl.dsp.exec_cmd "~/.scripts/settings")
+hl.bind(mod .. "t", hl.dsp.exec_cmd "$TERMINAL", { description = "Open Terminal" })
+hl.bind(mod .. "b", hl.dsp.exec_cmd "$BROWSER", { description = "Open Browser" })
+hl.bind(mod .. "e", hl.dsp.exec_cmd "~/.scripts/explorer", { description = "Open FIle Explorer" })
+hl.bind(mod .. "r", hl.dsp.exec_cmd "~/.scripts/runner", { description = "Open Runner" })
+hl.bind(mod .. "i", hl.dsp.exec_cmd "~/.scripts/settings", { description = "Open Settings" })
 
 -- Utility
-hl.bind(mod .. "CTRL + r", hl.dsp.exec_cmd "~/.scripts/desktop-environment-reload")
-hl.bind(mod .. "CTRL + m", hl.dsp.exec_cmd "~/.scripts/task-manager")
-hl.bind("CTRL + SHIFT + escape", hl.dsp.exec_cmd "~/.scripts/task-manager")
-hl.bind(mod .. "CTRL + b", hl.dsp.exec_cmd "~/.scripts/bluetooth-manager")
-hl.bind(mod .. "CTRL + n", hl.dsp.exec_cmd "~/.scripts/network-manager")
-hl.bind(mod .. "CTRL + s", hl.dsp.exec_cmd "~/.scripts/sound-sink-manager")
-hl.bind(mod .. "CTRL + l", hl.dsp.exec_cmd "~/.scripts/system-lock")
-hl.bind(mod .. "CTRL + w", hl.dsp.exec_cmd "~/.scripts/wallpaper-manager")
-hl.bind(mod .. "SHIFT + w", hl.dsp.exec_cmd "~/.scripts/wallpaper-reset")
-hl.bind(mod .. "CTRL + c", hl.dsp.exec_cmd "~/.scripts/colorpicker")
-hl.bind(mod .. "CTRL + semicolon", hl.dsp.exec_cmd "~/.scripts/emojipicker")
-hl.bind(mod .. "SHIFT + s", hl.dsp.exec_cmd "~/.scripts/screenshot-region")
-hl.bind(mod .. "CTRL + SHIFT + s", hl.dsp.exec_cmd "~/.scripts/screenshot-window")
-hl.bind(mod .. "ALT + s", hl.dsp.exec_cmd "~/.scripts/screenshot-fullscreen")
-hl.bind(mod .. "v", hl.dsp.exec_cmd "~/.scripts/clipboard")
-hl.bind(mod .. "SHIFT + p", hl.dsp.exec_cmd "~/.scripts/display-manager")
-hl.bind(mod .. "tab", function()
-  hl.plugin.hyprexpo.expo "toggle"
-end)
+hl.bind(
+  mod .. "CTRL + r",
+  hl.dsp.exec_cmd "~/.scripts/desktop-environment-reload",
+  { description = "Reload Environment" }
+)
+hl.bind(mod .. "CTRL + m", hl.dsp.exec_cmd "~/.scripts/task-manager", { description = "Open Task Manager" })
+hl.bind("CTRL + SHIFT + escape", hl.dsp.exec_cmd "~/.scripts/task-manager", { description = "Open Task Manager" })
+hl.bind(mod .. "CTRL + b", hl.dsp.exec_cmd "~/.scripts/bluetooth-manager", { description = "Open Bluetooth Manager" })
+hl.bind(mod .. "CTRL + n", hl.dsp.exec_cmd "~/.scripts/network-manager", { description = "Open Network Manager" })
+hl.bind(mod .. "CTRL + s", hl.dsp.exec_cmd "~/.scripts/sound-sink-manager", { description = "Open Sound Manager" })
+hl.bind(mod .. "CTRL + l", hl.dsp.exec_cmd "~/.scripts/system-lock", { description = "Lock" })
+hl.bind(mod .. "CTRL + w", hl.dsp.exec_cmd "~/.scripts/wallpaper-manager", { description = "Open Wallpapers Manager" })
+hl.bind(mod .. "SHIFT + w", hl.dsp.exec_cmd "~/.scripts/wallpaper-reset", { description = "Reset Wallpapers" })
+hl.bind(mod .. "CTRL + c", hl.dsp.exec_cmd "~/.scripts/colorpicker", { description = "Open Color Picker" })
+hl.bind(mod .. "CTRL + semicolon", hl.dsp.exec_cmd "~/.scripts/emojipicker", { description = "Open Emoji Picker" })
+hl.bind(mod .. "SHIFT + s", hl.dsp.exec_cmd "~/.scripts/screenshot-region", { description = "Screenshot of Region" })
+hl.bind(
+  mod .. "CTRL + SHIFT + s",
+  hl.dsp.exec_cmd "~/.scripts/screenshot-window",
+  { description = "Screenshot of Focused Window" }
+)
+hl.bind(
+  mod .. "ALT + s",
+  hl.dsp.exec_cmd "~/.scripts/screenshot-fullscreen",
+  { description = "Screenshot of Fullscreen" }
+)
+hl.bind(mod .. "v", hl.dsp.exec_cmd "~/.scripts/clipboard", { description = "Open Clipboard Manager" })
+hl.bind(mod .. "SHIFT + p", hl.dsp.exec_cmd "~/.scripts/display-manager", { description = "Open Display Manager" })
 
-hl.bind(mod .. "f", hl.dsp.window.float { action = "toggle" })
-hl.bind(mod .. "p", hl.dsp.window.pseudo())
-hl.bind(mod .. "return", hl.dsp.window.fullscreen { mode = "maximized", action = "toggle" })
-hl.bind(mod .. "f11", hl.dsp.window.fullscreen { mode = "fullscreen", action = "toggle" })
+hl.bind(mod .. "f1", hl.dsp.exec_cmd "~/.scripts/key-cheatsheet", { description = "Open Keybind Cheatsheet" })
+
+hl.bind(mod .. "f", hl.dsp.window.float { action = "toggle" }, { description = "Toggle Float" })
+hl.bind(mod .. "p", hl.dsp.window.pseudo(), { description = "Toggle Pseudo" })
+hl.bind(
+  mod .. "return",
+  hl.dsp.window.fullscreen { mode = "maximized", action = "toggle" },
+  { description = "Toggle Fullscreen Window" }
+)
+hl.bind(
+  mod .. "f11",
+  hl.dsp.window.fullscreen { mode = "fullscreen", action = "toggle" },
+  { description = "Toggle Fullscreen Window" }
+)
 
 -- -1 (current) | 0 (none) | 1 (maximize) | 2 (fullscreen) | 3 (maximized&fullscreen)
-hl.bind(mod .. "CTRL + return", hl.dsp.window.fullscreen_state { internal = 1, client = 0, action = "toggle" })
+hl.bind(
+  mod .. "CTRL + return",
+  hl.dsp.window.fullscreen_state { internal = 1, client = 0, action = "toggle" },
+  { description = "Toggle Maximized Window" }
+)
 
-hl.bind(mod .. "q", hl.dsp.window.close())
-hl.bind(mod .. "SHIFT + q", hl.dsp.window.kill())
+hl.bind(mod .. "q", hl.dsp.window.close(), { description = "Close Window" })
+hl.bind(mod .. "SHIFT + q", hl.dsp.window.kill(), { description = "Kill Window" })
 
 require "hyprland.lo-scrolling"
 
-hl.bind(mod .. "bracketleft", hl.dsp.focus { workspace = "-1" })
-hl.bind(mod .. "bracketright", hl.dsp.focus { workspace = "+1" })
-hl.bind(mod .. "SHIFT + bracketleft", hl.dsp.window.move { workspace = "-1", follow = true })
-hl.bind(mod .. "SHIFT + bracketright", hl.dsp.window.move { workspace = "+1", follow = true })
-hl.bind(mod .. "CTRL + bracketleft", hl.dsp.window.move { workspace = "-1", follow = false })
-hl.bind(mod .. "CTRL + bracketright", hl.dsp.window.move { workspace = "+1", follow = false })
+hl.bind(mod .. "bracketleft", hl.dsp.focus { workspace = "-1" }, { description = "Goto Previous Workspace" })
+hl.bind(mod .. "bracketright", hl.dsp.focus { workspace = "+1" }, { description = "Goto Next Workspace" })
+hl.bind(
+  mod .. "SHIFT + bracketleft",
+  hl.dsp.window.move { workspace = "-1", follow = true },
+  { description = "Move Window to Previous Workspace" }
+)
+hl.bind(
+  mod .. "SHIFT + bracketright",
+  hl.dsp.window.move { workspace = "+1", follow = true },
+  { description = "Move Window to Next Workspace" }
+)
+hl.bind(
+  mod .. "CTRL + bracketleft",
+  hl.dsp.window.move { workspace = "-1", follow = false },
+  { description = "Move Window to Previous Workspace Silent" }
+)
+hl.bind(
+  mod .. "CTRL + bracketright",
+  hl.dsp.window.move { workspace = "+1", follow = false },
+  { description = "Move Window to Next Workspace Silent" }
+)
 for key = 1, 8 do
-  hl.bind(mod .. key, hl.dsp.focus { workspace = key })
-  hl.bind(mod .. "SHIFT + " .. key, hl.dsp.window.move { workspace = key, follow = true })
-  hl.bind(mod .. "CTRL + " .. key, hl.dsp.window.move { workspace = key, follow = false })
+  hl.bind(mod .. key, hl.dsp.focus { workspace = key }, { description = "Goto " .. key .. " Workspace" })
+  hl.bind(
+    mod .. "SHIFT + " .. key,
+    hl.dsp.window.move { workspace = key, follow = true },
+    { description = "Move Window to " .. key .. " Workspace" }
+  )
+  hl.bind(
+    mod .. "CTRL + " .. key,
+    hl.dsp.window.move { workspace = key, follow = false },
+    { description = "Move Window to " .. key .. " Workspace Silent" }
+  )
 end
 
-hl.bind(mod .. "apostrophe", hl.dsp.workspace.toggle_special "scratch")
-hl.bind(mod .. "SHIFT + apostrophe", hl.dsp.window.move { workspace = "special:scratch", follow = true })
-hl.bind(mod .. "CTRL + apostrophe", hl.dsp.window.move { workspace = "special:scratch", follow = false })
+hl.bind(
+  mod .. "apostrophe",
+  hl.dsp.workspace.toggle_special "scratch",
+  { description = "Goto 'Scratch' Workspace" }
+)
+hl.bind(
+  mod .. "SHIFT + apostrophe",
+  hl.dsp.window.move { workspace = "special:scratch", follow = true },
+  { description = "Move Window to 'Scratch' Workspace" }
+)
+hl.bind(
+  mod .. "CTRL + apostrophe",
+  hl.dsp.window.move { workspace = "special:scratch", follow = false },
+  { description = "Move Window to 'Scratch' Workspace Silent" }
+)
 
-hl.bind(mod .. "h", hl.dsp.focus { direction = "left" })
-hl.bind(mod .. "j", hl.dsp.focus { direction = "down" })
-hl.bind(mod .. "k", hl.dsp.focus { direction = "up" })
-hl.bind(mod .. "l", hl.dsp.focus { direction = "right" })
-hl.bind(mod .. "left", hl.dsp.window.move { direction = "left" })
-hl.bind(mod .. "right", hl.dsp.window.move { direction = "right" })
-hl.bind(mod .. "up", hl.dsp.window.move { direction = "up" })
-hl.bind(mod .. "down", hl.dsp.window.move { direction = "down" })
-hl.bind(mod .. "SHIFT + left", hl.dsp.window.swap { direction = "left" })
-hl.bind(mod .. "SHIFT + right", hl.dsp.window.swap { direction = "right" })
-hl.bind(mod .. "SHIFT + up", hl.dsp.window.swap { direction = "up" })
-hl.bind(mod .. "SHIFT + down", hl.dsp.window.swap { direction = "down" })
+hl.bind(mod .. "h", hl.dsp.focus { direction = "left" }, { description = "Focus Window Left" })
+hl.bind(mod .. "j", hl.dsp.focus { direction = "down" }, { description = "Focus Window Down" })
+hl.bind(mod .. "k", hl.dsp.focus { direction = "up" }, { description = "Focus Window Up" })
+hl.bind(mod .. "l", hl.dsp.focus { direction = "right" }, { description = "Focus Window Right" })
+hl.bind(mod .. "left", hl.dsp.window.move { direction = "left" }, { description = "Move Window Left" })
+hl.bind(mod .. "right", hl.dsp.window.move { direction = "right" }, { description = "Move Window Right" })
+hl.bind(mod .. "up", hl.dsp.window.move { direction = "up" }, { description = "Move Window Up" })
+hl.bind(mod .. "down", hl.dsp.window.move { direction = "down" }, { description = "Move Window Up" })
+hl.bind(mod .. "SHIFT + left", hl.dsp.window.swap { direction = "left" }, { description = "Swap Window Left" })
+hl.bind(mod .. "SHIFT + right", hl.dsp.window.swap { direction = "right" }, { description = "Swap Window Right" })
+hl.bind(mod .. "SHIFT + up", hl.dsp.window.swap { direction = "up" }, { description = "Swap Window Up" })
+hl.bind(mod .. "SHIFT + down", hl.dsp.window.swap { direction = "down" }, { description = "Swap Window Down" })
 local resize = 25
-hl.bind(mod .. "minus", hl.dsp.window.resize { x = 0, y = -resize, relative = true })
-hl.bind(mod .. "equal", hl.dsp.window.resize { x = 0, y = resize, relative = true })
-hl.bind(mod .. "period", hl.dsp.window.resize { x = resize, y = 0, relative = true })
-hl.bind(mod .. "comma", hl.dsp.window.resize { x = -resize, y = 0, relative = true })
-hl.bind(mod .. "minus", hl.dsp.window.resize())
+hl.bind(
+  mod .. "minus",
+  hl.dsp.window.resize { x = 0, y = -resize, relative = true },
+  { description = "Decrease Window Height" }
+)
+hl.bind(
+  mod .. "equal",
+  hl.dsp.window.resize { x = 0, y = resize, relative = true },
+  { description = "Increase Window Height" }
+)
+hl.bind(
+  mod .. "period",
+  hl.dsp.window.resize { x = resize, y = 0, relative = true },
+  { description = "Increase Window Width" }
+)
+hl.bind(
+  mod .. "comma",
+  hl.dsp.window.resize { x = -resize, y = 0, relative = true },
+  { description = "Decrease Window Width" }
+)
 
 ---------------------
 --- MOUSEMAPPINGS ---
 ---------------------
 
 -- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mod .. "mouse_down", hl.dsp.focus { workspace = "e+1" })
-hl.bind(mod .. "mouse_up", hl.dsp.focus { workspace = "e-1" })
+hl.bind(mod .. "mouse_down", hl.dsp.focus { workspace = "e+1" }, { description = "Goto Next Workspace via Mouse" })
+hl.bind(mod .. "mouse_up", hl.dsp.focus { workspace = "e-1" }, { description = "Goto Previous Workspace via Mouse" })
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mod .. "mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mod .. "mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(mod .. "mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Drag Window with Mouse" })
+hl.bind(mod .. "mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Interactive Window Resize via Mouse" })
 
 ------------------
 --- FNMAPPINGS ---
@@ -554,28 +628,36 @@ hl.bind(mod .. "mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind(
   "XF86AudioRaiseVolume",
   hl.dsp.exec_cmd "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
-  { locked = true, repeating = true }
+  { locked = true, repeating = true, description = "Increase Out-Sound" }
 )
 hl.bind(
   "XF86AudioLowerVolume",
   hl.dsp.exec_cmd "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
-  { locked = true, repeating = true }
+  { locked = true, repeating = true, description = "Decrease Out-Sound" }
 )
 hl.bind(
   "XF86AudioMute",
   hl.dsp.exec_cmd "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-  { locked = true, repeating = true }
+  { locked = true, repeating = true, description = "Toggle Out-Sound Mute" }
 )
 hl.bind(
   "XF86AudioMicMute",
   hl.dsp.exec_cmd "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-  { locked = true, repeating = true }
+  { locked = true, repeating = true, description = "Toggle In-Sound Mute" }
 )
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd "brightnessctl -e4 -n2 set 5%+", { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd "brightnessctl -e4 -n2 set 5%-", { locked = true, repeating = true })
+hl.bind(
+  "XF86MonBrightnessUp",
+  hl.dsp.exec_cmd "brightnessctl -e4 -n2 set 5%+",
+  { locked = true, repeating = true, description = "Increase Brightness" }
+)
+hl.bind(
+  "XF86MonBrightnessDown",
+  hl.dsp.exec_cmd "brightnessctl -e4 -n2 set 5%-",
+  { locked = true, repeating = true, description = "Decrease Brightness" }
+)
 
 -- Requires playerctl
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd "playerctl next", { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd "playerctl play-pause", { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd "playerctl play-pause", { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd "playerctl previous", { locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd "playerctl next", { locked = true, description = "Player Next Composition" })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd "playerctl pause", { locked = true, description = "Player Pause" })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd "playerctl play", { locked = true, description = "Player Play" })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd "playerctl previous", { locked = true, description = "Player Next Composition" })
