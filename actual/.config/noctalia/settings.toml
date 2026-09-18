@@ -179,7 +179,7 @@ orientation = "horizontal"
     lock_keys = false
 
 [plugins]
-enabled = [ "kenn/keybind-cheatsheet" ]
+enabled = [ "liamwh/emoji-picker", "kenn/keybind-cheatsheet" ]
 
 [shell]
 app_icon_colorize = false
@@ -195,6 +195,9 @@ popup_borders = true
     [shell.launcher]
     sort_by_usage = false
 
+        [shell.launcher.providers.calculator]
+        global = false
+
     [shell.panel]
     transparency_mode = "solid"
     wallpaper_placement = "floating"
@@ -205,6 +208,46 @@ popup_borders = true
     pipe_command = "swappy -f -"
     pipe_to_command = true
     save_to_file = false
+
+    [[shell.session.actions]]
+    action = "lock"
+    command = "~/.scripts/system-lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    command = "~/.scripts/system-logout"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    command = "~/.scripts/system-suspend"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    command = "~/.scripts/system-reboot"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    command = "~/.scripts/system-shutdown"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
 
     [shell.shadow]
     alpha = 0.54999998770654202
