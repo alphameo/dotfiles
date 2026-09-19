@@ -1,3 +1,94 @@
+-- Default configuration for custom PDF conversion
+local default_converter_fonts = {
+  font = "Noto Serif",
+  sans = "Noto Sans",
+  mono = "DejaVu Sans Mono",
+}
+
+-- Generic asynchronous runner and helper function
+local function run_converter(cmd, target_ext)
+  local buf_name = vim.api.nvim_buf_get_name(0)
+
+  if buf_name == "" or not buf_name:match "%.ipynb$" then
+    vim.notify("Current buffer is not an .ipynb file", vim.log.levels.ERROR)
+    return
+  end
+
+  vim.notify("Starting conversion...", vim.log.levels.INFO)
+
+  vim.system(cmd, { text = true }, function(obj)
+    vim.schedule(function()
+      if obj.code == 0 then
+        local output_name = buf_name:gsub("%.ipynb$", target_ext)
+        vim.notify("Successfully created:\n" .. output_name, vim.log.levels.INFO)
+      else
+        local err_msg = obj.stderr ~= "" and obj.stderr or obj.stdout
+        vim.notify("Conversion error:\n" .. err_msg, vim.log.levels.ERROR)
+      end
+    end)
+  end)
+end
+
+local font_flags = {
+  mono = "--mono-font",
+  sans = "--sans-font",
+  main = "--font",
+  no = "--no-fonts",
+}
+
+local function ipynb2pdf(opts)
+  local buf_name = vim.api.nvim_buf_get_name(0)
+  local script_path = vim.fn.expand "~/.config/nvim/utils/ipynb2pdf"
+
+  if vim.fn.executable(script_path) ~= 1 then
+    vim.notify("Script not found or not executable: " .. script_path, vim.log.levels.ERROR)
+    return
+  end
+
+  local cmd = { script_path, buf_name }
+  local user_args = vim.split(opts.args, "%s+", { trimempty = true })
+  local skip_defaults = false
+
+  for _, arg in ipairs(user_args) do
+    if arg == font_flags.no then
+      skip_defaults = true
+    else
+      table.insert(cmd, arg)
+    end
+  end
+
+  if not skip_defaults then
+    if default_converter_fonts.font and not vim.tbl_contains(cmd, font_flags.main) then
+      table.insert(cmd, "--font")
+      table.insert(cmd, default_converter_fonts.font)
+    end
+    if default_converter_fonts.sans and not vim.tbl_contains(cmd, font_flags.sans) then
+      table.insert(cmd, "--sans-font")
+      table.insert(cmd, default_converter_fonts.sans)
+    end
+    if default_converter_fonts.mono and not vim.tbl_contains(cmd, font_flags.mono) then
+      table.insert(cmd, "--mono-font")
+      table.insert(cmd, default_converter_fonts.mono)
+    end
+  end
+
+  run_converter(cmd, ".pdf")
+end
+
+local function ipynb2fmt(fmt, extension, opts)
+  local buf_name = vim.api.nvim_buf_get_name(0)
+  local cmd = { "jupyter", "nbconvert", "--to", fmt, "--allow-chromium-download", buf_name }
+
+  if opts.args ~= "" then
+    local user_args = vim.split(opts.args, "%s+", { trimempty = true })
+    for _, arg in ipairs(user_args) do
+      table.insert(cmd, arg)
+    end
+  end
+
+  run_converter(cmd, extension)
+end
+
 local default_notebook = [[
   {
     "cells": [
@@ -119,7 +210,32 @@ vim.api.nvim_create_autocmd("FileType", {
       desc = "Init Notebook suite",
     })
 
-    require "custom.ipynb-convert"
+    vim.api.nvim_create_user_command("Ipynb2Pdf", function(opts)
+      ipynb2pdf(opts)
+    end, {
+      nargs = "*",
+      desc = "Convert Jupyter Notebook to PDF using custom ipynb2pdf script",
+      complete = function()
+        return { font_flags.main, font_flags.sans, font_flags.mono, font_flags.no }
+      end,
+    })
+
+    local std_converts = {
+      Ipynb2Html = { fmt = "html", ext = ".html" },
+      Ipynb2Webpdf = { fmt = "webpdf", ext = ".pdf" },
+      Ipynb2Tex = { fmt = "latex", ext = ".tex" },
+    }
+    for cmd_name, cfg in pairs(std_converts) do
+      vim.api.nvim_create_user_command(cmd_name, function(opts)
+        ipynb2fmt(cfg.fmt, cfg.ext, opts)
+      end, {
+        nargs = "*",
+        desc = string.format("Convert Jupyter Notebook to %s via nbconvert", cfg.fmt),
+        complete = function()
+          return { "--execute" }
+        end,
+      })
+    end
   end,
   desc = "Autocmds for Notebooks",
 })
