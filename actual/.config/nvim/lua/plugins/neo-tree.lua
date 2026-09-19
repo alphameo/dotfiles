@@ -41,6 +41,8 @@ return {
         mappings = {
           ["l"] = "open",
           ["L"] = "focus_preview",
+          ["s"] = "",
+          ["S"] = "",
           ["<C-w>s"] = "open_split",
           ["<C-w>v"] = "open_vsplit",
           ["h"] = "close_node",

@@ -12,8 +12,43 @@ return {
     fzf.setup {
       "default",
       keymap = {
+        builtin = {
+          false, -- inherit defaults
+          ["<M-Esc>"] = "hide", -- hide fzf-lua, `:FzfLua resume` to continue
+          ["<F1>"] = "toggle-help",
+          ["<F2>"] = "toggle-fullscreen",
+          ["<F3>"] = "toggle-preview-wrap",
+          ["<F4>"] = "toggle-preview",
+          ["<F5>"] = "toggle-preview-cw", -- Rotate preview clockwise/counter-clockwise
+          ["<F6>"] = "toggle-preview-behavior", -- Preview toggle behavior default/extend
+          ["<C-e>"] = "preview-down",
+          ["<C-y>"] = "preview-up",
+        },
         fzf = {
+          false, -- inherit defaults
+          ["ctrl-z"] = "abort",
+          ["ctrl-f"] = "half-page-down",
+          ["ctrl-b"] = "half-page-up",
+          ["ctrl-a"] = "toggle-all",
+          ["ctrl-space"] = "toggle",
           ["ctrl-l"] = "select-all+accept",
+          -- Only valid with fzf previewers (bat/cat/git/etc)
+          ["f3"] = "toggle-preview-wrap",
+          ["f4"] = "toggle-preview",
+        },
+      },
+      actions = {
+        files = {
+          false, -- inherit defaults
+          -- Pickers inheriting these actions:
+          --   files, git_files, git_status, grep, lsp, oldfiles, quickfix, loclist,
+          --   tags, btags, args, buffers, tabs, lines, blines
+          ["enter"] = fzf.actions.file_edit_or_qf, -- opens a single selection or sends multiple selection to quickfix
+          ["ctrl-s"] = fzf.actions.file_split,
+          ["ctrl-v"] = fzf.actions.file_vsplit,
+          ["alt-i"] = fzf.actions.toggle_ignore,
+          ["alt-h"] = fzf.actions.toggle_hidden,
+          ["alt-f"] = fzf.actions.toggle_follow,
         },
       },
       grep = {
