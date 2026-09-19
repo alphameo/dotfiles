@@ -128,12 +128,29 @@ cmd("Spell", toggle.spell, { desc = "Toggle Spellcheck Locally" })
 cmd("Diagnostics", toggle.diagnostics, { desc = "Toggle Diagnostics" })
 cmd("Expandtab", toggle.expandtab, { desc = "Toggle Expandtab Locally" })
 
-local indent = require "custom.indent"
-cmd("Indent", indent.set, { nargs = 1 })
+local set_indent = function(opts)
+  local width = tonumber(opts.args)
+  vim.bo.expandtab = true
+  vim.bo.tabstop = width
+  vim.bo.softtabstop = width
+  vim.bo.shiftwidth = width
 
+  print("local_indent=" .. width)
+end
+cmd("Indent", set_indent, { nargs = 1 })
 
-local lsp = require "custom.lsp"
-cmd("DiagnosticsRefresh", lsp.refresh_diagnostics, { desc = "Refresh Diagnostics" })
+local refresh_diagnostics = function()
+  for _, client in ipairs(vim.lsp.get_clients()) do
+    if client:supports_method "workspace/diagnostic" then
+      vim.lsp.buf.workspace_diagnostics { client_id = client.id }
+    else
+      vim.diagnostic.reset(nil, 0)
+      vim.cmd "checktime"
+    end
+  end
+  vim.notify("Diagnostics refreshed", vim.log.levels.INFO)
+end
+cmd("DiagnosticsRefresh", refresh_diagnostics, { desc = "Refresh Diagnostics" })
 ---------------
 -- Terminals --
 ---------------

@@ -30,18 +30,6 @@ local default_notebook = [[
     "nbformat_minor": 5
   }
 ]]
-
-local function molten_autoinit()
-  local venv = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX"
-  if venv ~= nil then
-    -- in the form of /home/benlubas/.virtualenvs/VENV_NAME
-    venv = string.match(venv, "/.+/(.+)")
-    vim.cmd(("MoltenInit %s"):format(venv))
-  else
-    vim.cmd "MoltenInit python3"
-  end
-end
-
 local function new_notebook(filename)
   local path = filename .. ".ipynb"
   local file = io.open(path, "w")
@@ -52,9 +40,15 @@ local function new_notebook(filename)
     print "Error: Could not open new notebook file for writing."
   end
 end
+vim.api.nvim_create_user_command("IpynbNew", function(opts)
+  new_notebook(opts.args)
+end, {
+  nargs = 1,
+  complete = "file",
+  desc = "Create .ipynb file",
+})
 
-local function ipy_help()
-  local help_msg = [[
+local help_msg = [[
 # Setup neovim venv
 
 1. `mkdir ~/.virtualenvs`
@@ -89,25 +83,26 @@ pdf:
     - `jupyter nbconvert --to webpdf <name.ipynb>` (cmd: Ipynb2Webpdf, required: playwright)
 latex:
     - `jupyter nbconvert --to latex <name.ipynb>` (cmd: Ipynb2Latex, required: pandoc, latex suite)
-    ]]
-
+]]
+local function ipy_help()
   require("custom.info").show(help_msg, { ft = "lint-info" })
 end
-
-vim.api.nvim_create_user_command("IpynbNew", function(opts)
-  new_notebook(opts.args)
-end, {
-  nargs = 1,
-  complete = "file",
-  desc = "Create .ipynb file",
-})
-
 vim.api.nvim_create_user_command("IpynbHelp", function()
   ipy_help()
 end, {
   desc = "ipy help",
 })
 
+local function molten_autoinit()
+  local venv = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX"
+  if venv ~= nil then
+    -- in the form of /home/benlubas/.virtualenvs/VENV_NAME
+    venv = string.match(venv, "/.+/(.+)")
+    vim.cmd(("MoltenInit %s"):format(venv))
+  else
+    vim.cmd "MoltenInit python3"
+  end
+end
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()

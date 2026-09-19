@@ -148,7 +148,15 @@ map("i", "<C-Space>", function()
     -- vim.lsp.completion.get()
     -- return ""
     -- return "<C-x><C-o>"
-    require("custom.lsp").show_cmp()
+
+    local clients = vim.lsp.get_clients { bufnr = 0 }
+
+    if next(clients) ~= nil then
+      vim.lsp.completion.get()
+    else
+      local key = vim.keycode "<C-x><C-n>"
+      vim.api.nvim_feedkeys(key, "m", false)
+    end
   end
 end, { desc = "Toggle Completion" })
 
