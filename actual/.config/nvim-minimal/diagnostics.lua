@@ -1,1 +1,0 @@
-../nvim/lua/diagnostics.lua

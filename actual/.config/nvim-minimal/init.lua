@@ -1,6 +1,5 @@
 require("options")
 require("keymaps")
-require("util")
 require("diagnostics")
 require("cmds")
 
