@@ -24,33 +24,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   desc = "Return cursor to where it was last time closing the file",
 })
 
--- vim.api.nvim_create_autocmd("LspAttach", {
---   callback = function(args)
---     local client = vim.lsp.get_client_by_id(args.data.client_id)
---     if client ~= nil and client:supports_method "textDocument/completion" then
---       vim.lsp.completion.enable(true, client.id, args.buf, {
---         autotrigger = false,
---       })
---     end
---   end,
---   desc = "Built-in completion",
--- })
--- vim.api.nvim_create_autocmd("InsertCharPre", {
---   callback = function()
---     if vim.fn.pumvisible() == 1 or vim.fn.state "m" == "m" then
---       return
---     end
---
---     require("utils").show_cmp()
---   end,
---   desc = "Built-in autocompletion",
--- })
--- vim.api.nvim_create_autocmd("CmdlineChanged", {
---   callback = function()
---     vim.fn.wildtrigger()
---   end,
--- })
-
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
   pattern = "*",

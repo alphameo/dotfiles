@@ -50,6 +50,35 @@ local setup_mappings = function()
   })
 end
 
+local function setup_builtin_cmp()
+  vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      if client ~= nil and client:supports_method "textDocument/completion" then
+        vim.lsp.completion.enable(true, client.id, args.buf, {
+          autotrigger = false,
+        })
+      end
+    end,
+    desc = "Built-in completion",
+  })
+  vim.api.nvim_create_autocmd("InsertCharPre", {
+    callback = function()
+      if vim.fn.pumvisible() == 1 or vim.fn.state "m" == "m" then
+        return
+      end
+
+      require("utils").show_cmp()
+    end,
+    desc = "Built-in autocompletion",
+  })
+  vim.api.nvim_create_autocmd("CmdlineChanged", {
+    callback = function()
+      vim.fn.wildtrigger()
+    end,
+  })
+end
+
 local custom_capabilities = {
   textDocument = {
     completion = {
@@ -272,6 +301,7 @@ M.setup = function()
 
   setup_java()
   setup_mappings()
+  -- setup_builtin_cmp()
   vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", {})
 end
 
