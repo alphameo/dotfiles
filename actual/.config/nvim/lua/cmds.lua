@@ -151,10 +151,3 @@ local refresh_diagnostics = function()
   vim.notify("Diagnostics refreshed", vim.log.levels.INFO)
 end
 cmd("DiagnosticsRefresh", refresh_diagnostics, { desc = "Refresh Diagnostics" })
----------------
--- Terminals --
----------------
-local term = require "custom.terminal"
-
-cmd("ToggleSplitTerm", term.toggle_split_terminal, {})
-cmd("ToggleFloatTerm", term.toggle_float_terminal, {})

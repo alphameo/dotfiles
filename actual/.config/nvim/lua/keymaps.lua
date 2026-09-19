@@ -11,18 +11,6 @@ map("n", "\\d", utils.toggle_diagnostics, { silent = true, desc = "Toggle Diagno
 map("n", "\\l", utils.toggle_colorcolumn, { silent = true, desc = "Toggle Limit Column" })
 map("n", "\\<Tab>", utils.toggle_expandtab, { silent = true, desc = "Toggle Expandtab Locally" })
 
--- Terminals
-local term = require "custom.terminal"
-map("n", "<leader>ts", term.toggle_split_terminal, { silent = true, desc = "Terminal Split" })
-map("n", "<C-`>", term.toggle_split_terminal, { silent = true, desc = "Terminal Split" })
-map("t", "<leader>ts", term.toggle_split_terminal, { silent = true, desc = "Terminal Split" })
-map("t", "<C-`>", term.toggle_split_terminal, { silent = true, desc = "Terminal Split" })
-
-map("n", "<leader>tf", term.toggle_float_terminal, { silent = true, desc = "Terminal Floating" })
-map("n", "<C-S-`>", term.toggle_float_terminal, { silent = true, desc = "Terminal Floating" })
-map("t", "<leader>tf", term.toggle_float_terminal, { silent = true, desc = "Terminal Floating" })
-map("t", "<C-S-`>", term.toggle_float_terminal, { silent = true, desc = "Terminal Floating" })
-
 -- Insert movements
 map("c", "<M-h>", "<Left>", { silent = false, desc = "Left" })
 map("c", "<M-l>", "<Right>", { silent = false, desc = "Right" })
