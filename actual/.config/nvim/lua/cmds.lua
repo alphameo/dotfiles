@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 --       return
 --     end
 --
---     require("custom.lsp").show_cmp()
+--     require("utils").show_cmp()
 --   end,
 --   desc = "Built-in autocompletion",
 -- })
@@ -116,17 +116,17 @@ vim.api.nvim_create_autocmd("FileType", {
 --------------
 -- Togglers --
 --------------
-local toggle = require "custom.toggle"
+local utils = require "utils"
 
-cmd("CursorLine", toggle.cursorline, { desc = "Toggle Location Line" })
-cmd("CursorCol", toggle.colorcolumn, { desc = "Toggle Location Column" })
-cmd("RelNum", toggle.relativenumber, { desc = "Toggle Relative Numbers" })
-cmd("Glyphs", toggle.glyphs, { desc = "Toggle Glyphs" })
-cmd("Wrap", toggle.wrap, { desc = "Toggle Wrapping Locally" })
-cmd("ColColumn", toggle.colorcolumn, { desc = "Toggle Colorcolumn" })
-cmd("Spell", toggle.spell, { desc = "Toggle Spellcheck Locally" })
-cmd("Diagnostics", toggle.diagnostics, { desc = "Toggle Diagnostics" })
-cmd("Expandtab", toggle.expandtab, { desc = "Toggle Expandtab Locally" })
+cmd("CursorLine", utils.toggle_cursorline, { desc = "Toggle Location Line" })
+cmd("CursorCol", utils.toggle_cursorcolumn, { desc = "Toggle Location Column" })
+cmd("RelNum", utils.toggle_relativenumber, { desc = "Toggle Relative Numbers" })
+cmd("Glyphs", utils.toggle_glyphs, { desc = "Toggle Glyphs" })
+cmd("Wrap", utils.toggle_wrap, { desc = "Toggle Wrapping Locally" })
+cmd("ColColumn", utils.toggle_colorcolumn, { desc = "Toggle Colorcolumn" })
+cmd("Spell", utils.toggle_spell, { desc = "Toggle Spellcheck Locally" })
+cmd("Diagnostics", utils.toggle_diagnostics, { desc = "Toggle Diagnostics" })
+cmd("Expandtab", utils.toggle_expandtab, { desc = "Toggle Expandtab Locally" })
 
 local set_indent = function(opts)
   local width = tonumber(opts.args)

@@ -4,12 +4,12 @@ vim.g.maplocalleader = " "
 local map = vim.keymap.set
 
 -- Custom
-local toggle = require "custom.toggle"
-map("n", "\\s", toggle.spell, { silent = true, desc = "Toggle Spellcheck Locally" })
-map("n", "\\w", toggle.wrap, { silent = true, desc = "Toggle Wrapping Locally" })
-map("n", "\\d", toggle.diagnostics, { silent = true, desc = "Toggle Diagnostics" })
-map("n", "\\l", toggle.colorcolumn, { silent = true, desc = "Toggle Limit Column" })
-map("n", "\\<Tab>", toggle.expandtab, { silent = true, desc = "Toggle Expandtab Locally" })
+local utils = require "utils"
+map("n", "\\s", utils.toggle_spell, { silent = true, desc = "Toggle Spellcheck Locally" })
+map("n", "\\w", utils.toggle_wrap, { silent = true, desc = "Toggle Wrapping Locally" })
+map("n", "\\d", utils.toggle_diagnostics, { silent = true, desc = "Toggle Diagnostics" })
+map("n", "\\l", utils.toggle_colorcolumn, { silent = true, desc = "Toggle Limit Column" })
+map("n", "\\<Tab>", utils.toggle_expandtab, { silent = true, desc = "Toggle Expandtab Locally" })
 
 -- Terminals
 local term = require "custom.terminal"
@@ -148,15 +148,7 @@ map("i", "<C-Space>", function()
     -- vim.lsp.completion.get()
     -- return ""
     -- return "<C-x><C-o>"
-
-    local clients = vim.lsp.get_clients { bufnr = 0 }
-
-    if next(clients) ~= nil then
-      vim.lsp.completion.get()
-    else
-      local key = vim.keycode "<C-x><C-n>"
-      vim.api.nvim_feedkeys(key, "m", false)
-    end
+    utils.show_cmp()
   end
 end, { desc = "Toggle Completion" })
 

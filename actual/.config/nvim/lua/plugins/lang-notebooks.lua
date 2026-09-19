@@ -85,7 +85,7 @@ latex:
     - `jupyter nbconvert --to latex <name.ipynb>` (cmd: Ipynb2Latex, required: pandoc, latex suite)
 ]]
 local function ipy_help()
-  require("custom.info").show(help_msg, { ft = "lint-info" })
+  require("utils").show_text_popup(help_msg, { ft = "lint-info" })
 end
 vim.api.nvim_create_user_command("IpynbHelp", function()
   ipy_help()
