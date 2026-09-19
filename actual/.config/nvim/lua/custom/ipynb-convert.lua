@@ -92,7 +92,7 @@ local std_converts = {
 for cmd_name, cfg in pairs(std_converts) do
   vim.api.nvim_create_user_command(cmd_name, function(opts)
     local buf_name = vim.api.nvim_buf_get_name(0)
-    local cmd = { "jupyter", "nbconvert", "--to", cfg.fmt, buf_name }
+    local cmd = { "jupyter", "nbconvert", "--to", cfg.fmt, "--allow-chromium-download", buf_name }
 
     if opts.args ~= "" then
       local user_args = vim.split(opts.args, "%s+", { trimempty = true })
