@@ -99,6 +99,7 @@ gvfs gvfs-mtp gvfs-afc gvfs-google-git gvfs-gphoto2 gvfs-nfs gvfs-smb gvfs-afc g
 7zip
 zip
 trash-cli
+dragon-drop
 
 bluetui
 
