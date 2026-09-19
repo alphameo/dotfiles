@@ -15,13 +15,13 @@ map("n", "\\<Tab>", toggle.expandtab, { silent = true, desc = "Toggle Expandtab 
 local term = require "custom.terminal"
 map("n", "<leader>ts", term.toggle_split_terminal, { silent = true, desc = "Terminal Split" })
 map("n", "<C-`>", term.toggle_split_terminal, { silent = true, desc = "Terminal Split" })
-map("t", "<leader>ts", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
-map("t", "<C-`>", "<C-\\><C-n>:ToggleSplitTerm<CR>", { silent = true, desc = "Terminal Split" })
+map("t", "<leader>ts", term.toggle_split_terminal, { silent = true, desc = "Terminal Split" })
+map("t", "<C-`>", term.toggle_split_terminal, { silent = true, desc = "Terminal Split" })
 
 map("n", "<leader>tf", term.toggle_float_terminal, { silent = true, desc = "Terminal Floating" })
 map("n", "<C-S-`>", term.toggle_float_terminal, { silent = true, desc = "Terminal Floating" })
-map("t", "<leader>tf", "<C-\\><C-n>:ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
-map("t", "<C-S-`>", "<C-\\><C-n>:ToggleFloatTerm<CR>", { silent = true, desc = "Terminal Floating" })
+map("t", "<leader>tf", term.toggle_float_terminal, { silent = true, desc = "Terminal Floating" })
+map("t", "<C-S-`>", term.toggle_float_terminal, { silent = true, desc = "Terminal Floating" })
 
 -- Insert movements
 map("c", "<M-h>", "<Left>", { silent = false, desc = "Left" })
