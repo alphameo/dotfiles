@@ -111,7 +111,9 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
     timeout = 70.0
 
 [lockscreen]
+blur_intensity = 0.0
 fingerprint = false
+tint_intensity = 0.0
 wallpaper = "/home/alphameo/Media/Pictures/Wallpapers/xdd.jpg"
 
 [lockscreen_widgets]
