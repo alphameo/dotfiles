@@ -13,13 +13,14 @@ return {
     pyright = { disableOrganizeImports = true },
     basedpyright = {
       analysis = {
-        -- ignore = { "*" },
+        -- Ignore all files for analysis to exclusively use Ruff for linting
+        ignore = { "*" },
         autoImportCompletions = true,
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         diagnosticMode = "workspace",
         inlayHints = {
-          variableTypes = false,
+          variableTypes = true,
           callArgumentNames = true,
           functionReturnTypes = true,
           genericTypes = false,

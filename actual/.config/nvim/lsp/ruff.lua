@@ -6,13 +6,20 @@ return {
     -- the settings can be found here: https://docs.astral.sh/ruff/editors/settings/
     settings = {
       fixAll = true,
+      lineLength = 100,
       organizeImports = true,
       showSyntaxErrors = true,
       codeAction = {
         disableRuleComment = { enable = false },
         fixViolation = { enable = false },
       },
-      lint = { enable = true },
+      lint = {
+        enable = true,
+        preview = true,
+      },
+      format = {
+        preview = true,
+      },
     },
   },
 }
