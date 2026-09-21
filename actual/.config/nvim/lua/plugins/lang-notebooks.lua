@@ -54,7 +54,7 @@ local help_msg = [[
 1. `mkdir ~/.virtualenvs`
 2. `python -m venv ~/.virtualenvs/nvim` # create a new venv
 3. `source ~/.virtualenvs/nvim/bin/activate` # activate the venv (for bash/zsh -- "activate", for fish -- "activate.fish")
-4.1 `pip install pynvim jupyter_client cairosvg plotly kaleido pnglatex pyperclip` # install python modules for molten-plugin
+4.1 `pip install pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat pillow requests websocket-client` # install python modules for molten-plugin
 4.2 `pip install jupytext` # install python modules for jupytext integration
 
 
@@ -62,7 +62,7 @@ local help_msg = [[
 
 1. `source .venv/bin/activate` # activate the venv (for bash/zsh -- "activate", for fish -- "activate.fish")
 2. install ipykernel as dependency into venv
-3. `python -m ipykernel install --user --name <project_name>` # registrer ipykernel from venv
+3. `.venv/bin/python -m ipykernel install --user --name <kernel_name> --display-name "<name>"` # register ipykernel from venv
 *. installed kernel are located at `~/.local/share/jupyter/kernels/`
 
 
@@ -243,8 +243,8 @@ return {
       vim.g.molten_output_show_more = true
       vim.g.molten_enter_output_behavior = "open_and_enter" -- "open_then_enter" | "open_and_enter" | "no_open"
 
-      vim.g.molten_virt_text_output = true
-      vim.g.molten_virt_lines = true
+      vim.g.molten_virt_text_output = false -- output becomes virtual text
+      vim.g.molten_virt_lines = true -- output does not cover code
       vim.g.molten_virt_lines_off_by_1 = true
       vim.g.molten_virt_text_max_lines = 999
 
@@ -270,11 +270,23 @@ return {
           map("n", "<leader>ld", ":MoltenDelete<CR>", opts "Molten Delete Cell")
           -- map("n", "<leader>ls", ":MoltenSave<CR>", opts "Molten Save")
           map("n", "<leader>lE", ":MoltenExportOutput<CR>", opts "Molten Export Output")
-          map("n", "<leader>ly", ":MoltenYankOutput<CR>", opts "Molten Export Output")
+          map("n", "<leader>ly", ":MoltenYankOutput<CR>", opts "Molten Yank Output")
 
           -- map("n", "<leader>lh", ":MoltenHideOutput<CR>", opts "Molten Hide Output")
           map("n", "<leader>lo", ":noautocmd MoltenEnterOutput<CR>", opts "Molten Show/Enter Output")
-          map("n", "<leader>li", ":MoltenImagePopup<CR>", opts "Molten Open Output Image")
+          map("n", "<leader>lO", ":MoltenImagePopup<CR>", opts "Molten Open Output Image")
+          map("n", "<leader>lv", ":MoltenToggleVirtual<CR>", opts "Molten Toggle Cell Virtual Output")
+          map("n", "<leader>lV", function()
+            if vim.g.molten_virt_text_output then
+              vim.g.molten_virt_text_output = false
+              vim.fn.MoltenUpdateOption("molten_virt_text_output", false)
+              vim.notify("Molten Virtual Output disabled", vim.log.levels.INFO)
+            else
+              vim.g.molten_virt_text_output = true
+              vim.fn.MoltenUpdateOption("molten_virt_text_output", true)
+              vim.notify("Molten Virtual Output enabled", vim.log.levels.INFO)
+            end
+          end, opts "Molten Toggle Virtual Output")
         end,
         desc = "Molten Filetype Mappings",
       })
@@ -323,10 +335,7 @@ return {
         lspFeatures = {
           languages = { "python" },
           chunks = "all",
-          diagnostics = {
-            enabled = true,
-            triggers = { "BufWritePost" },
-          },
+          diagnostics = { enabled = true },
           completion = { enabled = true },
         },
         codeRunner = {
@@ -336,13 +345,13 @@ return {
       }
 
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = "markdown",
+        pattern = { "quarto", "markdown" },
         callback = function()
-          -- local quarto = require "quarto"
+          local quarto = require "quarto"
           local qrunner = require "quarto.runner"
           local map = vim.keymap.set
           -- map("n", "<leader>lq", ":QuartoActivate<CR>", { buffer = true, silent = true, desc = "Quarto Initialize" })
-          -- map("n", "<leader>lP", quarto.quartoPreview, { buffer = true, silent = true, desc = "Quarto Preview" })
+          map("n", "<leader>lP", quarto.quartoPreview, { buffer = true, silent = true, desc = "Quarto Preview" })
           map("n", "<leader>lc", qrunner.run_cell, { buffer = true, desc = "Quarto Run Cell" })
           map("n", "<leader>lu", qrunner.run_above, { buffer = true, desc = "Quarto Run Cell Above" })
           map("n", "<leader>lb", qrunner.run_below, { buffer = true, desc = "Quarto Run Cell Below" })
