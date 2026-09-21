@@ -30,7 +30,7 @@ return {
         vim.notify("Images enabled", vim.log.levels.INFO)
       end
     end
-    img.disable()
+    -- img.disable()
     vim.keymap.set("n", "\\i", toggle_img, { desc = "Toggle Image Previews" })
   end,
 }
