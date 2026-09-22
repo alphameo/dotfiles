@@ -3,7 +3,6 @@ return {
   "chomosuke/typst-preview.nvim",
   lazy = true,
   ft = ft,
-  cmd = { "TypstPreview", "TypstPreviewToggle", "TypstPreviewUpdate" },
   config = function()
     require("typst-preview").setup {
       dependencies_bin = {
