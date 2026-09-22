@@ -21,6 +21,7 @@ return {
         kotlin = { "ktlint" },
         lua = { "stylua" },
         markdown = { "injected", "prettierd", "markdownlint-cli2", "markdown-toc" },
+        quarto = { "injected", "markdownlint-cli2", "markdown-toc" },
         ["markdown.mdx"] = { "injected", "prettierd", "markdownlint-cli2", "markdown-toc" },
         php = { "php_cs_fixer" },
         python = { "black" },
