@@ -188,7 +188,20 @@ local function molten_autoinit()
 end
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
+  pattern = { "quarto", "markdown" },
+  callback = function()
+    vim.api.nvim_create_user_command("NotebookInit", function()
+      vim.cmd "QuartoActivate"
+      vim.cmd "MoltenInit"
+    end, {
+      desc = "Init Notebook suite",
+    })
+  end,
+  desc = "Autocmds for Notebooks",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown" },
   callback = function()
     vim.api.nvim_create_user_command("IpynbInit", function()
       vim.cmd "QuartoActivate"
@@ -226,14 +239,14 @@ vim.api.nvim_create_autocmd("FileType", {
       })
     end
   end,
-  desc = "Autocmds for Notebooks",
+  desc = "Autocmds for ipynb",
 })
 
 return {
   {
     "benlubas/molten-nvim",
     lazy = true,
-    ft = { "markdown", "json" },
+    ft = { "markdown", "quarto" },
     dependencies = { "3rd/image.nvim" },
     build = ":UpdateRemotePlugins",
     config = function()
@@ -258,12 +271,13 @@ return {
           local opts = function(desc)
             return { buffer = true, silent = true, desc = desc }
           end
-          -- map("n", "<leader>lm", ":MoltenInit<CR>", opts "Molten Initialize")
+          map("n", "<leader>lm", ":MoltenInit<CR>", opts "Molten Initialize")
+          map("n", "<leader>lM", ":MoltenDeinit<CR>", opts "Molten Stop")
           map("n", "<leader>lr", ":MoltenRestart<CR>", opts "Molten Restart")
           map("n", "<leader>lR", ":MoltenRestart!<CR>", opts "Molten Restart & Delete Cells")
           -- map("n", "<leader>lO", ":MoltenEvaluateOperator<CR>", opts "Molten Operator Selection")
           -- map("n", "<leader>ll", ":MoltenEvaluateLine<CR>", opts "Molten Evaluate Line")
-          map("n", "<leader>lE", ":MoltenReevaluateCell<CR>", opts "Molten Re-evaluate Cell")
+          map("n", "<leader>lC", ":MoltenReevaluateCell<CR>", opts "Molten Re-evaluate Cell")
           map("v", "<leader>le", ":<C-u>MoltenEvaluateVisual<CR>gv", opts "Evaluate Visual Selection")
           map("n", "<leader>li", ":MoltenInterrupt<CR>", opts "Molten Interrupt Kernel")
 
@@ -333,8 +347,9 @@ return {
     config = function()
       require("quarto").setup {
         lspFeatures = {
+          enabled = false,
           languages = { "python" },
-          chunks = "all",
+          chunks = "curly", -- "all" | "curly"
           diagnostics = { enabled = true },
           completion = { enabled = true },
         },
@@ -350,7 +365,7 @@ return {
           local quarto = require "quarto"
           local qrunner = require "quarto.runner"
           local map = vim.keymap.set
-          -- map("n", "<leader>lq", ":QuartoActivate<CR>", { buffer = true, silent = true, desc = "Quarto Initialize" })
+          map("n", "<leader>lq", ":QuartoActivate<CR>", { buffer = true, silent = true, desc = "Quarto Initialize" })
           map("n", "<leader>lP", quarto.quartoPreview, { buffer = true, silent = true, desc = "Quarto Preview" })
           map("n", "<leader>lc", qrunner.run_cell, { buffer = true, desc = "Quarto Run Cell" })
           map("n", "<leader>lu", qrunner.run_above, { buffer = true, desc = "Quarto Run Cell Above" })
