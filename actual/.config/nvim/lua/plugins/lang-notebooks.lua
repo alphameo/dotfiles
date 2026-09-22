@@ -79,10 +79,10 @@ Main requirement: Install jupyter's nbconvert module
 html:
     - `jupyter nbconvert --to html <name.ipynb>` (cmd: Ipynb2Html)
 pdf:
-    - `jupyter nbconvert --to pdf <name.ipynb>` (cmd: Ipynb2Pdf, required: pandoc, latex suite)
-    - `jupyter nbconvert --to webpdf <name.ipynb>` (cmd: Ipynb2Webpdf, required: playwright)
+    - `jupyter nbconvert --to pdf <name.ipynb>` (required: pandoc, latex suite)
+    - `jupyter nbconvert --to webpdf <name.ipynb> --allow-chromium-download` (cmd: Ipynb2Pdf, required: playwright)
 latex:
-    - `jupyter nbconvert --to latex <name.ipynb>` (cmd: Ipynb2Latex, required: pandoc, latex suite)
+    - `jupyter nbconvert --to latex <name.ipynb>` (required: pandoc, latex suite)
 ]]
 local function ipy_help()
   require("utils").show_text_popup(help_msg, { ft = "lint-info" })
@@ -170,9 +170,11 @@ local function ipynb2pdf(opts)
   run_converter(cmd, ".pdf")
 end
 
-local function ipynb2fmt(fmt, extension)
+local function ipynb2fmt(fmt, extension, args)
   local buf_name = vim.api.nvim_buf_get_name(0)
-  local cmd = { "jupyter", "nbconvert", "--to", fmt, "--allow-chromium-download", buf_name }
+  local cmd = { "jupyter", "nbconvert", "--to", fmt }
+  vim.list_extend(cmd, args)
+  table.insert(cmd, buf_name)
   run_converter(cmd, extension)
 end
 
@@ -196,6 +198,12 @@ vim.api.nvim_create_autocmd("FileType", {
     end, {
       desc = "Init Notebook suite",
     })
+
+    vim.api.nvim_create_user_command("MoltenAutoInit", function()
+      molten_autoinit()
+    end, {
+      desc = "Init Notebook suite",
+    })
   end,
   desc = "Autocmds for Notebooks",
 })
@@ -203,41 +211,30 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown" },
   callback = function()
-    vim.api.nvim_create_user_command("IpynbInit", function()
-      vim.cmd "QuartoActivate"
-      vim.cmd "MoltenInit"
-    end, {
-      desc = "Init Notebook suite",
-    })
-
-    vim.api.nvim_create_user_command("MoltenAutoInit", function()
-      molten_autoinit()
-    end, {
-      desc = "Init Notebook suite",
-    })
-
-    vim.api.nvim_create_user_command("Ipynb2Pdf", function(opts)
-      ipynb2pdf(opts)
-    end, {
-      nargs = "*",
-      desc = "Convert Jupyter Notebook to PDF using custom ipynb2pdf script",
-      complete = function()
-        return { font_flags.main, font_flags.sans, font_flags.mono, font_flags.no }
-      end,
-    })
+    -- vim.api.nvim_create_user_command("Ipynb2Pdf", function(opts)
+    --   ipynb2pdf(opts)
+    -- end, {
+    --   nargs = "*",
+    --   desc = "Convert Jupyter Notebook to PDF using custom ipynb2pdf script",
+    --   complete = function()
+    --     return { font_flags.main, font_flags.sans, font_flags.mono, font_flags.no }
+    --   end,
+    -- })
 
     local std_converts = {
       Ipynb2Html = { fmt = "html", ext = ".html" },
-      Ipynb2Webpdf = { fmt = "webpdf", ext = ".pdf" },
       Ipynb2Tex = { fmt = "latex", ext = ".tex" },
     }
-    for cmd_name, cfg in pairs(std_converts) do
-      vim.api.nvim_create_user_command(cmd_name, function()
-        ipynb2fmt(cfg.fmt, cfg.ext)
-      end, {
-        desc = string.format("Convert Jupyter Notebook to %s via nbconvert", cfg.fmt),
-      })
-    end
+    vim.api.nvim_create_user_command("Ipynb2Pdf", function()
+      ipynb2fmt("webpdf", ".pdf", { "--allow-chromium-download" })
+    end, {
+      desc = "Convert Jupyter Notebook to PDF via nbconvert",
+    })
+    vim.api.nvim_create_user_command("Ipynb2Html", function()
+      ipynb2fmt("webpdf", ".pdf")
+    end, {
+      desc = "Convert Jupyter Notebook to HTML via nbconvert",
+    })
   end,
   desc = "Autocmds for ipynb",
 })
@@ -265,7 +262,7 @@ return {
       vim.g.python3_host_prog = vim.fn.expand "~/.virtualenvs/nvim/bin/python3"
 
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = "markdown",
+        pattern = { "markdown", "quarto" },
         callback = function()
           local map = vim.keymap.set
           local opts = function(desc)
@@ -349,7 +346,7 @@ return {
         lspFeatures = {
           enabled = false,
           languages = { "python" },
-          chunks = "curly", -- "all" | "curly"
+          chunks = "all", -- "all" | "curly"
           diagnostics = { enabled = true },
           completion = { enabled = true },
         },
@@ -360,13 +357,21 @@ return {
       }
 
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "quarto", "markdown" },
+        pattern = { "quarto" },
         callback = function()
           local quarto = require "quarto"
+          local map = vim.keymap.set
+          map("n", "<leader>lP", quarto.quartoPreview, { buffer = true, silent = true, desc = "Quarto Preview" })
+        end,
+        desc = "Quarto Filetype Mappings",
+      })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "quarto", "markdown" },
+        callback = function()
           local qrunner = require "quarto.runner"
           local map = vim.keymap.set
           map("n", "<leader>lq", ":QuartoActivate<CR>", { buffer = true, silent = true, desc = "Quarto Initialize" })
-          map("n", "<leader>lP", quarto.quartoPreview, { buffer = true, silent = true, desc = "Quarto Preview" })
           map("n", "<leader>lc", qrunner.run_cell, { buffer = true, desc = "Quarto Run Cell" })
           map("n", "<leader>lu", qrunner.run_above, { buffer = true, desc = "Quarto Run Cell Above" })
           map("n", "<leader>lb", qrunner.run_below, { buffer = true, desc = "Quarto Run Cell Below" })
@@ -377,7 +382,7 @@ return {
           end, { buffer = true, silent = true, desc = "Quarto Run All Cells of All Languages" })
           map("v", "<leader>lr", qrunner.run_range, { buffer = true, silent = true, desc = "Quarto Run Visual Range" })
         end,
-        desc = "Quarto Filetype Mappings",
+        desc = "Notebook Filetypes Mappings",
       })
     end,
   },
