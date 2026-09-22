@@ -5,7 +5,7 @@ return {
     branch = "main",
     build = ":TSUpdate",
     config = function()
-      local langs = {
+      local parsers = {
         -- LANGUAGES
         "bash",
         "c",
@@ -74,16 +74,15 @@ return {
         "yuck",
       }
 
-      require("nvim-treesitter").setup {
-        ensure_installed = langs,
-        highlight = { enable = true },
-        indent = { enable = true },
-      }
+      require("nvim-treesitter").setup()
 
-      require("nvim-treesitter").install(langs)
+      require("nvim-treesitter").install(parsers)
+
+      local ft = vim.deepcopy(parsers)
+      vim.list_extend(ft, { "quarto", "rmd" })
 
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = langs,
+        pattern = ft,
         callback = function()
           vim.treesitter.start()
           vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
