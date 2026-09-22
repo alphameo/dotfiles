@@ -69,6 +69,7 @@ return {
           tex = { "lsp", "latex", "path", "snippets", "buffer" },
           sty = { "lsp", "latex", "path", "snippets", "buffer" },
           markdown = { "lsp", "latex", "path", "snippets", "buffer" },
+          quarto = { "lsp", "latex", "path", "snippets", "buffer" },
         },
         providers = {
           dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
