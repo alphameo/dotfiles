@@ -2,14 +2,14 @@ return {
   {
     "iamcco/markdown-preview.nvim",
     lazy = true,
-    ft = { "markdown" },
+    ft = { "markdown", "quarto" },
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     -- INFO: install with yarn/npm
     build = "cd app && npm install",
     -- or
     -- build = "cd app && yarn install",
     init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
+      vim.g.mkdp_filetypes = { "markdown", "quarto" }
     end,
     -- INFO: install without yarn/npm
     -- build = function()
@@ -17,7 +17,7 @@ return {
     -- end,
     config = function()
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = "markdown",
+        pattern = { "markdown", "quarto" },
         callback = function()
           vim.keymap.set(
             "n",
@@ -38,7 +38,7 @@ return {
       "nvim-mini/mini.nvim",
     },
     lazy = true,
-    ft = { "markdown", "norg", "rmd", "org" },
+    ft = { "markdown", "quarto", "norg", "rmd", "org" },
     config = function()
       require("render-markdown").setup {
         code = {
