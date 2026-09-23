@@ -1,9 +1,8 @@
 qemu-arch-extra
 
-qemu
+qemu-full
 virt-manager
 dnsmasq
 bridge-utils
 openbsd-netcat
-ebtables
 iptables-nft

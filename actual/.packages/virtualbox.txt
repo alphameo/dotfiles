@@ -1,3 +1,4 @@
+virtualbox-host-modules-arch
 linux-headers
 virtualbox
 virtualbox-guest-iso

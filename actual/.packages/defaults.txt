@@ -4,16 +4,14 @@ xdg-utils
 bluez
 bluez-utils
 
-playerctl
-wpctl
-
-pipepwire
+pipewire
 wireplumber
+playerctl
 
 udisks2
-lsblk
+util-linux
 eject
 
 zip
 tar
-bsdtar
+libarchive

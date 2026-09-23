@@ -43,7 +43,6 @@ catppuccin-sddm-theme-mocha
 ttf-jetbrains-mono-nerd
 ttf-roboto
 ttf-roboto-mono-nerd
-ttf-times-new-roman
 noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-dejavu ttf-liberation
 ttf-times-new-roman
 
@@ -77,13 +76,12 @@ nvtop
 neohtop
 resources
 net-tools
-dnsutils
+bind
 netsleuth
 
 neovim
 luarocks
-treesitter-cli
-cmake
+tree-sitter-cli
 chafa
 viu
 ueberzugpp
@@ -95,9 +93,8 @@ opencode
 
 yazi
 ouch
-gvfs gvfs-mtp gvfs-afc gvfs-google-git gvfs-gphoto2 gvfs-nfs gvfs-smb gvfs-afc gvfs-dnssd gvfs-goa gvfs-onedrive gvfs-wsdd
+gvfs gvfs-mtp gvfs-afc gvfs-google-git gvfs-gphoto2 gvfs-nfs gvfs-smb gvfs-dnssd gvfs-goa gvfs-onedrive gvfs-wsdd
 7zip
-zip
 trash-cli
 dragon-drop
 
