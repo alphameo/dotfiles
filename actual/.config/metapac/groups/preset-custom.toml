@@ -1,0 +1,14 @@
+[arch]
+packages = [
+  "hypridle",
+  "hyprlock",
+  "waybar",
+  "wlogout",
+  "awww",
+  "waypaper",
+  "swaync",
+  "rofimoji",
+  "xdotool",
+  "rofi-wayland",
+  "copyq",
+]

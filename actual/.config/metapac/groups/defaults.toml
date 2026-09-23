@@ -1,0 +1,16 @@
+[arch]
+packages = [
+  "xdg-desktop-portal",
+  "xdg-utils",
+  "bluez",
+  "bluez-utils",
+  "pipewire",
+  "wireplumber",
+  "playerctl",
+  "udisks2",
+  "util-linux",
+  "eject",
+  "zip",
+  "tar",
+  "libarchive",
+]

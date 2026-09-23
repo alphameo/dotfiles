@@ -1,0 +1,10 @@
+[arch]
+packages = [
+  "qemu-arch-extra",
+  "qemu-full",
+  "virt-manager",
+  "dnsmasq",
+  "bridge-utils",
+  "openbsd-netcat",
+  "iptables-nft",
+]
