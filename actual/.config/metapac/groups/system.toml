@@ -1,0 +1,16 @@
+[arch]
+packages = [
+    "base",
+    "base-devel",
+    "amd-ucode",
+    "efibootmgr",
+    "firewalld",
+    "linux",
+    "linux-firmware",
+    "man-db",
+    "ncdu",
+    "pkgfile",
+    "smartmontools",
+    "sof-firmware",
+    "zram-generator",
+]

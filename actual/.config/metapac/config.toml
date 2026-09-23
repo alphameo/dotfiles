@@ -4,4 +4,11 @@ enabled_backends = ["arch"]
 package_manager = "paru"
 
 [hostname_groups]
-yourhostname = ["defaults", "packages", "preset-noctalia", "qemu"]
+yourhostname = [
+    "system",
+    "gpu-amd",
+    "defaults",
+    "packages",
+    "preset-noctalia",
+    "qemu"
+]
