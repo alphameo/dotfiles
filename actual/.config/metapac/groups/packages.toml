@@ -12,17 +12,26 @@ packages = [
   "wl-clipboard",
   "power-profiles-daemon",
   "nwg-displays",
-  "udiskie",
+
+  "udiskie",    # automount
   "ntfs-3g",
+  "dosfstools", # ms-dos file-system formatting
+
   "grim",
   "slurp",
   "swappy",
-  "acpi",
+
+  "acpi", # battery
+
   "brightnessctl",
+
   "networkmanager",
   "iwd",
+
   "mpd",
+
   "opentabletdriver",
+
   "qt5ct",
   "qt6ct",
   "nwg-look",
@@ -34,9 +43,9 @@ packages = [
   "adwaita-cursors",
   "adwaita-fonts",
   "adwaita-icon-theme",
-  "sddm",
   "sddm-conf",
   "catppuccin-sddm-theme-mocha",
+
   "ttf-jetbrains-mono-nerd",
   "ttf-roboto",
   "ttf-roboto-mono-nerd",
@@ -46,15 +55,21 @@ packages = [
   "ttf-dejavu",
   "ttf-liberation",
   "ttf-times-new-roman",
+
   "lxqt-config",
   "lxqt-admin",
+
   "paru",
   "paru-debug",
   "metapac",
   "nix",
+
   "wine",
+
   "stow",
+
   "kitty",
+
   "zsh",
   "fish",
   "fisher",
@@ -70,14 +85,18 @@ packages = [
   "man",
   "tldr",
   "tree",
+
   "fastfetch",
+
   "btop",
   "nvtop",
   "neohtop",
   "resources",
+
   "net-tools",
   "bind",
   "netsleuth",
+
   "neovim",
   "luarocks",
   "tree-sitter-cli",
@@ -87,7 +106,9 @@ packages = [
   "imagemagick",
   "libtexprintf",
   "python-pylatexenc",
+
   "opencode",
+
   "yazi",
   "ouch",
   "gvfs",
@@ -104,15 +125,27 @@ packages = [
   "7zip",
   "trash-cli",
   "dragon-drop",
+
+  "thunar",
+
+  "gparted",
+  "gnome-disk-utility",
+  "xorg-xhost",
+
   "bluetui",
+
   "wiremix",
   "pavucontrol",
   "alsa-utils",
+
+  "libreoffice-fresh",
+
   "okular",
   "pdfarranger",
   "img2pdf",
+
   "qbittorrent",
-  "thunar",
+
   "shotwell",
   "gwenview",
   "gimp",
@@ -125,18 +158,44 @@ packages = [
   "audacity",
   "handy",
   "mpv",
+
   "bitwarden",
-  "libreoffice-fresh",
+
   "v2rayn",
   "amneziavpn-bin",
+
   "syncthing",
   "localsend",
-  "gparted",
-  "gnome-disk-utility",
-  "dosfstools",
-  "xorg-xhost",
+
   "zen-browser-bin",
   "helium-browser-bin",
+
+  # Git
+  "git",
+  "lazygit",
+  "git-delta",
+
+  # Docker
+  "docker",
+  "docker-compose",
+  "lazydocker",
+
+  # Kubernetes
+  "kubectl",
+  "k9s",
+  "minikube",
+
+  # DB
+  "postgresql",
+  "lazysql",
+  "rainfrog",
+
+  # Go
+  "go",
+  "golangci-lint",
+  "goreleaser",
+
+  # Python
   "python",
   "uv",
   "python-pipx",
@@ -144,42 +203,36 @@ packages = [
   "jupyter-notebook",
   "jupyter-nbconvert",
   "python-playwright",
-  "pandoc-cli",
+
+  # Java
+  # "jdk-openjdk",
+  # "openjdk-doc",
+  # "openjdk-src",
+  # "maven",
+  # "gradle",
+
+  # C#, .NET
+  # "dotnet-runtime",
+  # "dotnet-sdk",
+  # "dotnet-runtime-8.0",
+  # "dotnet-sdk-8.0",
+  # "aspnet-runtime",
+  # "aspnet-targeting-pack",
+  # "aspnet-runtime-8.0",
+  # "aspnet-targeting-pack-8.0",
+
+  # C/C++
+  "gcc",
+  "gdb",
+  "cmake",
+  "cmake-init-git",
+  "conan",
+
+  # LaTeX
   "texlive-latex",
   "texlive-fontsrecommended",
   "texlive-latexextra",
   "texlive-plaingeneric",
   "texlive-binextra",
   "biber",
-  "git",
-  "lazygit",
-  "git-delta",
-  "docker",
-  "docker-compose",
-  "lazydocker",
-  "kubectl",
-  "k9s",
-  "minikube",
-  "jdk-openjdk",
-  "openjdk-doc",
-  "openjdk-src",
-  "maven",
-  "gradle",
-  "dotnet-runtime",
-  "dotnet-sdk",
-  "aspnet-runtime",
-  "aspnet-targeting-pack",
-  "dotnet-runtime-8.0",
-  "dotnet-sdk-8.0",
-  "aspnet-runtime-8.0",
-  "aspnet-targeting-pack-8.0",
-  "gcc",
-  "gdb",
-  "cmake",
-  "cmake-init-git",
-  "conan",
-  "go",
-  "golangci-lint",
-  "goreleaser",
-  "postgresql",
 ]

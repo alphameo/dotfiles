@@ -2,8 +2,12 @@
 packages = [
   "xdg-desktop-portal",
   "xdg-utils",
+
+  "sddm",
+
   "bluez",
   "bluez-utils",
+
   "libpulse",
   "pipewire",
   "pipewire-alsa",
@@ -12,12 +16,15 @@ packages = [
   "gst-plugin-pipewire",
   "wireplumber",
   "playerctl",
+
   "udisks2",
-  "util-linux",
   "eject",
+  "util-linux",
+
   "zip",
   "tar",
   "libarchive",
+
   "nano",
   "vim",
   "sudo",
