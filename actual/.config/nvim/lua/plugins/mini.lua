@@ -92,7 +92,18 @@ local setup_jump2d = function()
   local jump = require "mini.jump2d"
   jump.setup {
     mappings = {
-      start_jumping = "gw",
+      start_jumping = "gj",
+    },
+    allowed_lines = {
+      blank = true,
+      cursor_before = true, -- Lines before cursor line
+      cursor_at = true, -- Cursor line
+      cursor_after = true, -- Lines after cursor line
+      fold = true,
+    },
+    allowed_windows = {
+      current = true,
+      not_current = false,
     },
   }
 end
@@ -488,7 +499,7 @@ return {
     setup_statusline()
     setup_notify()
     setup_trailspace()
-    -- setup_jump2d()
+    setup_jump2d()
     -- setup_snippets()
     -- setup_completion()
     -- setup_cmdline_cmp()
