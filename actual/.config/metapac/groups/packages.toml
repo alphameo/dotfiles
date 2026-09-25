@@ -17,6 +17,8 @@ packages = [
   "ntfs-3g",
   "dosfstools", # ms-dos file-system formatting
 
+  # "flameshot",
+  # "hyprshot",
   "grim",
   "slurp",
   "swappy",
@@ -26,6 +28,8 @@ packages = [
   "brightnessctl",
 
   "networkmanager",
+  # "network-manager-applet",
+  # "iwgtk",
   "iwd",
 
   "mpd",
@@ -75,6 +79,7 @@ packages = [
   "fisher",
   "nushell",
   "starship",
+  # "oh-my-posh",
   "fzf",
   "zoxide",
   "eza",
@@ -99,12 +104,12 @@ packages = [
 
   "neovim",
   "luarocks",
-  "tree-sitter-cli", # treesitter.nvim
-  "chafa", # fzf-lua
-  "viu", # fzf-lua
-  "ueberzugpp", # fzf-lua
-  "imagemagick", # image.nvim
-  "libtexprintf", # render-markdown.nvim
+  "tree-sitter-cli",   # treesitter.nvim
+  "chafa",             # fzf-lua
+  "viu",               # fzf-lua
+  "ueberzugpp",        # fzf-lua
+  "imagemagick",       # image.nvim
+  "libtexprintf",      # render-markdown.nvim
   "python-pylatexenc", # render-markdown.nvim
 
   "opencode",
@@ -139,6 +144,7 @@ packages = [
   "alsa-utils",
 
   "libreoffice-fresh",
+  # "openoffice",
 
   "okular",
   "pdfarranger",
@@ -169,6 +175,8 @@ packages = [
 
   "zen-browser-bin",
   "helium-browser-bin",
+
+  # "calcurse",
 
   # Git
   "git",

@@ -4,11 +4,21 @@ packages = [
   "hyprlock",
   "waybar",
   "wlogout",
+
   "awww",
   "waypaper",
+
+  "dunst",
   "swaync",
+
   "rofimoji",
   "xdotool",
+
   "rofi-wayland",
+  "rofi-power-menu",
+  "rofi-bluetooth-git",
+  "networkmanager-dmenu-git",
+
+  # "cliphist",
   "copyq",
 ]
