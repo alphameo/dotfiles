@@ -60,6 +60,7 @@ local help_msg = [[
 
 # Setup project venv
 
+0. to load system python packages create .venv with flag `--system-site-packages` (quarto preview requires visible jupyter and pyyaml)
 1. `source .venv/bin/activate` # activate the venv (for bash/zsh -- "activate", for fish -- "activate.fish")
 2. install ipykernel as dependency into venv
 3. `.venv/bin/python -m ipykernel install --user --name <kernel_name> --display-name "<name>"` # register ipykernel from venv
