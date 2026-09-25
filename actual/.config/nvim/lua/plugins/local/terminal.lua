@@ -11,9 +11,7 @@ local create_hidden_buf = function()
   return bufnr
 end
 
-local function create_hidden_win(bufnr, win_config)
-  local winid = vim.api.nvim_open_win(bufnr, true, win_config)
-
+local function wrap_with_exit_on_leave(bufnr, winid)
   vim.api.nvim_create_autocmd("BufLeave", {
     desc = "Close info window when leaving buffer",
     buffer = bufnr,
@@ -25,22 +23,21 @@ local function create_hidden_win(bufnr, win_config)
       end
     end,
   })
-
-  return winid
 end
 
-M.create_hidden_split = function(bufnr)
+M.create_split = function(bufnr)
   local win_conf = {
+    win = -1, -- top-level split
     vertical = false,
     split = "below",
     height = math.floor(vim.o.lines * 0.3),
     style = "minimal",
   }
-
-  return create_hidden_win(bufnr, win_conf)
+  local winid = vim.api.nvim_open_win(bufnr, true, win_conf)
+  return winid
 end
 
-M.create_hidden_float = function(bufnr)
+M.create_float = function(bufnr)
   local win_conf = {
     relative = "editor",
     width = vim.o.columns - 6,
@@ -51,7 +48,10 @@ M.create_hidden_float = function(bufnr)
     border = "rounded",
   }
 
-  return create_hidden_win(bufnr, win_conf)
+  local winid = vim.api.nvim_open_win(bufnr, true, win_conf)
+  wrap_with_exit_on_leave(bufnr, winid)
+
+  return winid
 end
 
 local term_win_state = {
@@ -65,6 +65,7 @@ M.toggle_terminal = function(create_win_func)
   end
   if not vim.api.nvim_win_is_valid(term_win_state.win) then
     term_win_state.win = create_win_func(term_win_state.buf)
+    wrap_with_exit_on_leave(term_win_state.buf, term_win_state.win)
     if vim.bo[term_win_state.buf].buftype ~= "terminal" then
       vim.api.nvim_call_function("termopen", { vim.o.shell })
     end
@@ -78,11 +79,11 @@ end
 -- Split Terminal
 
 M.toggle_split_terminal = function()
-  M.toggle_terminal(M.create_hidden_split)
+  M.toggle_terminal(M.create_split)
 end
 
 M.toggle_float_terminal = function()
-  M.toggle_terminal(M.create_hidden_float)
+  M.toggle_terminal(M.create_float)
 end
 
 local cmd = vim.api.nvim_create_user_command
