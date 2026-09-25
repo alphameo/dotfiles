@@ -99,13 +99,13 @@ packages = [
 
   "neovim",
   "luarocks",
-  "tree-sitter-cli",
-  "chafa",
-  "viu",
-  "ueberzugpp",
-  "imagemagick",
-  "libtexprintf",
-  "python-pylatexenc",
+  "tree-sitter-cli", # treesitter.nvim
+  "chafa", # fzf-lua
+  "viu", # fzf-lua
+  "ueberzugpp", # fzf-lua
+  "imagemagick", # image.nvim
+  "libtexprintf", # render-markdown.nvim
+  "python-pylatexenc", # render-markdown.nvim
 
   "opencode",
 
