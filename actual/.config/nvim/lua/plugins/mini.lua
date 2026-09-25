@@ -1,3 +1,62 @@
+local function setup_autopairs()
+  require("mini.pairs").setup {
+    modes = {
+      insert = true,
+      command = false,
+      terminal = false,
+    },
+
+    -- By default pair is not inserted after `\`, quotes are not recognized by
+    -- <CR>, `'` does not insert the pair after a letter.
+    -- Only parts of tables can be tweaked (others will use these defaults).
+    mappings = {
+      ["("] = { action = "open", pair = "()", neigh_pattern = "^[^\\]" },
+      ["["] = { action = "open", pair = "[]", neigh_pattern = "^[^\\]" },
+      ["{"] = { action = "open", pair = "{}", neigh_pattern = "^[^\\]" },
+
+      [")"] = { action = "close", pair = "()", neigh_pattern = "^[^\\]" },
+      ["]"] = { action = "close", pair = "[]", neigh_pattern = "^[^\\]" },
+      ["}"] = { action = "close", pair = "{}", neigh_pattern = "^[^\\]" },
+
+      ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "^[^\\]", register = { cr = false } },
+      ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "^[^%a\\]", register = { cr = false } },
+      ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "^[^\\]", register = { cr = false } },
+    },
+  }
+end
+
+local function setup_around_inside()
+  require("mini.ai").setup {
+    custom_textobjects = {},
+
+    -- Module mappings. Use `""` (empty string) to disable one.
+    mappings = {
+      around = "a",
+      inside = "i",
+
+      -- Next/last variants
+      -- NOTE: This (deliberately) overrides Neovim>=0.12 built-in incremental
+      -- selection mappings. See `:h MiniAi-default-an-in` for more details.
+      -- around_next = "an",
+      -- inside_next = "in",
+      -- around_last = "al",
+      -- inside_last = "il",
+      around_next = "",
+      inside_next = "",
+      around_last = "",
+      inside_last = "",
+
+      -- Move cursor to corresponding edge of `a` textobject
+      goto_left = "g[",
+      goto_right = "g]",
+    },
+
+    n_lines = 50,
+    search_method = "cover_or_next", -- "cover"|"cover_or_next"|"cover_or_prev"|"cover_or_nearest"|"next"|"previous"|"nearest"
+    silent = true,
+  }
+end
+
 local setup_surround = function()
   require("mini.surround").setup {
     custom_surroundings = nil,
@@ -417,7 +476,8 @@ return {
   lazy = true,
   event = "VeryLazy",
   config = function()
-    -- require("mini.pairs").setup()
+    -- setup_autopairs()
+    setup_around_inside()
     -- setup_surround()
     -- require("mini.move").setup()
     -- setup_sessions()
