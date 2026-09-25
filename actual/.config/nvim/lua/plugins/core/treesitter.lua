@@ -148,19 +148,19 @@ return {
         ts_obj_select.select_textobject("@function.inner", "textobjects")
       end, { desc = "inner function" })
 
-      map({ "x", "o" }, "ac", function()
-        ts_obj_select.select_textobject("@class.outer", "textobjects")
-      end, { desc = "outer class" })
-      map({ "x", "o" }, "ic", function()
-        ts_obj_select.select_textobject("@class.inner", "textobjects")
-      end, { desc = "inner class" })
+      -- map({ "x", "o" }, "ac", function()
+      --   ts_obj_select.select_textobject("@class.outer", "textobjects")
+      -- end, { desc = "outer class" })
+      -- map({ "x", "o" }, "ic", function()
+      --   ts_obj_select.select_textobject("@class.inner", "textobjects")
+      -- end, { desc = "inner class" })
 
-      map({ "x", "o" }, "ao", function()
-        ts_obj_select.select_textobject("@loop.outer", "textobjects")
-      end, { desc = "outer loop" })
-      map({ "x", "o" }, "io", function()
-        ts_obj_select.select_textobject("@loop.inner", "textobjects")
-      end, { desc = "inner loop" })
+      -- map({ "x", "o" }, "ao", function()
+      --   ts_obj_select.select_textobject("@loop.outer", "textobjects")
+      -- end, { desc = "outer loop" })
+      -- map({ "x", "o" }, "io", function()
+      --   ts_obj_select.select_textobject("@loop.inner", "textobjects")
+      -- end, { desc = "inner loop" })
 
       -- Go to
       local move = require "nvim-treesitter-textobjects.move"
@@ -171,19 +171,19 @@ return {
         move.goto_previous_start("@function.outer", "textobjects")
       end, { desc = "Go to previous function" })
 
-      map({ "n", "x", "o" }, "]c", function()
-        move.goto_next_start("@class.outer", "textobjects")
-      end, { desc = "Go to next class" })
-      map({ "n", "x", "o" }, "[c", function()
-        move.goto_previous_start("@class.outer", "textobjects")
-      end, { desc = "Go to previous class" })
+      -- map({ "n", "x", "o" }, "]c", function()
+      --   move.goto_next_start("@class.outer", "textobjects")
+      -- end, { desc = "Go to next class" })
+      -- map({ "n", "x", "o" }, "[c", function()
+      --   move.goto_previous_start("@class.outer", "textobjects")
+      -- end, { desc = "Go to previous class" })
 
-      map({ "n", "x", "o" }, "]o", function()
-        move.goto_next_start("@loop.outer", "textobjects")
-      end, { desc = "Go to next loop" })
-      map({ "n", "x", "o" }, "[o", function()
-        move.goto_previous_start("@loop.outer", "textobjects")
-      end, { desc = "Goto previous loop" })
+      -- map({ "n", "x", "o" }, "]o", function()
+      --   move.goto_next_start("@loop.outer", "textobjects")
+      -- end, { desc = "Go to next loop" })
+      -- map({ "n", "x", "o" }, "[o", function()
+      --   move.goto_previous_start("@loop.outer", "textobjects")
+      -- end, { desc = "Goto previous loop" })
 
       map({ "n", "x", "o" }, "]p", function()
         move.goto_next_start("@parameter.inner", "textobjects")
@@ -200,12 +200,12 @@ return {
 
       -- Swap
       local ts_obj_swap = require "nvim-treesitter-textobjects.swap"
-      map("n", "grf", function()
-        ts_obj_swap.swap_next "@function.outer"
-      end, { desc = "Swap function with next" })
-      map("n", "grF", function()
-        ts_obj_swap.swap_previous "@function.outer"
-      end, { desc = "Swap function with previous" })
+      -- map("n", "grf", function()
+      --   ts_obj_swap.swap_next "@function.outer"
+      -- end, { desc = "Swap function with next" })
+      -- map("n", "grF", function()
+      --   ts_obj_swap.swap_previous "@function.outer"
+      -- end, { desc = "Swap function with previous" })
 
       map("n", "grp", function()
         ts_obj_swap.swap_next "@parameter.inner"
