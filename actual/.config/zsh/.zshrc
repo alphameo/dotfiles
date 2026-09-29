@@ -53,10 +53,9 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --icons=always --color=al
 ##################
 
 autoload -Uz compinit && compinit
-# zinit ice wait'0' atinit'zicompinit; zicdreplay'
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 
 ###############
@@ -71,26 +70,27 @@ HISTFILEDIR="$XDG_STATE_HOME/zsh"
 [ -d "$HISTFILEDIR" ] || mkdir "$HISTFILEDIR"
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 
-HISTSIZE=10000
+HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY # share history between instances
-setopt HIST_FIND_NO_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS # don't save duplicate commands, old commands are deleted, new are written
-setopt HIST_IGNORE_SPACE # ignore commands starting with a space
 setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS # don't save duplicate commands, old commands are deleted, new are written
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE # ignore commands starting with a space
+setopt HIST_SAVE_NO_DUPS
+setopt INC_APPEND_HISTORY
 
-# file matching
-setopt EXTENDED_GLOB
-setopt NOMATCH
+setopt EXTENDED_GLOB # ‘#’, ‘~’ and ‘^’ characters as part of patterns for filename generation
 
-# report status of background
-setopt NOTIFY
+setopt NOMATCH # print error if no matches
 
-setopt NOBEEP
+setopt NOTIFY # report status of background
+
+setopt NO_BEEP
+
 setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 
 
@@ -99,30 +99,7 @@ setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 ###############
 
 bindkey -v # built-in vim mode (disable if zsh-vi-mode)
-export VI_MODE_SET_CURSOR=true
 export KEYTIMEOUT=1
-
-# Change cursor shape
-# ANSI cursor escape codes:
-# \e[0 q: Reset to the default cursor style.
-# \e[1 q: Blinking block cursor.
-# \e[2 q: Steady block cursor (non-blinking).
-# \e[3 q: Blinking underline cursor.
-# \e[4 q: Steady underline cursor (non-blinking).
-# \e[5 q: Blinking bar cursor.
-# \e[6 q: Steady bar cursor (non-blinking).# Change cursor shape for different vi modes.
-
-# Register this functions as a ZLE (Zsh Line Editor) widget
-function zle-keymap-select zle-line-init zle-line-finish
-{
-  case $KEYMAP in
-      vicmd)      print -n '\033[1 q';; # block cursor
-      viins|main) print -n '\033[5 q';; # line cursor
-  esac
-}
-zle -N zle-line-init # runs once when a new ZLE session starts (e.g. when a prompt appears)
-zle -N zle-line-finish
-zle -N zle-keymap-select # called every time the keymap changes (insert <-> normal mode)
 
 # Yank to the system clipboard
 function vi-yank-xclip {
@@ -132,22 +109,13 @@ function vi-yank-xclip {
 zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
 
-# Press 'v' in normal mode to launch Vim with current line
-autoload edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd m edit-command-line
-
 
 ################
 ### BINDKEYS ###
 ################
 
-bindkey '^[[3;5~' kill-word            # ctrl+del
-bindkey '^H' backward-kill-word        # ctrl+backspace
 bindkey '^[[3~' delete-char            # del
 bindkey '^[[107;6u' kill-whole-line    # ctrl+shift+k
-bindkey '^[[H' beginning-of-line       # home
-bindkey '^[[F' end-of-line             # end
 bindkey '^[[1;5D' backward-word        # ctrl+left
 bindkey '^[[1;5C' forward-word         # ctrl+right
 
