@@ -231,14 +231,14 @@ return {
   --     line_numbers = true,
   --   },
   -- },
-  {
-    "folke/ts-comments.nvim",
-    lazy = true,
-    event = "VeryLazy",
-    opts = {
-      lang = {
-        typst = { "// %s", "/* %s */" },
-      },
-    },
-  },
+  -- {
+  --   "folke/ts-comments.nvim",
+  --   lazy = true,
+  --   event = "VeryLazy",
+  --   opts = {
+  --     lang = {
+  --       typst = { "// %s", "/* %s */" },
+  --     },
+  --   },
+  -- },
 }
