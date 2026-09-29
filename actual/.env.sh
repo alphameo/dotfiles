@@ -27,6 +27,8 @@ export BROWSER="zen-browser"
 export PAGER="less"
 export TERMINAL='kitty'
 
+export LC_ALL="en_US.UTF-8"
+
 export LF_CONFIG_HOME="$XDG_CONFIG_HOME"
 
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
