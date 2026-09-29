@@ -14,7 +14,7 @@ return {
       keymap = {
         builtin = {
           false, -- inherit defaults
-          ["<M-Esc>"] = "hide", -- hide fzf-lua, `:FzfLua resume` to continue
+          ["<C-Esc>"] = "hide", -- hide fzf-lua, `:FzfLua resume` to continue
           ["<F1>"] = "toggle-help",
           ["<F2>"] = "toggle-fullscreen",
           ["<F3>"] = "toggle-preview-wrap",

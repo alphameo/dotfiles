@@ -11,33 +11,16 @@ map("n", "\\d", utils.toggle_diagnostics, { silent = true, desc = "Toggle Diagno
 map("n", "\\l", utils.toggle_colorcolumn, { silent = true, desc = "Toggle Limit Column" })
 map("n", "\\<Tab>", utils.toggle_expandtab, { silent = true, desc = "Toggle Expandtab Locally" })
 
--- Insert movements
-map("c", "<M-h>", "<Left>", { silent = false, desc = "Left" })
-map("c", "<M-l>", "<Right>", { silent = false, desc = "Right" })
-map("i", "<M-h>", "<Left>", { noremap = false, desc = "Left" })
-map("i", "<M-j>", "<Down>", { noremap = false, desc = "Down" })
-map("i", "<M-k>", "<Up>", { noremap = false, desc = "Up" })
-map("i", "<M-l>", "<Right>", { noremap = false, desc = "Right" })
-map("t", "<M-h>", "<Left>", { desc = "Left" })
-map("t", "<M-j>", "<Down>", { desc = "Down" })
-map("t", "<M-k>", "<Up>", { desc = "Up" })
-map("t", "<M-l>", "<Right>", { desc = "Right" })
-
 -- Escape Insert
 map("i", "jj", "<ESC>", { desc = "Exit INSERT MODE" })
 
 -- Buffers
-map("n", "<M-]>", ":bnext<CR>", { silent = true, desc = "Next Buffer" })
-map("n", "<M-[>", ":bprev<CR>", { silent = true, desc = "Previous Buffer" })
-map("n", "<M-Backspace>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
-map("n", "<M-w>", ":bdelete<CR>", { silent = true, desc = "Next Buffer" })
-
 map("n", "]b", ":bnext<CR>", { silent = true, desc = "Next Buffer" })
 map("n", "[b", ":bprev<CR>", { silent = true, desc = "Previous Buffer" })
 map("n", "<C-n>", ":bnext<CR>", { silent = true, desc = "Next Buffer" })
 map("n", "<C-p>", ":bprev<CR>", { silent = true, desc = "Previous Buffer" })
-map("n", "<C-Tab>", ":bnext<CR>", { silent = true, desc = "Next Buffer" })
-map("n", "<C-S-Tab>", ":bprev<CR>", { silent = true, desc = "Previous Buffer" })
+map("n", "<C-Backspace>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
+map("n", "<C-x>", ":bdelete<CR>", { silent = true, desc = "Close Buffer" })
 
 map("n", "]T", ":tabnext<CR>", { silent = true, desc = "Next Tab" })
 map("n", "[T", ":tabprev<CR>", { silent = true, desc = "Previous Tab" })
@@ -68,13 +51,11 @@ map("t", "<ESC><ESC>", "<C-\\><C-n>", { silent = true, remap = true, desc = "Exi
 map("t", "<C-q>", "<C-\\><C-n>:close<CR>", { silent = true, remap = true, desc = "Exit Terminal Mode" })
 
 -- Text Movement
-map("v", "<", "<gv", { desc = "Indent Left" }) -- stay in visual mode after indent
-map("v", ">", ">gv", { desc = "Indent Right" }) -- stay in visual mode after indent
+map("v", "<C-h>", "<gv", { desc = "Indent Left" }) -- stay in visual mode after indent
+map("v", "<C-l>", ">gv", { desc = "Indent Right" }) -- stay in visual mode after indent
 
-map("n", "<M-j>", ":m .+1<CR>==", { silent = true, desc = "Move Line Down" })
-map("n", "<M-k>", ":m .-2<CR>==", { silent = true, desc = "Move Line Up" })
-map("v", "<M-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
-map("v", "<M-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
+map("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Selection Down" })
+map("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Selection Up" })
 
 -- Jumps
 map("n", "[j", "<C-o>", { desc = "Jump Back" })
