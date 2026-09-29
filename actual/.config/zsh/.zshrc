@@ -29,9 +29,6 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
-# zsh-abbr: set envvar before plugin load
-export ABBR_USER_ABBREVIATIONS_FILE="$XDG_CONFIG_HOME/zsh/abbr.zsh"
-
 # https://github.com/Aloxaf/fzf-tab
 # https://github.com/zsh-users/zsh-syntax-highlighting (see EOF)
 # https://github.com/zdharma-continuum/fast-syntax-highlighting
