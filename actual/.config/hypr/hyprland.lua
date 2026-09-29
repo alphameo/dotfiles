@@ -324,6 +324,11 @@ hl.window_rule { match = { title = win_title_dialog }, float = true }
 hl.window_rule { match = { title = win_title_dialog }, size = { 900, 600 } }
 hl.window_rule { match = { title = win_title_dialog }, center = true }
 
+local win_class_pkt = "^(packettracer6.exe)$"
+local title_main_pkt = "^((Cisco Packet Tracer Student).*)$"
+hl.window_rule { match = { class = win_class_pkt }, float = true }
+hl.window_rule { match = { class = win_class_pkt, title = title_main_pkt }, float = false }
+
 -------------
 --- INPUT ---
 -------------
