@@ -1,3 +1,7 @@
+#==========================================#
+# Use `\<command>` to run without aliasing #
+#==========================================#
+
 # Simple aliases
 alias sudo='sudo '
 alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
