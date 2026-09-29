@@ -19,21 +19,21 @@ return {
       paths = vim.fn.stdpath "config" .. "/lua/snippets",
     }
 
-    --   local map = vim.keymap.set
-    --   map({ "i", "s" }, "<M-e>", function()
-    --     if ls.expand_or_jumpable() then
-    --       ls.expand_or_jump()
-    --     end
-    --   end)
-    --   map({ "i", "s" }, "<M-p>", function()
-    --     if ls.jumpable(-1) then
-    --       ls.jump(-1)
-    --     end
-    --   end, { silent = true, desc = "Previous Snippet stop" })
-    --   map({ "i", "s" }, "<M-n>", function()
-    --     if ls.jumpable(1) then
-    --       ls.jump(1)
-    --     end
-    --   end, { silent = true, desc = "Next Snippet stop" })
+    local map = vim.keymap.set
+    map({ "i", "s" }, "<C-e>", function()
+      if ls.expand_or_jumpable() then
+        ls.expand_or_jump()
+      end
+    end)
+    map({ "i", "s" }, "<C-p>", function()
+      if ls.jumpable(-1) then
+        ls.jump(-1)
+      end
+    end, { silent = true, desc = "Previous Snippet stop" })
+    map({ "i", "s" }, "<C-n>", function()
+      if ls.jumpable(1) then
+        ls.jump(1)
+      end
+    end, { silent = true, desc = "Next Snippet stop" })
   end,
 }

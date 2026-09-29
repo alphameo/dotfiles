@@ -258,7 +258,7 @@ end
 local setup_bufremove = function()
   local bufremove = require "mini.bufremove"
   bufremove.setup()
-  vim.keymap.set("n", "<M-w>", function()
+  vim.keymap.set("n", "<C-x>", function()
     bufremove.delete(0, false)
   end, { desc = "Close buffer" })
 end
@@ -423,8 +423,8 @@ local setup_snippets = function()
     mappings = {
       expand = "",
 
-      jump_next = "<M-n>",
-      jump_prev = "<M-p>",
+      jump_next = "<C-n>",
+      jump_prev = "<C-p>",
       stop = "<C-c>",
     },
   }
