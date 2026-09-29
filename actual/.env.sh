@@ -1,7 +1,9 @@
 #!/bin/env sh
 
 # Path for Go
-export PATH="$PATH:/home/alphameo/.local/bin:$(go env GOPATH)/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
+# Path for pipx and other
+export PATH="$PATH:$HOME/.local/bin"
 
 # https://wiki.archlinux.org/title/XDG_Base_Directory#User_directories
 export XDG_CONFIG_HOME="$HOME/.config"
