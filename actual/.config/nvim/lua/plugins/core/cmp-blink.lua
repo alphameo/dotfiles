@@ -83,7 +83,7 @@ return {
             name = "Latex",
             module = "blink-cmp-latex",
             opts = {
-              insert_command = false, -- set to true to insert the latex command instead of the symbol
+              insert_command = true, -- set to true to insert the latex command instead of the symbol
             },
           },
         },
