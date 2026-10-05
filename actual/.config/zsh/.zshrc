@@ -99,7 +99,30 @@ setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 ###############
 
 bindkey -v # built-in vim mode (disable if zsh-vi-mode)
+export VI_MODE_SET_CURSOR=true
 export KEYTIMEOUT=1
+
+# Change cursor shape
+# ANSI cursor escape codes:
+# \e[0 q: Reset to the default cursor style.
+# \e[1 q: Blinking block cursor.
+# \e[2 q: Steady block cursor (non-blinking).
+# \e[3 q: Blinking underline cursor.
+# \e[4 q: Steady underline cursor (non-blinking).
+# \e[5 q: Blinking bar cursor.
+# \e[6 q: Steady bar cursor (non-blinking).# Change cursor shape for different vi modes.
+
+# Register this functions as a ZLE (Zsh Line Editor) widget
+function zle-keymap-select zle-line-init zle-line-finish
+{
+  case $KEYMAP in
+      vicmd)      print -n '\033[1 q';; # block cursor
+      viins|main) print -n '\033[5 q';; # line cursor
+  esac
+}
+zle -N zle-line-init # runs once when a new ZLE session starts (e.g. when a prompt appears)
+zle -N zle-line-finish
+zle -N zle-keymap-select # called every time the keymap changes (insert <-> normal mode)
 
 # Yank to the system clipboard
 function vi-yank-xclip {
@@ -108,6 +131,11 @@ function vi-yank-xclip {
 }
 zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
+
+# Press 'v' in normal mode to launch Vim with current line
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd m edit-command-line
 
 
 ################
