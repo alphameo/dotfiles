@@ -258,7 +258,7 @@ end
 local setup_bufremove = function()
   local bufremove = require "mini.bufremove"
   bufremove.setup()
-  vim.keymap.set("n", "<C-x>", function()
+  vim.keymap.set("n", "<C-S-q>", function()
     bufremove.delete(0, false)
   end, { desc = "Close buffer" })
 end

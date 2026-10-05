@@ -20,7 +20,7 @@ map("n", "[b", ":bprev<CR>", { silent = true, desc = "Previous Buffer" })
 map("n", "<C-n>", ":bnext<CR>", { silent = true, desc = "Next Buffer" })
 map("n", "<C-p>", ":bprev<CR>", { silent = true, desc = "Previous Buffer" })
 map("n", "<C-Backspace>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
-map("n", "<C-x>", ":bdelete<CR>", { silent = true, desc = "Close Buffer" })
+map("n", "<C-S-q>", ":bdelete<CR>", { silent = true, desc = "Close Buffer" })
 
 map("n", "]T", ":tabnext<CR>", { silent = true, desc = "Next Tab" })
 map("n", "[T", ":tabprev<CR>", { silent = true, desc = "Previous Tab" })
