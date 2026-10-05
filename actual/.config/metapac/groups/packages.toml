@@ -99,6 +99,7 @@ packages = [
   "resources",
 
   "net-tools",
+  "inetutils",
   "bind",
   "netsleuth",
 
@@ -154,7 +155,7 @@ packages = [
 
   "shotwell",
   "gwenview",
-  "gimp",
+  # "gimp",
   "inkscape",
   "krita",
   "drawio-desktop",
