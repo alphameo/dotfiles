@@ -344,8 +344,9 @@ return {
     cmd = "QuartoActivate",
     config = function()
       require("quarto").setup {
+        closePreviewOnExit = true,
         lspFeatures = {
-          enabled = false,
+          enabled = true,
           languages = { "python" },
           chunks = "all", -- "all" | "curly"
           diagnostics = { enabled = true },
