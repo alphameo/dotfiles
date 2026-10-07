@@ -1,21 +1,21 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "58c4f4e"
+rev = "6229767"
 hash = "f281261ff04ad7ec867c3f802a50835f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "58c4f4e"
+rev = "6229767"
 hash = "87472b05a8c420100f6a2b9cde1e7746"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "58c4f4e"
-hash = "5bb0bfab901d3601c370eafdd66edd31"
+rev = "6229767"
+hash = "347cc6b190eb0c2fd60513cc7ae37412"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "58c4f4e"
+rev = "6229767"
 hash = "b95f898e6dc60b52edbc415952e14395"
 
 [[plugin.deps]]
@@ -45,8 +45,8 @@ hash = "9776f378459072b6c2875eae5addc49d"
 
 [[plugin.deps]]
 use = "ndtoan96/ouch"
-rev = "cfe4f50"
-hash = "eff5702573b6cfba61e4ac8b1969629a"
+rev = "596b666"
+hash = "c2f4f4aca257dcceafa9e3b828dbf1c9"
 
 [[plugin.deps]]
 use = "dedukun/bookmarks"
@@ -55,8 +55,8 @@ hash = "92fbb5483657fa7976cdf4e0104e18e0"
 
 [[plugin.deps]]
 use = "XYenon/clipboard"
-rev = "b25ec96"
-hash = "9f07d7de37a430833ef33b92c0bcf8cb"
+rev = "a2655fd"
+hash = "90625fa33e3372073d60f124c3c867"
 
 [[flavor.deps]]
 use = "BennyOe/onedark"
@@ -65,5 +65,5 @@ hash = "1e647ba2d7c6e6f2bafe858ad9a4e50a"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "20b47bf"
+rev = "1183892"
 hash = "ce320f877fe709b189433941aba747c4"
