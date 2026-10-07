@@ -114,6 +114,8 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
 blur_intensity = 0.0
 fingerprint = false
 tint_intensity = 0.0
+transition = [ "fade" ]
+transition_duration = 500
 wallpaper = "/home/alphameo/Media/Pictures/Wallpapers/xdd.jpg"
 
 [lockscreen_widgets]
@@ -270,6 +272,7 @@ wallpaper_scheme = "m3-content"
 directory = "/home/alphameo/Media/Pictures/Wallpapers"
 directory_dark = "/home/alphameo/Media/Pictures/Wallpapers"
 directory_light = "/home/alphameo/Media/Pictures/Wallpapers"
+transition = [ "disc", "fade", "honeycomb" ]
 
     [wallpaper.default]
     path = "/home/alphameo/Media/Pictures/Wallpapers/astronaut.jpg"
