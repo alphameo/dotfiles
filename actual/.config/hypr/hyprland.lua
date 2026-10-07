@@ -315,6 +315,7 @@ local win_class_dragon = "^(dragon-drop)$"
 hl.window_rule { match = { class = win_class_dragon }, float = true }
 hl.window_rule { match = { class = win_class_dragon }, center = true }
 hl.window_rule { match = { class = win_class_dragon }, pin = true }
+hl.window_rule { match = { class = win_class_dragon }, no_initial_focus = true }
 
 local layer_ns_logout = "^(logout_dialog)$"
 hl.layer_rule { match = { namespace = layer_ns_logout }, blur = true }
