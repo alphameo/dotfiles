@@ -1,6 +1,7 @@
 [arch]
 packages = [
   "hyprland",
+  "hyprpm",
   "hyprpicker",
   "hyprpolkitagent",
   "hyprshutdown",
@@ -145,7 +146,7 @@ packages = [
   "alsa-utils",
 
   "libreoffice-fresh",
-  # "openoffice",
+  "onlyoffice-bin",
 
   "okular",
   "pdfarranger",
