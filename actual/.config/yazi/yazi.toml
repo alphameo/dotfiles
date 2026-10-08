@@ -27,4 +27,4 @@ edit = [
 open = [{ run = "xdg-open %s1", desc = "Open" }]
 
 [mgr]
-show_hidden = true
+show_hidden = false
