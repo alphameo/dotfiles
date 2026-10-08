@@ -7,7 +7,6 @@ local map = vim.keymap.set
 local utils = require "utils"
 map("n", "\\s", utils.toggle_spell, { silent = true, desc = "Toggle Spellcheck Locally" })
 map("n", "\\w", utils.toggle_wrap, { silent = true, desc = "Toggle Wrapping Locally" })
-map("n", "\\d", utils.toggle_diagnostics, { silent = true, desc = "Toggle Diagnostics" })
 map("n", "\\l", utils.toggle_colorcolumn, { silent = true, desc = "Toggle Limit Column" })
 map("n", "\\<Tab>", utils.toggle_expandtab, { silent = true, desc = "Toggle Expandtab Locally" })
 
@@ -93,6 +92,9 @@ map("n", "<leader>fd", function()
   vim.diagnostic.setqflist()
   vim.cmd "copen"
 end, { silent = true, desc = "Find in document Diagnostics" })
+
+map("n", "\\d", require("diagnostics").toggle_virtual, { desc = "Toggle Diagnostics Virtual Lines/Text" })
+map("n", "\\D", utils.toggle_diagnostics, { silent = true, desc = "Toggle Diagnostics" })
 
 -- Formatting
 map("n", "gq", vim.lsp.formatexpr, { desc = "Formatexpr" })
