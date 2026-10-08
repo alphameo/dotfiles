@@ -18,6 +18,11 @@ hl.config {
 
 local mod = "SUPER + "
 
+hl.unbind(mod .. "l")
+hl.unbind(mod .. "h")
+hl.bind(mod .. "l", hl.dsp.layout "focus r", { description = "Focus Window Right" })
+hl.bind(mod .. "h", hl.dsp.layout "focus l", { description = "Focus Window Left" })
+
 hl.unbind(mod .. "SHIFT + l")
 hl.unbind(mod .. "SHIFT + h")
 hl.bind(mod .. "SHIFT + l", hl.dsp.layout "move +col", { description = "Goto Next Column" })
