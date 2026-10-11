@@ -286,6 +286,7 @@ local lsp_list_enable = {
   "docker_compose_language_service",
   "golangci_lint_ls",
   "gopls",
+  "harper_ls",
   "helm_ls",
   "html",
   "hyprls",

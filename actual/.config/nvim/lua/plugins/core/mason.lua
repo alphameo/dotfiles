@@ -56,6 +56,7 @@ return {
           "tinymist", -- typst
           "texlab", -- LaTeX
           "kotlin_lsp", -- kotlin
+          "harper-ls", -- grammar
           "html", -- html
           "helm-ls", -- helm (kubernetes)
           "hyprls", -- hyprlang
