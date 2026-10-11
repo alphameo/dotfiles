@@ -197,7 +197,7 @@ packages = [
 
   # DB
   "postgresql",
-  "lazysql",
+  # "lazysql",
   "rainfrog",
 
   # Go
