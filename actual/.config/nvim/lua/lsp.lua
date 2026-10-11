@@ -1,3 +1,29 @@
+---------------
+-- Functions --
+---------------
+local lsp_disabled = {}
+local toggle_lsp = function(name)
+  local bufnr = vim.api.nvim_get_current_buf()
+
+  lsp_disabled[bufnr] = lsp_disabled[bufnr] or {}
+
+  if lsp_disabled[bufnr][name] then
+    lsp_disabled[bufnr][name] = nil
+    vim.lsp.enable(name)
+    vim.notify(name .. " re-enabled")
+  else
+    lsp_disabled[bufnr][name] = true
+
+    for _, client in ipairs(vim.lsp.get_clients { bufnr = bufnr }) do
+      if client.name == name then
+        client:stop()
+      end
+    end
+
+    vim.notify(name .. " disabled")
+  end
+end
+
 -------------------
 -- Main settings --
 -------------------
@@ -16,7 +42,7 @@ M.actions = {
   formatexpr = vim.lsp.formatexpr,
 }
 
-local setup_mappings = function()
+local function setup_mappings()
   vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(args)
@@ -37,6 +63,10 @@ local setup_mappings = function()
 
       map("n", "grc", M.actions.in_calls, opts "vim.lsp.buf.incoming_calls()")
       map("n", "grC", M.actions.out_calls, opts "vim.lsp.buf.outgoing_calls()")
+
+      map("n", "grg", function()
+        toggle_lsp "harper_ls"
+      end, opts "Toggle Grammar Checks")
 
       local lsp = vim.lsp
       map("n", "\\h", function()
@@ -314,6 +344,21 @@ local lsp_list_cfg = {
   unpack(lsp_list_enable),
 }
 
+local function setup_cmds()
+  vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", {})
+
+  vim.api.nvim_create_user_command("LspToggle", function(opts)
+    local name = opts.args
+    toggle_lsp(name)
+  end, {
+    nargs = 1,
+    complete = function()
+      return lsp_list_enable
+    end,
+    desc = "Toggle an LSP server",
+  })
+end
+
 M.setup = function()
   -- vim.lsp.config("*", global_cfg)
   for _, lsp in ipairs(lsp_list_cfg) do
@@ -326,7 +371,7 @@ M.setup = function()
   setup_python()
   setup_mappings()
   -- setup_builtin_cmp()
-  vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", {})
+  setup_cmds()
 end
 
 return M
