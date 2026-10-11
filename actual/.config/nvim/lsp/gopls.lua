@@ -1,3 +1,4 @@
+-- https://go.dev/gopls/settings
 return {
   cmd = { "gopls" },
   settings = {

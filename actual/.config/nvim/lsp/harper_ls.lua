@@ -1,3 +1,4 @@
+-- https://writewithharper.com/docs/integrations/language-server#Configuration
 return {
   settings = {
     ["harper_ls"] = {
