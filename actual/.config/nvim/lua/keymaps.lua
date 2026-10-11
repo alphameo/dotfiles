@@ -164,6 +164,7 @@ vim.keymap.set("n", "<leader>e", ":Lexplore<CR>", { silent = true, desc = "File 
 map("n", "<leader>E", ":Explore<CR>", { silent = true, desc = "Explorer" })
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true }) -- disable the spacebar key's default behavior
 map("n", "<leader>nm", ":messages<CR>", { silent = true, desc = "Notifications Messages" })
+map("n", "<leader>no", "g<", { silent = true, desc = "Notifications Last Output" })
 
 map("n", "<Esc>", ":nohlsearch<CR>", { silent = true })
 
