@@ -136,4 +136,19 @@ return {
     lazy = true,
     opts = {},
   },
+  {
+    "ray-x/cmp-sql",
+    lazy = true,
+    ft = { "sql", "mysql", "plsql" },
+  },
+  {
+    "kristijanhusak/vim-dadbod-completion",
+    lazy = true,
+    ft = { "sql", "mysql", "plsql" },
+  },
+  {
+    "erooke/blink-cmp-latex",
+    lazy = true,
+    ft = { "tex", "sty" },
+  },
 }
