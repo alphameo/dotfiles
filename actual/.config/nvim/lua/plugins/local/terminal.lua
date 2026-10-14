@@ -92,11 +92,11 @@ cmd("ToggleFloatTerm", M.toggle_float_terminal, {})
 
 local map = vim.keymap.set
 map("n", "<leader>ts", M.toggle_split_terminal, { silent = true, desc = "Toggle Terminal Split" })
-map("n", "<C-`>", M.toggle_split_terminal, { silent = true, desc = "Toggle Terminal Split" })
+map("n", "<C-\\>", M.toggle_split_terminal, { silent = true, desc = "Toggle Terminal Split" })
 map("t", "<leader>ts", M.toggle_split_terminal, { silent = true, desc = "Toggle Terminal Split" })
-map("t", "<C-`>", M.toggle_split_terminal, { silent = true, desc = "Toggle Terminal Split" })
+map("t", "<C-\\>", M.toggle_split_terminal, { silent = true, desc = "Toggle Terminal Split" })
 
 map("n", "<leader>tf", M.toggle_float_terminal, { silent = true, desc = "Toggle Terminal Float" })
-map("n", "<C-S-`>", M.toggle_float_terminal, { silent = true, desc = "Toggle Terminal Float" })
+map("n", "<C-S-\\>", M.toggle_float_terminal, { silent = true, desc = "Toggle Terminal Float" })
 map("t", "<leader>tf", M.toggle_float_terminal, { silent = true, desc = "Toggle Terminal Float" })
-map("t", "<C-S-`>", M.toggle_float_terminal, { silent = true, desc = "Toggle Terminal Float" })
+map("t", "<C-S-\\>", M.toggle_float_terminal, { silent = true, desc = "Toggle Terminal Float" })

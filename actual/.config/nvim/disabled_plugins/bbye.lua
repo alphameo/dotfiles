@@ -3,6 +3,6 @@ return {
   lazy = true,
   event = "VeryLazy",
   config = function()
-    vim.keymap.set("n", "<C-S-q>", ":Bdelete<CR>", { silent = true, desc = "Close buffer" })
+    vim.keymap.set("n", "<C-q>", ":Bdelete<CR>", { silent = true, desc = "Close buffer" })
   end,
 }

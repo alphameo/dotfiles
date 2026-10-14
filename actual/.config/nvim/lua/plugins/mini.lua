@@ -258,7 +258,7 @@ end
 local setup_bufremove = function()
   local bufremove = require "mini.bufremove"
   bufremove.setup()
-  vim.keymap.set("n", "<C-S-q>", function()
+  vim.keymap.set("n", "<C-q>", function()
     bufremove.delete(0, false)
   end, { desc = "Close buffer" })
 end
@@ -325,7 +325,7 @@ local setup_statusline = function()
         }
         -- local lsp = stl.section_lsp { trunc_width = 75 }
         local filename = stl.section_filename { trunc_width = 140 }
-        local fileinfo = stl.section_fileinfo { trunc_width = 9999 }
+        local fileinfo = stl.section_fileinfo { trunc_width = 100 }
         local location = get_location()
         local search = stl.section_searchcount { trunc_width = 75 }
         if #search > 0 then
