@@ -1,27 +1,24 @@
 ---------------
 -- Functions --
 ---------------
-local lsp_disabled = {}
 local toggle_lsp = function(name)
+  if not vim.lsp.config[name] then
+    vim.notify("LSP " .. name .. " not found", vim.log.levels.ERROR)
+    return
+  end
+
   local bufnr = vim.api.nvim_get_current_buf()
 
-  lsp_disabled[bufnr] = lsp_disabled[bufnr] or {}
-
-  if lsp_disabled[bufnr][name] then
-    lsp_disabled[bufnr][name] = nil
-    vim.lsp.enable(name)
-    vim.notify(name .. " re-enabled")
-  else
-    lsp_disabled[bufnr][name] = true
-
-    for _, client in ipairs(vim.lsp.get_clients { bufnr = bufnr }) do
-      if client.name == name then
-        client:stop()
-      end
+  for _, client in ipairs(vim.lsp.get_clients { bufnr = bufnr }) do
+    if client.name == name then
+      client:stop()
+      vim.notify("LSP " .. name .. " disabled")
+      return
     end
-
-    vim.notify(name .. " disabled")
   end
+
+  vim.lsp.enable(name)
+  vim.notify("LSP " .. name .. " enabled")
 end
 
 -------------------
@@ -316,7 +313,6 @@ local lsp_list_enable = {
   "docker_compose_language_service",
   "golangci_lint_ls",
   "gopls",
-  "harper_ls",
   "helm_ls",
   "html",
   "hyprls",
@@ -347,13 +343,14 @@ local lsp_list_cfg = {
 local function setup_cmds()
   vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", {})
 
+  local cmp = { "harper_ls", unpack(lsp_list_cfg) }
   vim.api.nvim_create_user_command("LspToggle", function(opts)
     local name = opts.args
     toggle_lsp(name)
   end, {
     nargs = 1,
     complete = function()
-      return lsp_list_enable
+      return cmp
     end,
     desc = "Toggle an LSP server",
   })
