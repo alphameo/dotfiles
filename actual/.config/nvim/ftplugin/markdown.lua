@@ -1,7 +1,7 @@
 local opt = vim.opt_local
 opt.wrap = true
-opt.spell = true
-opt.conceallevel = 2
+-- opt.spell = true
+-- opt.conceallevel = 2
 
 
 local map = vim.keymap.set
