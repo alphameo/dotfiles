@@ -380,63 +380,6 @@ hl.gesture {
   action = "float",
 }
 
----------------
---- PLUGINS ---
----------------
--- hyprpm add
--- https://hypr.land/plugins/
--- On appearing any issues: `hyprpm update`
-
--- https://github.com/VirtCode/hypr-dynamic-cursors
-if hl.plugin.dynamic_cursors ~= nil then
-  hl.config {
-    plugin = {
-      dynamic_cursors = {
-        enabled = true,
-        mode = "none", -- tilt | rotate | stretch | none
-        threshold = 2, -- min angle in deg
-        rotate = {
-          length = 20, -- of simulated stick for rotation in px
-          offset = 0.0, -- clockwise
-        },
-        tilt = {
-          limit = 5000, -- speed in px/s, on which the full_tilt (60° in both directions) is reached
-          activation = "negative_quadratic", -- relationship between speed and tilt
-          -- linear | quadratic | negative_quadratic
-          window = 100, -- time window in ms, over which the speed is calculated
-        },
-        stretch = {
-          limit = 3000, -- speed in px/s, on which the full_stretch (2*orig_length) is reached
-          activation = "quadratic", -- relationship between speed and stretch
-          -- linear | quadratic | negative_quadratic
-          window = 100, -- time window in ms, over which the speed is calculated
-        },
-        shake = {
-          enabled = true,
-          threshold = 3.0,
-          base = 4.0, -- magnification level on start
-          speed = 4.0, -- magnification level on shaking
-          influence = 0.0, -- of speed
-          limit = 0.0, -- max magnification ([0.0; 1.0] - disable)
-          timeout = 2000, -- in ms stay after
-          effects = false, -- show cursor behaviour while shaking
-          ipc = false, -- ipc events
-        },
-        hyprcursor = {
-          enabled = true,
-          nearest = true, -- nearest-neghbour pixelated scaling
-          -- 0 - never | 1 - when no highres | 2 - always
-          resolution = -1, -- resolution load the magnified shapes at
-          -- (px) | -1 - [normal cursor size] * [shake:base option]
-          fallback = "clientside",
-        },
-      },
-    },
-  }
-else
-  hl.notification.create { text = "Dynamic-Cursors are unavailable", timeout = 5000 }
-end
-
 -------------------
 --- KEYMAPPINGS ---
 -------------------
@@ -657,3 +600,61 @@ hl.bind(
 )
 
 require "hyprland.layout-scrolling"
+
+---------------
+--- PLUGINS ---
+---------------
+-- hyprpm add
+-- https://hypr.land/plugins/
+-- On appearing any issues: `hyprpm update`
+
+-- https://github.com/VirtCode/hypr-dynamic-cursors
+if hl.plugin.dynamic_cursors ~= nil then
+  hl.config {
+    plugin = {
+      dynamic_cursors = {
+        enabled = true,
+        mode = "none", -- tilt | rotate | stretch | none
+        threshold = 2, -- min angle in deg
+        rotate = {
+          length = 20, -- of simulated stick for rotation in px
+          offset = 0.0, -- clockwise
+        },
+        tilt = {
+          limit = 5000, -- speed in px/s, on which the full_tilt (60° in both directions) is reached
+          activation = "negative_quadratic", -- relationship between speed and tilt
+          -- linear | quadratic | negative_quadratic
+          window = 100, -- time window in ms, over which the speed is calculated
+        },
+        stretch = {
+          limit = 3000, -- speed in px/s, on which the full_stretch (2*orig_length) is reached
+          activation = "quadratic", -- relationship between speed and stretch
+          -- linear | quadratic | negative_quadratic
+          window = 100, -- time window in ms, over which the speed is calculated
+        },
+        shake = {
+          enabled = true,
+          threshold = 3.0,
+          base = 4.0, -- magnification level on start
+          speed = 4.0, -- magnification level on shaking
+          influence = 0.0, -- of speed
+          limit = 0.0, -- max magnification ([0.0; 1.0] - disable)
+          timeout = 2000, -- in ms stay after
+          effects = false, -- show cursor behaviour while shaking
+          ipc = false, -- ipc events
+        },
+        hyprcursor = {
+          enabled = true,
+          nearest = true, -- nearest-neghbour pixelated scaling
+          -- 0 - never | 1 - when no highres | 2 - always
+          resolution = -1, -- resolution load the magnified shapes at
+          -- (px) | -1 - [normal cursor size] * [shake:base option]
+          fallback = "clientside",
+        },
+      },
+    },
+  }
+else
+  hl.notification.create { text = "Dynamic-Cursors are unavailable", timeout = 5000 }
+end
+
