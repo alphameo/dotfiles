@@ -1,6 +1,7 @@
 [arch]
 packages = [
   "hypridle",
+  "hyprpolkitagent",
   "hyprlock",
   "waybar",
   "wlogout",

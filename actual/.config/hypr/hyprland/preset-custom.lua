@@ -3,6 +3,8 @@ local wallpaper_path = "$HOME/Media/Pictures/Wallpapers/astronaut.jpg"
 hl.on("hyprland.start", function()
   hl.exec_cmd "waybar" -- Statusbar
 
+  hl.exec_cmd "systemctl --user start hyprpolkitagent" -- GUI sudo prompt
+
   -- hl.exec_cmd("wl-paste --type text --watch cliphist store") -- Stores only text data
   -- hl.exec_cmd("wl-paste --type image --watch cliphist store") -- Stores only image data
   hl.exec_cmd "copyq --start-server" -- GUI clipboard history

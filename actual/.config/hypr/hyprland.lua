@@ -44,8 +44,6 @@ hl.workspace_rule { workspace = "special:magic", monitor = "HDMI-A-1", default =
 -- https://wiki.hypr.land/Configuring/Basics/Autostart/
 
 hl.on("hyprland.start", function()
-  hl.exec_cmd "systemctl --user start hyprpolkitagent" -- GUI sudo prompt
-
   hl.exec_cmd "udiskie" -- Mounter
 
   hl.exec_cmd "hyprpm reload" -- Hypr plugin manager (run hyprpm update)

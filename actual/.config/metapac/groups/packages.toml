@@ -3,7 +3,6 @@ packages = [
   "hyprland",
   "hyprpm",
   "hyprpicker",
-  "hyprpolkitagent",
   "hyprshutdown",
   "hyprpwcenter",
   "xdg-desktop-portal-hyprland",

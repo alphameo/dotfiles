@@ -194,6 +194,7 @@ clipboard_image_action_command = "swappy -f -"
 external_ip_enabled = true
 font_family = "Roboto"
 input_borders = true
+polkit_agent = true
 popup_borders = true
 
     [shell.launcher]
