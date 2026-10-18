@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 timestamp=$(date +"%Y%m%d_%H%M%S")
-conf="$HOME/.config/manual/icons/default.theme"
+conf="$HOME/.config/manual/icons/index.theme"
 theme="/usr/share/icons/default/index.theme"
 if [ -e "$theme" ]; then
     if [ -L "$theme" ]; then

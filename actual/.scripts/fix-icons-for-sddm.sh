@@ -2,18 +2,6 @@
 
 timestamp=$(date +"%Y%m%d_%H%M%S")
 
-conf="$HOME/.config/manual/sddm/sddm.conf"
-etc_conf="/etc/sddm.conf"
-if [ -e "$etc_conf" ]; then
-    if [ -L "$etc_conf" ]; then
-        sudo rm "$etc_conf"
-    else
-        sudo mv "$etc_conf" "${etc_conf}.${timestamp}.bak"
-    fi
-fi
-sudo ln -rs "$conf" "$etc_conf"
-
-
 default_icons="/usr/share/icons/default"
 if [ -z "$XCURSOR_THEME" ]; then
     echo "XCURSOR_THEME is not set"
