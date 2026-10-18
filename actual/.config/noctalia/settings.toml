@@ -69,9 +69,6 @@ hidden_tabs = [ "weather" ]
     type = "bluetooth"
 
     [[control_center.shortcuts]]
-    type = "notification"
-
-    [[control_center.shortcuts]]
     type = "power_profile"
 
     [[control_center.shortcuts]]
@@ -79,6 +76,9 @@ hidden_tabs = [ "weather" ]
 
     [[control_center.shortcuts]]
     type = "wallpaper"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
 
 [desktop_widgets]
 enabled = false
