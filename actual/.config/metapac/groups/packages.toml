@@ -59,7 +59,7 @@ packages = [
   "noto-fonts-emoji",
   "ttf-dejavu",
   "ttf-liberation",
-  "ttf-times-new-roman",
+  "ttf-ms-fonts",
 
   "lxqt-config",
   "lxqt-admin",
