@@ -276,13 +276,13 @@ directory_light = "/home/alphameo/Media/Pictures/Wallpapers"
 transition = [ "disc", "fade", "honeycomb" ]
 
     [wallpaper.default]
-    path = "/home/alphameo/Media/Pictures/Wallpapers/dark_bg_anime/DemonSlayer_Inoske.jpg"
+    path = "/home/alphameo/Media/Pictures/Wallpapers/astronaut.jpg"
 
     [wallpaper.last]
-    path = "/home/alphameo/Media/Pictures/Wallpapers/dark_bg_anime/DemonSlayer_Inoske.jpg"
+    path = "/home/alphameo/Media/Pictures/Wallpapers/astronaut.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/alphameo/Media/Pictures/Wallpapers/dark_bg_anime/DemonSlayer_Inoske.jpg"
+    path = "/home/alphameo/Media/Pictures/Wallpapers/astronaut.jpg"
 
 [weather]
 enabled = false
