@@ -42,7 +42,7 @@ CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
-EndeavourOS = "󰣇"
+EndeavourOS = ""
 
 [username]
 show_always = true
