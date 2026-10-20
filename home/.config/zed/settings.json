@@ -1,0 +1,104 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "hover_popover_enabled": false,
+  "show_completion_documentation": true,
+  "proxy": "",
+  "zoomed_padding": true,
+  "use_system_window_tabs": false,
+  "centered_layout": {
+    "left_padding": 0.2
+  },
+  "preview_tabs": {
+    "enabled": false
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true
+  },
+  "tab_bar": {
+    "show_tab_bar_buttons": false,
+    "show_nav_history_buttons": false,
+    "show": true
+  },
+  "title_bar": {
+    "button_layout": "platform_default",
+    "show_menus": false,
+    "show_branch_status_icon": true
+  },
+  "status_bar": {
+    "show_active_file": true,
+    "pending_keystrokes_indicator": true,
+    "line_endings_button": false,
+    "cursor_position_button": true,
+    "active_language_button": true
+  },
+  "go_to_definition_fallback": "none",
+  "inlay_hints": {
+    "enabled": true
+  },
+  "completion_menu_item_kind": "symbol",
+  "show_whitespaces": "selection",
+  "ensure_final_newline_on_save": false,
+  "indent_guides": {
+    "coloring": "fixed",
+    "active_line_width": 2,
+    "line_width": 2
+  },
+  "minimap": {
+    "show": "never"
+  },
+  "gutter": {
+    "breakpoints": true,
+    "runnables": true
+  },
+  "show_signature_help_after_edits": true,
+  "auto_signature_help": true,
+  "accessible_mode": false,
+  "vim": {
+    "use_smartcase_find": true,
+    "toggle_relative_line_numbers": true
+  },
+  "which_key": {
+    "enabled": true
+  },
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "project_panel": {
+    "button": true,
+    "dock": "left"
+  },
+  "toolbar": {
+    "agent_review": false,
+    "selections_menu": false,
+    "quick_actions": false,
+    "breadcrumbs": false
+  },
+  "terminal": {
+    "button": true,
+    "font_weight": 400.0,
+    "font_size": 13.0,
+    "font_family": "JetBrainsMono Nerd Font Mono"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "vim_mode": true,
+  "ui_font_size": 15.0,
+  "buffer_font_size": 13.0,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+}
