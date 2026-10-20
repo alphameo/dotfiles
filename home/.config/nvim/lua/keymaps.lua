@@ -7,6 +7,7 @@ local map = vim.keymap.set
 local utils = require "utils"
 map("n", "\\s", utils.toggle_spell, { silent = true, desc = "Toggle Spellcheck Locally" })
 map("n", "\\w", utils.toggle_wrap, { silent = true, desc = "Toggle Wrapping Locally" })
+map("n", "\\g", utils.toggle_glyphs, { silent = true, desc = "Toggle Glyphs Visibility" })
 map("n", "\\l", utils.toggle_colorcolumn, { silent = true, desc = "Toggle Limit Column" })
 map("n", "\\<Tab>", utils.toggle_expandtab, { silent = true, desc = "Toggle Expandtab Locally" })
 
