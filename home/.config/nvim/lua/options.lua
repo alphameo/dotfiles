@@ -96,19 +96,21 @@ vim.o.splitkeep = "screen" -- Reduce scroll during window split
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-vim.opt.fillchars = { eob = " " } -- Character on emty lines at the end of buffer
+vim.opt.fillchars = { eob = "$" } -- Character on emty lines at the end of buffer
 
 vim.o.conceallevel = 0
 
 vim.opt.showbreak = "↳"
 local space = "·"
 vim.opt.listchars = {
+  space = space,
   multispace = space,
   lead = space,
   trail = space,
-  nbsp = space,
-  eol = "⏎",
-  tab = "› ",
+  nbsp = "°",
+  eol = "↵",
+  leadtab = "——→",
+  tab = "——⇥",
   extends = "…",
   precedes = "…",
 }
