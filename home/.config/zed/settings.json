@@ -7,6 +7,21 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "outline_panel": {
+    "button": false
+  },
+  "agent": {
+    "button": false,
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "debugger": {
+    "dock": "left"
+  },
+  "bottom_dock_layout": "contained",
   "hover_popover_enabled": false,
   "show_completion_documentation": true,
   "proxy": "",
