@@ -74,6 +74,8 @@ return {
         "yuck",
       }
 
+      vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
       require("nvim-treesitter").setup()
 
       require("nvim-treesitter").install(parsers)

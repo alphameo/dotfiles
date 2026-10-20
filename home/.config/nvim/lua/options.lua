@@ -86,11 +86,10 @@ vim.o.wrap = false
 vim.o.linebreak = true
 vim.o.foldenable = false
 vim.o.foldmethod = "expr"
-vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldlevel = 99 -- Start with all opened folds
 
 vim.o.scrolloff = 5
-vim.o.sidescrolloff = 5
+vim.o.sidescrolloff = 3
 
 vim.o.splitkeep = "screen" -- Reduce scroll during window split
 vim.o.splitbelow = true
