@@ -35,14 +35,8 @@ local virt_lines = {
 
 vim.diagnostic.config {
   underline = true,
-  virtual_text = {
-    current_line = false,
-    source = true,
-    spacing = 0,
-    hl_mode = "replace",
-    virt_text_pos = "eol",
-  },
-  virtual_lines = virt_lines,
+  virtual_text = virt_text,
+  virtual_lines = false,
   float = {
     source = true,
     border = "rounded",
@@ -52,25 +46,21 @@ vim.diagnostic.config {
   severity_sort = true,
 }
 
-local is_virt_line = true
-
 M.toggle_virtual = function()
-  is_virt_line = not is_virt_line
-
-  if is_virt_line then
-    virt_text.current_line = false
-    vim.diagnostic.config {
-      virtual_text = virt_text,
-      virtual_lines = virt_lines,
-    }
-    vim.notify("Diagnostics: Virtual Lines", vim.log.levels.INFO)
-  else
+  if vim.diagnostic.config().virtual_lines then
     virt_text.current_line = nil
     vim.diagnostic.config {
       virtual_text = virt_text,
       virtual_lines = false,
     }
     vim.notify("Diagnostics: Virtual Text", vim.log.levels.WARN)
+  else
+    virt_text.current_line = false
+    vim.diagnostic.config {
+      virtual_text = virt_text,
+      virtual_lines = virt_lines,
+    }
+    vim.notify("Diagnostics: Virtual Lines", vim.log.levels.INFO)
   end
 end
 
