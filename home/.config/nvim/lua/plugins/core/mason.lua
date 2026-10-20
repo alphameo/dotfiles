@@ -58,6 +58,7 @@ return {
           "kotlin_lsp", -- kotlin
           "harper-ls", -- grammar
           "html", -- html
+          "emmet-language-server", -- emmet for html
           "helm-ls", -- helm (kubernetes)
           "hyprls", -- hyprlang
           "cssls", -- css
@@ -65,7 +66,7 @@ return {
           "docker-compose-language-service", -- docker
           "dockerfile-language-server", -- docker
           "css_variables", -- css
-          "tailwindcss", -- tailwind
+          "tailwindcss-language-server", -- tailwind
           "ts_ls", -- javascript, typescript
           -- "denols", -- javascript, typescript
           -- "vtsls", -- typescript
