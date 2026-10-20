@@ -18,4 +18,16 @@
       // "j k": "vim::NormalBefore"
     },
   },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "space e": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-b": "workspace::ToggleLeftDock"
+    }
+  }
 ]
