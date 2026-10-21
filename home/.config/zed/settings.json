@@ -7,6 +7,35 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "search": {
+    "button": false
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "scrollbar": {
+    "axes": {
+      "horizontal": false
+    }
+  },
+  "sticky_scroll": {
+    "enabled": true
+  },
+  "preferred_line_length": 100,
+  "ui_font_size": 16.0,
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "markdown_preview": {
+    "open_markdown_files_in_preview": false,
+    "font_size": 14.0
+  },
+  "agent_buffer_font_size": 14.0,
+  "restore_on_startup": "empty_tab",
+  "on_new_window": "empty_tab",
+  "base_keymap": "Zed",
+  "cursor_animation": {
+    "enabled": true
+  },
+  "icon_theme": "Material Icon Theme",
   "outline_panel": {
     "button": false
   },
@@ -34,6 +63,7 @@
     "enabled": false
   },
   "tabs": {
+    "show_diagnostics": "all",
     "file_icons": true,
     "git_status": true
   },
@@ -43,6 +73,12 @@
     "show": true
   },
   "title_bar": {
+    "show_worktree_name": false,
+    "show_project_items": true,
+    "show_onboarding_banner": false,
+    "show_user_picture": false,
+    "show_sign_in": false,
+    "show_user_menu": true,
     "button_layout": "platform_default",
     "show_menus": false,
     "show_branch_status_icon": true
@@ -70,8 +106,11 @@
     "show": "never"
   },
   "gutter": {
+    "folds": false,
+    "bookmarks": false,
+    "min_line_number_digits": 3,
     "breakpoints": true,
-    "runnables": true
+    "runnables": false
   },
   "show_signature_help_after_edits": true,
   "auto_signature_help": true,
@@ -85,6 +124,7 @@
   },
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "project_panel": {
+    "diagnostic_badges": true,
     "button": true,
     "dock": "left"
   },
@@ -97,7 +137,7 @@
   "terminal": {
     "button": true,
     "font_weight": 400.0,
-    "font_size": 13.0,
+    "font_size": 14.0,
     "font_family": "JetBrainsMono Nerd Font Mono"
   },
   "telemetry": {
@@ -109,11 +149,10 @@
     "trust_all_worktrees": true
   },
   "vim_mode": true,
-  "ui_font_size": 15.0,
-  "buffer_font_size": 13.0,
+  "buffer_font_size": 14.0,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark",
+    "dark": "One Dark Pro",
   },
 }
