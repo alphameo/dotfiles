@@ -2,10 +2,12 @@ config_version = 15
 
 [bar.default]
 auto_hide = false
-background_opacity = 0.0
+background_opacity = 0.4999999888241291
 capsule = false
 capsule_radius = 8
+compositor_blur = false
 concave_edge_corners = false
+contact_shadow = false
 enabled = true
 end = [
     "media",
@@ -16,7 +18,7 @@ end = [
     "network",
     "bluetooth",
     "group:g2",
-    "brightness",
+    "group:g3",
     "group:g1",
     "session"
 ]
@@ -35,6 +37,7 @@ widget_spacing = 8
     [[bar.default.capsule_group]]
     accordion = true
     accordion_direction = "end"
+    border_width = 1.0
     enabled = true
     fill = "surface_variant"
     id = "g1"
@@ -46,11 +49,24 @@ widget_spacing = 8
     [[bar.default.capsule_group]]
     accordion = false
     accordion_direction = "end"
+    border_width = 1.0
     enabled = true
     fill = "surface_variant"
     id = "g2"
     members = [ "output_volume", "input_volume" ]
     opacity = 1.0
+    padding = 6.0
+    radius = 8.0
+
+    [[bar.default.capsule_group]]
+    accordion = true
+    accordion_direction = "start"
+    border_width = 1.0
+    enabled = true
+    fill = "surface_variant"
+    id = "g3"
+    members = [ "brightness", "nightlight" ]
+    opacity = 0.0
     padding = 6.0
     radius = 8.0
 
@@ -332,6 +348,10 @@ show_vpn_label = true
 
     [widget.network.actions]
     right = "exec ~/.scripts/network-manager"
+
+[widget.nightlight.actions]
+left = "nightlight-force-toggle"
+right = "nightlight-toggle"
 
 [widget.output_volume.actions]
 left = "volume-mute"
