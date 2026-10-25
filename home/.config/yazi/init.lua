@@ -1,7 +1,7 @@
 -- INFO: update: $ ya pkg upgrade
 
 require("full-border"):setup {
-  type = ui.Border.ROUNDED,
+  set = "rounded" -- "rounded" | "plain"
 }
 
 require("git"):setup {
