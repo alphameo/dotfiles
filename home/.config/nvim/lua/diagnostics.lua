@@ -22,7 +22,7 @@ for type, icon in pairs(M.icons) do
 end
 
 local virt_text = {
-  current_line = true,
+  current_line = nil,
   source = true,
   spacing = 0,
   hl_mode = "replace",
