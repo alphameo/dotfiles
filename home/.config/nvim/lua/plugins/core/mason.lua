@@ -48,7 +48,7 @@ return {
           -- GO
           "gopls", -- go
           "golangci-lint-langserver", -- golangci-lint
-          "delve", -- dap
+          "delve", -- da
           "gofumpt", -- fmt
           "goimports", -- fmt
           "golangci-lint", -- lint
@@ -64,7 +64,7 @@ return {
 
           -- JAVA
           "jdtls",
-          "java-debug-adapter",
+          "java-debug-adapter", -- da
           "java-test",
 
           -- -- KOTLIN
@@ -73,15 +73,15 @@ return {
           -- "ktlint", -- kotlin fmt/lint
           -- -- "detekt", -- kotlin lint
 
-          -- C#
-          "roslyn", -- ls
-          "netcoredbg", -- dap
-          -- "csharpier", -- fmt
+          -- -- C#
+          -- "roslyn", -- ls
+          -- "netcoredbg", -- da
+          -- -- "csharpier", -- fmt
 
           -- C, C++
           "clangd", -- c, cpp
-          "cpptools", -- dap (+ rust)
-          "codelldb", -- dap (+ rust + zig)
+          "cpptools", -- da (+ rust)
+          "codelldb", -- da (+ rust + zig)
           "clang-format", -- fmt
           "cpplint", -- lint
           -- RUST
@@ -100,7 +100,7 @@ return {
           -- PYTHON
           -- "pyright", -- python
           "basedpyright", -- python static checker
-          "debugpy", -- dap
+          "debugpy", -- da
           "ruff", -- fmt
           "black", -- fmt
           "mypy", -- lint
@@ -108,7 +108,7 @@ return {
           -- -- PHP
           -- "intelephense", -- ls
           -- -- "phpactor", -- ls
-          -- "php-debug-adapter", -- dap
+          -- "php-debug-adapter", -- da
           -- "php-cs-fixer", -- fmt
           -- "phpcs", -- lint
 
@@ -130,6 +130,8 @@ return {
           -- "vtsls",
           "prettierd", -- fmt
           "eslint_d", -- lint
+          "js-debug-adapter", -- da
+          "firefox-debug-adapter", -- da
 
           -- DOCKER
           "docker-compose-language-service",
@@ -183,8 +185,8 @@ return {
           "lemminx", -- xml
           -- "xmlformatter", -- xml fmt
 
-          -- QML
-          "qmlls", -- qml
+          -- -- QML
+          -- "qmlls", -- qml
 
           -- MISC
           "harper-ls", -- grammar
