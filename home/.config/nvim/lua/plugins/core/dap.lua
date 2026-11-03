@@ -23,9 +23,6 @@ return {
 
       map("n", "<F5>", dap.continue, { desc = "Debug () Continue" })
       map("n", "<leader>dc", dap.continue, { desc = "Debug () Continue" })
-      map("n", "<leader>da", function()
-        dap.continue { before = get_args }
-      end, { desc = "Debug (󱤵) Run with Args" })
 
       map("n", "<Leader>dl", dap.run_last, { desc = "Debug () Run Last" })
       map("n", "<leader>dp", dap.pause, { desc = "Debug () Pause" })
