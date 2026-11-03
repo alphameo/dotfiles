@@ -45,102 +45,150 @@ return {
     config = function()
       require("mason-tool-installer").setup {
         ensure_installed = {
-          -- LSPs
-          "lua_ls", -- lua
-          "jdtls", -- java
-          "clangd", -- c, cpp
-          "neocmake", -- cmake
+          -- GO
           "gopls", -- go
           "golangci-lint-langserver", -- golangci-lint
-          "marksman", -- markdown
-          "tinymist", -- typst
-          "texlab", -- LaTeX
-          -- "kotlin_lsp", -- kotlin
-          "harper-ls", -- grammar
-          "html", -- html
-          "emmet-language-server", -- emmet for html
-          "helm-ls", -- helm (kubernetes)
-          "docker-compose-language-service", -- docker
-          "dockerfile-language-server", -- docker
-          "cssls", -- css
-          "cssmodules_ls", -- css
-          "css_variables", -- css
-          "tailwindcss-language-server", -- tailwind
-          "ts_ls", -- javascript, typescript
-          -- "denols", -- javascript, typescript
-          -- "vtsls", -- typescript
-          -- "pyright", -- python
-          "basedpyright", -- python static checker
-          -- "intelephense", -- php
-          -- "phpactor", -- php
-          "rust_analyzer", -- rust
-          -- "bacon-ls", -- rust
-          "roslyn", -- c#
-          -- "hyprls", -- hyprlang
-          "sqlls", -- sql
-          "bashls", -- bash
-          "fish-lsp", -- fish
-          "lemminx", -- xml
-          "taplo", -- toml
-          "jsonls", -- json
-          "yamlls", -- yaml
-          "qmlls", -- qml
-          -- Debuggers
-          "java-debug-adapter",
-          "java-test",
-          "cpptools", -- c, cpp
-          "codelldb", -- c, cpp, rust
-          "netcoredbg", -- c#
-          "debugpy", -- python
-          "js-debug-adapter", -- javascript, typescript
-          "firefox-debug-adapter", -- javascript, typescript
-          "kotlin-debug-adapter", -- kotlin
-          "delve", -- go
-          -- "php-debug-adapter", -- php
-          -- Formatters & Linters
-          "prettierd", -- ts, js, ... fmt
-          "eslint_d", -- ts, js, ... lint
-          -- "jq", -- json fmt
-          "stylua", -- lua fmt
-          "luacheck", -- lua lint
-          "kdlfmt", -- kdl formatter
-          "ktlint", -- kotlin fmt/lint
-          -- "detekt", -- kotlin lint
-          "hadolint", -- docker lint
-          "clang-format", -- c, cpp fmt
-          "cpplint", -- c, cpp lint
-          "gersemi", -- cmake fmt
-          "cmakelint", -- cmake lint
-          "checkmake", -- makefile lint
-          "ruff", -- python fmt
-          "black", -- python fmt
-          "mypy", -- python lint
-          "markdownlint-cli2", -- markdown fmt/lint
-          "markdown-toc", -- markdown fmt
-          "gofumpt", -- go fmt
-          "goimports", -- go fmt
-          "golangci-lint", -- go lint
-          -- "php-cs-fixer", -- php fmt
-          -- "phpcs", -- php lint
-          -- "bacon", -- rust lint
-          -- "shfmt", -- bash, zsh, sh fmt
-          -- "stylelint", -- css lint
-          "htmlhint", -- html lint
-          "sqlfluff", -- sql fmt/lint
-          -- "csharpier", -- c# fmt
-          -- "vale", -- tex lint
-          -- "prettypst", -- typst fmt
-          "typstyle", -- typst fmt
-          "bibtex-tidy", -- tex fmt
-          -- "xmlformatter", -- xml fmt
-          -- "yamllint", -- yaml lint
-          -- "shellcheck",
-          -- "shellharden",
-          -- Tools
+          "delve", -- dap
+          "gofumpt", -- fmt
+          "goimports", -- fmt
+          "golangci-lint", -- lint
           "gomodifytags", -- for gopher.nvim
           "gotests", -- for gopher.nvim
           "iferr", -- for gopher.nvim
           "impl", -- for gopher.nvim
+
+          -- LUA
+          "lua_ls",
+          "stylua", -- fmt
+          "luacheck", -- lint
+
+          -- JAVA
+          "jdtls",
+          "java-debug-adapter",
+          "java-test",
+
+          -- -- KOTLIN
+          -- "kotlin_lsp", -- kotlin
+          -- "kotlin-debug-adapter", -- kotlin
+          -- "ktlint", -- kotlin fmt/lint
+          -- -- "detekt", -- kotlin lint
+
+          -- C#
+          "roslyn", -- ls
+          "netcoredbg", -- dap
+          -- "csharpier", -- fmt
+
+          -- C, C++
+          "clangd", -- c, cpp
+          "cpptools", -- dap (+ rust)
+          "codelldb", -- dap (+ rust + zig)
+          "clang-format", -- fmt
+          "cpplint", -- lint
+          -- RUST
+          "rust_analyzer", -- ls
+          -- "bacon-ls",
+          -- "bacon", -- lint
+
+          -- MAKEFILE
+          "checkmake", -- lint
+
+          -- CMAKE
+          "neocmake", -- cmake
+          "gersemi", -- fmt
+          "cmakelint", -- lint
+
+          -- PYTHON
+          -- "pyright", -- python
+          "basedpyright", -- python static checker
+          "debugpy", -- dap
+          "ruff", -- fmt
+          "black", -- fmt
+          "mypy", -- lint
+
+          -- -- PHP
+          -- "intelephense", -- ls
+          -- -- "phpactor", -- ls
+          -- "php-debug-adapter", -- dap
+          -- "php-cs-fixer", -- fmt
+          -- "phpcs", -- lint
+
+          -- HTML
+          "html", -- ls
+          "emmet-language-server", -- emmet for html
+          "htmlhint", -- lint
+
+          -- CSS
+          "cssls", -- css
+          "cssmodules_ls", -- ls
+          "css_variables", -- ls
+          "tailwindcss-language-server", -- tailwind-css
+          -- "stylelint", -- lint
+
+          -- JAVASCRIPT, TYPESCRIPT
+          "ts_ls",
+          -- "denols",
+          -- "vtsls",
+          "prettierd", -- fmt
+          "eslint_d", -- lint
+
+          -- DOCKER
+          "docker-compose-language-service",
+          "dockerfile-language-server",
+          "hadolint", -- lint
+
+          -- KUBERNETES
+          "helm-ls", -- helm (kubernetes)
+
+          -- SQL
+          "sqlls",
+          "sqlfluff", -- fmt/lint
+
+          -- MARKDOWN
+          "marksman", -- markdown
+          "markdownlint-cli2", -- fmt/lint
+          "markdown-toc", -- fmt
+
+          -- TYPST
+          "tinymist", -- ls
+          -- "prettypst", -- fmt
+          "typstyle", -- fmt
+
+          -- LaTeX
+          "texlab", -- LaTeX
+          -- "vale", -- lint
+          "bibtex-tidy", -- fmt
+
+          -- SHELLS
+          "bashls",
+          "fish-lsp",
+          -- "shfmt", -- bash, zsh, sh fmt
+          -- "shellcheck", -- bash lint
+          -- "shellharden", -- bash fmt/lint
+
+          -- JSON
+          "jsonls", -- json
+          -- "jq", -- json fmt
+
+          --YAML
+          "yamlls", -- yaml
+          -- "yamllint", -- yaml lint
+
+          -- TOML
+          "taplo", -- toml
+
+          -- KDL
+          "kdlfmt", -- kdl formatter
+
+          -- XML
+          "lemminx", -- xml
+          -- "xmlformatter", -- xml fmt
+
+          -- QML
+          "qmlls", -- qml
+
+          -- MISC
+          "harper-ls", -- grammar
+          -- "hyprls", -- hyprlang
         },
       }
     end,
