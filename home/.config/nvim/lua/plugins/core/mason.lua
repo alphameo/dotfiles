@@ -49,22 +49,21 @@ return {
           "lua_ls", -- lua
           "jdtls", -- java
           "clangd", -- c, cpp
-          "golangci-lint-langserver", -- golangci-lint
-          "gopls", -- go
           "neocmake", -- cmake
+          "gopls", -- go
+          "golangci-lint-langserver", -- golangci-lint
           "marksman", -- markdown
           "tinymist", -- typst
           "texlab", -- LaTeX
-          "kotlin_lsp", -- kotlin
+          -- "kotlin_lsp", -- kotlin
           "harper-ls", -- grammar
           "html", -- html
           "emmet-language-server", -- emmet for html
           "helm-ls", -- helm (kubernetes)
-          "hyprls", -- hyprlang
-          "cssls", -- css
-          "cssmodules_ls", -- css
           "docker-compose-language-service", -- docker
           "dockerfile-language-server", -- docker
+          "cssls", -- css
+          "cssmodules_ls", -- css
           "css_variables", -- css
           "tailwindcss-language-server", -- tailwind
           "ts_ls", -- javascript, typescript
@@ -72,18 +71,20 @@ return {
           -- "vtsls", -- typescript
           -- "pyright", -- python
           "basedpyright", -- python static checker
+          -- "intelephense", -- php
+          -- "phpactor", -- php
+          "rust_analyzer", -- rust
+          -- "bacon-ls", -- rust
+          "roslyn", -- c#
+          -- "hyprls", -- hyprlang
+          "sqlls", -- sql
+          "bashls", -- bash
+          "fish-lsp", -- fish
           "lemminx", -- xml
           "taplo", -- toml
           "jsonls", -- json
           "yamlls", -- yaml
-          "sqlls", -- sql
-          "bashls", -- bash
-          "fish-lsp", -- fish
-          "intelephense", -- php
-          "phpactor", -- php
-          "rust_analyzer", -- rust
-          -- "bacon-ls", -- rust
-          "roslyn", -- c#
+          "qmlls", -- qml
           -- Debuggers
           "java-debug-adapter",
           "java-test",
@@ -95,7 +96,7 @@ return {
           "firefox-debug-adapter", -- javascript, typescript
           "kotlin-debug-adapter", -- kotlin
           "delve", -- go
-          "php-debug-adapter", -- php
+          -- "php-debug-adapter", -- php
           -- Formatters & Linters
           "prettierd", -- ts, js, ... fmt
           "eslint_d", -- ts, js, ... lint
@@ -107,7 +108,6 @@ return {
           -- "detekt", -- kotlin lint
           "hadolint", -- docker lint
           "clang-format", -- c, cpp fmt
-          "qmlls", -- qml
           "cpplint", -- c, cpp lint
           "gersemi", -- cmake fmt
           "cmakelint", -- cmake lint
@@ -120,8 +120,8 @@ return {
           "gofumpt", -- go fmt
           "goimports", -- go fmt
           "golangci-lint", -- go lint
-          "php-cs-fixer", -- php fmt
-          "phpcs", -- php lint
+          -- "php-cs-fixer", -- php fmt
+          -- "phpcs", -- php lint
           -- "bacon", -- rust lint
           -- "shfmt", -- bash, zsh, sh fmt
           -- "stylelint", -- css lint
