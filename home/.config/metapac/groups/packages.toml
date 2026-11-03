@@ -49,6 +49,7 @@ packages = [
   "adwaita-icon-theme",
   "sddm-conf",
   "catppuccin-sddm-theme-mocha",
+  "ventoy-bin",
 
   "ttf-jetbrains-mono-nerd",
   "ttf-roboto",
@@ -90,6 +91,7 @@ packages = [
   "man",
   "tldr",
   "tree",
+  "tmux",
 
   "fastfetch",
 
@@ -207,6 +209,7 @@ packages = [
   # Python
   "python",
   "uv",
+  "python-pip",
   "python-pipx",
   "quarto-cli-bin",
   "jupyter-notebook",
