@@ -1,4 +1,4 @@
-config_version = 15
+config_version = 16
 
 [bar.default]
 auto_hide = false
@@ -39,7 +39,7 @@ widget_spacing = 8
     accordion_direction = "end"
     border_width = 1.0
     enabled = true
-    fill = "surface_variant"
+    fill = "surface_container"
     id = "g1"
     members = [ "battery", "power_profile", "caffeine" ]
     opacity = 1.0
@@ -51,7 +51,7 @@ widget_spacing = 8
     accordion_direction = "end"
     border_width = 1.0
     enabled = true
-    fill = "surface_variant"
+    fill = "surface_container"
     id = "g2"
     members = [ "output_volume", "input_volume" ]
     opacity = 1.0
@@ -63,7 +63,7 @@ widget_spacing = 8
     accordion_direction = "start"
     border_width = 1.0
     enabled = true
-    fill = "surface_variant"
+    fill = "surface_container"
     id = "g3"
     members = [ "brightness", "nightlight" ]
     opacity = 0.0
@@ -156,7 +156,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = true
@@ -366,6 +366,6 @@ color = "error"
 [widget.workspaces]
 active_pill_size = 1.0
 capsule = true
-empty_color = "surface_variant"
+empty_color = "surface_container"
 hide_when_empty = true
-occupied_color = "surface_variant"
+occupied_color = "surface_container"
