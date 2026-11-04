@@ -44,14 +44,14 @@ rev = "596b666"
 hash = "c2f4f4aca257dcceafa9e3b828dbf1c9"
 
 [[plugin.deps]]
-use = "dedukun/bookmarks"
-rev = "9ef1254"
-hash = "92fbb5483657fa7976cdf4e0104e18e0"
-
-[[plugin.deps]]
 use = "XYenon/clipboard"
 rev = "4b4b6c5"
 hash = "cdcc9c84c9757d585af78c87b012f38b"
+
+[[plugin.deps]]
+use = "h-hg/yamb"
+rev = "971b858"
+hash = "da4534745930e827a44d4585bbd965eb"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"

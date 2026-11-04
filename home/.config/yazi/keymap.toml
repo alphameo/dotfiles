@@ -5,8 +5,8 @@
 [mgr]
 
 prepend_keymap = [
-	{ on = "<C-`>", for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
-	{ on = "<C-`>", for = "windows", run = 'shell "powershell.exe" --block', desc = "Open PowerShell here" },
+	{ on = "<C-\\>", for = "unix", run = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
+	{ on = "<C-\\>", for = "windows", run = 'shell "powershell.exe" --block', desc = "Open PowerShell here" },
 
 	{ on = "<C-n>", for = "unix", run ="shell -- dragon-drop --icon-only --and-exit -on-top %h", desc = "Extract File for Drag&Drop" },
 
@@ -113,9 +113,6 @@ prepend_keymap = [
 	{ on = "_", run = "noop" },
 	{ on = "<C-->", run = "noop" },
 
-	{ on = [ "g", "h" ], run = "cd ~", desc = "Go home" },
-	{ on = [ "g", "c" ], run = "cd ~/.config", desc = "Go ~/.config" },
-	{ on = [ "g", "d" ], run = "cd ~/Downloads", desc = "Go ~/Downloads" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
 	{ on = [ "g", "s" ], run = "follow", desc = "Go to hovered symlink" },
 	{ on = [ "g", "f" ], run = "noop" },
@@ -156,9 +153,13 @@ prepend_keymap = [
 	{ on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device --automount", desc = "Automount then select device to jump to its mount point" },
 	{ on = [ "M", "b" ], run = "plugin gvfs -- jump-back-prev-cwd", desc = "Jump back to the position before jumped to device" },
 
-	{ on = [ "m" ], run = "plugin bookmarks save", desc = "Save current position as a bookmark" },
-	{ on = [ "`" ], run = "plugin bookmarks jump", desc = "Jump to a bookmark" },
-	{ on = [ "~" ], run = "plugin bookmarks delete", desc = "Delete a bookmark" },
+	{ on = [ "m" ], run = "plugin yamb -- save", desc = "Save current position as a bookmark" },
+	{ on = [ "`" ], run = "plugin yamb -- jump_by_key", desc = "Jump to a bookmark" },
+	{ on = [ "<C-`>", "f" ], run = "plugin yamb -- jump_by_fzf", desc = "Jump to a bookmark by fzf" },
+	{ on = [ "<C-`>", "d" ], run = "plugin yamb -- delete_by_key", desc = "Delete a bookmark" },
+	{ on = [ "<C-`>", "D" ], run = "plugin yamb -- delete_by_fzf", desc = "Delete a bookmark by fzf" },
+	{ on = [ "<C-`>", "r" ], run = "plugin yamb -- rename_by_key", desc = "Rename a bookmark" },
+	{ on = [ "<C-`>", "R" ], run = "plugin yamb -- rename_by_fzf", desc = "Rename a bookmark by fzf" },
 
 	# TODO: custom name with "my-" because symlink. Rewrite when issue disappear
 	# https://github.com/sxyazi/yazi/discussions/4280
