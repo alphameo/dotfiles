@@ -9,7 +9,7 @@ return {
     event = { "InsertEnter", "CmdlineEnter" },
     opts = {
       keymap = {
-        preset = "default",
+        preset = "none",
         ["<C-space>"] = { "show", "hide", "fallback" },
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-j>"] = { "select_next", "fallback" },
@@ -95,10 +95,7 @@ return {
       cmdline = {
         enabled = true,
         keymap = {
-          ["<C-Space>"] = { "show", "hide", "fallback" },
-          ["<Tab>"] = { "accept", "fallback" },
-          ["<C-k>"] = { "select_prev", "fallback" },
-          ["<C-j>"] = { "select_next", "fallback" },
+          preset = "inherit",
         },
         completion = {
           menu = { auto_show = true },
