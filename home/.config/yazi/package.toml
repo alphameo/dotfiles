@@ -29,11 +29,6 @@ rev = "fe48a02"
 hash = "edd449b02a169bd8fee052be96a31823"
 
 [[plugin.deps]]
-use = "boydaihungst/gvfs"
-rev = "c92953c"
-hash = "d1e8d33ed36d339d5588f036dc3a9204"
-
-[[plugin.deps]]
 use = "Rolv-Apneseth/starship"
 rev = "ea92cf4"
 hash = "9776f378459072b6c2875eae5addc49d"
