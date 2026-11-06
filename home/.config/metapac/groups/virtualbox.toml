@@ -1,8 +1,7 @@
 [arch]
 packages = [
-  "virtualbox-host-modules-arch",
-  "linux-headers",
   "virtualbox",
+  "linux-headers",
   "virtualbox-guest-iso",
   "virtualbox-ext-oracle",
 ]

@@ -1,10 +1,16 @@
 [arch]
+# sudo systemctl enable --now virtqemud.socket virtnetworkd.socket virtstoraged.socket virtnodedevd.socket
 packages = [
-  "qemu-arch-extra",
   "qemu-full",
   "virt-manager",
-  "dnsmasq",
-  "bridge-utils",
-  "openbsd-netcat",
+  "libvirt",
   "iptables-nft",
+  "dnsmasq",
+  "edk2-ovmf",
+  "swtpm",
+  # "virt-viewer",
+  # "spice-gtk",
+  # "spice-protocol",
+  # "passt",
+  # "virtiofsd",
 ]
