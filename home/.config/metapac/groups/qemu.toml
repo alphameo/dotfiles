@@ -8,9 +8,9 @@ packages = [
   "dnsmasq",
   "edk2-ovmf",
   "swtpm",
-  # "virt-viewer",
-  # "spice-gtk",
-  # "spice-protocol",
+  "virt-viewer",
+  "spice-gtk",
+  "spice-protocol",
+  "virtiofsd",
   # "passt",
-  # "virtiofsd",
 ]
