@@ -12,6 +12,7 @@ return {
           -- vim.api.nvim_get_runtime_file('', true),
         },
       },
+      completion = { callSnippet = "Disable" },
       format = { enable = false },
       hint = { enable = true },
     },

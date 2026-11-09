@@ -127,7 +127,7 @@ local custom_capabilities = {
   textDocument = {
     completion = {
       completionItem = {
-        snippetSupport = true, -- autofill func placeholders
+        snippetSupport = false, -- autofill func placeholders
         labelDetailSupport = false, -- disable params in cmp window
       },
     },
