@@ -7,6 +7,7 @@ return {
     "--completion-style=detailed",
     "--all-scopes-completion",
     "--fallback-style=llvm",
+    "--function-arg-placeholders=0",
   },
   settings = {
     clangd = {
