@@ -1,0 +1,27 @@
+/* Keep these elements from being split across a page break */
+table,
+.cell,
+.cell-output,
+figure,
+pre,
+.table {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+/* Optional: avoid orphaned headings right before a break */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
+/* pagebreak: <div class="pagebreak"></div> */
+.pagebreak {
+    break-after: page;
+    page-break-after: always;
+}
