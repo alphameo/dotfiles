@@ -64,6 +64,13 @@ return {
 
           -- JAVA
           "jdtls",
+          -- FIX: if endless lombok installation:
+          --     1. Check `https://mvnrepository.com/artifact/org.projectlombok/lombok`
+          --     2. Copy link for latest version
+          --     3. Open :echo stdpath('data') .. '/mason/registries/github/mason-org/mason-registry/registry.json'
+          --     4. Find `lombok.jar`
+          --     5. Start downloading/updating via Mason
+          --     6. Replace value with copied link
           "java-debug-adapter", -- da
           "java-test",
 
