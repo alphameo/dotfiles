@@ -269,10 +269,10 @@ return {
           local opts = function(desc)
             return { buffer = true, silent = true, desc = desc }
           end
-          map("n", "<leader>lm", ":MoltenInit<CR>", opts "Molten Initialize")
-          map("n", "<leader>lM", ":MoltenDeinit<CR>", opts "Molten Stop")
-          map("n", "<leader>lr", ":MoltenRestart<CR>", opts "Molten Restart")
-          map("n", "<leader>lR", ":MoltenRestart!<CR>", opts "Molten Restart & Delete Cells")
+          -- map("n", "<leader>lm", ":MoltenInit<CR>", opts "Molten Initialize")
+          -- map("n", "<leader>lM", ":MoltenDeinit<CR>", opts "Molten Stop")
+          -- map("n", "<leader>lr", ":MoltenRestart<CR>", opts "Molten Restart")
+          -- map("n", "<leader>lR", ":MoltenRestart!<CR>", opts "Molten Restart & Delete Cells")
           -- map("n", "<leader>lO", ":MoltenEvaluateOperator<CR>", opts "Molten Operator Selection")
           -- map("n", "<leader>ll", ":MoltenEvaluateLine<CR>", opts "Molten Evaluate Line")
           map("n", "<leader>lC", ":MoltenReevaluateCell<CR>", opts "Molten Re-evaluate Cell")
