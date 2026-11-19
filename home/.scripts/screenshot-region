@@ -1,9 +1,1 @@
-#!/bin/bash
-
-# flameshot gui
-
-grim -g "$(slurp)" - | swappy -f -
-
-# grim -g "$(slurp)" - | satty -f -
-
-# grim -g "$(slurp)" - | ksnip -
+noctalia/screenshot-region

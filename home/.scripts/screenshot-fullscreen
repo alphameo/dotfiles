@@ -1,7 +1,1 @@
-#!/bin/bash
-
-grim - | swappy -f -
-
-# grim - | satty -f -
-
-# grim - | ksinp -f -
+noctalia/screenshot-fullscreen
