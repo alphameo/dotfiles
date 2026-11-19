@@ -243,7 +243,9 @@ screen_time_colorize_icons = false
 
     [shell.screenshot]
     annotate = true
+    append_mode_suffix = false
     copy_to_clipboard = false
+    directory = "$HOME/Media/Pictures/Screenshots/Laptop"
     filename_pattern = "%Y-%m-%d_%H%M%S"
     pipe_to_command = false
     save_to_file = false
