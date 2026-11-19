@@ -242,9 +242,9 @@ screen_time_colorize_icons = false
     wallpaper_position = "center"
 
     [shell.screenshot]
+    annotate = true
     copy_to_clipboard = false
-    pipe_command = "swappy -f -"
-    pipe_to_command = true
+    pipe_to_command = false
     save_to_file = false
 
     [[shell.session.actions]]
