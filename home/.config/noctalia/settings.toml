@@ -1,4 +1,7 @@
-config_version = 16
+config_version = 20
+
+[audio]
+colorize_icons = false
 
 [bar.default]
 auto_hide = false
@@ -108,6 +111,9 @@ widget_order = []
 
     [desktop_widgets.widget]
 
+[dock]
+colorize_icons = false
+
 [idle]
 behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
 
@@ -187,6 +193,9 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         center_text = true
         clock_style = "digital"
 
+[notification]
+colorize_icons = false
+
 [osd]
 background_opacity = 0.99999997764825821
 border = true
@@ -202,7 +211,6 @@ orientation = "horizontal"
 enabled = [ "liamwh/emoji-picker", "kenn/keybind-cheatsheet" ]
 
 [shell]
-app_icon_colorize = false
 button_borders = true
 card_borders = true
 clipboard_auto_paste = "off"
@@ -211,11 +219,14 @@ external_ip_enabled = true
 font_family = "Roboto"
 input_borders = true
 polkit_agent = true
+polkit_colorize_icons = false
 popup_borders = true
+screen_time_colorize_icons = false
 
     [shell.launcher]
     app_grid = false
     categories = false
+    colorize_icons = false
     compact = false
     fetch_exchange_rates = false
     layout = "simple"
@@ -279,6 +290,9 @@ popup_borders = true
     [shell.shadow]
     alpha = 0.54999998770654202
 
+    [shell.window_switcher]
+    colorize_icons = false
+
 [theme]
 builtin = "Catppuccin"
 community_palette = "One Dark Two"
@@ -308,6 +322,9 @@ transition = [ "disc", "fade", "honeycomb" ]
 
 [weather]
 enabled = false
+
+[widget.active_window]
+colorize_icons = false
 
 [widget.battery]
 capsule = true
@@ -369,9 +386,16 @@ scroll_up = "volume-down"
 capsule = true
 color = "error"
 
+[widget.taskbar]
+colorize_icons = false
+
+[widget.tray]
+colorize_icons = false
+
 [widget.workspaces]
 active_pill_size = 1.0
 capsule = true
+colorize_icons = false
 empty_color = "surface_container"
 hide_when_empty = true
 occupied_color = "surface_container"
