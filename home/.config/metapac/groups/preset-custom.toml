@@ -22,4 +22,10 @@ packages = [
 
   # "cliphist",
   "copyq",
+
+  # "flameshot",
+  # "hyprshot",
+  "grim",
+  "slurp",
+  "swappy",
 ]

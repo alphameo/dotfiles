@@ -17,12 +17,6 @@ packages = [
   "ntfs-3g",
   "dosfstools", # ms-dos file-system formatting
 
-  # "flameshot",
-  # "hyprshot",
-  "grim",
-  "slurp",
-  "swappy",
-
   "acpi", # battery
 
   "brightnessctl",
@@ -114,6 +108,8 @@ packages = [
   "imagemagick",       # image.nvim
   "libtexprintf",      # render-markdown.nvim
   "python-pylatexenc", # render-markdown.nvim
+
+  "zed",
 
   "opencode",
 
