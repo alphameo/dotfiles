@@ -244,6 +244,7 @@ screen_time_colorize_icons = false
     [shell.screenshot]
     annotate = true
     copy_to_clipboard = false
+    filename_pattern = "%Y-%m-%d_%H%M%S"
     pipe_to_command = false
     save_to_file = false
 
