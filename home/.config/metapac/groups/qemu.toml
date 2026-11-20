@@ -1,5 +1,19 @@
 [arch]
+# # Quick Start: https://linuxvox.com/blog/install-qemu-on-arch-linux
+# # 1. Enable and start the libvirt daemon socket
 # sudo systemctl enable --now virtqemud.socket virtnetworkd.socket virtstoraged.socket virtnodedevd.socket
+# sudo systemctl enable --now libvirtd
+#
+# # 2. Add your user to the required virtualization groups
+# sudo usermod -aG libvirt,kvm "$USER"
+#
+# # 3. Start and enable the default NAT network
+# sudo virsh net-start default
+# sudo virsh net-autostart default
+#
+# # 4(opt). If VM is Windows: https://www.debugpoint.com/kvm-share-folder-windows-guest/
+# install WinFSP and virtio-win-guest-tools on VM
+
 packages = [
   "qemu-full",
   "virt-manager",
