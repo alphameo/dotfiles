@@ -110,7 +110,7 @@ local set_indent = function(opts)
 
   print("local_indent=" .. width)
 end
-cmd("Indent", set_indent, { nargs = 1 })
+cmd("Indent", set_indent, { nargs = 1, desc = "Set Indent Width" })
 
 local refresh_diagnostics = function()
   for _, client in ipairs(vim.lsp.get_clients()) do
