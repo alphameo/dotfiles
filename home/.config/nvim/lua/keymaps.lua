@@ -10,6 +10,8 @@ map("n", "\\w", utils.toggle_wrap, { silent = true, desc = "Toggle Wrapping Loca
 map("n", "\\g", utils.toggle_glyphs, { silent = true, desc = "Toggle Glyphs Visibility" })
 map("n", "\\l", utils.toggle_colorcolumn, { silent = true, desc = "Toggle Limit Column" })
 map("n", "\\<Tab>", utils.toggle_expandtab, { silent = true, desc = "Toggle Expandtab Locally" })
+map("n", "\\x", utils.toggle_cursorcolumn, { silent = true, desc = "Toggle Cursor Column" })
+map("n", "\\y", utils.toggle_cursorline, { silent = true, desc = "Toggle Cursor Line" })
 
 -- Escape Insert
 map("i", "jj", "<ESC>", { desc = "Exit INSERT MODE" })
