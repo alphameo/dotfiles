@@ -146,9 +146,6 @@ end, { desc = "Accept Completion" })
 map("n", "<leader>nm", ":messages<CR>", { silent = true, desc = "Notifications Messages" })
 map("n", "<leader>no", "g<", { silent = true, desc = "Notifications Last Output" })
 
--- Vim Pack
-map({ "n" }, "<leader>pu", vim.pack.update, { silent = true, desc = "vim.pack.update" })
-
 -- Keymap List
 vim.keymap.set("n", "<leader>.K", function()
   local keymaps = vim.api.nvim_exec2("map", { output = true }).output

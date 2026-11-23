@@ -54,6 +54,4 @@ require("lazy").setup {
   },
 }
 
-vim.keymap.set({ "n" }, "<leader>pp", ":Lazy<CR>", { silent = true, desc = "Plugins" })
-
 require "pack"
