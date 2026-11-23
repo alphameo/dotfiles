@@ -91,13 +91,6 @@ vim.api.nvim_create_autocmd("FileType", {
 --------------
 local utils = require "utils"
 
-cmd("CursorLine", utils.toggle_cursorline, { desc = "Toggle Location Line" })
-cmd("CursorCol", utils.toggle_cursorcolumn, { desc = "Toggle Location Column" })
-cmd("RelNum", utils.toggle_relativenumber, { desc = "Toggle Relative Numbers" })
-cmd("Glyphs", utils.toggle_glyphs, { desc = "Toggle Glyphs" })
-cmd("Wrap", utils.toggle_wrap, { desc = "Toggle Wrapping Locally" })
-cmd("ColColumn", utils.toggle_colorcolumn, { desc = "Toggle Colorcolumn" })
-cmd("Spell", utils.toggle_spell, { desc = "Toggle Spellcheck Locally" })
 cmd("Diagnostics", utils.toggle_diagnostics, { desc = "Toggle Diagnostics" })
 cmd("Expandtab", utils.toggle_expandtab, { desc = "Toggle Expandtab Locally" })
 
