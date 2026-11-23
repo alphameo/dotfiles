@@ -20,6 +20,7 @@ return {
         },
       },
     }
+    img.disable()
 
     local toggle_img = function()
       if img.is_enabled() then
@@ -30,7 +31,6 @@ return {
         vim.notify("Images enabled", vim.log.levels.INFO)
       end
     end
-    -- img.disable()
     vim.keymap.set("n", "\\i", toggle_img, { desc = "Toggle Image Previews" })
   end,
 }
