@@ -90,30 +90,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Togglers --
 --------------
 local utils = require "utils"
+cmd("Indent", utils.set_indent, { nargs = 1, desc = "Set Indent Width" })
 
-cmd("Diagnostics", utils.toggle_diagnostics, { desc = "Toggle Diagnostics" })
-cmd("Expandtab", utils.toggle_expandtab, { desc = "Toggle Expandtab Locally" })
-
-local set_indent = function(opts)
-  local width = tonumber(opts.args)
-  vim.bo.expandtab = true
-  vim.bo.tabstop = width
-  vim.bo.softtabstop = width
-  vim.bo.shiftwidth = width
-
-  print("local_indent=" .. width)
-end
-cmd("Indent", set_indent, { nargs = 1, desc = "Set Indent Width" })
-
-local refresh_diagnostics = function()
-  for _, client in ipairs(vim.lsp.get_clients()) do
-    if client:supports_method "workspace/diagnostic" then
-      vim.lsp.buf.workspace_diagnostics { client_id = client.id }
-    else
-      vim.diagnostic.reset(nil, 0)
-      vim.cmd "checktime"
-    end
-  end
-  vim.notify("Diagnostics refreshed", vim.log.levels.INFO)
-end
-cmd("DiagnosticsRefresh", refresh_diagnostics, { desc = "Refresh Diagnostics" })
+local diagnostics = require "diagnostics"
+cmd("DiagnosticsRefresh", diagnostics.refresh, { desc = "Refresh Diagnostics" })
