@@ -86,9 +86,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 ------------------USERCMDS------------------
---------------
--- Togglers --
---------------
 local utils = require "utils"
 cmd("Indent", utils.set_indent, { nargs = 1, desc = "Set Indent Width" })
 
