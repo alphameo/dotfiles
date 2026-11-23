@@ -1,5 +1,8 @@
 local M = {}
 
+----------------
+-- Completion --
+----------------
 M.show_cmp = function()
   local clients = vim.lsp.get_clients { bufnr = 0 }
 
@@ -11,6 +14,9 @@ M.show_cmp = function()
   end
 end
 
+--------------
+-- Togglers --
+--------------
 M.toggle_colorcolumn = function()
   if vim.o.colorcolumn ~= "" then
     vim.o.colorcolumn = ""
@@ -56,6 +62,10 @@ end
 M.toggle_expandtab = function()
   vim.cmd "setlocal expandtab! expandtab?"
 end
+
+----------
+-- Misc --
+----------
 
 M.show_text_popup = function(text, opts)
   local bufnr = vim.api.nvim_create_buf(false, true)
