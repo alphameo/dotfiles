@@ -1,4 +1,7 @@
 local map = vim.keymap.set
+local cmd = vim.api.nvim_create_user_command
+
+cmd("PackUpdate", vim.pack.update, { desc = "vim.pack.update" })
 
 vim.cmd.packadd "nvim.undotree"
 map({ "n" }, "<leader>u", ":Undotree<CR>", { silent = true, desc = "Undotree" })
