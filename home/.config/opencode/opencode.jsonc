@@ -112,6 +112,11 @@
     { "action": "tool.use", "resource": "read:*/.aws/*", "effect": "deny" },
     { "action": "tool.use", "resource": "read:*/.kube/*", "effect": "deny" },
 
+    // Tools with dedicated permission-aware alternatives
+    { "action": "tool.use", "resource": "shell:rg *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:fd *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:jq *", "effect": "deny" },
+
     // Destructive and privileged shell commands
     { "action": "tool.use", "resource": "shell:sudo *", "effect": "deny" },
     { "action": "tool.use", "resource": "shell:doas *", "effect": "deny" },
