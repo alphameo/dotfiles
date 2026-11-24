@@ -53,4 +53,12 @@
     { "action": "shell", "resource": "go test *", "effect": "allow" },
     { "action": "shell", "resource": "gofmt *", "effect": "allow" },
   ],
+  "mcp": {
+    "servers": {
+      "context7": {
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp"
+      }
+    }
+  },
 }
