@@ -4,6 +4,25 @@
   "default_agent": "plan",
   "update": "notify",
   "formatter": false,
+  "agents": {
+    "plan": {
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "deny" },
+        { "action": "edit", "resource": "/home/alphameo/.opencode/plan/*", "effect": "allow" }
+      ]
+    },
+    "explore": {
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "*", "effect": "deny" }
+      ]
+    },
+    "general": {
+      "permissions": [
+        { "action": "subagent", "resource": "*", "effect": "deny" }
+      ]
+    }
+  },
   "watcher": {
     "ignore": [
       // Dependencies and build output
