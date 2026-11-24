@@ -135,15 +135,6 @@
     { "action": "tool.use", "resource": "shell:git push * +*", "effect": "deny" },
     { "action": "tool.use", "resource": "shell:git reset --hard*", "effect": "deny" }
   ],
-  "agents": {
-    "build": {
-      "mode": "primary",
-      "description": "Primary software engineering agent.",
-      "permissions": [
-        { "action": "edit", "resource": "*", "effect": "allow" },
-      ]
-    }
-  },
   "mcp": {
     "servers": {
       "context7": { "type": "remote", "url": "https://mcp.context7.com/mcp" }
