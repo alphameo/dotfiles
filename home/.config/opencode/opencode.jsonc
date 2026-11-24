@@ -3,62 +3,145 @@
   "model": "opencode/big-pickle",
   "default_agent": "plan",
   "update": "notify",
-  "instructions": ["CONTRIBUTING.md", "docs/guidelines/*.md"],
+  "formatter": false,
+  "watcher": {
+    "ignore": [
+      // Dependencies and build output
+      "node_modules/**",
+      "**/node_modules/**",
+      "vendor/**",
+      "**/vendor/**",
+      "dist/**",
+      "**/dist/**",
+      "build/**",
+      "**/build/**",
+      "coverage/**",
+      "**/coverage/**",
+      ".next/**",
+      "**/.next/**",
+      "tmp/**",
+      "**/tmp/**",
+      // VCS, caches and virtual environments
+      ".git/**",
+      "**/.git/**",
+      "__pycache__/**",
+      "**/__pycache__/**",
+      ".venv/**",
+      "**/.venv/**"
+    ]
+  },
   "permissions": [
-    { "action": "*", "resource": "*", "effect": "allow" },
+    { "action": "*", "resource": "*", "effect": "ask" },
 
-    { "action": "read", "resource": "*.env", "effect": "deny" },
-    { "action": "read", "resource": "*.env.*", "effect": "deny" },
-    { "action": "read", "resource": "*.env.example", "effect": "allow" },
-    { "action": "read", "resource": "*.pem", "effect": "deny" },
-    { "action": "read", "resource": "~/.ssh/*", "effect": "deny" },
-    { "action": "read", "resource": "~/.aws/*", "effect": "deny" },
-
+    { "action": "question", "resource": "*", "effect": "allow" },
+    { "action": "execute", "resource": "*", "effect": "allow" },
+    { "action": "read", "resource": "*", "effect": "allow" },
+    { "action": "glob", "resource": "*", "effect": "allow" },
+    { "action": "grep", "resource": "*", "effect": "allow" },
+    { "action": "skill", "resource": "*", "effect": "allow" },
+    { "action": "subagent", "resource": "*", "effect": "allow" },
+    { "action": "websearch", "resource": "*", "effect": "allow" },
+    { "action": "webfetch", "resource": "*", "effect": "allow" },
+    { "action": "context7_query_docs", "resource": "*", "effect": "allow" },
+    { "action": "context7_resolve_library_id", "resource": "*", "effect": "allow" },
     { "action": "external_directory", "resource": "*", "effect": "ask" },
-
-    { "action": "webfetch", "resource": "*", "effect": "ask" },
-
-    { "action": "edit", "resource": "*", "effect": "allow" },
-    { "action": "edit", "resource": "*", "effect": "allow" },
 
     { "action": "shell", "resource": "*", "effect": "ask" },
 
-    { "action": "shell", "resource": "rm -rf *", "effect": "deny" },
-    { "action": "shell", "resource": "sudo *", "effect": "deny" },
-
     { "action": "shell", "resource": "ls *", "effect": "allow" },
-    { "action": "shell", "resource": "find *", "effect": "allow" },
-    { "action": "shell", "resource": "fd *", "effect": "allow" },
-    { "action": "shell", "resource": "head *", "effect": "allow" },
-    { "action": "shell", "resource": "echo *", "effect": "allow" },
-    { "action": "shell", "resource": "grep *", "effect": "allow" },
-    { "action": "shell", "resource": "rg *", "effect": "allow" },
-    { "action": "shell", "resource": "sort *", "effect": "allow" },
-    { "action": "shell", "resource": "cat *", "effect": "allow" },
-    { "action": "shell", "resource": "bat *", "effect": "allow" },
     { "action": "shell", "resource": "wc *", "effect": "allow" },
 
     { "action": "shell", "resource": "git log *", "effect": "allow" },
     { "action": "shell", "resource": "git status *", "effect": "allow" },
     { "action": "shell", "resource": "git diff *", "effect": "allow" },
     { "action": "shell", "resource": "git show *", "effect": "allow" },
-    { "action": "shell", "resource": "git tag *", "effect": "allow" },
+    { "action": "shell", "resource": "git blame *", "effect": "allow" },
     { "action": "shell", "resource": "git describe *", "effect": "allow" },
-    { "action": "shell", "resource": "git branch *", "effect": "allow" },
+    { "action": "shell", "resource": "git tag", "effect": "allow" },
+    { "action": "shell", "resource": "git tag --list *", "effect": "allow" },
+    { "action": "shell", "resource": "git tag -l *", "effect": "allow" },
+    { "action": "shell", "resource": "git branch --list *", "effect": "allow" },
 
-    { "action": "shell", "resource": "git push *", "effect": "deny" },
-    { "action": "shell", "resource": "git reset --hard *", "effect": "deny" },
-    { "action": "shell", "resource": "git clean *", "effect": "deny" },
-
+    // Go
     { "action": "shell", "resource": "go test *", "effect": "allow" },
-    { "action": "shell", "resource": "gofmt *", "effect": "allow" },
+    { "action": "shell", "resource": "go build *", "effect": "allow" },
+    { "action": "shell", "resource": "go vet *", "effect": "allow" },
+    { "action": "shell", "resource": "go list *", "effect": "allow" },
+    { "action": "shell", "resource": "gofmt -l *", "effect": "allow" },
+    { "action": "shell", "resource": "gofmt -d *", "effect": "allow" },
+    { "action": "shell", "resource": "golangci-lint run *", "effect": "allow" },
+    { "action": "shell", "resource": "staticcheck *", "effect": "allow" },
+
+    // DevOps
+    { "action": "shell", "resource": "docker ps *", "effect": "allow" },
+    { "action": "shell", "resource": "docker logs *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl get *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl describe *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl logs *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl diff *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl rollout status *", "effect": "allow" },
+    { "action": "shell", "resource": "helm list *", "effect": "allow" },
+    { "action": "shell", "resource": "helm template *", "effect": "allow" },
+
+    // Secrets
+    { "action": "read", "resource": "*.env", "effect": "deny" },
+    { "action": "read", "resource": "*.env.*", "effect": "deny" },
+    { "action": "read", "resource": "*.env.example", "effect": "allow" },
+    { "action": "read", "resource": "*.pem", "effect": "deny" },
+    { "action": "read", "resource": "*.key", "effect": "deny" },
+    { "action": "read", "resource": "*.tfstate*", "effect": "deny" },
+    { "action": "read", "resource": "*.tfvars", "effect": "deny" },
+    { "action": "read", "resource": "~/.ssh/*", "effect": "deny" },
+    { "action": "read", "resource": "~/.aws/*", "effect": "deny" },
+    { "action": "read", "resource": "~/.kube/*", "effect": "deny" },
+
+    { "action": "shell", "resource": "git push *", "effect": "ask" },
+    { "action": "shell", "resource": "git commit *", "effect": "ask" },
+    { "action": "shell", "resource": "kubectl apply *", "effect": "ask" }
   ],
+  "policies": [
+    // Secrets: hard-deny on top of the permission rules
+    { "action": "tool.use", "resource": "read:*.env", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*.env.*", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*.env.example", "effect": "allow" },
+    { "action": "tool.use", "resource": "read:*.pem", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*.key", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*.tfstate*", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*.tfvars", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*/.ssh/*", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*/.aws/*", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*/.kube/*", "effect": "deny" },
+
+    // Destructive and privileged shell commands
+    { "action": "tool.use", "resource": "shell:sudo *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:doas *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:rm -rf *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:rm -r -f *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:rm -fr *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:rm -f -r *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:rm --force *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:git clean -f*", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:kubectl delete *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:kubectl get secret*", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:kubectl describe secret*", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:git push --force*", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:git push -f*", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:git push * --force*", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:git push * +*", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:git reset --hard*", "effect": "deny" }
+  ],
+  "agents": {
+    "build": {
+      "mode": "primary",
+      "description": "Primary software engineering agent.",
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "allow" },
+      ]
+    }
+  },
   "mcp": {
     "servers": {
-      "context7": {
-        "type": "remote",
-        "url": "https://mcp.context7.com/mcp"
-      }
+      "context7": { "type": "remote", "url": "https://mcp.context7.com/mcp" }
     }
   },
 }
