@@ -17,7 +17,7 @@ alias cp='cp --interactive'
 alias mv='mv --interactive'
 alias trash='trash --verbose'
 alias mkdir='mkdir --parents'
-alias ping='ping --count 10'
+alias ping='ping -c 10'
 alias less='less --RAW-CONTROL-CHARS'
 alias tree='tree -CAhF --dirsfirst'
 
